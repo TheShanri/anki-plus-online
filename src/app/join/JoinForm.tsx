@@ -51,14 +51,12 @@ export function JoinForm() {
     if (state.ok) { router.push("/study"); router.refresh(); }
   }, [state.ok, router]);
 
-  // Server-side field errors send the student back to the step that owns the field.
-  useEffect(() => {
-    const fe = state.fieldErrors;
-    if (!fe) return;
-    if (fe.joinCode) setStep(1);
-    else if (fe.email || fe.password) setStep(2);
-    else setStep(3);
-  }, [state.fieldErrors]);
+  // Server-side field errors send the student back to the step that owns the field (until they navigate).
+  const [ack, setAck] = useState<JoinState["fieldErrors"]>(undefined);
+  const sfe = state.fieldErrors;
+  const forced = sfe && sfe !== ack ? (sfe.joinCode ? 1 : sfe.email || sfe.password ? 2 : 3) : null;
+  const shown = forced ?? step;
+  const goto = (n: number) => { setAck(sfe); setStep(n); };
 
   const fe = { ...(state.fieldErrors ?? {}), ...localErr };
 
@@ -68,7 +66,7 @@ export function JoinForm() {
       if (!r.ok) return setLocalErr({ joinCode: r.error });
       setCourse(r);
       setLocalErr({});
-      setStep(2);
+      goto(2);
     });
   }
   function toStep3() {
@@ -79,7 +77,7 @@ export function JoinForm() {
       e.email = `Use your @${course.domains[0]} email`;
     if (v.password.length < 8) e.password = "At least 8 characters";
     setLocalErr(e);
-    if (!Object.keys(e).length) setStep(3);
+    if (!Object.keys(e).length) goto(3);
   }
   function submitGuard(ev: React.FormEvent<HTMLFormElement>) {
     const e: Record<string, string> = {};
@@ -92,7 +90,7 @@ export function JoinForm() {
   return (
     <form action={action} onSubmit={submitGuard} className="space-y-4">
       {/* Every value is always posted; steps only toggle visibility. */}
-      <div hidden={step !== 1} className="space-y-4">
+      <div hidden={shown !== 1} className="space-y-4">
         <Field name="joinCode" label="Course code" value={v.joinCode} onChange={set("joinCode")} error={fe.joinCode}
           hint="Your professor shares this code." />
         <button className="btn btn-primary" type="button" disabled={checking || v.joinCode.trim().length < 3} onClick={toStep2}>
@@ -100,19 +98,19 @@ export function JoinForm() {
         </button>
       </div>
 
-      <div hidden={step !== 2} className="space-y-4">
+      <div hidden={shown !== 2} className="space-y-4">
         {course && <p className="text-sm text-text-dim">Joining <b className="text-text">{course.title}</b></p>}
         <Field name="email" label="UVM email" type="email" autoComplete="username" value={v.email} onChange={set("email")} error={fe.email}
           hint="This is your username." />
         <Field name="password" label="Password" type="password" autoComplete="new-password" value={v.password} onChange={set("password")} error={fe.password}
           hint="At least 8 characters." />
         <div className="flex gap-2">
-          <button className="btn" type="button" onClick={() => setStep(1)}>Back</button>
+          <button className="btn" type="button" onClick={() => goto(1)}>Back</button>
           <button className="btn btn-primary" type="button" onClick={toStep3}>Continue</button>
         </div>
       </div>
 
-      <div hidden={step !== 3} className="space-y-4">
+      <div hidden={shown !== 3} className="space-y-4">
         <Field name="displayName" label="Name" autoComplete="name" value={v.displayName} onChange={set("displayName")} error={fe.displayName} />
         <div className="grid gap-4 sm:grid-cols-2">
           <Field name="pronouns" label="Pronouns (optional)" value={v.pronouns} onChange={set("pronouns")} />
@@ -140,7 +138,7 @@ export function JoinForm() {
         </p>
         {state.error && <p className="field-error" role="alert">{state.error}</p>}
         <div className="flex gap-2">
-          <button className="btn" type="button" onClick={() => setStep(2)}>Back</button>
+          <button className="btn" type="button" onClick={() => goto(2)}>Back</button>
           <button className="btn btn-primary" type="submit" disabled={pending}>
             {pending ? "Creating account..." : "Create account"}
           </button>

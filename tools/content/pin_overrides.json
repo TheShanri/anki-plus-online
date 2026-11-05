@@ -1,0 +1,774 @@
+{
+"brainstem-overlay-io-1771942451317-c5": {
+"status": "live",
+"structure": "principal-sensory-nucleus-of-trigeminal"
+},
+"brainstem-overlay-io-1771942916028-c2": {
+"status": "live",
+"structure": "gracile-nucleus"
+},
+"lab-1-io-1768350086792-c1": {
+"status": "live",
+"structure": "coronal-plane"
+},
+"lab-1-io-1768350248691-c6": {
+"status": "live",
+"structure": "sagittal-suture"
+},
+"lab-1-io-1768350248691-c8": {
+"status": "live",
+"structure": "sagittal-suture"
+},
+"lab-1-io-1768350308165-c3": {
+"status": "live",
+"structure": "sagittal-suture",
+"note": "label reads just \"Sagittal\" on the suture photo"
+},
+"lab-1-io-1768350308165-c4": {
+"status": "live",
+"structure": "coronal-suture",
+"note": "label reads just \"Coronal\" on the suture photo"
+},
+"lab-13-io-1773766588139-c3": {
+"status": "live",
+"structure": "columns-of-the-fornix"
+},
+"lab-15-io-1775054817967-c1": {
+"status": "draft",
+"structure": "paravermis",
+"answer": "Paravermis",
+"note": "stacked-letter vertical label read by eye as PARAVERMIS; verify which side"
+},
+"lab-15-io-1775054912050-c3": {
+"status": "live",
+"structure": null,
+"answer": "Nodule",
+"note": "Nodule is not on the official list"
+},
+"lab-16-io-1775055174768-c1": {
+"status": "live",
+"structure": "callosomarginal-artery"
+},
+"lab-16-io-1775055174768-c3": {
+"status": "live",
+"structure": "anterior-cerebral-artery"
+},
+"lab-2-io-1768766089971-c1": {
+"status": "live",
+"structure": "anterior-horn-of-lateral-ventricle"
+},
+"lab-2-io-1768766089971-c4": {
+"status": "live",
+"structure": "inferior-horn-of-lateral-ventricle"
+},
+"lab-2-io-1768766744370-c6": {
+"status": "live",
+"structure": "body-of-lateral-ventricle",
+"note": "label cut by the mask (\"body of ...\"); read as lateral ventricle from the neighbouring \"Trigone\" label"
+},
+"lab-2-io-1768767646795-c1": {
+"status": "live",
+"structure": null,
+"answer": "Telencephalon",
+"note": "not on the official list"
+},
+"lab-2-io-1768768713303-c1": {
+"status": "live",
+"structure": "coronal-plane",
+"answer": "Coronal plane",
+"note": "slide heading \"CORONAL Section\""
+},
+"lab-2-io-1768769257758-c7": {
+"status": "live",
+"structure": "subarachnoid-space",
+"answer": "Subarachnoid space around brain and spinal cord",
+"note": "CSF-flow chart label"
+},
+"lab-2-io-1768770086191-c6": {
+"status": "live",
+"structure": "meningeal-blood-vessels",
+"answer": "Middle meningeal veins",
+"note": "specific vein shown; list item is \"Meningeal blood vessels\""
+},
+"lab-2-io-1768771540931-c1": {
+"status": "draft",
+"structure": null,
+"answer": "basal ganglia and parts of the limbic system",
+"note": "descriptive slide text, not a structure name"
+},
+"lab-2-io-1768771703577-c1": {
+"status": "live",
+"structure": null,
+"answer": "Dorsal-anterior",
+"note": "view title on the brain photo"
+},
+"lab-2-io-1768771796187-c6": {
+"status": "live",
+"structure": "caudate-nucleus"
+},
+"lab-2-io-1768772062676-c4": {
+"status": "draft",
+"structure": null,
+"answer": "Involved in learning, memory, and spatial localization",
+"note": "descriptive text answer (probably hippocampus); consider a theory card"
+},
+"lab-2-io-1768773534376-c10": {
+"status": "live",
+"structure": null,
+"answer": "neural tube",
+"note": "slide text fragment (\"neural tube and the third ventricle\")"
+},
+"lab-2-io-1768777108242-c2": {
+"status": "draft",
+"structure": null,
+"answer": "Cerebrum - telencephalon; Cerebellum - metencephalon",
+"note": "two-bullet text answer"
+},
+"lab-2-io-1768864857166-c3": {
+"status": "live",
+"structure": null,
+"answer": "Rhombencephalon",
+"note": "not on the official list"
+},
+"lab-2-io-1768864857166-c8": {
+"status": "live",
+"structure": null,
+"answer": "Telencephalon",
+"note": "not on the official list"
+},
+"lab-3-io-1769004346829-c2": {
+"status": "live",
+"structure": "primary-motor-cortex",
+"answer": "4",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769004632487-c5": {
+"status": "draft",
+"structure": "premotor-cortex",
+"answer": "Located in: frontal lobe, on posterior parts of the superior and middle frontal gyri",
+"note": "descriptive slide text (premotor cortex, BA 6); consider a theory card"
+},
+"lab-3-io-1769005221472-c6": {
+"status": "draft",
+"structure": "orbitofrontal-cortex",
+"answer": "Social and emotional decision making",
+"note": "\"Involved in\" text (orbitofrontal cortex); consider a theory card",
+"prompt": "What is this region involved in?"
+},
+"lab-3-io-1769005845374-c2": {
+"status": "live",
+"structure": "primary-somatosensory-cortex",
+"answer": "3, 1, 2",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769005845374-c6": {
+"status": "draft",
+"structure": "parietal-lobe-general-association-area",
+"answer": "Consolidating our sense of internal and external space",
+"note": "\"Involved in\" text (parietal association areas); consider a theory card",
+"prompt": "What is this region involved in?"
+},
+"lab-3-io-1769005986917-c3": {
+"status": "live",
+"structure": null,
+"answer": "Leg",
+"note": "homunculus label"
+},
+"lab-3-io-1769006230781-c5": {
+"status": "draft",
+"structure": "primary-somatosensory-cortex",
+"answer": "Processing somatosensory information received from the body",
+"note": "\"Involved in\" text; consider a theory card",
+"prompt": "What is this region involved in?"
+},
+"lab-3-io-1769007064950-c2": {
+"status": "live",
+"structure": "primary-visual-cortex",
+"answer": "17",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769007127389-c2": {
+"status": "live",
+"structure": "visual-association-cortex",
+"answer": "18, 19",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769007615723-c3": {
+"status": "live",
+"structure": null,
+"answer": "Temporal lobe",
+"note": "slide text fragment"
+},
+"lab-3-io-1769007615723-c8": {
+"status": "live",
+"structure": null,
+"answer": "Cochlea",
+"note": "slide text fragment"
+},
+"lab-3-io-1769008135190-c2": {
+"status": "live",
+"structure": "auditory-association-area",
+"answer": "22",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769008135190-c7": {
+"status": "live",
+"structure": "broca-s-area",
+"answer": "44, 45",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769008135190-c9": {
+"status": "draft",
+"structure": "broca-s-area",
+"answer": "language production; i.e. the motor part of speech",
+"note": "descriptive slide text (Broca); consider a theory card"
+},
+"lab-3-io-1769008761149-c2": {
+"status": "live",
+"structure": null,
+"answer": "Ventrolateral",
+"note": "orientation word on the photo"
+},
+"lab-3-io-1769008833895-c4": {
+"status": "live",
+"structure": "parieto-occipital-fissure",
+"note": "label reads \"Parieto-occipital s.\" on the slide"
+},
+"lab-3-io-1769008833895-c5": {
+"status": "live",
+"structure": "intraparietal-fissure",
+"note": "label reads \"Interparietal s.\" on the slide (sic)"
+},
+"lab-3-io-1769009015748-c1": {
+"status": "live",
+"structure": "lateral-fissure"
+},
+"lab-3-io-1769084443546-c2": {
+"status": "live",
+"structure": "auditory-association-area",
+"answer": "22",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
+},
+"lab-3-io-1769085669383-c3": {
+"status": "live",
+"structure": null,
+"answer": "Ventrolateral",
+"note": "orientation word on the photo"
+},
+"lab-4-io-1769516487990-c1": {
+"status": "draft",
+"structure": null,
+"answer": "C1-C7",
+"note": "spinal-level text fragment from a slide; consider a theory card"
+},
+"lab-4-io-1769516487990-c2": {
+"status": "draft",
+"structure": null,
+"answer": "T1-T12",
+"note": "spinal-level text fragment from a slide; consider a theory card"
+},
+"lab-4-io-1769516487990-c3": {
+"status": "draft",
+"structure": null,
+"answer": "L1-L5",
+"note": "spinal-level text fragment from a slide; consider a theory card"
+},
+"lab-4-io-1769516838904-c1": {
+"status": "draft",
+"structure": null,
+"note": "long slide text"
+},
+"lab-4-io-1769516838904-c2": {
+"status": "draft",
+"structure": null,
+"answer": "L1/L2",
+"note": "spinal-level text fragment from a slide; consider a theory card"
+},
+"lab-4-io-1769517339614-c4": {
+"status": "draft",
+"structure": null,
+"note": "rotated text, unreadable"
+},
+"lab-4-io-1769518426394-c2": {
+"status": "draft",
+"structure": null,
+"note": "mask covers several stacked labels (Cauda equina / Sacral plexus / Lumbar plexus)"
+},
+"lab-4-io-1769518577960-c2": {
+"status": "draft",
+"structure": null,
+"answer": "L1-S5",
+"note": "spinal-level text fragment from a slide; consider a theory card"
+},
+"lab-4-io-1769518577960-c4": {
+"status": "draft",
+"structure": null,
+"answer": "C5-T1",
+"note": "spinal-level text fragment from a slide; consider a theory card"
+},
+"lab-4-io-1769560432382-c3": {
+"status": "draft",
+"structure": null,
+"answer": "below",
+"note": "single word cut from a sentence"
+},
+"lab-5-io-1769695003621-c9": {
+"status": "live",
+"structure": "dorsal-spinocerebellar-tract"
+},
+"lab-5-io-1769695003621-c11": {
+"status": "live",
+"structure": "anterolateral-spinothalamic-tract"
+},
+"lab-5-io-1769695249054-c4": {
+"status": "live",
+"structure": "column-of-clarke",
+"note": "label \"CoC\""
+},
+"lab-5-io-1769695249054-c5": {
+"status": "live",
+"structure": "lateral-horn",
+"note": "label \"LH\""
+},
+"lab-5-io-1769695249054-c10": {
+"status": "live",
+"structure": "marginal-nucleus",
+"note": "label \"MN\""
+},
+"lab-5-io-1769695249054-c11": {
+"status": "live",
+"structure": "dorsal-spinocerebellar-tract"
+},
+"lab-5-io-1769695438588-c2": {
+"status": "live",
+"structure": "column-of-clarke",
+"note": "label \"CoC\""
+},
+"lab-5-io-1769695438588-c5": {
+"status": "live",
+"structure": "lateral-horn",
+"note": "label \"LH\""
+},
+"lab-5-io-1769695438588-c10": {
+"status": "live",
+"structure": "dorsal-spinocerebellar-tract"
+},
+"lab-5-io-1769696394309-c9": {
+"status": "draft",
+"structure": "anterolateral-spinothalamic-tract",
+"note": "tiny rotated label, identified by colour/position; verify"
+},
+"lab-5-io-1769696547113-c3": {
+"status": "draft",
+"structure": null,
+"note": "free-text answer"
+},
+"lab-5-io-1769696547113-c6": {
+"status": "draft",
+"structure": null,
+"note": "free-text answer"
+},
+"lab-5-io-1769696795188-c1": {
+"status": "draft",
+"structure": null,
+"note": "free-text answer"
+},
+"lab-5-io-1769734912436-c4": {
+"status": "draft",
+"structure": null,
+"note": "pathway flow-chart label"
+},
+"lab-5-io-1769734912436-c9": {
+"status": "draft",
+"structure": null,
+"note": "pathway flow-chart label"
+},
+"lab-5-io-1769734912436-c10": {
+"status": "draft",
+"structure": null,
+"note": "pathway flow-chart label"
+},
+"lab-5-io-1769735915192-c3": {
+"status": "draft",
+"structure": "column-of-clarke",
+"answer": "Spinal cord synapse: column of Clarke",
+"note": "pathway flow-chart label"
+},
+"lab-7-io-1770685184914-c14": {
+"status": "draft",
+"structure": null,
+"note": "text label, not a structure name"
+},
+"lab-7-io-1770685184914-c15": {
+"status": "draft",
+"structure": null,
+"note": "text label, not a structure name"
+},
+"lab-7-io-1770685184914-c16": {
+"status": "draft",
+"structure": null,
+"note": "text label, not a structure name"
+},
+"lab-7-io-1770685694563-c1": {
+"status": "draft",
+"structure": null,
+"note": "descriptive text"
+},
+"lab-7-io-1770686037214-c11": {
+"status": "live",
+"structure": "trochlear-nerve",
+"note": "label is the Roman numeral IV only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686076690-c3": {
+"status": "live",
+"structure": "fourth-ventricle"
+},
+"lab-7-io-1770686358070-c2": {
+"status": "live",
+"structure": "oculomotor-nerve",
+"note": "label is the Roman numeral III only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c3": {
+"status": "live",
+"structure": "trigeminal-nerve",
+"note": "label is the Roman numeral V only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c5": {
+"status": "live",
+"structure": "abducens-nerve",
+"note": "label is the Roman numeral VI only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c6": {
+"status": "live",
+"structure": "facial-nerve",
+"note": "label is the Roman numeral VII only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c7": {
+"status": "live",
+"structure": "vestibulocochlear-nerve",
+"note": "label is the Roman numeral VIII only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c10": {
+"status": "live",
+"structure": "glossopharyngeal-nerve",
+"note": "label is the Roman numeral IX only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c11": {
+"status": "live",
+"structure": "vagus-nerve",
+"note": "label is the Roman numeral X only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c13": {
+"status": "live",
+"structure": "hypoglossal-nerve",
+"note": "label is the Roman numeral XII only",
+"prompt": "Name the cranial nerve."
+},
+"lab-7-io-1770686358070-c14": {
+"status": "live",
+"structure": "accessory-nerve",
+"note": "label is the Roman numeral XI only",
+"prompt": "Name the cranial nerve."
+},
+"lab-8-diagrams-io-1770937472729-c1": {
+"status": "live",
+"structure": "facial-colliculus",
+"note": "label reads \"Dorsal facial colliculus\""
+},
+"lab-8-diagrams-io-1770937472729-c3": {
+"status": "live",
+"structure": "superior-cerebellar-peduncle"
+},
+"lab-8-diagrams-io-1770937472729-c5": {
+"status": "live",
+"structure": "vestibulocochlear-nerve"
+},
+"lab-8-diagrams-io-1770937472729-c6": {
+"status": "live",
+"structure": "facial-nerve"
+},
+"lab-8-diagrams-io-1770937472729-c7": {
+"status": "live",
+"structure": "abducens-nerve"
+},
+"lab-8-diagrams-io-1770937472729-c8": {
+"status": "live",
+"structure": "longitudinal-fibers-of-the-pons"
+},
+"lab-8-diagrams-io-1770937472729-c9": {
+"status": "live",
+"structure": "pontine-nuclei"
+},
+"lab-8-diagrams-io-1770937472729-c10": {
+"status": "live",
+"structure": "transverse-fibers-of-the-pons"
+},
+"lab-8-diagrams-io-1770937472729-c11": {
+"status": "live",
+"structure": "facial-nucleus"
+},
+"lab-8-diagrams-io-1770937472729-c12": {
+"status": "live",
+"structure": "abducens-nucleus"
+},
+"lab-8-diagrams-io-1770937472729-c13": {
+"status": "live",
+"structure": "fourth-ventricle"
+},
+"lab-8-diagrams-io-1770937561484-c3": {
+"status": "live",
+"structure": "glossopharyngeal-nerve"
+},
+"lab-8-diagrams-io-1770937561484-c4": {
+"status": "live",
+"structure": "vagus-nerve"
+},
+"lab-8-diagrams-io-1770937561484-c5": {
+"status": "live",
+"structure": "inferior-olivary-nucleus"
+},
+"lab-8-diagrams-io-1770937561484-c6": {
+"status": "live",
+"structure": "hypoglossal-nerve"
+},
+"lab-8-diagrams-io-1770937561484-c8": {
+"status": "live",
+"structure": "hypoglossal-nucleus"
+},
+"lab-8-diagrams-io-1770937561484-c9": {
+"status": "live",
+"structure": "dorsal-motor-nucleus-of-the-vagus"
+},
+"lab-8-diagrams-io-1770937611921-c5": {
+"status": "live",
+"structure": "internal-arcuate-fibers"
+},
+"lab-8-diagrams-io-1770937611921-c6": {
+"status": "live",
+"structure": "pyramids"
+},
+"lab-8-diagrams-io-1770937686697-c1": {
+"status": "live",
+"structure": "superior-cerebellar-peduncle"
+},
+"lab-8-diagrams-io-1770937686697-c5": {
+"status": "live",
+"structure": "trigeminal-nerve"
+},
+"lab-8-diagrams-io-1770937686697-c6": {
+"status": "live",
+"structure": "longitudinal-fibers-of-the-pons"
+},
+"lab-8-diagrams-io-1770937686697-c7": {
+"status": "live",
+"structure": "pontine-nuclei"
+},
+"lab-8-diagrams-io-1770937764507-c1": {
+"status": "live",
+"structure": "periaqueductal-gray"
+},
+"lab-8-diagrams-io-1770937764507-c2": {
+"status": "live",
+"structure": "cerebral-aqueduct"
+},
+"lab-8-diagrams-io-1770937764507-c4": {
+"status": "live",
+"structure": "trochlear-nerve"
+},
+"lab-8-diagrams-io-1770937764507-c6": {
+"status": "live",
+"structure": "substantia-nigra"
+},
+"lab-8-diagrams-io-1770937764507-c8": {
+"status": "live",
+"structure": "decussation-of-the-superior-cerebellar-peduncle"
+},
+"lab-8-diagrams-io-1770937860931-c5": {
+"status": "live",
+"structure": "oculomotor-nerve"
+},
+"lab-8-diagrams-io-1770937860931-c8": {
+"status": "live",
+"structure": "periaqueductal-gray"
+},
+"lab-8-diagrams-io-1770937860931-c9": {
+"status": "live",
+"structure": "red-nucleus"
+},
+"lab-8-surface-brainstem-histology-io-1771337956349-c14": {
+"status": "live",
+"structure": "accessory-nerve"
+},
+"lab-8-surface-brainstem-histology-io-1771338246043-c5": {
+"status": "live",
+"structure": "vestibulocochlear-complex",
+"answer": "Vestibular nucleus",
+"note": "two \"vestibular nucleus\" labels in the image"
+},
+"lab-8-surface-brainstem-histology-io-1771338246043-c6": {
+"status": "live",
+"structure": "abducens-nucleus",
+"answer": "Abducent nucleus and nerve",
+"note": "label as drawn"
+},
+"lab-8-surface-brainstem-histology-io-1771338246043-c7": {
+"status": "live",
+"structure": "spinal-trigeminal-nucleus",
+"answer": "Trigeminal spinal nucleus and tract",
+"note": "label as drawn"
+},
+"lab-8-surface-brainstem-histology-io-1771338316625-c4": {
+"status": "live",
+"structure": "dorsal-motor-nucleus-of-the-vagus",
+"note": "label reads \"Vagal dorsal motor nucleus\""
+},
+"unit-1-practice-practicals-io-1770158046109-c1": {
+"status": "draft",
+"structure": null,
+"answer": "C",
+"note": "multiple-choice answer letter from a practice question"
+},
+"unit-1-practice-practicals-io-1770158132979-c1": {
+"status": "draft",
+"structure": null,
+"answer": "Aa or AB",
+"note": "answer text from a practice question"
+},
+"unit-1-practice-practicals-io-1770158312387-c1": {
+"status": "draft",
+"structure": null,
+"answer": "D - Foot",
+"note": "multiple-choice answer from a practice question"
+},
+"unit-1-practice-practicals-io-1770158431376-c1": {
+"status": "draft",
+"structure": null,
+"answer": "B",
+"note": "multiple-choice answer letter from a practice question"
+},
+"unit-1-practice-practicals-io-1770158443155-c1": {
+"status": "draft",
+"structure": null,
+"answer": "B",
+"note": "multiple-choice answer letter from a practice question"
+},
+"unit-1-practice-practicals-io-1770158493604-c1": {
+"status": "draft",
+"structure": null,
+"answer": "Meissner, Merkel, Pacinian, Ruffini, GTO, muscle spindle",
+"note": "answer text from a practice question"
+},
+"unit-1-practice-practicals-io-1770158502826-c1": {
+"status": "live",
+"structure": "dorsal-spinocerebellar-tract"
+},
+"brainstem-overlay-io-1771942315665-c9": {
+"status": "live",
+"structure": "decussation-of-the-superior-cerebellar-peduncle"
+},
+"lab-1-io-1768350385936-c4": {
+"status": "draft",
+"structure": null,
+"answer": "The brainstem, cerebellum and occipital lobes reside in the posterior cranial fossa",
+"note": "free-text slide sentence; consider a theory card"
+},
+"lab-16-io-1775134507316-c2": {
+"status": "draft",
+"structure": "posterior-spinal-arteries",
+"answer": "Posterior spinal arteries",
+"note": "mask spans both the Left and Right labels of the diagram"
+},
+"lab-2-io-1768765797297-c5": {
+"status": "live",
+"structure": "body-of-lateral-ventricle",
+"note": "label \"Body\" on the lateral ventricle cast"
+},
+"lab-3-io-1769003972932-c5": {
+"status": "live",
+"structure": null,
+"answer": "Medial view (midsagittal)",
+"note": "view title on the brain photo"
+},
+"lab-5-io-1769695003621-c8": {
+"status": "live",
+"structure": "marginal-nucleus",
+"note": "label \"MN\""
+},
+"lab-5-io-1769695438588-c8": {
+"status": "live",
+"structure": "substantia-gelatinosa",
+"note": "label \"SG\""
+},
+"lab-7-io-1770685604391-c3": {
+"status": "draft",
+"structure": null,
+"answer": "Function: limbic nucleus which relays information to the cingulate gyrus",
+"note": "function text (anterior thalamic nucleus); consider a theory card"
+},
+"lab-7-io-1770685604391-c5": {
+"status": "draft",
+"structure": null,
+"answer": "Function: relays auditory information to the primary auditory cortex",
+"note": "function text (medial geniculate nucleus); consider a theory card"
+},
+"lab-7-io-1770685604391-c6": {
+"status": "draft",
+"structure": null,
+"answer": "Function: relays visual information to the primary visual cortex",
+"note": "function text (lateral geniculate nucleus); consider a theory card"
+},
+"lab-7-io-1770685995086-c5": {
+"status": "draft",
+"structure": null,
+"answer": "Function: relay nuclei for the somatosensory system for upper body",
+"note": "function text (cuneate tubercles); consider a theory card"
+},
+"lab-7-io-1770686410815-c6": {
+"status": "draft",
+"structure": null,
+"answer": "Retinal ganglion cells (inside the globe of the eye)",
+"note": "practice-question answer text"
+},
+"lab-7-io-1770686410815-c7": {
+"status": "draft",
+"structure": null,
+"answer": "Trigeminal n. (CN V)",
+"note": "practice-question answer text; consider a theory card"
+},
+"lab-8-diagrams-io-1770937561484-c10": {
+"status": "live",
+"structure": "solitary-nucleus"
+},
+"lab-8-diagrams-io-1770937561484-c11": {
+"status": "live",
+"structure": "fourth-ventricle"
+},
+"lab-8-diagrams-io-1770937611921-c4": {
+"status": "live",
+"structure": "cuneate-nucleus"
+},
+"lab-8-diagrams-io-1770937686697-c2": {
+"status": "draft",
+"structure": null,
+"note": "mask covers two labels (motor trigeminal nucleus / principal sensory trigeminal nucleus)"
+},
+"lab-8-diagrams-io-1770937764507-c5": {
+"status": "live",
+"structure": "trochlear-nucleus"
+}
+}

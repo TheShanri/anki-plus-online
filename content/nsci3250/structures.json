@@ -1,0 +1,9259 @@
+[
+ {
+  "slug": "frontal-bone",
+  "name": "Frontal bone",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Skull",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "temporal-bone",
+  "name": "Temporal bone",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Skull",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "occipital-bone",
+  "name": "Occipital bone",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Skull",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "parietal-bone",
+  "name": "Parietal bone",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Skull",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sphenoid-bone",
+  "name": "Sphenoid bone",
+  "unit": "u1",
+  "synonyms": [
+   "sphenoid"
+  ],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Skull",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sagittal-suture",
+  "name": "Sagittal suture",
+  "unit": "u1",
+  "synonyms": [
+   "sagittal"
+  ],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Sutures",
+    "note": "Sagittal"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lambdoid-suture",
+  "name": "Lambdoid suture",
+  "unit": "u1",
+  "synonyms": [
+   "lambdoid"
+  ],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Sutures",
+    "note": "Lambdoid"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "coronal-suture",
+  "name": "Coronal suture",
+  "unit": "u1",
+  "synonyms": [
+   "coronal"
+  ],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Sutures",
+    "note": "Coronal"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "bregma",
+  "name": "Bregma",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Sutures",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lambda",
+  "name": "Lambda",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Sutures",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pterion",
+  "name": "Pterion",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Sutures",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "foramen-magnum",
+  "name": "Foramen magnum",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Cranial Foramina",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-cranial-fossa",
+  "name": "Anterior cranial fossa",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Cranial Foramina",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "middle-cranial-fossa",
+  "name": "Middle cranial fossa",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Cranial Foramina",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-cranial-fossa",
+  "name": "Posterior cranial fossa",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Cranial Foramina",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dura-mater",
+  "name": "Dura mater",
+  "unit": "u1",
+  "synonyms": [
+   "dura"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dura, Arachnoid and Pia layers of meninges"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "falx-cerebri",
+  "name": "Falx cerebri",
+  "unit": "u1",
+  "synonyms": [
+   "falx"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": "dura-mater",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "tentorium-cerebelli",
+  "name": "Tentorium cerebelli",
+  "unit": "u1",
+  "synonyms": [
+   "tentorium"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": "dura-mater",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "arachnoid-mater",
+  "name": "Arachnoid mater",
+  "unit": "u1",
+  "synonyms": [
+   "arachnoid"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dura, Arachnoid and Pia layers of meninges"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pia-mater",
+  "name": "Pia mater",
+  "unit": "u1",
+  "synonyms": [
+   "pia"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dura, Arachnoid and Pia layers of meninges"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "epidural-space",
+  "name": "Epidural space",
+  "unit": "u1",
+  "synonyms": [
+   "extradural space"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Epidural, subdural, subarachnoid spaces"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "subdural-space",
+  "name": "Subdural space",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Epidural, subdural, subarachnoid spaces"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "subarachnoid-space",
+  "name": "Subarachnoid space",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Epidural, subdural, subarachnoid spaces"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "meningeal-blood-vessels",
+  "name": "Meningeal blood vessels",
+  "unit": "u1",
+  "synonyms": [
+   "meningeal arteries",
+   "middle meningeal artery",
+   "meningeal vessels",
+   "meningeal veins"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebral-blood-vessels",
+  "name": "Cerebral blood vessels",
+  "unit": "u1",
+  "synonyms": [
+   "cerebral arteries and veins",
+   "cerebral vessels"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Meninges",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebral-cortex",
+  "name": "Cerebral cortex",
+  "unit": "u1",
+  "synonyms": [
+   "cerebrum",
+   "cortex"
+  ],
+  "abbreviations": [],
+  "region": "brain divisions",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Divisions",
+    "note": "Cerebral Cortex (Cerebrum)"
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "brainstem",
+  "name": "Brainstem",
+  "unit": "u1",
+  "synonyms": [
+   "brain stem"
+  ],
+  "abbreviations": [],
+  "region": "brain divisions",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Divisions",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellum",
+  "name": "Cerebellum",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Divisions",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Pons (cross-section)",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior",
+  "name": "Anterior",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Posterior vs. Anterior"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior",
+  "name": "Posterior",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Posterior vs. Anterior"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior",
+  "name": "Superior",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Superior vs. Inferior"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior",
+  "name": "Inferior",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Superior vs. Inferior"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "rostral",
+  "name": "Rostral",
+  "unit": "u1",
+  "synonyms": [
+   "cephalic"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Rostral vs. Caudal"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "caudal",
+  "name": "Caudal",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Rostral vs. Caudal"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal",
+  "name": "Dorsal",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Dorsal vs. Ventral"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral",
+  "name": "Ventral",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Dorsal vs. Ventral"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral",
+  "name": "Lateral",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Lateral vs. Medial; Median"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medial",
+  "name": "Medial",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Lateral vs. Medial; Median"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "median",
+  "name": "Median",
+  "unit": "u1",
+  "synonyms": [
+   "midline"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Lateral vs. Medial; Median"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superficial",
+  "name": "Superficial",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Superficial vs. Deep"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "deep",
+  "name": "Deep",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Directions",
+    "note": "Superficial vs. Deep"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sagittal-plane",
+  "name": "Sagittal plane",
+  "unit": "u1",
+  "synonyms": [
+   "sagittal",
+   "midsagittal",
+   "mid-sagittal",
+   "parasagittal",
+   "median plane"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Planes",
+    "note": "Sagittal (midsagittal, parasagittal)"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "coronal-plane",
+  "name": "Coronal plane",
+  "unit": "u1",
+  "synonyms": [
+   "coronal",
+   "frontal plane",
+   "frontal"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Planes",
+    "note": "Coronal (frontal)"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "horizontal-plane",
+  "name": "Horizontal plane",
+  "unit": "u1",
+  "synonyms": [
+   "horizontal",
+   "axial",
+   "transverse",
+   "transverse plane",
+   "axial plane"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Planes",
+    "note": "Horizontal (axial, transverse)"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "neuraxis",
+  "name": "Neuraxis",
+  "unit": "u1",
+  "synonyms": [
+   "longitudinal axis of the nervous system",
+   "longitudinal axis"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Planes",
+    "note": "Longitudinal axis of the nervous system (neuraxis)"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "orientation-of-the-neuraxis-cerebrum-vs-brainstem-spinal-cord",
+  "name": "Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)",
+  "unit": "u1",
+  "synonyms": [
+   "neuraxis orientation"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Planes",
+    "note": "Orientation of neuraxis in the cerebrum vs. brainstem/spinal cord"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "mesencephalic-flexure",
+  "name": "Mesencephalic flexure",
+  "unit": "u1",
+  "synonyms": [
+   "cephalic flexure",
+   "midbrain flexure"
+  ],
+  "abbreviations": [],
+  "region": "orientation",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 1",
+    "group": "Planes",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Brainstem",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-ventricle",
+  "name": "Lateral ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "lateral ventricles"
+  ],
+  "abbreviations": [
+   "LV"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-horn-of-lateral-ventricle",
+  "name": "Anterior horn of lateral ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "anterior horn",
+   "frontal horn",
+   "anterior horn of the lateral ventricle",
+   "frontal horn of lateral ventricle"
+  ],
+  "abbreviations": [
+   "AH"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Anterior horn"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Lateral Ventricles",
+    "note": "Anterior horn"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Lateral Ventricles",
+    "note": "anterior horn"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "lateral-ventricle",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "body-of-lateral-ventricle",
+  "name": "Body of lateral ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "body",
+   "lateral ventricle body",
+   "body of the lateral ventricle",
+   "body of LV"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Body"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Lateral Ventricles",
+    "note": "Body"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Lateral Ventricles",
+    "note": "body"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "lateral-ventricle",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-horn-of-lateral-ventricle",
+  "name": "Inferior horn of lateral ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "inferior horn",
+   "temporal horn",
+   "inferior horn of the lateral ventricle",
+   "temporal horn of lateral ventricle",
+   "inferior horn of LV"
+  ],
+  "abbreviations": [
+   "IH"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Inferior horn"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Lateral Ventricles",
+    "note": "Inferior horn"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Lateral Ventricles",
+    "note": "inferior horn"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "lateral-ventricle",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-horn-of-lateral-ventricle",
+  "name": "Posterior horn of lateral ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "posterior horn",
+   "occipital horn",
+   "posterior horn of the lateral ventricle",
+   "occipital horn of lateral ventricle"
+  ],
+  "abbreviations": [
+   "PH"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Posterior horn"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Lateral Ventricles",
+    "note": "Posterior horn"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Lateral Ventricles",
+    "note": "posterior horn"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "lateral-ventricle",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "atrium-of-lateral-ventricle",
+  "name": "Atrium of lateral ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "atrium",
+   "trigone",
+   "trigone of lateral ventricle",
+   "atrium or trigone"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Atrium or trigone"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Lateral Ventricles",
+    "note": "Atrium or trigone"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Lateral Ventricles",
+    "note": "trigone or atrium"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "lateral-ventricle",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "septum-pellucidum",
+  "name": "Septum pellucidum",
+  "unit": "u1",
+  "synonyms": [
+   "pellucid septum"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Lateral Ventricles",
+    "note": "Septum pellucidum which separates the two lateral ventricles"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Lateral Ventricles",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "foramina-of-monro",
+  "name": "Foramina of Monro",
+  "unit": "u1",
+  "synonyms": [
+   "foramen of Monro",
+   "interventricular foramen",
+   "interventricular foramina",
+   "foramina of Monroe"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Foramina of Monro (singular: foramen)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "third-ventricle",
+  "name": "Third ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "3rd ventricle",
+   "ventricle III"
+  ],
+  "abbreviations": [
+   "3V"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": "3rd ventricle"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebral-aqueduct",
+  "name": "Cerebral aqueduct",
+  "unit": "u1",
+  "synonyms": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct"
+  ],
+  "abbreviations": [
+   "CA"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Brainstem Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "fourth-ventricle",
+  "name": "Fourth ventricle",
+  "unit": "u1",
+  "synonyms": [
+   "4th ventricle",
+   "ventricle IV"
+  ],
+  "abbreviations": [
+   "4V"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": "4th Ventricle"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": "4th ventricle"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": "4th ventricle"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "4th ventricle"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Pons (cross-section)",
+    "note": "4th ventricle"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": "4th ventricle"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "foramen-of-magendie",
+  "name": "Foramen of Magendie",
+  "unit": "u1",
+  "synonyms": [
+   "median aperture",
+   "medial aperture",
+   "foramina of Magendie"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Foramina of Magendie and Luschka (medial and lateral apertures)"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "foramina-of-luschka",
+  "name": "Foramina of Luschka",
+  "unit": "u1",
+  "synonyms": [
+   "lateral apertures",
+   "lateral aperture",
+   "foramen of Luschka"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": "Foramina of Magendie and Luschka (medial and lateral apertures)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "choroid-plexus",
+  "name": "Choroid plexus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "ChP"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "arachnoid-granulations",
+  "name": "Arachnoid granulations",
+  "unit": "u1",
+  "synonyms": [
+   "arachnoid villi",
+   "arachnoid granulation"
+  ],
+  "abbreviations": [],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-sagittal-sinus",
+  "name": "Superior sagittal sinus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "SSS"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Ventricular System",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "corpus-callosum",
+  "name": "Corpus callosum",
+  "unit": "u1",
+  "synonyms": [
+   "callosum"
+  ],
+  "abbreviations": [
+   "CC"
+  ],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Cerebral Fiber Tracts",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "basal-ganglia",
+  "name": "Basal ganglia",
+  "unit": "u1",
+  "synonyms": [
+   "basal nuclei"
+  ],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": "Basal ganglia (caudate, putamen, globus pallidus)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hippocampus",
+  "name": "Hippocampus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "amygdala",
+  "name": "Amygdala",
+  "unit": "u1",
+  "synonyms": [
+   "amygdaloid nucleus",
+   "amygdaloid body",
+   "amygdaloid complex"
+  ],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "parahippocampal-gyrus",
+  "name": "Parahippocampal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "uncus",
+  "name": "Uncus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Telencephalon",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "thalamus",
+  "name": "Thalamus",
+  "unit": "u1",
+  "synonyms": [
+   "dorsal thalamus"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Diencephalon",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "thalamus (dorsal thalamus)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hypothalamus",
+  "name": "Hypothalamus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Diencephalon",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "interthalamic-adhesion",
+  "name": "Interthalamic adhesion",
+  "unit": "u1",
+  "synonyms": [
+   "massa intermedia",
+   "thalamic adhesion",
+   "intermediate mass"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Diencephalon",
+    "note": "Massa intermedia/ Interthalamic adhesion"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Interthalamic adhesion (massa intermedia)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "interthalamic adhesion (massa intermedia)"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "optic-chiasm",
+  "name": "Optic chiasm",
+  "unit": "u1",
+  "synonyms": [
+   "optic chiasma",
+   "chiasm"
+  ],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Diencephalon",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": "hypothalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "mammillary-bodies",
+  "name": "Mammillary bodies",
+  "unit": "u1",
+  "synonyms": [
+   "mammillary body",
+   "mamillary bodies",
+   "mamillary body"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Diencephalon",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "hypothalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pituitary-stalk",
+  "name": "Pituitary stalk",
+  "unit": "u1",
+  "synonyms": [
+   "infundibulum",
+   "infundibular stalk",
+   "infundibular stem",
+   "hypophyseal stalk"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Diencephalon",
+    "note": "Pituitary Stalk (usually ripped, know general location)"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Infundibular stalk (infundibulum or pituitary stalk)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "pituitary stalk (infundibular stalk, infundibulum)"
+   }
+  ],
+  "laterality": "midline",
+  "parent": "hypothalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "midbrain",
+  "name": "Midbrain",
+  "unit": "u1",
+  "synonyms": [
+   "mesencephalon"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Brainstem",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Brainstem Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pons",
+  "name": "Pons",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Brainstem",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medulla",
+  "name": "Medulla",
+  "unit": "u1",
+  "synonyms": [
+   "medulla oblongata",
+   "myelencephalon"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 2",
+    "group": "Brainstem",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "primary-motor-cortex",
+  "name": "Primary motor cortex",
+  "unit": "u1",
+  "synonyms": [
+   "M1",
+   "motor cortex",
+   "area 4"
+  ],
+  "abbreviations": [
+   "BA 4"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Primary Motor Cortex (Brodmann's area 4)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "motor-homunculus",
+  "name": "Motor homunculus",
+  "unit": "u1",
+  "synonyms": [
+   "orientation of motor homunculus",
+   "motor map"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Orientation of Motor Homunculus"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "premotor-cortex",
+  "name": "Premotor cortex",
+  "unit": "u1",
+  "synonyms": [
+   "premotor area",
+   "supplementary motor area",
+   "area 6"
+  ],
+  "abbreviations": [
+   "BA 6",
+   "SMA"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Premotor Cortex (BA 6)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "broca-s-area",
+  "name": "Broca's area",
+  "unit": "u1",
+  "synonyms": [
+   "Broca area",
+   "motor speech area"
+  ],
+  "abbreviations": [
+   "BA 44/45"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-cingulate-cortex",
+  "name": "Anterior cingulate cortex",
+  "unit": "u1",
+  "synonyms": [
+   "anterior cingulate"
+  ],
+  "abbreviations": [
+   "ACC"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsolateral-prefrontal-cortex",
+  "name": "Dorsolateral prefrontal cortex",
+  "unit": "u1",
+  "synonyms": [
+   "dorsolateral prefrontal"
+  ],
+  "abbreviations": [
+   "DLPFC"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "orbitofrontal-cortex",
+  "name": "Orbitofrontal cortex",
+  "unit": "u1",
+  "synonyms": [
+   "orbitofrontal"
+  ],
+  "abbreviations": [
+   "OFC"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventromedial-prefrontal-cortex",
+  "name": "Ventromedial prefrontal cortex",
+  "unit": "u1",
+  "synonyms": [
+   "ventromedial prefrontal"
+  ],
+  "abbreviations": [
+   "vmPFC"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-perforated-substance",
+  "name": "Anterior perforated substance",
+  "unit": "u1",
+  "synonyms": [
+   "anterior perforated space"
+  ],
+  "abbreviations": [
+   "APS"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   },
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "primary-somatosensory-cortex",
+  "name": "Primary somatosensory cortex",
+  "unit": "u1",
+  "synonyms": [
+   "somatosensory cortex",
+   "primary sensory cortex",
+   "primary somatosensensory cortex"
+  ],
+  "abbreviations": [
+   "S1",
+   "BA 3,1,2"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Primary Somatosensensory Cortex (BA 3,1,2)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "somatosensory-homunculus",
+  "name": "Somatosensory homunculus",
+  "unit": "u1",
+  "synonyms": [
+   "orientation of somatosensory homunculus",
+   "sensory homunculus"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Orientation of Somatosensory Homunculus"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "somatosensory-association-cortex",
+  "name": "Somatosensory association cortex",
+  "unit": "u1",
+  "synonyms": [
+   "somatosensory association area",
+   "parietal association cortex"
+  ],
+  "abbreviations": [
+   "BA 5 & 7"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Somatosensory Association Cortex (BA 5&7)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "parietal-lobe-general-association-area",
+  "name": "Parietal lobe general association area",
+  "unit": "u1",
+  "synonyms": [
+   "multimodal area",
+   "parietal association area",
+   "general parietal association cortex"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Multimodal area (Parietal lobe general association area)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "primary-visual-cortex",
+  "name": "Primary visual cortex",
+  "unit": "u1",
+  "synonyms": [
+   "striate cortex",
+   "visual cortex"
+  ],
+  "abbreviations": [
+   "V1",
+   "BA 17"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Primary Visual Cortex (BA 17)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "visual-association-cortex",
+  "name": "Visual association cortex",
+  "unit": "u1",
+  "synonyms": [
+   "visual association area",
+   "extrastriate cortex"
+  ],
+  "abbreviations": [
+   "V2",
+   "BA 18, 19"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Visual Association Cortex (BA 18, 19)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "primary-auditory-cortex",
+  "name": "Primary auditory cortex",
+  "unit": "u1",
+  "synonyms": [
+   "auditory cortex"
+  ],
+  "abbreviations": [
+   "A1",
+   "BA 41, 42"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Primary Auditory Cortex (BA 41, 42)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "auditory-association-area",
+  "name": "Auditory association area",
+  "unit": "u1",
+  "synonyms": [
+   "auditory association cortex"
+  ],
+  "abbreviations": [
+   "BA 22"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": "Auditory Association Area (BA 22)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "wernicke-s-area",
+  "name": "Wernicke's area",
+  "unit": "u1",
+  "synonyms": [
+   "Wernicke area",
+   "sensory speech area"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "temporal-lobe-general-association-area",
+  "name": "Temporal lobe general association area",
+  "unit": "u1",
+  "synonyms": [
+   "temporal association cortex",
+   "temporal association area"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Functional Designations",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "association-fibers",
+  "name": "Association fibers",
+  "unit": "u1",
+  "synonyms": [
+   "association tracts"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Cerebral Fiber Tracts",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "commissural-fibers",
+  "name": "Commissural fibers",
+  "unit": "u1",
+  "synonyms": [
+   "commissural tracts"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Cerebral Fiber Tracts",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "projection-fibers",
+  "name": "Projection fibers",
+  "unit": "u1",
+  "synonyms": [
+   "projection tracts"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Cerebral Fiber Tracts",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-commissure",
+  "name": "Anterior commissure",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "AC"
+  ],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Cerebral Fiber Tracts",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "internal-capsule",
+  "name": "Internal capsule",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Cerebral Fiber Tracts",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "interhemispheric-fissure",
+  "name": "Interhemispheric fissure",
+  "unit": "u1",
+  "synonyms": [
+   "longitudinal fissure",
+   "median longitudinal cerebral fissure",
+   "longitudinal cerebral fissure",
+   "cerebral longitudinal fissure"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Telencephalic Structures",
+    "note": "Interhemispheric Fissure or Median Longitudinal Cerebral Fissure"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Telencephalic Structures",
+    "note": "Median Longitudinal Cerebral Fissure or the Interhemispheric Fissure"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-fissure",
+  "name": "Lateral fissure",
+  "unit": "u1",
+  "synonyms": [
+   "Sylvian fissure",
+   "lateral sulcus",
+   "sylvian sulcus"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "central-sulcus",
+  "name": "Central sulcus",
+  "unit": "u1",
+  "synonyms": [
+   "central fissure",
+   "fissure of Rolando",
+   "Rolandic fissure"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "parieto-occipital-fissure",
+  "name": "Parieto-occipital fissure",
+  "unit": "u1",
+  "synonyms": [
+   "parieto-occipital sulcus",
+   "parietooccipital sulcus"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "intraparietal-fissure",
+  "name": "Intraparietal fissure",
+  "unit": "u1",
+  "synonyms": [
+   "intraparietal sulcus"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "calcarine-fissure",
+  "name": "Calcarine fissure",
+  "unit": "u1",
+  "synonyms": [
+   "calcarine sulcus"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-frontal-gyrus",
+  "name": "Superior frontal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "SFG"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": "Superior, Middle Inferior Frontal Gyri"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "middle-frontal-gyrus",
+  "name": "Middle frontal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "MFG"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": "Superior, Middle Inferior Frontal Gyri"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-frontal-gyrus",
+  "name": "Inferior frontal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "IFG"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": "Superior, Middle Inferior Frontal Gyri"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cingulate-gyrus",
+  "name": "Cingulate gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Telencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "precentral-gyrus",
+  "name": "Precentral gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "postcentral-gyrus",
+  "name": "Postcentral gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-parietal-lobule",
+  "name": "Superior parietal lobule",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-parietal-lobule",
+  "name": "Inferior parietal lobule",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-temporal-gyrus",
+  "name": "Superior temporal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "STG"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": "Superior, Middle, Inferior Temporal Gyri"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "middle-temporal-gyrus",
+  "name": "Middle temporal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "MTG"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": "Superior, Middle, Inferior Temporal Gyri"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-temporal-gyrus",
+  "name": "Inferior temporal gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "ITG"
+  ],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": "Superior, Middle, Inferior Temporal Gyri"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "transverse-temporal-gyrus",
+  "name": "Transverse temporal gyrus",
+  "unit": "u1",
+  "synonyms": [
+   "Heschl's gyrus",
+   "Heschl gyrus"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 3",
+    "group": "Anatomical Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vertebral-body",
+  "name": "Vertebral body",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vertebral-foramen",
+  "name": "Vertebral foramen",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vertebral-arch",
+  "name": "Vertebral arch",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "transverse-process",
+  "name": "Transverse process",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spinous-process",
+  "name": "Spinous process",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "intervertebral-disc",
+  "name": "Intervertebral disc",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "intervertebral-foramen",
+  "name": "Intervertebral foramen",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vertebral-canal",
+  "name": "Vertebral canal",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cervical-vertebrae",
+  "name": "Cervical vertebrae",
+  "unit": "u1",
+  "synonyms": [
+   "cervical vertebra",
+   "cervical spine"
+  ],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": "Distinguish cervical, thoracic, lumbar and sacral vertebrae"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "thoracic-vertebrae",
+  "name": "Thoracic vertebrae",
+  "unit": "u1",
+  "synonyms": [
+   "thoracic vertebra",
+   "thoracic spine"
+  ],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": "Distinguish cervical, thoracic, lumbar and sacral vertebrae"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lumbar-vertebrae",
+  "name": "Lumbar vertebrae",
+  "unit": "u1",
+  "synonyms": [
+   "lumbar vertebra",
+   "lumbar spine"
+  ],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": "Distinguish cervical, thoracic, lumbar and sacral vertebrae"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sacral-vertebrae",
+  "name": "Sacral vertebrae",
+  "unit": "u1",
+  "synonyms": [
+   "sacrum",
+   "sacral vertebra",
+   "sacral spine"
+  ],
+  "abbreviations": [],
+  "region": "vertebral column",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spine & Vertebrae",
+    "note": "Distinguish cervical, thoracic, lumbar and sacral vertebrae"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "conus-medullaris",
+  "name": "Conus medullaris",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cauda-equina",
+  "name": "Cauda equina",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "filum-terminale",
+  "name": "Filum terminale",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "denticulate-ligaments",
+  "name": "Denticulate ligaments",
+  "unit": "u1",
+  "synonyms": [
+   "denticulate ligament"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-rootlets",
+  "name": "Dorsal rootlets",
+  "unit": "u1",
+  "synonyms": [
+   "posterior rootlets"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dorsal and Ventral Rootlets and Roots"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-rootlets",
+  "name": "Ventral rootlets",
+  "unit": "u1",
+  "synonyms": [
+   "anterior rootlets"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dorsal and Ventral Rootlets and Roots"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-root",
+  "name": "Dorsal root",
+  "unit": "u1",
+  "synonyms": [
+   "posterior root"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dorsal and Ventral Rootlets and Roots"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-root",
+  "name": "Ventral root",
+  "unit": "u1",
+  "synonyms": [
+   "anterior root"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dorsal and Ventral Rootlets and Roots"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-root-ganglion",
+  "name": "Dorsal root ganglion",
+  "unit": "u1",
+  "synonyms": [
+   "spinal ganglion",
+   "posterior root ganglion"
+  ],
+  "abbreviations": [
+   "DRG"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dural-sleeves",
+  "name": "Dural sleeves",
+  "unit": "u1",
+  "synonyms": [
+   "dural sleeve"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spinal-nerves",
+  "name": "Spinal nerves",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-ramus",
+  "name": "Dorsal ramus",
+  "unit": "u1",
+  "synonyms": [
+   "dorsal rami",
+   "posterior ramus"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dorsal and Ventral Rami"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-ramus",
+  "name": "Ventral ramus",
+  "unit": "u1",
+  "synonyms": [
+   "ventral rami",
+   "anterior ramus"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": "Dorsal and Ventral Rami"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "brachial-plexus",
+  "name": "Brachial plexus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lumbosacral-plexus",
+  "name": "Lumbosacral plexus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 4",
+    "group": "Spinal Cord Dissections",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-horn",
+  "name": "Dorsal horn",
+  "unit": "u1",
+  "synonyms": [
+   "dorsal horns",
+   "posterior horn of spinal cord",
+   "posterior gray horn"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": "Dorsal Horns"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-horn",
+  "name": "Ventral horn",
+  "unit": "u1",
+  "synonyms": [
+   "ventral horns",
+   "anterior horn of spinal cord",
+   "anterior gray horn"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": "Ventral Horns"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-horn",
+  "name": "Lateral horn",
+  "unit": "u1",
+  "synonyms": [
+   "intermediolateral cell column"
+  ],
+  "abbreviations": [
+   "IML"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "intermediate-zone",
+  "name": "Intermediate zone",
+  "unit": "u1",
+  "synonyms": [
+   "intermediate gray",
+   "zona intermedia"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-columns",
+  "name": "Dorsal columns",
+  "unit": "u1",
+  "synonyms": [
+   "dorsal column",
+   "posterior columns",
+   "posterior funiculus",
+   "dorsal funiculus"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "fasciculus-gracilis",
+  "name": "Fasciculus gracilis",
+  "unit": "u1",
+  "synonyms": [
+   "gracile fasciculus",
+   "fasciculus gracile"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": "Gracile fasciculus"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": "Gracile fasciculus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "dorsal-columns",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "fasciculus-cuneatus",
+  "name": "Fasciculus cuneatus",
+  "unit": "u1",
+  "synonyms": [
+   "cuneate fasciculus"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": "Cuneate fasciculus"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": "Cuneate fasciculus"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": "Cuneate fasciculus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "dorsal-columns",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterolateral-spinothalamic-tract",
+  "name": "Anterolateral spinothalamic tract",
+  "unit": "u1",
+  "synonyms": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic"
+  ],
+  "abbreviations": [
+   "ALS",
+   "STT"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": "Anterolateral tract"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": "Anterolateral tract"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-spinocerebellar-tract",
+  "name": "Dorsal spinocerebellar tract",
+  "unit": "u1",
+  "synonyms": [
+   "posterior spinocerebellar tract"
+  ],
+  "abbreviations": [
+   "DSCT"
+  ],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-root-entry-zone",
+  "name": "Dorsal root entry zone",
+  "unit": "u1",
+  "synonyms": [
+   "dorsal root entry zone (DREZ)"
+  ],
+  "abbreviations": [
+   "DREZ"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": "DREZ (lateral & medial)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-dorsal-root-entry-zone",
+  "name": "Lateral dorsal root entry zone",
+  "unit": "u1",
+  "synonyms": [
+   "lateral DREZ"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": "DREZ (lateral & medial)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "dorsal-root-entry-zone",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medial-dorsal-root-entry-zone",
+  "name": "Medial dorsal root entry zone",
+  "unit": "u1",
+  "synonyms": [
+   "medial DREZ"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": "DREZ (lateral & medial)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "dorsal-root-entry-zone",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "marginal-nucleus",
+  "name": "Marginal nucleus",
+  "unit": "u1",
+  "synonyms": [
+   "marginal zone",
+   "marginal zone nucleus",
+   "posteromarginal nucleus",
+   "lamina I"
+  ],
+  "abbreviations": [
+   "MN"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "substantia-gelatinosa",
+  "name": "Substantia gelatinosa",
+  "unit": "u1",
+  "synonyms": [
+   "lamina II"
+  ],
+  "abbreviations": [
+   "SG"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "nucleus-proprius",
+  "name": "Nucleus proprius",
+  "unit": "u1",
+  "synonyms": [
+   "proper sensory nucleus"
+  ],
+  "abbreviations": [
+   "NP"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "column-of-clarke",
+  "name": "Column of Clarke",
+  "unit": "u1",
+  "synonyms": [
+   "Clarke's column",
+   "nucleus dorsalis",
+   "Clarke's nucleus",
+   "nucleus dorsalis of Clarke",
+   "dorsal nucleus of Clarke"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": "Column of Clarke (Nucleus dorsalis)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-commissure-of-spinal-cord",
+  "name": "Ventral commissure of spinal cord",
+  "unit": "u1",
+  "synonyms": [
+   "anterior white commissure",
+   "ventral white commissure",
+   "ventral commissure"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 1,
+    "lab": "Lab 5",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-nucleus-of-thalamus",
+  "name": "Anterior nucleus of thalamus",
+  "unit": "u2",
+  "synonyms": [
+   "anterior nucleus",
+   "anterior thalamic nucleus",
+   "anterior thalamic nuclei",
+   "anterior thalamic tubercle"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": "Anterior nucleus"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Anterior thalamic nuclei (creating anterior thalamic tubercles)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "anterior thalamic nuclei (creating anterior thalamic tubercles)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "thalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pulvinar",
+  "name": "Pulvinar",
+  "unit": "u2",
+  "synonyms": [
+   "pulvinar nucleus",
+   "thalamic pulvinar"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "thalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medial-geniculate-nucleus",
+  "name": "Medial geniculate nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "medial geniculate body",
+   "medial geniculate"
+  ],
+  "abbreviations": [
+   "MGN"
+  ],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Medial and lateral geniculate nuclei"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "medial and lateral geniculate nuclei"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "thalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-geniculate-nucleus",
+  "name": "Lateral geniculate nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "lateral geniculate body",
+   "lateral geniculate"
+  ],
+  "abbreviations": [
+   "LGN"
+  ],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Medial and lateral geniculate nuclei"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "medial and lateral geniculate nuclei"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "thalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "epithalamus",
+  "name": "Epithalamus",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pineal-gland",
+  "name": "Pineal gland",
+  "unit": "u2",
+  "synonyms": [
+   "pineal body",
+   "pineal",
+   "epiphysis"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Pineal gland or body"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": "pineal gland or body"
+   }
+  ],
+  "laterality": "midline",
+  "parent": "epithalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "optic-tract",
+  "name": "Optic tract",
+  "unit": "u2",
+  "synonyms": [
+   "optic tracts"
+  ],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": "Optic tracts"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "hypothalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-colliculus",
+  "name": "Superior colliculus",
+  "unit": "u2",
+  "synonyms": [
+   "superior colliculi"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": "Superior colliculi"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Brainstem Structures",
+    "note": "Superior colliculi"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-colliculus",
+  "name": "Inferior colliculus",
+  "unit": "u2",
+  "synonyms": [
+   "inferior colliculi"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": "Inferior colliculi"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Inferior Colliculus",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "brachium-of-the-inferior-colliculus",
+  "name": "Brachium of the inferior colliculus",
+  "unit": "u2",
+  "synonyms": [
+   "inferior brachium",
+   "brachium of inferior colliculus",
+   "brachium"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebral-peduncles",
+  "name": "Cerebral peduncles",
+  "unit": "u2",
+  "synonyms": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Superior Colliculus",
+    "note": "Cerebral peduncle"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Inferior Colliculus",
+    "note": "Cerebral peduncle"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Brainstem Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "interpeduncular-fossa",
+  "name": "Interpeduncular fossa",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-peduncles",
+  "name": "Cerebellar peduncles",
+  "unit": "u2",
+  "synonyms": [
+   "cerebellar peduncle"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-cerebellar-peduncle",
+  "name": "Superior cerebellar peduncle",
+  "unit": "u2",
+  "synonyms": [
+   "brachium conjunctivum"
+  ],
+  "abbreviations": [
+   "SCP"
+  ],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": "Superior cerebellar peduncle (SCP)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": "Superior cerebellar peduncle (SCP)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": "Superior, middle, inferior cerebellar peduncle"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "cerebellar-peduncles",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "middle-cerebellar-peduncle",
+  "name": "Middle cerebellar peduncle",
+  "unit": "u2",
+  "synonyms": [
+   "brachium pontis"
+  ],
+  "abbreviations": [
+   "MCP"
+  ],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": "Middle cerebellar peduncle (MCP)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": "Middle cerebellar peduncle (MCP)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Pons (cross-section)",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": "Superior, middle, inferior cerebellar peduncle"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": "Middle cerebellar peduncle (MCP)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "cerebellar-peduncles",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-cerebellar-peduncle",
+  "name": "Inferior cerebellar peduncle",
+  "unit": "u2",
+  "synonyms": [
+   "restiform body"
+  ],
+  "abbreviations": [
+   "ICP"
+  ],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "Inferior cerebellar peduncle (ICP)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": "Superior, middle, inferior cerebellar peduncle"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "cerebellar-peduncles",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "transverse-fibers-of-the-pons",
+  "name": "Transverse fibers of the pons",
+  "unit": "u2",
+  "synonyms": [
+   "transverse pontine fibers",
+   "transverse fibers of pons",
+   "pontocerebellar fibers"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Pons (cross-section)",
+    "note": "Transverse fibers of pons"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "facial-colliculus",
+  "name": "Facial colliculus",
+  "unit": "u2",
+  "synonyms": [
+   "facial colliculi"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pyramids",
+  "name": "Pyramids",
+  "unit": "u2",
+  "synonyms": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "Pyramid"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": "Pyramids/ motor decussation"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "In mid-sagittal / longitudinal section of brainstem",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "olives",
+  "name": "Olives",
+  "unit": "u2",
+  "synonyms": [
+   "olive"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cuneate-tubercle",
+  "name": "Cuneate tubercle",
+  "unit": "u2",
+  "synonyms": [
+   "cuneate tubercles",
+   "tuberculum cuneatum"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": "Cuneate and Gracile Tubercles"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "gracile-tubercle",
+  "name": "Gracile tubercle",
+  "unit": "u2",
+  "synonyms": [
+   "gracile tubercles",
+   "tuberculum gracile"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": "Cuneate and Gracile Tubercles"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "obex",
+  "name": "Obex",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "area-postrema",
+  "name": "Area postrema",
+  "unit": "u2",
+  "synonyms": [
+   "chemoreceptor trigger zone"
+  ],
+  "abbreviations": [
+   "AP"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "interpeduncular-cistern",
+  "name": "Interpeduncular cistern",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "periaqueductal-gray",
+  "name": "Periaqueductal gray",
+  "unit": "u2",
+  "synonyms": [
+   "periaqueductal grey",
+   "periaqueductal grey matter",
+   "central gray"
+  ],
+  "abbreviations": [
+   "PAG"
+  ],
+  "region": "ventricular system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": "Periaqueductal grey matter"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": "Periaqueductal grey"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "red-nucleus",
+  "name": "Red nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "nucleus ruber"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "oculomotor-nucleus",
+  "name": "Oculomotor nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "CN III nucleus",
+   "nucleus of CN III",
+   "oculomotor somatic nucleus",
+   "III nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Histological Images",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "edinger-westphal-nucleus",
+  "name": "Edinger-Westphal nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "visceral oculomotor nucleus"
+  ],
+  "abbreviations": [
+   "EW"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "substantia-nigra",
+  "name": "Substantia nigra",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [
+   "SN"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Brainstem Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "oculomotor-nerve",
+  "name": "Oculomotor nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve III",
+   "cranial nerve 3",
+   "oculomotor",
+   "3rd cranial nerve",
+   "III"
+  ],
+  "abbreviations": [
+   "CN III"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": "CN III, Oculomotor nerve"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Superior Colliculus",
+    "note": "CN III, Oculomotor nerve"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medial-lemniscus",
+  "name": "Medial lemniscus",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medial-longitudinal-fasciculus",
+  "name": "Medial longitudinal fasciculus",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [
+   "MLF"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Midbrain – Level of Superior Colliculus",
+    "note": "Medial longitudinal fasciculus (MLF)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": "Medial longitudinal fasciculus (MLF)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": "Medial longitudinal fasciculus (MLF)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": "Medial longitudinal fasciculus (MLF)"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Histological Images",
+    "note": "MLF (medial longitudinal fasciculus)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "trochlear-nucleus",
+  "name": "Trochlear nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "CN IV nucleus",
+   "nucleus of CN IV",
+   "IV nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": "CN IV, Trochlear nucleus"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Histological Images",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "decussation-of-the-superior-cerebellar-peduncle",
+  "name": "Decussation of the superior cerebellar peduncle",
+  "unit": "u2",
+  "synonyms": [
+   "SCP decussation",
+   "decussation of superior cerebellar peduncle",
+   "decussation of the SCP"
+  ],
+  "abbreviations": [
+   "X/SCP"
+  ],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Midbrain – Level of Inferior Colliculus",
+    "note": "Decussation of Superior Cerebellar Peduncle (X/SCP)"
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Inferior Colliculus",
+    "note": "X/SCP (Decussation of superior cerebellar peduncle)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "motor-trigeminal-nucleus",
+  "name": "Motor trigeminal nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "trigeminal motor nucleus",
+   "motor nucleus of trigeminal",
+   "motor nucleus of V"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "principal-sensory-nucleus-of-trigeminal",
+  "name": "Principal sensory nucleus of trigeminal",
+  "unit": "u2",
+  "synonyms": [
+   "principal trigeminal nucleus",
+   "chief sensory nucleus",
+   "trigeminal principal sensory nucleus",
+   "principal sensory trigeminal nucleus",
+   "main sensory nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "longitudinal-fibers-of-the-pons",
+  "name": "Longitudinal fibers of the pons",
+  "unit": "u2",
+  "synonyms": [
+   "longitudinal fibers of pons",
+   "longitudinal pontine fibers"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "In mid-sagittal / longitudinal section of brainstem",
+    "note": "Longitudinal fibers of pons"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pontine-nuclei",
+  "name": "Pontine nuclei",
+  "unit": "u2",
+  "synonyms": [
+   "pontine nucleus",
+   "basilar pontine nuclei"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Pons – Level of Trigeminal Nerve",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "abducens-nucleus",
+  "name": "Abducens nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "CN VI nucleus",
+   "nucleus of CN VI",
+   "VI nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Histological Images",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "facial-nucleus",
+  "name": "Facial nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "CN VII nucleus",
+   "facial motor nucleus",
+   "nucleus of CN VII"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vestibulocochlear-complex",
+  "name": "Vestibulocochlear complex",
+  "unit": "u2",
+  "synonyms": [
+   "vestibulocochlear nuclei",
+   "vestibular nuclei",
+   "vestibular nucleus",
+   "vestibular complex",
+   "cochlear nuclei"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "facial-nerve",
+  "name": "Facial nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve VII",
+   "cranial nerve 7",
+   "facial",
+   "7th cranial nerve",
+   "VII"
+  ],
+  "abbreviations": [
+   "CN VII"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Pons – Level of Facial Colliculus",
+    "note": "CN VII, Facial"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hypoglossal-nucleus",
+  "name": "Hypoglossal nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "CN XII nucleus",
+   "nucleus of CN XII",
+   "XII nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-motor-nucleus-of-the-vagus",
+  "name": "Dorsal motor nucleus of the vagus",
+  "unit": "u2",
+  "synonyms": [
+   "dorsal motor nucleus of vagus",
+   "dorsal motor nucleus of X",
+   "dorsal vagal nucleus"
+  ],
+  "abbreviations": [
+   "DMV",
+   "DMX"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "Dorsal motor nucleus of vagus (DMV / DMX) Solitary nucleus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "solitary-nucleus",
+  "name": "Solitary nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "nucleus solitarius",
+   "nucleus of the solitary tract",
+   "solitary tract nucleus"
+  ],
+  "abbreviations": [
+   "NTS"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "Dorsal motor nucleus of vagus (DMV / DMX) Solitary nucleus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "nucleus-ambiguus",
+  "name": "Nucleus ambiguus",
+  "unit": "u2",
+  "synonyms": [
+   "ambiguus nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "inferior-olivary-nucleus",
+  "name": "Inferior olivary nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "inferior olive",
+   "olivary nucleus"
+  ],
+  "abbreviations": [
+   "ION"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "In mid-sagittal / longitudinal section of brainstem",
+    "note": "Olive (inferior olivary nucleus)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "glossopharyngeal-nerve",
+  "name": "Glossopharyngeal nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve IX",
+   "cranial nerve 9",
+   "glossopharyngeal",
+   "9th cranial nerve",
+   "IX"
+  ],
+  "abbreviations": [
+   "CN IX"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "CN IX, Glossopharyngeal"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vagus-nerve",
+  "name": "Vagus nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve X",
+   "cranial nerve 10",
+   "vagus",
+   "10th cranial nerve",
+   "X"
+  ],
+  "abbreviations": [
+   "CN X"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "CN X, Vagus"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hypoglossal-nerve",
+  "name": "Hypoglossal nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve XII",
+   "cranial nerve 12",
+   "hypoglossal",
+   "12th cranial nerve",
+   "XII"
+  ],
+  "abbreviations": [
+   "CN XII"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Rostral Medulla – Level of Olive",
+    "note": "CN XII, Hypoglossal"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "gracile-nucleus",
+  "name": "Gracile nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "nucleus gracilis",
+   "gracilis nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cuneate-nucleus",
+  "name": "Cuneate nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "nucleus cuneatus",
+   "cuneatus nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "internal-arcuate-fibers",
+  "name": "Internal arcuate fibers",
+  "unit": "u2",
+  "synonyms": [
+   "internal arcuate fibres"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spinal-trigeminal-nucleus",
+  "name": "Spinal trigeminal nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "spinal nucleus of trigeminal",
+   "trigeminal spinal nucleus",
+   "spinal nucleus of V"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Caudal Medulla – Level of Cuneate & Gracile Tubercles",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "motor-decussation",
+  "name": "Motor decussation",
+  "unit": "u2",
+  "synonyms": [
+   "decussation of the pyramids",
+   "pyramidal decussation",
+   "decussation of pyramids",
+   "corticospinal decussation"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": "Pyramids/ motor decussation"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-corticospinal-tract",
+  "name": "Lateral corticospinal tract",
+  "unit": "u2",
+  "synonyms": [
+   "lateral CST"
+  ],
+  "abbreviations": [
+   "LCST"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-corticospinal-tract",
+  "name": "Anterior corticospinal tract",
+  "unit": "u2",
+  "synonyms": [
+   "ventral corticospinal tract",
+   "anterior CST"
+  ],
+  "abbreviations": [
+   "ACST"
+  ],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Motor Decussation",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lateral-funiculus",
+  "name": "Lateral funiculus",
+  "unit": "u2",
+  "synonyms": [
+   "lateral column"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-funiculus",
+  "name": "Anterior funiculus",
+  "unit": "u2",
+  "synonyms": [
+   "ventral funiculus",
+   "anterior/ventral funiculus",
+   "anterior column",
+   "ventral column"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": "Anterior/ventral funiculus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "location-of-limb-lower-motor-neurons",
+  "name": "Location of limb lower motor neurons",
+  "unit": "u2",
+  "synonyms": [
+   "limb lower motor neurons",
+   "lateral ventral horn"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "location-of-trunk-lower-motor-neurons",
+  "name": "Location of trunk lower motor neurons",
+  "unit": "u2",
+  "synonyms": [
+   "trunk lower motor neurons",
+   "medial ventral horn"
+  ],
+  "abbreviations": [],
+  "region": "spinal cord",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Cervical Spinal Cord",
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pontine-protuberance",
+  "name": "Pontine protuberance",
+  "unit": "u2",
+  "synonyms": [
+   "basilar pons",
+   "basis pontis",
+   "ventral pons"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Labs 8-10",
+    "group": "Level of Pons (cross-section)",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cornea",
+  "name": "Cornea",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sclera",
+  "name": "Sclera",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "optic-nerve",
+  "name": "Optic nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve II",
+   "cranial nerve 2",
+   "optic",
+   "2nd cranial nerve",
+   "II"
+  ],
+  "abbreviations": [
+   "CN II"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": "Optic nerve (CN II)"
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "optic-radiations",
+  "name": "Optic radiations",
+  "unit": "u2",
+  "synonyms": [
+   "geniculocalcarine tract",
+   "optic radiation",
+   "geniculocalcarine radiation"
+  ],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "iris",
+  "name": "Iris",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lens",
+  "name": "Lens",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "retina",
+  "name": "Retina",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "choroid",
+  "name": "Choroid",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "suprachiasmatic-nucleus",
+  "name": "Suprachiasmatic nucleus",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [
+   "SCN"
+  ],
+  "region": "visual system",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Wet Specimens",
+    "note": "Suprachiasmatic nucleus (know general location of)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "paramedian-pontine-reticular-formation",
+  "name": "Paramedian pontine reticular formation",
+  "unit": "u2",
+  "synonyms": [
+   "lateral gaze center",
+   "horizontal gaze center"
+  ],
+  "abbreviations": [
+   "PPRF"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 11",
+    "group": "ID on Histological Images",
+    "note": "Know that PPRF (lateral gaze center) surrounds Abducens nucleus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "insular-cortex",
+  "name": "Insular cortex",
+  "unit": "u3",
+  "synonyms": [
+   "insula",
+   "insular lobe"
+  ],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Telencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Telencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "genu-of-corpus-callosum",
+  "name": "Genu of corpus callosum",
+  "unit": "u3",
+  "synonyms": [
+   "genu",
+   "genu of CC",
+   "genu of the corpus callosum"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Corpus Callosum",
+    "note": "Genu"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Corpus Callosum",
+    "note": "genu"
+   }
+  ],
+  "laterality": "midline",
+  "parent": "corpus-callosum",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "body-of-corpus-callosum",
+  "name": "Body of corpus callosum",
+  "unit": "u3",
+  "synonyms": [
+   "body",
+   "corpus callosum body",
+   "body of CC",
+   "body of the corpus callosum"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Corpus Callosum",
+    "note": "Body"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Corpus Callosum",
+    "note": "body"
+   }
+  ],
+  "laterality": "midline",
+  "parent": "corpus-callosum",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "splenium-of-corpus-callosum",
+  "name": "Splenium of corpus callosum",
+  "unit": "u3",
+  "synonyms": [
+   "splenium",
+   "splenium of CC",
+   "splenium of the corpus callosum"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Corpus Callosum",
+    "note": "Splenium"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Corpus Callosum",
+    "note": "splenium"
+   }
+  ],
+  "laterality": "midline",
+  "parent": "corpus-callosum",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "caudate-nucleus",
+  "name": "Caudate nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "caudate"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "Caudate : head, body, tail"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": "caudate : head, body, tail"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "basal-ganglia",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "head-of-caudate-nucleus",
+  "name": "Head of caudate nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "caudate head",
+   "head of caudate",
+   "head of the caudate nucleus"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "Caudate : head, body, tail"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "1. Head of the caudate nucleus"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": "caudate : head, body, tail"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "caudate-nucleus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "body-of-caudate-nucleus",
+  "name": "Body of caudate nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "caudate body",
+   "body of caudate",
+   "body of the caudate nucleus"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "Caudate : head, body, tail"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": "caudate : head, body, tail"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "caudate-nucleus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "tail-of-caudate-nucleus",
+  "name": "Tail of caudate nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "caudate tail",
+   "tail of caudate",
+   "tail of the caudate nucleus"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "Caudate : head, body, tail"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": "caudate : head, body, tail"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "caudate-nucleus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "putamen",
+  "name": "Putamen",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "2. Putamen"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "basal-ganglia",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "globus-pallidus",
+  "name": "Globus pallidus",
+  "unit": "u3",
+  "synonyms": [
+   "pallidum"
+  ],
+  "abbreviations": [
+   "GP"
+  ],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "basal-ganglia",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "corpus-striatum",
+  "name": "Corpus striatum",
+  "unit": "u3",
+  "synonyms": [
+   "striatum"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "Corpus Striatum is composed of"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": "Corpus Striatum and Lentiform nucleus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lentiform-nucleus",
+  "name": "Lentiform nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "lenticular nucleus",
+   "lentiform (lens shaped) nucleus",
+   "lenticular"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Basal Ganglia",
+    "note": "Lentiform (lens shaped) nucleus is composed of Putamen and Globus pallidus"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Basal Ganglia",
+    "note": "Corpus Striatum and Lentiform nucleus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-limb-of-internal-capsule",
+  "name": "Anterior limb of internal capsule",
+  "unit": "u3",
+  "synonyms": [
+   "anterior limb",
+   "internal capsule anterior limb"
+  ],
+  "abbreviations": [
+   "ALIC"
+  ],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Internal Capsule",
+    "note": "Anterior limb"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "internal-capsule",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "genu-of-internal-capsule",
+  "name": "Genu of internal capsule",
+  "unit": "u3",
+  "synonyms": [
+   "genu",
+   "knee of internal capsule",
+   "internal capsule genu"
+  ],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Internal Capsule",
+    "note": "Genu"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "internal-capsule",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-limb-of-internal-capsule",
+  "name": "Posterior limb of internal capsule",
+  "unit": "u3",
+  "synonyms": [
+   "posterior limb",
+   "internal capsule posterior limb"
+  ],
+  "abbreviations": [
+   "PLIC"
+  ],
+  "region": "cerebral white matter",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Internal Capsule",
+    "note": "Posterior limb"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "internal-capsule",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "fornix",
+  "name": "Fornix",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": "Fornix (crus, body, columns)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": "fornix (crus, body, columns)"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "crus-of-fornix",
+  "name": "Crus of fornix",
+  "unit": "u3",
+  "synonyms": [
+   "fornix crus",
+   "crura of fornix",
+   "crus"
+  ],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": "Fornix (crus, body, columns)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": "fornix (crus, body, columns)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "fornix",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "body-of-fornix",
+  "name": "Body of fornix",
+  "unit": "u3",
+  "synonyms": [
+   "fornix body"
+  ],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": "Fornix (crus, body, columns)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": "fornix (crus, body, columns)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": "fornix",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "columns-of-the-fornix",
+  "name": "Columns of the fornix",
+  "unit": "u3",
+  "synonyms": [
+   "fornix columns",
+   "columns of fornix",
+   "column of the fornix"
+  ],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Limbic System",
+    "note": "Fornix (crus, body, columns)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": "fornix (crus, body, columns)"
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "fornix",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lamina-terminalis",
+  "name": "Lamina terminalis",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "stria-medullaris-thalami",
+  "name": "Stria medullaris thalami",
+  "unit": "u3",
+  "synonyms": [
+   "stria medullaris",
+   "stria medullaris thalamicus"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": "Stria medullaris thalamicus"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "habenula",
+  "name": "Habenula",
+  "unit": "u3",
+  "synonyms": [
+   "habenular nuclei"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": "epithalamus",
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-commissure",
+  "name": "Posterior commissure",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "PC"
+  ],
+  "region": "diencephalon",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 13",
+    "group": "Diencephalic Structures",
+    "note": null
+   },
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Diencephalic Structures",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cortical-ribbon",
+  "name": "Cortical ribbon",
+  "unit": "u3",
+  "synonyms": [
+   "cortical gray matter",
+   "cortical grey matter",
+   "cortical gray"
+  ],
+  "abbreviations": [],
+  "region": "telencephalon",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Telencephalic Structures",
+    "note": "Cortical Ribbon or Cortical gray matter"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "basal-forebrain-nuclei",
+  "name": "Basal forebrain nuclei",
+  "unit": "u3",
+  "synonyms": [
+   "basal forebrain area",
+   "basal forebrain",
+   "basal nucleus of Meynert"
+  ],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": "basal forebrain nuclei area"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "nucleus-accumbens",
+  "name": "Nucleus accumbens",
+  "unit": "u3",
+  "synonyms": [
+   "accumbens"
+  ],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Limbic System",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "subthalamic-nucleus",
+  "name": "Subthalamic nucleus",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "STN"
+  ],
+  "region": "brainstem",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 14",
+    "group": "Brainstem Structures",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-tonsil",
+  "name": "Cerebellar tonsil",
+  "unit": "u3",
+  "synonyms": [
+   "tonsil",
+   "tonsils"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": "Tonsil"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "flocculus",
+  "name": "Flocculus",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vermis",
+  "name": "Vermis",
+  "unit": "u3",
+  "synonyms": [
+   "cerebellar vermis"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "paravermis",
+  "name": "Paravermis",
+  "unit": "u3",
+  "synonyms": [
+   "paravermal zone",
+   "intermediate zone of cerebellum",
+   "paravermal"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-lateral-hemisphere",
+  "name": "Cerebellar lateral hemisphere",
+  "unit": "u3",
+  "synonyms": [
+   "lateral hemisphere",
+   "cerebellar hemisphere",
+   "lateral cerebellar hemisphere"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": "Lateral hemisphere"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dentate-nucleus",
+  "name": "Dentate nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "dentate",
+   "lateral cerebellar nucleus"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 15",
+    "group": null,
+    "note": "Dentate nucleus (in cross-section of cerebellum)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vertebral-artery",
+  "name": "Vertebral artery",
+  "unit": "u3",
+  "synonyms": [
+   "vertebral arteries"
+  ],
+  "abbreviations": [
+   "VA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "basilar-artery",
+  "name": "Basilar artery",
+  "unit": "u3",
+  "synonyms": [
+   "basilar"
+  ],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "superior-cerebellar-artery",
+  "name": "Superior cerebellar artery",
+  "unit": "u3",
+  "synonyms": [
+   "superior cerebellar a."
+  ],
+  "abbreviations": [
+   "SCA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": "Cerebellar branches (three pairs supply cerebellum) – only ID for Superior Cerebellar Artery"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "penetrating-branches-brainstem",
+  "name": "Penetrating branches (brainstem)",
+  "unit": "u3",
+  "synonyms": [
+   "penetrating branches",
+   "paramedian branches",
+   "perforating branches of the basilar artery"
+  ],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": "Penetrating branches (supply brain stem)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pontine-arteries",
+  "name": "Pontine arteries",
+  "unit": "u3",
+  "synonyms": [
+   "pontine branches",
+   "pontine artery"
+  ],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-cerebral-artery",
+  "name": "Posterior cerebral artery",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "PCA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-communicating-artery",
+  "name": "Posterior communicating artery",
+  "unit": "u3",
+  "synonyms": [
+   "PCom",
+   "PComA"
+  ],
+  "abbreviations": [
+   "PCoA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Posterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "internal-carotid-artery",
+  "name": "Internal carotid artery",
+  "unit": "u3",
+  "synonyms": [
+   "internal carotid arteries",
+   "internal carotid"
+  ],
+  "abbreviations": [
+   "ICA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "middle-cerebral-artery",
+  "name": "Middle cerebral artery",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "MCA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lenticulostriate-arteries",
+  "name": "Lenticulostriate arteries",
+  "unit": "u3",
+  "synonyms": [
+   "lenticulostriate",
+   "lenticulostriate branches",
+   "lateral striate arteries"
+  ],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": "Lenticulostriate Arteries penetrating Anterior Perforated Substance"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-cerebral-artery",
+  "name": "Anterior cerebral artery",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "ACA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pericallosal-artery",
+  "name": "Pericallosal artery",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "callosomarginal-artery",
+  "name": "Callosomarginal artery",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-communicating-artery",
+  "name": "Anterior communicating artery",
+  "unit": "u3",
+  "synonyms": [
+   "ACom",
+   "AComA"
+  ],
+  "abbreviations": [
+   "ACoA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "circle-of-willis",
+  "name": "Circle of Willis",
+  "unit": "u3",
+  "synonyms": [
+   "cerebral arterial circle",
+   "circulus arteriosus"
+  ],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": "The Circle of Willis"
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "anterior-spinal-artery",
+  "name": "Anterior spinal artery",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "ASA"
+  ],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": null
+   }
+  ],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-spinal-arteries",
+  "name": "Posterior spinal arteries",
+  "unit": "u3",
+  "synonyms": [
+   "posterior spinal artery"
+  ],
+  "abbreviations": [],
+  "region": "blood supply",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 16",
+    "group": "Anterior circulation",
+    "note": "Posterior spinal arteries (only in a picture)"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "major-imaging-types",
+  "name": "Major imaging types",
+  "unit": "u3",
+  "synonyms": [
+   "CT vs MRI",
+   "imaging modalities",
+   "CT MRI differentiation"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 17",
+    "group": null,
+    "note": "Differentiation of major imaging types"
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "brain-bleeds",
+  "name": "Brain bleeds",
+  "unit": "u3",
+  "synonyms": [
+   "intracranial hemorrhage",
+   "intracranial hemorrhages",
+   "hemorrhage types"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [
+   {
+    "unit": 3,
+    "lab": "Lab 17",
+    "group": null,
+    "note": null
+   }
+  ],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "olfactory-nerve",
+  "name": "Olfactory nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve I",
+   "cranial nerve 1",
+   "1st cranial nerve",
+   "I",
+   "olfactory",
+   "olfactory tract",
+   "olfactory bulb"
+  ],
+  "abbreviations": [
+   "CN I"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "trochlear-nerve",
+  "name": "Trochlear nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve IV",
+   "cranial nerve 4",
+   "4th cranial nerve",
+   "IV",
+   "trochlear"
+  ],
+  "abbreviations": [
+   "CN IV"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "trigeminal-nerve",
+  "name": "Trigeminal nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve V",
+   "cranial nerve 5",
+   "5th cranial nerve",
+   "V",
+   "trigeminal"
+  ],
+  "abbreviations": [
+   "CN V"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "abducens-nerve",
+  "name": "Abducens nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve VI",
+   "cranial nerve 6",
+   "6th cranial nerve",
+   "VI",
+   "abducens",
+   "abducent nerve"
+  ],
+  "abbreviations": [
+   "CN VI"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vestibulocochlear-nerve",
+  "name": "Vestibulocochlear nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve VIII",
+   "cranial nerve 8",
+   "8th cranial nerve",
+   "VIII",
+   "vestibulocochlear",
+   "vestibular nerve",
+   "cochlear nerve",
+   "auditory nerve"
+  ],
+  "abbreviations": [
+   "CN VIII"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-VIII, IX/X, and XII on a wet specimen",
+    "note": null
+   },
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": null
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "accessory-nerve",
+  "name": "Accessory nerve",
+  "unit": "u2",
+  "synonyms": [
+   "cranial nerve XI",
+   "cranial nerve 11",
+   "11th cranial nerve",
+   "XI",
+   "spinal accessory nerve",
+   "accessory",
+   "spinal accessory"
+  ],
+  "abbreviations": [
+   "CN XI"
+  ],
+  "region": "cranial nerves",
+  "lists": [
+   {
+    "unit": 2,
+    "lab": "Lab 7",
+    "group": "Cranial nerves I-XII on an image or schematic",
+    "note": "Accessory nerve is not present on our brainstems"
+   }
+  ],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {},
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ }
+]

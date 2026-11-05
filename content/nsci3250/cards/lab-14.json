@@ -1,0 +1,9782 @@
+[
+ {
+  "slug": "lab-14-io-1773943023833-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "nucleus-accumbens",
+  "status": "live",
+  "position": 100,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943023833 cloze 1"
+  },
+  "answer": "Nucleus accumbens",
+  "accept": [
+   "accumbens"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-e7bedefd94b0bd15f8e43daf7b22fb0a965d9949.webp",
+  "w": 1468,
+  "h": 871,
+  "target": {
+   "shape": "rect",
+   "x": 0.0504,
+   "y": 0.0799,
+   "w": 0.1511,
+   "h": 0.101
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0504,
+    "y": 0.0799,
+    "w": 0.1511,
+    "h": 0.101
+   },
+   {
+    "shape": "rect",
+    "x": 0.0644,
+    "y": 0.5211,
+    "w": 0.1503,
+    "h": 0.0996
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943023833-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "basal-forebrain-nuclei",
+  "status": "live",
+  "position": 101,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943023833 cloze 2"
+  },
+  "answer": "Basal forebrain nuclei",
+  "accept": [
+   "basal forebrain area",
+   "basal forebrain",
+   "basal nucleus of Meynert"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-e7bedefd94b0bd15f8e43daf7b22fb0a965d9949.webp",
+  "w": 1468,
+  "h": 871,
+  "target": {
+   "shape": "rect",
+   "x": 0.0644,
+   "y": 0.5211,
+   "w": 0.1503,
+   "h": 0.0996
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0504,
+    "y": 0.0799,
+    "w": 0.1511,
+    "h": 0.101
+   },
+   {
+    "shape": "rect",
+    "x": 0.0644,
+    "y": 0.5211,
+    "w": 0.1503,
+    "h": 0.0996
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943034721-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "interhemispheric-fissure",
+  "status": "live",
+  "position": 200,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943034721 cloze 1"
+  },
+  "answer": "Interhemispheric fissure",
+  "accept": [
+   "longitudinal fissure",
+   "median longitudinal cerebral fissure",
+   "longitudinal cerebral fissure",
+   "cerebral longitudinal fissure"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-b83e1cb8e4febe379f8c8f1bdcf58fe11b8417f1.webp",
+  "w": 861,
+  "h": 765,
+  "target": {
+   "shape": "rect",
+   "x": 0.267,
+   "y": 0.1034,
+   "w": 0.3111,
+   "h": 0.1134
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.267,
+    "y": 0.1034,
+    "w": 0.3111,
+    "h": 0.1134
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943047508-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cortical-ribbon",
+  "status": "live",
+  "position": 300,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943047508 cloze 1"
+  },
+  "answer": "Cortical ribbon",
+  "accept": [
+   "cortical gray matter",
+   "cortical grey matter",
+   "cortical gray"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5cfc2b3d9ccfaaad40fd406f1b2db75465078095.webp",
+  "w": 967,
+  "h": 680,
+  "target": {
+   "shape": "rect",
+   "x": 0.0324,
+   "y": 0.1518,
+   "w": 0.2335,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0324,
+    "y": 0.1518,
+    "w": 0.2335,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2514,
+    "y": 0.0674,
+    "w": 0.3289,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.6533,
+    "y": 0.1172,
+    "w": 0.3347,
+    "h": 0.0733
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943047508-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "interhemispheric-fissure",
+  "status": "live",
+  "position": 301,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943047508 cloze 2"
+  },
+  "answer": "Interhemispheric fissure",
+  "accept": [
+   "longitudinal fissure",
+   "median longitudinal cerebral fissure",
+   "longitudinal cerebral fissure",
+   "cerebral longitudinal fissure"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5cfc2b3d9ccfaaad40fd406f1b2db75465078095.webp",
+  "w": 967,
+  "h": 680,
+  "target": {
+   "shape": "rect",
+   "x": 0.2514,
+   "y": 0.0674,
+   "w": 0.3289,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0324,
+    "y": 0.1518,
+    "w": 0.2335,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2514,
+    "y": 0.0674,
+    "w": 0.3289,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.6533,
+    "y": 0.1172,
+    "w": 0.3347,
+    "h": 0.0733
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943047508-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": null,
+  "status": "live",
+  "position": 302,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943047508 cloze 3"
+  },
+  "answer": "White Matter (Corona Radiata, association fibers)",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5cfc2b3d9ccfaaad40fd406f1b2db75465078095.webp",
+  "w": 967,
+  "h": 680,
+  "target": {
+   "shape": "rect",
+   "x": 0.6533,
+   "y": 0.1172,
+   "w": 0.3347,
+   "h": 0.0733
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0324,
+    "y": 0.1518,
+    "w": 0.2335,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2514,
+    "y": 0.0674,
+    "w": 0.3289,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.6533,
+    "y": 0.1172,
+    "w": 0.3347,
+    "h": 0.0733
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943065204-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "interhemispheric-fissure",
+  "status": "live",
+  "position": 400,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943065204 cloze 1"
+  },
+  "answer": "Interhemispheric fissure",
+  "accept": [
+   "longitudinal fissure",
+   "median longitudinal cerebral fissure",
+   "longitudinal cerebral fissure",
+   "cerebral longitudinal fissure"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
+  "w": 942,
+  "h": 821,
+  "target": {
+   "shape": "rect",
+   "x": 0.2835,
+   "y": 0.0232,
+   "w": 0.2799,
+   "h": 0.0899
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2835,
+    "y": 0.0232,
+    "w": 0.2799,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.6417,
+    "y": 0.0757,
+    "w": 0.2762,
+    "h": 0.0456
+   },
+   {
+    "shape": "rect",
+    "x": 0.7648,
+    "y": 0.1532,
+    "w": 0.234,
+    "h": 0.0705
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.9028,
+    "w": 0.2171,
+    "h": 0.0692
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943065204-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cingulate-gyrus",
+  "status": "live",
+  "position": 401,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943065204 cloze 2"
+  },
+  "answer": "Cingulate gyrus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
+  "w": 942,
+  "h": 821,
+  "target": {
+   "shape": "rect",
+   "x": 0.6417,
+   "y": 0.0757,
+   "w": 0.2762,
+   "h": 0.0456
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2835,
+    "y": 0.0232,
+    "w": 0.2799,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.6417,
+    "y": 0.0757,
+    "w": 0.2762,
+    "h": 0.0456
+   },
+   {
+    "shape": "rect",
+    "x": 0.7648,
+    "y": 0.1532,
+    "w": 0.234,
+    "h": 0.0705
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.9028,
+    "w": 0.2171,
+    "h": 0.0692
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943065204-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "genu-of-corpus-callosum",
+  "status": "live",
+  "position": 402,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943065204 cloze 3"
+  },
+  "answer": "Genu of corpus callosum",
+  "accept": [
+   "genu",
+   "genu of CC",
+   "genu of the corpus callosum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
+  "w": 942,
+  "h": 821,
+  "target": {
+   "shape": "rect",
+   "x": 0.7648,
+   "y": 0.1532,
+   "w": 0.234,
+   "h": 0.0705
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2835,
+    "y": 0.0232,
+    "w": 0.2799,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.6417,
+    "y": 0.0757,
+    "w": 0.2762,
+    "h": 0.0456
+   },
+   {
+    "shape": "rect",
+    "x": 0.7648,
+    "y": 0.1532,
+    "w": 0.234,
+    "h": 0.0705
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.9028,
+    "w": 0.2171,
+    "h": 0.0692
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943065204-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": null,
+  "status": "live",
+  "position": 403,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943065204 cloze 4"
+  },
+  "answer": "Temporal Lobe",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
+  "w": 942,
+  "h": 821,
+  "target": {
+   "shape": "rect",
+   "x": 0.0338,
+   "y": 0.9028,
+   "w": 0.2171,
+   "h": 0.0692
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2835,
+    "y": 0.0232,
+    "w": 0.2799,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.6417,
+    "y": 0.0757,
+    "w": 0.2762,
+    "h": 0.0456
+   },
+   {
+    "shape": "rect",
+    "x": 0.7648,
+    "y": 0.1532,
+    "w": 0.234,
+    "h": 0.0705
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.9028,
+    "w": 0.2171,
+    "h": 0.0692
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943083195-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "corpus-callosum",
+  "status": "live",
+  "position": 500,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943083195 cloze 1"
+  },
+  "answer": "Corpus callosum",
+  "accept": [
+   "callosum",
+   "CC"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp",
+  "w": 976,
+  "h": 805,
+  "target": {
+   "shape": "rect",
+   "x": 0.0521,
+   "y": 0.1338,
+   "w": 0.2282,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0521,
+    "y": 0.1338,
+    "w": 0.2282,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2746,
+    "y": 0.0342,
+    "w": 0.2454,
+    "h": 0.0788
+   },
+   {
+    "shape": "rect",
+    "x": 0.6523,
+    "y": 0.0411,
+    "w": 0.2636,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.8623,
+    "y": 0.2265,
+    "w": 0.1347,
+    "h": 0.1286
+   },
+   {
+    "shape": "rect",
+    "x": 0.884,
+    "y": 0.6124,
+    "w": 0.1404,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.019,
+    "y": 0.7299,
+    "w": 0.1244,
+    "h": 0.0802
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943083195-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "interhemispheric-fissure",
+  "status": "live",
+  "position": 501,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943083195 cloze 2"
+  },
+  "answer": "Interhemispheric fissure",
+  "accept": [
+   "longitudinal fissure",
+   "median longitudinal cerebral fissure",
+   "longitudinal cerebral fissure",
+   "cerebral longitudinal fissure"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp",
+  "w": 976,
+  "h": 805,
+  "target": {
+   "shape": "rect",
+   "x": 0.2746,
+   "y": 0.0342,
+   "w": 0.2454,
+   "h": 0.0788
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0521,
+    "y": 0.1338,
+    "w": 0.2282,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2746,
+    "y": 0.0342,
+    "w": 0.2454,
+    "h": 0.0788
+   },
+   {
+    "shape": "rect",
+    "x": 0.6523,
+    "y": 0.0411,
+    "w": 0.2636,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.8623,
+    "y": 0.2265,
+    "w": 0.1347,
+    "h": 0.1286
+   },
+   {
+    "shape": "rect",
+    "x": 0.884,
+    "y": 0.6124,
+    "w": 0.1404,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.019,
+    "y": 0.7299,
+    "w": 0.1244,
+    "h": 0.0802
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943083195-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "anterior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 502,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943083195 cloze 3"
+  },
+  "answer": "Anterior horn of lateral ventricle",
+  "accept": [
+   "anterior horn",
+   "frontal horn",
+   "anterior horn of the lateral ventricle",
+   "frontal horn of lateral ventricle",
+   "AH"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp",
+  "w": 976,
+  "h": 805,
+  "target": {
+   "shape": "rect",
+   "x": 0.6523,
+   "y": 0.0411,
+   "w": 0.2636,
+   "h": 0.0899
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0521,
+    "y": 0.1338,
+    "w": 0.2282,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2746,
+    "y": 0.0342,
+    "w": 0.2454,
+    "h": 0.0788
+   },
+   {
+    "shape": "rect",
+    "x": 0.6523,
+    "y": 0.0411,
+    "w": 0.2636,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.8623,
+    "y": 0.2265,
+    "w": 0.1347,
+    "h": 0.1286
+   },
+   {
+    "shape": "rect",
+    "x": 0.884,
+    "y": 0.6124,
+    "w": 0.1404,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.019,
+    "y": 0.7299,
+    "w": 0.1244,
+    "h": 0.0802
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943083195-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "head-of-caudate-nucleus",
+  "status": "live",
+  "position": 503,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943083195 cloze 4"
+  },
+  "answer": "Head of caudate nucleus",
+  "accept": [
+   "caudate head",
+   "head of caudate",
+   "head of the caudate nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp",
+  "w": 976,
+  "h": 805,
+  "target": {
+   "shape": "rect",
+   "x": 0.8623,
+   "y": 0.2265,
+   "w": 0.1347,
+   "h": 0.1286
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0521,
+    "y": 0.1338,
+    "w": 0.2282,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2746,
+    "y": 0.0342,
+    "w": 0.2454,
+    "h": 0.0788
+   },
+   {
+    "shape": "rect",
+    "x": 0.6523,
+    "y": 0.0411,
+    "w": 0.2636,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.8623,
+    "y": 0.2265,
+    "w": 0.1347,
+    "h": 0.1286
+   },
+   {
+    "shape": "rect",
+    "x": 0.884,
+    "y": 0.6124,
+    "w": 0.1404,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.019,
+    "y": 0.7299,
+    "w": 0.1244,
+    "h": 0.0802
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943083195-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "lateral-fissure",
+  "status": "live",
+  "position": 504,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943083195 cloze 5"
+  },
+  "answer": "Lateral fissure",
+  "accept": [
+   "Sylvian fissure",
+   "lateral sulcus",
+   "sylvian sulcus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp",
+  "w": 976,
+  "h": 805,
+  "target": {
+   "shape": "rect",
+   "x": 0.884,
+   "y": 0.6124,
+   "w": 0.1404,
+   "h": 0.0747
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0521,
+    "y": 0.1338,
+    "w": 0.2282,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2746,
+    "y": 0.0342,
+    "w": 0.2454,
+    "h": 0.0788
+   },
+   {
+    "shape": "rect",
+    "x": 0.6523,
+    "y": 0.0411,
+    "w": 0.2636,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.8623,
+    "y": 0.2265,
+    "w": 0.1347,
+    "h": 0.1286
+   },
+   {
+    "shape": "rect",
+    "x": 0.884,
+    "y": 0.6124,
+    "w": 0.1404,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.019,
+    "y": 0.7299,
+    "w": 0.1244,
+    "h": 0.0802
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943083195-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 505,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943083195 cloze 6"
+  },
+  "answer": "Insular cortex",
+  "accept": [
+   "insula",
+   "insular lobe"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp",
+  "w": 976,
+  "h": 805,
+  "target": {
+   "shape": "rect",
+   "x": 0.019,
+   "y": 0.7299,
+   "w": 0.1244,
+   "h": 0.0802
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0521,
+    "y": 0.1338,
+    "w": 0.2282,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.2746,
+    "y": 0.0342,
+    "w": 0.2454,
+    "h": 0.0788
+   },
+   {
+    "shape": "rect",
+    "x": 0.6523,
+    "y": 0.0411,
+    "w": 0.2636,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.8623,
+    "y": 0.2265,
+    "w": 0.1347,
+    "h": 0.1286
+   },
+   {
+    "shape": "rect",
+    "x": 0.884,
+    "y": 0.6124,
+    "w": 0.1404,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.019,
+    "y": 0.7299,
+    "w": 0.1244,
+    "h": 0.0802
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "lateral-fissure",
+  "status": "live",
+  "position": 600,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 1"
+  },
+  "answer": "Lateral fissure",
+  "accept": [
+   "Sylvian fissure",
+   "lateral sulcus",
+   "sylvian sulcus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.0052,
+   "y": 0.5045,
+   "w": 0.0932,
+   "h": 0.1107
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "nucleus-accumbens",
+  "status": "live",
+  "position": 601,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 2"
+  },
+  "answer": "Nucleus accumbens",
+  "accept": [
+   "accumbens"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.2951,
+   "y": 0.918,
+   "w": 0.166,
+   "h": 0.0747
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "optic-chiasm",
+  "status": "live",
+  "position": 602,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 3"
+  },
+  "answer": "Optic chiasm",
+  "accept": [
+   "optic chiasma",
+   "chiasm"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.5147,
+   "y": 0.936,
+   "w": 0.1979,
+   "h": 0.0443
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": null,
+  "status": "live",
+  "position": 603,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 4"
+  },
+  "answer": "Temporal Lobe",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.8301,
+   "y": 0.7203,
+   "w": 0.1379,
+   "h": 0.1024
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "putamen",
+  "status": "live",
+  "position": 604,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 5"
+  },
+  "answer": "Putamen",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.8543,
+   "y": 0.5792,
+   "w": 0.1456,
+   "h": 0.0678
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "anterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 605,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 6"
+  },
+  "answer": "Anterior limb of internal capsule",
+  "accept": [
+   "anterior limb",
+   "internal capsule anterior limb",
+   "ALIC"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.8543,
+   "y": 0.3966,
+   "w": 0.1315,
+   "h": 0.1508
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c7",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "head-of-caudate-nucleus",
+  "status": "live",
+  "position": 606,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 7"
+  },
+  "answer": "Head of caudate nucleus",
+  "accept": [
+   "caudate head",
+   "head of caudate",
+   "head of the caudate nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.8237,
+   "y": 0.2666,
+   "w": 0.1507,
+   "h": 0.0761
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c8",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "septum-pellucidum",
+  "status": "live",
+  "position": 607,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 8"
+  },
+  "answer": "Septum pellucidum",
+  "accept": [
+   "pellucid septum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.7841,
+   "y": 0.1338,
+   "w": 0.1634,
+   "h": 0.083
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c9",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-corpus-callosum",
+  "status": "live",
+  "position": 608,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 9"
+  },
+  "answer": "Body of corpus callosum",
+  "accept": [
+   "body",
+   "corpus callosum body",
+   "body of CC",
+   "body of the corpus callosum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.6385,
+   "y": 0.0384,
+   "w": 0.2592,
+   "h": 0.0858
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943123079-c10",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "interhemispheric-fissure",
+  "status": "live",
+  "position": 609,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943123079 cloze 10"
+  },
+  "answer": "Interhemispheric fissure",
+  "accept": [
+   "longitudinal fissure",
+   "median longitudinal cerebral fissure",
+   "longitudinal cerebral fissure",
+   "cerebral longitudinal fissure"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
+  "w": 974,
+  "h": 899,
+  "target": {
+   "shape": "rect",
+   "x": 0.3563,
+   "y": 0.0134,
+   "w": 0.2209,
+   "h": 0.0775
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0052,
+    "y": 0.5045,
+    "w": 0.0932,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.2951,
+    "y": 0.918,
+    "w": 0.166,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.5147,
+    "y": 0.936,
+    "w": 0.1979,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8301,
+    "y": 0.7203,
+    "w": 0.1379,
+    "h": 0.1024
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.5792,
+    "w": 0.1456,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.8543,
+    "y": 0.3966,
+    "w": 0.1315,
+    "h": 0.1508
+   },
+   {
+    "shape": "rect",
+    "x": 0.8237,
+    "y": 0.2666,
+    "w": 0.1507,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7841,
+    "y": 0.1338,
+    "w": 0.1634,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.6385,
+    "y": 0.0384,
+    "w": 0.2592,
+    "h": 0.0858
+   },
+   {
+    "shape": "rect",
+    "x": 0.3563,
+    "y": 0.0134,
+    "w": 0.2209,
+    "h": 0.0775
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "septum-pellucidum",
+  "status": "live",
+  "position": 700,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 1"
+  },
+  "answer": "Septum pellucidum",
+  "accept": [
+   "pellucid septum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.1147,
+   "y": 0.0134,
+   "w": 0.2836,
+   "h": 0.0373
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-corpus-callosum",
+  "status": "live",
+  "position": 701,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 2"
+  },
+  "answer": "Body of corpus callosum",
+  "accept": [
+   "body",
+   "corpus callosum body",
+   "body of CC",
+   "body of the corpus callosum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.5615,
+   "y": 0.0232,
+   "w": 0.3186,
+   "h": 0.036
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "head-of-caudate-nucleus",
+  "status": "live",
+  "position": 702,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 3"
+  },
+  "answer": "Head of caudate nucleus",
+  "accept": [
+   "caudate head",
+   "head of caudate",
+   "head of the caudate nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.7467,
+   "y": 0.0784,
+   "w": 0.2266,
+   "h": 0.0443
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "columns-of-the-fornix",
+  "status": "live",
+  "position": 703,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 4"
+  },
+  "answer": "Columns of the fornix",
+  "accept": [
+   "fornix columns",
+   "columns of fornix"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.8335,
+   "y": 0.1725,
+   "w": 0.1295,
+   "h": 0.0706
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "putamen",
+  "status": "live",
+  "position": 704,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 5"
+  },
+  "answer": "Putamen",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.8425,
+   "y": 0.3358,
+   "w": 0.1437,
+   "h": 0.0636
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "globus-pallidus",
+  "status": "live",
+  "position": 705,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 6"
+  },
+  "answer": "Globus pallidus",
+  "accept": [
+   "pallidum",
+   "GP"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.8749,
+   "y": 0.4934,
+   "w": 0.136,
+   "h": 0.0968
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c7",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "anterior-commissure",
+  "status": "live",
+  "position": 706,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 7"
+  },
+  "answer": "Anterior commissure",
+  "accept": [
+   "AC"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.8213,
+   "y": 0.6815,
+   "w": 0.1774,
+   "h": 0.0899
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c8",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "hypothalamus",
+  "status": "live",
+  "position": 707,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 8"
+  },
+  "answer": "Hypothalamus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.5693,
+   "y": 0.9388,
+   "w": 0.2202,
+   "h": 0.0526
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c9",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "third-ventricle",
+  "status": "live",
+  "position": 708,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 9"
+  },
+  "answer": "Third ventricle",
+  "accept": [
+   "3rd ventricle",
+   "ventricle III",
+   "3V"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.397,
+   "y": 0.8254,
+   "w": 0.1334,
+   "h": 0.0775
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c10",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "uncus",
+  "status": "live",
+  "position": 709,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 10"
+  },
+  "answer": "Uncus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.2805,
+   "y": 0.9222,
+   "w": 0.1243,
+   "h": 0.0484
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c11",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "amygdala",
+  "status": "live",
+  "position": 710,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 11"
+  },
+  "answer": "Amygdala",
+  "accept": [
+   "amygdaloid nucleus",
+   "amygdaloid body",
+   "amygdaloid complex"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.037,
+   "y": 0.8641,
+   "w": 0.2059,
+   "h": 0.0539
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c12",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 711,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 12"
+  },
+  "answer": "Insular cortex",
+  "accept": [
+   "insula",
+   "insular lobe"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.0124,
+   "y": 0.5612,
+   "w": 0.1036,
+   "h": 0.0636
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943163898-c13",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "anterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 712,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943163898 cloze 13"
+  },
+  "answer": "Anterior limb of internal capsule",
+  "accept": [
+   "anterior limb",
+   "internal capsule anterior limb",
+   "ALIC"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
+  "w": 979,
+  "h": 916,
+  "target": {
+   "shape": "rect",
+   "x": 0.0,
+   "y": 0.0881,
+   "w": 0.1437,
+   "h": 0.184
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1147,
+    "y": 0.0134,
+    "w": 0.2836,
+    "h": 0.0373
+   },
+   {
+    "shape": "rect",
+    "x": 0.5615,
+    "y": 0.0232,
+    "w": 0.3186,
+    "h": 0.036
+   },
+   {
+    "shape": "rect",
+    "x": 0.7467,
+    "y": 0.0784,
+    "w": 0.2266,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.8335,
+    "y": 0.1725,
+    "w": 0.1295,
+    "h": 0.0706
+   },
+   {
+    "shape": "rect",
+    "x": 0.8425,
+    "y": 0.3358,
+    "w": 0.1437,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.8749,
+    "y": 0.4934,
+    "w": 0.136,
+    "h": 0.0968
+   },
+   {
+    "shape": "rect",
+    "x": 0.8213,
+    "y": 0.6815,
+    "w": 0.1774,
+    "h": 0.0899
+   },
+   {
+    "shape": "rect",
+    "x": 0.5693,
+    "y": 0.9388,
+    "w": 0.2202,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.397,
+    "y": 0.8254,
+    "w": 0.1334,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.2805,
+    "y": 0.9222,
+    "w": 0.1243,
+    "h": 0.0484
+   },
+   {
+    "shape": "rect",
+    "x": 0.037,
+    "y": 0.8641,
+    "w": 0.2059,
+    "h": 0.0539
+   },
+   {
+    "shape": "rect",
+    "x": 0.0124,
+    "y": 0.5612,
+    "w": 0.1036,
+    "h": 0.0636
+   },
+   {
+    "shape": "rect",
+    "x": 0.0,
+    "y": 0.0881,
+    "w": 0.1437,
+    "h": 0.184
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-fornix",
+  "status": "live",
+  "position": 800,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 1"
+  },
+  "answer": "Body of fornix",
+  "accept": [
+   "fornix body"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.2323,
+   "y": 0.0785,
+   "w": 0.1579,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-corpus-callosum",
+  "status": "live",
+  "position": 801,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 2"
+  },
+  "answer": "Body of corpus callosum",
+  "accept": [
+   "body",
+   "corpus callosum body",
+   "body of CC",
+   "body of the corpus callosum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.4095,
+   "y": 0.0508,
+   "w": 0.2606,
+   "h": 0.0387
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-lateral-ventricle",
+  "status": "live",
+  "position": 802,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 3"
+  },
+  "answer": "Body of lateral ventricle",
+  "accept": [
+   "body",
+   "lateral ventricle body",
+   "body of the lateral ventricle",
+   "body of LV"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.6329,
+   "y": 0.0853,
+   "w": 0.2722,
+   "h": 0.0512
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "foramina-of-monro",
+  "status": "live",
+  "position": 803,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 4"
+  },
+  "answer": "Foramina of Monro",
+  "accept": [
+   "foramen of Monro",
+   "interventricular foramen",
+   "interventricular foramina",
+   "foramina of Monroe"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.7305,
+   "y": 0.2071,
+   "w": 0.2362,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "third-ventricle",
+  "status": "live",
+  "position": 804,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 5"
+  },
+  "answer": "Third ventricle",
+  "accept": [
+   "3rd ventricle",
+   "ventricle III",
+   "3V"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.8255,
+   "y": 0.6954,
+   "w": 0.104,
+   "h": 0.0761
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "inferior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 805,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 6"
+  },
+  "answer": "Inferior horn of lateral ventricle",
+  "accept": [
+   "inferior horn",
+   "temporal horn",
+   "inferior horn of the lateral ventricle",
+   "temporal horn of lateral ventricle",
+   "inferior horn of LV",
+   "IH"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.7895,
+   "y": 0.8212,
+   "w": 0.1476,
+   "h": 0.0844
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c7",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "mammillary-bodies",
+  "status": "live",
+  "position": 806,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 7"
+  },
+  "answer": "Mammillary bodies",
+  "accept": [
+   "mammillary body",
+   "mamillary bodies",
+   "mamillary body"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.5815,
+   "y": 0.9015,
+   "w": 0.1746,
+   "h": 0.0775
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c8",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "pons",
+  "status": "live",
+  "position": 807,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 8"
+  },
+  "answer": "Pons",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.4865,
+   "y": 0.9277,
+   "w": 0.0835,
+   "h": 0.0401
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c9",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 808,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 9"
+  },
+  "answer": "Cerebral peduncles",
+  "accept": [
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.1861,
+   "y": 0.9568,
+   "w": 0.2606,
+   "h": 0.0401
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c10",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 809,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 10"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.1103,
+   "y": 0.9001,
+   "w": 0.2029,
+   "h": 0.0443
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c11",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 810,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 11"
+  },
+  "answer": "Insular cortex",
+  "accept": [
+   "insula",
+   "insular lobe"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.0513,
+   "y": 0.6165,
+   "w": 0.095,
+   "h": 0.0429
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c12",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 811,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 12"
+  },
+  "answer": "Thalamus",
+  "accept": [
+   "dorsal thalamus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.0474,
+   "y": 0.3731,
+   "w": 0.1066,
+   "h": 0.0443
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c13",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "anterior-nucleus-of-thalamus",
+  "status": "live",
+  "position": 812,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 13"
+  },
+  "answer": "Anterior nucleus of thalamus",
+  "accept": [
+   "anterior nucleus",
+   "anterior thalamic nucleus",
+   "anterior thalamic nuclei",
+   "anterior thalamic tubercle"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.0487,
+   "y": 0.2251,
+   "w": 0.1284,
+   "h": 0.0996
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943207234-c14",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-caudate-nucleus",
+  "status": "live",
+  "position": 813,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943207234 cloze 14"
+  },
+  "answer": "Body of caudate nucleus",
+  "accept": [
+   "caudate body",
+   "body of caudate",
+   "body of the caudate nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
+  "w": 986,
+  "h": 915,
+  "target": {
+   "shape": "rect",
+   "x": 0.1078,
+   "y": 0.1449,
+   "w": 0.131,
+   "h": 0.0748
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2323,
+    "y": 0.0785,
+    "w": 0.1579,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.4095,
+    "y": 0.0508,
+    "w": 0.2606,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.6329,
+    "y": 0.0853,
+    "w": 0.2722,
+    "h": 0.0512
+   },
+   {
+    "shape": "rect",
+    "x": 0.7305,
+    "y": 0.2071,
+    "w": 0.2362,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8255,
+    "y": 0.6954,
+    "w": 0.104,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.7895,
+    "y": 0.8212,
+    "w": 0.1476,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.5815,
+    "y": 0.9015,
+    "w": 0.1746,
+    "h": 0.0775
+   },
+   {
+    "shape": "rect",
+    "x": 0.4865,
+    "y": 0.9277,
+    "w": 0.0835,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1861,
+    "y": 0.9568,
+    "w": 0.2606,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1103,
+    "y": 0.9001,
+    "w": 0.2029,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0513,
+    "y": 0.6165,
+    "w": 0.095,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.0474,
+    "y": 0.3731,
+    "w": 0.1066,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.0487,
+    "y": 0.2251,
+    "w": 0.1284,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.1078,
+    "y": 0.1449,
+    "w": 0.131,
+    "h": 0.0748
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-fornix",
+  "status": "live",
+  "position": 900,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 1"
+  },
+  "answer": "Body of fornix",
+  "accept": [
+   "fornix body"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.2472,
+   "y": 0.0702,
+   "w": 0.1624,
+   "h": 0.0443
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cingulate-gyrus",
+  "status": "live",
+  "position": 901,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 2"
+  },
+  "answer": "Cingulate gyrus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.4895,
+   "y": 0.0813,
+   "w": 0.2116,
+   "h": 0.0429
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "third-ventricle",
+  "status": "live",
+  "position": 902,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 3"
+  },
+  "answer": "Third ventricle",
+  "accept": [
+   "3rd ventricle",
+   "ventricle III",
+   "3V"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.7676,
+   "y": 0.12,
+   "w": 0.128,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cerebral-aqueduct",
+  "status": "live",
+  "position": 903,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 4"
+  },
+  "answer": "Cerebral aqueduct",
+  "accept": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct",
+   "CA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.8574,
+   "y": 0.268,
+   "w": 0.144,
+   "h": 0.1176
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "posterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 904,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 5"
+  },
+  "answer": "Posterior limb of internal capsule",
+  "accept": [
+   "posterior limb",
+   "internal capsule posterior limb",
+   "PLIC"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.818,
+   "y": 0.7562,
+   "w": 0.1304,
+   "h": 0.1494
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "subthalamic-nucleus",
+  "status": "live",
+  "position": 905,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 6"
+  },
+  "answer": "Subthalamic nucleus",
+  "accept": [
+   "STN"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.6446,
+   "y": 0.8779,
+   "w": 0.1661,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c7",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "substantia-nigra",
+  "status": "live",
+  "position": 906,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 7"
+  },
+  "answer": "Substantia nigra",
+  "accept": [
+   "SN"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.5314,
+   "y": 0.9429,
+   "w": 0.2042,
+   "h": 0.0443
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c8",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 907,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 8"
+  },
+  "answer": "Red nucleus",
+  "accept": [
+   "nucleus ruber"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.305,
+   "y": 0.9346,
+   "w": 0.1636,
+   "h": 0.0401
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c9",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 908,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 9"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.1697,
+   "y": 0.8586,
+   "w": 0.1846,
+   "h": 0.0498
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c10",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "inferior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 909,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 10"
+  },
+  "answer": "Inferior horn of lateral ventricle",
+  "accept": [
+   "inferior horn",
+   "temporal horn",
+   "inferior horn of the lateral ventricle",
+   "temporal horn of lateral ventricle",
+   "inferior horn of LV",
+   "IH"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.0725,
+   "y": 0.7133,
+   "w": 0.1353,
+   "h": 0.0996
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c11",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 910,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 11"
+  },
+  "answer": "Insular cortex",
+  "accept": [
+   "insula",
+   "insular lobe"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.0786,
+   "y": 0.4741,
+   "w": 0.0898,
+   "h": 0.0678
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c12",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 911,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 12"
+  },
+  "answer": "Thalamus",
+  "accept": [
+   "dorsal thalamus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.0675,
+   "y": 0.3855,
+   "w": 0.1169,
+   "h": 0.0526
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943244883-c13",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "body-of-caudate-nucleus",
+  "status": "live",
+  "position": 912,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943244883 cloze 13"
+  },
+  "answer": "Body of caudate nucleus",
+  "accept": [
+   "caudate body",
+   "body of caudate",
+   "body of the caudate nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
+  "w": 985,
+  "h": 876,
+  "target": {
+   "shape": "rect",
+   "x": 0.1131,
+   "y": 0.1283,
+   "w": 0.128,
+   "h": 0.0636
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.2472,
+    "y": 0.0702,
+    "w": 0.1624,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.4895,
+    "y": 0.0813,
+    "w": 0.2116,
+    "h": 0.0429
+   },
+   {
+    "shape": "rect",
+    "x": 0.7676,
+    "y": 0.12,
+    "w": 0.128,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.8574,
+    "y": 0.268,
+    "w": 0.144,
+    "h": 0.1176
+   },
+   {
+    "shape": "rect",
+    "x": 0.818,
+    "y": 0.7562,
+    "w": 0.1304,
+    "h": 0.1494
+   },
+   {
+    "shape": "rect",
+    "x": 0.6446,
+    "y": 0.8779,
+    "w": 0.1661,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.5314,
+    "y": 0.9429,
+    "w": 0.2042,
+    "h": 0.0443
+   },
+   {
+    "shape": "rect",
+    "x": 0.305,
+    "y": 0.9346,
+    "w": 0.1636,
+    "h": 0.0401
+   },
+   {
+    "shape": "rect",
+    "x": 0.1697,
+    "y": 0.8586,
+    "w": 0.1846,
+    "h": 0.0498
+   },
+   {
+    "shape": "rect",
+    "x": 0.0725,
+    "y": 0.7133,
+    "w": 0.1353,
+    "h": 0.0996
+   },
+   {
+    "shape": "rect",
+    "x": 0.0786,
+    "y": 0.4741,
+    "w": 0.0898,
+    "h": 0.0678
+   },
+   {
+    "shape": "rect",
+    "x": 0.0675,
+    "y": 0.3855,
+    "w": 0.1169,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.1131,
+    "y": 0.1283,
+    "w": 0.128,
+    "h": 0.0636
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "crus-of-fornix",
+  "status": "live",
+  "position": 1000,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 1"
+  },
+  "answer": "Crus of fornix",
+  "accept": [
+   "fornix crus",
+   "crura of fornix",
+   "crus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.1539,
+   "y": 0.0481,
+   "w": 0.17,
+   "h": 0.0346
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "posterior-commissure",
+  "status": "live",
+  "position": 1001,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 2"
+  },
+  "answer": "Posterior commissure",
+  "accept": [
+   "PC"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.0446,
+   "y": 0.1172,
+   "w": 0.1592,
+   "h": 0.0567
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "inferior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 1002,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 3"
+  },
+  "answer": "Inferior horn of lateral ventricle",
+  "accept": [
+   "inferior horn",
+   "temporal horn",
+   "inferior horn of the lateral ventricle",
+   "temporal horn of lateral ventricle",
+   "inferior horn of LV",
+   "IH"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.0338,
+   "y": 0.7299,
+   "w": 0.1956,
+   "h": 0.0595
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 1003,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 4"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.1566,
+   "y": 0.8323,
+   "w": 0.1714,
+   "h": 0.0415
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 1004,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 5"
+  },
+  "answer": "Pyramids",
+  "accept": [
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.2592,
+   "y": 0.9443,
+   "w": 0.1848,
+   "h": 0.0387
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cerebral-aqueduct",
+  "status": "live",
+  "position": 1005,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 6"
+  },
+  "answer": "Cerebral aqueduct",
+  "accept": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct",
+   "CA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.5843,
+   "y": 0.9111,
+   "w": 0.1214,
+   "h": 0.0526
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c7",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "medial-geniculate-nucleus",
+  "status": "live",
+  "position": 1006,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 7"
+  },
+  "answer": "Medial geniculate nucleus",
+  "accept": [
+   "medial geniculate body",
+   "medial geniculate",
+   "MGN"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.7543,
+   "y": 0.8351,
+   "w": 0.1268,
+   "h": 0.0982
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c8",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "lateral-geniculate-nucleus",
+  "status": "live",
+  "position": 1007,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 8"
+  },
+  "answer": "Lateral geniculate nucleus",
+  "accept": [
+   "lateral geniculate body",
+   "lateral geniculate",
+   "LGN"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.7867,
+   "y": 0.7078,
+   "w": 0.143,
+   "h": 0.0872
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c9",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "tail-of-caudate-nucleus",
+  "status": "live",
+  "position": 1008,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 9"
+  },
+  "answer": "Tail of caudate nucleus",
+  "accept": [
+   "caudate tail",
+   "tail of caudate",
+   "tail of the caudate nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.8002,
+   "y": 0.0826,
+   "w": 0.1808,
+   "h": 0.0802
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943306581-c10",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "pulvinar",
+  "status": "live",
+  "position": 1009,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943306581 cloze 10"
+  },
+  "answer": "Pulvinar",
+  "accept": [
+   "pulvinar nucleus",
+   "thalamic pulvinar"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
+  "w": 961,
+  "h": 937,
+  "target": {
+   "shape": "rect",
+   "x": 0.6005,
+   "y": 0.0273,
+   "w": 0.2213,
+   "h": 0.0429
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1539,
+    "y": 0.0481,
+    "w": 0.17,
+    "h": 0.0346
+   },
+   {
+    "shape": "rect",
+    "x": 0.0446,
+    "y": 0.1172,
+    "w": 0.1592,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.0338,
+    "y": 0.7299,
+    "w": 0.1956,
+    "h": 0.0595
+   },
+   {
+    "shape": "rect",
+    "x": 0.1566,
+    "y": 0.8323,
+    "w": 0.1714,
+    "h": 0.0415
+   },
+   {
+    "shape": "rect",
+    "x": 0.2592,
+    "y": 0.9443,
+    "w": 0.1848,
+    "h": 0.0387
+   },
+   {
+    "shape": "rect",
+    "x": 0.5843,
+    "y": 0.9111,
+    "w": 0.1214,
+    "h": 0.0526
+   },
+   {
+    "shape": "rect",
+    "x": 0.7543,
+    "y": 0.8351,
+    "w": 0.1268,
+    "h": 0.0982
+   },
+   {
+    "shape": "rect",
+    "x": 0.7867,
+    "y": 0.7078,
+    "w": 0.143,
+    "h": 0.0872
+   },
+   {
+    "shape": "rect",
+    "x": 0.8002,
+    "y": 0.0826,
+    "w": 0.1808,
+    "h": 0.0802
+   },
+   {
+    "shape": "rect",
+    "x": 0.6005,
+    "y": 0.0273,
+    "w": 0.2213,
+    "h": 0.0429
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "splenium-of-corpus-callosum",
+  "status": "live",
+  "position": 1100,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 1"
+  },
+  "answer": "Splenium of corpus callosum",
+  "accept": [
+   "splenium",
+   "splenium of CC",
+   "splenium of the corpus callosum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.0837,
+   "y": 0.037,
+   "w": 0.2549,
+   "h": 0.0747
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "choroid-plexus",
+  "status": "live",
+  "position": 1101,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 2"
+  },
+  "answer": "Choroid plexus",
+  "accept": [
+   "ChP"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.0185,
+   "y": 0.1615,
+   "w": 0.1419,
+   "h": 0.0844
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "crus-of-fornix",
+  "status": "live",
+  "position": 1102,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 3"
+  },
+  "answer": "Crus of fornix",
+  "accept": [
+   "fornix crus",
+   "crura of fornix",
+   "crus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.0141,
+   "y": 0.3233,
+   "w": 0.1144,
+   "h": 0.0913
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "pineal-gland",
+  "status": "live",
+  "position": 1103,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 4"
+  },
+  "answer": "Pineal gland",
+  "accept": [
+   "pineal body",
+   "pineal",
+   "epiphysis"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.0156,
+   "y": 0.5377,
+   "w": 0.1043,
+   "h": 0.1189
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 1104,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 5"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.0199,
+   "y": 0.7272,
+   "w": 0.2085,
+   "h": 0.083
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c6",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cerebral-aqueduct",
+  "status": "live",
+  "position": 1105,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 6"
+  },
+  "answer": "Cerebral aqueduct",
+  "accept": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct",
+   "CA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.3965,
+   "y": 0.9268,
+   "w": 0.3012,
+   "h": 0.0719
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c7",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "live",
+  "position": 1106,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 7"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "accept": [
+   "brachium pontis",
+   "MCP"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.6542,
+   "y": 0.8724,
+   "w": 0.2592,
+   "h": 0.0692
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c8",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "inferior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 1107,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 8"
+  },
+  "answer": "Inferior horn of lateral ventricle",
+  "accept": [
+   "inferior horn",
+   "temporal horn",
+   "inferior horn of the lateral ventricle",
+   "temporal horn of lateral ventricle",
+   "inferior horn of LV",
+   "IH"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.8193,
+   "y": 0.705,
+   "w": 0.1723,
+   "h": 0.1134
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c9",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "pulvinar",
+  "status": "live",
+  "position": 1108,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 9"
+  },
+  "answer": "Pulvinar",
+  "accept": [
+   "pulvinar nucleus",
+   "thalamic pulvinar"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.8657,
+   "y": 0.1407,
+   "w": 0.1216,
+   "h": 0.065
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943338762-c10",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "atrium-of-lateral-ventricle",
+  "status": "live",
+  "position": 1109,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943338762 cloze 10"
+  },
+  "answer": "Atrium of lateral ventricle",
+  "accept": [
+   "atrium",
+   "trigone",
+   "trigone of lateral ventricle",
+   "atrium or trigone"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
+  "w": 985,
+  "h": 1031,
+  "target": {
+   "shape": "rect",
+   "x": 0.6817,
+   "y": 0.0176,
+   "w": 0.2288,
+   "h": 0.0816
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0837,
+    "y": 0.037,
+    "w": 0.2549,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.0185,
+    "y": 0.1615,
+    "w": 0.1419,
+    "h": 0.0844
+   },
+   {
+    "shape": "rect",
+    "x": 0.0141,
+    "y": 0.3233,
+    "w": 0.1144,
+    "h": 0.0913
+   },
+   {
+    "shape": "rect",
+    "x": 0.0156,
+    "y": 0.5377,
+    "w": 0.1043,
+    "h": 0.1189
+   },
+   {
+    "shape": "rect",
+    "x": 0.0199,
+    "y": 0.7272,
+    "w": 0.2085,
+    "h": 0.083
+   },
+   {
+    "shape": "rect",
+    "x": 0.3965,
+    "y": 0.9268,
+    "w": 0.3012,
+    "h": 0.0719
+   },
+   {
+    "shape": "rect",
+    "x": 0.6542,
+    "y": 0.8724,
+    "w": 0.2592,
+    "h": 0.0692
+   },
+   {
+    "shape": "rect",
+    "x": 0.8193,
+    "y": 0.705,
+    "w": 0.1723,
+    "h": 0.1134
+   },
+   {
+    "shape": "rect",
+    "x": 0.8657,
+    "y": 0.1407,
+    "w": 0.1216,
+    "h": 0.065
+   },
+   {
+    "shape": "rect",
+    "x": 0.6817,
+    "y": 0.0176,
+    "w": 0.2288,
+    "h": 0.0816
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943358764-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "cingulate-gyrus",
+  "status": "live",
+  "position": 1200,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943358764 cloze 1"
+  },
+  "answer": "Cingulate gyrus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",
+  "w": 986,
+  "h": 1023,
+  "target": {
+   "shape": "rect",
+   "x": 0.0328,
+   "y": 0.0951,
+   "w": 0.1708,
+   "h": 0.0954
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0328,
+    "y": 0.0951,
+    "w": 0.1708,
+    "h": 0.0954
+   },
+   {
+    "shape": "rect",
+    "x": 0.4318,
+    "y": 0.0218,
+    "w": 0.2555,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.8079,
+    "y": 0.0799,
+    "w": 0.1392,
+    "h": 0.1079
+   },
+   {
+    "shape": "rect",
+    "x": 0.7792,
+    "y": 0.7452,
+    "w": 0.2296,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.6414,
+    "y": 0.9346,
+    "w": 0.2928,
+    "h": 0.0553
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943358764-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "splenium-of-corpus-callosum",
+  "status": "live",
+  "position": 1201,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943358764 cloze 2"
+  },
+  "answer": "Splenium of corpus callosum",
+  "accept": [
+   "splenium",
+   "splenium of CC",
+   "splenium of the corpus callosum"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",
+  "w": 986,
+  "h": 1023,
+  "target": {
+   "shape": "rect",
+   "x": 0.4318,
+   "y": 0.0218,
+   "w": 0.2555,
+   "h": 0.0761
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0328,
+    "y": 0.0951,
+    "w": 0.1708,
+    "h": 0.0954
+   },
+   {
+    "shape": "rect",
+    "x": 0.4318,
+    "y": 0.0218,
+    "w": 0.2555,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.8079,
+    "y": 0.0799,
+    "w": 0.1392,
+    "h": 0.1079
+   },
+   {
+    "shape": "rect",
+    "x": 0.7792,
+    "y": 0.7452,
+    "w": 0.2296,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.6414,
+    "y": 0.9346,
+    "w": 0.2928,
+    "h": 0.0553
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943358764-c3",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "atrium-of-lateral-ventricle",
+  "status": "live",
+  "position": 1202,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943358764 cloze 3"
+  },
+  "answer": "Atrium of lateral ventricle",
+  "accept": [
+   "atrium",
+   "trigone",
+   "trigone of lateral ventricle",
+   "atrium or trigone"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",
+  "w": 986,
+  "h": 1023,
+  "target": {
+   "shape": "rect",
+   "x": 0.8079,
+   "y": 0.0799,
+   "w": 0.1392,
+   "h": 0.1079
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0328,
+    "y": 0.0951,
+    "w": 0.1708,
+    "h": 0.0954
+   },
+   {
+    "shape": "rect",
+    "x": 0.4318,
+    "y": 0.0218,
+    "w": 0.2555,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.8079,
+    "y": 0.0799,
+    "w": 0.1392,
+    "h": 0.1079
+   },
+   {
+    "shape": "rect",
+    "x": 0.7792,
+    "y": 0.7452,
+    "w": 0.2296,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.6414,
+    "y": 0.9346,
+    "w": 0.2928,
+    "h": 0.0553
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943358764-c4",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "fourth-ventricle",
+  "status": "live",
+  "position": 1203,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943358764 cloze 4"
+  },
+  "answer": "Fourth ventricle",
+  "accept": [
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",
+  "w": 986,
+  "h": 1023,
+  "target": {
+   "shape": "rect",
+   "x": 0.7792,
+   "y": 0.7452,
+   "w": 0.2296,
+   "h": 0.0567
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0328,
+    "y": 0.0951,
+    "w": 0.1708,
+    "h": 0.0954
+   },
+   {
+    "shape": "rect",
+    "x": 0.4318,
+    "y": 0.0218,
+    "w": 0.2555,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.8079,
+    "y": 0.0799,
+    "w": 0.1392,
+    "h": 0.1079
+   },
+   {
+    "shape": "rect",
+    "x": 0.7792,
+    "y": 0.7452,
+    "w": 0.2296,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.6414,
+    "y": 0.9346,
+    "w": 0.2928,
+    "h": 0.0553
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943358764-c5",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 1204,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943358764 cloze 5"
+  },
+  "answer": "Pyramids",
+  "accept": [
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",
+  "w": 986,
+  "h": 1023,
+  "target": {
+   "shape": "rect",
+   "x": 0.6414,
+   "y": 0.9346,
+   "w": 0.2928,
+   "h": 0.0553
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0328,
+    "y": 0.0951,
+    "w": 0.1708,
+    "h": 0.0954
+   },
+   {
+    "shape": "rect",
+    "x": 0.4318,
+    "y": 0.0218,
+    "w": 0.2555,
+    "h": 0.0761
+   },
+   {
+    "shape": "rect",
+    "x": 0.8079,
+    "y": 0.0799,
+    "w": 0.1392,
+    "h": 0.1079
+   },
+   {
+    "shape": "rect",
+    "x": 0.7792,
+    "y": 0.7452,
+    "w": 0.2296,
+    "h": 0.0567
+   },
+   {
+    "shape": "rect",
+    "x": 0.6414,
+    "y": 0.9346,
+    "w": 0.2928,
+    "h": 0.0553
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943373609-c1",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "dentate-nucleus",
+  "status": "live",
+  "position": 1300,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943373609 cloze 1"
+  },
+  "answer": "Dentate nucleus",
+  "accept": [
+   "dentate",
+   "lateral cerebellar nucleus"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-0f0a503af94d10a6a1ef7c216a181f498d92d2cb.webp",
+  "w": 877,
+  "h": 778,
+  "target": {
+   "shape": "rect",
+   "x": 0.098,
+   "y": 0.8033,
+   "w": 0.151,
+   "h": 0.0747
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.098,
+    "y": 0.8033,
+    "w": 0.151,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.8283,
+    "y": 0.7216,
+    "w": 0.1743,
+    "h": 0.1895
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-14-io-1773943373609-c2",
+  "kind": "pin",
+  "topic": "lab-14",
+  "structure": "posterior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 1301,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-14 note 1773943373609 cloze 2"
+  },
+  "answer": "Posterior horn of lateral ventricle",
+  "accept": [
+   "posterior horn",
+   "occipital horn",
+   "posterior horn of the lateral ventricle",
+   "occipital horn of lateral ventricle",
+   "PH"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-14/media/paste-0f0a503af94d10a6a1ef7c216a181f498d92d2cb.webp",
+  "w": 877,
+  "h": 778,
+  "target": {
+   "shape": "rect",
+   "x": 0.8283,
+   "y": 0.7216,
+   "w": 0.1743,
+   "h": 0.1895
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.098,
+    "y": 0.8033,
+    "w": 0.151,
+    "h": 0.0747
+   },
+   {
+    "shape": "rect",
+    "x": 0.8283,
+    "y": 0.7216,
+    "w": 0.1743,
+    "h": 0.1895
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ }
+]

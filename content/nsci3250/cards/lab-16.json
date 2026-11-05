@@ -1,0 +1,2937 @@
+[
+ {
+  "slug": "lab-16-io-1775055004116-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-communicating-artery",
+  "status": "live",
+  "position": 100,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055004116 cloze 1"
+  },
+  "answer": "Posterior communicating artery",
+  "accept": [
+   "PCom",
+   "PComA",
+   "PCoA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp",
+  "w": 1186,
+  "h": 644,
+  "target": {
+   "shape": "rect",
+   "x": 0.1279,
+   "y": 0.0872,
+   "w": 0.1743,
+   "h": 0.1709
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1279,
+    "y": 0.0872,
+    "w": 0.1743,
+    "h": 0.1709
+   },
+   {
+    "shape": "rect",
+    "x": 0.1593,
+    "y": 0.3423,
+    "w": 0.1871,
+    "h": 0.1525
+   },
+   {
+    "shape": "rect",
+    "x": 0.5821,
+    "y": 0.6919,
+    "w": 0.1914,
+    "h": 0.071
+   },
+   {
+    "shape": "rect",
+    "x": 0.6221,
+    "y": 0.4685,
+    "w": 0.1757,
+    "h": 0.0815
+   },
+   {
+    "shape": "rect",
+    "x": 0.6121,
+    "y": 0.358,
+    "w": 0.1814,
+    "h": 0.0657
+   },
+   {
+    "shape": "rect",
+    "x": 0.6279,
+    "y": 0.1503,
+    "w": 0.2429,
+    "h": 0.1236
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055004116-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 101,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055004116 cloze 2"
+  },
+  "answer": "Superior cerebellar artery",
+  "accept": [
+   "superior cerebellar a.",
+   "SCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp",
+  "w": 1186,
+  "h": 644,
+  "target": {
+   "shape": "rect",
+   "x": 0.1593,
+   "y": 0.3423,
+   "w": 0.1871,
+   "h": 0.1525
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1279,
+    "y": 0.0872,
+    "w": 0.1743,
+    "h": 0.1709
+   },
+   {
+    "shape": "rect",
+    "x": 0.1593,
+    "y": 0.3423,
+    "w": 0.1871,
+    "h": 0.1525
+   },
+   {
+    "shape": "rect",
+    "x": 0.5821,
+    "y": 0.6919,
+    "w": 0.1914,
+    "h": 0.071
+   },
+   {
+    "shape": "rect",
+    "x": 0.6221,
+    "y": 0.4685,
+    "w": 0.1757,
+    "h": 0.0815
+   },
+   {
+    "shape": "rect",
+    "x": 0.6121,
+    "y": 0.358,
+    "w": 0.1814,
+    "h": 0.0657
+   },
+   {
+    "shape": "rect",
+    "x": 0.6279,
+    "y": 0.1503,
+    "w": 0.2429,
+    "h": 0.1236
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055004116-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "vertebral-artery",
+  "status": "live",
+  "position": 102,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055004116 cloze 3"
+  },
+  "answer": "Vertebral artery",
+  "accept": [
+   "vertebral arteries",
+   "VA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp",
+  "w": 1186,
+  "h": 644,
+  "target": {
+   "shape": "rect",
+   "x": 0.5821,
+   "y": 0.6919,
+   "w": 0.1914,
+   "h": 0.071
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1279,
+    "y": 0.0872,
+    "w": 0.1743,
+    "h": 0.1709
+   },
+   {
+    "shape": "rect",
+    "x": 0.1593,
+    "y": 0.3423,
+    "w": 0.1871,
+    "h": 0.1525
+   },
+   {
+    "shape": "rect",
+    "x": 0.5821,
+    "y": 0.6919,
+    "w": 0.1914,
+    "h": 0.071
+   },
+   {
+    "shape": "rect",
+    "x": 0.6221,
+    "y": 0.4685,
+    "w": 0.1757,
+    "h": 0.0815
+   },
+   {
+    "shape": "rect",
+    "x": 0.6121,
+    "y": 0.358,
+    "w": 0.1814,
+    "h": 0.0657
+   },
+   {
+    "shape": "rect",
+    "x": 0.6279,
+    "y": 0.1503,
+    "w": 0.2429,
+    "h": 0.1236
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055004116-c4",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "basilar-artery",
+  "status": "live",
+  "position": 103,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055004116 cloze 4"
+  },
+  "answer": "Basilar artery",
+  "accept": [
+   "basilar"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp",
+  "w": 1186,
+  "h": 644,
+  "target": {
+   "shape": "rect",
+   "x": 0.6221,
+   "y": 0.4685,
+   "w": 0.1757,
+   "h": 0.0815
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1279,
+    "y": 0.0872,
+    "w": 0.1743,
+    "h": 0.1709
+   },
+   {
+    "shape": "rect",
+    "x": 0.1593,
+    "y": 0.3423,
+    "w": 0.1871,
+    "h": 0.1525
+   },
+   {
+    "shape": "rect",
+    "x": 0.5821,
+    "y": 0.6919,
+    "w": 0.1914,
+    "h": 0.071
+   },
+   {
+    "shape": "rect",
+    "x": 0.6221,
+    "y": 0.4685,
+    "w": 0.1757,
+    "h": 0.0815
+   },
+   {
+    "shape": "rect",
+    "x": 0.6121,
+    "y": 0.358,
+    "w": 0.1814,
+    "h": 0.0657
+   },
+   {
+    "shape": "rect",
+    "x": 0.6279,
+    "y": 0.1503,
+    "w": 0.2429,
+    "h": 0.1236
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055004116-c5",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "pontine-arteries",
+  "status": "live",
+  "position": 104,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055004116 cloze 5"
+  },
+  "answer": "Pontine arteries",
+  "accept": [
+   "pontine branches",
+   "pontine artery"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp",
+  "w": 1186,
+  "h": 644,
+  "target": {
+   "shape": "rect",
+   "x": 0.6121,
+   "y": 0.358,
+   "w": 0.1814,
+   "h": 0.0657
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1279,
+    "y": 0.0872,
+    "w": 0.1743,
+    "h": 0.1709
+   },
+   {
+    "shape": "rect",
+    "x": 0.1593,
+    "y": 0.3423,
+    "w": 0.1871,
+    "h": 0.1525
+   },
+   {
+    "shape": "rect",
+    "x": 0.5821,
+    "y": 0.6919,
+    "w": 0.1914,
+    "h": 0.071
+   },
+   {
+    "shape": "rect",
+    "x": 0.6221,
+    "y": 0.4685,
+    "w": 0.1757,
+    "h": 0.0815
+   },
+   {
+    "shape": "rect",
+    "x": 0.6121,
+    "y": 0.358,
+    "w": 0.1814,
+    "h": 0.0657
+   },
+   {
+    "shape": "rect",
+    "x": 0.6279,
+    "y": 0.1503,
+    "w": 0.2429,
+    "h": 0.1236
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055004116-c6",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 105,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055004116 cloze 6"
+  },
+  "answer": "Posterior cerebral artery",
+  "accept": [
+   "PCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp",
+  "w": 1186,
+  "h": 644,
+  "target": {
+   "shape": "rect",
+   "x": 0.6279,
+   "y": 0.1503,
+   "w": 0.2429,
+   "h": 0.1236
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1279,
+    "y": 0.0872,
+    "w": 0.1743,
+    "h": 0.1709
+   },
+   {
+    "shape": "rect",
+    "x": 0.1593,
+    "y": 0.3423,
+    "w": 0.1871,
+    "h": 0.1525
+   },
+   {
+    "shape": "rect",
+    "x": 0.5821,
+    "y": 0.6919,
+    "w": 0.1914,
+    "h": 0.071
+   },
+   {
+    "shape": "rect",
+    "x": 0.6221,
+    "y": 0.4685,
+    "w": 0.1757,
+    "h": 0.0815
+   },
+   {
+    "shape": "rect",
+    "x": 0.6121,
+    "y": 0.358,
+    "w": 0.1814,
+    "h": 0.0657
+   },
+   {
+    "shape": "rect",
+    "x": 0.6279,
+    "y": 0.1503,
+    "w": 0.2429,
+    "h": 0.1236
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055086584-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 200,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055086584 cloze 1"
+  },
+  "answer": "Superior cerebellar artery",
+  "accept": [
+   "superior cerebellar a.",
+   "SCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-4de1c3b248b85589c9331440abbcd4c615ad64b5.webp",
+  "w": 1314,
+  "h": 864,
+  "target": {
+   "shape": "rect",
+   "x": 0.0379,
+   "y": 0.6194,
+   "w": 0.2171,
+   "h": 0.0369
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0379,
+    "y": 0.6194,
+    "w": 0.2171,
+    "h": 0.0369
+   },
+   {
+    "shape": "rect",
+    "x": 0.7179,
+    "y": 0.1743,
+    "w": 0.1857,
+    "h": 0.1086
+   },
+   {
+    "shape": "rect",
+    "x": 0.7264,
+    "y": 0.3849,
+    "w": 0.1886,
+    "h": 0.063
+   },
+   {
+    "shape": "rect",
+    "x": 0.7107,
+    "y": 0.6021,
+    "w": 0.2029,
+    "h": 0.0738
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055086584-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 201,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055086584 cloze 2"
+  },
+  "answer": "Posterior cerebral artery",
+  "accept": [
+   "PCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-4de1c3b248b85589c9331440abbcd4c615ad64b5.webp",
+  "w": 1314,
+  "h": 864,
+  "target": {
+   "shape": "rect",
+   "x": 0.7179,
+   "y": 0.1743,
+   "w": 0.1857,
+   "h": 0.1086
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0379,
+    "y": 0.6194,
+    "w": 0.2171,
+    "h": 0.0369
+   },
+   {
+    "shape": "rect",
+    "x": 0.7179,
+    "y": 0.1743,
+    "w": 0.1857,
+    "h": 0.1086
+   },
+   {
+    "shape": "rect",
+    "x": 0.7264,
+    "y": 0.3849,
+    "w": 0.1886,
+    "h": 0.063
+   },
+   {
+    "shape": "rect",
+    "x": 0.7107,
+    "y": 0.6021,
+    "w": 0.2029,
+    "h": 0.0738
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055086584-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "basilar-artery",
+  "status": "live",
+  "position": 202,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055086584 cloze 3"
+  },
+  "answer": "Basilar artery",
+  "accept": [
+   "basilar"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-4de1c3b248b85589c9331440abbcd4c615ad64b5.webp",
+  "w": 1314,
+  "h": 864,
+  "target": {
+   "shape": "rect",
+   "x": 0.7264,
+   "y": 0.3849,
+   "w": 0.1886,
+   "h": 0.063
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0379,
+    "y": 0.6194,
+    "w": 0.2171,
+    "h": 0.0369
+   },
+   {
+    "shape": "rect",
+    "x": 0.7179,
+    "y": 0.1743,
+    "w": 0.1857,
+    "h": 0.1086
+   },
+   {
+    "shape": "rect",
+    "x": 0.7264,
+    "y": 0.3849,
+    "w": 0.1886,
+    "h": 0.063
+   },
+   {
+    "shape": "rect",
+    "x": 0.7107,
+    "y": 0.6021,
+    "w": 0.2029,
+    "h": 0.0738
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055086584-c4",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "vertebral-artery",
+  "status": "live",
+  "position": 203,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055086584 cloze 4"
+  },
+  "answer": "Vertebral artery",
+  "accept": [
+   "vertebral arteries",
+   "VA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-4de1c3b248b85589c9331440abbcd4c615ad64b5.webp",
+  "w": 1314,
+  "h": 864,
+  "target": {
+   "shape": "rect",
+   "x": 0.7107,
+   "y": 0.6021,
+   "w": 0.2029,
+   "h": 0.0738
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0379,
+    "y": 0.6194,
+    "w": 0.2171,
+    "h": 0.0369
+   },
+   {
+    "shape": "rect",
+    "x": 0.7179,
+    "y": 0.1743,
+    "w": 0.1857,
+    "h": 0.1086
+   },
+   {
+    "shape": "rect",
+    "x": 0.7264,
+    "y": 0.3849,
+    "w": 0.1886,
+    "h": 0.063
+   },
+   {
+    "shape": "rect",
+    "x": 0.7107,
+    "y": 0.6021,
+    "w": 0.2029,
+    "h": 0.0738
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055111921-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 300,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055111921 cloze 1"
+  },
+  "answer": "Posterior cerebral artery",
+  "accept": [
+   "PCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp",
+  "w": 1258,
+  "h": 540,
+  "target": {
+   "shape": "rect",
+   "x": 0.075,
+   "y": 0.5732,
+   "w": 0.2557,
+   "h": 0.0463
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.075,
+    "y": 0.5732,
+    "w": 0.2557,
+    "h": 0.0463
+   },
+   {
+    "shape": "rect",
+    "x": 0.0636,
+    "y": 0.6995,
+    "w": 0.14,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.0607,
+    "y": 0.7527,
+    "w": 0.1729,
+    "h": 0.0765
+   },
+   {
+    "shape": "rect",
+    "x": 0.0721,
+    "y": 0.6264,
+    "w": 0.2571,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.8807,
+    "y": 0.0876,
+    "w": 0.0829,
+    "h": 0.0831
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055111921-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "basilar-artery",
+  "status": "live",
+  "position": 301,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055111921 cloze 2"
+  },
+  "answer": "Basilar artery",
+  "accept": [
+   "basilar"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp",
+  "w": 1258,
+  "h": 540,
+  "target": {
+   "shape": "rect",
+   "x": 0.0636,
+   "y": 0.6995,
+   "w": 0.14,
+   "h": 0.0565
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.075,
+    "y": 0.5732,
+    "w": 0.2557,
+    "h": 0.0463
+   },
+   {
+    "shape": "rect",
+    "x": 0.0636,
+    "y": 0.6995,
+    "w": 0.14,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.0607,
+    "y": 0.7527,
+    "w": 0.1729,
+    "h": 0.0765
+   },
+   {
+    "shape": "rect",
+    "x": 0.0721,
+    "y": 0.6264,
+    "w": 0.2571,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.8807,
+    "y": 0.0876,
+    "w": 0.0829,
+    "h": 0.0831
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055111921-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "oculomotor-nerve",
+  "status": "live",
+  "position": 302,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055111921 cloze 3"
+  },
+  "answer": "Oculomotor nerve",
+  "accept": [
+   "cranial nerve III",
+   "cranial nerve 3",
+   "oculomotor",
+   "3rd cranial nerve",
+   "III",
+   "CN III"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp",
+  "w": 1258,
+  "h": 540,
+  "target": {
+   "shape": "rect",
+   "x": 0.0607,
+   "y": 0.7527,
+   "w": 0.1729,
+   "h": 0.0765
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.075,
+    "y": 0.5732,
+    "w": 0.2557,
+    "h": 0.0463
+   },
+   {
+    "shape": "rect",
+    "x": 0.0636,
+    "y": 0.6995,
+    "w": 0.14,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.0607,
+    "y": 0.7527,
+    "w": 0.1729,
+    "h": 0.0765
+   },
+   {
+    "shape": "rect",
+    "x": 0.0721,
+    "y": 0.6264,
+    "w": 0.2571,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.8807,
+    "y": 0.0876,
+    "w": 0.0829,
+    "h": 0.0831
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055111921-c4",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 303,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055111921 cloze 4"
+  },
+  "answer": "Superior cerebellar artery",
+  "accept": [
+   "superior cerebellar a.",
+   "SCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp",
+  "w": 1258,
+  "h": 540,
+  "target": {
+   "shape": "rect",
+   "x": 0.0721,
+   "y": 0.6264,
+   "w": 0.2571,
+   "h": 0.0565
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.075,
+    "y": 0.5732,
+    "w": 0.2557,
+    "h": 0.0463
+   },
+   {
+    "shape": "rect",
+    "x": 0.0636,
+    "y": 0.6995,
+    "w": 0.14,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.0607,
+    "y": 0.7527,
+    "w": 0.1729,
+    "h": 0.0765
+   },
+   {
+    "shape": "rect",
+    "x": 0.0721,
+    "y": 0.6264,
+    "w": 0.2571,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.8807,
+    "y": 0.0876,
+    "w": 0.0829,
+    "h": 0.0831
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055111921-c5",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "uncus",
+  "status": "live",
+  "position": 304,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055111921 cloze 5"
+  },
+  "answer": "Uncus",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp",
+  "w": 1258,
+  "h": 540,
+  "target": {
+   "shape": "rect",
+   "x": 0.8807,
+   "y": 0.0876,
+   "w": 0.0829,
+   "h": 0.0831
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.075,
+    "y": 0.5732,
+    "w": 0.2557,
+    "h": 0.0463
+   },
+   {
+    "shape": "rect",
+    "x": 0.0636,
+    "y": 0.6995,
+    "w": 0.14,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.0607,
+    "y": 0.7527,
+    "w": 0.1729,
+    "h": 0.0765
+   },
+   {
+    "shape": "rect",
+    "x": 0.0721,
+    "y": 0.6264,
+    "w": 0.2571,
+    "h": 0.0565
+   },
+   {
+    "shape": "rect",
+    "x": 0.8807,
+    "y": 0.0876,
+    "w": 0.0829,
+    "h": 0.0831
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055132295-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 400,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055132295 cloze 1"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-8fb985f049fb5b1cac6f2f7574098769d654fb00.webp",
+  "w": 1276,
+  "h": 823,
+  "target": {
+   "shape": "rect",
+   "x": 0.0093,
+   "y": 0.0394,
+   "w": 0.1871,
+   "h": 0.1085
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0093,
+    "y": 0.0394,
+    "w": 0.1871,
+    "h": 0.1085
+   },
+   {
+    "shape": "rect",
+    "x": 0.0193,
+    "y": 0.5465,
+    "w": 0.15,
+    "h": 0.0886
+   },
+   {
+    "shape": "rect",
+    "x": 0.8536,
+    "y": 0.6772,
+    "w": 0.1029,
+    "h": 0.1351
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055132295-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 401,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055132295 cloze 2"
+  },
+  "answer": "Middle cerebral artery",
+  "accept": [
+   "MCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-8fb985f049fb5b1cac6f2f7574098769d654fb00.webp",
+  "w": 1276,
+  "h": 823,
+  "target": {
+   "shape": "rect",
+   "x": 0.0193,
+   "y": 0.5465,
+   "w": 0.15,
+   "h": 0.0886
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0093,
+    "y": 0.0394,
+    "w": 0.1871,
+    "h": 0.1085
+   },
+   {
+    "shape": "rect",
+    "x": 0.0193,
+    "y": 0.5465,
+    "w": 0.15,
+    "h": 0.0886
+   },
+   {
+    "shape": "rect",
+    "x": 0.8536,
+    "y": 0.6772,
+    "w": 0.1029,
+    "h": 0.1351
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055132295-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "internal-carotid-artery",
+  "status": "live",
+  "position": 402,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055132295 cloze 3"
+  },
+  "answer": "Internal carotid artery",
+  "accept": [
+   "internal carotid arteries",
+   "internal carotid",
+   "ICA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-8fb985f049fb5b1cac6f2f7574098769d654fb00.webp",
+  "w": 1276,
+  "h": 823,
+  "target": {
+   "shape": "rect",
+   "x": 0.8536,
+   "y": 0.6772,
+   "w": 0.1029,
+   "h": 0.1351
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0093,
+    "y": 0.0394,
+    "w": 0.1871,
+    "h": 0.1085
+   },
+   {
+    "shape": "rect",
+    "x": 0.0193,
+    "y": 0.5465,
+    "w": 0.15,
+    "h": 0.0886
+   },
+   {
+    "shape": "rect",
+    "x": 0.8536,
+    "y": 0.6772,
+    "w": 0.1029,
+    "h": 0.1351
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055155139-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-communicating-artery",
+  "status": "live",
+  "position": 500,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055155139 cloze 1"
+  },
+  "answer": "Anterior communicating artery",
+  "accept": [
+   "ACom",
+   "AComA",
+   "ACoA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-5697892fbb8c72c63deeda61d9f91b410037962b.webp",
+  "w": 895,
+  "h": 357,
+  "target": {
+   "shape": "polygon",
+   "points": [
+    [
+     0.3993,
+     0.3392
+    ],
+    [
+     0.2907,
+     0.2391
+    ],
+    [
+     0.155,
+     0.232
+    ],
+    [
+     0.0436,
+     0.3999
+    ],
+    [
+     0.0521,
+     0.475
+    ],
+    [
+     0.3464,
+     0.4714
+    ],
+    [
+     0.4021,
+     0.4571
+    ]
+   ]
+  },
+  "masks": [
+   {
+    "shape": "polygon",
+    "points": [
+     [
+      0.3993,
+      0.3392
+     ],
+     [
+      0.2907,
+      0.2391
+     ],
+     [
+      0.155,
+      0.232
+     ],
+     [
+      0.0436,
+      0.3999
+     ],
+     [
+      0.0521,
+      0.475
+     ],
+     [
+      0.3464,
+      0.4714
+     ],
+     [
+      0.4021,
+      0.4571
+     ]
+    ]
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055174768-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "callosomarginal-artery",
+  "status": "live",
+  "position": 600,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055174768 cloze 1"
+  },
+  "answer": "Callosomarginal artery",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-3c7d8a0142ae95d52dfd614378d5794fff4ec317.webp",
+  "w": 1291,
+  "h": 550,
+  "target": {
+   "shape": "rect",
+   "x": 0.0936,
+   "y": 0.0949,
+   "w": 0.2443,
+   "h": 0.0971
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0936,
+    "y": 0.0949,
+    "w": 0.2443,
+    "h": 0.0971
+   },
+   {
+    "shape": "rect",
+    "x": 0.4621,
+    "y": 0.0012,
+    "w": 0.2143,
+    "h": 0.0703
+   },
+   {
+    "shape": "rect",
+    "x": 0.0364,
+    "y": 0.6741,
+    "w": 0.2657,
+    "h": 0.1105
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055174768-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": null,
+  "status": "live",
+  "position": 601,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055174768 cloze 2"
+  },
+  "answer": "Pericallosal a",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-3c7d8a0142ae95d52dfd614378d5794fff4ec317.webp",
+  "w": 1291,
+  "h": 550,
+  "target": {
+   "shape": "rect",
+   "x": 0.4621,
+   "y": 0.0012,
+   "w": 0.2143,
+   "h": 0.0703
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0936,
+    "y": 0.0949,
+    "w": 0.2443,
+    "h": 0.0971
+   },
+   {
+    "shape": "rect",
+    "x": 0.4621,
+    "y": 0.0012,
+    "w": 0.2143,
+    "h": 0.0703
+   },
+   {
+    "shape": "rect",
+    "x": 0.0364,
+    "y": 0.6741,
+    "w": 0.2657,
+    "h": 0.1105
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055174768-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 602,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055174768 cloze 3"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-3c7d8a0142ae95d52dfd614378d5794fff4ec317.webp",
+  "w": 1291,
+  "h": 550,
+  "target": {
+   "shape": "rect",
+   "x": 0.0364,
+   "y": 0.6741,
+   "w": 0.2657,
+   "h": 0.1105
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0936,
+    "y": 0.0949,
+    "w": 0.2443,
+    "h": 0.0971
+   },
+   {
+    "shape": "rect",
+    "x": 0.4621,
+    "y": 0.0012,
+    "w": 0.2143,
+    "h": 0.0703
+   },
+   {
+    "shape": "rect",
+    "x": 0.0364,
+    "y": 0.6741,
+    "w": 0.2657,
+    "h": 0.1105
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055186851-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "pericallosal-artery",
+  "status": "live",
+  "position": 700,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055186851 cloze 1"
+  },
+  "answer": "Pericallosal artery",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-2e8174e7ff2cd6dc15f08df3276adf0e4b3b19fd.webp",
+  "w": 1252,
+  "h": 694,
+  "target": {
+   "shape": "rect",
+   "x": 0.0579,
+   "y": 0.173,
+   "w": 0.1443,
+   "h": 0.1107
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0579,
+    "y": 0.173,
+    "w": 0.1443,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.025,
+    "y": 0.4665,
+    "w": 0.2186,
+    "h": 0.1159
+   },
+   {
+    "shape": "rect",
+    "x": 0.0493,
+    "y": 0.6931,
+    "w": 0.23,
+    "h": 0.1494
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055186851-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "callosomarginal-artery",
+  "status": "live",
+  "position": 701,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055186851 cloze 2"
+  },
+  "answer": "Callosomarginal artery",
+  "accept": [],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-2e8174e7ff2cd6dc15f08df3276adf0e4b3b19fd.webp",
+  "w": 1252,
+  "h": 694,
+  "target": {
+   "shape": "rect",
+   "x": 0.025,
+   "y": 0.4665,
+   "w": 0.2186,
+   "h": 0.1159
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0579,
+    "y": 0.173,
+    "w": 0.1443,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.025,
+    "y": 0.4665,
+    "w": 0.2186,
+    "h": 0.1159
+   },
+   {
+    "shape": "rect",
+    "x": 0.0493,
+    "y": 0.6931,
+    "w": 0.23,
+    "h": 0.1494
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775055186851-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 702,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775055186851 cloze 3"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-2e8174e7ff2cd6dc15f08df3276adf0e4b3b19fd.webp",
+  "w": 1252,
+  "h": 694,
+  "target": {
+   "shape": "rect",
+   "x": 0.0493,
+   "y": 0.6931,
+   "w": 0.23,
+   "h": 0.1494
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0579,
+    "y": 0.173,
+    "w": 0.1443,
+    "h": 0.1107
+   },
+   {
+    "shape": "rect",
+    "x": 0.025,
+    "y": 0.4665,
+    "w": 0.2186,
+    "h": 0.1159
+   },
+   {
+    "shape": "rect",
+    "x": 0.0493,
+    "y": 0.6931,
+    "w": 0.23,
+    "h": 0.1494
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134387630-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 800,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134387630 cloze 1"
+  },
+  "answer": "Middle cerebral artery",
+  "accept": [
+   "MCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-272b2aa29d177e95fb077c2ed59e04c19c1ddadc.webp",
+  "w": 1265,
+  "h": 1109,
+  "target": {
+   "shape": "rect",
+   "x": 0.4721,
+   "y": 0.4136,
+   "w": 0.1314,
+   "h": 0.1011
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.4721,
+    "y": 0.4136,
+    "w": 0.1314,
+    "h": 0.1011
+   },
+   {
+    "shape": "polygon",
+    "points": [
+     [
+      0.2921,
+      0.6679
+     ],
+     [
+      0.5307,
+      0.8293
+     ],
+     [
+      0.4464,
+      0.9206
+     ],
+     [
+      0.255,
+      0.7837
+     ]
+    ]
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134387630-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "lenticulostriate-arteries",
+  "status": "live",
+  "position": 801,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134387630 cloze 2"
+  },
+  "answer": "Lenticulostriate arteries",
+  "accept": [
+   "lenticulostriate",
+   "lenticulostriate branches",
+   "lateral striate arteries"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-272b2aa29d177e95fb077c2ed59e04c19c1ddadc.webp",
+  "w": 1265,
+  "h": 1109,
+  "target": {
+   "shape": "polygon",
+   "points": [
+    [
+     0.2921,
+     0.6679
+    ],
+    [
+     0.5307,
+     0.8293
+    ],
+    [
+     0.4464,
+     0.9206
+    ],
+    [
+     0.255,
+     0.7837
+    ]
+   ]
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.4721,
+    "y": 0.4136,
+    "w": 0.1314,
+    "h": 0.1011
+   },
+   {
+    "shape": "polygon",
+    "points": [
+     [
+      0.2921,
+      0.6679
+     ],
+     [
+      0.5307,
+      0.8293
+     ],
+     [
+      0.4464,
+      0.9206
+     ],
+     [
+      0.255,
+      0.7837
+     ]
+    ]
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134406721-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-perforated-substance",
+  "status": "live",
+  "position": 900,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134406721 cloze 1"
+  },
+  "answer": "Anterior perforated substance",
+  "accept": [
+   "anterior perforated space",
+   "APS"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9246ebae8621cd4ea1d0cfdbf59a2bf15a3198a3.webp",
+  "w": 844,
+  "h": 803,
+  "target": {
+   "shape": "rect",
+   "x": 0.1336,
+   "y": 0.8966,
+   "w": 0.71,
+   "h": 0.0856
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.1336,
+    "y": 0.8966,
+    "w": 0.71,
+    "h": 0.0856
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134440987-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 1000,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134440987 cloze 1"
+  },
+  "answer": "Middle cerebral artery",
+  "accept": [
+   "MCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp",
+  "w": 1135,
+  "h": 1147,
+  "target": {
+   "shape": "rect",
+   "x": 0.0436,
+   "y": 0.0346,
+   "w": 0.2729,
+   "h": 0.1047
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0436,
+    "y": 0.0346,
+    "w": 0.2729,
+    "h": 0.1047
+   },
+   {
+    "shape": "rect",
+    "x": 0.3393,
+    "y": 0.0884,
+    "w": 0.1557,
+    "h": 0.1315
+   },
+   {
+    "shape": "rect",
+    "x": 0.7064,
+    "y": 0.0488,
+    "w": 0.3,
+    "h": 0.1301
+   },
+   {
+    "shape": "rect",
+    "x": 0.7721,
+    "y": 0.2086,
+    "w": 0.2129,
+    "h": 0.1259
+   },
+   {
+    "shape": "rect",
+    "x": 0.035,
+    "y": 0.6754,
+    "w": 0.2229,
+    "h": 0.1245
+   },
+   {
+    "shape": "rect",
+    "x": 0.1821,
+    "y": 0.8225,
+    "w": 0.3371,
+    "h": 0.1485
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134440987-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 1001,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134440987 cloze 2"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp",
+  "w": 1135,
+  "h": 1147,
+  "target": {
+   "shape": "rect",
+   "x": 0.3393,
+   "y": 0.0884,
+   "w": 0.1557,
+   "h": 0.1315
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0436,
+    "y": 0.0346,
+    "w": 0.2729,
+    "h": 0.1047
+   },
+   {
+    "shape": "rect",
+    "x": 0.3393,
+    "y": 0.0884,
+    "w": 0.1557,
+    "h": 0.1315
+   },
+   {
+    "shape": "rect",
+    "x": 0.7064,
+    "y": 0.0488,
+    "w": 0.3,
+    "h": 0.1301
+   },
+   {
+    "shape": "rect",
+    "x": 0.7721,
+    "y": 0.2086,
+    "w": 0.2129,
+    "h": 0.1259
+   },
+   {
+    "shape": "rect",
+    "x": 0.035,
+    "y": 0.6754,
+    "w": 0.2229,
+    "h": 0.1245
+   },
+   {
+    "shape": "rect",
+    "x": 0.1821,
+    "y": 0.8225,
+    "w": 0.3371,
+    "h": 0.1485
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134440987-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-communicating-artery",
+  "status": "live",
+  "position": 1002,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134440987 cloze 3"
+  },
+  "answer": "Anterior communicating artery",
+  "accept": [
+   "ACom",
+   "AComA",
+   "ACoA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp",
+  "w": 1135,
+  "h": 1147,
+  "target": {
+   "shape": "rect",
+   "x": 0.7064,
+   "y": 0.0488,
+   "w": 0.3,
+   "h": 0.1301
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0436,
+    "y": 0.0346,
+    "w": 0.2729,
+    "h": 0.1047
+   },
+   {
+    "shape": "rect",
+    "x": 0.3393,
+    "y": 0.0884,
+    "w": 0.1557,
+    "h": 0.1315
+   },
+   {
+    "shape": "rect",
+    "x": 0.7064,
+    "y": 0.0488,
+    "w": 0.3,
+    "h": 0.1301
+   },
+   {
+    "shape": "rect",
+    "x": 0.7721,
+    "y": 0.2086,
+    "w": 0.2129,
+    "h": 0.1259
+   },
+   {
+    "shape": "rect",
+    "x": 0.035,
+    "y": 0.6754,
+    "w": 0.2229,
+    "h": 0.1245
+   },
+   {
+    "shape": "rect",
+    "x": 0.1821,
+    "y": 0.8225,
+    "w": 0.3371,
+    "h": 0.1485
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134440987-c4",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 1003,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134440987 cloze 4"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp",
+  "w": 1135,
+  "h": 1147,
+  "target": {
+   "shape": "rect",
+   "x": 0.7721,
+   "y": 0.2086,
+   "w": 0.2129,
+   "h": 0.1259
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0436,
+    "y": 0.0346,
+    "w": 0.2729,
+    "h": 0.1047
+   },
+   {
+    "shape": "rect",
+    "x": 0.3393,
+    "y": 0.0884,
+    "w": 0.1557,
+    "h": 0.1315
+   },
+   {
+    "shape": "rect",
+    "x": 0.7064,
+    "y": 0.0488,
+    "w": 0.3,
+    "h": 0.1301
+   },
+   {
+    "shape": "rect",
+    "x": 0.7721,
+    "y": 0.2086,
+    "w": 0.2129,
+    "h": 0.1259
+   },
+   {
+    "shape": "rect",
+    "x": 0.035,
+    "y": 0.6754,
+    "w": 0.2229,
+    "h": 0.1245
+   },
+   {
+    "shape": "rect",
+    "x": 0.1821,
+    "y": 0.8225,
+    "w": 0.3371,
+    "h": 0.1485
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134440987-c5",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 1004,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134440987 cloze 5"
+  },
+  "answer": "Posterior cerebral artery",
+  "accept": [
+   "PCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp",
+  "w": 1135,
+  "h": 1147,
+  "target": {
+   "shape": "rect",
+   "x": 0.035,
+   "y": 0.6754,
+   "w": 0.2229,
+   "h": 0.1245
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0436,
+    "y": 0.0346,
+    "w": 0.2729,
+    "h": 0.1047
+   },
+   {
+    "shape": "rect",
+    "x": 0.3393,
+    "y": 0.0884,
+    "w": 0.1557,
+    "h": 0.1315
+   },
+   {
+    "shape": "rect",
+    "x": 0.7064,
+    "y": 0.0488,
+    "w": 0.3,
+    "h": 0.1301
+   },
+   {
+    "shape": "rect",
+    "x": 0.7721,
+    "y": 0.2086,
+    "w": 0.2129,
+    "h": 0.1259
+   },
+   {
+    "shape": "rect",
+    "x": 0.035,
+    "y": 0.6754,
+    "w": 0.2229,
+    "h": 0.1245
+   },
+   {
+    "shape": "rect",
+    "x": 0.1821,
+    "y": 0.8225,
+    "w": 0.3371,
+    "h": 0.1485
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134440987-c6",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-communicating-artery",
+  "status": "live",
+  "position": 1005,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134440987 cloze 6"
+  },
+  "answer": "Posterior communicating artery",
+  "accept": [
+   "PCom",
+   "PComA",
+   "PCoA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp",
+  "w": 1135,
+  "h": 1147,
+  "target": {
+   "shape": "rect",
+   "x": 0.1821,
+   "y": 0.8225,
+   "w": 0.3371,
+   "h": 0.1485
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0436,
+    "y": 0.0346,
+    "w": 0.2729,
+    "h": 0.1047
+   },
+   {
+    "shape": "rect",
+    "x": 0.3393,
+    "y": 0.0884,
+    "w": 0.1557,
+    "h": 0.1315
+   },
+   {
+    "shape": "rect",
+    "x": 0.7064,
+    "y": 0.0488,
+    "w": 0.3,
+    "h": 0.1301
+   },
+   {
+    "shape": "rect",
+    "x": 0.7721,
+    "y": 0.2086,
+    "w": 0.2129,
+    "h": 0.1259
+   },
+   {
+    "shape": "rect",
+    "x": 0.035,
+    "y": 0.6754,
+    "w": 0.2229,
+    "h": 0.1245
+   },
+   {
+    "shape": "rect",
+    "x": 0.1821,
+    "y": 0.8225,
+    "w": 0.3371,
+    "h": 0.1485
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134468738-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "internal-carotid-artery",
+  "status": "live",
+  "position": 1100,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134468738 cloze 1"
+  },
+  "answer": "Internal carotid artery",
+  "accept": [
+   "internal carotid arteries",
+   "internal carotid",
+   "ICA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp",
+  "w": 1732,
+  "h": 1017,
+  "target": {
+   "shape": "rect",
+   "x": 0.3807,
+   "y": 0.8866,
+   "w": 0.37,
+   "h": 0.0778
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.3807,
+    "y": 0.8866,
+    "w": 0.37,
+    "h": 0.0778
+   },
+   {
+    "shape": "rect",
+    "x": 0.555,
+    "y": 0.6192,
+    "w": 0.0571,
+    "h": 0.1143
+   },
+   {
+    "shape": "rect",
+    "x": 0.485,
+    "y": 0.4489,
+    "w": 0.1886,
+    "h": 0.1605
+   },
+   {
+    "shape": "rect",
+    "x": 0.545,
+    "y": 0.3419,
+    "w": 0.0843,
+    "h": 0.09
+   },
+   {
+    "shape": "rect",
+    "x": 0.5436,
+    "y": 0.2447,
+    "w": 0.0843,
+    "h": 0.0827
+   },
+   {
+    "shape": "rect",
+    "x": 0.4807,
+    "y": 0.0696,
+    "w": 0.2243,
+    "h": 0.1702
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134468738-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 1101,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134468738 cloze 2"
+  },
+  "answer": "Posterior cerebral artery",
+  "accept": [
+   "PCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp",
+  "w": 1732,
+  "h": 1017,
+  "target": {
+   "shape": "rect",
+   "x": 0.555,
+   "y": 0.6192,
+   "w": 0.0571,
+   "h": 0.1143
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.3807,
+    "y": 0.8866,
+    "w": 0.37,
+    "h": 0.0778
+   },
+   {
+    "shape": "rect",
+    "x": 0.555,
+    "y": 0.6192,
+    "w": 0.0571,
+    "h": 0.1143
+   },
+   {
+    "shape": "rect",
+    "x": 0.485,
+    "y": 0.4489,
+    "w": 0.1886,
+    "h": 0.1605
+   },
+   {
+    "shape": "rect",
+    "x": 0.545,
+    "y": 0.3419,
+    "w": 0.0843,
+    "h": 0.09
+   },
+   {
+    "shape": "rect",
+    "x": 0.5436,
+    "y": 0.2447,
+    "w": 0.0843,
+    "h": 0.0827
+   },
+   {
+    "shape": "rect",
+    "x": 0.4807,
+    "y": 0.0696,
+    "w": 0.2243,
+    "h": 0.1702
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134468738-c3",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-communicating-artery",
+  "status": "live",
+  "position": 1102,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134468738 cloze 3"
+  },
+  "answer": "Posterior communicating artery",
+  "accept": [
+   "PCom",
+   "PComA",
+   "PCoA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp",
+  "w": 1732,
+  "h": 1017,
+  "target": {
+   "shape": "rect",
+   "x": 0.485,
+   "y": 0.4489,
+   "w": 0.1886,
+   "h": 0.1605
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.3807,
+    "y": 0.8866,
+    "w": 0.37,
+    "h": 0.0778
+   },
+   {
+    "shape": "rect",
+    "x": 0.555,
+    "y": 0.6192,
+    "w": 0.0571,
+    "h": 0.1143
+   },
+   {
+    "shape": "rect",
+    "x": 0.485,
+    "y": 0.4489,
+    "w": 0.1886,
+    "h": 0.1605
+   },
+   {
+    "shape": "rect",
+    "x": 0.545,
+    "y": 0.3419,
+    "w": 0.0843,
+    "h": 0.09
+   },
+   {
+    "shape": "rect",
+    "x": 0.5436,
+    "y": 0.2447,
+    "w": 0.0843,
+    "h": 0.0827
+   },
+   {
+    "shape": "rect",
+    "x": 0.4807,
+    "y": 0.0696,
+    "w": 0.2243,
+    "h": 0.1702
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134468738-c4",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 1103,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134468738 cloze 4"
+  },
+  "answer": "Middle cerebral artery",
+  "accept": [
+   "MCA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp",
+  "w": 1732,
+  "h": 1017,
+  "target": {
+   "shape": "rect",
+   "x": 0.545,
+   "y": 0.3419,
+   "w": 0.0843,
+   "h": 0.09
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.3807,
+    "y": 0.8866,
+    "w": 0.37,
+    "h": 0.0778
+   },
+   {
+    "shape": "rect",
+    "x": 0.555,
+    "y": 0.6192,
+    "w": 0.0571,
+    "h": 0.1143
+   },
+   {
+    "shape": "rect",
+    "x": 0.485,
+    "y": 0.4489,
+    "w": 0.1886,
+    "h": 0.1605
+   },
+   {
+    "shape": "rect",
+    "x": 0.545,
+    "y": 0.3419,
+    "w": 0.0843,
+    "h": 0.09
+   },
+   {
+    "shape": "rect",
+    "x": 0.5436,
+    "y": 0.2447,
+    "w": 0.0843,
+    "h": 0.0827
+   },
+   {
+    "shape": "rect",
+    "x": 0.4807,
+    "y": 0.0696,
+    "w": 0.2243,
+    "h": 0.1702
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134468738-c5",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 1104,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134468738 cloze 5"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp",
+  "w": 1732,
+  "h": 1017,
+  "target": {
+   "shape": "rect",
+   "x": 0.5436,
+   "y": 0.2447,
+   "w": 0.0843,
+   "h": 0.0827
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.3807,
+    "y": 0.8866,
+    "w": 0.37,
+    "h": 0.0778
+   },
+   {
+    "shape": "rect",
+    "x": 0.555,
+    "y": 0.6192,
+    "w": 0.0571,
+    "h": 0.1143
+   },
+   {
+    "shape": "rect",
+    "x": 0.485,
+    "y": 0.4489,
+    "w": 0.1886,
+    "h": 0.1605
+   },
+   {
+    "shape": "rect",
+    "x": 0.545,
+    "y": 0.3419,
+    "w": 0.0843,
+    "h": 0.09
+   },
+   {
+    "shape": "rect",
+    "x": 0.5436,
+    "y": 0.2447,
+    "w": 0.0843,
+    "h": 0.0827
+   },
+   {
+    "shape": "rect",
+    "x": 0.4807,
+    "y": 0.0696,
+    "w": 0.2243,
+    "h": 0.1702
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134468738-c6",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-communicating-artery",
+  "status": "live",
+  "position": 1105,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134468738 cloze 6"
+  },
+  "answer": "Anterior communicating artery",
+  "accept": [
+   "ACom",
+   "AComA",
+   "ACoA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp",
+  "w": 1732,
+  "h": 1017,
+  "target": {
+   "shape": "rect",
+   "x": 0.4807,
+   "y": 0.0696,
+   "w": 0.2243,
+   "h": 0.1702
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.3807,
+    "y": 0.8866,
+    "w": 0.37,
+    "h": 0.0778
+   },
+   {
+    "shape": "rect",
+    "x": 0.555,
+    "y": 0.6192,
+    "w": 0.0571,
+    "h": 0.1143
+   },
+   {
+    "shape": "rect",
+    "x": 0.485,
+    "y": 0.4489,
+    "w": 0.1886,
+    "h": 0.1605
+   },
+   {
+    "shape": "rect",
+    "x": 0.545,
+    "y": 0.3419,
+    "w": 0.0843,
+    "h": 0.09
+   },
+   {
+    "shape": "rect",
+    "x": 0.5436,
+    "y": 0.2447,
+    "w": 0.0843,
+    "h": 0.0827
+   },
+   {
+    "shape": "rect",
+    "x": 0.4807,
+    "y": 0.0696,
+    "w": 0.2243,
+    "h": 0.1702
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134507316-c1",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "anterior-spinal-artery",
+  "status": "live",
+  "position": 1200,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134507316 cloze 1"
+  },
+  "answer": "Anterior spinal artery",
+  "accept": [
+   "ASA"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-891fc511efe7fc7e07d03d0d510d450861def151.webp",
+  "w": 900,
+  "h": 692,
+  "target": {
+   "shape": "rect",
+   "x": 0.0493,
+   "y": 0.8196,
+   "w": 0.2814,
+   "h": 0.0966
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0493,
+    "y": 0.8196,
+    "w": 0.2814,
+    "h": 0.0966
+   },
+   {
+    "shape": "polygon",
+    "points": [
+     [
+      0.9621,
+      0.0912
+     ],
+     [
+      0.0093,
+      0.0726
+     ],
+     [
+      0.0007,
+      0.1693
+     ],
+     [
+      0.2307,
+      0.1786
+     ],
+     [
+      0.2307,
+      0.0764
+     ],
+     [
+      0.6364,
+      0.0838
+     ],
+     [
+      0.635,
+      0.1674
+     ],
+     [
+      0.9679,
+      0.1767
+     ]
+    ]
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": []
+ },
+ {
+  "slug": "lab-16-io-1775134507316-c2",
+  "kind": "pin",
+  "topic": "lab-16",
+  "structure": "posterior-spinal-arteries",
+  "status": "draft",
+  "position": 1201,
+  "source": {
+   "type": "apkg",
+   "ref": "apkg/lab-16 note 1775134507316 cloze 2"
+  },
+  "answer": "Posterior spinal arteries",
+  "accept": [
+   "posterior spinal artery"
+  ],
+  "require_side": false,
+  "image": "apkg/lab-16/media/paste-891fc511efe7fc7e07d03d0d510d450861def151.webp",
+  "w": 900,
+  "h": 692,
+  "target": {
+   "shape": "polygon",
+   "points": [
+    [
+     0.9621,
+     0.0912
+    ],
+    [
+     0.0093,
+     0.0726
+    ],
+    [
+     0.0007,
+     0.1693
+    ],
+    [
+     0.2307,
+     0.1786
+    ],
+    [
+     0.2307,
+     0.0764
+    ],
+    [
+     0.6364,
+     0.0838
+    ],
+    [
+     0.635,
+     0.1674
+    ],
+    [
+     0.9679,
+     0.1767
+    ]
+   ]
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0493,
+    "y": 0.8196,
+    "w": 0.2814,
+    "h": 0.0966
+   },
+   {
+    "shape": "polygon",
+    "points": [
+     [
+      0.9621,
+      0.0912
+     ],
+     [
+      0.0093,
+      0.0726
+     ],
+     [
+      0.0007,
+      0.1693
+     ],
+     [
+      0.2307,
+      0.1786
+     ],
+     [
+      0.2307,
+      0.0764
+     ],
+     [
+      0.6364,
+      0.0838
+     ],
+     [
+      0.635,
+      0.1674
+     ],
+     [
+      0.9679,
+      0.1767
+     ]
+    ]
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure.",
+  "followups": [],
+  "review_note": "mask spans both the Left and Right labels of the diagram [OCR 'Right Posterior spinal artery', conf 0.99]"
+ }
+]

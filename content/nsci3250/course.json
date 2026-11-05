@@ -1,0 +1,528 @@
+{
+ "slug": "nsci3250",
+ "units": [
+  {
+   "slug": "u1",
+   "title": "Unit 1: Overview, Nerves, and the Spinal Cord",
+   "position": 1
+  },
+  {
+   "slug": "u2",
+   "title": "Unit 2: The Brainstem",
+   "position": 2
+  },
+  {
+   "slug": "u3",
+   "title": "Unit 3: The Cerebrum",
+   "position": 3
+  }
+ ],
+ "topics": [
+  {
+   "slug": "lecture-1",
+   "unit": "u1",
+   "kind": "lecture",
+   "number": 1,
+   "title": "Embryological Development of the Nervous System and Neurohistology",
+   "position": 10,
+   "sources": [
+    "decks/lecture-01"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-1",
+   "unit": "u1",
+   "kind": "lab",
+   "number": 1,
+   "title": "Anatomical Terminology, Whole Brain, Meninges, & Skull",
+   "position": 20,
+   "sources": [
+    "decks/lab-01",
+    "apkg/lab-1"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-2",
+   "unit": "u1",
+   "kind": "lecture",
+   "number": 2,
+   "title": "CSF and the Ventricular System; Cerebrum",
+   "position": 30,
+   "sources": [
+    "decks/lecture-02"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-2",
+   "unit": "u1",
+   "kind": "lab",
+   "number": 2,
+   "title": "Ventricular System, Cerebrum, Diencephalon",
+   "position": 40,
+   "sources": [
+    "decks/lab-02",
+    "apkg/lab-2"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-3",
+   "unit": "u1",
+   "kind": "lecture",
+   "number": 3,
+   "title": "Introduction to Cortex",
+   "position": 50,
+   "sources": [
+    "decks/lecture-03"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-3",
+   "unit": "u1",
+   "kind": "lab",
+   "number": 3,
+   "title": "Functional Anatomy of the Cerebrum",
+   "position": 60,
+   "sources": [
+    "decks/lab-03",
+    "apkg/lab-3"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-4",
+   "unit": "u1",
+   "kind": "lecture",
+   "number": 4,
+   "title": "Peripheral Nerves and Spinal Cord Organization",
+   "position": 70,
+   "sources": [
+    "decks/lecture-04"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-4",
+   "unit": "u1",
+   "kind": "lab",
+   "number": 4,
+   "title": "Spinal Cord Anatomy and Peripheral Nerves",
+   "position": 80,
+   "sources": [
+    "decks/lab-04",
+    "apkg/lab-4"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-5",
+   "unit": "u1",
+   "kind": "lecture",
+   "number": 5,
+   "title": "Sensory Pathways of the Spinal Cord",
+   "position": 90,
+   "sources": [
+    "decks/lecture-05"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-5",
+   "unit": "u1",
+   "kind": "lab",
+   "number": 5,
+   "title": "Sensory Pathways of the Spinal Cord",
+   "position": 100,
+   "sources": [
+    "decks/lab-05",
+    "apkg/lab-5"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-6",
+   "unit": "u1",
+   "kind": "lecture",
+   "number": 6,
+   "title": "Somatic and Autonomic Motor Systems",
+   "position": 110,
+   "sources": [
+    "decks/lecture-06"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-7",
+   "unit": "u2",
+   "kind": "lecture",
+   "number": 7,
+   "title": "Brainstem Overview",
+   "position": 10,
+   "sources": [
+    "decks/lecture-07"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-7",
+   "unit": "u2",
+   "kind": "lab",
+   "number": 7,
+   "title": "Gross Anatomy of the Brainstem",
+   "position": 20,
+   "sources": [
+    "decks/lab-07",
+    "apkg/lab-7"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-8",
+   "unit": "u2",
+   "kind": "lecture",
+   "number": 8,
+   "title": "Cranial Nerves and Cranial Nerve Nuclei",
+   "position": 30,
+   "sources": [
+    "decks/lecture-08"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-8",
+   "unit": "u2",
+   "kind": "lab",
+   "number": 8,
+   "title": "Microscopic Anatomy of the Brainstem",
+   "position": 40,
+   "sources": [
+    "decks/lab-08",
+    "apkg/lab-8-diagrams",
+    "apkg/lab-8-surface-brainstem-histology"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-9",
+   "unit": "u2",
+   "kind": "lecture",
+   "number": 9,
+   "title": "Somatosensory Pathways of the Brainstem",
+   "position": 50,
+   "sources": [
+    "decks/lecture-09"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-9",
+   "unit": "u2",
+   "kind": "lab",
+   "number": 9,
+   "title": "Sensory Pathways of the Brainstem",
+   "position": 60,
+   "sources": [
+    "decks/lab-09"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-10",
+   "unit": "u2",
+   "kind": "lecture",
+   "number": 10,
+   "title": "Motor systems of the Brainstem",
+   "position": 70,
+   "sources": [
+    "decks/lecture-10"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-10",
+   "unit": "u2",
+   "kind": "lab",
+   "number": 10,
+   "title": "Motor Pathways of the Brainstem",
+   "position": 80,
+   "sources": [
+    "decks/lab-10"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-11",
+   "unit": "u2",
+   "kind": "lecture",
+   "number": 11,
+   "title": "Visual System",
+   "position": 90,
+   "sources": [
+    "decks/lecture-11"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-11",
+   "unit": "u2",
+   "kind": "lab",
+   "number": 11,
+   "title": "Eye; Visual Pathways of the Brainstem",
+   "position": 100,
+   "sources": [
+    "decks/lab-11",
+    "apkg/visual-system-supplemental-material"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-12",
+   "unit": "u2",
+   "kind": "lecture",
+   "number": 12,
+   "title": "Brainstem Circuitry and Cranial nerve testing (class may be held remotely on this day)",
+   "position": 110,
+   "sources": [
+    "decks/lecture-12"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-13",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 13,
+   "title": "Cerebral Cortex and Cortical Circuitry",
+   "position": 10,
+   "sources": [
+    "decks/lecture-13"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-13",
+   "unit": "u3",
+   "kind": "lab",
+   "number": 13,
+   "title": "CNS Anatomy: Horizontal Sections",
+   "position": 20,
+   "sources": [
+    "decks/lab-13",
+    "apkg/lab-13",
+    "decks/lab-13-unlabeled"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-14",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 14,
+   "title": "Motor Control- Basal Ganglia and Cerebellum",
+   "position": 30,
+   "sources": [
+    "decks/lecture-14"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-14",
+   "unit": "u3",
+   "kind": "lab",
+   "number": 14,
+   "title": "CNS Anatomy: Coronal Sections",
+   "position": 40,
+   "sources": [
+    "decks/lab-14",
+    "apkg/lab-14",
+    "decks/lab-14-unlabeled"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-15",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 15,
+   "title": "Olfaction and the Limbic System",
+   "position": 50,
+   "sources": [
+    "decks/lecture-15"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-15",
+   "unit": "u3",
+   "kind": "lab",
+   "number": 15,
+   "title": "Practice: Horizontal and Coronal Sections",
+   "position": 60,
+   "sources": [
+    "decks/lab-15",
+    "apkg/lab-15"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-16",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 16,
+   "title": "Blood Supply to the CNS",
+   "position": 70,
+   "sources": [
+    "decks/lecture-16"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-16",
+   "unit": "u3",
+   "kind": "lab",
+   "number": 16,
+   "title": "Blood Supply",
+   "position": 80,
+   "sources": [
+    "decks/lab-16",
+    "apkg/lab-16"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-17",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 17,
+   "title": "Imaging the Brain",
+   "position": 90,
+   "sources": [
+    "decks/lecture-17"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-17",
+   "unit": "u3",
+   "kind": "lab",
+   "number": 17,
+   "title": "Imaging the Brain",
+   "position": 100,
+   "sources": [
+    "decks/lab-17"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lecture-18",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 18,
+   "title": "Vessel Disease and Stroke Scenarios",
+   "position": 110,
+   "sources": [
+    "decks/lecture-18-strokes-brain-bleeds"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "lab-18",
+   "unit": "u3",
+   "kind": "lab",
+   "number": 18,
+   "title": "Brain & CNS Pathology",
+   "position": 120,
+   "sources": [
+    "decks/lecture-18-cns-pathology-final"
+   ],
+   "meta": {
+    "type": "clinical"
+   }
+  },
+  {
+   "slug": "lecture-19",
+   "unit": "u3",
+   "kind": "lecture",
+   "number": 19,
+   "title": "Enteric Nervous System & Gut-Brain Axis",
+   "position": 130,
+   "sources": [
+    "decks/lecture-19"
+   ],
+   "meta": {}
+  },
+  {
+   "slug": "practical-u1",
+   "unit": "u1",
+   "kind": "lab",
+   "title": "Unit 1 practical exams",
+   "position": 120,
+   "sources": [
+    "decks/practical-u1-2024",
+    "decks/practical-u1-2025",
+    "decks/practice-practical-lab3"
+   ],
+   "meta": {
+    "type": "practical"
+   }
+  },
+  {
+   "slug": "practical-u1-practice",
+   "unit": "u1",
+   "kind": "lab",
+   "title": "Unit 1 practice practicals (Anki image occlusion)",
+   "position": 130,
+   "sources": [
+    "apkg/unit-1-practice-practicals"
+   ],
+   "meta": {
+    "type": "practical"
+   }
+  },
+  {
+   "slug": "brainstem-overlay",
+   "unit": "u2",
+   "kind": "lab",
+   "title": "Brainstem overlay atlas",
+   "position": 120,
+   "sources": [
+    "apkg/brainstem-overlay",
+    "decks/atlas-brainstem-overlay"
+   ],
+   "meta": {
+    "type": "atlas"
+   }
+  },
+  {
+   "slug": "practical-u2",
+   "unit": "u2",
+   "kind": "lab",
+   "title": "Unit 2 practical exams",
+   "position": 130,
+   "sources": [
+    "decks/practical-u2-2024",
+    "decks/practical-u2-2025"
+   ],
+   "meta": {
+    "type": "practical"
+   }
+  },
+  {
+   "slug": "practical-u3",
+   "unit": "u3",
+   "kind": "lab",
+   "title": "Unit 3 practical exam",
+   "position": 140,
+   "sources": [
+    "decks/practical-u3-2025"
+   ],
+   "meta": {
+    "type": "practical"
+   }
+  }
+ ]
+}

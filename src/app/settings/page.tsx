@@ -1,28 +1,28 @@
 import { PageShell } from "@/components/PageShell";
+import { SettingsForm } from "@/components/home/SettingsForm";
+import { createClient } from "@/lib/supabase/server";
+import { loadSettings } from "@/lib/study/server";
+import { STUDY_DEFAULTS, SCAFFOLD_DEFAULTS, TYPING_DEFAULTS } from "@/lib/study/settings";
 
-export default function SettingsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function SettingsPage() {
+  const sb = await createClient();
+  let retention = STUDY_DEFAULTS.retention;
+  let mnemonics = SCAFFOLD_DEFAULTS.mnemonics;
+  let typing = TYPING_DEFAULTS.enabled;
+  if (sb) {
+    const { data } = await sb.auth.getUser();
+    if (data.user) {
+      const { learner } = await loadSettings(sb, data.user.id);
+      retention = learner.study.retention;
+      mnemonics = learner.scaffold.mnemonics;
+      typing = learner.typing.enabled;
+    }
+  }
   return (
     <PageShell title="Settings" kicker="Account">
-      <div className="panel max-w-xl space-y-4">
-        <div>
-          <p className="label">Theme</p>
-          <p className="text-text-dim">Synthwave (a calmer clinical theme is planned).</p>
-        </div>
-        <div>
-          <p className="label">Daily new cards</p>
-          <input className="input" type="number" defaultValue={20} disabled />
-        </div>
-        <details className="rounded-card-sm border border-panel-border p-3">
-          <summary className="cursor-pointer text-text-dim">Advanced</summary>
-          <div className="mt-3 space-y-3">
-            <div>
-              <label className="label" htmlFor="retention">Desired retention</label>
-              <input id="retention" className="input" type="number" step="0.01" min="0.7" max="0.97" defaultValue={0.9} disabled />
-            </div>
-            <p className="text-xs text-text-faint">FSRS tuning. Controls are not wired up yet.</p>
-          </div>
-        </details>
-      </div>
+      <SettingsForm retention={retention} mnemonics={mnemonics} typingEnabled={typing} />
     </PageShell>
   );
 }

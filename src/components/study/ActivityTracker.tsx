@@ -26,7 +26,6 @@ export function ActivityTracker({ courseId }: { courseId?: string | null }) {
       flush(false);
       kindRef.current = next;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   function flush(beacon: boolean) {
@@ -95,7 +94,6 @@ export function ActivityTracker({ courseId }: { courseId?: string | null }) {
       window.removeEventListener("pagehide", onHide);
       flush(true);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;

@@ -3,7 +3,7 @@ import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { CardStateRow } from "../fsrs.ts";
 import { readLearnerSettings, type LearnerSettings } from "./settings.ts";
-import { buildQueue, solidStructures, type Entry, phaseOf } from "./queue.ts";
+import { buildQueue, solidStructures, phaseOf } from "./queue.ts";
 import { toStudyCard, type CardRow, type LadderRow, type StructureLite, type StudyCard, type StudyPayload } from "./types.ts";
 import { activeSpots, type PatternRow, type TrapRow, type TrapSpot, ARM_AT } from "./traps.ts";
 export type { StudyPayload };

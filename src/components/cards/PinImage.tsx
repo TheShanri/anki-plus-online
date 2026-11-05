@@ -5,7 +5,7 @@
 //    in the photo: ring it), pin (drop a pin), arrow (point at it);
 //  - no layout shift: the frame reserves the image's aspect ratio before it loads;
 //  - desktop: click to zoom in/out at the pointer; touch: pinch to zoom, drag to pan (double tap resets).
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { PinImageData, Shape } from "@/lib/study/types";
 import { resolveMediaSrc } from "./media";
 
@@ -55,7 +55,12 @@ function centerOf(s: Shape): { x: number; y: number } {
 
 const MAX_ZOOM = 4;
 
-export function PinImage({ courseSlug, image, mode = "prompt", compact, className, alt }: PinImageProps) {
+/** Re-mounts per image so zoom and load state reset without an effect. */
+export function PinImage(props: PinImageProps) {
+  return <PinImageView key={props.image.key} {...props} />;
+}
+
+function PinImageView({ courseSlug, image, mode = "prompt", compact, className, alt }: PinImageProps) {
   const src = resolveMediaSrc(courseSlug, image.key);
   const ratio = image.w && image.h ? image.w / image.h : 4 / 3;
   const frame = useRef<HTMLDivElement>(null);
@@ -65,12 +70,6 @@ export function PinImage({ courseSlug, image, mode = "prompt", compact, classNam
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const gesture = useRef<{ d: number; s: number; moved: boolean; sx: number; sy: number; vx: number; vy: number } | null>(null);
   const lastTap = useRef(0);
-
-  useEffect(() => {
-    setView({ s: 1, x: 0, y: 0 });
-    setLoaded(false);
-    setFailed(false);
-  }, [src]);
 
   const clamp = useCallback((v: { s: number; x: number; y: number }) => {
     const el = frame.current;

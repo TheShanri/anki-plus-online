@@ -234,6 +234,10 @@ export class StudyEngine {
     return out;
   }
 
+  opts_limit(): number {
+    return this.opts.limit ?? 0;
+  }
+
   get typingOn(): boolean {
     return this.settings.typing.enabled;
   }
@@ -935,7 +939,7 @@ export class StudyEngine {
 
   /** Cards still to come (for the header counters). */
   counts(): { new: number; learning: number; review: number } {
-    const c = this.queue.counts(this.deps.now());
+    const c = this.queue.counts();
     return c;
   }
 

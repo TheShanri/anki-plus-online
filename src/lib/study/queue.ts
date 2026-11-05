@@ -193,7 +193,7 @@ export class SessionQueue {
     }
   }
 
-  counts(nowMs: number): { new: number; learning: number; review: number } {
+  counts(): { new: number; learning: number; review: number } {
     let n = 0;
     let r = 0;
     for (const e of this.pending) {

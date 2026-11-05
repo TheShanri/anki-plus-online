@@ -85,7 +85,8 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: ViewName; non
   useEffect(() => {
     const c = box && !box.isEmpty() ? box.getCenter(new THREE.Vector3()) : DEFAULT_CTX_CENTER.clone();
     const size = box && !box.isEmpty() ? box.getSize(new THREE.Vector3()).length() : 0.3;
-    const dist = view === "midsagittal" ? 0.42 : Math.min(0.5, Math.max(0.17, size * 2.6));
+    // Frame the whole brain around the target so students keep their bearings; they can zoom in.
+    const dist = view === "midsagittal" ? 0.42 : Math.min(0.6, Math.max(0.36, size * 2.6));
     const v = VIEWS.find((x) => x.id === view) ?? VIEWS[2];
     const target = view === "midsagittal" ? DEFAULT_CTX_CENTER.clone().setX(0) : c;
     camera.position.copy(target).addScaledVector(new THREE.Vector3(...v.dir).normalize(), dist);
@@ -164,7 +165,12 @@ function Scene({
   const { targetRoot, pivots } = useMemo(() => {
     const root = new THREE.Group();
     const list: THREE.Group[] = [];
-    for (const t of loaded.targets) {
+    // Clone: the loaded scenes are cached and shared, and React may run this memo twice (Strict Mode),
+    // so mutating the originals would shift the target off screen on every re-run.
+    for (const src of loaded.targets) {
+      const t = src.clone(true);
+      t.position.set(0, 0, 0);
+      t.updateMatrixWorld(true);
       const c = new THREE.Box3().setFromObject(t).getCenter(new THREE.Vector3());
       const pivot = new THREE.Group();
       pivot.position.copy(c);

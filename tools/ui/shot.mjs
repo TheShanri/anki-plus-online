@@ -52,7 +52,9 @@ if (!list) {
   if (!list) { console.error("headless window did not come up"); process.exit(1); }
 }
 
-const page = list.find((t) => t.type === "page");
+let page = list.find((t) => t.type === "page");
+for (let i = 0; i < 60 && !page; i++) { await sleep(500); page = ((await targets()) || []).find((t) => t.type === "page"); }
+if (!page) { console.error("no page target in the headless window"); process.exit(1); }
 const ws = new WebSocket(page.webSocketDebuggerUrl);
 await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
 let id = 0; const waiting = new Map(); const events = [];

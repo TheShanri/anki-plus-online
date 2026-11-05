@@ -1331,6 +1331,222 @@
   "hash": "cc52940df1b40fe6f01c3589",
   "bytes": 53386
  },
+ "decks/lab-01/pages/014.webp": {
+  "hash": "cfc5b9d415edd570e92836ee",
+  "bytes": 99454
+ },
+ "decks/lab-04/pages/003.webp": {
+  "hash": "8c5f856cafc8df18899e6f57",
+  "bytes": 71000
+ },
+ "decks/lab-04/pages/010.webp": {
+  "hash": "98e9527e6124f75efe550ed3",
+  "bytes": 132824
+ },
+ "decks/lab-04/pages/012.webp": {
+  "hash": "8a67b5b4b542889e1451352a",
+  "bytes": 133892
+ },
+ "decks/lab-05/images/s004_1.webp": {
+  "hash": "0cdcbcbb0560a1d19fe66c83",
+  "bytes": 43396
+ },
+ "decks/lab-05/images/s006_1.webp": {
+  "hash": "9767db96129323acd3cd8b6c",
+  "bytes": 33774
+ },
+ "decks/lab-05/images/s008_1.webp": {
+  "hash": "32ed3b2461e1c6924dab9f3e",
+  "bytes": 37470
+ },
+ "decks/lab-05/images/s010_1.webp": {
+  "hash": "9d70ef1e630e0f5ae91af92f",
+  "bytes": 31904
+ },
+ "decks/lab-10/images/s007_1.webp": {
+  "hash": "d1d65c0a61a512050dd3e157",
+  "bytes": 50644
+ },
+ "decks/lab-10/images/s009_1.webp": {
+  "hash": "431897425ea861756ac595b6",
+  "bytes": 45838
+ },
+ "decks/lab-10/images/s011_1.webp": {
+  "hash": "d51e1b4cb57c01d381fef2fe",
+  "bytes": 53474
+ },
+ "decks/lab-10/images/s013_1.webp": {
+  "hash": "c47241a87f8996174073eda3",
+  "bytes": 89180
+ },
+ "decks/lab-10/images/s015_1.webp": {
+  "hash": "57a4c3aa7c6213769e35f5b4",
+  "bytes": 44066
+ },
+ "decks/lab-10/images/s017_1.webp": {
+  "hash": "2138c683cea3e9b3b1bb0dc7",
+  "bytes": 62172
+ },
+ "decks/lab-10/images/s019_1.webp": {
+  "hash": "0402994c85509cd9f8648243",
+  "bytes": 109292
+ },
+ "decks/lab-10/images/s021_1.webp": {
+  "hash": "f1dac8bc129bac85dd07b6a8",
+  "bytes": 189954
+ },
+ "decks/lab-13/images/s006_1.webp": {
+  "hash": "cb3539d5576e07cd4df353d6",
+  "bytes": 83702
+ },
+ "decks/lab-13/images/s007_1.webp": {
+  "hash": "bec7f7f064a543000d6df95a",
+  "bytes": 90576
+ },
+ "decks/lab-13/images/s008_1.webp": {
+  "hash": "fbf1794b77e6feefcc72946d",
+  "bytes": 100688
+ },
+ "decks/lab-13/images/s009_1.webp": {
+  "hash": "a708b53c093f2592098f1442",
+  "bytes": 96788
+ },
+ "decks/lab-13/images/s010_1.webp": {
+  "hash": "290995659d2c001676b1b895",
+  "bytes": 95666
+ },
+ "decks/lab-13/images/s011_1.webp": {
+  "hash": "2c5861527415a2d9ebbcdf44",
+  "bytes": 98160
+ },
+ "decks/lab-13/images/s012_1.webp": {
+  "hash": "d3fc00e4d5a8b7e010bfd430",
+  "bytes": 122182
+ },
+ "decks/lab-13/pages/007.webp": {
+  "hash": "0a37b938146f9eefa6b6aa61",
+  "bytes": 156618
+ },
+ "decks/lab-13/pages/008.webp": {
+  "hash": "b5eecf93906bf588394e8672",
+  "bytes": 140632
+ },
+ "decks/lab-13/pages/009.webp": {
+  "hash": "9e7f765e0860a759bdd152bb",
+  "bytes": 150890
+ },
+ "decks/lab-13/pages/010.webp": {
+  "hash": "a672415f4c60cdedc46b9c4d",
+  "bytes": 159254
+ },
+ "decks/lab-13/pages/011.webp": {
+  "hash": "591ef91418f06e372960cedd",
+  "bytes": 195186
+ },
+ "decks/lab-13/pages/012.webp": {
+  "hash": "9f23d82bd124711ec7ca30a5",
+  "bytes": 188684
+ },
+ "decks/lab-14/images/s003_1.webp": {
+  "hash": "3d4f601a748398782c9bd6c2",
+  "bytes": 42004
+ },
+ "decks/lab-14/images/s004_1.webp": {
+  "hash": "62640cce817e59b15d145de9",
+  "bytes": 36272
+ },
+ "decks/lab-14/images/s005_1.webp": {
+  "hash": "e3013dc58ae6eed80cb69a92",
+  "bytes": 67976
+ },
+ "decks/lab-14/images/s006_1.webp": {
+  "hash": "5ee8ac96c0f9378482b3cb0c",
+  "bytes": 115030
+ },
+ "decks/lab-14/images/s007_1.webp": {
+  "hash": "dc6f2ecede41194fe84dde99",
+  "bytes": 116058
+ },
+ "decks/lab-14/images/s008_1.webp": {
+  "hash": "793f8041d47801b1f03e8ac9",
+  "bytes": 131192
+ },
+ "decks/lab-14/images/s009_1.webp": {
+  "hash": "316421d9bf26f72ae2f554a4",
+  "bytes": 150728
+ },
+ "decks/lab-14/images/s010_1.webp": {
+  "hash": "f103c51d1ba96f0afc1eeee7",
+  "bytes": 136272
+ },
+ "decks/lab-14/images/s011_1.webp": {
+  "hash": "69972138ae1b3b6a18822b4d",
+  "bytes": 99038
+ },
+ "decks/lab-14/images/s012_1.webp": {
+  "hash": "bd269239d790cb9745654641",
+  "bytes": 117142
+ },
+ "decks/lab-14/images/s013_1.webp": {
+  "hash": "ad222b8263e9093bb60ee510",
+  "bytes": 119322
+ },
+ "decks/lab-14/images/s014_1.webp": {
+  "hash": "936b5af96e0da8221585af15",
+  "bytes": 174284
+ },
+ "decks/lab-14/pages/004.webp": {
+  "hash": "6fab3b378420f63de7c050b0",
+  "bytes": 98464
+ },
+ "decks/lab-14/pages/005.webp": {
+  "hash": "76b825b7fab3974e603368a0",
+  "bytes": 111004
+ },
+ "decks/lab-14/pages/006.webp": {
+  "hash": "48c4198fd2824de9702ee6ad",
+  "bytes": 142664
+ },
+ "decks/lab-14/pages/007.webp": {
+  "hash": "45378221b7363f4c9ca9d366",
+  "bytes": 180262
+ },
+ "decks/lab-14/pages/008.webp": {
+  "hash": "45b84bed6a535bf2b3bce5bb",
+  "bytes": 208546
+ },
+ "decks/lab-14/pages/009.webp": {
+  "hash": "e169259b00a3bcf7c01d74cc",
+  "bytes": 191656
+ },
+ "decks/lab-14/pages/010.webp": {
+  "hash": "9dfd63ba38177025e68b6730",
+  "bytes": 194342
+ },
+ "decks/lab-14/pages/011.webp": {
+  "hash": "2c85bbc7dfe63c857a0ac85b",
+  "bytes": 167236
+ },
+ "decks/lab-14/pages/012.webp": {
+  "hash": "fe3a65176ebc06d71b07299a",
+  "bytes": 152064
+ },
+ "decks/lab-14/pages/013.webp": {
+  "hash": "c687ba9da4b9a3fab6507cee",
+  "bytes": 136072
+ },
+ "decks/lecture-04/pages/030.webp": {
+  "hash": "ca8ef6d41c6f5de614887d24",
+  "bytes": 87112
+ },
+ "decks/lecture-04/pages/031.webp": {
+  "hash": "de227885497b1b33767daaf2",
+  "bytes": 143028
+ },
+ "decks/lecture-11/pages/025.webp": {
+  "hash": "a31a1e6715d818fc759cb31e",
+  "bytes": 107182
+ },
  "decks/practical-u1-2024/pages/002.webp": {
   "hash": "154797aa6ac8ab4e6bd510d6",
   "bytes": 77128

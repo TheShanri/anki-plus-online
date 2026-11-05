@@ -1,10 +1,30 @@
 "use server";
 
-import { emailDomainAllowed, joinSchema } from "@/lib/auth";
+import { emailDomainAllowed, joinSchema, labSectionsOf } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
 export type JoinState = { ok: boolean; error?: string; fieldErrors?: Record<string, string> };
+export type CourseLookup =
+  | { ok: true; title: string; labSections: string[]; domains: string[] }
+  | { ok: false; error: string };
+
+/** Step 1 of joining: validate the course code and tell the form which lab sections exist. */
+export async function lookupCourse(code: string): Promise<CourseLookup> {
+  const admin = createAdminClient();
+  if (!admin) return { ok: false, error: "Supabase is not configured yet." };
+  const clean = String(code ?? "").trim();
+  if (clean.length < 3 || clean.length > 64) return { ok: false, error: "That course code is not valid." };
+  const { data: course } = await admin
+    .from("courses")
+    .select("title, settings")
+    .ilike("join_code", clean.replace(/[%_]/g, "\$&"))
+    .maybeSingle();
+  if (!course) return { ok: false, error: "That course code is not valid." };
+  const raw = (course.settings as { allowed_email_domains?: unknown } | null)?.allowed_email_domains;
+  const domains = Array.isArray(raw) && raw.length ? raw.map(String) : ["uvm.edu"];
+  return { ok: true, title: course.title, labSections: labSectionsOf(course.settings), domains };
+}
 
 export async function joinCourse(_prev: JoinState, form: FormData): Promise<JoinState> {
   const admin = createAdminClient();
@@ -23,7 +43,7 @@ export async function joinCourse(_prev: JoinState, form: FormData): Promise<Join
   const { data: course } = await admin
     .from("courses")
     .select("id, settings")
-    .ilike("join_code", v.joinCode)
+    .ilike("join_code", v.joinCode.replace(/[%_]/g, "\$&"))
     .maybeSingle();
   if (!course) return { ok: false, error: "That course code is not valid.", fieldErrors: { joinCode: "Not valid" } };
 
@@ -31,8 +51,12 @@ export async function joinCourse(_prev: JoinState, form: FormData): Promise<Join
   if (!emailDomainAllowed(v.email, course.settings)) {
     return { ok: false, error: "Please use your school email address.", fieldErrors: { email: "Not an allowed school email" } };
   }
+  const sections = labSectionsOf(course.settings);
+  if (sections.length && !sections.includes(v.labSection)) {
+    return { ok: false, error: "Please choose your lab section.", fieldErrors: { labSection: "Choose a section" } };
+  }
 
-  // 3. auth user: the school email is the login; accounts are created confirmed
+  // 3. auth user: the school email is the login; accounts are created confirmed (admin API)
   const { data: created, error: createErr } = await admin.auth.admin.createUser({
     email: v.email,
     password: v.password,

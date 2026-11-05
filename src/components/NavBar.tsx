@@ -26,14 +26,19 @@ export async function NavBar() {
             </Link>
           ))}
           {viewer && (viewer.role === "professor" || viewer.role === "ta" || viewer.role === "admin") && (
-            <Link href="/professor" className="text-text-dim hover:text-text">
-              Professor
+            <Link href="/staff" className="text-text-dim hover:text-text">
+              Staff
+            </Link>
+          )}
+          {viewer?.role === "admin" && (
+            <Link href="/admin" className="text-text-dim hover:text-text">
+              Admin
             </Link>
           )}
         </div>
         {viewer ? (
           <form action="/api/auth/logout" method="post" className="flex items-center gap-3 text-sm">
-            <span className="text-text-dim">{viewer.displayName || viewer.email}</span>
+            <Link href="/profile" className="text-text-dim hover:text-text">{viewer.displayName || viewer.email}</Link>
             <button className="btn" type="submit">Log out</button>
           </form>
         ) : (

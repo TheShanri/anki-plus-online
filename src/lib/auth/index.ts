@@ -30,3 +30,22 @@ export function emailDomainAllowed(email: string, settings: unknown): boolean {
   const host = email.split("@")[1] ?? "";
   return domains.some((d) => host === d || host.endsWith("." + d));
 }
+
+export const profileSchema = z.object({
+  displayName: z.string().trim().min(1, "Required").max(80),
+  pronouns: z.string().trim().max(40).optional().default(""),
+  classYear: z.string().trim().max(20).optional().default(""),
+  major: z.string().trim().max(80).optional().default(""),
+  minor: z.string().trim().max(80).optional().default(""),
+  labSection: z.string().trim().max(40).optional().default(""),
+});
+
+export function labSectionsOf(settings: unknown): string[] {
+  const raw = (settings as { lab_sections?: unknown } | null)?.lab_sections;
+  return Array.isArray(raw) ? raw.map((s) => String(s)).filter(Boolean) : [];
+}
+
+/** Only same-site relative paths are accepted as a redirect target. */
+export function safeNext(next: string | null | undefined, fallback = "/study"): string {
+  return next && next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : fallback;
+}

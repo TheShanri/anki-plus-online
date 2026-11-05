@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
 
-export function ForgotForm() {
+export function ForgotForm({ notice }: { notice?: string }) {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
 
@@ -11,16 +10,24 @@ export function ForgotForm() {
     e.preventDefault();
     setBusy(true);
     const email = String(new FormData(e.currentTarget).get("email") ?? "").trim().toLowerCase();
-    const supabase = createClient();
-    // Always show the same message so the form does not reveal which emails have accounts.
-    await supabase?.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/reset` });
+    await fetch("/api/auth/forgot", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email }),
+    }).catch(() => null);
     setSent(true);
     setBusy(false);
   }
 
-  if (sent) return <p className="text-text-dim">If that email has an account, a reset link is on its way.</p>;
+  if (sent)
+    return (
+      <p className="text-text-dim">
+        If that email has an account, a reset link is on its way. It works on any device and expires after an hour.
+      </p>
+    );
   return (
     <form onSubmit={onSubmit} className="space-y-4">
+      {notice && <p className="field-error" role="alert">{notice}</p>}
       <div>
         <label className="label" htmlFor="email">UVM email</label>
         <input className="input" id="email" name="email" type="email" autoComplete="username" required />

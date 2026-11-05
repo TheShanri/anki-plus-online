@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_KEY, SUPABASE_URL, isSupabaseConfigured } from "@/lib/env";
 
-const PROTECTED = ["/study", "/course", "/settings", "/professor"];
+const PROTECTED = ["/study", "/practical", "/course", "/settings", "/professor", "/staff", "/admin", "/profile"];
 
 /** Refresh the Supabase session cookie and gate protected routes. */
 export async function updateSession(request: NextRequest) {

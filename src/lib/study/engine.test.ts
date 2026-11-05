@@ -6,7 +6,7 @@ import type { StudyCard, StudyPayload } from "./types.ts";
 import type { CardStateRow } from "../fsrs.ts";
 
 function card(id: string, over: Partial<StudyCard> = {}): StudyCard {
-  return { id, slug: id, kind: "pin", topicId: "t", structureId: "s-" + id, position: 1, prompt: "Name the structure.", answer: id, accept: [], requireSide: false, format: "type", followups: [], tags: [], ...over };
+  return { id, slug: id, kind: "pin", topicId: "t", structureId: "s-" + id, position: 1, prompt: "Name the structure.", answer: id, accept: [], requireSide: false, format: "type", followups: [], followupCards: [], tags: [], ...over };
 }
 
 function payload(cards: StudyCard[], extra: Partial<StudyPayload> = {}): StudyPayload {

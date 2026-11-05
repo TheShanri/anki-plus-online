@@ -34,6 +34,20 @@ export interface Verdict {
   points: number;
 }
 
+/** canonical name / synonym -> structure slug; "*" when several structures share it (too generic to accept). */
+export function buildKnownNames(rows: Array<{ slug: string; canonical_name: string; synonyms?: string[] | null }>, flags: CanonFlags = DEFAULT_CANON): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const r of rows) {
+    for (const n of [r.canonical_name, ...(r.synonyms ?? [])]) {
+      const k = canonStr(n, flags);
+      if (!k) continue;
+      if (!(k in out)) out[k] = r.slug;
+      else if (out[k] !== r.slug) out[k] = "*";
+    }
+  }
+  return out;
+}
+
 /** Allowed edits for a near miss, scaled with answer length (letters). */
 export function nearTolerance(len: number, bonus = 0): number {
   if (len < 4) return bonus > 0 && len >= 3 ? 1 : 0;
@@ -90,8 +104,15 @@ export function gradeTyped(typed: string, spec: AnswerSpec, opts: GradeOptions =
   if (!t) return { result: "empty", matched: null, edits: 0, why: "No answer", points: 0 };
   const comp = compiled ?? compileAnswer(spec, flags);
 
+  // structure-aware: an accepted short form that names another structure (or several) is not accepted
+  const owner = opts.knownNames?.[t];
+  const exactIdx0 = comp.canon.indexOf(t);
+  if (exactIdx0 > 0 && owner && owner !== opts.ownSlug && t !== comp.canon[0]) {
+    return { result: "wrong", matched: null, edits: 99, why: owner === "*" ? "Too generic: name the structure fully" : "That is a different structure", kind: "other_structure", points: 0 };
+  }
+
   // exact
-  const exactIdx = comp.canon.indexOf(t);
+  const exactIdx = exactIdx0;
   if (exactIdx >= 0) {
     const side = sideCheck(typed, spec);
     if (side) return side;
@@ -109,7 +130,7 @@ export function gradeTyped(typed: string, spec: AnswerSpec, opts: GradeOptions =
 
   // another structure's exact name (or synonym): wrong, and say so
   const other = opts.knownNames?.[t];
-  if (other && other !== opts.ownSlug) {
+  if (other && other !== opts.ownSlug && other !== "*") {
     return { result: "wrong", matched: null, edits: 99, why: "That is a different structure", kind: "other_structure", points: 0 };
   }
 

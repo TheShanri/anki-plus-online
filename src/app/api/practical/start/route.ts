@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   const topicIds = new Set((topicsR.data ?? []).filter((t: { unit_id: string | null }) => t.unit_id && unitIds.has(t.unit_id)).map((t: { id: string }) => t.id));
 
   const rows = await fetchAll<CardRow>((from, to) =>
-    sb.from("cards").select("id, slug, kind, topic_id, structure_id, position, content").eq("course_id", course.id).eq("status", "live").in("kind", ["pin", "theory"]).range(from, to),
+    sb.from("cards").select("id, slug, kind, topic_id, structure_id, position, content").eq("course_id", course.id).eq("status", "live").range(from, to),
   );
   const cards = rows.map(toStudyCard);
   const pins = cards.filter((c) => c.kind === "pin" && c.answer && c.image && (!p.data.units.length || (c.topicId && topicIds.has(c.topicId))));
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     arr.push(c);
     theory.set(c.structureId, arr);
   }
-  const draws = drawStations(pins, theory, p.data.count);
+  const draws = drawStations(pins, theory, p.data.count, Math.random, new Map(cards.map((c) => [c.slug, c])));
   const seconds = Number(course.settings.station_seconds) > 0 ? Math.round(Number(course.settings.station_seconds)) : DEFAULT_STATION_SECONDS;
   const spelling = readSpelling(course.settings.exam_spelling);
   const stations = draws.map((d) => ({ cardId: d.pin.id, followups: d.followups.map((f) => f.id) }));

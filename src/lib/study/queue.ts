@@ -208,7 +208,11 @@ export class SessionQueue {
   }
 }
 
-/** Theory follow-ups to ask right after `parent`'s name: new or due theory cards of the same structure. */
+/**
+ * Follow-ups to ask right after `parent`'s name (at most `max`, default 2): explicit `followup_cards` first, then
+ * the structure's theory cards. Only new or due ones; facets rotate over time (never-seen first, then the one
+ * reviewed longest ago). Pins without a structure get none.
+ */
 export function pickFollowups(
   parent: StudyCard,
   theory: StudyCard[],
@@ -219,17 +223,23 @@ export function pickFollowups(
   max = 2,
 ): Entry[] {
   if (!parent.structureId) return [];
-  const mine = theory.filter((c) => c.kind === "theory" && c.structureId === parent.structureId && !answered.has(c.id));
-  const wanted = parent.followups.map((f) => f.split(":").pop() ?? "");
-  const rank = (c: StudyCard) => {
-    const i = wanted.indexOf(c.facet ?? "");
-    return i >= 0 ? i : 100 + c.position;
+  const explicit = new Set(parent.followupCards);
+  const pool = theory.filter((c) => c.kind !== "pin" && c.id !== parent.id && !answered.has(c.id));
+  const lastSeen = (c: StudyCard) => {
+    const st = states.get(c.id);
+    return st?.last_review ? new Date(st.last_review).getTime() : 0;
   };
+  const wanted = parent.followups.map((f) => f.split(":").pop() ?? "");
+  const ranked = [
+    ...pool.filter((c) => explicit.has(c.slug)).sort((a, b) => lastSeen(a) - lastSeen(b) || a.position - b.position),
+    ...pool
+      .filter((c) => c.kind === "theory" && c.structureId === parent.structureId && !explicit.has(c.slug))
+      .sort((a, b) => lastSeen(a) - lastSeen(b) || wanted.indexOf(b.facet ?? "") - wanted.indexOf(a.facet ?? "") || a.position - b.position),
+  ];
   const out: Entry[] = [];
-  for (const c of mine.sort((a, b) => rank(a) - rank(b))) {
+  for (const c of ranked) {
     const st = states.get(c.id) ?? null;
-    const ph = phaseOf(st, now);
-    if (ph === "future") continue;
+    if (phaseOf(st, now) === "future") continue;
     out.push({ card: c, state: st, ladder: ladders.get(c.id) ?? null, source: "followup", parentId: parent.id });
     if (out.length >= max) break;
   }

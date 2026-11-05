@@ -15,6 +15,7 @@ export function drawStations(
   theoryByStructure: Map<string, StudyCard[]>,
   count: number,
   rand: () => number = Math.random,
+  bySlug: Map<string, StudyCard> = new Map(),
 ): StationDraw[] {
   const shuffle = <T>(a: T[]): T[] => {
     const x = a.slice();
@@ -34,6 +35,9 @@ export function drawStations(
     return true;
   });
   return ordered.slice(0, count).map((pin) => {
+    // explicit practical stems first, then the structure's theory cards (a pin with no structure has none)
+    const explicit = pin.followupCards.map((s) => bySlug.get(s)).filter((c): c is StudyCard => !!c && c.answer !== "");
+    if (explicit.length) return { pin, followups: explicit.slice(0, 2) };
     const fu = theoryByStructure.get(pin.structureId ?? "") ?? [];
     const wanted = pin.followups.map((f) => f.split(":").pop());
     const chosen = fu.filter((c) => wanted.includes(c.facet)).slice(0, 2);

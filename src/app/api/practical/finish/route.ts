@@ -4,7 +4,7 @@ import { authed, bad } from "@/lib/study/api";
 import { fetchAll, fetchRowsByIds } from "@/lib/study/server";
 import { toStudyCard, type CardRow } from "@/lib/study/types";
 import { readSpelling, scoreStation, type StationDraw } from "@/lib/study/practical";
-import { canonStr } from "@/lib/study/text";
+import { buildKnownNames } from "@/lib/study/grade";
 
 export const dynamic = "force-dynamic";
 
@@ -37,8 +37,7 @@ export async function POST(req: NextRequest) {
   const all = await fetchAll<{ slug: string; canonical_name: string; synonyms: string[] }>((from, to) =>
     sb.from("structures").select("slug, canonical_name, synonyms").eq("course_id", attempt.course_id).range(from, to),
   );
-  const known: Record<string, string> = {};
-  for (const s of all) for (const n of [s.canonical_name, ...(s.synonyms ?? [])]) known[canonStr(n)] ??= s.slug;
+  const known = buildKnownNames(all);
 
   const spelling = readSpelling(attempt.spelling);
   const byCard = new Map(p.data.answers.map((x) => [x.cardId, x]));

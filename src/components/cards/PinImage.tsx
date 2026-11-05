@@ -173,7 +173,7 @@ function PinImageView({ courseSlug, image, mode = "prompt", compact, className, 
     <div
       ref={frame}
       className={`pin-frame${compact ? " pin-compact" : ""}${view.s > 1 ? " pin-zoomed" : ""}${className ? " " + className : ""}`}
-      style={{ aspectRatio: String(ratio) }}
+      style={{ aspectRatio: String(ratio), maxWidth: compact ? undefined : `min(760px, calc(44vh * ${ratio}))` }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
@@ -185,6 +185,10 @@ function PinImageView({ courseSlug, image, mode = "prompt", compact, className, 
       <div className="pin-stage" style={{ transform: `translate(${view.x}px, ${view.y}px) scale(${view.s})` }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
+          ref={(el) => {
+            // the image may finish loading before hydration: onLoad would never fire
+            if (el && el.complete && el.naturalWidth > 0 && !loaded) setLoaded(true);
+          }}
           src={src}
           alt=""
           draggable={false}

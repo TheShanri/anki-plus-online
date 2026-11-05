@@ -1,11 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { Typer } from "./typer.ts";
-import { answerVariants } from "./variants.ts";
+import { answerVariants, decorativeKeys } from "./variants.ts";
 import { ratingFor } from "./scheduling.ts";
 
 const mk = (answer: string, accept: string[] = [], o: Partial<ConstructorParameters<typeof Typer>[0]> = {}) =>
-  new Typer({ variants: answerVariants(answer, accept), now: 0, ...o });
+  new Typer({ variants: answerVariants(answer, accept), decorative: decorativeKeys(answer, accept), now: 0, ...o });
 
 test("typing the answer tracks, matches, and follows an accepted variant", () => {
   const t = mk("Caudate nucleus", ["caudate"]);
@@ -97,4 +97,17 @@ test("auto hint timing: after the first delay, repeat delay, and on error", () =
   const b = mk("Amygdala");
   b.set("x", 100);
   assert.equal(b.autoHintDue(100 + b.params.hintOnErrorMs, first), true);
+});
+
+test("an accepted short form that a longer form continues does not auto-submit (caudate n -> nucleus)", () => {
+  const t = mk("Caudate nucleus", ["caudate"]);
+  t.set("caudate", 10);
+  assert.equal(t.state, "match");
+  assert.equal(t.extendable, true);
+  t.set("caudate nucleus", 20);
+  assert.equal(t.state, "match");
+  assert.equal(t.extendable, false);
+  const p = mk("Pons");
+  p.set("pons", 5);
+  assert.equal(p.extendable, false);
 });

@@ -54,6 +54,10 @@ export async function POST(req: NextRequest) {
   const prev: CardStateRow = (stateR.data as CardStateRow | null) ?? newCardState(userId, b.cardId, at);
   const { next } = scheduleReview(prev, b.rating as 1 | 2 | 3 | 4, at, { retention: b.retention ?? learner.study.retention });
 
+  // the session row must exist before the log references it (engine_heartbeat is SECURITY INVOKER)
+  const course = b.courseId ? { id: b.courseId } : await resolveCourse(sb, userId, null);
+  await sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 0 });
+
   // the review log first (its id is the idempotency key): a retry that finds it already stored changes nothing
   const { data: logged, error: logErr } = await sb
     .from("review_logs")
@@ -80,8 +84,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ignored: true, state: prev, ladder: ladderR.data ?? null });
   }
 
-  // make sure the session row exists and count the card (engine_heartbeat is SECURITY INVOKER)
-  const course = b.courseId ? { id: b.courseId } : await resolveCourse(sb, userId, null);
   await sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 1 });
 
   const writes: PromiseLike<unknown>[] = [sb.from("card_states").upsert(next, { onConflict: "user_id,card_id" })];

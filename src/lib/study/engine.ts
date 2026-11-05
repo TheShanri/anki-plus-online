@@ -2,7 +2,7 @@
 // It owns the queue, the current card (typer, trap guard, scaffold step), grading, the local FSRS update, the
 // answer payloads to sync, follow-ups, boss fights, focus helpers and session stats. React only renders it
 // (subscribe/version) and forwards keys. Time and IO are injected so it runs under Node tests.
-import { answerVariants } from "./variants.ts";
+import { answerVariants, decorativeKeys } from "./variants.ts";
 import { DEFAULT_CANON, diffOps, type DiffOp } from "./text.ts";
 import { gradeTyped, gradeKeywords, verdictFromKeywords, type Verdict } from "./grade.ts";
 import { Typer } from "./typer.ts";
@@ -382,6 +382,7 @@ export class StudyEngine {
       const relearn = state?.state === 3;
       typer = new Typer({
         variants,
+        decorative: decorativeKeys(card.answer, card.accept, { requireSide: card.requireSide, max: 96 }),
         promptLen,
         mode: "grade",
         params: { hintAuto: hintsOn },
@@ -510,7 +511,7 @@ export class StudyEngine {
       if (value.length > 0 && before !== "match") this.emit("key", { progress: t.progress() });
     }
     this.changed();
-    if (t.state === "match" && t.params.autoSubmitOnMatch) {
+    if (t.state === "match" && t.params.autoSubmitOnMatch && !t.extendable) {
       const v = this.judge(c);
       // a right name that still lacks the side is not done yet: let the student add it
       if (!(v.result === "wrong" && v.kind === "side")) this.submit(false);
@@ -917,7 +918,7 @@ export class StudyEngine {
       const lad = this.ladders.get(c.card.id) ?? null;
       const solid = isSolidCard(next, lad) || this.structureSolid(c.card.structureId);
       if (solid) {
-        const theory = [...this.cards.values()].filter((x) => x.kind === "theory");
+        const theory = [...this.cards.values()].filter((x) => x.kind !== "pin");
         const ups = pickFollowups(c.card, theory, this.states, this.ladders, date, this.answered, 2);
         if (ups.length) this.queue.front(ups);
       }

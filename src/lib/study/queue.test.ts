@@ -12,7 +12,7 @@ import type { CardStateRow } from "../fsrs.ts";
 const now = new Date("2026-03-01T10:00:00Z");
 
 function card(id: string, kind: StudyCard["kind"], structureId: string | null, extra: Partial<StudyCard> = {}): StudyCard {
-  return { id, slug: id, kind, topicId: "t", structureId, position: 0, prompt: "", answer: id, accept: [], requireSide: false, format: "type", followups: [], tags: [], ...extra };
+  return { id, slug: id, kind, topicId: "t", structureId, position: 0, prompt: "", answer: id, accept: [], requireSide: false, format: "type", followups: [], followupCards: [], tags: [], ...extra };
 }
 function state(id: string, over: Partial<CardStateRow> = {}): CardStateRow {
   return { ...newCardState("u", id, now), ...over };
@@ -162,4 +162,15 @@ test("settings: defaults, merge keeps foreign keys, weekly typing reminder", () 
   assert.equal(t.enabled, false);
   assert.equal(typingReminderDue(t, new Date("2026-01-05T00:00:00Z")), false);
   assert.equal(typingReminderDue(t, new Date("2026-01-09T00:00:00Z")), true);
+});
+
+test("follow-ups: explicit followup_cards first, rotate facets, none without a structure", () => {
+  const parent = card("pin", "pin", "s1", { followupCards: ["stem-1"] });
+  const stem = card("stem-1", "theory", null, { slug: "stem-1", facet: "function" });
+  const t1 = card("t1", "theory", "s1", { facet: "function" });
+  const t2 = card("t2", "theory", "s1", { facet: "lesion" });
+  const seen = new Map([["t1", state("t1", { state: 1, reps: 1, due: "2026-03-01T09:00:00Z", last_review: "2026-02-28T00:00:00Z" })]]);
+  const f = pickFollowups(parent, [stem, t1, t2], seen, new Map(), now, new Set(), 2);
+  assert.deepEqual(f.map((e) => e.card.id), ["stem-1", "t2"]); // explicit first, then the never-seen facet
+  assert.equal(pickFollowups(card("lone", "pin", null), [t1, t2], seen, new Map(), now, new Set(), 2).length, 0);
 });

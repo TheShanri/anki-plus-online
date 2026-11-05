@@ -7,7 +7,7 @@ import { buildQueue, solidStructures, phaseOf } from "./queue.ts";
 import { toStudyCard, type CardRow, type LadderRow, type StructureLite, type StudyCard, type StudyPayload } from "./types.ts";
 import { activeSpots, type PatternRow, type TrapRow, type TrapSpot, ARM_AT } from "./traps.ts";
 export type { StudyPayload };
-import { canonStr } from "./text.ts";
+import { buildKnownNames } from "./grade.ts";
 
 export interface CourseCtx {
   id: string;
@@ -111,7 +111,7 @@ export async function loadIndex(sb: SupabaseClient, userId: string, courseId: st
 }
 
 function lightToStudy(c: LightCard): StudyCard {
-  return { id: c.id, slug: c.slug, kind: c.kind as StudyCard["kind"], topicId: c.topic_id, structureId: c.structure_id, position: c.position, prompt: "", answer: "", accept: [], requireSide: false, format: "type", followups: [], tags: [] };
+  return { id: c.id, slug: c.slug, kind: c.kind as StudyCard["kind"], topicId: c.topic_id, structureId: c.structure_id, position: c.position, prompt: "", answer: "", accept: [], requireSide: false, format: "type", followups: [], followupCards: [], tags: [] };
 }
 
 /** Cards sorted in course order (unit, topic, card position). */
@@ -256,8 +256,19 @@ export async function buildStudyPayload(
   const ids = new Set(batch.map((e) => e.card.id));
   const structIds = new Set(batch.map((e) => e.card.structureId).filter((x): x is string => !!x));
   const theoryIds = o.scope.type === "weak" ? [] : idx.cards.filter((c) => c.kind === "theory" && c.structure_id && structIds.has(c.structure_id)).map((c) => c.id);
-  const allIds = [...new Set([...ids, ...theoryIds])];
-  const rows = await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", allIds);
+  const firstRows = await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", [...new Set([...ids, ...theoryIds])]);
+  // explicit follow-up cards named by the batch's pins (practical exam stems), resolved by slug
+  const slugToId = new Map(idx.cards.map((c) => [c.slug, c.id]));
+  const explicitIds = new Set<string>();
+  for (const r of firstRows) {
+    if (r.kind !== "pin" || !r.structure_id) continue;
+    const fc = (r.content as { followup_cards?: unknown } | null)?.followup_cards;
+    if (Array.isArray(fc)) for (const slug of fc) { const id = typeof slug === "string" ? slugToId.get(slug) : undefined; if (id) explicitIds.add(id); }
+  }
+  const have = new Set(firstRows.map((r) => r.id));
+  const extraRows = await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", [...explicitIds].filter((i) => !have.has(i)));
+  const rows = [...firstRows, ...extraRows];
+  const allIds = rows.map((r) => r.id);
   const cards = rows.map(toStudyCard);
 
   const structureIds = [...new Set(cards.map((c) => c.structureId).filter((x): x is string => !!x))];
@@ -291,16 +302,10 @@ export async function buildStudyPayload(
 
   let names: Record<string, string> | null = null;
   if (o.bootstrap) {
-    names = {};
     const all = await fetchAll<{ slug: string; canonical_name: string; synonyms: string[] }>((a, b) =>
       sb.from("structures").select("slug, canonical_name, synonyms").eq("course_id", course.id).range(a, b),
     );
-    for (const s of all) {
-      for (const n of [s.canonical_name, ...(s.synonyms ?? [])]) {
-        const k = canonStr(n);
-        if (k && !(k in names)) names[k] = s.slug;
-      }
-    }
+    names = buildKnownNames(all);
   }
 
   const states: Record<string, CardStateRow> = {};

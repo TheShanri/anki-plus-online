@@ -44,7 +44,7 @@ export function ScaffoldingPanel({ initial }: { initial: LearnerSettings }) {
       {err && <p className="field-error">{err}</p>}
       <div className="btn-row"><button type="button" className="btn" onClick={reset}>Reset to the defaults</button></div>
 
-      <details className="panel" open={!typingOn}>
+      <details id="typing" className="panel" open={!typingOn}>
         <summary className="cursor-pointer font-display" style={{ fontSize: 15 }}>Advanced</summary>
         <div style={{ display: "grid", gap: 14, marginTop: 12 }}>
           <div>

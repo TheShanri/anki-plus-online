@@ -73,6 +73,18 @@ export interface VariantOptions {
 
 /** All accepted source spellings, the canonical answer first. */
 export function answerVariants(answer: string, accept: string[] = [], opts: VariantOptions = {}): string[] {
+  return buildVariants(answer, accept, opts).all;
+}
+
+const keyOf = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
+
+/** Variants added only to be lenient ("the X", "left X", "X right"): they must not stop an auto-submit. */
+export function decorativeKeys(answer: string, accept: string[] = [], opts: VariantOptions = {}): Set<string> {
+  return buildVariants(answer, accept, opts).decorative;
+}
+
+function buildVariants(answer: string, accept: string[], opts: VariantOptions): { all: string[]; decorative: Set<string> } {
+  const decorative = new Set<string>();
   const max = opts.max ?? 64;
   const seen = new Set<string>();
   const out: string[] = [];
@@ -103,6 +115,7 @@ export function answerVariants(answer: string, accept: string[] = [], opts: Vari
     }
   }
 
+  const before = new Set(out.map(keyOf));
   const sided = out.filter((v) => hasSideWord(v));
   if (opts.requireSide) {
     for (const v of sided) {
@@ -121,5 +134,11 @@ export function answerVariants(answer: string, accept: string[] = [], opts: Vari
   }
 
   for (const v of [...out]) if (!/^the\s/i.test(v)) add(`the ${v}`);
-  return out;
+  for (const v of out) {
+    const k = keyOf(v);
+    if (before.has(k)) continue;
+    // added after the base forms: "the X" always; side-word forms only when the side is not required
+    if (/^the\s/i.test(v) || !opts.requireSide) decorative.add(k);
+  }
+  return { all: out, decorative };
 }

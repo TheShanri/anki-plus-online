@@ -44,6 +44,8 @@ export interface StudyCard {
   step?: string;
   image?: PinImageData;
   followups: string[];
+  /** explicit follow-up card slugs (practical exam stems), asked before the structure's theory cards */
+  followupCards: string[];
   tags: string[];
 }
 
@@ -146,7 +148,8 @@ export function toStudyCard(row: CardRow): StudyCard {
     step: str(c.step) || undefined,
     image,
     followups: strs(c.followups),
-    tags: strs(c.tags),
+    followupCards: strs(c.followup_cards),
+    tags: [...strs(c.tags), ...((c.source as { type?: string } | null)?.type === "practical" ? ["practical"] : [])],
   };
 }
 

@@ -60,6 +60,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const started = useRef(false);
 
   useEffect(() => {
+    (window as unknown as { __ankiEngine?: StudyEngine }).__ankiEngine = engine; // debug / UI-test hook
     setSoundsEnabled(engine.settings.scaffold.sounds);
     initFallbackBeepFromStorage();
     sync.setListener(setSyncState);

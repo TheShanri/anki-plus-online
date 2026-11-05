@@ -52,6 +52,8 @@ export type TyperState = "idle" | "track" | "bad" | "match";
 
 export interface TyperOptions {
   variants: string[];
+  /** lower-cased variants that are only lenient decorations (not a reason to wait before auto-submitting) */
+  decorative?: Set<string>;
   flags?: CanonFlags;
   params?: Partial<TypingParams>;
   promptLen?: number;
@@ -78,6 +80,7 @@ export class Typer {
   readonly letters: number;
   readonly easyWindow: number;
   private variants: Variant[];
+  private decorative: Set<string>;
   cur = 0;
   capped = false;
   peek: boolean;
@@ -99,6 +102,8 @@ export class Typer {
   badSince = 0;
   maxL = 0;
   trapBlocked = false;
+  /** typed text matches an accepted form that a longer accepted form continues ("caudate n" -> "caudate nucleus") */
+  extendable = false;
   /** ladder scaffold: the rest of the answer from `from`, with the hidden letters as "_" */
   mask: ((answer: string, from: number, hintEnd: number) => string) | null = null;
   /** trap letters: max answer index a hint may reveal from `from` */
@@ -113,6 +118,7 @@ export class Typer {
     this.noHints = !!o.noHints || this.mode === "memory";
     this.cap = o.cap ?? 1;
     this.peek = this.mode === "covered";
+    this.decorative = o.decorative ?? new Set();
     this.variants = o.variants.map((text) => ({ text, canon: canon(text, this.flags) }));
     if (!this.variants.length) this.variants = [{ text: "", canon: canon("", this.flags) }];
     this.letters = Math.max(1, letterCount(this.answer));
@@ -164,6 +170,7 @@ export class Typer {
       }
     }
     this.cur = match >= 0 ? match : best;
+    this.extendable = match >= 0 && this.variants.some((v, i) => i !== match && !this.decorative.has(v.text.trim().toLowerCase().replace(/\s+/g, " ")) && v.canon.s.length > trimmed.length && v.canon.s.startsWith(trimmed));
     const a = this.a.s;
     const lcp = Math.max(0, bestLcp);
     const prefix = lcp === t.s.length;

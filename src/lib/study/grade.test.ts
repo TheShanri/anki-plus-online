@@ -112,3 +112,19 @@ test("keyword grading: all groups must hit; partial credit is a near miss", () =
   const three = [["a1"], ["b1"], ["c1"]];
   assert.equal(verdictFromKeywords(gradeKeywords("a1 b1", three), "x").result, "near_miss");
 });
+
+import { buildKnownNames } from "./grade.ts";
+test("structure-aware accept lists: a generic short form shared by several structures is refused", () => {
+  const known = buildKnownNames([
+    { slug: "body-of-corpus-callosum", canonical_name: "Body of corpus callosum", synonyms: ["body"] },
+    { slug: "body-of-caudate", canonical_name: "Body of caudate nucleus", synonyms: ["body"] },
+  ]);
+  assert.equal(known["body"], "*");
+  const spec = { answer: "Body of corpus callosum", accept: ["body"] };
+  const v = gradeTyped("body", spec, { knownNames: known, ownSlug: "body-of-corpus-callosum" });
+  assert.equal(v.result, "wrong");
+  assert.equal(gradeTyped("body of corpus callosum", spec, { knownNames: known, ownSlug: "body-of-corpus-callosum" }).result, "correct");
+  // an unambiguous synonym of its own structure is fine
+  const k2 = buildKnownNames([{ slug: "caudate", canonical_name: "Caudate nucleus", synonyms: ["caudate"] }]);
+  assert.equal(gradeTyped("caudate", { answer: "Caudate nucleus", accept: ["caudate"] }, { knownNames: k2, ownSlug: "caudate" }).result, "correct");
+});

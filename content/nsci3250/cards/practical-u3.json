@@ -1,0 +1,1262 @@
+[
+ {
+  "slug": "practical-u3-2025-q01",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "genu-of-corpus-callosum",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q1"
+  },
+  "answer": "Genu of corpus callosum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/002.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Identify the structure indicated by the green pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q02",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "putamen",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q2"
+  },
+  "answer": "Putamen",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/003.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the structure indicated by the blue pin.",
+  "followups": [
+   "putamen:supply"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q03"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q03",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "putamen",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q3"
+  },
+  "facet": "supply",
+  "prompt": "Name the arterial blood supply to this structure.",
+  "answer": "Lenticulostriate",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q02"
+ },
+ {
+  "slug": "practical-u3-2025-q04",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "anterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q4"
+  },
+  "answer": "Anterior limb of internal capsule",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/004.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "orange pin"
+  },
+  "prompt": "Identify the structure indicated by the orange pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q05",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "crus-of-fornix",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q5"
+  },
+  "answer": "Crus of fornix",
+  "accept": [
+   "Crura of fornix"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/005.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the structure indicated by the blue pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q06",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q6"
+  },
+  "answer": "Posterior horn of LV (or inferior or trigone)",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/006.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  },
+  "prompt": "Identify the space indicated by the red pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ],
+  "review_note": "answer is not on the official structure list"
+ },
+ {
+  "slug": "practical-u3-2025-q07",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "interthalamic-adhesion",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q7"
+  },
+  "answer": "Interthalamic adhesion",
+  "accept": [
+   "Massa Intermedia"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/006.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "white string"
+  },
+  "prompt": "Identify the structure indicated by the white string.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q08",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "fourth-ventricle",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q8"
+  },
+  "answer": "Fourth ventricle",
+  "accept": [
+   "4th Ventricle"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/007.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Identify the space indicated by the green pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q09",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "vermis",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q9"
+  },
+  "answer": "Vermis",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/008.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the region of cortex indicated by the yellow pin.",
+  "followups": [
+   "vermis:connections"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q10"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q10",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "vermis",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q10"
+  },
+  "facet": "connections",
+  "prompt": "What deep cerebellar nucleus is associated with this region of cortex?",
+  "answer": "Fastigial nucleus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q09"
+ },
+ {
+  "slug": "practical-u3-2025-q11",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q11"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "accept": [
+   "MCP (middle cerebellar peduncle)"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/009.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple pin"
+  },
+  "prompt": "Identify the white matter structure indicated by the purple pins.",
+  "followups": [
+   "middle-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q12"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q12",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q12"
+  },
+  "facet": "connections",
+  "prompt": "What nuclei are the origin of the fibers contained within this structure?",
+  "answer": "Pontine nuclei (contralateral)",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q11"
+ },
+ {
+  "slug": "practical-u3-2025-q13",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "cerebellar-tonsil",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q13"
+  },
+  "answer": "Cerebellar tonsil",
+  "accept": [
+   "Tonsil"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/010.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "white pin"
+  },
+  "prompt": "Identify the cerebellar structure indicated by the white pin.",
+  "followups": [
+   "cerebellar-tonsil:lesion"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q14"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q14",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "cerebellar-tonsil",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q14"
+  },
+  "facet": "lesion",
+  "prompt": "Herniation of this structure occurs when it is pushed through which bony opening?",
+  "answer": "Foramen magnum",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q13"
+ },
+ {
+  "slug": "practical-u3-2025-q15",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q15"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/011.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink pin"
+  },
+  "prompt": "Identify the structure indicated by the pink pin.",
+  "followups": [
+   "hippocampus:function"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q16"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q16",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q16"
+  },
+  "facet": "function",
+  "prompt": "What limbic system structure lies just anterior to it?",
+  "answer": "Amygdala",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q15"
+ },
+ {
+  "slug": "practical-u3-2025-q17",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "caudate-nucleus",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q17"
+  },
+  "answer": "Caudate nucleus",
+  "accept": [
+   "Caudate nucleus (head or body)"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/012.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple pin"
+  },
+  "prompt": "Identify the structure indicated by the purple pin. Be specific.",
+  "followups": [
+   "caudate-nucleus:function"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q18"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q18",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "caudate-nucleus",
+  "status": "draft",
+  "position": 18,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q18"
+  },
+  "facet": "function",
+  "prompt": "Which part of the ventricular system lies just medial to this structure? Be specific.",
+  "answer": "Anterior horn orbody of LV",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q17",
+  "review_note": "free-text answer; add keyword groups"
+ },
+ {
+  "slug": "practical-u3-2025-q19",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "anterior-commissure",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q19"
+  },
+  "answer": "Anterior commissure",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/013.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the structure indicated by the yellow pin.",
+  "followups": [
+   "anterior-commissure:function"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q20"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q20",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "anterior-commissure",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q20"
+  },
+  "facet": "function",
+  "prompt": "True or false: This structure serves as one of the boundaries of the hypothalamus Magnified view",
+  "answer": "True",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q19"
+ },
+ {
+  "slug": "practical-u3-2025-q21",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q21"
+  },
+  "answer": "Superior cerebellar artery",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/014.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the vessel indicated by the yellow pin.",
+  "followups": [
+   "superior-cerebellar-artery:supply"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q22"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q22",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q22"
+  },
+  "facet": "supply",
+  "prompt": "Is this vessel part of the anterior or posterior circulation? Magnified view",
+  "answer": "Posterior circulation",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q21"
+ },
+ {
+  "slug": "practical-u3-2025-q23",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q23"
+  },
+  "answer": "PICA",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/015.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Identify the vessel indicated by the green pin.",
+  "followups": [],
+  "followup_cards": [
+   "practical-u3-2025-q24"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q24",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q24"
+  },
+  "facet": "supply",
+  "prompt": "What brain structure receives its blood supply from this vessel? Magnified view Note: the pink pin is holding another artery out of the way. This question asks about the green pin.",
+  "answer": "Cerebellum",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q23"
+ },
+ {
+  "slug": "practical-u3-2025-q25",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q25"
+  },
+  "facet": "supply",
+  "prompt": "Which arteries join to form the anterior spinal artery (shown below)?",
+  "answer": "Vertebral artery",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/016.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q26",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "callosomarginal-artery",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q26"
+  },
+  "answer": "Callosomarginal artery",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/017.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "orange arrow"
+  },
+  "prompt": "Identify the vessel indicated by the orange arrows.",
+  "followups": [
+   "callosomarginal-artery:supply"
+  ],
+  "followup_cards": [
+   "practical-u3-2025-q27"
+  ],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q27",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": "callosomarginal-artery",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q27"
+  },
+  "facet": "supply",
+  "prompt": "Motor control to what part of the body would be affected by loss of perfusion in this artery? Choose one. Arms Legs Face",
+  "answer": "Legs",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u3-2025-q26"
+ },
+ {
+  "slug": "practical-u3-2025-q28",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q28"
+  },
+  "facet": "function",
+  "prompt": "Select the image that depicts an MRI of the brain. A B C D",
+  "answer": "A",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/018.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q29",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q29"
+  },
+  "answer": "Thalamus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/019.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow outlined region"
+  },
+  "prompt": "Identify the structure outlined in yellow.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q30",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q30"
+  },
+  "facet": "function",
+  "prompt": "What structure is shown below in green?",
+  "answer": "Amygdala",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Amygdala",
+   "Hippocampus",
+   "Thalamus",
+   "Hypothalamus",
+   "Putamen"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/020.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q31",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q31"
+  },
+  "facet": "lesion",
+  "prompt": "What type of brain bleed is shown in the image below?",
+  "answer": "Epidural hematoma",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/021.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q32",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q32"
+  },
+  "facet": "supply",
+  "prompt": "The rupture of which type of vessel would result in this brain bleed?",
+  "answer": "Meningeal artery",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/021.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q33",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q33"
+  },
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA (anterior cerebral a.)"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/022.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink box"
+  },
+  "prompt": "What vessels are enclosed in the pink box in the image below?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-q34",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q34"
+  },
+  "facet": "supply",
+  "prompt": "A ruptured Berry Aneurysm in this vessel would cause blood to collect in which meningeal space?",
+  "answer": "Subarachnoid space",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/023.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q35",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q35"
+  },
+  "facet": "supply",
+  "prompt": "Note: this question refers to tags on two separate brains. True or false: The vessel indicated by the orange pin (top images) corresponds to the infarcted area outlined in green (bottom image). Magnified view",
+  "answer": "False",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/024.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "orange pin"
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q36",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q36"
+  },
+  "facet": "lesion",
+  "prompt": "This specimens represents a subarachnoid hemorrhage. In this example, did the bleeding occur above or below the tentorium cerebelli?",
+  "answer": "Below",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/025.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q37",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q37"
+  },
+  "facet": "lesion",
+  "prompt": "Is this bleed a stroke or not a stroke?",
+  "answer": "Stroke",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/025.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q38",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q38"
+  },
+  "facet": "supply",
+  "prompt": "True or false: The territory encompassed by this tumor receives its blood supply from the lenticulostriate arteries.",
+  "answer": "False",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/026.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q39",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q39"
+  },
+  "facet": "lesion",
+  "prompt": "Name one patient population who has increased susceptibility to a subdural hematoma.",
+  "answer": "Eldery who fall, shaken babies or alcohol use",
+  "accept": [],
+  "keywords": [
+   [
+    "Eldery who fall",
+    "shaken babies",
+    "alcohol use"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/027.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-q40",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 Q40"
+  },
+  "facet": "lesion",
+  "prompt": "What pathology is indicated the white pin? Magnified view",
+  "answer": "Aneurysm Bonus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/028.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "white pin"
+  }
+ },
+ {
+  "slug": "practical-u3-2025-qB1",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 QB1"
+  },
+  "facet": "brodmann",
+  "prompt": "What Brodman’s area(s) are damaged in this ischemic stroke?",
+  "answer": "17, 18, 19",
+  "accept": [],
+  "keywords": [
+   [
+    "17",
+    "18",
+    "19"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/029.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u3-2025-qB2",
+  "kind": "pin",
+  "topic": "practical-u3",
+  "structure": "posterior-commissure",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 QB2"
+  },
+  "answer": "Posterior commissure",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/030.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink box"
+  },
+  "prompt": "What white matter tract is shown in the pink box below?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u3-2025"
+  ]
+ },
+ {
+  "slug": "practical-u3-2025-qB3",
+  "kind": "theory",
+  "topic": "practical-u3",
+  "structure": null,
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u3-2025 QB3"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the nucleus circled in pink.",
+  "answer": "Taste, chemodetection from blood or GI",
+  "accept": [],
+  "keywords": [
+   [
+    "Taste",
+    "chemodetection from blood",
+    "GI"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u3-2025/pages/031.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink circled region"
+  }
+ }
+]

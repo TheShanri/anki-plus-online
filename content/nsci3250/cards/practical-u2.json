@@ -1,0 +1,1944 @@
+[
+ {
+  "slug": "practical-u2-2024-q09",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 1,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q9"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the nucleus colored in purple.",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/002.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "purple colored region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q10",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 2,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q10"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/003.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow colored region"
+  },
+  "prompt": "Name the nucleus colored in yellow.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q11",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 3,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q11"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one unique feature about the path of the cranial nerve corresponding to the yellow nucleus.",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/004.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q12",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 4,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q12"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/005.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue outlined region"
+  },
+  "prompt": "A. Identify the space outlined in blue.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q13",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 5,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q13"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one function of the cranial nerve nucleus circled in green.",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/006.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "green circled region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q14",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 6,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q14"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/007.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple circled region"
+  },
+  "prompt": "A. Name the nucleus circled in purple.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q15",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 7,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q15"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/008.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  },
+  "prompt": "Name the structure circled in blue.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q16",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 8,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q16"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/009.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow circled region"
+  },
+  "prompt": "What is the name of the nucleus circled in yellow?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q17",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 9,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q17"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/010.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink circled region"
+  },
+  "prompt": "A. What is the name of the tract circled in pink?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q18",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 10,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q18"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/011.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple colored region"
+  },
+  "prompt": "A. What is the name of the structure colored in purple?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q19",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 11,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q19"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/012.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow colored region"
+  },
+  "prompt": "What is the name of the structure colored in yellow?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q20",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 12,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q20"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the nucleus circled in blue?",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/013.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q21",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 13,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q21"
+  },
+  "facet": "connections",
+  "prompt": "Axons from which spinal cord tract will enter the structure colored in pink?",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/014.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink colored region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q22",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 14,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q22"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/015.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow line"
+  },
+  "prompt": "What is the name of the fibers indicated by the yellow lines?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q23",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 15,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q23"
+  },
+  "facet": "function",
+  "prompt": "True or False: This nucleus relays pain and temperature signals from the face.",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/016.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q24",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 16,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q24"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/017.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink circled region"
+  },
+  "prompt": "What is the name of the tract circled in pink?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q34",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 17,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q34"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/018.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple outlined region"
+  },
+  "prompt": "A. Identify the tract outlined in purple.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q35",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 18,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q35"
+  },
+  "facet": "function",
+  "prompt": "What is the general function of the nucleus outlined in pink?",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/019.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink outlined region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q36",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 19,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q36"
+  },
+  "facet": "function",
+  "prompt": "True or False: Stimulation of the nucleus colored in yellow will cause the eye to turn laterally. (i.e. towards the ear).",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/020.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "yellow colored region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q38",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 20,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q38"
+  },
+  "facet": "connections",
+  "prompt": "What tract synapses on the neurons circled in green? Be specific!",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/021.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "green circled region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-q39",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 21,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q39"
+  },
+  "answer": "",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/022.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink outlined region"
+  },
+  "prompt": "Identify the structure outlined in pink",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2024"
+  ],
+  "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
+ },
+ {
+  "slug": "practical-u2-2024-q40",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 22,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 Q40"
+  },
+  "facet": "order",
+  "prompt": "Where are the cell bodies of afferent neurons that synapse in this structure?",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/023.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2024-qB1",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 23,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2024 QB1"
+  },
+  "facet": "muscle",
+  "prompt": "A. What nerve originates from the nucleus circled in blue? B. Name one muscle innervated by that nerve.",
+  "answer": "",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2024/pages/024.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  },
+  "review_note": "no answer key in the course zip"
+ },
+ {
+  "slug": "practical-u2-2025-q01",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "abducens-nerve",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q1"
+  },
+  "answer": "Abducens nerve",
+  "accept": [
+   "Abducens n. (CN VI)"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/002.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  },
+  "prompt": "Identify the nerve indicated by the red pin.",
+  "followups": [
+   "abducens-nerve:muscle"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q02"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q02",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "abducens-nerve",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q2"
+  },
+  "facet": "muscle",
+  "prompt": "What muscle(s) are innervated by this structure?",
+  "answer": "Lateral rectus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q01"
+ },
+ {
+  "slug": "practical-u2-2025-q03",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "inferior-colliculus",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q3"
+  },
+  "answer": "Inferior colliculus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/003.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the structure indicated by the blue pin.",
+  "followups": [
+   "inferior-colliculus:connections"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q04"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q04",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "inferior-colliculus",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q4"
+  },
+  "facet": "connections",
+  "prompt": "What tract containing upper motor neurons originates from this structure?",
+  "answer": "Tectospinal",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q03"
+ },
+ {
+  "slug": "practical-u2-2025-q05",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q5"
+  },
+  "answer": "Cerebral peduncles",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/005.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  },
+  "prompt": "Identify the structure indicated by the red pin.",
+  "followups": [
+   "cerebral-peduncles:passes"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q06"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q06",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q6"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract that travels through this structure.",
+  "answer": "Corticospinal, corticopontine, corticobulbar",
+  "accept": [],
+  "keywords": [
+   [
+    "Corticospinal",
+    "corticopontine",
+    "corticobulbar"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q05"
+ },
+ {
+  "slug": "practical-u2-2025-q07",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "gracile-tubercle",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q7"
+  },
+  "answer": "Gracile tubercle",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/006.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  },
+  "prompt": "Identify the structure indicated by the red pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q08",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "transverse-fibers-of-the-pons",
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q8"
+  },
+  "answer": "Transverse fibers of the pons",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/007.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "What FIBERS make up the striations indicated by the blue pins?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q09",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "olives",
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q9"
+  },
+  "answer": "Olives",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/009.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Identify the structure indicated by the green pin.",
+  "followups": [
+   "olives:cranial_nerve"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q10"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q10",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "olives",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q10"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve exits just medial to this structure?",
+  "answer": "Hypoglossal n.",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q09"
+ },
+ {
+  "slug": "practical-u2-2025-q11",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q11"
+  },
+  "facet": "connections",
+  "prompt": "What modality of fibers originate from the nucleus colored in purple?",
+  "answer": "Parasympathetics",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Somatic motor",
+   "Sympathetics",
+   "Parasympathetics",
+   "Somatic sensory",
+   "Special sensory F. Visceral sensory"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/010.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "purple colored region"
+  }
+ },
+ {
+  "slug": "practical-u2-2025-q12",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "trochlear-nucleus",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q12"
+  },
+  "answer": "Trochlear nucleus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/011.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow colored region"
+  },
+  "prompt": "Name the nucleus colored in yellow.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q13",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q13"
+  },
+  "facet": "level",
+  "prompt": "What component of the ventricular system is present at this level?",
+  "answer": "Cerebral aqueduct",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/012.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u2-2025-q14",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q14"
+  },
+  "answer": "Superior cerebellar peduncle",
+  "accept": [
+   "SCP"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/013.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue outlined region"
+  },
+  "prompt": "Identify the structure outlined in blue.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q15",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q15"
+  },
+  "answer": "Facial nucleus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/014.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow circled region"
+  },
+  "prompt": "Name the cranial nerve nucleus circled in yellow.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q16",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "solitary-nucleus",
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q16"
+  },
+  "answer": "Solitary nucleus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/015.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple circled region"
+  },
+  "prompt": "Name the nucleus circled in purple.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q17",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q17"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one cranial nerve carrying afferent signals to the nucleus circled in purple.",
+  "answer": "VII, IX, X",
+  "accept": [],
+  "keywords": [
+   [
+    "VII",
+    "IX",
+    "X"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/016.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "purple circled region"
+  }
+ },
+ {
+  "slug": "practical-u2-2025-q18",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "fasciculus-cuneatus",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q18"
+  },
+  "answer": "Fasciculus cuneatus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/017.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow circled region"
+  },
+  "prompt": "What is the name of the tract circled in yellow?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q19",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "anterior-corticospinal-tract",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q19"
+  },
+  "answer": "Anterior corticospinal tract",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/018.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink circled region"
+  },
+  "prompt": "What is the name of the tract circled in pink?",
+  "followups": [
+   "anterior-corticospinal-tract:connections"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q20"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q20",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "anterior-corticospinal-tract",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q20"
+  },
+  "facet": "connections",
+  "prompt": "Is this tract comprised of upper or lower motor neurons? (UMNs or LMNs)",
+  "answer": "UMNs",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q19"
+ },
+ {
+  "slug": "practical-u2-2025-q21",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q21"
+  },
+  "answer": "Red nucleus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/019.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple colored region"
+  },
+  "prompt": "What is the name of the structure colored in purple?",
+  "followups": [
+   "red-nucleus:connections"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q22"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q22",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q22"
+  },
+  "facet": "connections",
+  "prompt": "What tract originates from this nucleus?",
+  "answer": "Rubrospinal tract",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q21"
+ },
+ {
+  "slug": "practical-u2-2025-q23",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "principal-sensory-nucleus-of-trigeminal",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q23"
+  },
+  "answer": "Principal sensory nucleus of trigeminal",
+  "accept": [
+   "Principal sensory nucleu of V"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/020.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  },
+  "prompt": "What is the name of the nucleus circled in blue?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q24",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q24"
+  },
+  "answer": "Inferior cerebellar peduncle",
+  "accept": [
+   "ICP"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/021.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink colored region"
+  },
+  "prompt": "What is the structure colored in pink?",
+  "followups": [
+   "inferior-cerebellar-peduncle:passes"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q25"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q25",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q25"
+  },
+  "facet": "passes",
+  "prompt": "Which spinal cord tract will pass through the structure colored in pink?",
+  "answer": "Dorsal spinocerebellar tract",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q24"
+ },
+ {
+  "slug": "practical-u2-2025-q26",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "internal-arcuate-fibers",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q26"
+  },
+  "answer": "Internal arcuate fibers",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/022.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow line"
+  },
+  "prompt": "What is the name of the fibers indicated by the yellow lines?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q27",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q27"
+  },
+  "facet": "muscle",
+  "prompt": "True or False: The nucleus circled in purple relays proprioception from the muscles of mastication.",
+  "answer": "False",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/023.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "purple circled region"
+  }
+ },
+ {
+  "slug": "practical-u2-2025-q28",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "medial-lemniscus",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q28"
+  },
+  "answer": "Medial lemniscus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/024.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  },
+  "prompt": "What is the name of the tract circled in blue?",
+  "followups": [
+   "medial-lemniscus:level"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q29"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q29",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "medial-lemniscus",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q29"
+  },
+  "facet": "level",
+  "prompt": "True or False: At the level shown, the tract circled in blue contains sensory information from both the body and the face.",
+  "answer": "False",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q28"
+ },
+ {
+  "slug": "practical-u2-2025-q30",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q30"
+  },
+  "facet": "connections",
+  "prompt": "What is the function of the tract circled in blue?",
+  "answer": "Coordinate lateral / conjugate gaze",
+  "accept": [],
+  "keywords": [
+   [
+    "Coordinate lateral",
+    "conjugate gaze"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/025.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  }
+ },
+ {
+  "slug": "practical-u2-2025-q31",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 54,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q31"
+  },
+  "facet": "function",
+  "prompt": "What part of the body is represented by the neurons circled in yellow? Be specific!",
+  "answer": "Distal part of upper extremity",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/026.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "yellow circled region"
+  },
+  "review_note": "free-text answer; add keyword groups"
+ },
+ {
+  "slug": "practical-u2-2025-q32",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q32"
+  },
+  "facet": "function",
+  "prompt": "Which longitudinal division of the brainstem is circled in purple?",
+  "answer": "Cortical efferents",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Ventricular system",
+   "Roof",
+   "Cortical efferents",
+   "Tegmentum"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/027.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "purple circled region"
+  }
+ },
+ {
+  "slug": "practical-u2-2025-q33",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "optic-radiations",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q33"
+  },
+  "answer": "Optic radiations",
+  "accept": [
+   "Opitc radiations"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/029.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the structure indicated by the blue pin.",
+  "followups": [
+   "optic-radiations:connections"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q34"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q34",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "optic-radiations",
+  "status": "live",
+  "position": 57,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q34"
+  },
+  "facet": "connections",
+  "prompt": "Where do these fibers synapse?",
+  "answer": "Primary visual cortex",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q33"
+ },
+ {
+  "slug": "practical-u2-2025-q35",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "choroid",
+  "status": "live",
+  "position": 58,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q35"
+  },
+  "answer": "Choroid",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/031.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple pin"
+  },
+  "prompt": "Identify the black structure indicated by the purple pin.",
+  "followups": [
+   "choroid:function"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q36"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q36",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "choroid",
+  "status": "live",
+  "position": 59,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q36"
+  },
+  "facet": "function",
+  "prompt": "Name a main function of this structure.",
+  "answer": "Blood supply, temperature regulation",
+  "accept": [],
+  "keywords": [
+   [
+    "Blood supply",
+    "temperature regulation"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q35"
+ },
+ {
+  "slug": "practical-u2-2025-q37",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "retina",
+  "status": "live",
+  "position": 60,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q37"
+  },
+  "answer": "Retina",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/032.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Identify the structure indicated by the green pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q38",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "superior-colliculus",
+  "status": "live",
+  "position": 61,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q38"
+  },
+  "answer": "Superior colliculus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/033.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "white pin"
+  },
+  "prompt": "Identify the structure indicated by the white pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q39",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": "lens",
+  "status": "live",
+  "position": 62,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q39"
+  },
+  "answer": "Lens",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/034.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the structure indicated by the yellow pin.",
+  "followups": [
+   "lens:muscle"
+  ],
+  "followup_cards": [
+   "practical-u2-2025-q40"
+  ],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ]
+ },
+ {
+  "slug": "practical-u2-2025-q40",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": "lens",
+  "status": "live",
+  "position": 63,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 Q40"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle is responsible for changing the shape of this structure?",
+  "answer": "Ciliary Body",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u2-2025-q39"
+ },
+ {
+  "slug": "practical-u2-2025-qB1",
+  "kind": "theory",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "draft",
+  "position": 64,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 QB1"
+  },
+  "facet": "connections",
+  "prompt": "What nerve originates from the nucleus circled in blue?",
+  "answer": "Spinal accessory n. (CN XI)",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/035.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue circled region"
+  },
+  "review_note": "free-text answer; add keyword groups"
+ },
+ {
+  "slug": "practical-u2-2025-qB2",
+  "kind": "pin",
+  "topic": "practical-u2",
+  "structure": null,
+  "status": "live",
+  "position": 65,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u2-2025 QB2"
+  },
+  "answer": "Lateral corticospinal",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u2-2025/pages/036.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow circled region"
+  },
+  "prompt": "Name the tract circled in yellow.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u2-2025"
+  ],
+  "review_note": "answer is not on the official structure list"
+ }
+]

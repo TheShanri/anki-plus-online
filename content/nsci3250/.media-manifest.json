@@ -1,0 +1,1986 @@
+{
+ "apkg/brainstem-overlay/media/paste-4ec3948ee4010f23650a987e07ad4740ad3e29af.webp": {
+  "hash": "038daafdcfa234268c19c318",
+  "bytes": 230030
+ },
+ "apkg/brainstem-overlay/media/paste-7b39dc431d7674453c3aa482b164981ebf715d62.webp": {
+  "hash": "58752623eb26dba4af8fc2c5",
+  "bytes": 217784
+ },
+ "apkg/brainstem-overlay/media/paste-8b3da05452245a508c7d6b9e7bf57522114dc2db.webp": {
+  "hash": "5782db64e6f7086462359b8a",
+  "bytes": 174812
+ },
+ "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp": {
+  "hash": "4a5864692bdae6ee34ea1484",
+  "bytes": 212630
+ },
+ "apkg/brainstem-overlay/media/paste-b5719c79c0fa5207b71606cd14bb1c91d413a173.webp": {
+  "hash": "fe5c0048645bc2909bfddab0",
+  "bytes": 181278
+ },
+ "apkg/brainstem-overlay/media/paste-ce425c70b47b0be3ff37d7d4f73e2a9a3ead2348.webp": {
+  "hash": "10bc9f1c4d924a4e0c146d99",
+  "bytes": 194662
+ },
+ "apkg/brainstem-overlay/media/paste-d2e3ef5fe431aa14e496e9d2f1b689210c4fd312.webp": {
+  "hash": "918757c0597cb7c34db9706a",
+  "bytes": 240060
+ },
+ "apkg/brainstem-overlay/media/paste-f87273f916d1e0063e33d7a736232f9e9ce79fbd.webp": {
+  "hash": "348c21912c006e53221c2d85",
+  "bytes": 195946
+ },
+ "apkg/lab-1/media/paste-08b8fc050f15b653d94631ce2e9293401ec04e07.webp": {
+  "hash": "6656848aadb8c3ec3afac100",
+  "bytes": 81300
+ },
+ "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp": {
+  "hash": "95fb1f0416171094fa470c61",
+  "bytes": 118568
+ },
+ "apkg/lab-1/media/paste-1b553778dec0468f1755c883f953496cb5c74ab3.webp": {
+  "hash": "d8dfe1d03af8bb03c60e3d09",
+  "bytes": 48054
+ },
+ "apkg/lab-1/media/paste-1e68d38c2299c9fb4e0d436260e316da9048dfc1.webp": {
+  "hash": "981601608b802e3a92e15ec5",
+  "bytes": 72746
+ },
+ "apkg/lab-1/media/paste-2ab8ed43dafadad6d6a15bc14246fcea8b9539a6.webp": {
+  "hash": "d803a9ea4b46388144a0acac",
+  "bytes": 60532
+ },
+ "apkg/lab-1/media/paste-32b429968f5882df821a9cf2ecdfb24ed52a279c.webp": {
+  "hash": "80c07ecd57b7fc4cb4d714c6",
+  "bytes": 84274
+ },
+ "apkg/lab-1/media/paste-35d7dba4ce6758080a1801c8e787e2608ac7bb58.webp": {
+  "hash": "504160e9058b348a2b1007a8",
+  "bytes": 14454
+ },
+ "apkg/lab-1/media/paste-3fd792e1b63bbd1d08951c4130ebac4f43f82684.webp": {
+  "hash": "f35ad48fab16a94060acc054",
+  "bytes": 43454
+ },
+ "apkg/lab-1/media/paste-535ffff99936d5cf1e7d236f2c6e5a027195e3b2.webp": {
+  "hash": "d61805406909315c8465acf5",
+  "bytes": 41244
+ },
+ "apkg/lab-1/media/paste-601c26f5f80d3c2150e7d6baef0ab3e0907cbca8.webp": {
+  "hash": "70c9714191aad9261d7600ea",
+  "bytes": 24962
+ },
+ "apkg/lab-1/media/paste-66e5af8857a23fd8991d9bae0d629001460361d3.webp": {
+  "hash": "fe35e92b050f8e068defa06c",
+  "bytes": 40324
+ },
+ "apkg/lab-1/media/paste-68461ddf99fa3555fae2ddfa967f4c812a592466.webp": {
+  "hash": "f1c4c9eda8db7d01c3eda550",
+  "bytes": 14494
+ },
+ "apkg/lab-1/media/paste-6ab4bd2b3c67465b2db36513673b8c70d7ef98c2.webp": {
+  "hash": "6c3ac34fdddab46bcf04a47e",
+  "bytes": 30138
+ },
+ "apkg/lab-1/media/paste-6dcf8f9c7caf954cd658ea3f49101a85f9ea2444.webp": {
+  "hash": "f9a68bc828da68c9810e0715",
+  "bytes": 39268
+ },
+ "apkg/lab-1/media/paste-78e72794638df38251df70b3f6b3d2edbeb60864.webp": {
+  "hash": "c274cf2700936a57af3c06e2",
+  "bytes": 18944
+ },
+ "apkg/lab-1/media/paste-7c378610cf7d30e81eec422b5bf0f03b32c3d52f.webp": {
+  "hash": "a74105217308c3b09e06914c",
+  "bytes": 69532
+ },
+ "apkg/lab-1/media/paste-7c5d9307b44de025c99c804beb080686a1cd1d78.webp": {
+  "hash": "15e9b632e48b058f709ea8e3",
+  "bytes": 24184
+ },
+ "apkg/lab-1/media/paste-7e1da679bd1ab01d3c73fbb76946972e394fa934.webp": {
+  "hash": "0655c2b32beda8dec030211b",
+  "bytes": 10192
+ },
+ "apkg/lab-1/media/paste-934c67caecfb698148f2ac4058c28e5cf1bc1d5c.webp": {
+  "hash": "0df79f6a4dda264fe0318599",
+  "bytes": 32478
+ },
+ "apkg/lab-1/media/paste-a3982c9212ab593d2bc8c339ee807242c837da5b.webp": {
+  "hash": "56a7c26bf875d6319b00afd4",
+  "bytes": 32172
+ },
+ "apkg/lab-1/media/paste-a4076f7581e63b0b64a0cdb033ff6b00e7305048.webp": {
+  "hash": "8db4cbafa4d922efe6bd087d",
+  "bytes": 53920
+ },
+ "apkg/lab-1/media/paste-c628fe274ea9eb3c4195f4875e3a0e0108c7c766.webp": {
+  "hash": "fbb351757adb919009c35e35",
+  "bytes": 29620
+ },
+ "apkg/lab-1/media/paste-cf222cf98440db6bbfa2bb0b9799dc8b0ffea853.webp": {
+  "hash": "d4dc4b2d0dd529560cac0acf",
+  "bytes": 51814
+ },
+ "apkg/lab-1/media/paste-e2a12a570b2e7cb18d87fba7d972ab7024efb190.webp": {
+  "hash": "ad4b45431996aaae1b742036",
+  "bytes": 58156
+ },
+ "apkg/lab-1/media/paste-e85801e47c5aa9fc57729a0542837fc3628f343a.webp": {
+  "hash": "6f1c51b63ba117512a178b9e",
+  "bytes": 38722
+ },
+ "apkg/lab-1/media/paste-e8dc208eacd2736bbf999e205cc31938246b155f.webp": {
+  "hash": "75936235095c32468e3ccc40",
+  "bytes": 61076
+ },
+ "apkg/lab-1/media/paste-e9c523cef67bd51ac8f89df7e495defd4b303938.webp": {
+  "hash": "4a4ef4d563de8277cf9c5df3",
+  "bytes": 43698
+ },
+ "apkg/lab-1/media/paste-f1651cd2dccc162c02ae8f94c6ffd4c2735cd8f1.webp": {
+  "hash": "67439b334c0d63cbef45d2aa",
+  "bytes": 39626
+ },
+ "apkg/lab-1/media/paste-f752d54b8b01743dd79e5890edc4eb8d759fd680.webp": {
+  "hash": "5788b8e4b8933ca1a7eface2",
+  "bytes": 60990
+ },
+ "apkg/lab-1/media/paste-f98887f175e5e3f815b15242cdd8768df1edc177.webp": {
+  "hash": "a8ca18f201f6c85790459fe5",
+  "bytes": 61616
+ },
+ "apkg/lab-13/media/paste-16bca8722530044221ee7e8bf63bffcd9887b72c.webp": {
+  "hash": "6bca5125c2098aee42323d2e",
+  "bytes": 25954
+ },
+ "apkg/lab-13/media/paste-3f777a79ea3b1875a172f64a5909ea5341da5281.webp": {
+  "hash": "504003caaddaaa7dbe418aa3",
+  "bytes": 33012
+ },
+ "apkg/lab-13/media/paste-411034f6e55e5bb61a7ebb4abdd05aa926556699.webp": {
+  "hash": "49790abf4143f33a7b5ddccb",
+  "bytes": 94056
+ },
+ "apkg/lab-13/media/paste-43dd90fb427db957a02107ecf2f9842d3caed4fa.webp": {
+  "hash": "41421d56d474efae2ee9ac90",
+  "bytes": 120334
+ },
+ "apkg/lab-13/media/paste-560d766d307c845670426394c180fb8a9007f663.webp": {
+  "hash": "5d7cf325aa463eb7f03dce8d",
+  "bytes": 89570
+ },
+ "apkg/lab-13/media/paste-7b979589431664d4fe513f58c6b33c7792b51c77.webp": {
+  "hash": "df2702b4f6a773a832144add",
+  "bytes": 114518
+ },
+ "apkg/lab-13/media/paste-81640d8aca5cea4291b7f8aca270742f0fbb2232.webp": {
+  "hash": "f6ffa7caf5cdfadc1a9afc12",
+  "bytes": 171214
+ },
+ "apkg/lab-13/media/paste-8caec126547c4db5081830b4bfe1f3fe10031e04.webp": {
+  "hash": "c541f348ffd67f65f9d084de",
+  "bytes": 120432
+ },
+ "apkg/lab-13/media/paste-a70182ec1f84dfecd40066c1ad3549629daab120.webp": {
+  "hash": "fde160d1fcda8900bb7c4908",
+  "bytes": 66434
+ },
+ "apkg/lab-13/media/paste-bcd7b3312006008de7296955ac9ba1fd5cc7b3f4.webp": {
+  "hash": "e5360ed04d7ab783aead362f",
+  "bytes": 89214
+ },
+ "apkg/lab-13/media/paste-fa3bb1e556408f798ed83432ac91fa6363908f8e.webp": {
+  "hash": "e6e8684ac6785fe1ebee3b34",
+  "bytes": 87024
+ },
+ "apkg/lab-13/media/paste-fd9263bc7fef21c4c1ce87f1fb795f25e55c2f28.webp": {
+  "hash": "a6c8e88679bd8cf081601cb8",
+  "bytes": 89284
+ },
+ "apkg/lab-14/media/paste-0f0a503af94d10a6a1ef7c216a181f498d92d2cb.webp": {
+  "hash": "93b0bf7d32632354f2bf3e53",
+  "bytes": 77656
+ },
+ "apkg/lab-14/media/paste-24b94a991c3bcf80f869a20928efd107f7b18b23.webp": {
+  "hash": "7a31c55fd4763c5abb6847fd",
+  "bytes": 76670
+ },
+ "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp": {
+  "hash": "bc2ac43667e6c9c6970fa7ea",
+  "bytes": 94668
+ },
+ "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp": {
+  "hash": "4f372147b8f250895ae10a8d",
+  "bytes": 101050
+ },
+ "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp": {
+  "hash": "d0b077fd33338c512333bdc2",
+  "bytes": 87446
+ },
+ "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp": {
+  "hash": "6933aba67e0fbda40bf62ef6",
+  "bytes": 86480
+ },
+ "apkg/lab-14/media/paste-5cfc2b3d9ccfaaad40fd406f1b2db75465078095.webp": {
+  "hash": "074a3b21800804dd371e04f3",
+  "bytes": 35982
+ },
+ "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp": {
+  "hash": "a579dfed1c94c8ee78c2120a",
+  "bytes": 54148
+ },
+ "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp": {
+  "hash": "24cfbfe97eae8c01ef81b277",
+  "bytes": 100130
+ },
+ "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp": {
+  "hash": "42ed02cd06194bf0be7f1248",
+  "bytes": 85450
+ },
+ "apkg/lab-14/media/paste-b83e1cb8e4febe379f8c8f1bdcf58fe11b8417f1.webp": {
+  "hash": "174772048bccb28203cd5c9b",
+  "bytes": 30634
+ },
+ "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp": {
+  "hash": "b98aacd6e9d30d172f2ec421",
+  "bytes": 78452
+ },
+ "apkg/lab-14/media/paste-e7bedefd94b0bd15f8e43daf7b22fb0a965d9949.webp": {
+  "hash": "0e65775c3d03796cfe73f34d",
+  "bytes": 113648
+ },
+ "apkg/lab-15/media/paste-7f6f15a5a7e5af479c258628aca74050b3d5c5c3.webp": {
+  "hash": "8a8fa52047acc3ef65dd8f55",
+  "bytes": 27326
+ },
+ "apkg/lab-15/media/paste-859c17180d6190073fbc751050e0b2e959ee0f77.webp": {
+  "hash": "719127997d6daad7a063ddea",
+  "bytes": 35826
+ },
+ "apkg/lab-15/media/paste-895a29fce45b8628b1c999486c417c8aa1b43a03.webp": {
+  "hash": "3417f3b86d2b6c3f1e2d3dae",
+  "bytes": 95836
+ },
+ "apkg/lab-15/media/paste-a10a2bfdc3f3638a25053dec8981351ad89ba974.webp": {
+  "hash": "e3425fb2857af8f37d72c4a1",
+  "bytes": 49564
+ },
+ "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp": {
+  "hash": "6f91d7148f29fd329131abe6",
+  "bytes": 67342
+ },
+ "apkg/lab-15/media/paste-c81afee53348667ffafa0c6a608e4e70399ab774.webp": {
+  "hash": "ded24c71fb177264be51a57b",
+  "bytes": 61414
+ },
+ "apkg/lab-15/media/paste-e1cb7011642ef8c2c8ca1a6cc24ca3ae03aa082b.webp": {
+  "hash": "3d6fe517f3792cdb4f3489c1",
+  "bytes": 66976
+ },
+ "apkg/lab-15/media/paste-fbda37a29f44a21bba50fdca240268e74175e6bd.webp": {
+  "hash": "260c4b5a77401253db4edc81",
+  "bytes": 90320
+ },
+ "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp": {
+  "hash": "7cb80be850d4c3bd077e4dec",
+  "bytes": 56130
+ },
+ "apkg/lab-16/media/paste-272b2aa29d177e95fb077c2ed59e04c19c1ddadc.webp": {
+  "hash": "94836b735c3218a311621a40",
+  "bytes": 107810
+ },
+ "apkg/lab-16/media/paste-2e8174e7ff2cd6dc15f08df3276adf0e4b3b19fd.webp": {
+  "hash": "54030a01f8533d12ab0d9788",
+  "bytes": 55302
+ },
+ "apkg/lab-16/media/paste-3c7d8a0142ae95d52dfd614378d5794fff4ec317.webp": {
+  "hash": "2761c96918229f5fbf6bd361",
+  "bytes": 46506
+ },
+ "apkg/lab-16/media/paste-4de1c3b248b85589c9331440abbcd4c615ad64b5.webp": {
+  "hash": "30519e1d4c6cfc8814416e01",
+  "bytes": 70166
+ },
+ "apkg/lab-16/media/paste-5697892fbb8c72c63deeda61d9f91b410037962b.webp": {
+  "hash": "ee1d55bcd775dfb93b8a928e",
+  "bytes": 18950
+ },
+ "apkg/lab-16/media/paste-7ad6ef4c85aef770fbec20ce2e89d318ac648c3c.webp": {
+  "hash": "e0d414f7cce056eac3e1ca13",
+  "bytes": 41696
+ },
+ "apkg/lab-16/media/paste-891fc511efe7fc7e07d03d0d510d450861def151.webp": {
+  "hash": "733083a7ac1e1a6b5c3bec6c",
+  "bytes": 43344
+ },
+ "apkg/lab-16/media/paste-8fb985f049fb5b1cac6f2f7574098769d654fb00.webp": {
+  "hash": "fbcb679e74be9af30c0f2c91",
+  "bytes": 118480
+ },
+ "apkg/lab-16/media/paste-9061f5f8531e75b449413faff7b3f0ec4356c015.webp": {
+  "hash": "26073e35d69c9fb69dc11491",
+  "bytes": 85082
+ },
+ "apkg/lab-16/media/paste-9246ebae8621cd4ea1d0cfdbf59a2bf15a3198a3.webp": {
+  "hash": "1fd78ca343958d75ac733e89",
+  "bytes": 46760
+ },
+ "apkg/lab-16/media/paste-d8904e4b682605533bb2f7fb29dd762a8da2332a.webp": {
+  "hash": "f0061e3775c6c2ce94f3cf4c",
+  "bytes": 113706
+ },
+ "apkg/lab-2/media/1311_Brain_Stem.webp": {
+  "hash": "9da8c3dbbdb6240c923d1325",
+  "bytes": 21850
+ },
+ "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp": {
+  "hash": "8805478029b6b3060ede0913",
+  "bytes": 56916
+ },
+ "apkg/lab-2/media/Basal-Ganglia.webp": {
+  "hash": "35bc478b091b648c47b404ca",
+  "bytes": 53420
+ },
+ "apkg/lab-2/media/Dural-Venous-Sinuses.webp": {
+  "hash": "ba596fe84460b360a5779eec",
+  "bytes": 51938
+ },
+ "apkg/lab-2/media/Pons-Article-Image.webp": {
+  "hash": "21562db001a5cf2b723b40c6",
+  "bytes": 31630
+ },
+ "apkg/lab-2/media/Sagittal-plane.webp": {
+  "hash": "4c96fe550fb3c61bc83d1960",
+  "bytes": 23844
+ },
+ "apkg/lab-2/media/The-Basal-Ganglia-Coronal-Section-at-Thalamus1.webp": {
+  "hash": "dc03be2a59e704dc53596e19",
+  "bytes": 21100
+ },
+ "apkg/lab-2/media/coronal-section-brain-thalamus-level_english__1_.webp": {
+  "hash": "75df5cc93acafc56436cdd0d",
+  "bytes": 41826
+ },
+ "apkg/lab-2/media/f0081-01-1.webp": {
+  "hash": "1097029e765a765f2f8a0359",
+  "bytes": 48252
+ },
+ "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp": {
+  "hash": "921a1105f35dfb7bacacdeae",
+  "bytes": 50250
+ },
+ "apkg/lab-2/media/paste-05767f5ea305e50583a05a633b0efa472c97ac42.webp": {
+  "hash": "964756d074066789bcd4eea3",
+  "bytes": 29774
+ },
+ "apkg/lab-2/media/paste-0973cc89bf29adf509fa0c71f643d5d3bf006fae.webp": {
+  "hash": "d16ca21493fb2cd765ffc19c",
+  "bytes": 41688
+ },
+ "apkg/lab-2/media/paste-0f988b985e9a25791326f7b4d691c37085126e81.webp": {
+  "hash": "b34d3c236a604012b3d4ca4b",
+  "bytes": 60066
+ },
+ "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp": {
+  "hash": "f857ebbfe24657044af3df48",
+  "bytes": 86836
+ },
+ "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp": {
+  "hash": "c517f3ded35e2db181b6fcad",
+  "bytes": 152662
+ },
+ "apkg/lab-2/media/paste-21ca891a828db4515daac649a1bb5462619cd121.webp": {
+  "hash": "7bcb3b1114e81fb48124413d",
+  "bytes": 80418
+ },
+ "apkg/lab-2/media/paste-2971455469ee815abc0e29abfa93b301a0dec879.webp": {
+  "hash": "0ead32a4baa99c47935db8bd",
+  "bytes": 87316
+ },
+ "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp": {
+  "hash": "da0047d726ffab36dff01cac",
+  "bytes": 246504
+ },
+ "apkg/lab-2/media/paste-34821bc1dab70b3d12ceb9b72e7edf74d42a0135.webp": {
+  "hash": "bac22ba10328aadb9f46b7dd",
+  "bytes": 116028
+ },
+ "apkg/lab-2/media/paste-36adb97e80747570a152cad657e085d5f8263d2c.webp": {
+  "hash": "f5a1a750f559323daa8443c8",
+  "bytes": 174804
+ },
+ "apkg/lab-2/media/paste-382e5d5b786d0bd4dba425bdb203990274c23a78.webp": {
+  "hash": "4fddc6e94b1d5c191451861b",
+  "bytes": 98848
+ },
+ "apkg/lab-2/media/paste-4bfc0fc915bd335c40b8789d990d1ce1c5474248.webp": {
+  "hash": "860f8f581b7901a6a43630de",
+  "bytes": 121882
+ },
+ "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp": {
+  "hash": "7a6f83a6e279bd797c6756a5",
+  "bytes": 45800
+ },
+ "apkg/lab-2/media/paste-607f3ac23cbe9ddc11a6c56aecda85ebd7552b08.webp": {
+  "hash": "0b943a23db57451c6ed400e5",
+  "bytes": 79878
+ },
+ "apkg/lab-2/media/paste-63f309d746274b2e21902f505573ccac448cfd41.webp": {
+  "hash": "dd929938219b17310154922f",
+  "bytes": 82094
+ },
+ "apkg/lab-2/media/paste-647e5096a684323d312daf4265bfec7ef94888b4.webp": {
+  "hash": "1ac7a80f10900e0e25698060",
+  "bytes": 43620
+ },
+ "apkg/lab-2/media/paste-6580f94ce5dff3246f3ae5436624f32c44042682.webp": {
+  "hash": "a72ea925ba2e97293e6f7ba1",
+  "bytes": 35850
+ },
+ "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp": {
+  "hash": "02bf1fac4bb258fce011752a",
+  "bytes": 121674
+ },
+ "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp": {
+  "hash": "786d1c479ef2ff4464eac239",
+  "bytes": 128590
+ },
+ "apkg/lab-2/media/paste-73f2055326ee0794073ba19553768105f4aef333.webp": {
+  "hash": "f4f64a1839d711d6cbc2d643",
+  "bytes": 59968
+ },
+ "apkg/lab-2/media/paste-78f350642b366804bbecd58873bce3eeca01517d.webp": {
+  "hash": "b3c2007ad602cf8e960a473f",
+  "bytes": 65018
+ },
+ "apkg/lab-2/media/paste-7deb6e92f28ea5aafce48db64dc2ca75c8562da9.webp": {
+  "hash": "368cdcdaf059f8a9b5ea6809",
+  "bytes": 95514
+ },
+ "apkg/lab-2/media/paste-8057ab930a2cfca35e92bae3512b530474d20b7f.webp": {
+  "hash": "220ef022a84639e72a96ee93",
+  "bytes": 101730
+ },
+ "apkg/lab-2/media/paste-85a5c1f1621f70e85e66a9a068633af0185b934b.webp": {
+  "hash": "d8c9db7dce639599d2c8b81f",
+  "bytes": 36556
+ },
+ "apkg/lab-2/media/paste-970c0a3161d9021968b01eeae1608467a78948aa.webp": {
+  "hash": "8d2109af6a28af87be6fc2b5",
+  "bytes": 62392
+ },
+ "apkg/lab-2/media/paste-9f3914911b45b17222a38dc7333b13c13294edf1.webp": {
+  "hash": "db0feb7f717cb8e1cc4c62e6",
+  "bytes": 24654
+ },
+ "apkg/lab-2/media/paste-a028559d3ec6867576718334bc0c20674f623c4e.webp": {
+  "hash": "6957b3ff63f07206f612be4f",
+  "bytes": 138222
+ },
+ "apkg/lab-2/media/paste-a6f6eec044e7b1e81f128719676da3c877318bc1.webp": {
+  "hash": "726008745820ef650b2fd1e8",
+  "bytes": 95460
+ },
+ "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp": {
+  "hash": "9b1f937d41ac8006735c6970",
+  "bytes": 66970
+ },
+ "apkg/lab-2/media/paste-b6d173d5257c70170c2a3e498f9c0c1031b6813f.webp": {
+  "hash": "b06ae6428663e85ea568260d",
+  "bytes": 41548
+ },
+ "apkg/lab-2/media/paste-be079c2cab5951601abab32ebdfb4a833b8822da.webp": {
+  "hash": "57997222d7a16648cc3b1ab5",
+  "bytes": 47268
+ },
+ "apkg/lab-2/media/paste-c8339e721226df396b3e557b4459a541e0049b2e.webp": {
+  "hash": "dbe369a964f939065b2fade0",
+  "bytes": 103002
+ },
+ "apkg/lab-2/media/paste-c8b98950bfaf5bc37311a699ade36ee3a39f3058.webp": {
+  "hash": "dc0269db215738cff14d8dcb",
+  "bytes": 151882
+ },
+ "apkg/lab-2/media/paste-cb16ca59ef089c66fc220843b0498cbd7b227b6f.webp": {
+  "hash": "dd002b006e54a211bc68b6c3",
+  "bytes": 36324
+ },
+ "apkg/lab-2/media/paste-d62ddfefdf738aab8437e734037b67da6440d72e.webp": {
+  "hash": "4149bda2671b77f4469d2889",
+  "bytes": 111592
+ },
+ "apkg/lab-2/media/paste-db57bf7fdfdf59d393c03cf6e8bacf6c2010a606.webp": {
+  "hash": "f789cedb012e0707a2e16449",
+  "bytes": 48392
+ },
+ "apkg/lab-2/media/paste-db693a37aad2a36fdd1bfd4485c1c41c28599093.webp": {
+  "hash": "24d017f9598cd8c09d719914",
+  "bytes": 164504
+ },
+ "apkg/lab-2/media/paste-dde149c9fa74c3ac27dc19cbdc41d755d57a056c.webp": {
+  "hash": "3fb2c2fe7c2ef8e682273d2e",
+  "bytes": 17686
+ },
+ "apkg/lab-2/media/paste-e31ecc2262c1b0ed89d0c567946e5cd63c10c467.webp": {
+  "hash": "3d3c769f089ae2da600afcfd",
+  "bytes": 113894
+ },
+ "apkg/lab-2/media/paste-e8e96c330627d30d041e5398c68b2e523feff3a7.webp": {
+  "hash": "c21739aeb1c494a2f95ed3d7",
+  "bytes": 50696
+ },
+ "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp": {
+  "hash": "1ae3098ffa960234b80f7b53",
+  "bytes": 103636
+ },
+ "apkg/lab-2/media/putamen2.webp": {
+  "hash": "cdeb3fa36068f9ec53239ac9",
+  "bytes": 35748
+ },
+ "apkg/lab-2/media/ventral-view-of-the-brain-cerebellum-medulla-pons-mid-brain.webp": {
+  "hash": "f8689075b4fac08073120525",
+  "bytes": 42402
+ },
+ "apkg/lab-3/media/09c08963d3b35ccfa0b7a45844ca97_big_gallery.webp": {
+  "hash": "d3a4f6724d3e89be5748d154",
+  "bytes": 43184
+ },
+ "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp": {
+  "hash": "6b89fea822659ddb8f52bb8d",
+  "bytes": 43234
+ },
+ "apkg/lab-3/media/anterior-cingulate-cortex-damage-600x400.webp": {
+  "hash": "e0f73112204afb9f3085dd13",
+  "bytes": 19444
+ },
+ "apkg/lab-3/media/orbitofrontal-cortex-damage-1.webp": {
+  "hash": "90dea1680dec262e392aeef5",
+  "bytes": 22704
+ },
+ "apkg/lab-3/media/paste-00b990bdb082adc6d31b0f8d05565ada09d6ceaa.webp": {
+  "hash": "deef22bb91a7edc562584810",
+  "bytes": 88418
+ },
+ "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp": {
+  "hash": "40d678ff0814b8ffca8e91e2",
+  "bytes": 33886
+ },
+ "apkg/lab-3/media/paste-1867b756ea36630d007bafdf9446cc5b73289beb.webp": {
+  "hash": "9004142cc6a17aa7e75a8736",
+  "bytes": 43176
+ },
+ "apkg/lab-3/media/paste-1d25d905f45c42c361a8caa1a1304d8341b12eed.webp": {
+  "hash": "97990deb9a6324596ad7e270",
+  "bytes": 52746
+ },
+ "apkg/lab-3/media/paste-3373c9c1329fcb554a1aaca5c74352cbd536ed40.webp": {
+  "hash": "10f54d120dcf669ca8237e1b",
+  "bytes": 93526
+ },
+ "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp": {
+  "hash": "7f6f2657ed12b7047fd908d2",
+  "bytes": 148450
+ },
+ "apkg/lab-3/media/paste-422c221be5606b2a2e81e285ca7f47b7755e3afe.webp": {
+  "hash": "0162dc8bbc30e44f81bf73c4",
+  "bytes": 92868
+ },
+ "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp": {
+  "hash": "49d95f0fdfe7886a5a501eee",
+  "bytes": 34082
+ },
+ "apkg/lab-3/media/paste-50b379a2d1497f439d9f4489dc40dc007061ffeb.webp": {
+  "hash": "5a07de5f766537aafab84489",
+  "bytes": 58332
+ },
+ "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp": {
+  "hash": "f1f6a177379d76fd752802a3",
+  "bytes": 120276
+ },
+ "apkg/lab-3/media/paste-5deaea72cb9cde5d8264ec19ab6ac5c01d012f44.webp": {
+  "hash": "6568b5f16c1161c95c448491",
+  "bytes": 115858
+ },
+ "apkg/lab-3/media/paste-600f5906aa8336a2ba113036d2244dc8e6ef4e7a.webp": {
+  "hash": "70b1d8b822cbb3aa047e42bc",
+  "bytes": 35640
+ },
+ "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp": {
+  "hash": "3a9cf9c6c193503976ee4b81",
+  "bytes": 119402
+ },
+ "apkg/lab-3/media/paste-7b50d678fb0e6d43e3bb8dbab9c31afe27640fc9.webp": {
+  "hash": "e33e0f564e02f143a72078e1",
+  "bytes": 83680
+ },
+ "apkg/lab-3/media/paste-8a25a6656b51c7442d52a7c1865db1abe31a1448.webp": {
+  "hash": "419ded9d78826a637aac0ce9",
+  "bytes": 52744
+ },
+ "apkg/lab-3/media/paste-92fd56b146efd118c1f996ef57e535627a2c9855.webp": {
+  "hash": "976d0c3d515785f934f00137",
+  "bytes": 104446
+ },
+ "apkg/lab-3/media/paste-982adb972b03e5f5a35d9b087f7cd8fbc684799c.webp": {
+  "hash": "f52741c052d32eeaac487b8e",
+  "bytes": 55660
+ },
+ "apkg/lab-3/media/paste-a141d9f2e2e97efc5f8405bdb2f3bcb923e2cc73.webp": {
+  "hash": "b726b44b9f5f3c1d6bbd8872",
+  "bytes": 119946
+ },
+ "apkg/lab-3/media/paste-b0c0e9bb92dcb58acd959f31c47a8550f99a3efa.webp": {
+  "hash": "3ba8acf0c6176031a29df8dd",
+  "bytes": 108942
+ },
+ "apkg/lab-3/media/paste-b40526a6b0728615a294caa34d08915268499b37.webp": {
+  "hash": "a6f53eb8192130c9d7fbe7b1",
+  "bytes": 73094
+ },
+ "apkg/lab-3/media/paste-b5db4a4d4701c7a347c53171bcd93098c8fa136b.webp": {
+  "hash": "44c88114a00939b21491d5d8",
+  "bytes": 72852
+ },
+ "apkg/lab-3/media/paste-bde801c5c460b61bf53919c53cb6bf5784ef5b2c.webp": {
+  "hash": "352b96b307a24bcaaba7b391",
+  "bytes": 53094
+ },
+ "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp": {
+  "hash": "cc820dbb7af341027df884a1",
+  "bytes": 218020
+ },
+ "apkg/lab-3/media/paste-cb0ad22609d127586a2f18ca2988183085727b61.webp": {
+  "hash": "b56161d378f0478d1165885c",
+  "bytes": 148274
+ },
+ "apkg/lab-3/media/paste-d165ccbd0f4b75e90d13bb01c35794745dc653fe.webp": {
+  "hash": "3b6bd5b9826c56e8ea7c16a0",
+  "bytes": 80686
+ },
+ "apkg/lab-3/media/paste-dc723d5e9ac798704765b4498c4778a24e3eeda7.webp": {
+  "hash": "778f8bf5205aaae504044457",
+  "bytes": 125706
+ },
+ "apkg/lab-3/media/paste-e1c0738bd6f3aa32725e7ad186030a90d9d56818.webp": {
+  "hash": "081dad137f33b4d28cb88c57",
+  "bytes": 96614
+ },
+ "apkg/lab-3/media/paste-e2e69ff182e80cf86896a707970d72cfbb3da953.webp": {
+  "hash": "6c521a4915f9c6469a93893c",
+  "bytes": 136606
+ },
+ "apkg/lab-3/media/paste-f189a58f279a47a9fe102eb89992cd4193927963.webp": {
+  "hash": "f6f80919386fdfe66680542c",
+  "bytes": 55092
+ },
+ "apkg/lab-3/media/paste-f19946e51337506e1b3e59b8150f67d1faf4257a.webp": {
+  "hash": "e671e95221260eb440a8baac",
+  "bytes": 146430
+ },
+ "apkg/lab-3/media/superior-temporal-gyrus.webp": {
+  "hash": "c9af57a1e8539ef2aea045e4",
+  "bytes": 24964
+ },
+ "apkg/lab-4/media/paste-08b088f80aa3e343cb7b5aa1508065bece7bef3b.webp": {
+  "hash": "2a396bff510718591a0797c5",
+  "bytes": 203752
+ },
+ "apkg/lab-4/media/paste-0fa446754ed97ed8e90f120210aae9879ec046a5.webp": {
+  "hash": "f8b27bc62df687fdb84b580d",
+  "bytes": 9670
+ },
+ "apkg/lab-4/media/paste-1667e238bef8836ca997c7a7a8f541d9982958c1.webp": {
+  "hash": "0ec3bb2eb80e1db39c57cf42",
+  "bytes": 73214
+ },
+ "apkg/lab-4/media/paste-1fec052440f8ec31458ea40fa37a28dda23f212a.webp": {
+  "hash": "40de7b221e4bf607bfd24f51",
+  "bytes": 55362
+ },
+ "apkg/lab-4/media/paste-246428d47a1e6fd81e9632043b743eb7d801abe2.webp": {
+  "hash": "28553d317f8a83cefed09ad6",
+  "bytes": 59652
+ },
+ "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp": {
+  "hash": "de670e027856d5ea15ccf476",
+  "bytes": 22894
+ },
+ "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp": {
+  "hash": "3123b3a8f7c911f1fa007397",
+  "bytes": 180508
+ },
+ "apkg/lab-4/media/paste-37394375432b4c9220aa1d7bdaaba00dd3ab9f3d.webp": {
+  "hash": "1cf992772f4ed5715b34929f",
+  "bytes": 30586
+ },
+ "apkg/lab-4/media/paste-37b4b050eed7716c78ccaa9b4f6edd3cad473bd4.webp": {
+  "hash": "5dfbe4df9c30bce36f1a97a5",
+  "bytes": 59910
+ },
+ "apkg/lab-4/media/paste-399e2b390cde6814981b305755813ff1bc3a5d75.webp": {
+  "hash": "5f530ab44103268f3f572f7c",
+  "bytes": 59974
+ },
+ "apkg/lab-4/media/paste-3a8ba53a6c3e74b1dbb417af04378b488a69fd8c.webp": {
+  "hash": "fc751df4c52fa9c90c2bc057",
+  "bytes": 70332
+ },
+ "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp": {
+  "hash": "98afa6a6e122cfb25f09bc17",
+  "bytes": 30318
+ },
+ "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp": {
+  "hash": "2f2a3e679b204e65dfacf9fa",
+  "bytes": 124834
+ },
+ "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp": {
+  "hash": "009e2a5ad0bd89d49e6036e2",
+  "bytes": 47366
+ },
+ "apkg/lab-4/media/paste-54fcdcc22c44eb8cd123daa9e072dab7fa4fca9a.webp": {
+  "hash": "ba7499a693c95e7a8b124517",
+  "bytes": 70238
+ },
+ "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp": {
+  "hash": "1677badbd33b1e324c3cb10e",
+  "bytes": 168778
+ },
+ "apkg/lab-4/media/paste-590e269ce802286fd817ac90b5a3362d5d79e8fd.webp": {
+  "hash": "10537e9e0e113a3c5234af04",
+  "bytes": 12254
+ },
+ "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp": {
+  "hash": "93e9660d41deb3073c671699",
+  "bytes": 35860
+ },
+ "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp": {
+  "hash": "65290e4a554104e4fc765aa6",
+  "bytes": 61684
+ },
+ "apkg/lab-4/media/paste-70a61bfd1d3ed15ee1745502fca1fb10883a628a.webp": {
+  "hash": "c00c85396176b24be879884e",
+  "bytes": 68450
+ },
+ "apkg/lab-4/media/paste-75f2c1c97a8d178b762a15ca16be7fb73774cf40.webp": {
+  "hash": "a091f2479710f9173485f429",
+  "bytes": 146746
+ },
+ "apkg/lab-4/media/paste-76bdb23eca155501696f1512738e6d55a5042d8e.webp": {
+  "hash": "0ab5a6f16ca6b87c18391e27",
+  "bytes": 48244
+ },
+ "apkg/lab-4/media/paste-77b3bdf9378c4f360af489db4305bb554237925e.webp": {
+  "hash": "c769b6c1d25be76cace10d16",
+  "bytes": 118576
+ },
+ "apkg/lab-4/media/paste-8fdc9576b4562fb256c642f0a801a690460367fa.webp": {
+  "hash": "6f4576038b49a1d7512c7c63",
+  "bytes": 81906
+ },
+ "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp": {
+  "hash": "e04a4990cd0c55d05432864d",
+  "bytes": 154966
+ },
+ "apkg/lab-4/media/paste-9f31650e7ff64aa5e5adb6e0d6c6ac974f75e899.webp": {
+  "hash": "9cace2b42705445e13d9d5ac",
+  "bytes": 40390
+ },
+ "apkg/lab-4/media/paste-b66b4d6040e0000380f31e45202fb96251f52a7d.webp": {
+  "hash": "b73bf947da696498ac61843c",
+  "bytes": 143324
+ },
+ "apkg/lab-4/media/paste-d2d9c3aa86ee6c21cfff663889556fef01df6604.webp": {
+  "hash": "6989620d8bc467b537bb647b",
+  "bytes": 32182
+ },
+ "apkg/lab-4/media/paste-d519c28d8346316e2c0d05aef870205039eeb33d.webp": {
+  "hash": "2bd14620993f391457ff6f9d",
+  "bytes": 26308
+ },
+ "apkg/lab-4/media/paste-d858b97cd334e183c5961184395239345b76efbf.webp": {
+  "hash": "7cd0690bf7dea7d468705faa",
+  "bytes": 54714
+ },
+ "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp": {
+  "hash": "fb5638d11b58abeb7aaffa1a",
+  "bytes": 181606
+ },
+ "apkg/lab-4/media/paste-e6245bff09ad6b395dc5d756ad7924bd0b0296f2.webp": {
+  "hash": "c0e54434d6d01efc8377f4a5",
+  "bytes": 37458
+ },
+ "apkg/lab-4/media/paste-e6d71c84a0ce6311ab2b48c8e4b8c75833e44519.webp": {
+  "hash": "ce7bc6311024d53176aaccb2",
+  "bytes": 109642
+ },
+ "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp": {
+  "hash": "3ed188fa12457c80cbea9029",
+  "bytes": 104048
+ },
+ "apkg/lab-4/media/paste-ef5fdd9616b381772913aadec62e7fae2f9d5104.webp": {
+  "hash": "af1c425ec5856ad9786e5399",
+  "bytes": 31814
+ },
+ "apkg/lab-4/media/paste-f1a7dc649626d4caf4d9be8fe4ec8d79a0f7f0bf.webp": {
+  "hash": "9fab2ebe98f0d0a9e2955274",
+  "bytes": 11432
+ },
+ "apkg/lab-4/media/paste-f287fb4f3c2fe7617a4957af6a869c34a3a4979f.webp": {
+  "hash": "a6d415f196774b2aaf4a2278",
+  "bytes": 187352
+ },
+ "apkg/lab-4/media/paste-f55bdc7b74eb6d82fad0de6f9a8c3214297d1e9f.webp": {
+  "hash": "6b9809721d02d1f5bf86fa46",
+  "bytes": 57288
+ },
+ "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp": {
+  "hash": "8b684cd676bf81841b123885",
+  "bytes": 133958
+ },
+ "apkg/lab-4/media/paste-fa3270990f226a00a120fed95de78974c32cceab.webp": {
+  "hash": "4570ab0831f7b821a3068d5c",
+  "bytes": 32614
+ },
+ "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp": {
+  "hash": "5bef19e4dec939ded6d66f24",
+  "bytes": 202442
+ },
+ "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp": {
+  "hash": "f5929c913746ad2d05777bbb",
+  "bytes": 135336
+ },
+ "apkg/lab-5/media/paste-15ae2c035fd265cae67015cffa086d192fd614a3.webp": {
+  "hash": "bde1df5a09862440df707c07",
+  "bytes": 69686
+ },
+ "apkg/lab-5/media/paste-264d9c632f0d242aa48862eae59f82afd163face.webp": {
+  "hash": "cb16018ec514df957ea74a55",
+  "bytes": 70336
+ },
+ "apkg/lab-5/media/paste-3757d677530d0fa3dae027c050bad8e52046ff84.webp": {
+  "hash": "e3d5b11348c3c5710b1f284b",
+  "bytes": 56056
+ },
+ "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp": {
+  "hash": "e8dd032254015e60ac6ffc18",
+  "bytes": 123004
+ },
+ "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp": {
+  "hash": "53aa3dde70a3738896b576c7",
+  "bytes": 131916
+ },
+ "apkg/lab-5/media/paste-b4f79c0003be3d2cd664436763c69fb17a06779b.webp": {
+  "hash": "8985b249fff260c61f6f35df",
+  "bytes": 87200
+ },
+ "apkg/lab-5/media/paste-cedeea8baac0aabb6e9d0ed82e89d63c346164f9.webp": {
+  "hash": "b03f31abd0ed2ce1696f402b",
+  "bytes": 73058
+ },
+ "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp": {
+  "hash": "302cbdad8d39d9a578be3211",
+  "bytes": 221992
+ },
+ "apkg/lab-5/media/paste-fdbbb4e627de3b53210143f0526f52dc03cea59e.webp": {
+  "hash": "09acdb7f3154f4611d432c87",
+  "bytes": 49922
+ },
+ "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp": {
+  "hash": "9012fac0c56ecaf12b23b1d3",
+  "bytes": 118618
+ },
+ "apkg/lab-7/media/paste-0e96905b32f3588df6d9a58b552255d6e94a6211.webp": {
+  "hash": "c29b5f6419831fd495122a5a",
+  "bytes": 93620
+ },
+ "apkg/lab-7/media/paste-18be16eb9ac88592b2a4bc24a0670407fbabb013.webp": {
+  "hash": "708fcf0596803e135950fc86",
+  "bytes": 133742
+ },
+ "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp": {
+  "hash": "85de84ff42aa066472264bbe",
+  "bytes": 158306
+ },
+ "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp": {
+  "hash": "00c217b34aedcd1998f14059",
+  "bytes": 68068
+ },
+ "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp": {
+  "hash": "eb5f3e7bc20e77f22dccf5b3",
+  "bytes": 147074
+ },
+ "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp": {
+  "hash": "85256af835a3c3b413990611",
+  "bytes": 70882
+ },
+ "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp": {
+  "hash": "4c4e10a2355c050a71d4b0ce",
+  "bytes": 175932
+ },
+ "apkg/lab-7/media/paste-4f812ca1ed7a712d29f7a6ffc14afc2d55c33d8f.webp": {
+  "hash": "f668b8d2b3a2429fae131b53",
+  "bytes": 65288
+ },
+ "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp": {
+  "hash": "2471daf6697b31329b9689d2",
+  "bytes": 117132
+ },
+ "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp": {
+  "hash": "6e330cf1195312ea28c01332",
+  "bytes": 97910
+ },
+ "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp": {
+  "hash": "c9a5f698a10025e8bbe59159",
+  "bytes": 116018
+ },
+ "apkg/lab-7/media/paste-60aff57df851d5928d49c771b1510693e819a462.webp": {
+  "hash": "173e931f760a7e297f50184e",
+  "bytes": 118432
+ },
+ "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp": {
+  "hash": "d0f50d4a83b30c0aa54ed0f2",
+  "bytes": 163756
+ },
+ "apkg/lab-7/media/paste-7a7fa4f093d1c8c09258f74daf1ac891a04e4ae8.webp": {
+  "hash": "1b0671643ea52cd463aabb7b",
+  "bytes": 130512
+ },
+ "apkg/lab-7/media/paste-827eee1541cf50209a04078bef2d4c0fd9aecf43.webp": {
+  "hash": "ece24038bcd75dd7691b4a72",
+  "bytes": 52384
+ },
+ "apkg/lab-7/media/paste-8acd0dba6b3b71e60bf0ab9870d86961740a46f4.webp": {
+  "hash": "13a45301326e5d8f8868cffb",
+  "bytes": 79982
+ },
+ "apkg/lab-7/media/paste-92db090c4dae6a3bcf46964e7b0352a573063adf.webp": {
+  "hash": "60d50215d8505b3ddd80af10",
+  "bytes": 91538
+ },
+ "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp": {
+  "hash": "3cf6c63ab83bce9087c3b530",
+  "bytes": 146588
+ },
+ "apkg/lab-7/media/paste-b20d5a6973bcccab5a8791df5d0c47a7dd41ba84.webp": {
+  "hash": "e651b9f22b555423f6c779e2",
+  "bytes": 105704
+ },
+ "apkg/lab-7/media/paste-b579a13d6110fb327c9174e45581a5aa87bf0530.webp": {
+  "hash": "06fe8cb406a1856234613cfb",
+  "bytes": 98754
+ },
+ "apkg/lab-7/media/paste-b951d436149efd984a9ead592b60c54330e6a5d5.webp": {
+  "hash": "8af8a4a4aa0e53831365d906",
+  "bytes": 112004
+ },
+ "apkg/lab-7/media/paste-c974db93d3eab3855c490c3276fb8be3a23ae336.webp": {
+  "hash": "cc4d3abe662c2169f3b1a709",
+  "bytes": 60094
+ },
+ "apkg/lab-7/media/paste-d207242d4072464d2d06e70ff2c046c7d96631cc.webp": {
+  "hash": "25afffd88b0ef20491c885a2",
+  "bytes": 104188
+ },
+ "apkg/lab-7/media/paste-f5060d74bc15e2ca8a3b3d3dff6af99cef191637.webp": {
+  "hash": "9b488b3f90de8a86f5e448e1",
+  "bytes": 91466
+ },
+ "apkg/lab-8-diagrams/media/paste-019320367c83e0cd5fd9c1c8f17d8496bd25d74c.webp": {
+  "hash": "0e1f8da9dc11fdc004d843d6",
+  "bytes": 84308
+ },
+ "apkg/lab-8-diagrams/media/paste-47cbe3933135ce6c8bcf5d9695eb176c59b91132.webp": {
+  "hash": "820d26c6a825fb25e8d5d2a3",
+  "bytes": 117988
+ },
+ "apkg/lab-8-diagrams/media/paste-55046b652ff3dc9f23ae40fdc518ebfecaf91f9a.webp": {
+  "hash": "61c3a29036467c3ab76875d9",
+  "bytes": 112244
+ },
+ "apkg/lab-8-diagrams/media/paste-8213278b337242b04deedd70a4eb3ec5a435c24f.webp": {
+  "hash": "ca151d32c84b836b5f513fa0",
+  "bytes": 92006
+ },
+ "apkg/lab-8-diagrams/media/paste-87e52297325f03754c58533fc56b0308f786aa31.webp": {
+  "hash": "b341b9f90aeddc23a1b146ed",
+  "bytes": 132726
+ },
+ "apkg/lab-8-diagrams/media/paste-a55fa99c90864a7e3967620bae7a6c45b5fa5ab9.webp": {
+  "hash": "e61284ea79e63051434ce90f",
+  "bytes": 115332
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp": {
+  "hash": "fab0df1360e5e1e46bb1891d",
+  "bytes": 192316
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp": {
+  "hash": "5d4466f728056f18ef27327b",
+  "bytes": 149922
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp": {
+  "hash": "f16dff4147c5f3cedcb6dfd0",
+  "bytes": 185560
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp": {
+  "hash": "ff9384d4abf0f8562279bba6",
+  "bytes": 175614
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-4d82b26a3badd9a4bcbe9808ea7225646dbbb972.webp": {
+  "hash": "44dcefd0023bff8ff9537c88",
+  "bytes": 245482
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-85543087a60ce93761df80c42faa1970726250f3.webp": {
+  "hash": "ea0e5b2a509a9c1287f2bc05",
+  "bytes": 208620
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-9eedecc88a82ef2ca08ecab23ebfe72238957e0a.webp": {
+  "hash": "6f72aefbebab9b9096cc4bae",
+  "bytes": 155056
+ },
+ "apkg/lab-8-surface-brainstem-histology/media/paste-b9ca5bae32ed2113d8aae87eb498e210a04bb361.webp": {
+  "hash": "b5b8e38be444a790ba639c2f",
+  "bytes": 187440
+ },
+ "apkg/unit-1-practice-practicals/media/paste-00cc86967579e125e07500e410c3c25335e0ec6f.webp": {
+  "hash": "5ca2e59a30c6662d8da6def0",
+  "bytes": 115334
+ },
+ "apkg/unit-1-practice-practicals/media/paste-09228ecd4dd1c39b9f2aa2b9e3c2d6e64a6c6ce3.webp": {
+  "hash": "a1cf1e08209295e74ed8ef5e",
+  "bytes": 85750
+ },
+ "apkg/unit-1-practice-practicals/media/paste-0e0473809e2531625d6235e54feebfcc96c595a4.webp": {
+  "hash": "4efc8d70ce6febf51b6921b5",
+  "bytes": 121338
+ },
+ "apkg/unit-1-practice-practicals/media/paste-0f9bae51101a0e074ba0ba3710e2f57bcee6063c.webp": {
+  "hash": "ef191327aa28033ccb8a264d",
+  "bytes": 77708
+ },
+ "apkg/unit-1-practice-practicals/media/paste-11c925d5837d1d1860a1ce790d0cbf7eb458e924.webp": {
+  "hash": "b264aa75334b8101fc45bba4",
+  "bytes": 103956
+ },
+ "apkg/unit-1-practice-practicals/media/paste-16cdcbb55d2e6aee058af3c1ed897dbd117094ef.webp": {
+  "hash": "6a6011d3efd49902ff5ae619",
+  "bytes": 96156
+ },
+ "apkg/unit-1-practice-practicals/media/paste-18d74f875a2469bfba87834ba52021c9878c71cf.webp": {
+  "hash": "d96c9f64e0a9845c07681839",
+  "bytes": 61178
+ },
+ "apkg/unit-1-practice-practicals/media/paste-26449316db6d28fa2aeffed22a409052d7dad4a6.webp": {
+  "hash": "884d2e7a2e421ed8306aac66",
+  "bytes": 124178
+ },
+ "apkg/unit-1-practice-practicals/media/paste-2651d4ac55dfbd119fcb5223f4454d77c9553daf.webp": {
+  "hash": "f9e9d65d91c39b034f90263a",
+  "bytes": 81640
+ },
+ "apkg/unit-1-practice-practicals/media/paste-2f6489dec92bd4ddb541d8dfce27b83889fe91a5.webp": {
+  "hash": "5371b091f5401ff7c822b91e",
+  "bytes": 102714
+ },
+ "apkg/unit-1-practice-practicals/media/paste-30d6ae503da54387d0eeb88b699b1b8a392a7c88.webp": {
+  "hash": "84056ef9b888b8386d6a57bf",
+  "bytes": 103592
+ },
+ "apkg/unit-1-practice-practicals/media/paste-35a2c106afb44ddaef5b17a74fcc30ef8d605371.webp": {
+  "hash": "c54f8583a919ebac896dce8e",
+  "bytes": 97636
+ },
+ "apkg/unit-1-practice-practicals/media/paste-3a2a24a861d810e73ee3462f60a19393cca5c9a2.webp": {
+  "hash": "d31029f0d515cc6640ab49cc",
+  "bytes": 90674
+ },
+ "apkg/unit-1-practice-practicals/media/paste-3f74ab9a1980923fdeb04d4c4c4a30d041314420.webp": {
+  "hash": "6ec97c9d1667d0ccc2e19d0b",
+  "bytes": 97628
+ },
+ "apkg/unit-1-practice-practicals/media/paste-4195b7bda98309543bd5ce2fa6dd3ea5937b0ea1.webp": {
+  "hash": "90c2813d417dd64fd1d8c5cf",
+  "bytes": 103934
+ },
+ "apkg/unit-1-practice-practicals/media/paste-46f8e54a9d310b486490d35198518010e38a5f2e.webp": {
+  "hash": "6bf414f0cb805d34b5047547",
+  "bytes": 113372
+ },
+ "apkg/unit-1-practice-practicals/media/paste-46fcbf4dced0c61f07b90a5c174d498d78dd5634.webp": {
+  "hash": "47171e7bf8276b314137dc36",
+  "bytes": 86552
+ },
+ "apkg/unit-1-practice-practicals/media/paste-4b2e7fe23bd256264c7576c360de9d19c9f1b7bf.webp": {
+  "hash": "4335464bf0b2d6534e975e11",
+  "bytes": 56018
+ },
+ "apkg/unit-1-practice-practicals/media/paste-4b3ea9e130e801e70536c78b088a95cb5812cd8d.webp": {
+  "hash": "cd0992152f9d8812b8f590d4",
+  "bytes": 148902
+ },
+ "apkg/unit-1-practice-practicals/media/paste-53386e7e54850b7885a00369ee2da166c3befdcb.webp": {
+  "hash": "6f14e17d3d7652bd140b8441",
+  "bytes": 123022
+ },
+ "apkg/unit-1-practice-practicals/media/paste-54de48bf2ef9f8ee318fc1efcd6616e0d61cf23c.webp": {
+  "hash": "c427ccb16d1dc8b08b373eec",
+  "bytes": 55226
+ },
+ "apkg/unit-1-practice-practicals/media/paste-566d1c47a8d7470e29cd3d6fd18a6152ba6c11e7.webp": {
+  "hash": "37ba64b4ccd11441a2b12c4a",
+  "bytes": 123428
+ },
+ "apkg/unit-1-practice-practicals/media/paste-5b578b65f30468c181d89b1852cd371396e3f96e.webp": {
+  "hash": "1bf296ec62f41aca5a08eac4",
+  "bytes": 68976
+ },
+ "apkg/unit-1-practice-practicals/media/paste-5d24f61366bdb7fd3a886252062896e1b8907352.webp": {
+  "hash": "c836298ac001a7f53f5b1f57",
+  "bytes": 66312
+ },
+ "apkg/unit-1-practice-practicals/media/paste-5f7b06c4bee3da18c57a3b2c56221dd64cd6e144.webp": {
+  "hash": "6797f8f9777e7eaa0155b52d",
+  "bytes": 131324
+ },
+ "apkg/unit-1-practice-practicals/media/paste-6be7dc4a296c8a7706eb11263a66340eb8cc9705.webp": {
+  "hash": "81db4954c439cdc872ed8f06",
+  "bytes": 111976
+ },
+ "apkg/unit-1-practice-practicals/media/paste-6e7c44440d7b72ef95b9002850a25e2520fffba0.webp": {
+  "hash": "a293833afb53baebf0ef5ead",
+  "bytes": 75118
+ },
+ "apkg/unit-1-practice-practicals/media/paste-6fa0f294568248ae6b9ab9d217924dddbb3d9914.webp": {
+  "hash": "20d0cf9c60d7dc544c5146af",
+  "bytes": 79666
+ },
+ "apkg/unit-1-practice-practicals/media/paste-73142fd2a487818b2b89b91f3effa367c9243687.webp": {
+  "hash": "b6637dd765fd165e7512fd21",
+  "bytes": 89668
+ },
+ "apkg/unit-1-practice-practicals/media/paste-75024d4001a0c6f0d0bd093534c91e713ac3b820.webp": {
+  "hash": "cc15ab75465a491498a3a800",
+  "bytes": 95396
+ },
+ "apkg/unit-1-practice-practicals/media/paste-7d396e90902f6efac4db3d6d6a3b2c30ad64642c.webp": {
+  "hash": "85275bfe5b0cc4eb991d4832",
+  "bytes": 72702
+ },
+ "apkg/unit-1-practice-practicals/media/paste-7e88676f644a99973380d07cb69b48f3640ddfc2.webp": {
+  "hash": "c824103acde77f03fec6c52f",
+  "bytes": 107944
+ },
+ "apkg/unit-1-practice-practicals/media/paste-836b0050d2564f6481c193b32a9c557d1e57f3db.webp": {
+  "hash": "7ec9094735c98b6af35ce0cb",
+  "bytes": 83960
+ },
+ "apkg/unit-1-practice-practicals/media/paste-8653c35eedb2f16b8b48f58b3fdf64a4eba290c7.webp": {
+  "hash": "212906d3f0dbcf3a02b54ce9",
+  "bytes": 80578
+ },
+ "apkg/unit-1-practice-practicals/media/paste-8729ae2f63ff48d204ca5f7d2199d131f66ee61f.webp": {
+  "hash": "6fe73a8052be4b2dcecc82e8",
+  "bytes": 106406
+ },
+ "apkg/unit-1-practice-practicals/media/paste-8851c2a7fdf138194b6fbfa99fdf39d1a92b3bdc.webp": {
+  "hash": "d6edbff87e24f7eff1e510c5",
+  "bytes": 86054
+ },
+ "apkg/unit-1-practice-practicals/media/paste-897ad1336069ce98d27974bcb16db75b007a85a4.webp": {
+  "hash": "d184a6f27662a7a29aa72517",
+  "bytes": 70334
+ },
+ "apkg/unit-1-practice-practicals/media/paste-8d2910013a546e5c2f631e81e6c6676b3afbcbec.webp": {
+  "hash": "de5c93822595c7c42bebc16f",
+  "bytes": 94200
+ },
+ "apkg/unit-1-practice-practicals/media/paste-910ce7bad33bddf34703180d422570c471ee5ed8.webp": {
+  "hash": "a7c687abc1e819c1dfb94922",
+  "bytes": 99678
+ },
+ "apkg/unit-1-practice-practicals/media/paste-99e756a09dfc886c9fa52c0a7be2afebc7b02d32.webp": {
+  "hash": "6ef8b51a26bc102d9149354e",
+  "bytes": 96678
+ },
+ "apkg/unit-1-practice-practicals/media/paste-9fb095e83995b03ad6f6d1e4d8a2d389ef25d7f9.webp": {
+  "hash": "3fc610336b757ebf3406848e",
+  "bytes": 83216
+ },
+ "apkg/unit-1-practice-practicals/media/paste-acb498763e0986451d4dbebbb005f46687c91339.webp": {
+  "hash": "aaebca9be2b5435049806adf",
+  "bytes": 86664
+ },
+ "apkg/unit-1-practice-practicals/media/paste-acc5b2c50d69dc905eec5de953a5d1827b09b278.webp": {
+  "hash": "0f2d9cec42214f3400212704",
+  "bytes": 135626
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b07700ea4a26115f3cfbd62b5efb20af2443bfdb.webp": {
+  "hash": "5ec3b55eb635a8cd2f3de412",
+  "bytes": 74856
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b17ded14d643c8827bb427fe4e115f2279c64a49.webp": {
+  "hash": "20c1c9c049cfe83d98616c8b",
+  "bytes": 85476
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b289baf08f2f62f5384a2196b38917434cd952b2.webp": {
+  "hash": "930e955844c104120b5fe42f",
+  "bytes": 100918
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b49eb397d2b082b313abf9e0d11c6ea6a0e5cb0c.webp": {
+  "hash": "642ed5d4552bdf7a0fe844d9",
+  "bytes": 115710
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b4bc261ddb9a075b3b82c98563397a41d2b22801.webp": {
+  "hash": "e631f549c2f8c3f995e240ae",
+  "bytes": 81142
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b5cf5640f7d5c623f808e909662ce3ad17d70773.webp": {
+  "hash": "af9d7154acea2a0dcd3984d9",
+  "bytes": 102312
+ },
+ "apkg/unit-1-practice-practicals/media/paste-b91e729deabd1a93f6d2105bde66bb672a78c24c.webp": {
+  "hash": "d3aa34ac206c1062d9de6a8e",
+  "bytes": 61980
+ },
+ "apkg/unit-1-practice-practicals/media/paste-ba7ac0de1cc495d6d1a4e82fcf6dcb0c98a26bf3.webp": {
+  "hash": "06d5a610233304c89af32894",
+  "bytes": 130792
+ },
+ "apkg/unit-1-practice-practicals/media/paste-bd10aafb1b14a05755ff3de772e9ecfad3e1d58c.webp": {
+  "hash": "4ecef684d48c921518937bfa",
+  "bytes": 86382
+ },
+ "apkg/unit-1-practice-practicals/media/paste-bd1b36afdbb19873468ec7be5936f7f734774fba.webp": {
+  "hash": "3418c965e169c908cb82dac2",
+  "bytes": 101180
+ },
+ "apkg/unit-1-practice-practicals/media/paste-c4db2c3ca7420153fd3a99218177244ec0bc00bb.webp": {
+  "hash": "0015498e899d08c8ea115184",
+  "bytes": 106840
+ },
+ "apkg/unit-1-practice-practicals/media/paste-c5cabfea76b0f7e82215f9329661e1e862bc8527.webp": {
+  "hash": "e9f2caad312ad059bccdc8cb",
+  "bytes": 150866
+ },
+ "apkg/unit-1-practice-practicals/media/paste-cf274cc7a41c388b4ff928a63779138b8cad6348.webp": {
+  "hash": "365be72c2f8a7d7558bfbde5",
+  "bytes": 99856
+ },
+ "apkg/unit-1-practice-practicals/media/paste-d02add8cc8fd4d781168d1c6d26f4ccedc5f9a2d.webp": {
+  "hash": "9d6593850ce1cdb769a5d174",
+  "bytes": 96712
+ },
+ "apkg/unit-1-practice-practicals/media/paste-d087ba1da3b6d3d761b1071d03b108d8c063e805.webp": {
+  "hash": "0d9b32d708be1aef6390c50c",
+  "bytes": 129292
+ },
+ "apkg/unit-1-practice-practicals/media/paste-d0dbb79a660e3201136d18a3664ada3d20d7a443.webp": {
+  "hash": "b82b66cf45b1acacca453e9f",
+  "bytes": 53606
+ },
+ "apkg/unit-1-practice-practicals/media/paste-dc95565846da9ddd8216fd873ba9c7d782cc6156.webp": {
+  "hash": "891e91696a9d8fbf13476d58",
+  "bytes": 121432
+ },
+ "apkg/unit-1-practice-practicals/media/paste-ddce92283b2f1fba7c3771092e6f6076a464e9d6.webp": {
+  "hash": "453adacff7bc69ef99229d66",
+  "bytes": 91002
+ },
+ "apkg/unit-1-practice-practicals/media/paste-de7293a9b362f298035e5c2a4db44371c64aa877.webp": {
+  "hash": "f3bf9ce516e120ab86cf2606",
+  "bytes": 115480
+ },
+ "apkg/unit-1-practice-practicals/media/paste-defcd05f306ad25c2b5bb8d62fe43bc746abca07.webp": {
+  "hash": "a451f7944daafaa4af0053fc",
+  "bytes": 35128
+ },
+ "apkg/unit-1-practice-practicals/media/paste-eb023ef3565971b6b2c9c2812d24d977fc98af89.webp": {
+  "hash": "04216b048a9ea24fe831335a",
+  "bytes": 127468
+ },
+ "apkg/unit-1-practice-practicals/media/paste-f45c78511013d32adb78a0a72f3180ca4e57783b.webp": {
+  "hash": "417234ee5a78747b2c9d1068",
+  "bytes": 81532
+ },
+ "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp": {
+  "hash": "f68e26d053caaa616fbee075",
+  "bytes": 99282
+ },
+ "apkg/visual-system-supplemental-material/media/paste-615fb0083ec64244df3d711547e6250aed6999e5.webp": {
+  "hash": "078583389d9582cbf512c928",
+  "bytes": 60858
+ },
+ "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp": {
+  "hash": "5882b7824a7329ca78b2bbab",
+  "bytes": 104912
+ },
+ "apkg/visual-system-supplemental-material/media/paste-8f549dd637723da522915ed5fe2024fd7c0d511f.webp": {
+  "hash": "6cd1e4a7fe5c1e8a03925e6e",
+  "bytes": 82530
+ },
+ "apkg/visual-system-supplemental-material/media/paste-b205eb7a031ece9aa3f53f490d43f72961b5b34e.webp": {
+  "hash": "2142fcb7273a5ed82f1fc0ff",
+  "bytes": 81968
+ },
+ "apkg/visual-system-supplemental-material/media/paste-c4d53d2e9ebf7f8092f23e996d78d2cc6927571a.webp": {
+  "hash": "4f1d73ec3a333e4f0e346c4e",
+  "bytes": 116416
+ },
+ "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp": {
+  "hash": "cc52940df1b40fe6f01c3589",
+  "bytes": 53386
+ },
+ "decks/practical-u1-2024/pages/002.webp": {
+  "hash": "154797aa6ac8ab4e6bd510d6",
+  "bytes": 77128
+ },
+ "decks/practical-u1-2024/pages/003.webp": {
+  "hash": "6368c32174abd78f029c792d",
+  "bytes": 40550
+ },
+ "decks/practical-u1-2024/pages/005.webp": {
+  "hash": "5e488a8b3b3342fa356d99b4",
+  "bytes": 158480
+ },
+ "decks/practical-u1-2024/pages/006.webp": {
+  "hash": "2231c13da2d20fcbfcb84ee8",
+  "bytes": 146934
+ },
+ "decks/practical-u1-2024/pages/008.webp": {
+  "hash": "72dcc4e95179ba607266a5e0",
+  "bytes": 142418
+ },
+ "decks/practical-u1-2024/pages/009.webp": {
+  "hash": "5895c1f54f6022a02b54d26e",
+  "bytes": 173506
+ },
+ "decks/practical-u1-2024/pages/012.webp": {
+  "hash": "94f35906ef99d9a435a03774",
+  "bytes": 101320
+ },
+ "decks/practical-u1-2024/pages/015.webp": {
+  "hash": "210b263f3053d552351defa9",
+  "bytes": 73400
+ },
+ "decks/practical-u1-2024/pages/018.webp": {
+  "hash": "ba7cd1c4517c9f73cac2c6ec",
+  "bytes": 95024
+ },
+ "decks/practical-u1-2024/pages/020.webp": {
+  "hash": "74b1e65c134d872f499b5137",
+  "bytes": 67772
+ },
+ "decks/practical-u1-2024/pages/022.webp": {
+  "hash": "18b24141eee41f4ccf44e1aa",
+  "bytes": 84010
+ },
+ "decks/practical-u1-2024/pages/024.webp": {
+  "hash": "18c2a47a32a752556f866b1a",
+  "bytes": 78422
+ },
+ "decks/practical-u1-2024/pages/026.webp": {
+  "hash": "d3be6e14041316c0d20d1873",
+  "bytes": 69452
+ },
+ "decks/practical-u1-2024/pages/028.webp": {
+  "hash": "29689249ec2f379fa622f0bd",
+  "bytes": 72882
+ },
+ "decks/practical-u1-2024/pages/031.webp": {
+  "hash": "75617083eadb40026236bf29",
+  "bytes": 140640
+ },
+ "decks/practical-u1-2024/pages/034.webp": {
+  "hash": "80670dc30488e1c44f660f01",
+  "bytes": 262370
+ },
+ "decks/practical-u1-2024/pages/036.webp": {
+  "hash": "23ab3e7ab8b47cc193d1fe07",
+  "bytes": 140028
+ },
+ "decks/practical-u1-2024/pages/038.webp": {
+  "hash": "d113a3ce165012322f73ebca",
+  "bytes": 93370
+ },
+ "decks/practical-u1-2024/pages/039.webp": {
+  "hash": "cb4edd7c6cafcd66d1b94b24",
+  "bytes": 91016
+ },
+ "decks/practical-u1-2024/pages/042.webp": {
+  "hash": "8966b7931b7ccb5385f812db",
+  "bytes": 76620
+ },
+ "decks/practical-u1-2024/pages/043.webp": {
+  "hash": "d3c45dfdfc382c9408208f6d",
+  "bytes": 97582
+ },
+ "decks/practical-u1-2024/pages/046.webp": {
+  "hash": "27a90fb46d1eb1c41bbf33ed",
+  "bytes": 91734
+ },
+ "decks/practical-u1-2024/pages/049.webp": {
+  "hash": "e2c9a088aecbe71d0dc9b8e1",
+  "bytes": 84538
+ },
+ "decks/practical-u1-2024/pages/051.webp": {
+  "hash": "4e4272f480ff6cc0cb6cbb9d",
+  "bytes": 102370
+ },
+ "decks/practical-u1-2024/pages/053.webp": {
+  "hash": "5676c41e0bbf6b8c48310b28",
+  "bytes": 141654
+ },
+ "decks/practical-u1-2024/pages/055.webp": {
+  "hash": "50fc9c3764b379e602c787c0",
+  "bytes": 71328
+ },
+ "decks/practical-u1-2024/pages/056.webp": {
+  "hash": "feda4b981e7b2261e666e581",
+  "bytes": 104636
+ },
+ "decks/practical-u1-2024/pages/059.webp": {
+  "hash": "95e3ec9c627133f552849022",
+  "bytes": 187322
+ },
+ "decks/practical-u1-2024/pages/060.webp": {
+  "hash": "6b24bfa7e26ac8d6acf0a859",
+  "bytes": 141250
+ },
+ "decks/practical-u1-2024/pages/062.webp": {
+  "hash": "24cd96ed426757878f3e1526",
+  "bytes": 101698
+ },
+ "decks/practical-u1-2024/pages/063.webp": {
+  "hash": "7e2c12af04cd547b57b7f18e",
+  "bytes": 44212
+ },
+ "decks/practical-u1-2024/pages/064.webp": {
+  "hash": "cde35f55fffdab09dedddf9d",
+  "bytes": 129496
+ },
+ "decks/practical-u1-2024/pages/065.webp": {
+  "hash": "821dd2f1d0b9409c706629be",
+  "bytes": 132622
+ },
+ "decks/practical-u1-2024/pages/066.webp": {
+  "hash": "c3965ba70964287f6155e6f4",
+  "bytes": 110182
+ },
+ "decks/practical-u1-2024/pages/067.webp": {
+  "hash": "b4d2323f5586c8f2f846f25e",
+  "bytes": 110698
+ },
+ "decks/practical-u1-2024/pages/068.webp": {
+  "hash": "6e0ca167bec04fc773fe5e0b",
+  "bytes": 117294
+ },
+ "decks/practical-u1-2024/pages/069.webp": {
+  "hash": "2bdbc3c1c5ebe8c542847e46",
+  "bytes": 121550
+ },
+ "decks/practical-u1-2024/pages/070.webp": {
+  "hash": "93e4497eef2821c8a892ed05",
+  "bytes": 94154
+ },
+ "decks/practical-u1-2024/pages/071.webp": {
+  "hash": "697ae651d4e1fe4b6d6d774e",
+  "bytes": 163906
+ },
+ "decks/practical-u1-2024/pages/072.webp": {
+  "hash": "b1eaf9358f12f6b9eaf1d53d",
+  "bytes": 37890
+ },
+ "decks/practical-u1-2024/pages/073.webp": {
+  "hash": "d1bb076ef1718d337f585d16",
+  "bytes": 55632
+ },
+ "decks/practical-u1-2025/pages/002.webp": {
+  "hash": "b36bad16d074af343d3586ad",
+  "bytes": 50932
+ },
+ "decks/practical-u1-2025/pages/004.webp": {
+  "hash": "4873a6540ef4f40b3824bc84",
+  "bytes": 75674
+ },
+ "decks/practical-u1-2025/pages/006.webp": {
+  "hash": "847a52896b68163c474677b8",
+  "bytes": 140616
+ },
+ "decks/practical-u1-2025/pages/008.webp": {
+  "hash": "28840b01f4de4c3725832193",
+  "bytes": 147252
+ },
+ "decks/practical-u1-2025/pages/010.webp": {
+  "hash": "e9ad4f6ddbe1b9c61f3f79ca",
+  "bytes": 188774
+ },
+ "decks/practical-u1-2025/pages/012.webp": {
+  "hash": "6034d24b420e940d421a098f",
+  "bytes": 93100
+ },
+ "decks/practical-u1-2025/pages/014.webp": {
+  "hash": "3a99be1e83142d6be985a574",
+  "bytes": 157364
+ },
+ "decks/practical-u1-2025/pages/016.webp": {
+  "hash": "3a99be1e83142d6be985a574",
+  "bytes": 157364
+ },
+ "decks/practical-u1-2025/pages/018.webp": {
+  "hash": "5232259bc30ccbbf34a88023",
+  "bytes": 246974
+ },
+ "decks/practical-u1-2025/pages/019.webp": {
+  "hash": "1519b35ecf2f6554b688a599",
+  "bytes": 114102
+ },
+ "decks/practical-u1-2025/pages/021.webp": {
+  "hash": "6ac6f3fa74fd6b0537206f43",
+  "bytes": 138194
+ },
+ "decks/practical-u1-2025/pages/023.webp": {
+  "hash": "79073229097e6c5bb8a7dd9d",
+  "bytes": 88152
+ },
+ "decks/practical-u1-2025/pages/025.webp": {
+  "hash": "6145d301dc33dd7e3984575a",
+  "bytes": 157734
+ },
+ "decks/practical-u1-2025/pages/027.webp": {
+  "hash": "631507ad28042a45b6713c0a",
+  "bytes": 98112
+ },
+ "decks/practical-u1-2025/pages/029.webp": {
+  "hash": "f6009c75efc193626aa18919",
+  "bytes": 133486
+ },
+ "decks/practical-u1-2025/pages/031.webp": {
+  "hash": "644205285fa615d47b18c34c",
+  "bytes": 102372
+ },
+ "decks/practical-u1-2025/pages/032.webp": {
+  "hash": "c5805617a2e1872b21853ac7",
+  "bytes": 55022
+ },
+ "decks/practical-u1-2025/pages/035.webp": {
+  "hash": "7daec929ba8435d6f0a72200",
+  "bytes": 127242
+ },
+ "decks/practical-u1-2025/pages/037.webp": {
+  "hash": "fdacb945854bfe1105d2009a",
+  "bytes": 87754
+ },
+ "decks/practical-u1-2025/pages/039.webp": {
+  "hash": "53f683bdc4030294c8506df1",
+  "bytes": 203340
+ },
+ "decks/practical-u1-2025/pages/041.webp": {
+  "hash": "892bb0d8350dfd6fd5c067ef",
+  "bytes": 154660
+ },
+ "decks/practical-u1-2025/pages/043.webp": {
+  "hash": "ec6137dcf36faa344c9144df",
+  "bytes": 173734
+ },
+ "decks/practical-u1-2025/pages/045.webp": {
+  "hash": "338b880dbbefd0e02231c3e1",
+  "bytes": 68022
+ },
+ "decks/practical-u1-2025/pages/047.webp": {
+  "hash": "59d0afb1a1e335fb3181f106",
+  "bytes": 34428
+ },
+ "decks/practical-u1-2025/pages/048.webp": {
+  "hash": "708e042e6cc6bfa1b387d1f2",
+  "bytes": 117820
+ },
+ "decks/practical-u1-2025/pages/049.webp": {
+  "hash": "eb2bfe2298b56d77f28f2e02",
+  "bytes": 141612
+ },
+ "decks/practical-u1-2025/pages/050.webp": {
+  "hash": "221a71d96f1f405b9f9f2891",
+  "bytes": 133878
+ },
+ "decks/practical-u1-2025/pages/051.webp": {
+  "hash": "5f0c6f8d776dfa14be8cf391",
+  "bytes": 154372
+ },
+ "decks/practical-u1-2025/pages/052.webp": {
+  "hash": "cdcd40e01113aa8167d08389",
+  "bytes": 156154
+ },
+ "decks/practical-u1-2025/pages/053.webp": {
+  "hash": "ebcb4ed27a0bd9d4f19c9beb",
+  "bytes": 113108
+ },
+ "decks/practical-u1-2025/pages/054.webp": {
+  "hash": "ac581941956ac8d419ddb2f7",
+  "bytes": 123766
+ },
+ "decks/practical-u1-2025/pages/055.webp": {
+  "hash": "04d2336001c1cddf69b21832",
+  "bytes": 157938
+ },
+ "decks/practical-u1-2025/pages/056.webp": {
+  "hash": "dda29b668a264b7115b84b03",
+  "bytes": 191732
+ },
+ "decks/practical-u1-2025/pages/058.webp": {
+  "hash": "c80d91f2eaf2c8df5e298164",
+  "bytes": 111832
+ },
+ "decks/practical-u2-2024/pages/002.webp": {
+  "hash": "dfd383e5b49c95606a74f9e6",
+  "bytes": 73584
+ },
+ "decks/practical-u2-2024/pages/003.webp": {
+  "hash": "efc6d634cb147c51b0c0014d",
+  "bytes": 68756
+ },
+ "decks/practical-u2-2024/pages/004.webp": {
+  "hash": "33a7a4473da3b7c1917c0b81",
+  "bytes": 80578
+ },
+ "decks/practical-u2-2024/pages/005.webp": {
+  "hash": "01421c0ef845869cc71cbfcb",
+  "bytes": 67584
+ },
+ "decks/practical-u2-2024/pages/006.webp": {
+  "hash": "213ae56878d6365cc471c37c",
+  "bytes": 83626
+ },
+ "decks/practical-u2-2024/pages/007.webp": {
+  "hash": "971b71d4a12cf1f4524fdfcf",
+  "bytes": 78038
+ },
+ "decks/practical-u2-2024/pages/008.webp": {
+  "hash": "30c9048c967662fc4a1c07cf",
+  "bytes": 69116
+ },
+ "decks/practical-u2-2024/pages/009.webp": {
+  "hash": "cc8e9ded808658714227b823",
+  "bytes": 117752
+ },
+ "decks/practical-u2-2024/pages/010.webp": {
+  "hash": "df20f029b714ab644ee39842",
+  "bytes": 133058
+ },
+ "decks/practical-u2-2024/pages/011.webp": {
+  "hash": "c5035eb0a552bc2a2e10ba7b",
+  "bytes": 67058
+ },
+ "decks/practical-u2-2024/pages/012.webp": {
+  "hash": "18ad9cd49f94e2404d43e3e6",
+  "bytes": 78476
+ },
+ "decks/practical-u2-2024/pages/013.webp": {
+  "hash": "1ed5b8ad3237f789cab5c9dd",
+  "bytes": 69542
+ },
+ "decks/practical-u2-2024/pages/014.webp": {
+  "hash": "66e0bfb361b0e1d267f4959f",
+  "bytes": 89274
+ },
+ "decks/practical-u2-2024/pages/015.webp": {
+  "hash": "86d75392ec1627cbb38d6557",
+  "bytes": 114016
+ },
+ "decks/practical-u2-2024/pages/016.webp": {
+  "hash": "b4c4b099dee62f7b6a163cd0",
+  "bytes": 94352
+ },
+ "decks/practical-u2-2024/pages/017.webp": {
+  "hash": "4cd40b22ed621c63b640ef41",
+  "bytes": 74434
+ },
+ "decks/practical-u2-2024/pages/018.webp": {
+  "hash": "161f32652eb56a6976ef907c",
+  "bytes": 60706
+ },
+ "decks/practical-u2-2024/pages/019.webp": {
+  "hash": "cd9ad655f2918944c625870b",
+  "bytes": 75982
+ },
+ "decks/practical-u2-2024/pages/020.webp": {
+  "hash": "5c31326d40689b5a7573a1da",
+  "bytes": 105638
+ },
+ "decks/practical-u2-2024/pages/021.webp": {
+  "hash": "378805372aefce16670dfdfd",
+  "bytes": 113940
+ },
+ "decks/practical-u2-2024/pages/022.webp": {
+  "hash": "aabff40b0fedf5c9139bea50",
+  "bytes": 64972
+ },
+ "decks/practical-u2-2024/pages/023.webp": {
+  "hash": "4074b31bb4a91f58fd1a1425",
+  "bytes": 72538
+ },
+ "decks/practical-u2-2024/pages/024.webp": {
+  "hash": "1bfc7f91e8c34b640c4525f9",
+  "bytes": 121292
+ },
+ "decks/practical-u2-2025/pages/002.webp": {
+  "hash": "fcc77846bb4ba6307978dbff",
+  "bytes": 154438
+ },
+ "decks/practical-u2-2025/pages/003.webp": {
+  "hash": "302a9422fefd05d5779af7db",
+  "bytes": 158394
+ },
+ "decks/practical-u2-2025/pages/005.webp": {
+  "hash": "53ae6ce95e96c20f33611001",
+  "bytes": 184722
+ },
+ "decks/practical-u2-2025/pages/006.webp": {
+  "hash": "255f579702104464450c43ba",
+  "bytes": 100734
+ },
+ "decks/practical-u2-2025/pages/007.webp": {
+  "hash": "88196146165cc1dfbb3702ed",
+  "bytes": 95778
+ },
+ "decks/practical-u2-2025/pages/009.webp": {
+  "hash": "17548dc56ed8d06e504a4ebf",
+  "bytes": 163428
+ },
+ "decks/practical-u2-2025/pages/010.webp": {
+  "hash": "36062f29f883d78c0e23c1cb",
+  "bytes": 97236
+ },
+ "decks/practical-u2-2025/pages/011.webp": {
+  "hash": "501407be5d9856c35290a0fb",
+  "bytes": 68610
+ },
+ "decks/practical-u2-2025/pages/012.webp": {
+  "hash": "aba32ce09368757957d1c472",
+  "bytes": 78066
+ },
+ "decks/practical-u2-2025/pages/013.webp": {
+  "hash": "bcc7e90e318876fcbce011f2",
+  "bytes": 66342
+ },
+ "decks/practical-u2-2025/pages/014.webp": {
+  "hash": "8e5e9b2caf0436f0af3db776",
+  "bytes": 81858
+ },
+ "decks/practical-u2-2025/pages/015.webp": {
+  "hash": "76b7eba4c47d18cabee105e4",
+  "bytes": 78540
+ },
+ "decks/practical-u2-2025/pages/016.webp": {
+  "hash": "beb410c52b87bf022e58e75e",
+  "bytes": 85566
+ },
+ "decks/practical-u2-2025/pages/017.webp": {
+  "hash": "3998b527d971e85b6c0b4af8",
+  "bytes": 116018
+ },
+ "decks/practical-u2-2025/pages/018.webp": {
+  "hash": "0db594f1ab81ee74effba163",
+  "bytes": 149738
+ },
+ "decks/practical-u2-2025/pages/019.webp": {
+  "hash": "3e47ba7abe06ad780ecb9861",
+  "bytes": 77598
+ },
+ "decks/practical-u2-2025/pages/020.webp": {
+  "hash": "a2c3b3a30fcc6cc631c0ce65",
+  "bytes": 68694
+ },
+ "decks/practical-u2-2025/pages/021.webp": {
+  "hash": "c6bfbf97026dbbf597f8332b",
+  "bytes": 83430
+ },
+ "decks/practical-u2-2025/pages/022.webp": {
+  "hash": "40aee258173fb80a877ad8d3",
+  "bytes": 114026
+ },
+ "decks/practical-u2-2025/pages/023.webp": {
+  "hash": "74a0941131fff54d97a67912",
+  "bytes": 97298
+ },
+ "decks/practical-u2-2025/pages/024.webp": {
+  "hash": "b815f89267c1e9e335177612",
+  "bytes": 79774
+ },
+ "decks/practical-u2-2025/pages/025.webp": {
+  "hash": "9c830da7697c5d83ae57efe7",
+  "bytes": 92668
+ },
+ "decks/practical-u2-2025/pages/026.webp": {
+  "hash": "f594444c0ef4c046b79ceb55",
+  "bytes": 119612
+ },
+ "decks/practical-u2-2025/pages/027.webp": {
+  "hash": "d31756747b4af3ab1ad990e3",
+  "bytes": 90746
+ },
+ "decks/practical-u2-2025/pages/029.webp": {
+  "hash": "92f18a0a4bae5bdf5c99d52f",
+  "bytes": 203204
+ },
+ "decks/practical-u2-2025/pages/031.webp": {
+  "hash": "b99cdb01b30e8b18195bb912",
+  "bytes": 66306
+ },
+ "decks/practical-u2-2025/pages/032.webp": {
+  "hash": "111063c703b4294196da0217",
+  "bytes": 105378
+ },
+ "decks/practical-u2-2025/pages/033.webp": {
+  "hash": "95141ceb3f45a9f89c5fce5e",
+  "bytes": 97108
+ },
+ "decks/practical-u2-2025/pages/034.webp": {
+  "hash": "918e6aed15cae73c036eb253",
+  "bytes": 106284
+ },
+ "decks/practical-u2-2025/pages/035.webp": {
+  "hash": "7d6bd3a0d7fb237d35d0c636",
+  "bytes": 108290
+ },
+ "decks/practical-u2-2025/pages/036.webp": {
+  "hash": "1896aac3282b69d3953513eb",
+  "bytes": 104316
+ },
+ "decks/practical-u3-2025/pages/002.webp": {
+  "hash": "a19e7de53d5c77ae6b16f279",
+  "bytes": 110058
+ },
+ "decks/practical-u3-2025/pages/003.webp": {
+  "hash": "88ccea2a2b8d1b4bfe0b5dfd",
+  "bytes": 121854
+ },
+ "decks/practical-u3-2025/pages/004.webp": {
+  "hash": "c18957f2e5352d5ca835f39d",
+  "bytes": 96542
+ },
+ "decks/practical-u3-2025/pages/005.webp": {
+  "hash": "6369276a8a980097e0c2334a",
+  "bytes": 95324
+ },
+ "decks/practical-u3-2025/pages/006.webp": {
+  "hash": "2bf7d3ac418d74a8c7c7a49c",
+  "bytes": 94080
+ },
+ "decks/practical-u3-2025/pages/007.webp": {
+  "hash": "6d2dd4227eddb07dd0d977f2",
+  "bytes": 75868
+ },
+ "decks/practical-u3-2025/pages/008.webp": {
+  "hash": "cdbc6660e764744955b02159",
+  "bytes": 119928
+ },
+ "decks/practical-u3-2025/pages/009.webp": {
+  "hash": "5a1e957cba3a60fd20e769eb",
+  "bytes": 152524
+ },
+ "decks/practical-u3-2025/pages/010.webp": {
+  "hash": "b2a36b2ab268bf7d52c83546",
+  "bytes": 105638
+ },
+ "decks/practical-u3-2025/pages/011.webp": {
+  "hash": "7626c58ef7893bea851edba4",
+  "bytes": 91748
+ },
+ "decks/practical-u3-2025/pages/012.webp": {
+  "hash": "83faa3e7e00c1d35222a72af",
+  "bytes": 98692
+ },
+ "decks/practical-u3-2025/pages/013.webp": {
+  "hash": "cd3eae5fbd56ba34705f360e",
+  "bytes": 96764
+ },
+ "decks/practical-u3-2025/pages/014.webp": {
+  "hash": "8e63c81ba09aee7a1b1f0eca",
+  "bytes": 164536
+ },
+ "decks/practical-u3-2025/pages/015.webp": {
+  "hash": "072f82bb1c01de9e0c0aee2a",
+  "bytes": 165258
+ },
+ "decks/practical-u3-2025/pages/016.webp": {
+  "hash": "4f8334d65bdccdae89bf24c7",
+  "bytes": 65640
+ },
+ "decks/practical-u3-2025/pages/017.webp": {
+  "hash": "496d43bc1d8b92ce43c86805",
+  "bytes": 97244
+ },
+ "decks/practical-u3-2025/pages/018.webp": {
+  "hash": "3234207bc456c3197573fcc3",
+  "bytes": 55162
+ },
+ "decks/practical-u3-2025/pages/019.webp": {
+  "hash": "9e3dc184ff40be9095bbd85d",
+  "bytes": 27572
+ },
+ "decks/practical-u3-2025/pages/020.webp": {
+  "hash": "3f24f0fa407e4baea0f90301",
+  "bytes": 49940
+ },
+ "decks/practical-u3-2025/pages/021.webp": {
+  "hash": "b1523a36dc5741675369ae49",
+  "bytes": 45118
+ },
+ "decks/practical-u3-2025/pages/022.webp": {
+  "hash": "eb77eba8e42478bbef65f926",
+  "bytes": 37850
+ },
+ "decks/practical-u3-2025/pages/023.webp": {
+  "hash": "d2c521e7312c33baf665b7fb",
+  "bytes": 44550
+ },
+ "decks/practical-u3-2025/pages/024.webp": {
+  "hash": "53d6c603aa24849569fda835",
+  "bytes": 198510
+ },
+ "decks/practical-u3-2025/pages/025.webp": {
+  "hash": "a3198bdd11354b15c1b649ca",
+  "bytes": 141848
+ },
+ "decks/practical-u3-2025/pages/026.webp": {
+  "hash": "9f6d33b7d788c6d002742557",
+  "bytes": 105960
+ },
+ "decks/practical-u3-2025/pages/027.webp": {
+  "hash": "c219c397956200d52a22b7cf",
+  "bytes": 111800
+ },
+ "decks/practical-u3-2025/pages/028.webp": {
+  "hash": "c7ee09962a2b623df83bddf0",
+  "bytes": 165438
+ },
+ "decks/practical-u3-2025/pages/029.webp": {
+  "hash": "7f8d6e052d7bfa39de9b9fd3",
+  "bytes": 65438
+ },
+ "decks/practical-u3-2025/pages/030.webp": {
+  "hash": "f8bbd5ba775c3c0407f97afc",
+  "bytes": 99256
+ },
+ "decks/practical-u3-2025/pages/031.webp": {
+  "hash": "e6ba04d6185d271e03685e16",
+  "bytes": 53406
+ },
+ "decks/practice-practical-lab3/pages/001.webp": {
+  "hash": "9304bdda083a648b450d9bc5",
+  "bytes": 123760
+ },
+ "decks/practice-practical-lab3/pages/002.webp": {
+  "hash": "2f3a2f84e7a516f8c4b20ada",
+  "bytes": 129820
+ },
+ "decks/practice-practical-lab3/pages/003.webp": {
+  "hash": "92726443e3bc5923c083b83e",
+  "bytes": 143796
+ },
+ "decks/practice-practical-lab3/pages/004.webp": {
+  "hash": "3a27bb3f365fc1ca4fecbd41",
+  "bytes": 62142
+ }
+}

@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test \"src/lib/**/*.test.ts\""
+    "test": "node --test \"src/lib/**/*.test.ts\"",
+    "seed": "node scripts/seed.mjs",
+    "media": "node scripts/media.mjs",
+    "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

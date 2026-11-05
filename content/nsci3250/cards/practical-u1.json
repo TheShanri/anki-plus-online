@@ -1,0 +1,3030 @@
+[
+ {
+  "slug": "practical-u1-2024-q01",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "frontal-bone",
+  "status": "draft",
+  "position": 1,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q1"
+  },
+  "answer": "Frontal bone",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/002.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue chalk"
+  },
+  "prompt": "Name the suture identified by the blue chalk.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/003.webp"
+  ],
+  "review_note": "exam asks for a suture but the key says 'Frontal bone': probable key/question mismatch"
+ },
+ {
+  "slug": "practical-u1-2024-q02",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "bregma",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q2"
+  },
+  "answer": "Bregma",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/005.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue chalk"
+  },
+  "prompt": "Name the suture identified by the blue chalk.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/006.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q03",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "falx-cerebri",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q3"
+  },
+  "answer": "Falx cerebri",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/008.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the structure that is tagged with the blue pins.",
+  "followups": [
+   "falx-cerebri:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q04"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/009.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q04",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "falx-cerebri",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q4"
+  },
+  "facet": "function",
+  "prompt": "What layer of meninges makes up the structure labeled in question 3?",
+  "answer": "Dura mater",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q03"
+ },
+ {
+  "slug": "practical-u1-2024-q05",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q5"
+  },
+  "facet": "function",
+  "prompt": "True or false: The red pins indicate cerebral arteries.",
+  "answer": "False",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "tf",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/012.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q06",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "cerebellum",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q6"
+  },
+  "answer": "Cerebellum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/015.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Name the structure indicated by the blue pins.",
+  "followups": [
+   "cerebellum:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q07"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q07",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "cerebellum",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q7"
+  },
+  "facet": "function",
+  "prompt": "What plane of sectioning is demonstrated in question 6?",
+  "answer": "Mid-sagittal or sagittal",
+  "accept": [],
+  "keywords": [
+   [
+    "Mid-sagittal",
+    "sagittal"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q06"
+ },
+ {
+  "slug": "practical-u1-2024-q08",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q8"
+  },
+  "facet": "function",
+  "prompt": "Is this the dorsal or ventral surface of the brain?",
+  "answer": "Ventral",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/018.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q09",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q9"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/020.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black pin"
+  },
+  "prompt": "Identify the structure indicated by the black pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q10",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "caudate-nucleus",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q10"
+  },
+  "answer": "Caudate nucleus",
+  "accept": [
+   "Caudate"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/022.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Name the nucleus indicated by the blue pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q11",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "septum-pellucidum",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q11"
+  },
+  "answer": "Septum pellucidum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/024.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green clip"
+  },
+  "prompt": "A) Identify the structure indicated by the green clip?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q12",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "third-ventricle",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q12"
+  },
+  "answer": "Third ventricle",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/026.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Which ventricle is indicated by the blue pins?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q13",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "uncus",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q13"
+  },
+  "answer": "Uncus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/028.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "What is the name of the structure indicated by the blue pin?",
+  "followups": [
+   "uncus:connections"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q14"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q14",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "uncus",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q14"
+  },
+  "facet": "connections",
+  "prompt": "What cerebral nucleus is deep to the answer for question 13?",
+  "answer": "Amygdala",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q13"
+ },
+ {
+  "slug": "practical-u1-2024-q15",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "pons",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q15"
+  },
+  "answer": "Pons",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/031.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the area indicated by the yellow pins",
+  "followups": [
+   "pons:embryology"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q16"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q16",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "pons",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q16"
+  },
+  "facet": "embryology",
+  "prompt": "For the structure you identified in question 15, what secondary vesicle does it arise from?",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q15"
+ },
+ {
+  "slug": "practical-u1-2024-q17",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q17"
+  },
+  "facet": "function",
+  "prompt": "According to the motor homunculus, what part of the body is represented by the blue pins?",
+  "answer": "Foot",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Hand",
+   "Mouth",
+   "Thorax",
+   "Foot"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/034.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q18",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "anterior-cingulate-cortex",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q18"
+  },
+  "answer": "Anterior cingulate cortex",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/036.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green indicated region"
+  },
+  "prompt": "What is the name of the structure indicated in green?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q19",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "anterior-perforated-substance",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q19"
+  },
+  "answer": "Anterior perforated substance",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/038.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "What is the name of the area indicated by the blue pin?",
+  "followups": [
+   "anterior-perforated-substance:connections"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q20"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/039.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q20",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "anterior-perforated-substance",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q20"
+  },
+  "facet": "connections",
+  "prompt": "What group of cerebral nuclei are deep to the structure you named in question 19?",
+  "answer": "Basal forebrain nuclei",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q19"
+ },
+ {
+  "slug": "practical-u1-2024-q21",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "calcarine-fissure",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q21"
+  },
+  "answer": "Calcarine fissure",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/042.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the groove indicated by the yellow pins.",
+  "followups": [
+   "calcarine-fissure:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q22"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/043.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q22",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "calcarine-fissure",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q22"
+  },
+  "facet": "function",
+  "prompt": "For question 21, what is the function of the gyrus immediately above and below the groove?",
+  "answer": "Primary visual cortex / vision",
+  "accept": [],
+  "keywords": [
+   [
+    "Primary visual cortex",
+    "vision"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q21"
+ },
+ {
+  "slug": "practical-u1-2024-q23",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q23"
+  },
+  "facet": "lesion",
+  "prompt": "What pathology is associated with damage to the cortical region indicated by the white pins?",
+  "answer": "Hemineglect syndrome",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Broca’s aphasia",
+   "Hemineglect syndrome",
+   "Wernicke’s aphasia",
+   "Prosopagnosia",
+   "Cortical blindness"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/046.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "white pin"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q24",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "corpus-callosum",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q24"
+  },
+  "answer": "Corpus callosum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/049.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Name the structure indicated by the green pins.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q25",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "spinous-process",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q25"
+  },
+  "answer": "Spinous process",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/051.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue chalk"
+  },
+  "prompt": "Name the part of the vertebrae indicated by the blue chalk.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q26",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "vertebral-foramen",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q26"
+  },
+  "answer": "Vertebral foramen",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/053.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "orange pipe cleaner"
+  },
+  "prompt": "Name the space indicated by the orange pipe cleaner.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q27",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "filum-terminale",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q27"
+  },
+  "answer": "Filum terminale",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/055.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": null
+  },
+  "prompt": "What structure is indicated by the clip?",
+  "followups": [
+   "filum-terminale:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q28"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/056.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q28",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "filum-terminale",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q28"
+  },
+  "facet": "function",
+  "prompt": "What type of tissue makes up the structure you named in question 27?",
+  "answer": "Pia mater",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q27"
+ },
+ {
+  "slug": "practical-u1-2024-q29",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q29"
+  },
+  "answer": "Dorsal root ganglion",
+  "accept": [
+   "DRG"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/059.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "white pin"
+  },
+  "prompt": "Identify the enlarged structure indicated by the white pin.",
+  "followups": [
+   "dorsal-root-ganglion:connections"
+  ],
+  "followup_cards": [
+   "practical-u1-2024-q30"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/060.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q30",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q30"
+  },
+  "facet": "connections",
+  "prompt": "What is the shape of the neuron associated with your answer for question 29?",
+  "answer": "Pseudounipolar",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2024-q29"
+ },
+ {
+  "slug": "practical-u1-2024-q31",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q31"
+  },
+  "facet": "level",
+  "prompt": "Which of the following spinal cord sections is the most caudal? (A, B, C, or D) A B C D",
+  "answer": "B",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/062.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q32",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q32"
+  },
+  "facet": "function",
+  "prompt": "Which line represents the location of the conus medullaris? A B C D",
+  "answer": "B",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/063.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q33",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q33"
+  },
+  "facet": "level",
+  "prompt": "What level of the spinal cord is this section from? (cervical, thoracic, lumbar, or sacral)",
+  "answer": "Thoracic",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/064.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q34",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q34"
+  },
+  "facet": "level",
+  "prompt": "What cells are contained in the structure outlined in pink at this spinal level? Be specific.",
+  "answer": "Sympathetic preganglionics",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/065.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink outlined region"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q35",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q35"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "accept": [
+   "Anterolateral Spinothalamic"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/066.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue highlighted region"
+  },
+  "prompt": "What is the name of the tract highlighted in blue?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q36",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q36"
+  },
+  "facet": "connections",
+  "prompt": "Name one sensation carried in the tract highlighted in blue.",
+  "answer": "Pain, temp, itch, crude touch",
+  "accept": [],
+  "keywords": [
+   [
+    "Pain",
+    "temp",
+    "itch",
+    "crude touch"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/067.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue highlighted region"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q37",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q37"
+  },
+  "facet": "receptor",
+  "prompt": "Name one somatosensory receptor that would detect a stimulus carried in the fiber tract highlighted in yellow.",
+  "answer": "Meissener, Merkel, Pacinian, Ruffini, GTO, M. Spindle",
+  "accept": [],
+  "keywords": [
+   [
+    "Meissener",
+    "Merkel",
+    "Pacinian",
+    "Ruffini",
+    "GTO",
+    "M. Spindle"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/068.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "yellow highlighted region"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q38",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q38"
+  },
+  "answer": "Dorsal spinocerebellar tract",
+  "accept": [
+   "Dorsal spinocerebellar"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/069.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink highlighted region"
+  },
+  "prompt": "What is the name of the tract highlighted in pink?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ]
+ },
+ {
+  "slug": "practical-u1-2024-q39",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q39"
+  },
+  "facet": "connections",
+  "prompt": "Where will the neurons traveling in the pink tract synapse? Ipsilateral thalamus Ipsilateral cerebrum Ipsilateral cerebellum Contralateral thalamus Contralateral cerebrum Contralateral cerebellum",
+  "answer": "Ipsilateral cerebellum",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/070.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2024-q40",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 Q40"
+  },
+  "facet": "fiber_type",
+  "prompt": "Name one fiber type that would enter the spinal cord at the region indicated by the pink star and surrounded by the pink dashed line.",
+  "answer": "C or A-delta",
+  "accept": [],
+  "keywords": [
+   [
+    "C",
+    "A-delta"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/071.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink indicated region"
+  }
+ },
+ {
+  "slug": "practical-u1-2024-qB1",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "nucleus-accumbens",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2024 QB1"
+  },
+  "answer": "Nucleus accumbens",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2024/pages/072.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue line"
+  },
+  "prompt": "Identify the structure indicated by the blue line.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2024"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2024/pages/073.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q01",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "lambda",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q1"
+  },
+  "answer": "Lambda",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/002.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "star sticker"
+  },
+  "prompt": "Name the landmark indicated by the star- shaped sticker ★",
+  "followups": [
+   "lambda:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q02"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q02",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "lambda",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q2"
+  },
+  "facet": "function",
+  "prompt": "What three bones fuse to form this landmark?",
+  "answer": "Parietal x2, Occipital",
+  "accept": [],
+  "keywords": [
+   [
+    "Parietal x2",
+    "Occipital"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q01"
+ },
+ {
+  "slug": "practical-u1-2025-q03",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "foramen-magnum",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q3"
+  },
+  "answer": "Foramen magnum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/004.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "red ball"
+  },
+  "prompt": "Identify the hole occupied by the red ball",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q04",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "arachnoid-granulations",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q4"
+  },
+  "answer": "Arachnoid granulations",
+  "accept": [
+   "Arachnoid villi / granulations"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/006.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the bumpy structure indicated by the blue pin.",
+  "followups": [
+   "arachnoid-granulations:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q05"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q05",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "arachnoid-granulations",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q5"
+  },
+  "facet": "function",
+  "prompt": "What is the function of this structure?",
+  "answer": "Drain / reabsorb CSF",
+  "accept": [],
+  "keywords": [
+   [
+    "Drain",
+    "reabsorb CSF"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q04"
+ },
+ {
+  "slug": "practical-u1-2025-q06",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q6"
+  },
+  "facet": "function",
+  "prompt": "In what plane was this brain sectioned?",
+  "answer": "Horizontal",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/008.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q07",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "arachnoid-mater",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q7"
+  },
+  "answer": "Arachnoid mater",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/010.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  },
+  "prompt": "Identify the membrane pierced by the red pin.",
+  "followups": [
+   "arachnoid-mater:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q08"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q08",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "arachnoid-mater",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q8"
+  },
+  "facet": "function",
+  "prompt": "Is this the dorsal or ventral aspect of the brain?",
+  "answer": "Dorsal",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q07"
+ },
+ {
+  "slug": "practical-u1-2025-q09",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "corpus-callosum",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q9"
+  },
+  "answer": "Corpus callosum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/012.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": null
+  },
+  "prompt": "Identify the structure indicated by the pins.",
+  "followups": [
+   "corpus-callosum:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q10"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q10",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "corpus-callosum",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q10"
+  },
+  "facet": "function",
+  "prompt": "What is the name of the gyrus located dorsal to this structure?",
+  "answer": "Cingulate gyrus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q09"
+ },
+ {
+  "slug": "practical-u1-2025-q11",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "draft",
+  "position": 52,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q11"
+  },
+  "facet": "function",
+  "prompt": "What space is located directly lateral to the membrane pierced by the pink pin? Be specific.",
+  "answer": "Anterior horn of lateral ventricle",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/014.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink pin"
+  },
+  "review_note": "free-text answer; add keyword groups"
+ },
+ {
+  "slug": "practical-u1-2025-q12",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q12"
+  },
+  "answer": "Thalamus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/016.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black pin"
+  },
+  "prompt": "Identify the structure indicated by the black pin.",
+  "followups": [
+   "thalamus:embryology"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q13"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q13",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q13"
+  },
+  "facet": "embryology",
+  "prompt": "From what secondary embryological vesicle does it develop?",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q12"
+ },
+ {
+  "slug": "practical-u1-2025-q14",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "mammillary-bodies",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q14"
+  },
+  "answer": "Mammillary bodies",
+  "accept": [
+   "Mamillary Bodies"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/018.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Identify the structure indicated by the green pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ],
+  "extra_images": [
+   "decks/practical-u1-2025/pages/019.webp"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q15",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q15"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/021.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple pin"
+  },
+  "prompt": "Identify the structure indicated by the purple pins.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q16",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "putamen",
+  "status": "live",
+  "position": 57,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q16"
+  },
+  "answer": "Putamen",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/023.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black pin"
+  },
+  "prompt": "Identify the structure indicated by the black pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q17",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "primary-somatosensory-cortex",
+  "status": "live",
+  "position": 58,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q17"
+  },
+  "answer": "Primary somatosensory cortex",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/025.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green pin"
+  },
+  "prompt": "Provide the functional name of the structure indicated by the green pins.",
+  "followups": [
+   "primary-somatosensory-cortex:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q18"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q18",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "primary-somatosensory-cortex",
+  "status": "live",
+  "position": 59,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q18"
+  },
+  "facet": "function",
+  "prompt": "When considering the homunculus, what part of the body is represented by the black pins?",
+  "answer": "Face",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Legs",
+   "Arms",
+   "Face"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q17"
+ },
+ {
+  "slug": "practical-u1-2025-q19",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 60,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q19"
+  },
+  "facet": "brodmann",
+  "prompt": "What is the Brodmann’s number of the structure indicated by the red pins?",
+  "answer": "BA 17",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/027.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "red pin"
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q20",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "anterior-commissure",
+  "status": "live",
+  "position": 61,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q20"
+  },
+  "answer": "Anterior commissure",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/029.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow pin"
+  },
+  "prompt": "Identify the structure indicated by the yellow pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q21",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "transverse-temporal-gyrus",
+  "status": "live",
+  "position": 62,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q21"
+  },
+  "answer": "Transverse temporal gyrus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/031.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink pin"
+  },
+  "prompt": "What is the anatomical name of the structure indicated by the pink pins?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q22",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 63,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q22"
+  },
+  "facet": "lesion",
+  "prompt": "What symptoms would be caused by damage to the structure indicated by the pins?",
+  "answer": "Broca’s aphasia",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "Broca’s aphasia",
+   "Hemineglect syndrome",
+   "Wernicke’s aphasia",
+   "Prosopagnosia",
+   "Cortical Blindness"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/032.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q23",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "parieto-occipital-fissure",
+  "status": "live",
+  "position": 64,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q23"
+  },
+  "answer": "Parieto-occipital fissure",
+  "accept": [
+   "Parieto-occipital sulcus"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/035.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "orange pin"
+  },
+  "prompt": "Identify the groove indicated by the orange pins.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q24",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "wernicke-s-area",
+  "status": "live",
+  "position": 65,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q24"
+  },
+  "answer": "Wernicke's area",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/037.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black pin"
+  },
+  "prompt": "Identify the functional name of the region indicated by the black pin.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q25",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "cauda-equina",
+  "status": "live",
+  "position": 66,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q25"
+  },
+  "answer": "Cauda equina",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/039.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple wire"
+  },
+  "prompt": "Identify the collection of structures indicated by the purple wire.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q26",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 67,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q26"
+  },
+  "answer": "Dorsal root ganglion",
+  "accept": [
+   "DRG"
+  ],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/041.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue pin"
+  },
+  "prompt": "Identify the swelling indicated by the blue pin.",
+  "followups": [
+   "dorsal-root-ganglion:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q27"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q27",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 68,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q27"
+  },
+  "facet": "function",
+  "prompt": "What is the shape/morphology of the neurons located here?",
+  "answer": "Pseudounipolar",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q26"
+ },
+ {
+  "slug": "practical-u1-2025-q28",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "spinous-process",
+  "status": "live",
+  "position": 69,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q28"
+  },
+  "answer": "Spinous process",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/043.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue chalk"
+  },
+  "prompt": "Identify the structure indicated by the blue chalk.",
+  "followups": [
+   "spinous-process:function"
+  ],
+  "followup_cards": [
+   "practical-u1-2025-q29"
+  ],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q29",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "spinous-process",
+  "status": "live",
+  "position": 70,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q29"
+  },
+  "facet": "function",
+  "prompt": "Is this structure located on the dorsal or ventral aspect of the vertebrae?",
+  "answer": "Dorsal",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practical-u1-2025-q28"
+ },
+ {
+  "slug": "practical-u1-2025-q30",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "intervertebral-foramen",
+  "status": "live",
+  "position": 71,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q30"
+  },
+  "answer": "Intervertebral foramen",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/045.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "star sticker"
+  },
+  "prompt": "(Refer to ★ stickers) What is the name of the hole through which this nerve exits the vertebral column?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q31",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 72,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q31"
+  },
+  "facet": "level",
+  "prompt": "From what vertebral level is this specimen? Cervical Thoracic Lumbar Sacral",
+  "answer": "Cervical",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/047.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q32",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 73,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q32"
+  },
+  "facet": "level",
+  "prompt": "Which of the following spinal cord sections represents the most rostral level? (A, B, C, or D) A B C D",
+  "answer": "C",
+  "accept": [],
+  "keywords": null,
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "format": "choice",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/048.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q33",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 74,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q33"
+  },
+  "facet": "level",
+  "prompt": "From what level of the spinal cord is this section taken? (cervical, thoracic, lumbar, or sacral)",
+  "answer": "Cervical",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/049.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q34",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 75,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q34"
+  },
+  "facet": "level",
+  "prompt": "What cells are contained in the structure outlined in pink at this spinal level? Be specific.",
+  "answer": "Sympahtetic pre-ganglionics",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/050.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "pink outlined region"
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q35",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 76,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q35"
+  },
+  "facet": "order",
+  "prompt": "Does the tract highlighted in blue contain the axons of first-order or second-order neurons?",
+  "answer": "Second-order",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/051.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue highlighted region"
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q36",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 77,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q36"
+  },
+  "facet": "side",
+  "prompt": "For the tract highlighted in blue, will these neurons synapse on the ipsilateral or contralateral thalamus?",
+  "answer": "Ipsilateral",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/052.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "blue highlighted region"
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q37",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 78,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q37"
+  },
+  "facet": "receptor",
+  "prompt": "Name one receptor type that conveys sensations associated with the yellow tract.",
+  "answer": "GTO, Spindles, M M R P",
+  "accept": [],
+  "keywords": [
+   [
+    "GTO",
+    "Spindles",
+    "M M R P"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/053.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": null
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q38",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 79,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q38"
+  },
+  "facet": "order",
+  "prompt": "Where are the cell bodies of the tract indicated in yellow? Ipsilateral Dorsal Root Ganglion Ipsilateral Column of Clarke Ipsilateral Dorsal Horn Contralateral Dorsal Root Ganglion Contralateral Column of Clarke Contralateral Dorsal Horn",
+  "answer": "Ipsilateral Dorsal Root Ganglion",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/054.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "yellow indicated region"
+  }
+ },
+ {
+  "slug": "practical-u1-2025-q39",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 80,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q39"
+  },
+  "answer": "Dorsal spinocerebellar tract",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/055.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "pink highlighted region"
+  },
+  "prompt": "What is the name of the tract highlighted in pink?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ]
+ },
+ {
+  "slug": "practical-u1-2025-q40",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 81,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 Q40"
+  },
+  "facet": "fiber_type",
+  "prompt": "Name one fiber type that would enter the spinal cord at the region indicated by the yellow stripes.",
+  "answer": "Aa or AB",
+  "accept": [],
+  "keywords": [
+   [
+    "Aa",
+    "AB"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/056.webp",
+  "w": 1200,
+  "h": 1600,
+  "pointer": {
+   "type": "existing",
+   "color": "yellow indicated region"
+  }
+ },
+ {
+  "slug": "practical-u1-2025-qB1",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 82,
+  "source": {
+   "type": "practical",
+   "ref": "practical-u1-2025 QB1"
+  },
+  "answer": "Missing corpus callosum",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practical-u1-2025/pages/058.webp",
+  "w": 1200,
+  "h": 1600,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": null
+  },
+  "prompt": "What major structure is missing from this brain?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practical-u1-2025"
+  ],
+  "review_note": "answer is not on the official structure list"
+ },
+ {
+  "slug": "practice-practical-lab3-q01",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "falx-cerebri",
+  "status": "live",
+  "position": 83,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q1"
+  },
+  "answer": "Falx cerebri",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/001.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "orange orange pin"
+  },
+  "prompt": "What fold of dura mater would be here?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q02",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 84,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q2"
+  },
+  "facet": "function",
+  "prompt": "Does this best correspond to arms, face or legs? (motor homunculus)",
+  "answer": "Legs",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/001.webp",
+  "w": 1600,
+  "h": 900,
+  "pointer": {
+   "type": "existing",
+   "color": "orange orange pin"
+  }
+ },
+ {
+  "slug": "practice-practical-lab3-q03",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "third-ventricle",
+  "status": "live",
+  "position": 85,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q3"
+  },
+  "answer": "Third ventricle",
+  "accept": [
+   "3rd ventricle"
+  ],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/001.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "green green pin"
+  },
+  "prompt": "What space?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q04",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 86,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q4"
+  },
+  "facet": "function",
+  "prompt": "Telencephalon or diencephalon?",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/001.webp",
+  "w": 1600,
+  "h": 900,
+  "pointer": {
+   "type": "existing",
+   "color": "white white pin"
+  }
+ },
+ {
+  "slug": "practice-practical-lab3-q05",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 87,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q5"
+  },
+  "answer": "Mammillary bodies of hypothalamus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/001.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple purple pin"
+  },
+  "prompt": "Identify the structure.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ],
+  "review_note": "answer is not on the official structure list"
+ },
+ {
+  "slug": "practice-practical-lab3-q06",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "calcarine-fissure",
+  "status": "live",
+  "position": 88,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q6"
+  },
+  "answer": "Calcarine fissure",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/002.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "white white pin"
+  },
+  "prompt": "Identify the groove.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q07",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "putamen",
+  "status": "live",
+  "position": 89,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q7"
+  },
+  "answer": "Putamen",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/002.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "purple purple pin"
+  },
+  "prompt": "Identify the structure.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q08",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "head-of-caudate-nucleus",
+  "status": "live",
+  "position": 90,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q8"
+  },
+  "answer": "Head of caudate nucleus",
+  "accept": [
+   "Head of caudate"
+  ],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/002.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "yellow yellow pin"
+  },
+  "prompt": "Identify the structure.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q09",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "internal-capsule",
+  "status": "live",
+  "position": 91,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q9"
+  },
+  "answer": "Internal capsule",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/002.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "(between (between yellow and purple)"
+  },
+  "prompt": "What white matter separates them?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q10",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "anterior-horn-of-lateral-ventricle",
+  "status": "live",
+  "position": 92,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q10"
+  },
+  "answer": "Anterior horn of lateral ventricle",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/002.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black black pin"
+  },
+  "prompt": "ID the space.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q11",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 93,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q11"
+  },
+  "answer": "Insular cortex",
+  "accept": [
+   "Insula"
+  ],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/003.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "white white pin"
+  },
+  "prompt": "Identify the structure.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q12",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 94,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q12"
+  },
+  "answer": "Hippocampus",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/003.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "orange orange pin"
+  },
+  "prompt": "Identify the structure.",
+  "followups": [
+   "hippocampus:connections"
+  ],
+  "followup_cards": [
+   "practice-practical-lab3-q13"
+  ],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q13",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 95,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q13"
+  },
+  "facet": "connections",
+  "prompt": "What white matter tract is associated?",
+  "answer": "Fornix",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "after_pin": "practice-practical-lab3-q12"
+ },
+ {
+  "slug": "practice-practical-lab3-q14",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "orbitofrontal-cortex",
+  "status": "live",
+  "position": 96,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q14"
+  },
+  "answer": "Orbitofrontal cortex",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/003.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "blue blue pins"
+  },
+  "prompt": "Identify the cortical region.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q15",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "dorsolateral-prefrontal-cortex",
+  "status": "live",
+  "position": 97,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q15"
+  },
+  "answer": "Dorsolateral prefrontal cortex",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/003.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black black pins"
+  },
+  "prompt": "Identify the cortical region.",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ },
+ {
+  "slug": "practice-practical-lab3-q16",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 98,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q16"
+  },
+  "facet": "function",
+  "prompt": "Function?",
+  "answer": "Arachnoid granulations/villi: reabsorb CSF into the dural venous sinus",
+  "accept": [],
+  "keywords": [
+   [
+    "Arachnoid granulations",
+    "villi: reabsorb CSF into the dural venous sinus"
+   ]
+  ],
+  "choices": null,
+  "format": "keywords",
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/004.webp",
+  "w": 1600,
+  "h": 900,
+  "pointer": {
+   "type": "existing",
+   "color": "white white pin"
+  }
+ },
+ {
+  "slug": "practice-practical-lab3-q17",
+  "kind": "theory",
+  "topic": "practical-u1",
+  "structure": null,
+  "status": "live",
+  "position": 99,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q17"
+  },
+  "facet": "function",
+  "prompt": "Function?",
+  "answer": "Choroid plexus: produces CSF",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "format": "type",
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/004.webp",
+  "w": 1600,
+  "h": 900,
+  "pointer": {
+   "type": "existing",
+   "color": "black black pin (bumpy stuff)"
+  }
+ },
+ {
+  "slug": "practice-practical-lab3-q18",
+  "kind": "pin",
+  "topic": "practical-u1",
+  "structure": "body-of-lateral-ventricle",
+  "status": "live",
+  "position": 100,
+  "source": {
+   "type": "practical",
+   "ref": "practice-practical-lab3 Q18"
+  },
+  "answer": "Body of lateral ventricle",
+  "accept": [],
+  "require_side": false,
+  "image": "decks/practice-practical-lab3/pages/004.webp",
+  "w": 1600,
+  "h": 900,
+  "target": null,
+  "masks": [],
+  "pointer": {
+   "type": "existing",
+   "color": "black black pin"
+  },
+  "prompt": "What part of the ventricular system?",
+  "followups": [],
+  "followup_cards": [],
+  "tags": [
+   "practical",
+   "practice-practical-lab3"
+  ]
+ }
+]

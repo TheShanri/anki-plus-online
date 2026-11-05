@@ -140,9 +140,12 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
     const [m1, m2] = buildMaps(atlas, items);
     nv.volumes[1].setColormapLabel(lutFor(atlas.leaf1, m1));
     nv.volumes[2].setColormapLabel(lutFor(atlas.leaf2, m2));
-    // value 0 (background) must stay transparent
-    nv.volumes[1].colormapType = 1;
-    nv.volumes[2].colormapType = 1;
+    // Label LUTs must use MIN_TO_MAX (type 0): it samples each label at its texel centre. Type 1 maps from zero
+    // instead, landing half a texel off, and NiiVue makes any overlay alpha > 0 opaque, so the label numbered right
+    // after a highlighted one was painted dark (e.g. the superior frontal gyrus next to the basal forebrain).
+    // Background (0) stays transparent through its alpha-0 LUT entry.
+    nv.volumes[1].colormapType = 0;
+    nv.volumes[2].colormapType = 0;
     nv.updateGLVolume();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, atlas, primary, primaryColor, overlayKey]);

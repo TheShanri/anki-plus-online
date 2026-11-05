@@ -322,3 +322,16 @@ test("Ctrl+Z: the last card comes back as it was, and the answer is taken back",
   assert.equal((undos[0] as { clientId: string }).clientId, sent[0].clientId);
   assert.equal(e.canUndo, false); // one level, like ANKI+'s last-card undo
 });
+
+test("look-then-type wants the whole answer as shown, not a shorter accepted synonym", async () => {
+  const h = harness(payload([card("Anterior horn of lateral ventricle", { accept: ["anterior horn", "AH"] })]));
+  h.e.start();
+  h.e.submit(false); // first look
+  const r = h.e.cur!.retype!;
+  h.e.retypeInput("Anterior horn");
+  assert.equal(r.done, false);
+  h.e.retypeInput("AH");
+  assert.equal(h.e.cur!.retype!.done, false);
+  h.e.retypeInput("Anterior horn of lateral ventricle");
+  assert.equal(h.e.cur!.retype!.done, true);
+});

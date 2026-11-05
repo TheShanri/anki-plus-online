@@ -155,6 +155,13 @@ export interface EngineOptions {
   limit?: number;
 }
 
+/** A retype (look-then-type, lock-in, trap reps) is the answer as shown, typed in full: never a shorter accepted
+ *  synonym ("anterior horn" must not finish "Anterior horn of lateral ventricle"). Only spelling forms of the
+ *  answer itself count (CN numerals, n./nucleus), as in ANKI+, which retypes card.answer. */
+function retypeVariants(card: StudyCard): string[] {
+  return answerVariants(card.answer, [], { requireSide: card.requireSide, max: 24 });
+}
+
 const EMPTY_RATINGS = (): Record<Grade, number> => ({ 1: 0, 2: 0, 3: 0, 4: 0 });
 
 function shuffle<T>(a: T[], rand: () => number): T[] {
@@ -812,7 +819,7 @@ export class StudyEngine {
     const ladderCopy = (this.settings.scaffold.ladder && c.step < MAX_STEP) || (kind === "intro" && c.mode !== "type");
     // look-cover-type by default; with the scaffold on below recall, the answer stays visible (copy)
     const mode = kind === "intro" || kind === "near" || kind === "fail" ? (ladderCopy ? "retype" : "covered") : "covered";
-    const typer = new Typer({ variants: answerVariants(c.card.answer, c.card.accept, { requireSide: c.card.requireSide, max: 96 }), mode, now });
+    const typer = new Typer({ variants: retypeVariants(c.card), mode, now });
     return { kind, typer, repsLeft: reps, done: false, guard: null };
   }
 
@@ -829,7 +836,7 @@ export class StudyEngine {
       r.repsLeft--;
       if (r.repsLeft > 0 && r.kind === "reps") {
         this.emit("save");
-        r.typer = new Typer({ variants: answerVariants(c.card.answer, c.card.accept, { requireSide: c.card.requireSide, max: 96 }), mode: "covered", now });
+        r.typer = new Typer({ variants: retypeVariants(c.card), mode: "covered", now });
       } else {
         r.done = true;
         this.emit("save");

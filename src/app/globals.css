@@ -3,6 +3,7 @@
 @import "../styles/base.css";
 @import "../styles/backdrop.css";
 @import "../styles/shell.css";
+@import "../styles/flair.css";
 
 /* Expose tokens to Tailwind: bg-bg, text-text, border-panel-border, text-accent, rounded-card, font-display ... */
 @theme inline {

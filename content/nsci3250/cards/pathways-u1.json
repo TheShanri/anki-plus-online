@@ -1,0 +1,1890 @@
+[
+ {
+  "slug": "pathways-u1-dcml-modality",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "modality",
+  "prompt": "Which sensations does the dorsal column - medial lemniscus (DCML) pathway carry?",
+  "answer": "Conscious proprioception, fine touch, vibration, pressure",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "proprioception",
+    "position"
+   ],
+   [
+    "touch",
+    "vibration",
+    "pressure"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-first-order",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "first-order",
+  "prompt": "Where is the cell body of the first-order neuron of the DCML pathway?",
+  "answer": "Dorsal root ganglion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal root ganglion",
+    "drg",
+    "dorsal root ganglia"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-first-order-shape",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "first-order-shape",
+  "prompt": "What is the shape of a dorsal root ganglion (first-order) neuron?",
+  "answer": "Pseudounipolar",
+  "accept": [
+   "pseudo-unipolar",
+   "pseudo unipolar"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-fiber",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "fiber",
+  "prompt": "Which fiber types carry DCML information from the periphery?",
+  "answer": "A-alpha (Ia/Ib) and A-beta (type II)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "alpha",
+    "aα",
+    "ia",
+    "1a"
+   ],
+   [
+    "beta",
+    "aβ",
+    "type ii",
+    "type 2"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-receptors",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "receptors",
+  "prompt": "Name the cutaneous receptors served by the DCML pathway.",
+  "answer": "Meissner, Merkel, Pacinian and Ruffini endings (plus muscle spindles and Golgi tendon organs for proprioception)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "meissner"
+   ],
+   [
+    "merkel"
+   ],
+   [
+    "pacinian"
+   ],
+   [
+    "ruffini"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-tract-leg",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "structure": "fasciculus-gracilis",
+  "pathway": "dcml",
+  "step": "tract-leg",
+  "prompt": "Which fasciculus of the dorsal column carries sensation from the legs (below T6)?",
+  "answer": "Fasciculus gracilis",
+  "accept": [
+   "gracile fasciculus",
+   "gracilis"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-tract-arm",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "structure": "fasciculus-cuneatus",
+  "pathway": "dcml",
+  "step": "tract-arm",
+  "prompt": "Which fasciculus of the dorsal column carries sensation from the arms (above T6)?",
+  "answer": "Fasciculus cuneatus",
+  "accept": [
+   "cuneate fasciculus",
+   "cuneatus"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-topography",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "topography",
+  "prompt": "In the dorsal columns, which fasciculus lies closest to the midline?",
+  "answer": "Fasciculus gracilis (sacral/lower limb fibers lie medially; cervical fibers laterally)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "gracilis",
+    "gracile"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-funiculus",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "funiculus",
+  "prompt": "In which funiculus of the spinal cord do DCML first-order axons ascend?",
+  "answer": "Dorsal (posterior) funiculus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal",
+    "posterior"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-synapse-1",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "synapse-1",
+  "prompt": "Where do first-order DCML axons synapse?",
+  "answer": "Gracile or cuneate nucleus in the caudal medulla (ipsilateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "gracile",
+    "gracilis",
+    "cuneate",
+    "cuneatus"
+   ],
+   [
+    "medulla"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-synapse-skip",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "synapse-skip",
+  "prompt": "True or false: DCML first-order axons synapse in the dorsal horn on entering the cord.",
+  "answer": "False",
+  "accept": [
+   "false",
+   "f"
+  ],
+  "require_side": false,
+  "format": "tf",
+  "tags": [
+   "pathway",
+   "dcml"
+  ],
+  "explain": "They ascend ipsilaterally without synapsing until the medulla."
+ },
+ {
+  "slug": "pathways-u1-dcml-second-order",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "second-order",
+  "prompt": "Where is the cell body of the second-order DCML neuron?",
+  "answer": "Gracile or cuneate nucleus (caudal medulla)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "gracile",
+    "gracilis",
+    "cuneate",
+    "cuneatus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "decussation",
+  "prompt": "Where does the DCML pathway decussate?",
+  "answer": "Caudal medulla (internal arcuate fibers, the sensory decussation)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "medulla"
+   ],
+   [
+    "internal arcuate",
+    "arcuate",
+    "sensory decussation"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-tract-above",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "tract-above",
+  "prompt": "After crossing, in which tract do second-order DCML axons ascend?",
+  "answer": "Medial lemniscus",
+  "accept": [
+   "medial lemniscus tract"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-third-order",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "third-order",
+  "prompt": "Where is the cell body of the third-order DCML neuron (body)?",
+  "answer": "Ventral posterolateral (VPL) nucleus of the thalamus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vpl",
+    "ventral posterolateral",
+    "ventroposterolateral",
+    "posterolateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-cortex",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "cortex",
+  "prompt": "Which cortical area receives DCML information, and on which side of the stimulus?",
+  "answer": "Primary somatosensory cortex (BA 3, 1, 2), contralateral",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "somatosensory",
+    "postcentral",
+    "3,1,2",
+    "s1"
+   ],
+   [
+    "contralateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-capsule",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "capsule",
+  "prompt": "Third-order DCML axons travel from thalamus to cortex through which white-matter structure?",
+  "answer": "Internal capsule (posterior limb)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "internal capsule"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-lesion-below",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "lesion-below",
+  "prompt": "A lesion of the right dorsal column in the lumbar spinal cord causes loss of vibration sense on which side?",
+  "answer": "Right (ipsilateral): the axons have not yet crossed",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-lesion-above",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "lesion-above",
+  "prompt": "A lesion of the left medial lemniscus in the pons causes loss of fine touch on which side of the body?",
+  "answer": "Right (contralateral): the axons crossed in the caudal medulla",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dcml-order-count",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dcml",
+  "step": "order-count",
+  "prompt": "How many neurons carry DCML information from receptor to cortex, and where is the last cell body?",
+  "answer": "Three (DRG, gracile/cuneate nucleus, VPL thalamus); last in VPL",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "three",
+    "3"
+   ],
+   [
+    "vpl",
+    "thalamus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-modality",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "modality",
+  "prompt": "Which sensations are carried by the anterolateral spinothalamic tract?",
+  "answer": "Pain, temperature, itch and crude touch",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pain"
+   ],
+   [
+    "temperature",
+    "temp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-fiber",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "fiber",
+  "prompt": "Which two fiber types carry pain/temperature information into the cord?",
+  "answer": "A-delta (lightly myelinated) and C (unmyelinated)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "a-delta",
+    "adelta",
+    "aδ",
+    "a delta",
+    "type iii",
+    "type 3"
+   ],
+   [
+    "c fiber",
+    "c fibre",
+    "c fibers",
+    "unmyelinated",
+    "type iv",
+    "type 4",
+    "c"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-receptor",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "receptor",
+  "prompt": "Which receptor type detects the stimuli carried by the anterolateral system?",
+  "answer": "Free nerve endings",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "free nerve"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-fast-pain",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "fast-pain",
+  "prompt": "Which fiber type carries fast, sharp, well-localised pain?",
+  "answer": "A-delta",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "a-delta",
+    "adelta",
+    "aδ",
+    "a delta",
+    "type iii",
+    "type 3"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-slow-pain",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "slow-pain",
+  "prompt": "Which fiber type carries slow, dull, burning pain?",
+  "answer": "C fibers (unmyelinated)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "c fiber",
+    "c fibre",
+    "c fibers",
+    "unmyelinated",
+    "type iv",
+    "type 4",
+    "c"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-synapse-adelta",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "synapse-adelta",
+  "prompt": "Where do A-delta pain fibers synapse in the dorsal horn?",
+  "answer": "Marginal zone (lamina I)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "marginal",
+    "lamina i"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-synapse-c",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "synapse-c",
+  "prompt": "Where do C fibers synapse in the dorsal horn?",
+  "answer": "Substantia gelatinosa (lamina II), onto dendrites of nucleus proprius neurons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "substantia gelatinosa",
+    "gelatinosa",
+    "nucleus proprius",
+    "lamina ii"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-second-order",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "second-order",
+  "prompt": "Where is the second-order neuron cell body of the anterolateral pathway?",
+  "answer": "Dorsal horn: marginal zone (fast pain) or nucleus proprius (slow pain)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal horn",
+    "marginal",
+    "nucleus proprius"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "decussation",
+  "prompt": "Where and through which structure does the anterolateral pathway decussate?",
+  "answer": "In the spinal cord, through the anterior (ventral) white commissure, near the level of entry",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior",
+    "ventral"
+   ],
+   [
+    "commissure"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-funiculus",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "funiculus",
+  "prompt": "In which funiculi do second-order anterolateral axons ascend?",
+  "answer": "Anterior and lateral funiculi (contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior",
+    "ventral",
+    "lateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-third-order",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "third-order",
+  "prompt": "Where is the third-order neuron of the anterolateral pathway (body)?",
+  "answer": "VPL nucleus of the thalamus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vpl",
+    "ventral posterolateral",
+    "ventroposterolateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-lesion",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "lesion",
+  "prompt": "A right-sided spinal cord hemisection at T10 abolishes pain and temperature below the lesion on which side?",
+  "answer": "Left (contralateral): second-order axons have already crossed",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-lesion-level",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "lesion-level",
+  "prompt": "A lesion of the right anterolateral tract in the cervical cord causes loss of pain/temperature on which side?",
+  "answer": "Left (contralateral), beginning 1-2 segments below the lesion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-modulation",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "modulation",
+  "prompt": "Which brainstem structures send descending fibers to modulate pain in the substantia gelatinosa?",
+  "answer": "Periaqueductal grey and reticular formation (opiates act here)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "periaqueductal",
+    "pag",
+    "reticular"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-alst-compare-dcml",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, lecture-9, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "alst",
+  "step": "compare-dcml",
+  "prompt": "True or false: the DCML pathway crosses in the spinal cord while the anterolateral pathway crosses in the medulla.",
+  "answer": "False (reversed): anterolateral crosses in the cord, DCML in the caudal medulla",
+  "accept": [
+   "false",
+   "f"
+  ],
+  "require_side": false,
+  "format": "tf",
+  "tags": [
+   "pathway",
+   "alst"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-modality",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "modality",
+  "prompt": "Which sensory information does the dorsal spinocerebellar tract carry?",
+  "answer": "Unconscious proprioception (muscle length, tension, joint position)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "unconscious"
+   ],
+   [
+    "proprioception"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-receptors",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "receptors",
+  "prompt": "Which receptors give rise to the dorsal spinocerebellar pathway?",
+  "answer": "Muscle spindles and Golgi tendon organs",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spindle"
+   ],
+   [
+    "golgi",
+    "tendon"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-fiber",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "fiber",
+  "prompt": "Which fiber type carries dorsal spinocerebellar afferents?",
+  "answer": "A-alpha (Ia / Ib)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "alpha",
+    "aα",
+    "ia",
+    "1a"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-second-order",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "second-order",
+  "prompt": "Where is the second-order neuron cell body of the dorsal spinocerebellar tract?",
+  "answer": "Clarke's nucleus (nucleus dorsalis) in the ipsilateral spinal cord",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "clarke",
+    "nucleus dorsalis",
+    "dorsalis"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-levels",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "levels",
+  "prompt": "Over which spinal levels does Clarke's nucleus exist?",
+  "answer": "C8 to L2",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "c8"
+   ],
+   [
+    "l2"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-funiculus",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "funiculus",
+  "prompt": "In which funiculus does the dorsal spinocerebellar tract ascend?",
+  "answer": "Lateral funiculus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "decussation",
+  "prompt": "Does the dorsal spinocerebellar pathway decussate?",
+  "answer": "No: ipsilateral throughout",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "no",
+    "not",
+    "ipsilateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-peduncle",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "peduncle",
+  "prompt": "Through which cerebellar peduncle does the dorsal spinocerebellar tract enter the cerebellum?",
+  "answer": "Inferior cerebellar peduncle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inferior",
+    "icp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-target",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "target",
+  "prompt": "Where do dorsal spinocerebellar axons terminate, and on which side of the body?",
+  "answer": "Ipsilateral cerebellar cortex",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cerebell"
+   ],
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-dsct-lesion",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5, Sensory Pathway Cheat Sheet, lab-5"
+  },
+  "pathway": "dsct",
+  "step": "lesion",
+  "prompt": "A lesion of the right dorsal spinocerebellar tract produces uncoordinated movement on which side?",
+  "answer": "Right (ipsilateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dsct"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-preganglionic",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "preganglionic",
+  "prompt": "Where are sympathetic preganglionic cell bodies located?",
+  "answer": "Lateral horn (intermediolateral column) of spinal cord levels T1-L2",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral horn",
+    "intermediolateral"
+   ],
+   [
+    "t1"
+   ],
+   [
+    "l2"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-outflow",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "outflow",
+  "prompt": "Sympathetic outflow is called what, in terms of spinal levels?",
+  "answer": "Thoracolumbar (T1-L2)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "thoracolumbar",
+    "t1"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-ganglia",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "ganglia",
+  "prompt": "Where do sympathetic preganglionic axons synapse?",
+  "answer": "Paravertebral (sympathetic chain) or prevertebral ganglia",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "paravertebral",
+    "chain",
+    "prevertebral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-fibers",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "fibers",
+  "prompt": "In the sympathetic system, are the preganglionic and postganglionic fibers short or long?",
+  "answer": "Short preganglionic, long postganglionic",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "short"
+   ],
+   [
+    "long"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-transmitters",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "transmitters",
+  "prompt": "Which transmitter do sympathetic postganglionic neurons release?",
+  "answer": "Norepinephrine (preganglionic releases ACh)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "norepinephrine",
+    "noradrenaline",
+    "ne"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-adrenal",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "adrenal",
+  "prompt": "Which gland is a modified sympathetic ganglion stimulated directly by cholinergic preganglionic neurons?",
+  "answer": "Adrenal medulla",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "adrenal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-sympathetic-exit",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "sympathetic",
+  "step": "exit",
+  "prompt": "Through which root do autonomic preganglionic axons leave the spinal cord?",
+  "answer": "Ventral root",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ventral",
+    "anterior"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "sympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-parasympathetic-preganglionic",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "parasympathetic",
+  "step": "preganglionic",
+  "prompt": "Which cranial nerves and spinal levels carry parasympathetic preganglionic outflow?",
+  "answer": "CN III, VII, IX, X and sacral S2-S4",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "iii",
+    "3",
+    "oculomotor"
+   ],
+   [
+    "vii",
+    "7",
+    "facial"
+   ],
+   [
+    "ix",
+    "9",
+    "glossopharyngeal"
+   ],
+   [
+    "x",
+    "10",
+    "vagus"
+   ],
+   [
+    "s2",
+    "sacral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "parasympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-parasympathetic-outflow-name",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "parasympathetic",
+  "step": "outflow-name",
+  "prompt": "Parasympathetic outflow is called what?",
+  "answer": "Craniosacral",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "craniosacral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "parasympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-parasympathetic-fibers",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "parasympathetic",
+  "step": "fibers",
+  "prompt": "In the parasympathetic system, are preganglionic and postganglionic fibers short or long?",
+  "answer": "Long preganglionic, short postganglionic (ganglia near or in the organ)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "long"
+   ],
+   [
+    "short"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "parasympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-parasympathetic-transmitters",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "parasympathetic",
+  "step": "transmitters",
+  "prompt": "Which transmitter do parasympathetic postganglionic neurons release?",
+  "answer": "Acetylcholine",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "acetylcholine",
+    "ach"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "parasympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-parasympathetic-sacral",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 57,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6"
+  },
+  "pathway": "parasympathetic",
+  "step": "sacral",
+  "prompt": "Where are sacral parasympathetic preganglionic cell bodies?",
+  "answer": "Lateral horn of S2-S4",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "s2",
+    "s2-s4",
+    "s2-4"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "parasympathetic"
+  ]
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-umn",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 58,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6, lecture-10"
+  },
+  "pathway": "umn-lmn",
+  "step": "umn",
+  "prompt": "Where is the cell body of an upper motor neuron of the corticospinal system?",
+  "answer": "Layer V of primary motor cortex (precentral gyrus)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "layer v",
+    "layer 5",
+    "precentral",
+    "motor cortex"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn"
+  ]
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-lmn",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 59,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6, lecture-10"
+  },
+  "pathway": "umn-lmn",
+  "step": "lmn",
+  "prompt": "Where are lower motor neuron cell bodies located?",
+  "answer": "Ventral horn of the spinal cord (lamina IX) or brainstem motor nuclei",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ventral horn",
+    "anterior horn",
+    "motor nucle"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn"
+  ]
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-umn-lesion",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 60,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6, lecture-10"
+  },
+  "pathway": "umn-lmn",
+  "step": "umn-lesion",
+  "prompt": "Damage to upper motor neurons produces which kind of paralysis?",
+  "answer": "Spastic paralysis (hyperreflexia, rigidity)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spastic"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn"
+  ]
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-lmn-lesion",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 61,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6, lecture-10"
+  },
+  "pathway": "umn-lmn",
+  "step": "lmn-lesion",
+  "prompt": "Damage to lower motor neurons produces which kind of paralysis?",
+  "answer": "Flaccid paralysis with atrophy",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "flaccid"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn"
+  ]
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-alpha-gamma",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 62,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6, lecture-10"
+  },
+  "pathway": "umn-lmn",
+  "step": "alpha-gamma",
+  "prompt": "What do alpha versus gamma motor neurons innervate?",
+  "answer": "Alpha: extrafusal skeletal muscle fibers; gamma: intrafusal fibers of the muscle spindle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "alpha",
+    "extrafusal"
+   ],
+   [
+    "gamma",
+    "intrafusal",
+    "spindle"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn"
+  ]
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-limb-plexus",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "live",
+  "position": 63,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6, lecture-10"
+  },
+  "pathway": "umn-lmn",
+  "step": "limb-plexus",
+  "prompt": "Which spinal levels hold limb lower motor neurons for the arm and for the leg?",
+  "answer": "Arm C5-T1 (brachial plexus); leg L2-S3 (lumbosacral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "c5"
+   ],
+   [
+    "t1"
+   ],
+   [
+    "l2",
+    "l4"
+   ],
+   [
+    "s3"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn"
+  ]
+ }
+]

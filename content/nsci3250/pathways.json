@@ -1,0 +1,883 @@
+[
+ {
+  "slug": "dcml",
+  "name": "Dorsal column - medial lemniscus (body)",
+  "unit": "u1",
+  "modality": "Conscious proprioception, fine touch, vibration, pressure, skin stretch",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "dorsal root ganglion (pseudounipolar)",
+    "tract": "fasciculus gracilis (legs, below T6) / fasciculus cuneatus (arms, above T6), dorsal funiculus",
+    "synapse": "gracile / cuneate nucleus, ipsilateral",
+    "level": "cord to caudal medulla",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "gracile / cuneate nucleus",
+    "tract": "internal arcuate fibers then medial lemniscus",
+    "synapse": "contralateral VPL thalamus",
+    "level": "caudal medulla",
+    "decussates": true
+   },
+   {
+    "order": 3,
+    "cell_body": "VPL nucleus of thalamus",
+    "tract": "internal capsule (posterior limb)",
+    "synapse": "primary somatosensory cortex BA 3,1,2",
+    "level": "thalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "Caudal medulla (internal arcuate fibers)",
+  "lesion": {
+   "below_decussation": "ipsilateral loss",
+   "above": "contralateral loss"
+  },
+  "sources": [
+   "lecture-5",
+   "lecture-9",
+   "Sensory Pathway Cheat Sheet",
+   "lab-5"
+  ]
+ },
+ {
+  "slug": "alst",
+  "name": "Anterolateral spinothalamic pathway (body)",
+  "unit": "u1",
+  "modality": "Pain, temperature, itch, crude touch",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "dorsal root ganglion",
+    "tract": "A-delta and C fibers, lateral dorsal root entry zone",
+    "synapse": "marginal zone (A-delta) / substantia gelatinosa onto nucleus proprius (C), ipsilateral",
+    "level": "level of entry",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "marginal zone nucleus (sharp pain) or nucleus proprius (dull pain)",
+    "tract": "anterior white commissure then contralateral anterolateral tract",
+    "synapse": "contralateral VPL thalamus",
+    "level": "spinal cord, near entry level",
+    "decussates": true
+   },
+   {
+    "order": 3,
+    "cell_body": "VPL nucleus of thalamus",
+    "tract": "internal capsule",
+    "synapse": "primary somatosensory cortex",
+    "level": "thalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "Spinal cord (anterior white commissure), near the level of entry",
+  "lesion": {
+   "below_decussation": "ipsilateral loss only 1-2 segments at the lesion",
+   "above": "contralateral loss below the lesion"
+  },
+  "sources": [
+   "lecture-5",
+   "lecture-9",
+   "Sensory Pathway Cheat Sheet",
+   "lab-5"
+  ]
+ },
+ {
+  "slug": "dsct",
+  "name": "Dorsal spinocerebellar pathway (lower limb)",
+  "unit": "u1",
+  "modality": "Unconscious proprioception",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "dorsal root ganglion",
+    "tract": "A-alpha (Ia/Ib) from muscle spindles and Golgi tendon organs",
+    "synapse": "Clarke's nucleus (C8-L2), ipsilateral",
+    "level": "level of entry",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "Clarke's nucleus (nucleus dorsalis)",
+    "tract": "dorsal spinocerebellar tract (lateral funiculus), inferior cerebellar peduncle",
+    "synapse": "ipsilateral cerebellar cortex",
+    "level": "cord to cerebellum",
+    "decussates": false
+   }
+  ],
+  "decussation": "None (ipsilateral throughout)",
+  "lesion": {
+   "below_decussation": "ipsilateral incoordination",
+   "above": "ipsilateral (no decussation)"
+  },
+  "sources": [
+   "lecture-5",
+   "Sensory Pathway Cheat Sheet",
+   "lab-5"
+  ]
+ },
+ {
+  "slug": "sympathetic",
+  "name": "Sympathetic motor pathway",
+  "unit": "u1",
+  "modality": "Fight or flight (thoracolumbar outflow)",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "lateral horn T1-L2 (intermediolateral column)",
+    "tract": "ventral root, lightly myelinated preganglionic (ACh)",
+    "synapse": "paravertebral (chain) or prevertebral ganglion",
+    "level": "T1-L2",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "sympathetic ganglion",
+    "tract": "long unmyelinated postganglionic (norepinephrine)",
+    "synapse": "smooth muscle, cardiac muscle, glands",
+    "level": "periphery",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-6"
+  ]
+ },
+ {
+  "slug": "parasympathetic",
+  "name": "Parasympathetic motor pathway",
+  "unit": "u1",
+  "modality": "Rest and digest (craniosacral outflow)",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "nuclei of CN III, VII, IX, X or lateral horn S2-S4",
+    "tract": "long preganglionic (ACh)",
+    "synapse": "ganglion near or in the target organ",
+    "level": "brainstem; S2-S4",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "ganglion on/near organ",
+    "tract": "short postganglionic (ACh)",
+    "synapse": "target organ",
+    "level": "periphery",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-6"
+  ]
+ },
+ {
+  "slug": "umn-lmn",
+  "name": "Upper and lower motor neuron hierarchy",
+  "unit": "u1",
+  "modality": "Voluntary movement",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "UMN: layer V motor cortex",
+    "tract": "descending tracts",
+    "synapse": "LMN in ventral horn or brainstem motor nucleus",
+    "level": "CNS",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "LMN: ventral horn (lamina IX)",
+    "tract": "ventral root, nerve",
+    "synapse": "skeletal muscle",
+    "level": "spinal cord",
+    "decussates": false
+   }
+  ],
+  "decussation": "see specific tracts",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-6",
+   "lecture-10"
+  ]
+ },
+ {
+  "slug": "trigeminal-discriminative",
+  "name": "Trigeminal discriminative touch (face)",
+  "unit": "u2",
+  "modality": "Fine touch, vibration, pressure from the face",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "trigeminal ganglion",
+    "tract": "CN V",
+    "synapse": "principal sensory nucleus of V, ipsilateral",
+    "level": "rostral pons",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "principal sensory nucleus of V",
+    "tract": "trigeminal lemniscus (joins medial lemniscus)",
+    "synapse": "contralateral VPM thalamus",
+    "level": "rostral pons",
+    "decussates": true
+   },
+   {
+    "order": 3,
+    "cell_body": "VPM nucleus of thalamus",
+    "tract": "internal capsule",
+    "synapse": "primary somatosensory cortex (face)",
+    "level": "thalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "Pons (second-order fibers cross)",
+  "lesion": {
+   "below_decussation": "ipsilateral facial loss",
+   "above": "contralateral loss"
+  },
+  "sources": [
+   "lecture-9",
+   "Sensory Pathway Cheat Sheet extended"
+  ]
+ },
+ {
+  "slug": "trigeminal-pain",
+  "name": "Trigeminal pain and temperature (face)",
+  "unit": "u2",
+  "modality": "Pain, temperature, itch, crude touch from the face (CN V, VII, IX, X)",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "trigeminal ganglion (and geniculate/glossopharyngeal/vagal ganglia)",
+    "tract": "spinal trigeminal tract",
+    "synapse": "spinal trigeminal nucleus, ipsilateral",
+    "level": "pons to caudal medulla",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "spinal trigeminal nucleus",
+    "tract": "trigeminothalamic tract (beside anterolateral tract)",
+    "synapse": "contralateral VPM thalamus",
+    "level": "medulla",
+    "decussates": true
+   },
+   {
+    "order": 3,
+    "cell_body": "VPM nucleus of thalamus",
+    "tract": "internal capsule",
+    "synapse": "primary somatosensory cortex (face)",
+    "level": "thalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "Brainstem, just after the spinal trigeminal nucleus",
+  "lesion": {
+   "below_decussation": "ipsilateral facial pain loss",
+   "above": "contralateral loss"
+  },
+  "sources": [
+   "lecture-9",
+   "lab-9"
+  ]
+ },
+ {
+  "slug": "jaw-jerk",
+  "name": "Mesencephalic V jaw-jerk reflex",
+  "unit": "u2",
+  "modality": "Proprioception from muscles of mastication",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "mesencephalic nucleus of V (inside the CNS)",
+    "tract": "CN V",
+    "synapse": "motor nucleus of V (monosynaptic)",
+    "level": "midbrain / rostral pons",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-9"
+  ]
+ },
+ {
+  "slug": "lcst",
+  "name": "Lateral corticospinal tract",
+  "unit": "u2",
+  "modality": "Voluntary movement of distal limbs",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "layer V pyramidal neurons, primary motor cortex",
+    "tract": "corona radiata, internal capsule, cerebral peduncle, longitudinal pontine fibers, pyramid, lateral corticospinal tract",
+    "synapse": "lateral ventral horn LMNs (limb), ipsilateral to the tract",
+    "level": "caudal medulla (pyramidal decussation)",
+    "decussates": true
+   },
+   {
+    "order": 2,
+    "cell_body": "alpha motor neuron, lateral ventral horn",
+    "tract": "ventral root, spinal nerve",
+    "synapse": "limb skeletal muscle",
+    "level": "C5-T1 arm; L2-S3 leg",
+    "decussates": false
+   }
+  ],
+  "decussation": "Caudal medulla (pyramidal / motor decussation, ~80%)",
+  "lesion": {
+   "below_decussation": "ipsilateral spastic weakness (cord lesion)",
+   "above": "contralateral spastic weakness"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10",
+   "lecture-14"
+  ]
+ },
+ {
+  "slug": "acst",
+  "name": "Anterior corticospinal tract",
+  "unit": "u2",
+  "modality": "Voluntary axial / proximal movement",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "layer V pyramidal neurons (trunk motor cortex)",
+    "tract": "pyramid (uncrossed ~20%), anterior corticospinal tract",
+    "synapse": "bilateral medial ventral horn",
+    "level": "no medullary decussation",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "alpha motor neuron, medial ventral horn",
+    "tract": "ventral root",
+    "synapse": "axial muscle",
+    "level": "cervical / upper thoracic",
+    "decussates": false
+   }
+  ],
+  "decussation": "No decussation in the medulla; bilateral termination",
+  "lesion": {
+   "below_decussation": "mild bilateral trunk effects",
+   "above": "mild bilateral trunk effects"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10"
+  ]
+ },
+ {
+  "slug": "corticobulbar",
+  "name": "Corticobulbar (corticonuclear) pathway",
+  "unit": "u2",
+  "modality": "Voluntary movement of face, jaw, tongue, pharynx",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "layer V neurons, lateral motor cortex",
+    "tract": "corona radiata, internal capsule genu, cerebral peduncle",
+    "synapse": "cranial motor nuclei (V, VII, ambiguus, XII)",
+    "level": "axons cross just above each nucleus",
+    "decussates": true
+   },
+   {
+    "order": 2,
+    "cell_body": "cranial motor nucleus",
+    "tract": "cranial nerve",
+    "synapse": "head/neck skeletal muscle",
+    "level": "pons and medulla",
+    "decussates": false
+   }
+  ],
+  "decussation": "Just superior to each motor nucleus",
+  "lesion": {
+   "below_decussation": "LMN lesion: ipsilateral paralysis",
+   "above": "UMN lesion: contralateral effect"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10",
+   "lecture-12"
+  ]
+ },
+ {
+  "slug": "corticopontocerebellar",
+  "name": "Corticopontocerebellar pathway",
+  "unit": "u2",
+  "modality": "Cortical motor plan to the cerebellum",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "layer V cortical neurons",
+    "tract": "cerebral peduncle",
+    "synapse": "ipsilateral pontine nuclei",
+    "level": "ventral pons",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "pontine nuclei",
+    "tract": "transverse pontine fibers, middle cerebellar peduncle",
+    "synapse": "contralateral cerebellar cortex",
+    "level": "pons",
+    "decussates": true
+   }
+  ],
+  "decussation": "Pons (transverse pontine fibers)",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-10",
+   "lecture-14"
+  ]
+ },
+ {
+  "slug": "rubrospinal",
+  "name": "Rubrospinal tract",
+  "unit": "u2",
+  "modality": "Brainstem UMN pathway: flexion of the contralateral upper limb",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "red nucleus (rostral midbrain)",
+    "tract": "rubrospinal",
+    "synapse": "lower motor neurons in the ventral horn",
+    "level": "brainstem to spinal cord",
+    "decussates": true
+   }
+  ],
+  "decussation": "ventral tegmental decussation (crosses in midbrain)",
+  "lesion": {
+   "below_decussation": "UMN effects",
+   "above": "decorticate/decerebrate posturing"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10"
+  ]
+ },
+ {
+  "slug": "tectospinal",
+  "name": "Tectospinal tract",
+  "unit": "u2",
+  "modality": "Brainstem UMN pathway: turning head toward visual and auditory stimuli",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "superior and inferior colliculi (tectum)",
+    "tract": "tectospinal",
+    "synapse": "lower motor neurons in the ventral horn",
+    "level": "brainstem to spinal cord",
+    "decussates": true
+   }
+  ],
+  "decussation": "dorsal tegmental decussation (crosses in midbrain)",
+  "lesion": {
+   "below_decussation": "UMN effects",
+   "above": "decorticate/decerebrate posturing"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10"
+  ]
+ },
+ {
+  "slug": "reticulospinal",
+  "name": "Reticulospinal tracts",
+  "unit": "u2",
+  "modality": "Brainstem UMN pathway: posture, stepping; pontine facilitates extensors, medullary inhibits",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "pontine and medullary reticular formation",
+    "tract": "reticulospinal",
+    "synapse": "lower motor neurons in the ventral horn",
+    "level": "brainstem to spinal cord",
+    "decussates": false
+   }
+  ],
+  "decussation": "mostly ipsilateral",
+  "lesion": {
+   "below_decussation": "UMN effects",
+   "above": "decorticate/decerebrate posturing"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10"
+  ]
+ },
+ {
+  "slug": "vestibulospinal",
+  "name": "Vestibulospinal tract",
+  "unit": "u2",
+  "modality": "Brainstem UMN pathway: posture and balance, righting reflexes",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "vestibular nuclei (medulla)",
+    "tract": "vestibulospinal",
+    "synapse": "lower motor neurons in the ventral horn",
+    "level": "brainstem to spinal cord",
+    "decussates": false
+   }
+  ],
+  "decussation": "mostly ipsilateral",
+  "lesion": {
+   "below_decussation": "UMN effects",
+   "above": "decorticate/decerebrate posturing"
+  },
+  "sources": [
+   "lecture-10",
+   "lab-10"
+  ]
+ },
+ {
+  "slug": "visual",
+  "name": "Visual pathway",
+  "unit": "u2",
+  "modality": "Vision",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "photoreceptors to bipolar cells (retina)",
+    "tract": "retina",
+    "synapse": "retinal ganglion cells",
+    "level": "retina",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "retinal ganglion cell",
+    "tract": "optic nerve, optic chiasm (nasal fibers cross), optic tract",
+    "synapse": "lateral geniculate nucleus",
+    "level": "optic chiasm",
+    "decussates": true
+   },
+   {
+    "order": 3,
+    "cell_body": "lateral geniculate nucleus",
+    "tract": "optic radiations",
+    "synapse": "primary visual cortex (calcarine, BA 17)",
+    "level": "occipital lobe",
+    "decussates": false
+   }
+  ],
+  "decussation": "Optic chiasm (nasal hemiretina fibers cross)",
+  "lesion": {
+   "below_decussation": "monocular blindness (optic nerve)",
+   "above": "contralateral homonymous field loss"
+  },
+  "sources": [
+   "lecture-11",
+   "lab-11"
+  ]
+ },
+ {
+  "slug": "pupillary",
+  "name": "Pupillary light reflex",
+  "unit": "u2",
+  "modality": "Pupil constriction",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "retinal ganglion cell",
+    "tract": "CN II to pretectal nucleus, bilateral to Edinger-Westphal nuclei",
+    "synapse": "CN III parasympathetic, ciliary ganglion, sphincter pupillae",
+    "level": "midbrain",
+    "decussates": true
+   }
+  ],
+  "decussation": "Posterior commissure",
+  "lesion": {
+   "below_decussation": "afferent defect",
+   "above": "efferent defect"
+  },
+  "sources": [
+   "lecture-11",
+   "lecture-12"
+  ]
+ },
+ {
+  "slug": "corneal",
+  "name": "Corneal blink reflex",
+  "unit": "u2",
+  "modality": "Blink to corneal touch",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "trigeminal ganglion (V1)",
+    "tract": "CN V",
+    "synapse": "spinal trigeminal nucleus then bilateral facial nuclei",
+    "level": "pons",
+    "decussates": true
+   }
+  ],
+  "decussation": "Pons (bilateral facial nucleus input)",
+  "lesion": {
+   "below_decussation": "afferent CN V lesion: no blink either eye",
+   "above": "efferent CN VII lesion: no blink on that side"
+  },
+  "sources": [
+   "lecture-12"
+  ]
+ },
+ {
+  "slug": "gaze",
+  "name": "Horizontal conjugate gaze",
+  "unit": "u2",
+  "modality": "Same-side gaze",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "frontal eye field (BA 8)",
+    "tract": "to contralateral PPRF",
+    "synapse": "abducens nucleus, then MLF to contralateral oculomotor nucleus",
+    "level": "pons",
+    "decussates": true
+   }
+  ],
+  "decussation": "FEF fibers cross to the contralateral PPRF",
+  "lesion": {
+   "below_decussation": "MLF lesion: internuclear ophthalmoplegia",
+   "above": "FEF lesion: eyes deviate to the lesion side"
+  },
+  "sources": [
+   "lecture-11",
+   "lab-11"
+  ]
+ },
+ {
+  "slug": "cerebellar",
+  "name": "Cerebellar circuit (motor comparator)",
+  "unit": "u3",
+  "modality": "Compares intended and actual movement",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "mossy: pontine nuclei (contra, MCP), DSCT (ipsi, ICP), vestibular (ipsi); climbing: inferior olive (contra, ICP)",
+    "tract": "mossy / climbing fibers",
+    "synapse": "granule then Purkinje cells",
+    "level": "cerebellar cortex",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "Purkinje cell (inhibitory)",
+    "tract": "corticonuclear",
+    "synapse": "deep cerebellar nuclei",
+    "level": "cerebellum",
+    "decussates": false
+   },
+   {
+    "order": 3,
+    "cell_body": "deep cerebellar nuclei (excitatory)",
+    "tract": "superior cerebellar peduncle",
+    "synapse": "contralateral red nucleus and VA/VL thalamus",
+    "level": "caudal midbrain",
+    "decussates": true
+   }
+  ],
+  "decussation": "Caudal midbrain (decussation of the superior cerebellar peduncle)",
+  "lesion": {
+   "below_decussation": "ipsilateral ataxia",
+   "above": "contralateral ataxia"
+  },
+  "sources": [
+   "lecture-14",
+   "lab-10"
+  ]
+ },
+ {
+  "slug": "basal-ganglia",
+  "name": "Basal ganglia motor loop",
+  "unit": "u3",
+  "modality": "Motor selection",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "cortex",
+    "tract": "corticostriate",
+    "synapse": "striatum (caudate + putamen)",
+    "level": "forebrain",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "striatum",
+    "tract": "striatopallidal (direct to GPi; indirect via GPe and STN)",
+    "synapse": "GPi",
+    "level": "forebrain",
+    "decussates": false
+   },
+   {
+    "order": 3,
+    "cell_body": "GPi (inhibitory)",
+    "tract": "pallidothalamic",
+    "synapse": "VA/VL thalamus then cortex",
+    "level": "thalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "hyperkinesia (STN/striatum loss) or hypokinesia (nigral loss)"
+  },
+  "sources": [
+   "lecture-14"
+  ]
+ },
+ {
+  "slug": "olfactory",
+  "name": "Olfactory pathway",
+  "unit": "u3",
+  "modality": "Smell",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "olfactory receptor neuron (bipolar, olfactory epithelium)",
+    "tract": "CN I through the cribriform plate",
+    "synapse": "olfactory bulb (mitral cells)",
+    "level": "anterior cranial fossa",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "mitral cell, olfactory bulb",
+    "tract": "olfactory tract",
+    "synapse": "olfactory tubercle, prepiriform cortex, amygdala; MD thalamus to orbitofrontal cortex",
+    "level": "base of frontal lobe",
+    "decussates": false
+   }
+  ],
+  "decussation": "None in the main pathway (bypasses the thalamus)",
+  "lesion": {
+   "below_decussation": "ipsilateral anosmia",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-15"
+  ]
+ },
+ {
+  "slug": "limbic-fornix",
+  "name": "Hippocampal - fornix circuit",
+  "unit": "u3",
+  "modality": "Memory consolidation",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "hippocampus",
+    "tract": "fornix (crus, body, column)",
+    "synapse": "mammillary bodies, septal nuclei, basal forebrain",
+    "level": "forebrain",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "anterograde amnesia"
+  },
+  "sources": [
+   "lecture-15"
+  ]
+ },
+ {
+  "slug": "limbic-amygdala",
+  "name": "Amygdala efferent pathway",
+  "unit": "u3",
+  "modality": "Fear, aggression, autonomic output",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "central nucleus of amygdala",
+    "tract": "stria terminalis",
+    "synapse": "BNST, hypothalamus, brainstem autonomic nuclei",
+    "level": "forebrain",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "blunted fear"
+  },
+  "sources": [
+   "lecture-15"
+  ]
+ },
+ {
+  "slug": "limbic-septal",
+  "name": "Septal - habenular pathway",
+  "unit": "u3",
+  "modality": "Reward and aversion",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "septal nuclei",
+    "tract": "stria medullaris thalami",
+    "synapse": "habenula",
+    "level": "forebrain / epithalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-15"
+  ]
+ },
+ {
+  "slug": "reward",
+  "name": "Mesolimbic reward pathway",
+  "unit": "u3",
+  "modality": "Pleasure and reinforcement",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "ventral tegmental area (dopaminergic)",
+    "tract": "medial forebrain bundle",
+    "synapse": "nucleus accumbens, prefrontal cortex",
+    "level": "midbrain to forebrain",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-15"
+  ]
+ }
+]

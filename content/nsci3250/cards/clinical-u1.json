@@ -1,0 +1,822 @@
+[
+ {
+  "slug": "clinical-u1-cord-dorsal-column",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-5"
+  },
+  "vignette": "A man has lost vibration sense and joint position sense in his right leg and foot. Pain and temperature sensation are normal. Strength is normal.",
+  "prompt": "Where is the lesion?",
+  "answer": "Right dorsal column (fasciculus gracilis) of the spinal cord, ipsilateral, below the sensory decussation",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal column",
+    "fasciculus gracilis",
+    "gracile",
+    "posterior column"
+   ],
+   [
+    "right",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "dorsal-columns",
+   "fasciculus-gracilis"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-alst-lesion",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-5"
+  },
+  "vignette": "A patient cannot feel pinprick or hot/cold on the left leg and trunk below the umbilicus. Vibration and strength are intact on both sides.",
+  "prompt": "Which tract is damaged, and on which side?",
+  "answer": "Right anterolateral (spinothalamic) tract, contralateral to the deficit, a segment or two above the level of loss",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterolateral",
+    "spinothalamic"
+   ],
+   [
+    "right",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "anterolateral-spinothalamic-tract"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-dsct-lesion",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "draft",
+  "position": 3,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-5"
+  },
+  "vignette": "A patient has an uncoordinated gait with poor limb position awareness in the left leg, without weakness and without loss of pain sense.",
+  "prompt": "Which spinal pathway is most likely damaged?",
+  "answer": "Left dorsal spinocerebellar tract (unconscious proprioception), ipsilateral",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal spinocerebellar",
+    "spinocerebellar"
+   ],
+   [
+    "left",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "review_note": "Vignette synthesised from lecture 5 pathway content; no direct course vignette.",
+  "structures": [
+   "dorsal-spinocerebellar-tract"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-umn",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-6, lecture-10"
+  },
+  "vignette": "After a stroke a patient has a stiff, weak right arm and leg with brisk reflexes and an upgoing great toe on plantar stimulation.",
+  "prompt": "Is this an upper or lower motor neuron lesion, and what is the paralysis called?",
+  "answer": "Upper motor neuron lesion: spastic paralysis",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "upper"
+   ],
+   [
+    "spastic"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u1-cord-lmn",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-6, lecture-10"
+  },
+  "vignette": "A patient has a floppy, wasted right forearm with absent reflexes and fasciculations after a nerve injury.",
+  "prompt": "Is this an upper or lower motor neuron lesion, and what is the paralysis called?",
+  "answer": "Lower motor neuron lesion: flaccid paralysis with atrophy",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lower"
+   ],
+   [
+    "flaccid"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u1-cord-brown-sequard",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "draft",
+  "position": 6,
+  "source": {
+   "type": "clinical",
+   "ref": "STANDARD"
+  },
+  "vignette": "A stab wound hemisects the right side of the spinal cord at T10. Examine the patient below the level of the lesion.",
+  "prompt": "Describe the deficits on each side.",
+  "answer": "Right: spastic weakness and loss of vibration/proprioception (ipsilateral); left: loss of pain and temperature (contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral"
+   ],
+   [
+    "weak",
+    "motor",
+    "corticospinal"
+   ],
+   [
+    "left",
+    "contralateral"
+   ],
+   [
+    "pain",
+    "temperature"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope. Derived from lecture 5/10 tract positions.",
+  "structures": []
+ },
+ {
+  "slug": "clinical-u1-cord-anterior-spinal",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-16, lab-16"
+  },
+  "vignette": "A man develops sudden paralysis and loss of pain and temperature sensation below T8 on both sides, but vibration sense and proprioception are preserved.",
+  "prompt": "Which vessel is occluded, and why is the dorsal column spared?",
+  "answer": "Anterior spinal artery; the dorsal columns are supplied by the two posterior spinal arteries",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior spinal"
+   ],
+   [
+    "posterior spinal",
+    "dorsal columns spared",
+    "spared"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "anterior-spinal-artery",
+   "posterior-spinal-arteries"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-posterior-spinal",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "clinical",
+   "ref": "lab-16"
+  },
+  "vignette": "A patient has bilateral loss of vibration and position sense with preserved strength and pain sensation after surgery.",
+  "prompt": "Which arteries are most likely compromised?",
+  "answer": "Posterior spinal arteries (supply the dorsal columns and part of the dorsal horns)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "posterior spinal"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "posterior-spinal-arteries"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-lateral-horn",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "draft",
+  "position": 9,
+  "source": {
+   "type": "clinical",
+   "ref": "STANDARD"
+  },
+  "vignette": "A patient with a cervical cord lesion at C8-T1 has ipsilateral ptosis, miosis and anhidrosis.",
+  "prompt": "Which cell group is interrupted?",
+  "answer": "Sympathetic preganglionic neurons of the lateral (intermediolateral) horn / descending sympathetic fibers (Horner syndrome)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral horn",
+    "intermediolateral",
+    "sympathetic",
+    "horner"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
+  "structures": [
+   "lateral-horn"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-cauda-equina",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-4"
+  },
+  "vignette": "A patient has low back pain, saddle anaesthesia and urinary retention with flaccid leg weakness.",
+  "prompt": "Which structure is compressed?",
+  "answer": "Cauda equina (lumbosacral roots below the conus medullaris): a lower motor neuron picture",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cauda equina"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "cauda-equina"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-lumbar-tap",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-4"
+  },
+  "vignette": "A needle is placed between L3 and L4 to sample CSF.",
+  "prompt": "Why is this level considered safe?",
+  "answer": "The adult spinal cord ends at L1/L2 (conus medullaris); below it only the cauda equina floats in the lumbar cistern",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "l1",
+    "l2",
+    "conus"
+   ],
+   [
+    "cauda equina",
+    "no cord"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "conus-medullaris",
+   "cauda-equina"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-dermatome",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-5"
+  },
+  "vignette": "A patient with a dorsal root lesion has numbness over a strip of skin of the thigh.",
+  "prompt": "What is the name of the skin territory supplied by a single spinal nerve root?",
+  "answer": "Dermatome",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dermatome"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "spinal-nerves"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cord-referred-pain",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-9"
+  },
+  "vignette": "A man with a cardiac event feels pain in the left arm. Another patient with diaphragm irritation feels pain at the tip of the shoulder.",
+  "prompt": "Why does diaphragm irritation refer to the shoulder?",
+  "answer": "The diaphragm is innervated by C3-C5 (phrenic nerve), the same dermatomes as the shoulder; dorsal horn neurons receive both inputs",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "c3",
+    "c4",
+    "c5",
+    "phrenic"
+   ],
+   [
+    "dermatome",
+    "dorsal horn",
+    "same"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u1-cord-fp-neuropathy",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "clinical",
+   "ref": "theory-u1"
+  },
+  "vignette": "A fracture through the cribriform plate of the anterior cranial fossa follows a car crash.",
+  "prompt": "Which sense is lost and which cranial nerve is damaged?",
+  "answer": "Smell (anosmia), olfactory nerve (CN I)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "smell",
+    "anosmia"
+   ],
+   [
+    "olfactory",
+    "cn i",
+    "i"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cord"
+  ],
+  "structures": [
+   "olfactory-nerve",
+   "anterior-cranial-fossa"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-broca",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "clinical",
+   "ref": "practical-u1-2025 Q22"
+  },
+  "vignette": "A patient understands speech but speaks in effortful, halting phrases of few words. Repetition is impaired.",
+  "prompt": "Which cortical area is damaged and what is the aphasia called?",
+  "answer": "Broca's area (inferior frontal gyrus, left); Broca's (expressive) aphasia",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "broca"
+   ],
+   [
+    "inferior frontal",
+    "frontal",
+    "expressive",
+    "motor"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "broca-s-area"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-wernicke",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-3"
+  },
+  "vignette": "A patient speaks fluently but with meaningless words and cannot understand spoken commands.",
+  "prompt": "Which area is damaged and what is the aphasia called?",
+  "answer": "Wernicke's area (posterior superior temporal gyrus, left); Wernicke's (receptive) aphasia",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "wernicke"
+   ],
+   [
+    "superior temporal",
+    "temporal",
+    "receptive",
+    "fluent"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "wernicke-s-area"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-hemineglect",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "clinical",
+   "ref": "practical-u1-2024 Q23"
+  },
+  "vignette": "A patient with a right parietal lesion ignores the left side of space, does not dress the left side and misses food on the left of her plate.",
+  "prompt": "What syndrome is this?",
+  "answer": "Hemineglect syndrome (contralateral neglect from non-dominant, right parietal damage)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "neglect"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "parietal-lobe-general-association-area",
+   "somatosensory-association-cortex"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-auditory",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "clinical",
+   "ref": "written-u1 Q13"
+  },
+  "vignette": "A stroke damages the left transverse temporal gyrus (Heschl's gyrus).",
+  "prompt": "What deficit would result?",
+  "answer": "Impaired hearing (primary auditory cortex), mostly in the contralateral ear",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "hearing",
+    "auditory",
+    "sound"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "transverse-temporal-gyrus",
+   "primary-auditory-cortex"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-motor-homunculus",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-3"
+  },
+  "vignette": "A tumour compresses the medial surface of the right precentral gyrus.",
+  "prompt": "Which body part is weak, and on which side?",
+  "answer": "Left leg and foot (medial motor homunculus; contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "leg",
+    "foot"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "primary-motor-cortex",
+   "motor-homunculus"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-calcarine",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-11"
+  },
+  "vignette": "A patient has loss of the left half of the visual field in both eyes after a stroke.",
+  "prompt": "Which region of cortex is damaged?",
+  "answer": "Right primary visual cortex (calcarine fissure region)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right"
+   ],
+   [
+    "visual",
+    "calcarine",
+    "occipital"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "primary-visual-cortex",
+   "calcarine-fissure"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-insula",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-15"
+  },
+  "vignette": "A patient with a lesion near the insula loses awareness of her heartbeat and stomach sensations.",
+  "prompt": "Which cortical area maps emotions and visceral feelings onto the body?",
+  "answer": "Insular cortex",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "insula"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "insular-cortex"
+  ]
+ },
+ {
+  "slug": "clinical-u1-cortex-apathy",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-15"
+  },
+  "vignette": "A patient after a frontal injury shows apathy and cannot initiate goal-directed behavior.",
+  "prompt": "Which region is most likely damaged?",
+  "answer": "Anterior cingulate cortex (motivation)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior cingulate",
+    "cingulate"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "cortex"
+  ],
+  "structures": [
+   "anterior-cingulate-cortex"
+  ]
+ },
+ {
+  "slug": "clinical-u1-ventricles-hydrocephalus-monro",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-2, written-u1 Q11"
+  },
+  "vignette": "A tumour blocks both foramina of Monro.",
+  "prompt": "Which structures enlarge?",
+  "answer": "The lateral ventricles (obstructive hydrocephalus); the third and fourth ventricles do not",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral ventricle"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "ventricles"
+  ],
+  "structures": [
+   "foramina-of-monro",
+   "lateral-ventricle"
+  ]
+ },
+ {
+  "slug": "clinical-u1-ventricles-hydrocephalus-aqueduct",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "draft",
+  "position": 24,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-2"
+  },
+  "vignette": "A child has an enlarged head and dilated lateral and third ventricles, but a normal fourth ventricle.",
+  "prompt": "Where is the obstruction?",
+  "answer": "Cerebral aqueduct (aqueductal stenosis)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "aqueduct"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "ventricles"
+  ],
+  "review_note": "Synthesised from ventricular anatomy (lecture 2); no direct vignette in the course.",
+  "structures": [
+   "cerebral-aqueduct"
+  ]
+ },
+ {
+  "slug": "clinical-u1-development-folate",
+  "kind": "clinical",
+  "topic": "clinical-u1",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "clinical",
+   "ref": "written-u1 Q5"
+  },
+  "vignette": "Low maternal folate in early pregnancy raises the risk of which malformations?",
+  "prompt": "Name the group of defects.",
+  "answer": "Neural tube defects (spina bifida, anencephaly)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "neural tube"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "development"
+  ],
+  "structures": []
+ }
+]

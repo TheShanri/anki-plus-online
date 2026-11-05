@@ -1,0 +1,1566 @@
+[
+ {
+  "slug": "written-u2-practice-exam-u2-q01",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q1 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "In what region of the midbrain are the majority of motor tracts located?",
+  "format": "choice",
+  "choices": [
+   "Cerebral peduncles",
+   "Tegmentum",
+   "Longitudinal fibers of the pons",
+   "Pyramids",
+   "Olives"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Cerebral peduncles"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q02",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q2 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Where in the brainstem is the origin of neurons that secrete dopamine?",
+  "format": "choice",
+  "choices": [
+   "Locus coeruleus",
+   "Periaqueductal grey matter",
+   "Red nucleus",
+   "Substantia nigra",
+   "Raphe nuclei"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Substantia nigra"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q03",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q3 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which region is responsible for inducing vomiting that is located beneath the obex?",
+  "format": "choice",
+  "choices": [
+   "Anterior pituitary gland",
+   "Suprachiasmatic nucleus",
+   "Area postrema",
+   "Superior olivary nuclei",
+   "Subthalamic nuclei"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Area postrema"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q04",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q4 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Visceral motor regions are located on the ________ aspect of the developing neural tube and move to the _______ aspect in the mature brainstem.",
+  "format": "choice",
+  "choices": [
+   "Ventral; medial",
+   "Dorsal; lateral",
+   "Ventral; lateral",
+   "Dorsal; medial",
+   "Inferior; superior"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Ventral; lateral"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q05",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q5 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following cell groups is only located outside the brainstem?",
+  "format": "choice",
+  "choices": [
+   "Post-ganglionic parasympathetic nuclei",
+   "Facial motor nucleus",
+   "Spinal nucleus of Trigeminal n.",
+   "Red nucleus",
+   "Reticular formation"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Post-ganglionic parasympathetic nuclei"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q06",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q6 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve would be responsible for causing the eye to adduct inwards?",
+  "format": "choice",
+  "choices": [
+   "III",
+   "IV",
+   "VI",
+   "X",
+   "II"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "III"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q07",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q7 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which nucleus is responsible for receiving sensory information from the most superior division of the face?",
+  "format": "choice",
+  "choices": [
+   "Mesencephalic nucleus of trigeminal",
+   "Facial nucleus",
+   "Principal sensory nucleus of trigeminal",
+   "Gracile Nucleus",
+   "Solitary nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Principal sensory nucleus of trigeminal"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q08",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q8 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve carries parasympathetic fibers to the lacrimal gland but does not provide parasympathetic innervation to the salivary gland?",
+  "format": "choice",
+  "choices": [
+   "III",
+   "V",
+   "VII",
+   "IX",
+   "X"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "VII"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q09",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q9 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "A patient develops acute onset unilateral facial paralysis involving both the upper and lower face. The condition is diagnosed as Bell’s palsy and is most commonly due to inflammation of which cranial nerve?",
+  "format": "choice",
+  "choices": [
+   "III",
+   "IV",
+   "V",
+   "VII"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "VII"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q10",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q10 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which brainstem nucleus would be responsible for detecting fluctuations in blood pressure?",
+  "format": "choice",
+  "choices": [
+   "Nucleus ambiguous",
+   "Red nucleus",
+   "Raphe nucleus",
+   "Solitary nucleus",
+   "Superior salivatory nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Solitary nucleus"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q11",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q11 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which nerve carries sensation from the upper 1/3 of the face?",
+  "format": "choice",
+  "choices": [
+   "Maxillary division of trigeminal (V2)",
+   "Ophthalmic division of trigeminal (V3)",
+   "Vestibulocochlear nerve",
+   "Mandibular division of trigeminal (V1)",
+   "Vagus nerve"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Ophthalmic division of trigeminal (V3)"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q12",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q12 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Where are the second-order cell bodies of the pathway carrying pain and temperature from the face? (Q12)",
+  "format": "choice",
+  "choices": [
+   "Principal sensory nucleus of trigeminal",
+   "Trigeminal ganglion",
+   "Spinal nucleus of trigeminal",
+   "Ventral posterolateral (VPL) nucleus of thalamus",
+   "Cuneate nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Spinal nucleus of trigeminal"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q13",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q13 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "The decussation for fine touch (arcuate fibers) is located superior to the decussation of the superior cerebellar peduncles (X/SCP)",
+  "format": "choice",
+  "choices": [
+   "True",
+   "False"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "False"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q14",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q14 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Because visceral afferent fibers from the heart enter the spinal cord at T1– T4, where is cardiac ischemic pain commonly referred?",
+  "format": "choice",
+  "choices": [
+   "Right lower quadrant",
+   "Left arm and chest",
+   "Groin",
+   "Posterior scalp",
+   "Periumbilical region"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Left arm and chest"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q15",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q15 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Where in the thalamus are the third-order cell bodies of the medial lemniscus?",
+  "format": "choice",
+  "choices": [
+   "Anterior tubercle",
+   "VPM",
+   "Pulvinar",
+   "VPL",
+   "Suprachiasmatic nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "VPL"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q16",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q16 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is an example of a upper motor neuron (UMN)?",
+  "format": "choice",
+  "choices": [
+   "Oculomotor nerve",
+   "Corticopontine neuron",
+   "Hypoglossal nerve",
+   "Facial nerve",
+   "Abducens nerve"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Corticopontine neuron"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q17",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q17 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "What is the function of the dorsal motor nucleus of the vagus?",
+  "format": "choice",
+  "choices": [
+   "Somatic motor to muscles of facial expression",
+   "Detects taste from anterior 2/3 of tongue",
+   "Parasympathetic motor to thoracic and abdominal viscera",
+   "Detects pain and temperature from the face",
+   "Somatic motor to extraocular muscles"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Parasympathetic motor to thoracic and abdominal viscera"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q18",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q18 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which tract DOES NOT travel through the cerebral peduncles?",
+  "format": "choice",
+  "choices": [
+   "Corticospinal tract",
+   "Rubrospinal tract",
+   "Corticopontine tract",
+   "Corticobulbar tract",
+   "Frontopontine fibers"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Rubrospinal tract"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q19",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q19 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is true regarding the anterior corticospinal tract?",
+  "format": "choice",
+  "choices": [
+   "Its fibers decussate at the motor decussation located between the medulla and cervical spinal cord.",
+   "It is composed of LMNs that directly innervate skeletal muscles of the trunk and axial skeleton.",
+   "It contains LMNs that project to skeletal muscles of the jaw.",
+   "It contains UMNs that project to cranial nerve motor nuclei.",
+   "It descends ipsilaterally from the cortex and bilaterally innervates LMNs of the trunk"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "It descends ipsilaterally from the cortex and bilaterally innervates LMNs of the trunk"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q20",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q20 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is a main target of cerebellar efferent fibers?",
+  "format": "choice",
+  "choices": [
+   "Pontine nuclei",
+   "Dorsal spinocerebellar tract",
+   "Red nucleus",
+   "Inferior olivary nucleus",
+   "Vestibular ganglion"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Red nucleus"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q21",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q21 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which brain region receives direct input from retinal ganglion cells?",
+  "format": "choice",
+  "choices": [
+   "Lateral geniculate nucleus of the thalamus",
+   "Superior colliculus",
+   "Suprachiasmatic nucleus of the hypothalamus",
+   "Primary visual cortex",
+   "All of the above"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "All of the above"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q22",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q22 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which statement is true regarding cone photoreceptors?",
+  "format": "choice",
+  "choices": [
+   "Cones are absent in the fovea centralis.",
+   "There are three types of cones, each maximally sensitive to different wavelengths of light.",
+   "Cones greatly outnumber rods, with approximately 120 million cones per eye.",
+   "Cones function primarily in dim-light (scotopic) vision.",
+   "Many cones converge onto a single retinal ganglion cell, resulting in low visual acuity."
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "There are three types of cones, each maximally sensitive to different wavelengths of light."
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q23",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q23 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "Which statement best describes the cornea of the eye?",
+  "format": "choice",
+  "choices": [
+   "It is an opaque connective tissue that protects the posterior portion of the globe",
+   "It is a transparent anterior structure that refracts incoming light",
+   "It is a pigmented vascular layer that nourishes the retina",
+   "It is a neural layer that contains photoreceptors",
+   "It is a muscular structure that adjusts lens curvature"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "It is a transparent anterior structure that refracts incoming light"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q24",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q24 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "A patient reports progressive loss of peripheral vision in both eyes. Visual field testing confirms bilateral temporal visual field loss. Which structure is most likely damaged?",
+  "format": "choice",
+  "choices": [
+   "Bilateral superior colliculus",
+   "Optic chiasm",
+   "Right primary visual cortex",
+   "Left optic radiations",
+   "Right optic nerve"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Optic chiasm"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q25",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q25 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "A patient is unable to move both eyes together when attempting lateral gaze. Examination suggests impaired coordination between the abducens nucleus and oculomotor nucleus. Which brainstem tract is most likely affected?",
+  "format": "choice",
+  "choices": [
+   "Medial lemniscus",
+   "Spinothalamic tract",
+   "Corticospinal tract",
+   "Medial longitudinal fasciculus",
+   "Superior cerebellar peduncle"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Medial longitudinal fasciculus"
+ },
+ {
+  "slug": "written-u2-practice-exam-u2-q26",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u2 Q26 (Practice exam 2)"
+  },
+  "facet": "written",
+  "prompt": "During a routine neurological exam, a physician lightly touches each of a patient’s corneas with a small piece of cotton. When either cornea is stimulated, the patient’s right eye blinks normally, but the left eye never blinks. Facial sensation is intact bilaterally. Which nerve is most likely damaged?",
+  "format": "choice",
+  "choices": [
+   "Right oculomotor nerve",
+   "Left trigeminal nerve",
+   "Left facial nerve",
+   "Right trigeminal nerve",
+   "Right facial nerve"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u2"
+  ],
+  "answer": "Left facial nerve"
+ },
+ {
+  "slug": "written-u2-si-session-5-q01",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q1 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The sensory neurons of the trigeminal nerve are primarily what type of neuron?",
+  "format": "choice",
+  "choices": [
+   "Bipolar",
+   "Multipolar",
+   "Unipolar",
+   "Pseudounipolar",
+   "Interneuron"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Pseudounipolar"
+ },
+ {
+  "slug": "written-u2-si-session-5-q02",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q2 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following structures relays fine touch and vibration from the face?",
+  "format": "choice",
+  "choices": [
+   "Spinal trigeminal nucleus",
+   "Principal sensory nucleus of trigeminal",
+   "Mesencephalic nucleus of trigeminal",
+   "Nucleus ambiguous",
+   "Inferior olivary nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Principal sensory nucleus of trigeminal"
+ },
+ {
+  "slug": "written-u2-si-session-5-q03",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q3 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The medial lemniscus carries which type of sensory information?",
+  "format": "choice",
+  "choices": [
+   "Pain and temperature",
+   "Proprioception and fine touch",
+   "Crude touch and pressure",
+   "Motor commands",
+   "Auditory signals"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Proprioception and fine touch"
+ },
+ {
+  "slug": "written-u2-si-session-5-q04",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q4 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The gracile nucleus processes sensory information from:",
+  "format": "choice",
+  "choices": [
+   "The upper limb",
+   "The face",
+   "The lower limb",
+   "The spinal trigeminal nucleus",
+   "The cerebellum"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "The lower limb"
+ },
+ {
+  "slug": "written-u2-si-session-5-q05",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q5 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Where do second-order neurons of the medial lemniscus pathway synapse?",
+  "format": "choice",
+  "choices": [
+   "Spinal cord",
+   "Primary motor cortex",
+   "Ventroposterolateral (VPL) nucleus of the thalamus",
+   "Cerebellum",
+   "Basal ganglia"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Ventroposterolateral (VPL) nucleus of the thalamus"
+ },
+ {
+  "slug": "written-u2-si-session-5-q06",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q6 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The inferior cerebellar peduncle is associated with which tract?",
+  "format": "choice",
+  "choices": [
+   "Corticospinal",
+   "Dorsal spinocerebellar",
+   "Anterolateral",
+   "Trigeminothalamic",
+   "Medial lemniscus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Dorsal spinocerebellar"
+ },
+ {
+  "slug": "written-u2-si-session-5-q07",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q7 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The afferent fibers that synapse in the principal sensory nucleus of the trigeminal nerve originate from:",
+  "format": "choice",
+  "choices": [
+   "The mesencephalic nucleus",
+   "The trigeminal ganglion",
+   "The spinal trigeminal nucleus",
+   "The hypoglossal nucleus",
+   "The solitary nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "The trigeminal ganglion"
+ },
+ {
+  "slug": "written-u2-si-session-5-q08",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q8 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which sensory pathway carries unconscious proprioception from the lower limbs to the cerebellum?",
+  "format": "choice",
+  "choices": [
+   "Dorsal column-medial lemniscus (DCML) pathway",
+   "Anterolateral system (ALS)",
+   "Dorsal spinocerebellar tract",
+   "Corticospinal tract",
+   "Trigeminothalamic tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Dorsal spinocerebellar tract"
+ },
+ {
+  "slug": "written-u2-si-session-5-q09",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q9 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Where does the anterolateral system (ALS) decussate?",
+  "format": "choice",
+  "choices": [
+   "At the level of the thalamus",
+   "In the spinal cord via the ventral white commissure",
+   "In the caudal medulla along with the medial lemniscus",
+   "At the level of the midbrain",
+   "At the internal capsule"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "In the spinal cord via the ventral white commissure"
+ },
+ {
+  "slug": "written-u2-si-session-5-q10",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q10 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which structure contains the first-order neuron cell bodies of the dorsal column-medial lemniscus (DCML) pathway?",
+  "format": "choice",
+  "choices": [
+   "Nucleus gracilis",
+   "Nucleus cuneatus",
+   "Dorsal root ganglion (DRG)",
+   "Ventroposterolateral (VPL) nucleus of the thalamus",
+   "Internal capsule"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Dorsal root ganglion (DRG)"
+ },
+ {
+  "slug": "written-u2-si-session-5-q11",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q11 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following best describes an upper motor neuron (UMN)?",
+  "format": "choice",
+  "choices": [
+   "A neuron that innervates skeletal muscle",
+   "A neuron that projects from the spinal cord to the periphery",
+   "A neuron that originates in the CNS and synapses onto a lower motor neuron",
+   "A neuron that transmits sensory information to the brainstem",
+   "A neuron located in the dorsal horn"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "A neuron that originates in the CNS and synapses onto a lower motor neuron"
+ },
+ {
+  "slug": "written-u2-si-session-5-q12",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q12 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The lateral corticospinal tract primarily controls:",
+  "format": "choice",
+  "choices": [
+   "Postural muscles",
+   "Limb muscles",
+   "Proprioception",
+   "Reflex circuits",
+   "Visceral motor function"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Limb muscles"
+ },
+ {
+  "slug": "written-u2-si-session-5-q13",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q13 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Where do most corticospinal fibers decussate?",
+  "format": "choice",
+  "choices": [
+   "Internal capsule",
+   "Pyramidal decussation in the medulla",
+   "Midbrain tectum",
+   "Ventral horn of the spinal cord",
+   "Reticular formation"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Pyramidal decussation in the medulla"
+ },
+ {
+  "slug": "written-u2-si-session-5-q14",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q14 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which tract remains ipsilateral and terminates bilaterally in the spinal cord?",
+  "format": "choice",
+  "choices": [
+   "Rubrospinal tract",
+   "Vestibulospinal tract",
+   "Anterior corticospinal tract",
+   "Tectospinal tract",
+   "Spinothalamic tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Anterior corticospinal tract"
+ },
+ {
+  "slug": "written-u2-si-session-5-q15",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q15 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "What is the main function of the rubrospinal tract?",
+  "format": "choice",
+  "choices": [
+   "Extension of the lower limbs",
+   "Flexion of the upper limbs",
+   "Coordination of eye movements",
+   "Regulation of postural muscles",
+   "Modulation of reflex responses"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Flexion of the upper limbs"
+ },
+ {
+  "slug": "written-u2-si-session-5-q16",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q16 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "What structure forms the origin of the tectospinal tract?",
+  "format": "choice",
+  "choices": [
+   "Inferior olive",
+   "Superior and inferior colliculi",
+   "Vestibular nuclei",
+   "Reticular formation",
+   "Motor cortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Superior and inferior colliculi"
+ },
+ {
+  "slug": "written-u2-si-session-5-q17",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q17 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which brainstem tract is most important for maintaining posture and balance?",
+  "format": "choice",
+  "choices": [
+   "Corticospinal tract",
+   "Rubrospinal tract",
+   "Vestibulospinal tract",
+   "Corticobulbar tract",
+   "Tectospinal tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Vestibulospinal tract"
+ },
+ {
+  "slug": "written-u2-si-session-5-q18",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q18 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The corticobulbar tract differs from the corticospinal tract in that it:",
+  "format": "choice",
+  "choices": [
+   "Terminates in the spinal cord",
+   "Primarily controls limb movement",
+   "Innervates brainstem cranial nerve motor nuclei",
+   "Synapses in the cerebellum",
+   "Regulates proprioception"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Innervates brainstem cranial nerve motor nuclei"
+ },
+ {
+  "slug": "written-u2-si-session-5-q19",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q19 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The motor neurons that control eye movement are located in which brainstem nuclei?",
+  "format": "choice",
+  "choices": [
+   "Hypoglossal nucleus",
+   "Vestibular nuclei",
+   "Oculomotor, trochlear, and abducens nuclei",
+   "Reticulospinal tract",
+   "Rubrospinal tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Oculomotor, trochlear, and abducens nuclei"
+ },
+ {
+  "slug": "written-u2-si-session-5-q20",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q20 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is NOT a function of the reticulospinal tract?",
+  "format": "choice",
+  "choices": [
+   "Postural control",
+   "Modulation of reflex circuits",
+   "Regulation of voluntary movement",
+   "Coordination of locomotion",
+   "Involvement in patterned movements"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Regulation of voluntary movement"
+ },
+ {
+  "slug": "written-u2-si-session-5-q21",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q21 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which spinal cord structure contains the lower motor neurons that control limb muscles?",
+  "format": "choice",
+  "choices": [
+   "Medial dorsal horn",
+   "Lateral funiculus",
+   "Lateral ventral horn",
+   "Medial lemniscus",
+   "Medial ventral horn"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Lateral ventral horn"
+ },
+ {
+  "slug": "written-u2-si-session-5-q22",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q22 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which descending motor pathway is most involved in controlling axial (postural) muscles?",
+  "format": "choice",
+  "choices": [
+   "Lateral corticospinal tract",
+   "Rubrospinal tract",
+   "Corticobulbar tract",
+   "Anterior corticospinal tract",
+   "Spinocerebellar tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Anterior corticospinal tract"
+ },
+ {
+  "slug": "written-u2-si-session-5-q23",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q23 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Where are the lower motor neurons that innervate the tongue located?",
+  "format": "choice",
+  "choices": [
+   "Nucleus ambiguus",
+   "Facial nucleus",
+   "Hypoglossal nucleus",
+   "Oculomotor nucleus",
+   "Spinal accessory nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Hypoglossal nucleus"
+ },
+ {
+  "slug": "written-u2-si-session-5-q24",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q24 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which condition results from damage to the red nucleus and the rubrospinal tract?",
+  "format": "choice",
+  "choices": [
+   "Decerebrate rigidity",
+   "Spinal shock",
+   "Flaccid paralysis",
+   "Hyperreflexia",
+   "Babinski sign"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Decerebrate rigidity"
+ },
+ {
+  "slug": "written-u2-si-session-5-q25",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q25 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "What is the major function of the corticopontine pathway?",
+  "format": "choice",
+  "choices": [
+   "Direct limb movement",
+   "Relay motor plans to the cerebellum",
+   "Modulate reflex pathways",
+   "Control cranial nerve motor nuclei",
+   "Coordinate eye movements"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Relay motor plans to the cerebellum"
+ },
+ {
+  "slug": "written-u2-si-session-5-q26",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q26 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "What percentage of corticospinal fibers cross at the pyramidal decussation?",
+  "format": "choice",
+  "choices": [
+   "50%",
+   "60%",
+   "70%",
+   "80%",
+   "100%"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "80%"
+ },
+ {
+  "slug": "written-u2-si-session-5-q27",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q27 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which motor tract is critical for walking and rhythmic stepping patterns?",
+  "format": "choice",
+  "choices": [
+   "Corticobulbar tract",
+   "Reticulospinal tract",
+   "Tectospinal tract",
+   "Rubrospinal tract",
+   "Spinothalamic tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Reticulospinal tract"
+ },
+ {
+  "slug": "written-u2-si-session-5-q28",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q28 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "The spinal accessory nucleus is located in which part of the CNS?",
+  "format": "choice",
+  "choices": [
+   "Medulla",
+   "Pons",
+   "Upper cervical spinal cord (C1-C5)",
+   "Midbrain",
+   "Basal ganglia"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Upper cervical spinal cord (C1-C5)"
+ },
+ {
+  "slug": "written-u2-si-session-5-q29",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q29 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "Which motor pathway is most involved in reflexive control of head movement in response to visual and auditory stimuli?",
+  "format": "choice",
+  "choices": [
+   "Corticospinal tract",
+   "Rubrospinal tract",
+   "Reticulospinal tract",
+   "Tectospinal tract",
+   "Vestibulospinal tract"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Tectospinal tract"
+ },
+ {
+  "slug": "written-u2-si-session-5-q30",
+  "kind": "theory",
+  "topic": "practice-exam-u2",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-5 Q30 (SI session 5 test)"
+  },
+  "facet": "written",
+  "prompt": "A lesion affecting the left lateral corticospinal tract at the spinal cord level would result in:",
+  "format": "choice",
+  "choices": [
+   "Loss of voluntary movement on the right side of the body",
+   "Loss of voluntary movement on the left side of the body",
+   "Bilateral loss of voluntary movement",
+   "Spastic paralysis on the contralateral side and flaccid paralysis on the ipsilateral side",
+   "Complete loss of pain and temperature sensation"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-5"
+  ],
+  "answer": "Loss of voluntary movement on the left side of the body"
+ }
+]

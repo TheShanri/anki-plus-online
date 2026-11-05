@@ -1,0 +1,621 @@
+[
+ {
+  "slug": "sections-lecture-11-p25-paramedian-pontine-reticular-formation-30",
+  "kind": "pin",
+  "topic": "sections-u2",
+  "structure": "paramedian-pontine-reticular-formation",
+  "status": "live",
+  "position": 201,
+  "source": {
+   "type": "pdf-labels",
+   "ref": "lecture-11 page 25 text label"
+  },
+  "answer": "Paramedian pontine reticular formation (PPRF)",
+  "accept": [
+   "PPRF",
+   "horizontal gaze center",
+   "lateral gaze center",
+   "pprf"
+  ],
+  "require_side": false,
+  "image": "decks/lecture-11/pages/025.webp",
+  "w": 1600,
+  "h": 900,
+  "target": {
+   "shape": "rect",
+   "x": 0.7961,
+   "y": 0.8096,
+   "w": 0.0411,
+   "h": 0.0424
+  },
+  "masks": [
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.0691,
+    "w": 0.8142,
+    "h": 0.0613
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.1269,
+    "w": 0.3031,
+    "h": 0.0613
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.2131,
+    "w": 0.009,
+    "h": 0.035
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.2102,
+    "w": 0.4404,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.2452,
+    "w": 0.2255,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.3189,
+    "w": 0.009,
+    "h": 0.035
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.3159,
+    "w": 0.4655,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.3511,
+    "w": 0.4254,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.388,
+    "w": 0.1598,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.4617,
+    "w": 0.009,
+    "h": 0.0348
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.4585,
+    "w": 0.429,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.4937,
+    "w": 0.4698,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.5289,
+    "w": 0.2153,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.6039,
+    "w": 0.009,
+    "h": 0.0348
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.6007,
+    "w": 0.4114,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.4846,
+    "y": 0.6007,
+    "w": 0.0643,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.6363,
+    "w": 0.1873,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.2606,
+    "y": 0.6363,
+    "w": 0.2634,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.7096,
+    "w": 0.009,
+    "h": 0.035
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.7067,
+    "w": 0.4353,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.7435,
+    "w": 0.436,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.7785,
+    "w": 0.3105,
+    "h": 0.0383
+   },
+   {
+    "shape": "rect",
+    "x": 0.0529,
+    "y": 0.8522,
+    "w": 0.009,
+    "h": 0.035
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.8493,
+    "w": 0.4208,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.0764,
+    "y": 0.8844,
+    "w": 0.4489,
+    "h": 0.0381
+   },
+   {
+    "shape": "rect",
+    "x": 0.6661,
+    "y": 0.5876,
+    "w": 0.0402,
+    "h": 0.0154
+   },
+   {
+    "shape": "rect",
+    "x": 0.6661,
+    "y": 0.6006,
+    "w": 0.0221,
+    "h": 0.0154
+   },
+   {
+    "shape": "rect",
+    "x": 0.8233,
+    "y": 0.5054,
+    "w": 0.0673,
+    "h": 0.0337
+   },
+   {
+    "shape": "rect",
+    "x": 0.6,
+    "y": 0.5117,
+    "w": 0.0568,
+    "h": 0.0337
+   },
+   {
+    "shape": "rect",
+    "x": 0.7961,
+    "y": 0.8096,
+    "w": 0.0411,
+    "h": 0.0424
+   }
+  ],
+  "pointer": {
+   "type": "mask"
+  },
+  "prompt": "Name the structure the leader line / label points to.",
+  "followups": [],
+  "tags": [
+   "section",
+   "label-occlusion"
+  ]
+ },
+ {
+  "slug": "sections-u2-rostral-midbrain",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s007_1.webp",
+  "w": 692,
+  "h": 528,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Rostral midbrain",
+  "accept": [
+   "rostral midbrain",
+   "superior colliculus level",
+   "midbrain at the superior colliculus",
+   "upper midbrain"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the superior colliculus: red nuclei, substantia nigra, cerebral peduncles."
+ },
+ {
+  "slug": "sections-u2-caudal-midbrain",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s009_1.webp",
+  "w": 524,
+  "h": 492,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Caudal midbrain",
+  "accept": [
+   "caudal midbrain",
+   "inferior colliculus level",
+   "midbrain at the inferior colliculus",
+   "lower midbrain"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the inferior colliculus: decussation of the superior cerebellar peduncle."
+ },
+ {
+  "slug": "sections-u2-rostral-pons",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s011_1.webp",
+  "w": 800,
+  "h": 468,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Rostral pons",
+  "accept": [
+   "rostral pons",
+   "upper pons",
+   "trigeminal nerve level",
+   "level of the trigeminal nerve"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the trigeminal nerve: principal sensory and motor trigeminal nuclei, MCP."
+ },
+ {
+  "slug": "sections-u2-caudal-pons",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s013_1.webp",
+  "w": 784,
+  "h": 532,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Caudal pons",
+  "accept": [
+   "caudal pons",
+   "lower pons",
+   "facial colliculus level",
+   "level of the facial colliculus"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the facial colliculus: abducens and facial nuclei."
+ },
+ {
+  "slug": "sections-u2-rostral-medulla",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s015_1.webp",
+  "w": 624,
+  "h": 508,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Rostral medulla",
+  "accept": [
+   "rostral medulla",
+   "upper medulla",
+   "level of the olive",
+   "olive level"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the olive: inferior olivary nucleus, pyramids."
+ },
+ {
+  "slug": "sections-u2-caudal-medulla",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s017_1.webp",
+  "w": 584,
+  "h": 460,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Caudal medulla",
+  "accept": [
+   "caudal medulla",
+   "lower medulla",
+   "cuneate and gracile tubercles",
+   "level of the cuneate and gracile tubercles"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the gracile and cuneate nuclei: the sensory decussation (internal arcuate fibers)."
+ },
+ {
+  "slug": "sections-u2-cervicomedullary",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "slides",
+   "ref": "lab-10 (level titles)"
+  },
+  "image": "decks/lab-10/images/s019_1.webp",
+  "w": 1236,
+  "h": 1600,
+  "prompt": "Which brainstem / spinal level is this section?",
+  "answer": "Brainstem to spinal cord transition (motor decussation)",
+  "accept": [
+   "motor decussation",
+   "pyramidal decussation",
+   "cervicomedullary junction",
+   "spinal cord transition",
+   "medulla spinal cord junction"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "level"
+  ],
+  "explain": "Level of the motor (pyramidal) decussation at the medulla-spinal cord junction."
+ },
+ {
+  "slug": "sections-u2-fac-colliculus",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "Which brainstem level shows the facial colliculus?",
+  "answer": "Caudal pons",
+  "accept": [
+   "caudal pons",
+   "lower pons"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ },
+ {
+  "slug": "sections-u2-trig-motor",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "Which brainstem level shows the motor and principal sensory nuclei of the trigeminal nerve?",
+  "answer": "Rostral pons",
+  "accept": [
+   "rostral pons",
+   "upper pons"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ },
+ {
+  "slug": "sections-u2-olive",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "Which brainstem level is called the level of the olive?",
+  "answer": "Rostral medulla",
+  "accept": [
+   "rostral medulla",
+   "upper medulla"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ },
+ {
+  "slug": "sections-u2-cuneate",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "Which brainstem level shows the cuneate and gracile tubercles and sensory decussation?",
+  "answer": "Caudal medulla",
+  "accept": [
+   "caudal medulla",
+   "lower medulla"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ },
+ {
+  "slug": "sections-u2-xscp",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "At which brainstem level does the superior cerebellar peduncle decussate?",
+  "answer": "Caudal midbrain (inferior colliculus level)",
+  "accept": [
+   "caudal midbrain",
+   "inferior colliculus level",
+   "inferior colliculus"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ },
+ {
+  "slug": "sections-u2-sc-level",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "Which midbrain level shows the red nuclei and the substantia nigra?",
+  "answer": "Rostral midbrain (superior colliculus level)",
+  "accept": [
+   "rostral midbrain",
+   "superior colliculus level",
+   "superior colliculus"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ },
+ {
+  "slug": "sections-u2-motor-dec",
+  "kind": "section",
+  "topic": "sections-u2",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "slides",
+   "ref": "lab-8, lab-10, lecture-6"
+  },
+  "prompt": "At which level is the motor (pyramidal) decussation?",
+  "answer": "Brainstem to spinal cord transition (caudal medulla)",
+  "accept": [
+   "caudal medulla",
+   "medulla spinal cord junction",
+   "cervicomedullary junction"
+  ],
+  "require_side": false,
+  "format": "type",
+  "tags": [
+   "section",
+   "landmark"
+  ]
+ }
+]

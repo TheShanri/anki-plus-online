@@ -523,6 +523,150 @@
    "meta": {
     "type": "practical"
    }
+  },
+  {
+   "slug": "pathways-u1",
+   "unit": "u1",
+   "kind": "lab",
+   "number": null,
+   "title": "Pathways",
+   "position": 90,
+   "sources": [],
+   "meta": {
+    "type": "pathways"
+   }
+  },
+  {
+   "slug": "sections-u1",
+   "unit": "u1",
+   "kind": "lab",
+   "number": null,
+   "title": "Sections and levels",
+   "position": 91,
+   "sources": [],
+   "meta": {
+    "type": "sections"
+   }
+  },
+  {
+   "slug": "clinical-u1",
+   "unit": "u1",
+   "kind": "lab",
+   "number": null,
+   "title": "Clinical: lesion and deficit",
+   "position": 92,
+   "sources": [],
+   "meta": {
+    "type": "clinical"
+   }
+  },
+  {
+   "slug": "practice-exam-u1",
+   "unit": "u1",
+   "kind": "lab",
+   "number": null,
+   "title": "Practice exam",
+   "position": 93,
+   "sources": [],
+   "meta": {
+    "type": "practice_exam"
+   }
+  },
+  {
+   "slug": "pathways-u2",
+   "unit": "u2",
+   "kind": "lab",
+   "number": null,
+   "title": "Pathways",
+   "position": 90,
+   "sources": [],
+   "meta": {
+    "type": "pathways"
+   }
+  },
+  {
+   "slug": "sections-u2",
+   "unit": "u2",
+   "kind": "lab",
+   "number": null,
+   "title": "Sections and levels",
+   "position": 91,
+   "sources": [],
+   "meta": {
+    "type": "sections"
+   }
+  },
+  {
+   "slug": "clinical-u2",
+   "unit": "u2",
+   "kind": "lab",
+   "number": null,
+   "title": "Clinical: lesion and deficit",
+   "position": 92,
+   "sources": [],
+   "meta": {
+    "type": "clinical"
+   }
+  },
+  {
+   "slug": "practice-exam-u2",
+   "unit": "u2",
+   "kind": "lab",
+   "number": null,
+   "title": "Practice exam",
+   "position": 93,
+   "sources": [],
+   "meta": {
+    "type": "practice_exam"
+   }
+  },
+  {
+   "slug": "pathways-u3",
+   "unit": "u3",
+   "kind": "lab",
+   "number": null,
+   "title": "Pathways",
+   "position": 90,
+   "sources": [],
+   "meta": {
+    "type": "pathways"
+   }
+  },
+  {
+   "slug": "sections-u3",
+   "unit": "u3",
+   "kind": "lab",
+   "number": null,
+   "title": "Sections and levels",
+   "position": 91,
+   "sources": [],
+   "meta": {
+    "type": "sections"
+   }
+  },
+  {
+   "slug": "clinical-u3",
+   "unit": "u3",
+   "kind": "lab",
+   "number": null,
+   "title": "Clinical: lesion and deficit",
+   "position": 92,
+   "sources": [],
+   "meta": {
+    "type": "clinical"
+   }
+  },
+  {
+   "slug": "practice-exam-u3",
+   "unit": "u3",
+   "kind": "lab",
+   "number": null,
+   "title": "Practice exam",
+   "position": 93,
+   "sources": [],
+   "meta": {
+    "type": "practice_exam"
+   }
   }
  ]
 }

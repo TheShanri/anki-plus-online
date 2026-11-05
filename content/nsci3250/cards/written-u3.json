@@ -1,0 +1,843 @@
+[
+ {
+  "slug": "written-u3-practice-exam-u3-q01",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q1 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which cortical region typically contains only three to five layers of neurons?",
+  "format": "choice",
+  "choices": [
+   "Neocortex",
+   "Robloxcortex",
+   "Retrocortex",
+   "Mesocortex",
+   "Archicortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Archicortex"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q02",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q2 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which cortical region is most associated with the hippocampus and contains fewer layers than the neocortex?",
+  "format": "choice",
+  "choices": [
+   "Neocortex",
+   "Allocortex",
+   "Retrocortex",
+   "Mesocortex",
+   "Paleocortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Allocortex"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q03",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q3 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which cortical region includes the olfactory cortex and contains fewer layers than the neocortex?",
+  "format": "choice",
+  "choices": [
+   "Neocortex",
+   "Archicortex",
+   "Paleocortex",
+   "Retrocortex",
+   "Paracortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Paleocortex"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q04",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q4 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "What is the primary neurotransmitter of pyramidal cells?",
+  "format": "choice",
+  "choices": [
+   "Serotonin",
+   "Glutamate",
+   "GABA",
+   "Norepinephrine",
+   "Dopamine"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Glutamate"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q05",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q5 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which layer of the primary motor cortex contains large pyramidal neurons known as Betz cells?",
+  "format": "choice",
+  "choices": [
+   "Layer V",
+   "Layer I",
+   "Layer II/III",
+   "Layer IV",
+   "Layer VI"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Layer V"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q06",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q6 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is more associated with excess cerebrospinal fluid than with abnormal neuronal migration?",
+  "format": "choice",
+  "choices": [
+   "Hydrocephaly",
+   "Lissencephaly",
+   "Microcephaly",
+   "Agenesis",
+   "Macrocephaly"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Hydrocephaly"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q07",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q7 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which component of the vestibular system primarily detects linear acceleration instead of angular acceleration?",
+  "format": "choice",
+  "choices": [
+   "Saccule",
+   "Semicircular canals",
+   "Incus",
+   "Cochlea",
+   "Endolymph"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Saccule"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q08",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q8 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following describes a correct pairing between a deep cerebellar nucleus and its corresponding region of cortex?",
+  "format": "choice",
+  "choices": [
+   "Fastigial; Flocculus",
+   "Interposed; Paravermis",
+   "Dentate; Tonsils",
+   "Interposed; Lateral hemispheres",
+   "Dentate; Vermis"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Interposed; Paravermis"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q09",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q9 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following neurons associated with the cerebellum produces an inhibitory effect on its target cell?",
+  "format": "choice",
+  "choices": [
+   "Vestibular inputs to the cerebellar cortex",
+   "Outputs from the deep cerebellar nuclei to the thalamus",
+   "Climbing fibers",
+   "Pontine inputs to the cerebellar cortex",
+   "Neurons projecting from the cerebellar cortex to the deep cerebellar nuclei"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Neurons projecting from the cerebellar cortex to the deep cerebellar nuclei"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q10",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q10 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "What term describes the slowed movement that may be observed in disorders like Parkinson’s disease?",
+  "format": "choice",
+  "choices": [
+   "Chorea",
+   "Aphagia",
+   "Resting tremor",
+   "Hypokinesia",
+   "Bradykinesia"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Bradykinesia"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q11",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q11 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "According to the Triune Brain Model, which evolutionary component of the brain is responsible for instinctual behaviors such as aggression, dominance, and territoriality?",
+  "format": "choice",
+  "choices": [
+   "Paleomammalian brain",
+   "Reptilian brain",
+   "Neomammalian brain",
+   "Neocortex",
+   "Retromammalian brain"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Reptilian brain"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q12",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q12 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following does not describe an accurate pairing between a limbic system structure and its function?",
+  "format": "choice",
+  "choices": [
+   "Amygdala; emotional learning and threat detection",
+   "Hippocampus; memory consolidation",
+   "Habenula; long-term memory consolidation",
+   "Septal nuclei; reward and reinforcement",
+   "Cingulate cortex; regulation of pain and emotion"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Habenula; long-term memory consolidation"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q13",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q13 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following statements is not true regarding the olfactory system?",
+  "format": "choice",
+  "choices": [
+   "Olfactory neurons are continuously regenerated throughout life",
+   "Olfactory neurons are bipolar",
+   "Olfactory neurons synapse directly into limbic structures before the thalamus",
+   "Olfactory receptor cells are a type of glial cell",
+   "Odorant binding causes depolarization of the olfactory receptor neuron"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Olfactory receptor cells are a type of glial cell"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q14",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q14 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "A lesion to which of the following structures is most likely to result in a lack of fear response to threatening stimuli?",
+  "format": "choice",
+  "choices": [
+   "Hippocampus",
+   "Mammillary bodies",
+   "Cingulate cortex",
+   "Amygdala",
+   "Orbitofrontal cortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Amygdala"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q15",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q15 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following limbic structures is in direct contact with the ventricular system, such as bordering or forming part of the wall of a ventricle?",
+  "format": "choice",
+  "choices": [
+   "Cingulate cortex",
+   "Basal forebrain",
+   "Mammillary bodies",
+   "Hippocampus",
+   "Insular cortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Hippocampus"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q16",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q16 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Most blood draining from the surface of the brain is collected by bridging veins that drain blood into this space, which is located in the falx cerebri.",
+  "format": "choice",
+  "choices": [
+   "Vertebral artery",
+   "Great cerebral vein",
+   "Internal jugular vein",
+   "Superior sagittal sinus",
+   "Confluence of sinuses"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Superior sagittal sinus"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q17",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q17 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is not a major component of the blood brain barrier?",
+  "format": "choice",
+  "choices": [
+   "Basement membrane",
+   "Endothelial cells",
+   "Schwann cells",
+   "Pericytes",
+   "Astrocytes"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Schwann cells"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q18",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q18 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which structure does not receive its blood supply from the anterior circulation of the brain?",
+  "format": "choice",
+  "choices": [
+   "Orbitofrontal cortex",
+   "Primary auditory cortex",
+   "Basal ganglia",
+   "Pons",
+   "Primary motor cortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Pons"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q19",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "draft",
+  "position": 19,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q19 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which vessel is not a part of the posterior circulation of the brain?",
+  "format": "choice",
+  "choices": [
+   "Basilar artery",
+   "PICA",
+   "Superior cerebellar artery",
+   "Pontine arteries",
+   "Lenticulostriate arteries"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "review_note": "key lists ['a', 'e'] answer(s); multi-answer or unreadable",
+  "answer": "Basilar artery | Lenticulostriate arteries"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q20",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q20 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which structure receives its blood supply from the posterior circulation?",
+  "format": "choice",
+  "choices": [
+   "Cerebellum",
+   "Hippocampus",
+   "Anterior limb of the internal capsule",
+   "Amygdala",
+   "Basal forebrain nuclei"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Cerebellum"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q21",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q21 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "If an individual was to come into the emergency room with a brain bleed, what imaging modality would be most appropriate to use?",
+  "format": "choice",
+  "choices": [
+   "MR Spectroscopy",
+   "Positron emission tomography (PET)",
+   "CT",
+   "MRI",
+   "DSI"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "CT"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q22",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q22 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "A group of researchers is interested in studying the complex crossing pathways of axon tracts in the nervous system. Which image modality would be most appropriate?",
+  "format": "choice",
+  "choices": [
+   "CT",
+   "fMRI",
+   "DTI",
+   "MRI",
+   "DSI"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "DSI"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q23",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q23 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "CT imaging could be used for measuring all things listed except…",
+  "format": "choice",
+  "choices": [
+   "Bone",
+   "A foreign solid object in the body",
+   "Blood vessels",
+   "Soft tissue",
+   "Metabolic activity"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Metabolic activity"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q24",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q24 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "A 65-year-old individual is experiencing memory issues that have begun to raise concern. Their doctor recommends an imaging procedure involving radio- labeled tau proteins to detect potential tau aggregation in the brain. What imaging modality is being used?",
+  "format": "choice",
+  "choices": [
+   "CT angiography",
+   "DSI",
+   "Positron emission tomography (PET)",
+   "fMRI",
+   "MR spectroscopy"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Positron emission tomography (PET)"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q25",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q25 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following statements is a limitation of MRI?",
+  "format": "choice",
+  "choices": [
+   "Repeated MRI results in high levels of radiation exposure",
+   "Patients must move constantly for imaging to be effective",
+   "Metal objects are not only fine, but encouraged to take into the machine",
+   "Acquiring MRI images is time consuming",
+   "Magnets are pseudoscience"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Acquiring MRI images is time consuming"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q26",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q26 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following pathologies is not considered a stroke?",
+  "format": "choice",
+  "choices": [
+   "Cerebral thrombosis",
+   "Intracerebral hemorrhage",
+   "Cerebral embolism",
+   "Epidural hemorrhage",
+   "Intracerebral hemorrhage"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Epidural hemorrhage"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q27",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q27 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "The rupturing of the middle meningeal artery would result in which of the following pathologies?",
+  "format": "choice",
+  "choices": [
+   "Subdural hematoma",
+   "Bleeding into the epidural space",
+   "Subarachnoid hemorrhage",
+   "Cerebral embolism",
+   "Intracerebral hemorrhage"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Bleeding into the epidural space"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q28",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q28 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is not a typical finding in a patient with dangerously high intracranial pressure?",
+  "format": "choice",
+  "choices": [
+   "Bradycardia",
+   "Uncal herniation",
+   "Irregular breathing",
+   "Cerebellar artery thrombosis",
+   "Hypertension"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Cerebellar artery thrombosis"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q29",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q29 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which of the following would be an appropriate treatment for an individual with a berry aneurysm?",
+  "format": "choice",
+  "choices": [
+   "Tissue plasminogen activator",
+   "Platinum coil",
+   "Carotid endarterectomy",
+   "Mechanical thrombectomy",
+   "Dural puncture and drainage"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Platinum coil"
+ },
+ {
+  "slug": "written-u3-practice-exam-u3-q30",
+  "kind": "theory",
+  "topic": "practice-exam-u3",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u3 Q30 (Practice exam 3 (= SI session 8 test))"
+  },
+  "facet": "written",
+  "prompt": "Which symptom is least likely to be observed in a middle cerebral artery stroke?",
+  "format": "choice",
+  "choices": [
+   "Motor disruption of upper extremities",
+   "Auditory processing difficulty",
+   "Expressive aphasia",
+   "Hemineglect",
+   "Vision loss"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u3"
+  ],
+  "answer": "Vision loss"
+ }
+]

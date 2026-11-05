@@ -1,0 +1,948 @@
+[
+ {
+  "slug": "clinical-u3-stroke-mca",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes, lecture-18 CNS pathology"
+  },
+  "vignette": "A patient has right face and arm weakness, right sensory loss and halting nonfluent speech with good comprehension.",
+  "prompt": "Which artery is likely occluded and on which side?",
+  "answer": "Left middle cerebral artery (dominant hemisphere: Broca's aphasia)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "middle cerebral",
+    "mca"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": [
+   "middle-cerebral-artery"
+  ]
+ },
+ {
+  "slug": "clinical-u3-stroke-mca-right",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "A patient has left face and arm weakness, left sensory loss and ignores the left side of space.",
+  "prompt": "Which artery and side?",
+  "answer": "Right middle cerebral artery (non-dominant hemisphere: hemineglect)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right"
+   ],
+   [
+    "middle cerebral",
+    "mca"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": [
+   "middle-cerebral-artery"
+  ]
+ },
+ {
+  "slug": "clinical-u3-stroke-aca",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A patient has contralateral leg weakness and sensory loss with urinary incontinence and apathy.",
+  "prompt": "Which artery?",
+  "answer": "Anterior cerebral artery (medial frontal and parietal lobes)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior cerebral",
+    "aca"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": [
+   "anterior-cerebral-artery"
+  ]
+ },
+ {
+  "slug": "clinical-u3-stroke-pca",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "A patient has a right homonymous hemianopia, trouble reading (alexia without agraphia) and prosopagnosia.",
+  "prompt": "Which artery and side?",
+  "answer": "Left posterior cerebral artery (occipital lobe and inferior temporal lobe)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "posterior cerebral",
+    "pca"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": [
+   "posterior-cerebral-artery"
+  ]
+ },
+ {
+  "slug": "clinical-u3-stroke-lenticulostriate",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A hypertensive patient has pure motor hemiparesis of the left face, arm and leg from a small lacunar infarct.",
+  "prompt": "Which small vessels and structures are involved?",
+  "answer": "Right lenticulostriate arteries (MCA): basal ganglia and internal capsule",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lenticulostriate"
+   ],
+   [
+    "internal capsule",
+    "basal ganglia"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": [
+   "lenticulostriate-arteries",
+   "internal-capsule"
+  ]
+ },
+ {
+  "slug": "clinical-u3-stroke-watershed",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "After cardiac arrest a patient has weakness of both shoulders and upper arms with preserved hands and legs ('man in a barrel').",
+  "prompt": "Which kind of stroke?",
+  "answer": "Bilateral MCA-PCA watershed (border-zone) infarcts",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "watershed",
+    "border"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-stroke-ischemic-types",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "Name the two main causes of ischemic stroke.",
+  "prompt": "Name both.",
+  "answer": "Thrombosis (e.g. atherosclerosis) and embolism (e.g. from atrial fibrillation)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "thrombo",
+    "atheroscler"
+   ],
+   [
+    "embol"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-stroke-tpa",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A patient arrives 5 hours after a stroke; CT shows bleeding.",
+  "prompt": "Why must CT be done before giving tPA?",
+  "answer": "tPA worsens a haemorrhagic stroke; CT rules out haemorrhage",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "hemorrhag",
+    "haemorrhag",
+    "bleed"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "stroke"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-bleed-epidural",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A man is hit on the side of the head, is briefly unconscious, then lucid, then deteriorates with a lemon-shaped bright area on CT.",
+  "prompt": "Which bleed and which vessel?",
+  "answer": "Epidural haematoma; middle meningeal artery near the pterion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "epidural"
+   ],
+   [
+    "middle meningeal",
+    "meningeal artery"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bleed"
+  ],
+  "structures": [
+   "pterion",
+   "meningeal-blood-vessels"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bleed-subdural",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "An elderly man on alcohol falls and has a crescent (banana-shaped) bleed crossing sutures, bounded by the falx and tentorium.",
+  "prompt": "Which bleed and vessel?",
+  "answer": "Subdural haematoma; torn bridging veins",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "subdural"
+   ],
+   [
+    "bridging"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bleed"
+  ],
+  "structures": [
+   "subdural-space"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bleed-sah",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A patient has a sudden 'worst headache of my life' with vomiting and blood in the sylvian fissures on CT.",
+  "prompt": "Which bleed and likely cause?",
+  "answer": "Subarachnoid haemorrhage; ruptured berry aneurysm (often at communicating arteries)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "subarachnoid"
+   ],
+   [
+    "aneurysm"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bleed"
+  ],
+  "structures": [
+   "subarachnoid-space"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bleed-berry-sites",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "Where do berry aneurysms most commonly occur?",
+  "prompt": "Name the common sites.",
+  "answer": "Anterior and posterior communicating arteries (circle of Willis branch points)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior communicating",
+    "communicating"
+   ],
+   [
+    "circle of willis"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bleed"
+  ],
+  "structures": [
+   "circle-of-willis"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bleed-intracerebral",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A hypertensive patient has sudden loss of function and a bright pool within the basal ganglia on CT.",
+  "prompt": "Which type of bleed?",
+  "answer": "Intracerebral haemorrhage (rupture of penetrating lenticulostriate vessels)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "intracerebral"
+   ],
+   [
+    "lenticulostriate",
+    "penetrating"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bleed"
+  ],
+  "structures": [
+   "lenticulostriate-arteries"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bleed-stroke-vs-bleed",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes, lecture-18 CNS pathology"
+  },
+  "vignette": "Which two intracranial bleeds are NOT considered strokes?",
+  "prompt": "Name them.",
+  "answer": "Epidural and subdural haematoma (vessels do not supply the brain)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "epidural"
+   ],
+   [
+    "subdural"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bleed"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-herniation-uncal",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A patient with a large temporal haematoma has a blown right pupil.",
+  "prompt": "Which structure herniates and which nerve is compressed?",
+  "answer": "Uncus (uncal herniation over the tentorium) compresses the oculomotor nerve",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "uncus",
+    "uncal"
+   ],
+   [
+    "oculomotor",
+    "cn iii",
+    "iii"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "herniation"
+  ],
+  "structures": [
+   "uncus",
+   "tentorium-cerebelli"
+  ]
+ },
+ {
+  "slug": "clinical-u3-herniation-tonsillar",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "A patient with raised ICP has hypertension, bradycardia and irregular breathing.",
+  "prompt": "What is this triad and what is herniating?",
+  "answer": "Cushing's triad; cerebellar tonsils herniating through the foramen magnum",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cushing"
+   ],
+   [
+    "tonsil",
+    "foramen magnum"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "herniation"
+  ],
+  "structures": [
+   "cerebellar-tonsil",
+   "foramen-magnum"
+  ]
+ },
+ {
+  "slug": "clinical-u3-herniation-midline",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "On CT a bleed on the right pushes the midline to the left.",
+  "prompt": "What is this called?",
+  "answer": "Midline shift (mass effect)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "midline",
+    "mass effect"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "herniation"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-bg-parkinson",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-14, lecture-18 CNS pathology"
+  },
+  "vignette": "A patient has a resting tremor, rigidity, bradykinesia and a shuffling gait.",
+  "prompt": "Which nucleus is degenerating, and which transmitter is lost?",
+  "answer": "Substantia nigra pars compacta; dopamine",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "substantia nigra",
+    "nigra"
+   ],
+   [
+    "dopamine"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bg"
+  ],
+  "structures": [
+   "substantia-nigra"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bg-huntington",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-14"
+  },
+  "vignette": "A 40-year-old with a family history has chorea and dementia.",
+  "prompt": "Which structure degenerates?",
+  "answer": "Striatum (caudate and putamen)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "striatum",
+    "caudate",
+    "putamen"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bg"
+  ],
+  "structures": [
+   "caudate-nucleus",
+   "putamen"
+  ]
+ },
+ {
+  "slug": "clinical-u3-bg-ballismus",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-14"
+  },
+  "vignette": "A stroke causes sudden violent flinging movements of the right arm.",
+  "prompt": "Which nucleus is damaged and on which side?",
+  "answer": "Left subthalamic nucleus (hemiballismus, contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "subthalamic",
+    "stn"
+   ],
+   [
+    "left",
+    "contralateral"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "bg"
+  ],
+  "structures": [
+   "subthalamic-nucleus"
+  ]
+ },
+ {
+  "slug": "clinical-u3-limbic-hippocampus",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-15"
+  },
+  "vignette": "A patient cannot form new memories but recalls old ones.",
+  "prompt": "Which structures are damaged?",
+  "answer": "Hippocampal formation (medial temporal lobe), mammillary bodies/fornix (anterograde amnesia)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "hippocamp",
+    "mammillary",
+    "fornix",
+    "medial temporal"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "limbic"
+  ],
+  "structures": [
+   "hippocampus",
+   "fornix"
+  ]
+ },
+ {
+  "slug": "clinical-u3-limbic-basalis",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-15"
+  },
+  "vignette": "A patient with progressive dementia has loss of cholinergic neurons of the basal forebrain.",
+  "prompt": "Which nucleus projects to cortex and is lost?",
+  "answer": "Nucleus basalis of Meynert",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "basalis",
+    "meynert"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "limbic"
+  ],
+  "structures": [
+   "basal-forebrain-nuclei"
+  ]
+ },
+ {
+  "slug": "clinical-u3-limbic-amygdala",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-15"
+  },
+  "vignette": "A patient with bilateral amygdala damage shows diminished fear responses.",
+  "prompt": "Which structure is damaged?",
+  "answer": "Amygdala",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "amygdala"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "limbic"
+  ],
+  "structures": [
+   "amygdala"
+  ]
+ },
+ {
+  "slug": "clinical-u3-tumor-gbm",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "A tumour crosses the corpus callosum as a 'butterfly lesion'.",
+  "prompt": "Name the tumour.",
+  "answer": "Glioblastoma multiforme (astrocyte origin)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "glioblastoma",
+    "gbm"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "tumor"
+  ],
+  "structures": [
+   "corpus-callosum"
+  ]
+ },
+ {
+  "slug": "clinical-u3-tumor-cerebellar",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "A patient has an unsteady gait, nystagmus and poor fine motor control.",
+  "prompt": "Which brain region is likely affected?",
+  "answer": "Cerebellum",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cerebell"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "tumor"
+  ],
+  "structures": [
+   "cerebellum"
+  ]
+ },
+ {
+  "slug": "clinical-u3-tumor-temporal",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "A patient has focal seizures, memory loss and auditory hallucinations.",
+  "prompt": "Which lobe harbours the tumour?",
+  "answer": "Temporal lobe",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "temporal"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "tumor"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-tumor-metastasis",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "Name the three most common primary cancers that metastasise to the brain.",
+  "prompt": "Name them.",
+  "answer": "Lung, breast and melanoma (also kidney, colon)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lung"
+   ],
+   [
+    "breast"
+   ],
+   [
+    "melanoma"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "tumor"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-tumor-callosum",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 CNS pathology"
+  },
+  "vignette": "A child has difficulty with complex problem solving and social cues; MRI shows no corpus callosum.",
+  "prompt": "Name the condition.",
+  "answer": "Agenesis of the corpus callosum",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "agenesis"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "tumor"
+  ],
+  "structures": [
+   "corpus-callosum"
+  ]
+ },
+ {
+  "slug": "clinical-u3-imaging-ct-ischemia",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "How does an ischaemic stroke look on CT, and when does it show?",
+  "prompt": "Describe it.",
+  "answer": "Dark (hypodense) area, visible in the long term rather than immediately",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dark",
+    "hypodense",
+    "hypoattenuat"
+   ],
+   [
+    "later",
+    "long",
+    "delay",
+    "not immediate"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "imaging"
+  ],
+  "structures": []
+ },
+ {
+  "slug": "clinical-u3-imaging-ct-blood",
+  "kind": "clinical",
+  "topic": "clinical-u3",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "clinical",
+   "ref": "lecture-18 strokes"
+  },
+  "vignette": "How does acute blood appear on CT?",
+  "prompt": "Describe it.",
+  "answer": "Bright white (hyperdense)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "white",
+    "bright",
+    "hyperdens"
+   ]
+  ],
+  "tags": [
+   "clinical",
+   "imaging"
+  ],
+  "structures": []
+ }
+]

@@ -1,0 +1,1712 @@
+[
+ {
+  "slug": "written-u1-practice-exam-u1-q01",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 1,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q1 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is a FALSE statement relating to the cellular structure of a neuron?",
+  "format": "choice",
+  "choices": [
+   "Nissl substance is only found in axons.",
+   "Action potentials initiate within the axon hillock and propagate towards the terminal end of the axon.",
+   "Microtubules assist in the transport of membrane bound organelles throughout the cell.",
+   "Neurons typically have a higher number of dendrites than axons",
+   "An axon can form Synapses between dendrites, axons, and somas."
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Nissl substance is only found in axons.",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q02",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 2,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q2 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "In the developing spinal cord, the sulcus limitans is best described as:",
+  "format": "choice",
+  "choices": [
+   "A groove on the embryo’s surface that becomes the central canal",
+   "A dividing line between the developing cerebral hemispheres",
+   "A longitudinal groove in the neural tube that separates dorsal (alar) and ventral (basal) plates",
+   "The future site of the primary fissure of the cerebellum",
+   "A transient ridge that induces neural crest differentiation"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "A longitudinal groove in the neural tube that separates dorsal (alar) and ventral (basal) plates",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q03",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 3,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q3 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which region of the brain is proportionately SMALLER in humans compared to organisms such as a mouse or dog?",
+  "format": "choice",
+  "choices": [
+   "Cerebellum",
+   "Brainstem",
+   "Limbic structures",
+   "Cerebrum",
+   "Olfactory bulbs"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Olfactory bulbs",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q04",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 4,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q4 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following structures is evolutionarily most recent?",
+  "format": "choice",
+  "choices": [
+   "Basal Ganglia",
+   "Telencephalon",
+   "Amygdala",
+   "Diencephalon",
+   "Brainstem"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Telencephalon",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q05",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 5,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q5 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "A deficiency in maternal folic acid during early pregnancy greatly increases the risk of:",
+  "format": "choice",
+  "choices": [
+   "Neural tube defects such as spina bifida or anencephaly",
+   "Down syndrome (trisomy 21)",
+   "Holoprosencephaly (forebrain fails to divide)",
+   "Microcephaly (small brain size)",
+   "Lissencephaly (smooth brain with no gyri)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Neural tube defects such as spina bifida or anencephaly",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q06",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 6,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q6 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following is FALSE of both oligodendrocytes and Schwann cells?",
+  "format": "choice",
+  "choices": [
+   "Both can each form myelin around axons",
+   "Both increase conduction velocity via myelination",
+   "Both are glial cells that support neurons",
+   "Both are derived from the neural crest",
+   "Both can myelinate different segments of the same axon (CNS vs PNS portions)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Both are derived from the neural crest",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q07",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 7,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q7 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "What structure of the ventricular system is adjacent to the lobe of the brain most concerned with auditory processing?",
+  "format": "choice",
+  "choices": [
+   "posterior horn of the lateral ventricle",
+   "Cerebral aqueduct",
+   "Inferior horn of the lateral ventricle",
+   "Trigone",
+   "Fourth ventricle"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Inferior horn of the lateral ventricle",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q08",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 8,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q8 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which pairing of embryonic brain vesicle to its corresponding adult ventricular space is correct?",
+  "format": "choice",
+  "choices": [
+   "Diencephalon – Posterior horn of lateral ventricles",
+   "Telencephalon – Anterior horn of lateral ventricles",
+   "Metencephalon – Central canal",
+   "Myelencephalon – Foramen of Monro",
+   "Mesencephalon – Inferior horn of lateral ventricles"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Telencephalon – Anterior horn of lateral ventricles",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q09",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 9,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q9 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Within the temporal lobes, which pair of structures that are crucial for memory and emotion form the medial wall for the inferior horn of the lateral ventricles?",
+  "format": "choice",
+  "choices": [
+   "Putamen & hypothalamus",
+   "Caudate & and putamen",
+   "Mamillary bodies & nucleus accumbens",
+   "Habenula & globus pallidus",
+   "Amygdala & hippocampus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Amygdala & hippocampus",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q10",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 10,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q10 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "A developmental defect that specifically affects neural crest cell migration would LEAST affect which of the following?",
+  "format": "choice",
+  "choices": [
+   "Formation of dorsal root (spinal) ganglia",
+   "Development of enteric nervous system neurons",
+   "Formation of Schwann cells around peripheral axons",
+   "Development of craniofacial cartilage and bone",
+   "Development of motor neurons in the spinal cord"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Development of motor neurons in the spinal cord",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q11",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 11,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q11 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "An obstruction in the foramen of monro would lead to enlargement of which component(s) of the ventricular system?",
+  "format": "choice",
+  "choices": [
+   "Fourth ventricle",
+   "Arachnoid granulations",
+   "Central canal of the spinal cord",
+   "Lateral ventricles",
+   "Subarachnoid space"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Lateral ventricles",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q12",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 12,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q12 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "The insular cortex is most associated with which of these experiences?",
+  "format": "choice",
+  "choices": [
+   "Planning a complex movement sequence",
+   "Feeling the sensation of your heartbeat and an upset stomach",
+   "Recognizing a friend’s face in a crowd",
+   "Solving a complex math problem",
+   "Coordinating balance and posture while running"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Feeling the sensation of your heartbeat and an upset stomach",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q13",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 13,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q13 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Damage to the transverse temporal gyrus in the left hemisphere would primarily result in deficits in:",
+  "format": "choice",
+  "choices": [
+   "Vision (e.g. cortical blindness)",
+   "Hearing (e.g. difficulty perceiving sounds)",
+   "Motor coordination (e.g. ataxia)",
+   "Speech production (e.g. Broca’s aphasia)",
+   "Executive function (e.g. planning, decision-making impairments)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Hearing (e.g. difficulty perceiving sounds)",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q14",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 14,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q14 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "A lesion in which region is most likely to produce apathy and inability to initiate goal- directed behaviors, due to loss of motivational drive?",
+  "format": "choice",
+  "choices": [
+   "Dorsolateral prefrontal cortex",
+   "Parahippocampal gyrus",
+   "Anterior cingulate cortex",
+   "Uncus",
+   "Primary motor cortex (precentral gyrus)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Anterior cingulate cortex",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q15",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 15,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q15 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "What functional area is found bordering the calcarine fissure.",
+  "format": "choice",
+  "choices": [
+   "Primary visual cortex",
+   "Wernicke’s area",
+   "Primary auditory cortex",
+   "Cingulate cortex",
+   "Somatosensory association cortex"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Primary visual cortex",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q16",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 16,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q16 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "A neuron would receive less synapses if it reduced the number of which structures?",
+  "format": "choice",
+  "choices": [
+   "Dendritic spines",
+   "Axon hillocks",
+   "Kinesins",
+   "Microtubules",
+   "Neurofilaments"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Dendritic spines",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q17",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 17,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q17 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which cortical layer pairing is INCORRECT?",
+  "format": "choice",
+  "choices": [
+   "Layer 5 – major subcortical outputs",
+   "Layer 4 – afferents from the thalamus",
+   "Layer 2/3 – association & commissural connections",
+   "Layer 6 – corticothalamic projections",
+   "Layer 1 – principal output to spinal cord"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Layer 1 – principal output to spinal cord",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q18",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 18,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q18 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which statement regarding spinal cord white matter is FALSE?",
+  "format": "choice",
+  "choices": [
+   "Dorsal columns carry discriminative touch/proprioception",
+   "Fasciculi gracilis and cuneatus are in the dorsal funiculus",
+   "The sacral spinal cord has less white matter than the cervical spinal cord",
+   "The spinal cord is organized grey-white-grey",
+   "White matter contains ascending/descending tracts"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "The spinal cord is organized grey-white-grey",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q19",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 19,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q19 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which statement regarding white matter tracts is FALSE?",
+  "format": "choice",
+  "choices": [
+   "White matter is white due to myelin with high concentrations of lipids",
+   "Commissural fibers connect the two hemispheres",
+   "Association fibers originate from cortical layers 2 & 3",
+   "One of the largest projection fiber tracts is the internal capsule",
+   "Layer 5 is primarily composed of pseudo-unipolar cell bodies"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Layer 5 is primarily composed of pseudo-unipolar cell bodies",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q20",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 20,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q20 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Loss of the dorsal column – medial lemniscus function would most impair a person’s ability to:",
+  "format": "choice",
+  "choices": [
+   "Feel pain from a pinprick on the skin",
+   "Sense the position of their limbs in space with eyes closed",
+   "Detect an increase in temperature on their skin",
+   "Experience an acute itch sensation",
+   "Feel dizzy when spinning around"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Sense the position of their limbs in space with eyes closed",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q21",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 21,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q21 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which statement about the autonomic nervous system is FALSE?",
+  "format": "choice",
+  "choices": [
+   "Parasympathetic preganglionic neurons occur in brainstem and sacral cord",
+   "Sympathetic outflow originates from T1–L2 spinal levels",
+   "Preganglionic neurons release acetylcholine",
+   "Sympathetic postganglionic neurons are often in chain or prevertebral ganglia",
+   "Both pre- and post-ganglionic sympathetic neurons secrete norepinephrine"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Both pre- and post-ganglionic sympathetic neurons secrete norepinephrine",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q22",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 22,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q22 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which receptor–modality match is INCORRECT?",
+  "format": "choice",
+  "choices": [
+   "Merkel cells – sustained touch/texture",
+   "Ruffini endings – skin stretch/movement across skin",
+   "Golgi tendon organs – muscle length/stretch",
+   "Free nerve endings – pain/temperature/itch",
+   "Pacinian corpuscles – vibration/rapid pressure changes 2"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Golgi tendon organs – muscle length/stretch",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q23",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 23,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q23 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which term describes a neuron with its cell body in the spinal cord’s anterior horn and an axon that exits to stimulate a muscle spindle fiber?",
+  "format": "choice",
+  "choices": [
+   "Alpha motor neuron",
+   "Gamma motor neuron",
+   "Sympathetic postganglionic neuron",
+   "Upper motor neuron of corticospinal tract",
+   "Pseudounipolar neuron"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Gamma motor neuron",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q24",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 24,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q24 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "During voluntary skeletal muscle contraction, why are gamma motor neurons activated simultaneously with alpha motor neurons?",
+  "format": "choice",
+  "choices": [
+   "To allow muscle spindles to become relaxed as the muscle shortens, decreasing sensory feedback",
+   "To ensure intrafusal fibers shorten along with extrafusal fibers, preserving spindle sensitivity to stretch",
+   "To suppress Ia afferent signaling during active muscle contraction",
+   "To stimulate Golgi tendon organs at the same time as force-producing muscle fibers",
+   "To enhance muscle force output through autonomic nervous system activation"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "To ensure intrafusal fibers shorten along with extrafusal fibers, preserving spindle sensitivity to stretch",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q25",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 25,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q25 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "The marginal zone nucleus (lamina I) at the tip of the dorsal horn mainly receives input from:",
+  "format": "choice",
+  "choices": [
+   "Aα (Type 1a)",
+   "Aα (Type 1b)",
+   "Aβ (Type 2)",
+   "Aδ (Type 3)",
+   "C fibers (Type 4)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Aδ (Type 3)",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q26",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 26,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q26 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which statement about spinal nerves is FALSE?",
+  "format": "choice",
+  "choices": [
+   "They are part of the PNS",
+   "They branch into dorsal and ventral rami",
+   "They exit via the intervertebral foramen",
+   "They are mixed (sensory + motor) after roots join",
+   "There are 29 pairs of spinal nerves"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "There are 29 pairs of spinal nerves",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q27",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 27,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q27 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "All of the following are found within a typical peripheral nerve EXCEPT:",
+  "format": "choice",
+  "choices": [
+   "Schwann cells",
+   "Pia mater",
+   "Blood vessels",
+   "Endoneurium",
+   "Fibroblasts"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Pia mater",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q28",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 28,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q28 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Which thalamic nucleus contains third-order neuronal cell bodies as part of the dorsal column-medial lemniscus pathway?",
+  "format": "choice",
+  "choices": [
+   "VPM (ventral posterior medial)",
+   "Medial geniculate",
+   "Lateral geniculate",
+   "VPL (ventral posterior lateral)",
+   "Pulvinar"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "VPL (ventral posterior lateral)",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q29",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 29,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q29 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "The substantia gelatinosa is a distinctive cell column in the dorsal horn. What is its Rexed laminar designation and role?",
+  "format": "choice",
+  "choices": [
+   "Lamina I – contains motor neurons for axial muscles",
+   "Lamina III – houses sympathetic preganglionic neurons",
+   "Lamina II – involved in pain modulation via interneurons",
+   "Lamina VII – Clarke’s column for proprioception",
+   "Lamina X – contains large touch relay neurons"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Lamina II – involved in pain modulation via interneurons",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-practice-exam-u1-q30",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "draft",
+  "position": 30,
+  "source": {
+   "type": "exam",
+   "ref": "practice-exam-u1 Q30 (Practice exam 1)"
+  },
+  "facet": "written",
+  "prompt": "Where is the second-order neuron in the pathway carrying conscious proprioceptive information from the leg to the cerebral cortex?",
+  "format": "choice",
+  "choices": [
+   "Contralateral column of Clarke",
+   "Nucleus gracilis in the medulla",
+   "VPL nucleus of the thalamus",
+   "Ipsilateral column of Clarke",
+   "Ipsilateral nucleus proprius"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "practice-exam-u1"
+  ],
+  "answer": "Nucleus gracilis in the medulla",
+  "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
+ },
+ {
+  "slug": "written-u1-si-session-4-q01",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q1 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The solitary nucleus receives sensory information from which cranial nerves?",
+  "format": "choice",
+  "choices": [
+   "V, VII, IX",
+   "VII, IX, X",
+   "III, IV, VI",
+   "IX, X, XI",
+   "VIII, IX, XII"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "VII, IX, X"
+ },
+ {
+  "slug": "written-u1-si-session-4-q02",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q2 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which structure serves as the major output pathway from the cerebellum?",
+  "format": "choice",
+  "choices": [
+   "Middle cerebellar peduncle",
+   "Inferior cerebellar peduncle",
+   "Superior cerebellar peduncle",
+   "Lateral lemniscus",
+   "Medial lemniscus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Superior cerebellar peduncle"
+ },
+ {
+  "slug": "written-u1-si-session-4-q03",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q3 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The dorsal column-medial lemniscus pathway synapses in which brainstem nucleus before reaching the thalamus?",
+  "format": "choice",
+  "choices": [
+   "Red nucleus",
+   "Inferior olivary nucleus",
+   "Gracile and cuneate nuclei",
+   "Solitary nucleus",
+   "Locus coeruleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Gracile and cuneate nuclei"
+ },
+ {
+  "slug": "written-u1-si-session-4-q04",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q4 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following structures is found in the tegmentum of the brainstem?",
+  "format": "choice",
+  "choices": [
+   "Corticospinal tract",
+   "Superior colliculus",
+   "Inferior olivary nucleus",
+   "Medial lemniscus",
+   "Both c and d"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Both c and d"
+ },
+ {
+  "slug": "written-u1-si-session-4-q05",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q5 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve exits the brainstem from the dorsal midbrain?",
+  "format": "choice",
+  "choices": [
+   "CN III",
+   "CN IV",
+   "CN VI",
+   "CN VII",
+   "CN IX"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN IV"
+ },
+ {
+  "slug": "written-u1-si-session-4-q06",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q6 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The pyramids on the ventral medulla contain which of the following?",
+  "format": "choice",
+  "choices": [
+   "Corticospinal tract fibers",
+   "Spinothalamic tract fibers",
+   "Dorsal column-medial lemniscus fibers",
+   "Reticulospinal tract fibers",
+   "Tectospinal tract fibers"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Corticospinal tract fibers"
+ },
+ {
+  "slug": "written-u1-si-session-4-q07",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q7 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The inferior colliculus is primarily involved in:",
+  "format": "choice",
+  "choices": [
+   "Visual reflexes",
+   "Auditory processing",
+   "Somatosensory integration",
+   "Vestibular function",
+   "Respiratory control"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Auditory processing"
+ },
+ {
+  "slug": "written-u1-si-session-4-q08",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q8 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "What is the function of the superior colliculus?",
+  "format": "choice",
+  "choices": [
+   "Coordination of movement",
+   "Visual reflexes and tracking",
+   "Relay for somatosensory information",
+   "Modulation of pain signals",
+   "Regulation of autonomic functions"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Visual reflexes and tracking"
+ },
+ {
+  "slug": "written-u1-si-session-4-q09",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q9 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The obex is an important anatomical landmark located in the:",
+  "format": "choice",
+  "choices": [
+   "Midbrain",
+   "Pons",
+   "Medulla",
+   "Diencephalon",
+   "Spinal cord"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Medulla"
+ },
+ {
+  "slug": "written-u1-si-session-4-q10",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q10 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve nuclei are located in the midbrain?",
+  "format": "choice",
+  "choices": [
+   "III and IV",
+   "V and VI",
+   "VII and VIII",
+   "IX and X",
+   "XI and XII"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "III and IV"
+ },
+ {
+  "slug": "written-u1-si-session-4-q11",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q11 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The middle cerebellar peduncle is primarily composed of fibers from which structure?",
+  "format": "choice",
+  "choices": [
+   "Thalamus",
+   "Pontine nuclei",
+   "Inferior olivary nucleus",
+   "Midbrain tectum",
+   "Red nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Pontine nuclei"
+ },
+ {
+  "slug": "written-u1-si-session-4-q12",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q12 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The gracile and cuneate nuclei primarily process:",
+  "format": "choice",
+  "choices": [
+   "Pain and temperature",
+   "Proprioception and fine touch",
+   "Motor coordination",
+   "Balance and posture",
+   "Visual input"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Proprioception and fine touch"
+ },
+ {
+  "slug": "written-u1-si-session-4-q13",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q13 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which nucleus provides parasympathetic output to the pupil and lens of the eye?",
+  "format": "choice",
+  "choices": [
+   "Red nucleus",
+   "Oculomotor nucleus",
+   "Edinger-Westphal nucleus",
+   "Vestibular nucleus",
+   "Solitary nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Edinger-Westphal nucleus"
+ },
+ {
+  "slug": "written-u1-si-session-4-q14",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q14 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve carries special sensory fibers for taste from the anterior two-thirds of the tongue?",
+  "format": "choice",
+  "choices": [
+   "CN V (Trigeminal)",
+   "CN VII (Facial)",
+   "CN IX (Glossopharyngeal)",
+   "CN X (Vagus)",
+   "CN XII (Hypoglossal)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN VII (Facial)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q15",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q15 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve controls the superior oblique muscle of the eye?",
+  "format": "choice",
+  "choices": [
+   "CN III (Oculomotor)",
+   "CN IV (Trochlear)",
+   "CN VI (Abducens)",
+   "CN VII (Facial)",
+   "CN VIII (Vestibulocochlear)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN IV (Trochlear)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q16",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q16 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Where is the abducens nucleus located?",
+  "format": "choice",
+  "choices": [
+   "Rostral midbrain",
+   "Caudal midbrain",
+   "Rostral pons",
+   "Caudal pons",
+   "Rostral medulla"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Caudal pons"
+ },
+ {
+  "slug": "written-u1-si-session-4-q17",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q17 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following cranial nerves does NOT have a sensory component?",
+  "format": "choice",
+  "choices": [
+   "CN V (Trigeminal)",
+   "CN VII (Facial)",
+   "CN IX (Glossopharyngeal)",
+   "CN XI (Accessory)",
+   "CN X (Vagus)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN XI (Accessory)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q18",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q18 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which brainstem nucleus receives taste information?",
+  "format": "choice",
+  "choices": [
+   "Inferior olivary nucleus",
+   "Nucleus ambiguus",
+   "Solitary nucleus",
+   "Vestibular nucleus",
+   "Red nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Solitary nucleus"
+ },
+ {
+  "slug": "written-u1-si-session-4-q19",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q19 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve carries somatic sensation from the posterior third of the tongue?",
+  "format": "choice",
+  "choices": [
+   "CN V (Trigeminal)",
+   "CN VII (Facial)",
+   "CN IX (Glossopharyngeal)",
+   "CN X (Vagus)",
+   "CN XII (Hypoglossal)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN IX (Glossopharyngeal)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q20",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q20 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve is most affected by a cerebellopontine angle tumor?",
+  "format": "choice",
+  "choices": [
+   "CN III (Oculomotor)",
+   "CN IV (Trochlear)",
+   "CN VI (Abducens)",
+   "CN VII (Facial)",
+   "CN XII (Hypoglossal)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN VII (Facial)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q21",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q21 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The hypoglossal nucleus is responsible for motor control of which structure?",
+  "format": "choice",
+  "choices": [
+   "Pharynx",
+   "Larynx",
+   "Tongue",
+   "Jaw muscles",
+   "Soft palate"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Tongue"
+ },
+ {
+  "slug": "written-u1-si-session-4-q22",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q22 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which of the following structures is a major landmark for identifying a cross- section from the rostral medulla?",
+  "format": "choice",
+  "choices": [
+   "Inferior colliculus",
+   "Superior cerebellar peduncle",
+   "Inferior olivary nucleus",
+   "Red nucleus",
+   "Middle cerebellar peduncle"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Inferior olivary nucleus"
+ },
+ {
+  "slug": "written-u1-si-session-4-q23",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q23 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve provides voluntary motor control to the trapezius and sternocleidomastoid muscles?",
+  "format": "choice",
+  "choices": [
+   "CN VII (Facial)",
+   "CN IX (Glossopharyngeal)",
+   "CN X (Vagus)",
+   "CN XI (Accessory)",
+   "CN XII (Hypoglossal)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN XI (Accessory)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q24",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q24 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "The facial colliculus is formed by which of the following?",
+  "format": "choice",
+  "choices": [
+   "Facial nerve fibers looping around the abducens nucleus",
+   "Vestibular nucleus protruding into the 4th ventricle",
+   "Decussation of corticospinal fibers",
+   "Inferior olivary nucleus swelling",
+   "Medial lemniscus crossing the midline"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Facial nerve fibers looping around the abducens nucleus"
+ },
+ {
+  "slug": "written-u1-si-session-4-q25",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q25 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve is responsible for innervating the muscles of mastication?",
+  "format": "choice",
+  "choices": [
+   "CN V (Trigeminal)",
+   "CN VII (Facial)",
+   "CN IX (Glossopharyngeal)",
+   "CN X (Vagus)",
+   "CN XI (Accessory)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN V (Trigeminal)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q26",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q26 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which cranial nerve exits the brainstem from the interpeduncular fossa?",
+  "format": "choice",
+  "choices": [
+   "CN II (Optic)",
+   "CN III (Oculomotor)",
+   "CN IV (Trochlear)",
+   "CN V (Trigeminal)",
+   "CN VI (Abducens)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN III (Oculomotor)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q27",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 57,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q27 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Damage to which cranial nerve results in difficulty shrugging the shoulders and turning the head?",
+  "format": "choice",
+  "choices": [
+   "CN V (Trigeminal)",
+   "CN VII (Facial)",
+   "CN IX (Glossopharyngeal)",
+   "CN XI (Accessory)",
+   "CN XII (Hypoglossal)"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "CN XI (Accessory)"
+ },
+ {
+  "slug": "written-u1-si-session-4-q28",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 58,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q28 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which nucleus controls parasympathetic output to the thoracic and abdominal organs?",
+  "format": "choice",
+  "choices": [
+   "Nucleus ambiguus",
+   "Dorsal motor nucleus of vagus",
+   "Solitary nucleus",
+   "Inferior salivatory nucleus",
+   "Vestibular nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Dorsal motor nucleus of vagus"
+ },
+ {
+  "slug": "written-u1-si-session-4-q29",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 59,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q29 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Where does the trochlear nerve (CN IV) originate?",
+  "format": "choice",
+  "choices": [
+   "Rostral midbrain",
+   "Caudal midbrain",
+   "Rostral pons",
+   "Caudal pons",
+   "Medulla"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Caudal midbrain"
+ },
+ {
+  "slug": "written-u1-si-session-4-q30",
+  "kind": "theory",
+  "topic": "practice-exam-u1",
+  "status": "live",
+  "position": 60,
+  "source": {
+   "type": "exam",
+   "ref": "si-session-4 Q30 (SI session 4 test)"
+  },
+  "facet": "written",
+  "prompt": "Which structure carries corticospinal fibers through the medulla?",
+  "format": "choice",
+  "choices": [
+   "Inferior olivary nucleus",
+   "Pyramid",
+   "Medial lemniscus",
+   "Red nucleus",
+   "Vestibular nucleus"
+  ],
+  "accept": [],
+  "require_side": false,
+  "tags": [
+   "written",
+   "si-session-4"
+  ],
+  "answer": "Pyramid"
+ }
+]

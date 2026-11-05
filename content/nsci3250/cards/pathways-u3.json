@@ -1,0 +1,1604 @@
+[
+ {
+  "slug": "pathways-u3-cerebellar-plan",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "plan",
+  "prompt": "Which peduncle carries the cortical motor plan to the cerebellum?",
+  "answer": "Middle cerebellar peduncle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "middle",
+    "mcp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-reality",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "reality",
+  "prompt": "Which peduncle carries proprioceptive and olivary feedback into the cerebellum?",
+  "answer": "Inferior cerebellar peduncle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inferior",
+    "icp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-output",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "output",
+  "prompt": "Which peduncle carries the major cerebellar output?",
+  "answer": "Superior cerebellar peduncle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "superior",
+    "scp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-input-olive",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "input-olive",
+  "prompt": "Which structure gives rise to climbing fibers, and from which side?",
+  "answer": "Contralateral inferior olivary nucleus (via ICP)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inferior olive",
+    "olivary"
+   ],
+   [
+    "contralateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-input-dsct",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "input-dsct",
+  "prompt": "The dorsal spinocerebellar tract enters the cerebellum from which side and through which peduncle?",
+  "answer": "Ipsilateral, inferior cerebellar peduncle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ipsilateral"
+   ],
+   [
+    "inferior",
+    "icp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-input-vest",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "input-vest",
+  "prompt": "Vestibular input reaches the cerebellum from which side and through which peduncles?",
+  "answer": "Ipsilateral, via ICP and MCP",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ipsilateral"
+   ],
+   [
+    "inferior",
+    "icp",
+    "middle",
+    "mcp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-mossy",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "mossy",
+  "prompt": "Mossy fibers synapse on which cell type in the cerebellar cortex?",
+  "answer": "Granule cells (parallel fibers excite Purkinje cells)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "granule"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-climbing",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "climbing",
+  "prompt": "Climbing fibers synapse directly on which cell?",
+  "answer": "Purkinje cell",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "purkinje"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-purkinje-output",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "purkinje-output",
+  "prompt": "Is Purkinje cell output excitatory or inhibitory?",
+  "answer": "Inhibitory to the deep cerebellar nuclei",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inhibit"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-deep-output",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "deep-output",
+  "prompt": "Is the output of the deep cerebellar nuclei excitatory or inhibitory?",
+  "answer": "Excitatory",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "excit"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "decussation",
+  "prompt": "Where does the cerebellar output pathway decussate?",
+  "answer": "Decussation of the SCP in the caudal midbrain (inferior colliculus level)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "caudal midbrain",
+    "inferior colliculus",
+    "midbrain"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-targets",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "targets",
+  "prompt": "Cerebellar output via the SCP goes to which contralateral targets?",
+  "answer": "Red nucleus and VA/VL thalamus (then motor cortex)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "red nucleus"
+   ],
+   [
+    "thalamus",
+    "va",
+    "vl"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-dentate",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "dentate",
+  "prompt": "Which deep nucleus belongs to the lateral hemisphere (pontocerebellum)?",
+  "answer": "Dentate nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dentate"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-fastigial",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "fastigial",
+  "prompt": "Which deep nucleus serves the vermis (trunk, posture)?",
+  "answer": "Fastigial nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "fastigial"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-interposed",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "interposed",
+  "prompt": "Which deep nucleus serves the paravermis (distal limbs)?",
+  "answer": "Interposed nucleus (emboliform and globose)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "interposed",
+    "emboliform",
+    "globose"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-flocculonodular",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "flocculonodular",
+  "prompt": "The flocculonodular lobe projects to which structures?",
+  "answer": "Vestibular nuclei (balance, eye movements)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vestibular"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-cerebellar-lesion-side",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14, lab-10"
+  },
+  "pathway": "cerebellar",
+  "step": "lesion-side",
+  "prompt": "A lesion of the right cerebellar hemisphere causes ataxia on which side?",
+  "answer": "Right (ipsilateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-input",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "structure": "corpus-striatum",
+  "pathway": "basal-ganglia",
+  "step": "input",
+  "prompt": "Which structure is the main input nucleus of the basal ganglia?",
+  "answer": "Striatum (caudate + putamen)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "striatum",
+    "caudate",
+    "putamen"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-striatum",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "striatum",
+  "prompt": "Which two nuclei make up the dorsal striatum?",
+  "answer": "Caudate nucleus and putamen",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "caudate"
+   ],
+   [
+    "putamen"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-lentiform",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "structure": "lentiform-nucleus",
+  "pathway": "basal-ganglia",
+  "step": "lentiform",
+  "prompt": "Which two nuclei together form the lentiform nucleus?",
+  "answer": "Putamen and globus pallidus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "putamen"
+   ],
+   [
+    "globus pallidus",
+    "pallidus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-ventral",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "ventral",
+  "prompt": "Which structures make up the ventral striatum?",
+  "answer": "Nucleus accumbens and olfactory tubercle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "accumbens"
+   ],
+   [
+    "olfactory tubercle"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-output",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "output",
+  "prompt": "Which nucleus is the primary output of the basal ganglia?",
+  "answer": "Globus pallidus internus (GPi)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "gpi",
+    "globus pallidus internus",
+    "internal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-gpi-effect",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "gpi-effect",
+  "prompt": "Is GPi output to the thalamus excitatory or inhibitory?",
+  "answer": "Inhibitory",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inhibit"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-thalamus",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 24,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "thalamus",
+  "prompt": "Which thalamic nuclei relay basal ganglia output to motor cortex?",
+  "answer": "VA/VL",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "va",
+    "vl",
+    "ventral anterior",
+    "ventral lateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-direct",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "direct",
+  "prompt": "In the direct 'go' pathway, what does the striatum do to GPi, and what is the net effect on cortex?",
+  "answer": "Inhibits GPi, disinhibiting thalamus: excites cortex, promotes movement",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inhibit"
+   ],
+   [
+    "excit",
+    "facilitat",
+    "promot",
+    "movement"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-indirect",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "indirect",
+  "prompt": "In the indirect 'no-go' pathway, the striatum inhibits which nucleus, and what follows?",
+  "answer": "GPe is inhibited, so STN is disinhibited, more GPi drive, less movement",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "gpe",
+    "globus pallidus externus"
+   ],
+   [
+    "stn",
+    "subthalamic"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-stn",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "stn",
+  "prompt": "Is the subthalamic nucleus excitatory or inhibitory, and what is its net effect?",
+  "answer": "Excitatory (to GPi); dampens movement",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "excit"
+   ],
+   [
+    "dampen",
+    "decrease",
+    "reduce",
+    "no-go",
+    "less"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-da-d1",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "da-d1",
+  "prompt": "Dopamine acting on D1 receptors does what to the direct pathway?",
+  "answer": "Excites (enhances) the direct 'go' pathway",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "excit",
+    "enhanc",
+    "facilitat"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-da-d2",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "da-d2",
+  "prompt": "Dopamine acting on D2 receptors does what to the indirect pathway?",
+  "answer": "Inhibits the indirect 'no-go' pathway",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inhibit"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-sn-source",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "sn-source",
+  "prompt": "Which nucleus supplies dopamine to the striatum?",
+  "answer": "Substantia nigra pars compacta",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "substantia nigra",
+    "snc",
+    "pars compacta"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-parkinson",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "parkinson",
+  "prompt": "Parkinson's disease follows loss of which neurons, and does it cause too much or too little movement?",
+  "answer": "Dopaminergic substantia nigra neurons; hypokinesia / bradykinesia",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "substantia nigra",
+    "nigra",
+    "dopamin"
+   ],
+   [
+    "hypokines",
+    "bradykines",
+    "too little",
+    "slow"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-huntington",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "huntington",
+  "prompt": "Huntington's disease involves degeneration of which structure and causes which movement?",
+  "answer": "Striatum; chorea (hyperkinesia)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "striatum",
+    "caudate"
+   ],
+   [
+    "chorea",
+    "hyperkines"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-basal-ganglia-ballismus",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14"
+  },
+  "pathway": "basal-ganglia",
+  "step": "ballismus",
+  "prompt": "Dysfunction of which nucleus causes ballismus?",
+  "answer": "Subthalamic nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "subthalamic",
+    "stn"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "basal-ganglia"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-first-order",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "first-order",
+  "prompt": "Where is the olfactory first-order neuron, and what is its shape?",
+  "answer": "Olfactory epithelium; bipolar neuron",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "epithelium",
+    "nasal"
+   ],
+   [
+    "bipolar"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-bone",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "bone",
+  "prompt": "Olfactory axons reach the olfactory bulb through which bone?",
+  "answer": "Cribriform plate of the ethmoid",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cribriform"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-second-order",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "second-order",
+  "prompt": "Where are the second-order olfactory neurons?",
+  "answer": "Olfactory bulb (mitral cells)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "olfactory bulb",
+    "bulb"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-tract",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "tract",
+  "prompt": "Which tract carries olfactory bulb output?",
+  "answer": "Olfactory tract",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "olfactory tract"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-cortex",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "cortex",
+  "prompt": "Name the primary olfactory cortical targets.",
+  "answer": "Olfactory tubercle, prepiriform (piriform) cortex, amygdala",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "tubercle",
+    "piriform",
+    "prepiriform",
+    "amygdala"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-thalamus",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "thalamus",
+  "prompt": "Is a thalamic relay required for olfaction to reach cortex?",
+  "answer": "No: olfaction bypasses the thalamus (MD thalamus relays secondarily to orbitofrontal cortex)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "no",
+    "bypass"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-orbitofrontal",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "orbitofrontal",
+  "prompt": "Through which thalamic nucleus does smell reach the orbitofrontal cortex?",
+  "answer": "Mediodorsal (MD) nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "mediodorsal",
+    "medial dorsal",
+    "md"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-special",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "special",
+  "prompt": "What is unusual about olfactory receptors compared with other special senses?",
+  "answer": "They are neurons themselves and are replaced throughout life (~60 days)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "neuron"
+   ],
+   [
+    "replace",
+    "renew",
+    "regenerat",
+    "60"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-olfactory-lesion",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "olfactory",
+  "step": "lesion",
+  "prompt": "A fracture of the cribriform plate most likely causes loss of which sense?",
+  "answer": "Smell (anosmia)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "smell",
+    "anosmia",
+    "olfact"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-fornix-tract",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-fornix",
+  "step": "tract",
+  "prompt": "Which tract connects the hippocampus with the mammillary bodies and basal forebrain?",
+  "answer": "Fornix",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "fornix"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-fornix"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-fornix-parts",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-fornix",
+  "step": "parts",
+  "prompt": "Name the parts of the fornix from the hippocampus onward.",
+  "answer": "Crus, body, column",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "crus"
+   ],
+   [
+    "body"
+   ],
+   [
+    "column"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-fornix"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-fornix-mammillary",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-fornix",
+  "step": "mammillary",
+  "prompt": "Which hypothalamic structures receive fornix fibers and are involved in spatial memory?",
+  "answer": "Mammillary bodies",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "mammillary"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-fornix"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-fornix-function",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-fornix",
+  "step": "function",
+  "prompt": "The hippocampal formation is critical for which memory process?",
+  "answer": "Consolidation (formation) of explicit/declarative long-term memory, not retrieval",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "consolidat",
+    "form",
+    "encod"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-fornix"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-fornix-cholinergic",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-fornix",
+  "step": "cholinergic",
+  "prompt": "Cholinergic input from the basal forebrain reaches the hippocampus via which tract?",
+  "answer": "Fornix (septohippocampal pathway)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "fornix"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-fornix"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-amygdala-tract",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-amygdala",
+  "step": "tract",
+  "prompt": "Which tract is the main efferent bundle from the central nucleus of the amygdala?",
+  "answer": "Stria terminalis",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "stria terminalis"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-amygdala"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-amygdala-bnst",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-amygdala",
+  "step": "bnst",
+  "prompt": "What does BNST stand for?",
+  "answer": "Bed nucleus of the stria terminalis",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "bed nucleus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-amygdala"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-amygdala-targets",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-amygdala",
+  "step": "targets",
+  "prompt": "Name the amygdala's main efferent targets for autonomic and endocrine output.",
+  "answer": "Hypothalamus (and pituitary regulation), brainstem autonomic nuclei such as the dorsal motor nucleus of vagus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "hypothalam"
+   ],
+   [
+    "autonomic",
+    "vagus",
+    "brainstem"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-amygdala"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-septal-tract",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "structure": "stria-medullaris-thalami",
+  "pathway": "limbic-septal",
+  "step": "tract",
+  "prompt": "Which tract links the septal nuclei with the habenula?",
+  "answer": "Stria medullaris thalami",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "stria medullaris"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-septal"
+  ]
+ },
+ {
+  "slug": "pathways-u3-limbic-septal-habenula",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "limbic-septal",
+  "step": "habenula",
+  "prompt": "The habenula belongs to which diencephalic division?",
+  "answer": "Epithalamus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "epithalamus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-septal"
+  ]
+ },
+ {
+  "slug": "pathways-u3-reward-origin",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "reward",
+  "step": "origin",
+  "prompt": "Where do the dopaminergic neurons of the reward pathway originate?",
+  "answer": "Ventral tegmental area (VTA) of the midbrain",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ventral tegmental",
+    "vta"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "reward"
+  ]
+ },
+ {
+  "slug": "pathways-u3-reward-target",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "reward",
+  "step": "target",
+  "prompt": "Which basal forebrain structure is the key target of the mesolimbic reward pathway?",
+  "answer": "Nucleus accumbens",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "accumbens"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "reward"
+  ]
+ },
+ {
+  "slug": "pathways-u3-reward-bundle",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15"
+  },
+  "pathway": "reward",
+  "step": "bundle",
+  "prompt": "Through which bundle do dopaminergic, serotonergic and noradrenergic fibers reach the forebrain?",
+  "answer": "Medial forebrain bundle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "medial forebrain"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "reward"
+  ]
+ }
+]

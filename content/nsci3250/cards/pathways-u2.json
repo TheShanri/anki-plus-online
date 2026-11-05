@@ -1,0 +1,3213 @@
+[
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-modality",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 1,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "modality",
+  "prompt": "Which sensations reach the principal sensory trigeminal nucleus?",
+  "answer": "Fine touch, vibration, pressure from the face",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "touch"
+   ],
+   [
+    "vibration",
+    "pressure"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-first-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 2,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "first-order",
+  "prompt": "Where is the first-order cell body for facial touch?",
+  "answer": "Trigeminal ganglion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "trigeminal ganglion",
+    "semilunar",
+    "gasserian"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-ganglion-location",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 3,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "ganglion-location",
+  "prompt": "In which cranial fossa does the trigeminal ganglion lie?",
+  "answer": "Middle cranial fossa",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "middle"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-second-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 4,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "second-order",
+  "prompt": "Where is the second-order neuron for facial discriminative touch?",
+  "answer": "Principal (chief) sensory nucleus of V, rostral pons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "principal",
+    "chief",
+    "main"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-level",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 5,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "level",
+  "prompt": "At which brainstem level is the principal sensory nucleus of V?",
+  "answer": "Rostral pons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "rostral pons",
+    "mid pons",
+    "pons"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-tract",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 6,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "tract",
+  "prompt": "Which tract carries second-order axons from the principal nucleus to the thalamus?",
+  "answer": "Trigeminal lemniscus (part of the medial lemniscus)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "trigeminal lemniscus",
+    "medial lemniscus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-third-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 7,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "third-order",
+  "prompt": "Which thalamic nucleus relays facial somatosensation?",
+  "answer": "Ventral posteromedial (VPM)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vpm",
+    "ventral posteromedial",
+    "ventroposteromedial",
+    "posteromedial"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-vs-body",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 8,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "vs-body",
+  "prompt": "Which thalamic nucleus relays touch from the body versus the face?",
+  "answer": "Body: VPL; face: VPM",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vpl"
+   ],
+   [
+    "vpm"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-discriminative-cortex",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 9,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, Sensory Pathway Cheat Sheet extended"
+  },
+  "pathway": "trigeminal-discriminative",
+  "step": "cortex",
+  "prompt": "Where does VPM project?",
+  "answer": "Primary somatosensory cortex (face area), via the internal capsule",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "somatosensory",
+    "postcentral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-discriminative"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-modality",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 10,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "modality",
+  "prompt": "Which sensations are relayed by the spinal trigeminal nucleus?",
+  "answer": "Pain, temperature, itch and crude touch",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pain"
+   ],
+   [
+    "temperature",
+    "temp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-nerves",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 11,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "nerves",
+  "prompt": "Which cranial nerves send pain/temperature input to the spinal trigeminal nucleus?",
+  "answer": "V, VII, IX and X",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "v",
+    "5",
+    "trigeminal"
+   ],
+   [
+    "vii",
+    "7",
+    "facial"
+   ],
+   [
+    "ix",
+    "9",
+    "glossopharyngeal"
+   ],
+   [
+    "x",
+    "10",
+    "vagus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-second-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 12,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "second-order",
+  "prompt": "Where is the second-order neuron for facial pain and temperature?",
+  "answer": "Spinal nucleus of the trigeminal nerve",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-extent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 13,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "extent",
+  "prompt": "The spinal trigeminal nucleus is largest at which level?",
+  "answer": "Caudal medulla (a long column from pons to upper cervical cord)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "caudal medulla",
+    "medulla"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-tract",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 14,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "tract",
+  "prompt": "Which tract carries second-order facial pain fibers to the thalamus?",
+  "answer": "Trigeminothalamic tract",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "trigeminothalamic",
+    "trigemino"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-third-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 15,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "third-order",
+  "prompt": "Which thalamic nucleus relays facial pain and temperature?",
+  "answer": "VPM",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vpm",
+    "ventral posteromedial",
+    "ventroposteromedial",
+    "posteromedial"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-vs-spinal",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 16,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "vs-spinal",
+  "prompt": "Facial pain and temperature fibers run next to which body pathway in the brainstem?",
+  "answer": "Anterolateral spinothalamic tract",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterolateral",
+    "spinothalamic"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-ipsi-contra",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 17,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "ipsi-contra",
+  "prompt": "A lesion of the right spinal trigeminal nucleus/tract in the lateral medulla causes loss of facial pain on which side?",
+  "answer": "Right (ipsilateral): fibers cross after the nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-trigeminal-pain-lesion-above",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 18,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9, lab-9"
+  },
+  "pathway": "trigeminal-pain",
+  "step": "lesion-above",
+  "prompt": "A lesion of the right trigeminothalamic tract (after crossing) causes facial pain loss on which side?",
+  "answer": "Left (contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "trigeminal-pain"
+  ]
+ },
+ {
+  "slug": "pathways-u2-jaw-jerk-cell-body",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 19,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9"
+  },
+  "pathway": "jaw-jerk",
+  "step": "cell-body",
+  "prompt": "Where are the cell bodies of mesencephalic V neurons, unlike other primary sensory neurons?",
+  "answer": "Inside the brainstem, in the mesencephalic nucleus (not in a ganglion)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "mesencephalic",
+    "midbrain",
+    "inside"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "jaw-jerk"
+  ]
+ },
+ {
+  "slug": "pathways-u2-jaw-jerk-target",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 20,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9"
+  },
+  "pathway": "jaw-jerk",
+  "step": "target",
+  "prompt": "Mesencephalic V axons synapse monosynaptically on which nucleus?",
+  "answer": "Motor nucleus of trigeminal",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "motor"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "jaw-jerk"
+  ]
+ },
+ {
+  "slug": "pathways-u2-jaw-jerk-purpose",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 21,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-9"
+  },
+  "pathway": "jaw-jerk",
+  "step": "purpose",
+  "prompt": "What is the purpose of the mesencephalic nucleus?",
+  "answer": "Jaw reflex: proprioception from muscles of mastication (prevents biting too hard)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "jaw",
+    "mastication",
+    "bite",
+    "biting"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "jaw-jerk"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-origin",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 22,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "origin",
+  "prompt": "Where do lateral corticospinal tract neurons have their cell bodies?",
+  "answer": "Layer V of primary motor cortex (and premotor/sensory areas)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "layer v",
+    "layer 5",
+    "motor cortex",
+    "precentral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-path",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 23,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "path",
+  "prompt": "Name the white-matter route of corticospinal axons from cortex to medulla.",
+  "answer": "Corona radiata, internal capsule, cerebral peduncle, longitudinal fibers of the pons, pyramid",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "corona radiata"
+   ],
+   [
+    "internal capsule"
+   ],
+   [
+    "peduncle"
+   ],
+   [
+    "pons",
+    "pontine"
+   ],
+   [
+    "pyramid"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-capsule",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 24,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "capsule",
+  "prompt": "Through which part of the internal capsule do cortical efferents (corticospinal/corticobulbar) descend?",
+  "answer": "Anterior limb and genu (per lecture 10)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "genu",
+    "anterior limb",
+    "posterior limb",
+    "limb"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ],
+  "review_note": "Lecture 10 says anterior limb and genu; many texts say genu and posterior limb. Owner to settle which to credit."
+ },
+ {
+  "slug": "pathways-u2-lcst-midbrain",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 25,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "midbrain",
+  "prompt": "In which midbrain structure do cortical efferents travel?",
+  "answer": "Cerebral peduncles (crus cerebri)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cerebral peduncle",
+    "crus cerebri",
+    "peduncle"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-pons",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 26,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "pons",
+  "prompt": "In which pontine structure do corticospinal fibers travel?",
+  "answer": "Longitudinal fibers of the pons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "longitudinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-medulla",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 27,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "medulla",
+  "prompt": "In which medullary structure do corticospinal fibers travel?",
+  "answer": "Pyramids",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pyramid"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 28,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "structure": "motor-decussation",
+  "pathway": "lcst",
+  "step": "decussation",
+  "prompt": "Where does the lateral corticospinal tract decussate?",
+  "answer": "Caudal medulla: pyramidal (motor) decussation",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pyramidal",
+    "motor decussation",
+    "decussation of the pyramids",
+    "caudal medulla",
+    "medulla"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-percent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 29,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "percent",
+  "prompt": "What percentage of corticospinal fibers cross to form the lateral corticospinal tract?",
+  "answer": "About 80%",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "80",
+    "85",
+    "90"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-funiculus",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 30,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "structure": "lateral-funiculus",
+  "pathway": "lcst",
+  "step": "funiculus",
+  "prompt": "In which funiculus does the lateral corticospinal tract travel?",
+  "answer": "Lateral funiculus (dorsolateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-target",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 31,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "structure": "lateral-corticospinal-tract",
+  "pathway": "lcst",
+  "step": "target",
+  "prompt": "Where does the lateral corticospinal tract terminate?",
+  "answer": "Lateral ventral horn motor neuron pools for limb muscles, ipsilateral to the tract",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral"
+   ],
+   [
+    "ventral horn",
+    "anterior horn"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-function",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 32,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "function",
+  "prompt": "What movements does the lateral corticospinal tract control?",
+  "answer": "Voluntary movement of distal limb muscles",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "distal",
+    "limb",
+    "hand",
+    "finger"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-lesion-cord",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 33,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "lesion-cord",
+  "prompt": "A lesion of the right lateral corticospinal tract in the cervical cord causes spastic weakness on which side?",
+  "answer": "Right (ipsilateral): the tract has already crossed",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-lesion-capsule",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 34,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "lesion-capsule",
+  "prompt": "A stroke in the right internal capsule produces weakness on which side of the body?",
+  "answer": "Left (contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-lesion-pyramid",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 35,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "lesion-pyramid",
+  "prompt": "A lesion of the left pyramid (above the decussation) causes weakness on which side?",
+  "answer": "Right (contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-lcst-umn-signs",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 36,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-14"
+  },
+  "pathway": "lcst",
+  "step": "umn-signs",
+  "prompt": "Name signs of an upper motor neuron lesion in the corticospinal tract.",
+  "answer": "Spasticity, hyperreflexia, Babinski sign, no atrophy",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spastic",
+    "hyperreflexia",
+    "babinski"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-acst-origin",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 37,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "acst",
+  "step": "origin",
+  "prompt": "Anterior corticospinal fibers arise from which fraction of pyramidal fibers?",
+  "answer": "The ~20% that do not cross in the medulla",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "20",
+    "uncrossed",
+    "do not cross",
+    "not cross"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "acst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-acst-funiculus",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 38,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "structure": "anterior-funiculus",
+  "pathway": "acst",
+  "step": "funiculus",
+  "prompt": "In which funiculus does the anterior corticospinal tract travel?",
+  "answer": "Anterior (ventral) funiculus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "anterior",
+    "ventral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "acst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-acst-target",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 39,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "acst",
+  "step": "target",
+  "prompt": "Where does the anterior corticospinal tract terminate?",
+  "answer": "Medial ventral horn motor pools of axial (trunk) muscles, bilaterally",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "medial"
+   ],
+   [
+    "bilateral",
+    "both"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "acst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-acst-function",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "acst",
+  "step": "function",
+  "prompt": "What does the anterior corticospinal tract control?",
+  "answer": "Voluntary axial (trunk) and proximal limb muscles, bilaterally",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "axial",
+    "trunk",
+    "proximal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "acst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-acst-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "acst",
+  "step": "decussation",
+  "prompt": "True or false: the anterior corticospinal tract decussates in the medulla.",
+  "answer": "False (it stays uncrossed and terminates bilaterally)",
+  "accept": [
+   "false",
+   "f"
+  ],
+  "require_side": false,
+  "format": "tf",
+  "tags": [
+   "pathway",
+   "acst"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-target",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "target",
+  "prompt": "Name the brainstem motor nuclei that receive corticobulbar input for voluntary head movement.",
+  "answer": "Motor trigeminal, facial, nucleus ambiguus, hypoglossal",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "trigeminal"
+   ],
+   [
+    "facial"
+   ],
+   [
+    "ambiguus"
+   ],
+   [
+    "hypoglossal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-motor-v",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "motor-v",
+  "prompt": "Which cranial motor nucleus controls the muscles of mastication?",
+  "answer": "Motor nucleus of the trigeminal nerve (CN V)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "trigeminal",
+    "v"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-fiber-bundle",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "fiber-bundle",
+  "prompt": "Which fiber bundle conveys voluntary motor signals from cortex to the facial nucleus?",
+  "answer": "Corticobulbar (and corticopontine) fibers",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "corticobulbar"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-fiber-bundle-xi",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "fiber-bundle-xi",
+  "prompt": "Which fiber bundle conveys voluntary signals from cortex to the spinal accessory nucleus (shrugging)?",
+  "answer": "Corticospinal",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "corticospinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-midline",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "midline",
+  "prompt": "Where do corticobulbar axons cross relative to their target motor nucleus (as drawn in lab 10)?",
+  "answer": "Just superior to the motor nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "superior",
+    "above",
+    "just above"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-ambiguus",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "ambiguus",
+  "prompt": "Which nucleus controls muscles of speech and swallowing (CN IX, X)?",
+  "answer": "Nucleus ambiguus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ambiguus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-hypoglossal",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "hypoglossal",
+  "prompt": "Which motor nucleus controls the tongue muscles?",
+  "answer": "Hypoglossal nucleus (CN XII)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "hypoglossal",
+    "xii",
+    "12"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-lmn-lesion-vii",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10, lecture-12"
+  },
+  "pathway": "corticobulbar",
+  "step": "lmn-lesion-vii",
+  "prompt": "A lesion of the right facial nucleus/nerve paralyses which part of the face?",
+  "answer": "The entire right half of the face (ipsilateral, upper and lower)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right",
+    "ipsilateral"
+   ],
+   [
+    "entire",
+    "whole",
+    "upper and lower",
+    "complete"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticopontocerebellar-synapse",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lecture-14"
+  },
+  "structure": "pontine-protuberance",
+  "pathway": "corticopontocerebellar",
+  "step": "synapse",
+  "prompt": "Where do corticopontine fibers synapse?",
+  "answer": "Ipsilateral pontine nuclei in the ventral (basilar) pons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pontine nuclei",
+    "pons"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticopontocerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticopontocerebellar-tract",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lecture-14"
+  },
+  "pathway": "corticopontocerebellar",
+  "step": "tract",
+  "prompt": "Pontine nuclei axons cross and enter the cerebellum via which peduncle?",
+  "answer": "Middle cerebellar peduncle (transverse pontine fibers)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "middle",
+    "mcp"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticopontocerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticopontocerebellar-side",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lecture-14"
+  },
+  "pathway": "corticopontocerebellar",
+  "step": "side",
+  "prompt": "Corticopontocerebellar information reaches which cerebellar hemisphere relative to the cortex?",
+  "answer": "Contralateral",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticopontocerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corticopontocerebellar-percent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lecture-14"
+  },
+  "pathway": "corticopontocerebellar",
+  "step": "percent",
+  "prompt": "About what fraction of cortical efferent fibers at the midbrain are corticopontine?",
+  "answer": "About 50%",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "50",
+    "half"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticopontocerebellar"
+  ]
+ },
+ {
+  "slug": "pathways-u2-rubrospinal-origin",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "structure": "red-nucleus",
+  "pathway": "rubrospinal",
+  "step": "origin",
+  "prompt": "Where do rubrospinal neurons originate?",
+  "answer": "Red nucleus (rostral midbrain)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "red nucleus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "rubrospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-rubrospinal-function",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "rubrospinal",
+  "step": "function",
+  "prompt": "What movement does the rubrospinal tract promote?",
+  "answer": "Flexion of the contralateral upper limb",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "flexion",
+    "flex"
+   ],
+   [
+    "upper limb",
+    "arm"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "rubrospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-rubrospinal-funiculus",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "rubrospinal",
+  "step": "funiculus",
+  "prompt": "In which funiculus does the rubrospinal tract descend?",
+  "answer": "Lateral funiculus (next to the lateral corticospinal tract)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "rubrospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-rubrospinal-input",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 57,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "rubrospinal",
+  "step": "input",
+  "prompt": "The red nucleus receives input from which structures of the cerebellum?",
+  "answer": "Contralateral deep cerebellar nuclei via the superior cerebellar peduncle",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "superior cerebellar",
+    "scp",
+    "deep",
+    "interposed",
+    "dentate"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "rubrospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-rubrospinal-decorticate",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 58,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "rubrospinal",
+  "step": "decorticate",
+  "prompt": "Posturing with flexed arms (lesion above the red nucleus) is called what?",
+  "answer": "Decorticate posture",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "decorticate"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "rubrospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-rubrospinal-decerebrate",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 59,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "rubrospinal",
+  "step": "decerebrate",
+  "prompt": "Posturing with extended arms (lesion below the red nucleus) is called what?",
+  "answer": "Decerebrate posture",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "decerebrate"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "rubrospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-tectospinal-origin",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 60,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "tectospinal",
+  "step": "origin",
+  "prompt": "Where do tectospinal fibers arise?",
+  "answer": "Superior and inferior colliculi (tectum of the midbrain)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "colliculi",
+    "colliculus",
+    "tectum"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "tectospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-tectospinal-function",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 61,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "tectospinal",
+  "step": "function",
+  "prompt": "What does the tectospinal tract do?",
+  "answer": "Turns the head and neck toward visual and auditory stimuli",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "head",
+    "neck"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "tectospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-tectospinal-level",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 62,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "tectospinal",
+  "step": "level",
+  "prompt": "Tectospinal axons synapse on lower motor neurons at which spinal levels?",
+  "answer": "Cervical and upper thoracic",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cervical"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "tectospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-reticulospinal-origin",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 63,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "reticulospinal",
+  "step": "origin",
+  "prompt": "Where do reticulospinal fibers originate?",
+  "answer": "Pontine and medullary reticular formation",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "reticular formation",
+    "pontine",
+    "medullary"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "reticulospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-reticulospinal-pontine",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 64,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "reticulospinal",
+  "step": "pontine",
+  "prompt": "Which reticulospinal tract facilitates extensor muscles?",
+  "answer": "Pontine reticulospinal tract",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pontine"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "reticulospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-reticulospinal-medullary",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 65,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "reticulospinal",
+  "step": "medullary",
+  "prompt": "Which reticulospinal tract inhibits extensors and facilitates flexion?",
+  "answer": "Medullary reticulospinal tract",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "medullary"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "reticulospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-vestibulospinal-origin",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 66,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "vestibulospinal",
+  "step": "origin",
+  "prompt": "Where does the vestibulospinal tract originate?",
+  "answer": "Vestibular nuclei (medulla)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vestibular"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "vestibulospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-vestibulospinal-function",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 67,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "vestibulospinal",
+  "step": "function",
+  "prompt": "What is the function of the vestibulospinal tract?",
+  "answer": "Maintains head and body posture and balance (righting)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "posture",
+    "balance",
+    "righting"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "vestibulospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-vestibulospinal-target",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 68,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10, lab-10"
+  },
+  "pathway": "vestibulospinal",
+  "step": "target",
+  "prompt": "The vestibulospinal tract synapses on lower motor neurons of which muscles?",
+  "answer": "Axial muscles (trunk, proximal), ventral horn",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "axial",
+    "trunk",
+    "proximal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "vestibulospinal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-extrapyramidal-anterior-tracts",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 69,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10"
+  },
+  "pathway": "extrapyramidal",
+  "step": "anterior-tracts",
+  "prompt": "Which brainstem descending tracts innervate axial muscles (anterior funiculus)?",
+  "answer": "Vestibulospinal, reticulospinal, tectospinal",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vestibulospinal"
+   ],
+   [
+    "reticulospinal"
+   ],
+   [
+    "tectospinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "extrapyramidal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-extrapyramidal-lateral-tracts",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 70,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10"
+  },
+  "pathway": "extrapyramidal",
+  "step": "lateral-tracts",
+  "prompt": "Which descending tracts innervate limb muscles (lateral funiculus)?",
+  "answer": "Lateral corticospinal and rubrospinal",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral corticospinal"
+   ],
+   [
+    "rubrospinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "extrapyramidal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-extrapyramidal-only-cortical",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 71,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10"
+  },
+  "pathway": "extrapyramidal",
+  "step": "only-cortical",
+  "prompt": "Which descending tracts arise from the cortex?",
+  "answer": "Corticospinal (lateral/anterior) and corticobulbar; the rest arise in the brainstem",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "corticospinal"
+   ],
+   [
+    "corticobulbar"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "extrapyramidal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-extrapyramidal-what-is",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 72,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10"
+  },
+  "pathway": "extrapyramidal",
+  "step": "what-is",
+  "prompt": "What does 'extrapyramidal' mean?",
+  "answer": "All descending motor tracts that are not corticospinal (outside the pyramids)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "not",
+    "other",
+    "outside",
+    "brainstem",
+    "non-corticospinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "extrapyramidal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-receptor",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 73,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "receptor",
+  "prompt": "Which retinal cells are the photoreceptors?",
+  "answer": "Rods and cones",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "rod"
+   ],
+   [
+    "cone"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-first-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 74,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "first-order",
+  "prompt": "In lecture 11's scheme, which retinal neurons are first-order and which second-order?",
+  "answer": "Bipolar cells first-order; retinal ganglion cells second-order",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "bipolar"
+   ],
+   [
+    "ganglion"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ],
+  "review_note": "Lecture 11 labels bipolar cells first-order and ganglion cells second-order; photoreceptors are the receptors. Confirm convention."
+ },
+ {
+  "slug": "pathways-u2-visual-ganglion",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 75,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "ganglion",
+  "prompt": "Retinal ganglion cell axons form which structure?",
+  "answer": "Optic nerve (CN II)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "optic nerve",
+    "cn ii",
+    "ii"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-decussation",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 76,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "decussation",
+  "prompt": "Which retinal fibers cross in the optic chiasm?",
+  "answer": "Nasal (medial) hemiretina fibers; temporal fibers do not cross",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "nasal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-chiasm-field",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 77,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "chiasm-field",
+  "prompt": "Fibers crossing in the optic chiasm carry which part of each eye's visual field?",
+  "answer": "Temporal (peripheral) visual field",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "temporal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 78,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "order",
+  "prompt": "List the visual pathway from eye to cortex.",
+  "answer": "Optic nerve, optic chiasm, optic tract, lateral geniculate nucleus, optic radiations, primary visual cortex",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "optic nerve"
+   ],
+   [
+    "chiasm"
+   ],
+   [
+    "optic tract"
+   ],
+   [
+    "lateral geniculate",
+    "lgn"
+   ],
+   [
+    "radiation"
+   ],
+   [
+    "primary visual",
+    "calcarine",
+    "striate",
+    "v1"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-thalamic",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 79,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "thalamic",
+  "prompt": "Which thalamic nucleus relays vision to cortex?",
+  "answer": "Lateral geniculate nucleus (LGN)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral geniculate",
+    "lgn"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-cortex",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 80,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "cortex",
+  "prompt": "Where do optic radiations terminate?",
+  "answer": "Primary visual cortex (calcarine sulcus, BA 17)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "primary visual",
+    "calcarine",
+    "17",
+    "v1",
+    "striate"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-superior-field",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 81,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "superior-field",
+  "prompt": "The upper visual field is represented in which part of primary visual cortex?",
+  "answer": "Inferior bank (below the calcarine sulcus)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inferior",
+    "below",
+    "lingual"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-other-targets",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 82,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "other-targets",
+  "prompt": "Name the three main destinations of retinal ganglion cell axons.",
+  "answer": "Hypothalamus (suprachiasmatic nucleus), lateral geniculate nucleus, midbrain (superior colliculus/pretectal nucleus)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "suprachiasmatic",
+    "hypothalam"
+   ],
+   [
+    "lateral geniculate",
+    "lgn",
+    "thalamus"
+   ],
+   [
+    "superior colliculus",
+    "pretectal",
+    "midbrain"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-scn",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 83,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "structure": "suprachiasmatic-nucleus",
+  "pathway": "visual",
+  "step": "scn",
+  "prompt": "Which retinal projection modulates circadian rhythms?",
+  "answer": "Retinohypothalamic projection to the suprachiasmatic nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "suprachiasmatic",
+    "scn"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-lesion-nerve",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 84,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "lesion-nerve",
+  "prompt": "A lesion of the left optic nerve causes what deficit?",
+  "answer": "Blindness in the left eye (monocular)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "blind",
+    "monocular",
+    "loss"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-lesion-chiasm",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 85,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "lesion-chiasm",
+  "prompt": "A lesion of the optic chiasm (e.g. pituitary tumor) causes what field defect?",
+  "answer": "Bitemporal hemianopia (loss of peripheral vision in both eyes)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "bitemporal",
+    "tunnel",
+    "peripheral"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-lesion-tract",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 86,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "lesion-tract",
+  "prompt": "A lesion of the right optic tract causes what field defect?",
+  "answer": "Left homonymous hemianopia",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "homonymous",
+    "hemianop"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-lesion-radiation",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 87,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "lesion-radiation",
+  "prompt": "Damage to the left inferior visual cortex causes what deficit?",
+  "answer": "Right upper homonymous quadrantanopia",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right"
+   ],
+   [
+    "upper",
+    "superior"
+   ],
+   [
+    "quadrant"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-lesion-cortex",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 88,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "lesion-cortex",
+  "prompt": "A left primary visual cortex lesion causes what deficit?",
+  "answer": "Right homonymous hemianopia (macular sparing possible)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "right"
+   ],
+   [
+    "homonymous",
+    "hemianop"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-what-where",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 89,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "what-where",
+  "prompt": "Which cortical stream identifies objects (the 'what' pathway) and where does it project?",
+  "answer": "Ventral stream to the inferior temporal lobe",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ventral"
+   ],
+   [
+    "temporal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-visual-where",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 90,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "visual",
+  "step": "where",
+  "prompt": "Which stream processes spatial vision and visually guided movement?",
+  "answer": "Dorsal ('where') stream to the parietal lobe",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal"
+   ],
+   [
+    "parietal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "visual"
+  ]
+ },
+ {
+  "slug": "pathways-u2-pupillary-afferent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 91,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lecture-12"
+  },
+  "pathway": "pupillary",
+  "step": "afferent",
+  "prompt": "Which cranial nerve is the afferent limb of the pupillary light reflex?",
+  "answer": "CN II (optic nerve)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "ii",
+    "2",
+    "optic"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "pupillary"
+  ]
+ },
+ {
+  "slug": "pathways-u2-pupillary-efferent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 92,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lecture-12"
+  },
+  "pathway": "pupillary",
+  "step": "efferent",
+  "prompt": "Which cranial nerve and nucleus form the efferent limb of the pupillary light reflex?",
+  "answer": "CN III from the Edinger-Westphal nucleus (parasympathetic)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "iii",
+    "3",
+    "oculomotor"
+   ],
+   [
+    "edinger",
+    "ew"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "pupillary"
+  ]
+ },
+ {
+  "slug": "pathways-u2-pupillary-consensual",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 93,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lecture-12"
+  },
+  "pathway": "pupillary",
+  "step": "consensual",
+  "prompt": "Light in one eye causes constriction of which pupils?",
+  "answer": "Both pupils (direct and consensual)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "both"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "pupillary"
+  ]
+ },
+ {
+  "slug": "pathways-u2-pupillary-pretectal",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 94,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lecture-12"
+  },
+  "pathway": "pupillary",
+  "step": "pretectal",
+  "prompt": "Which midbrain area receives the optic input for the pupillary light reflex?",
+  "answer": "Pretectal nucleus (near the superior colliculus)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "pretectal",
+    "pre-tectal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "pupillary"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corneal-afferent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 95,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-12"
+  },
+  "pathway": "corneal",
+  "step": "afferent",
+  "prompt": "Which nerve is the afferent limb of the corneal blink reflex?",
+  "answer": "CN V (ophthalmic division)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "v",
+    "5",
+    "trigeminal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corneal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corneal-efferent",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 96,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-12"
+  },
+  "pathway": "corneal",
+  "step": "efferent",
+  "prompt": "Which nerve and nucleus form the efferent limb of the corneal reflex?",
+  "answer": "CN VII, facial nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vii",
+    "7",
+    "facial"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corneal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corneal-consensual",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 97,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-12"
+  },
+  "pathway": "corneal",
+  "step": "consensual",
+  "prompt": "Touching the left cornea closes which eyelids?",
+  "answer": "Both (ipsilateral and contralateral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "both"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corneal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-corneal-nuclei",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 98,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-12"
+  },
+  "pathway": "corneal",
+  "step": "nuclei",
+  "prompt": "Name the brainstem structures involved in the corneal blink reflex.",
+  "answer": "CN V, spinal trigeminal nucleus, facial nucleus (CN VII)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spinal trigeminal",
+    "spinal nucleus"
+   ],
+   [
+    "facial"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corneal"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-fef",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 99,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "gaze",
+  "step": "fef",
+  "prompt": "Which cortical area drives voluntary horizontal saccades?",
+  "answer": "Frontal eye field (BA 8)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "frontal eye",
+    "fef",
+    "8"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-pprf",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 100,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "structure": "paramedian-pontine-reticular-formation",
+  "pathway": "gaze",
+  "step": "pprf",
+  "prompt": "Right frontal eye field activation drives the eyes to which side, via which brainstem center?",
+  "answer": "To the left, via the left PPRF (paramedian pontine reticular formation)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "pprf",
+    "paramedian pontine"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-pprf-action",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 101,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "gaze",
+  "step": "pprf-action",
+  "prompt": "The PPRF activates which muscles for same-side gaze?",
+  "answer": "Ipsilateral lateral rectus (abducens) and contralateral medial rectus (via MLF)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral rectus",
+    "abducens"
+   ],
+   [
+    "medial rectus",
+    "oculomotor"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-mlf",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 102,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "gaze",
+  "step": "mlf",
+  "prompt": "Which tract connects CN III, IV and VI nuclei for conjugate gaze?",
+  "answer": "Medial longitudinal fasciculus (MLF)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "mlf",
+    "medial longitudinal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-mlf-lesion",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 103,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "gaze",
+  "step": "mlf-lesion",
+  "prompt": "A left MLF lesion in a patient asked to look right causes what finding?",
+  "answer": "Left eye cannot adduct (medial rectus), right eye abducts; convergence intact",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left"
+   ],
+   [
+    "adduct",
+    "medial rectus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-vor",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 104,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "gaze",
+  "step": "vor",
+  "prompt": "In the vestibulo-ocular reflex, turning the head right turns the eyes which way?",
+  "answer": "To the left (opposite)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "left",
+    "opposite"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-gaze-sc",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 105,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-11, lab-11"
+  },
+  "pathway": "gaze",
+  "step": "sc",
+  "prompt": "Which midbrain structure mediates involuntary (reflexive) saccades?",
+  "answer": "Superior colliculus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "superior colliculus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "gaze"
+  ]
+ },
+ {
+  "slug": "pathways-u2-cochlear-path",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 106,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-8"
+  },
+  "pathway": "cochlear",
+  "step": "path",
+  "prompt": "Trace the auditory pathway from cochlear nerve to cortex.",
+  "answer": "Cochlear nerve, cochlear nuclei (rostral medulla), inferior colliculus, medial geniculate nucleus, primary auditory cortex",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cochlear nuclei",
+    "cochlear nucleus"
+   ],
+   [
+    "inferior colliculus"
+   ],
+   [
+    "medial geniculate",
+    "mgn"
+   ],
+   [
+    "auditory cortex",
+    "primary auditory"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cochlear"
+  ]
+ },
+ {
+  "slug": "pathways-u2-cochlear-first-order",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 107,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-8"
+  },
+  "pathway": "cochlear",
+  "step": "first-order",
+  "prompt": "Where are the cell bodies of the cochlear nerve?",
+  "answer": "Spiral ganglion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spiral ganglion"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cochlear"
+  ]
+ },
+ {
+  "slug": "pathways-u2-cochlear-vestibular",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "live",
+  "position": 108,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-8"
+  },
+  "pathway": "cochlear",
+  "step": "vestibular",
+  "prompt": "Where do vestibular nerve fibers synapse in the brainstem?",
+  "answer": "Vestibular nuclei (and directly into the cerebellum)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vestibular nuclei",
+    "vestibular nucleus",
+    "vestibular"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cochlear"
+  ]
+ }
+]

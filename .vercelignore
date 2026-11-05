@@ -1,0 +1,13 @@
+*.zip
+_source
+content-build
+_atlas
+tools
+.claude
+.env*
+node_modules
+.next
+coverage
+
+# secrets dropped in by hand
+*api_key*.txt

@@ -22,3 +22,9 @@ _atlas/raw/
 tools/.venv/
 .claude/settings.local.json
 tools/blender/
+
+.vercel
+.env*
+
+# secrets dropped in by hand
+*api_key*.txt

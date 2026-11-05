@@ -1,4 +1,4 @@
--- ANKI PLUS Online: initial schema (DRAFT). Run in the Supabase SQL editor or via `supabase db push`.
+-- ANKI PLUS Online: initial schema. Run in the Supabase SQL editor or via `supabase db push`.
 -- Idempotent where reasonable (create ... if not exists / drop policy if exists / create or replace).
 
 create extension if not exists citext;
@@ -7,9 +7,6 @@ create extension if not exists pgcrypto;
 -- ------------------------------------------------------------------ enums
 do $$ begin
   create type public.app_role as enum ('student', 'ta', 'professor', 'admin');
-exception when duplicate_object then null; end $$;
-do $$ begin
-  create type public.card_kind as enum ('type_answer', 'image_label', 'occlusion', 'pathway', 'clinical', 'theory');
 exception when duplicate_object then null; end $$;
 do $$ begin
   create type public.topic_kind as enum ('lecture', 'lab');
@@ -53,9 +50,11 @@ create index if not exists enrollments_course_idx on public.enrollments (course_
 create table if not exists public.units (
   id uuid primary key default gen_random_uuid(),
   course_id uuid not null references public.courses (id) on delete cascade,
+  slug text not null,
   position int not null default 0,
   title text not null,
-  description text
+  description text,
+  unique (course_id, slug)
 );
 create index if not exists units_course_idx on public.units (course_id, position);
 
@@ -63,10 +62,12 @@ create table if not exists public.topics (
   id uuid primary key default gen_random_uuid(),
   course_id uuid not null references public.courses (id) on delete cascade,
   unit_id uuid references public.units (id) on delete set null,
+  slug text not null,
   kind public.topic_kind not null default 'lecture',
   position int not null default 0,
   title text not null,
-  meta jsonb not null default '{}'::jsonb
+  meta jsonb not null default '{}'::jsonb,
+  unique (course_id, slug)
 );
 create index if not exists topics_unit_idx on public.topics (unit_id, position);
 
@@ -74,11 +75,14 @@ create table if not exists public.structures (
   id uuid primary key default gen_random_uuid(),
   course_id uuid not null references public.courses (id) on delete cascade,
   unit_id uuid references public.units (id) on delete set null,
+  slug text not null,
   canonical_name text not null,
   synonyms text[] not null default '{}',
   region text,
   atlas_ids jsonb not null default '{}'::jsonb,   -- ids in the 3D atlas / image sources
-  unique (course_id, canonical_name)
+  info jsonb not null default '{}'::jsonb,        -- etymology, explanation, theory facts
+  unique (course_id, canonical_name),
+  unique (course_id, slug)
 );
 
 create table if not exists public.notes (
@@ -97,10 +101,16 @@ create table if not exists public.cards (
   note_id uuid references public.notes (id) on delete cascade,
   topic_id uuid references public.topics (id) on delete set null,
   structure_id uuid references public.structures (id) on delete set null,
-  kind public.card_kind not null default 'type_answer',
+  slug text not null,                             -- stable id from the content JSON in git
+  kind text not null default 'type_answer',        -- pin | pathway | section | clinical | theory | mcq | type_answer ...
+  position int not null default 0,
+  status text not null default 'live' check (status in ('draft', 'live', 'retired')),
   content jsonb not null default '{}'::jsonb,     -- prompt, answers, hints; shape depends on kind
   media jsonb not null default '[]'::jsonb,       -- storage / atlas refs
-  created_at timestamptz not null default now()
+  version int not null default 1,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique (course_id, slug)
 );
 create index if not exists cards_course_idx on public.cards (course_id);
 create index if not exists cards_topic_idx on public.cards (topic_id);
@@ -262,7 +272,9 @@ begin
   end loop;
 end $$;
 
--- learning state: owner full access; staff of a course the user is in can read
+-- learning state: owner full access. Staff see SUMMARIES only (docs/SPEC.md): no RLS read on
+-- card_states / review_logs for staff; staff dashboards use aggregate security-definer functions.
+-- study_sessions (time on task) is summary-level, so staff may read it.
 do $$
 declare t text;
 begin
@@ -270,9 +282,10 @@ begin
     execute format('drop policy if exists %I on public.%I', t || '_own', t);
     execute format('create policy %I on public.%I for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid())', t || '_own', t);
     execute format('drop policy if exists %I on public.%I', t || '_staff_read', t);
-    execute format('create policy %I on public.%I for select to authenticated using (public.is_staff_of_user(user_id))', t || '_staff_read', t);
   end loop;
 end $$;
+create policy study_sessions_staff_read on public.study_sessions for select to authenticated
+  using (public.is_staff_of_user(user_id));
 
 drop policy if exists user_settings_own on public.user_settings;
 create policy user_settings_own on public.user_settings for all to authenticated

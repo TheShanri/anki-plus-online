@@ -12,8 +12,12 @@
 @keyframes pin-shimmer { from { transform: translateX(-30%); } to { transform: translateX(30%); } }
 .pin-failed { position: absolute; inset: 0; display: grid; place-items: center; color: var(--text-faint); font-size: 13px; }
 .pin-mask { position: absolute; background: color-mix(in srgb, var(--bg) 88%, var(--accent)); border: 1px solid var(--panel-border-hi); box-sizing: border-box; }
-.pin-target { background: color-mix(in srgb, var(--accent) 35%, var(--bg)); border: 2px solid var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent), var(--glow-accent, none); animation: pin-pulse 1.6s ease-in-out infinite; }
-@keyframes pin-pulse { 50% { opacity: 0.75; } }
+/* The target mask itself never changes opacity (that let the label underneath show through): only a ring
+   around it pulses. The fill is mixed over the opaque panel colour so it is always solid. */
+.pin-target { background: color-mix(in srgb, var(--accent) 35%, var(--panel-solid, #000)); border: 2px solid var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent), var(--glow-accent, none); overflow: visible; }
+.pin-target::after { content: ""; position: absolute; inset: -5px; border: 2px solid var(--accent); border-radius: inherit; pointer-events: none; animation: pin-pulse 1.6s ease-in-out infinite; }
+@keyframes pin-pulse { 0%, 100% { opacity: 0.9; transform: scale(1); } 50% { opacity: 0.15; transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .pin-target::after { animation: none; } }
 .pin-target-ring { position: absolute; border: 2px solid var(--accent); border-radius: 50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); box-sizing: border-box; min-width: 26px; min-height: 26px; }
 .pin-marker { position: absolute; color: var(--accent); filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6)); pointer-events: none; }
 .pin-caption { position: absolute; left: 8px; top: 8px; font-size: 11px; padding: 2px 8px; border-radius: 99px; background: var(--panel-solid); border: 1px solid var(--panel-border); color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }

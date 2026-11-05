@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
   const structs = await fetchRowsByIds<{ id: string; slug: string }>(sb, "structures", "id, slug", structIds);
   const slugOf = new Map(structs.map((s) => [s.id, s.slug]));
   const all = await fetchAll<{ slug: string; canonical_name: string; synonyms: string[] }>((from, to) =>
-    sb.from("structures").select("slug, canonical_name, synonyms").eq("course_id", attempt.course_id).range(from, to),
+    sb.from("structures").select("slug, canonical_name, synonyms").eq("course_id", attempt.course_id).order("slug").range(from, to),
   );
   const known = buildKnownNames(all);
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { loadCourseView, type Overview } from "@/lib/home/data";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getAuthUser } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 
@@ -33,9 +33,9 @@ function Chevron() {
 export default async function CoursePage() {
   const sb = await createClient();
   if (!sb) return <PageShell title="Course map" kicker="Course"><p className="text-text-dim">Supabase is not configured.</p></PageShell>;
-  const { data: u } = await sb.auth.getUser();
-  if (!u.user) redirect("/login?next=/course");
-  const view = await loadCourseView(sb, u.user.id);
+  const user = await getAuthUser();
+  if (!user) redirect("/login?next=/course");
+  const view = await loadCourseView(sb, user.id);
   if (!view) {
     return (
       <PageShell title="Course map" kicker="Course">

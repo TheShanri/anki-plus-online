@@ -68,9 +68,9 @@ export interface CourseView {
 }
 
 export async function loadCourseView(sb: SupabaseClient, userId: string): Promise<CourseView | null> {
-  const course = await resolveCourse(sb, userId, null);
+  const [course, { learner }] = await Promise.all([resolveCourse(sb, userId, null), loadSettings(sb, userId)]);
   if (!course) return null;
-  const [idx, { learner }] = await Promise.all([loadIndex(sb, userId, course.id), loadSettings(sb, userId)]);
+  const idx = await loadIndex(sb, userId, course.id);
   return { course, idx, overview: computeOverview(idx, new Date()), learner };
 }
 

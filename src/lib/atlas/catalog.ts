@@ -64,15 +64,17 @@ export function buildCatalog(index: AtlasIndex): CatalogItem[] {
       hay: normalizeQuery([e.name, e.latin ?? "", e.id.replace(/-/g, " "), ...(syn.get(e.id) ?? [])].join(" ")),
     });
   }
+  // curriculum structures without an exact mesh of their own: exact in MRI slices and/or approximate in 3D
   for (const [slug, l] of Object.entries(LINKS)) {
-    if (!l.slices) continue;
     const hasExact3d = l.meshIds.length > 0 && !l.approximate;
     if (hasExact3d) continue;
+    const meshIds = l.meshIds.length ? l.meshIds : l.fallbackParentId ? [l.fallbackParentId] : [];
+    if (!l.slices && !meshIds.length) continue;
     items.push({
       key: `slug:${slug}`,
       name: l.name,
-      region: "slices",
-      meshIds: l.meshIds.length ? l.meshIds : l.fallbackParentId ? [l.fallbackParentId] : [],
+      region: l.slices ? "slices" : (index.structures[meshIds[0]]?.region ?? "other"),
+      meshIds,
       approximate: true,
       slug,
       slices: l.slices,
@@ -81,6 +83,30 @@ export function buildCatalog(index: AtlasIndex): CatalogItem[] {
     });
   }
   return items;
+}
+
+export type SlugTarget = {
+  /** 3D ids to highlight (the structure, or the mesh that contains it when approximate). */
+  ids: string[];
+  approximate: boolean;
+  /** MRI label quality, null when the slices have no label for it. */
+  slices: SliceQuality | null;
+};
+
+/** Where a curriculum structure (by slug) can be shown, or null when neither the 3D model nor the MRI atlas has it. */
+export function atlasTargetForSlug(slug: string | null | undefined): SlugTarget | null {
+  const l = slug ? LINKS[slug] : undefined;
+  if (!l) return null;
+  const ids = l.meshIds.length ? l.meshIds : l.fallbackParentId ? [l.fallbackParentId] : [];
+  if (!ids.length && !l.slices) return null;
+  return { ids, approximate: l.approximate || !ids.length, slices: l.slices };
+}
+
+/** The view that shows a structure most exactly: MRI slices when the 3D highlight is only approximate. */
+export function bestAtlasTab(t: { ids: string[]; approximate: boolean; slices: SliceQuality | null }): "model" | "slices" {
+  if (!t.ids.length) return "slices";
+  if (t.approximate && (t.slices === "exact" || t.slices === "derived")) return "slices";
+  return "model";
 }
 
 export function itemForSlug(items: CatalogItem[], slug: string): CatalogItem | null {

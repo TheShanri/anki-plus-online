@@ -366,7 +366,9 @@ export default function AtlasViewer({
   }, [index, resolved, ovlResolved, fullKey]);
 
   const current = loaded && loaded.key === fullKey ? loaded : null;
-  const currentCtx = current?.ctx ?? null;
+  // Keep the previous scene on screen while the next structure loads (no blank flash between picks).
+  const shown = current ?? (loaded && !loaded.error ? loaded : null);
+  const currentCtx = shown?.ctx ?? null;
   const ctxBox = useMemo(() => {
     const b = currentCtx ? new THREE.Box3().setFromObject(currentCtx) : null;
     return b && !b.isEmpty() ? b : null;
@@ -407,8 +409,8 @@ export default function AtlasViewer({
         camera={{ fov: 35, near: 0.01, far: 6, position: [0.5, 1.605, -0.01] }}
         gl={{ antialias: true, powerPreference: "low-power" }}
       >
-        {current && (
-          <Scene loaded={current} mode={mode} showCtx={showCtx} midsagittal={view === "midsagittal"} accent={colors.accent} dim={colors.dim} clip={clip} clipRange={clipRange} />
+        {shown && (
+          <Scene loaded={shown} mode={mode} showCtx={showCtx} midsagittal={view === "midsagittal"} accent={colors.accent} dim={colors.dim} clip={clip} clipRange={clipRange} />
         )}
         <OrbitControls makeDefault enableDamping dampingFactor={0.12} screenSpacePanning minDistance={0.05} maxDistance={1.2} touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }} />
         <Rig box={box} view={view} nonce={nonce} />
@@ -428,9 +430,13 @@ export default function AtlasViewer({
         )}
       </div>
 
-      {(!current && !indexError) || (index && !current && resolved.length > 0) ? (
+      {!shown && !indexError ? (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-text-dim" role="status">
           Loading 3D model...
+        </div>
+      ) : !current && !indexError ? (
+        <div className="pointer-events-none absolute bottom-12 left-1/2 -translate-x-1/2 rounded-sm border border-panel-border bg-panel px-2 py-1 font-mono text-[11px] uppercase tracking-wider text-text-dim backdrop-blur" role="status">
+          Loading...
         </div>
       ) : null}
       {(indexError || current?.error || missing) && (

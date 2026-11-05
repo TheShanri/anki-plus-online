@@ -4242,114 +4242,158 @@
   "fallbackParentId": "vertebral-artery"
  },
  "Basal ganglia": {
-  "meshIds": [],
+  "meshIds": [
+   "caudate-nucleus",
+   "putamen",
+   "globus-pallidus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "basal-ganglia",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Primary motor cortex": {
-  "meshIds": [],
+  "meshIds": [
+   "precentral-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "primary-motor-cortex",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [
+   "3d"
+  ]
  },
  "Primary somatosensory cortex": {
-  "meshIds": [],
+  "meshIds": [
+   "postcentral-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "primary-somatosensory-cortex",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [
+   "3d"
+  ]
  },
  "Primary auditory cortex": {
-  "meshIds": [],
+  "meshIds": [
+   "transverse-temporal-gyri"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "primary-auditory-cortex",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [
+   "3d"
+  ]
  },
  "Superior frontal gyrus": {
-  "meshIds": [],
+  "meshIds": [
+   "superior-frontal-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "superior-frontal-gyrus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Middle frontal gyrus": {
-  "meshIds": [],
+  "meshIds": [
+   "middle-frontal-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "middle-frontal-gyrus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Inferior frontal gyrus": {
-  "meshIds": [],
+  "meshIds": [
+   "opercular-part-of-inferior-frontal-gyrus",
+   "triangular-part-of-inferior-frontal-gyrus",
+   "orbital-part-of-inferior-frontal-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "inferior-frontal-gyrus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Superior temporal gyrus": {
-  "meshIds": [],
+  "meshIds": [
+   "superior-temporal-gyrus-lateral-part",
+   "transverse-temporal-gyri"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "superior-temporal-gyrus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Middle temporal gyrus": {
-  "meshIds": [],
+  "meshIds": [
+   "middle-temporal-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "middle-temporal-gyrus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Inferior temporal gyrus": {
-  "meshIds": [],
+  "meshIds": [
+   "inferior-temporal-gyrus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "inferior-temporal-gyrus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Cuneate tubercle": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "cuneate-tubercle",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [],
+  "fallbackParentId": "medulla-oblongata"
  },
  "Gracile tubercle": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "gracile-tubercle",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [],
+  "fallbackParentId": "medulla-oblongata"
  },
  "Medial longitudinal fasciculus": {
   "meshIds": [
@@ -4369,115 +4413,571 @@
   ]
  },
  "Dorsal motor nucleus of the vagus": {
-  "meshIds": [],
+  "meshIds": [
+   "posterior-nucleus-of-vagus-nerve"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "dorsal-motor-nucleus-of-the-vagus",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [
+   "3d"
+  ]
  },
  "Solitary nucleus": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "solitary-nucleus",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [],
+  "fallbackParentId": "medulla-oblongata"
  },
  "Paramedian pontine reticular formation": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "paramedian-pontine-reticular-formation",
   "slices": "regional",
-  "exactIn": []
+  "exactIn": [],
+  "fallbackParentId": "pons"
  },
  "Caudate nucleus": {
-  "meshIds": [],
+  "meshIds": [
+   "caudate-nucleus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "caudate-nucleus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Head of caudate nucleus": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "caudate-nucleus"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "head-of-caudate-nucleus",
   "slices": "exact",
   "exactIn": [
    "slices"
-  ]
+  ],
+  "fallbackParentId": "caudate-nucleus"
  },
  "Body of caudate nucleus": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "caudate-nucleus"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "body-of-caudate-nucleus",
   "slices": "exact",
   "exactIn": [
    "slices"
-  ]
+  ],
+  "fallbackParentId": "caudate-nucleus"
  },
  "Tail of caudate nucleus": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "caudate-nucleus"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "tail-of-caudate-nucleus",
   "slices": "exact",
   "exactIn": [
    "slices"
-  ]
+  ],
+  "fallbackParentId": "caudate-nucleus"
  },
  "Corpus striatum": {
-  "meshIds": [],
+  "meshIds": [
+   "caudate-nucleus",
+   "putamen",
+   "globus-pallidus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "corpus-striatum",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Lentiform nucleus": {
-  "meshIds": [],
+  "meshIds": [
+   "lentiform-nucleus"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "lentiform-nucleus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Fornix": {
-  "meshIds": [],
+  "meshIds": [
+   "fornix"
+  ],
   "approximate": false,
   "synonyms": [],
   "slug": "fornix",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ]
  },
  "Basal forebrain nuclei": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "septal-nuclei"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "basal-forebrain-nuclei",
   "slices": "exact",
   "exactIn": [
    "slices"
-  ]
+  ],
+  "fallbackParentId": "septal-nuclei"
  },
  "Dentate nucleus": {
-  "meshIds": [],
-  "approximate": false,
+  "meshIds": [
+   "cerebellum"
+  ],
+  "approximate": true,
   "synonyms": [],
   "slug": "dentate-nucleus",
   "slices": "regional",
+  "exactIn": [],
+  "fallbackParentId": "cerebellum"
+ },
+ "Foramina of Monro": {
+  "meshIds": [
+   "third-ventricle",
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "foramina-of-monro",
+  "fallbackParentId": "third-ventricle",
+  "slices": null,
+  "exactIn": []
+ },
+ "Foramen of Magendie": {
+  "meshIds": [
+   "fourth-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "foramen-of-magendie",
+  "fallbackParentId": "fourth-ventricle",
+  "slices": null,
+  "exactIn": []
+ },
+ "Foramina of Luschka": {
+  "meshIds": [
+   "fourth-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "foramina-of-luschka",
+  "fallbackParentId": "fourth-ventricle",
+  "slices": null,
+  "exactIn": []
+ },
+ "Interthalamic adhesion": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "interthalamic-adhesion",
+  "fallbackParentId": "thalamus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Motor homunculus": {
+  "meshIds": [
+   "precentral-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "motor-homunculus",
+  "fallbackParentId": "precentral-gyrus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Premotor cortex": {
+  "meshIds": [
+   "precentral-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "premotor-cortex",
+  "fallbackParentId": "precentral-gyrus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Somatosensory homunculus": {
+  "meshIds": [
+   "postcentral-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "somatosensory-homunculus",
+  "fallbackParentId": "postcentral-gyrus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Somatosensory association cortex": {
+  "meshIds": [
+   "superior-parietal-lobule"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "somatosensory-association-cortex",
+  "fallbackParentId": "superior-parietal-lobule",
+  "slices": null,
+  "exactIn": []
+ },
+ "Parietal lobe general association area": {
+  "meshIds": [
+   "supramarginal-gyrus",
+   "angular-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "parietal-lobe-general-association-area",
+  "fallbackParentId": "supramarginal-gyrus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Primary visual cortex": {
+  "meshIds": [
+   "cuneus",
+   "lingual-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "primary-visual-cortex",
+  "fallbackParentId": "cuneus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Visual association cortex": {
+  "meshIds": [
+   "lateral-occipital-gyrus-middle-occipital-gyrus",
+   "superior-occipital-gyri",
+   "inferior-occipital-gyrus-and-sulcus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "visual-association-cortex",
+  "fallbackParentId": "lateral-occipital-gyrus-middle-occipital-gyrus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Auditory association area": {
+  "meshIds": [
+   "superior-temporal-gyrus-lateral-part"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "auditory-association-area",
+  "fallbackParentId": "superior-temporal-gyrus-lateral-part",
+  "slices": null,
+  "exactIn": []
+ },
+ "Dorsal rootlets": {
+  "meshIds": [
+   "posterior-root-of-spinal-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "dorsal-rootlets",
+  "fallbackParentId": "posterior-root-of-spinal-nerve",
+  "slices": null,
+  "exactIn": []
+ },
+ "Ventral rootlets": {
+  "meshIds": [
+   "anterior-root-of-spinal-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "ventral-rootlets",
+  "fallbackParentId": "anterior-root-of-spinal-nerve",
+  "slices": null,
+  "exactIn": []
+ },
+ "Dorsal root": {
+  "meshIds": [
+   "posterior-root-of-spinal-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "dorsal-root",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Ventral root": {
+  "meshIds": [
+   "anterior-root-of-spinal-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "ventral-root",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Oculomotor nerve": {
+  "meshIds": [
+   "oculomotor-nerve-iii"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "oculomotor-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Decussation of the superior cerebellar peduncle": {
+  "meshIds": [
+   "superior-cerebellar-peduncle"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "decussation-of-the-superior-cerebellar-peduncle",
+  "fallbackParentId": "superior-cerebellar-peduncle",
+  "slices": null,
+  "exactIn": []
+ },
+ "Facial nerve": {
+  "meshIds": [
+   "facial-nerve-vii"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "facial-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Glossopharyngeal nerve": {
+  "meshIds": [
+   "glossopharyngeal-nerve-ix"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "glossopharyngeal-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Vagus nerve": {
+  "meshIds": [
+   "vagus-nerve-x"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "vagus-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Hypoglossal nerve": {
+  "meshIds": [
+   "hypoglossal-nerve-xii"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "hypoglossal-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Motor decussation": {
+  "meshIds": [
+   "pyramid-of-medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "motor-decussation",
+  "fallbackParentId": "pyramid-of-medulla-oblongata",
+  "slices": null,
+  "exactIn": []
+ },
+ "Optic nerve": {
+  "meshIds": [
+   "optic-nerve-ii"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "optic-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Suprachiasmatic nucleus": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "suprachiasmatic-nucleus",
+  "fallbackParentId": "hypothalamus",
+  "slices": null,
+  "exactIn": []
+ },
+ "Crus of fornix": {
+  "meshIds": [
+   "fornix"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "crus-of-fornix",
+  "fallbackParentId": "fornix",
+  "slices": null,
+  "exactIn": []
+ },
+ "Body of fornix": {
+  "meshIds": [
+   "fornix"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "body-of-fornix",
+  "fallbackParentId": "fornix",
+  "slices": null,
+  "exactIn": []
+ },
+ "Vertebral artery": {
+  "meshIds": [
+   "vertebral-artery"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "vertebral-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Superior cerebellar artery": {
+  "meshIds": [
+   "superior-cerebellar-artery"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "superior-cerebellar-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Circle of Willis": {
+  "meshIds": [
+   "cerebral-arterial-circle"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "circle-of-willis",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Olfactory nerve": {
+  "meshIds": [
+   "olfactory-nerve-i"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "olfactory-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Trochlear nerve": {
+  "meshIds": [
+   "trochlear-nerve-iv"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "trochlear-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Trigeminal nerve": {
+  "meshIds": [
+   "trigeminal-nerve-v"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "trigeminal-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Abducens nerve": {
+  "meshIds": [
+   "abducens-nerve-vi"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "abducens-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Vestibulocochlear nerve": {
+  "meshIds": [
+   "vestibulocochlear-nerve-viii"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "vestibulocochlear-nerve",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Accessory nerve": {
+  "meshIds": [
+   "nucleus-of-accessory-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "accessory-nerve",
+  "fallbackParentId": "nucleus-of-accessory-nerve",
+  "slices": null,
   "exactIn": []
  }
 }

@@ -21,11 +21,12 @@ export async function updateSession(request: NextRequest) {
     },
   });
 
-  // getUser() validates the JWT with the auth server (do not use getSession() here).
-  const { data } = await supabase.auth.getUser();
+  // getClaims() refreshes an expired session and verifies the JWT signature locally (ES256 + cached JWKS),
+  // so a page load costs no auth-server round trip. Do not use getSession() here: it does not verify.
+  const { data } = await supabase.auth.getClaims();
   const path = request.nextUrl.pathname;
   const isProtected = PROTECTED.some((p) => path === p || path.startsWith(p + "/"));
-  if (!data.user && isProtected) {
+  if (!data?.claims?.sub && isProtected) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     url.search = `?next=${encodeURIComponent(path)}`;

@@ -237,3 +237,13 @@
   .study-now { padding: 20px; }
 }
 [data-theme="uvm-clinical"] .hero-title em { white-space: nowrap; }
+
+/* ---------------------------------------------------------------- route loading skeleton (app/loading.tsx) */
+.skel { background: color-mix(in srgb, var(--text-dim) 14%, var(--panel-2)); border-radius: var(--radius-sm); animation: skel-pulse 1.1s ease-in-out infinite; }
+.skel-kicker { width: 90px; height: 12px; }
+.skel-title { width: min(320px, 70%); height: 30px; margin-top: 10px; }
+.skel-panel { height: 108px; }
+.skel-row { height: 64px; }
+.skel-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+@keyframes skel-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .skel { animation: none; } }

@@ -54,6 +54,62 @@ idx["registration"] = dict(rms_mm=round(reg["rms_mm"], 2), loo_rms_mm=round(reg[
 json.dump(idx, open(idx_path, "w", encoding="utf8"), separators=(",", ":"), ensure_ascii=False)
 
 # 3. atlas-map: slug + where-exact
+# Curriculum structures whose names did not match an existing course-list entry got a new entry with no 3D ids,
+# so the 3D tab showed nothing. Give them their Z-Anatomy meshes: by exact index name, or by this table
+# (approximate = the structure lies inside the shown mesh, which is then also its fallback parent).
+OVERRIDE = {
+    "basal-ganglia": (["caudate-nucleus", "putamen", "globus-pallidus"], False),
+    "corpus-striatum": (["caudate-nucleus", "putamen", "globus-pallidus"], False),
+    "primary-motor-cortex": (["precentral-gyrus"], False),
+    "primary-somatosensory-cortex": (["postcentral-gyrus"], False),
+    "primary-auditory-cortex": (["transverse-temporal-gyri"], False),
+    "inferior-frontal-gyrus": (["opercular-part-of-inferior-frontal-gyrus", "triangular-part-of-inferior-frontal-gyrus", "orbital-part-of-inferior-frontal-gyrus"], False),
+    "superior-temporal-gyrus": (["superior-temporal-gyrus-lateral-part", "transverse-temporal-gyri"], False),
+    "dorsal-motor-nucleus-of-the-vagus": (["posterior-nucleus-of-vagus-nerve"], False),
+    "head-of-caudate-nucleus": (["caudate-nucleus"], True),
+    "body-of-caudate-nucleus": (["caudate-nucleus"], True),
+    "tail-of-caudate-nucleus": (["caudate-nucleus"], True),
+    "basal-forebrain-nuclei": (["septal-nuclei"], True),
+    "cuneate-tubercle": (["medulla-oblongata"], True),
+    "gracile-tubercle": (["medulla-oblongata"], True),
+    "solitary-nucleus": (["medulla-oblongata"], True),
+    "paramedian-pontine-reticular-formation": (["pons"], True),
+    "dentate-nucleus": (["cerebellum"], True),
+    # structures with no MRI label either (cortical areas, parts, roots, nerves named without their numeral)
+    "primary-visual-cortex": (["cuneus", "lingual-gyrus"], True),
+    "visual-association-cortex": (["lateral-occipital-gyrus-middle-occipital-gyrus", "superior-occipital-gyri", "inferior-occipital-gyrus-and-sulcus"], True),
+    "premotor-cortex": (["precentral-gyrus"], True),
+    "motor-homunculus": (["precentral-gyrus"], True),
+    "somatosensory-homunculus": (["postcentral-gyrus"], True),
+    "somatosensory-association-cortex": (["superior-parietal-lobule"], True),
+    "parietal-lobe-general-association-area": (["supramarginal-gyrus", "angular-gyrus"], True),
+    "auditory-association-area": (["superior-temporal-gyrus-lateral-part"], True),
+    "crus-of-fornix": (["fornix"], True),
+    "body-of-fornix": (["fornix"], True),
+    "interthalamic-adhesion": (["thalamus"], True),
+    "suprachiasmatic-nucleus": (["hypothalamus"], True),
+    "foramina-of-monro": (["third-ventricle", "lateral-ventricle"], True),
+    "foramen-of-magendie": (["fourth-ventricle"], True),
+    "foramina-of-luschka": (["fourth-ventricle"], True),
+    "decussation-of-the-superior-cerebellar-peduncle": (["superior-cerebellar-peduncle"], True),
+    "motor-decussation": (["pyramid-of-medulla-oblongata"], True),
+    "dorsal-root": (["posterior-root-of-spinal-nerve"], False),
+    "ventral-root": (["anterior-root-of-spinal-nerve"], False),
+    "dorsal-rootlets": (["posterior-root-of-spinal-nerve"], True),
+    "ventral-rootlets": (["anterior-root-of-spinal-nerve"], True),
+    "accessory-nerve": (["nucleus-of-accessory-nerve"], True),
+}
+IDX_BY_NAME = {}
+for k, e in S.items():
+    IDX_BY_NAME.setdefault(norm(e["name"]), k)
+    IDX_BY_NAME.setdefault(norm(re.sub(r"\(.*?\)", "", e["name"])), k)  # "Vagus nerve (X)" also as "vagus nerve"
+def mesh_for(st):
+    if st["slug"] in OVERRIDE: return OVERRIDE[st["slug"]]
+    for n in [st["name"]] + st.get("synonyms", []):
+        k = IDX_BY_NAME.get(norm(n))
+        if k and S[k].get("file") or k and S[k].get("members"): return ([k], False)
+    return ([], False)
+
 BYN = {}
 for k, v in amap.items(): BYN.setdefault(norm(k), []).append(k)
 links = {}
@@ -64,12 +120,17 @@ for st in structs:
     for n in names:
         keys += BYN.get(norm(n), [])
     keys = list(dict.fromkeys(keys))
-    if not keys and sl and slug not in ("cerebellum",):
+    if not keys and slug not in ("cerebellum",) and (sl or mesh_for(st)[0]):
         amap[st["name"]] = dict(meshIds=[], approximate=False, synonyms=[]); keys = [st["name"]]; BYN.setdefault(norm(st["name"]), []).append(st["name"])
     mesh = added.get(slug)
     for k in keys:
         e = amap[k]
         e["slug"] = slug
+        if not mesh and not e["meshIds"] and not e.get("fallbackParentId"):
+            ids, approx = mesh_for(st)
+            if ids:
+                e["meshIds"] = ids; e["approximate"] = approx
+                if approx: e["fallbackParentId"] = ids[0]
         if mesh:
             e.setdefault("fallbackParentId", e.get("fallbackParentId"))
             if e["fallbackParentId"] is None: e.pop("fallbackParentId")

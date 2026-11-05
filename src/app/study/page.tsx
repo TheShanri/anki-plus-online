@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { ActivityGrid } from "@/components/study/ActivityGrid";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { computeOverview, loadIndex, loadSettings, resolveCourse } from "@/lib/study/server";
 import "@/components/study/study.css";
 
@@ -29,14 +29,17 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
   const sp = await searchParams;
   const sb = await createClient();
   if (!sb) return <PageShell title="Study" kicker="Study"><p className="text-text-dim">Supabase is not configured.</p></PageShell>;
-  const { data: u } = await sb.auth.getUser();
-  if (!u.user) redirect("/login?next=/study");
-  const course = await resolveCourse(sb, u.user.id, sp.course);
+  const user = await getAuthUser();
+  if (!user) redirect("/login?next=/study");
+  const settingsP = loadSettings(sb, user.id);
+  const actP = sb.rpc("engine_activity", { p_days: 150, p_tz_min: 0 });
+  settingsP.catch(() => {});
+  const course = await resolveCourse(sb, user.id, sp.course);
   if (!course) return <PageShell title="Study" kicker="Study"><p className="text-text-dim">Join a course first.</p></PageShell>;
   const [idx, { learner }, act] = await Promise.all([
-    loadIndex(sb, u.user.id, course.id),
-    loadSettings(sb, u.user.id),
-    sb.rpc("engine_activity", { p_days: 150, p_tz_min: 0 }),
+    loadIndex(sb, user.id, course.id),
+    settingsP,
+    actP,
   ]);
   const ov = computeOverview(idx, new Date());
   const days = ((act.data ?? []) as Array<{ day: string; reviews: number }>).map((d) => ({ day: String(d.day), reviews: d.reviews }));

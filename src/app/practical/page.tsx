@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { PracticalSetup } from "@/components/study/PracticalRunner";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { fetchAll, resolveCourse } from "@/lib/study/server";
 import { DEFAULT_STATION_SECONDS } from "@/lib/study/practical";
 
@@ -11,15 +11,15 @@ export const dynamic = "force-dynamic";
 export default async function PracticalPage() {
   const sb = await createClient();
   if (!sb) return <PageShell title="Mock practical" kicker="Practical"><p className="text-text-dim">Supabase is not configured.</p></PageShell>;
-  const { data } = await sb.auth.getUser();
-  if (!data.user) redirect("/login?next=/practical");
-  const course = await resolveCourse(sb, data.user.id, null);
+  const user = await getAuthUser();
+  if (!user) redirect("/login?next=/practical");
+  const course = await resolveCourse(sb, user.id, null);
   if (!course) return <PageShell title="Mock practical" kicker="Practical"><p className="text-text-dim">Join a course first.</p></PageShell>;
   const [unitsR, topicsR, pins, attempts] = await Promise.all([
     sb.from("units").select("id, slug, title, position").eq("course_id", course.id).order("position"),
     sb.from("topics").select("id, unit_id").eq("course_id", course.id),
-    fetchAll<{ topic_id: string | null }>((a, b) => sb.from("cards").select("topic_id").eq("course_id", course.id).eq("status", "live").eq("kind", "pin").range(a, b)),
-    sb.from("practical_attempts").select("id, created_at, score, max_score, finished_at").eq("user_id", data.user.id).not("finished_at", "is", null).order("created_at", { ascending: false }).limit(8),
+    fetchAll<{ topic_id: string | null }>((a, b) => sb.from("cards").select("topic_id").eq("course_id", course.id).eq("status", "live").eq("kind", "pin").order("id").range(a, b)),
+    sb.from("practical_attempts").select("id, created_at, score, max_score, finished_at").eq("user_id", user.id).not("finished_at", "is", null).order("created_at", { ascending: false }).limit(8),
   ]);
   const topicUnit = new Map((topicsR.data ?? []).map((t: { id: string; unit_id: string | null }) => [t.id, t.unit_id]));
   const perUnit = new Map<string, number>();

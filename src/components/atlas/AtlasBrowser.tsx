@@ -1,13 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { loadAtlasIndex, normalizeQuery } from "@/lib/atlas";
 import type { AtlasIndex } from "@/lib/atlas";
 import { atlasTargetForCourseName } from "@/lib/atlas/map";
-import { LINKS, buildCatalog } from "@/lib/atlas/catalog";
+import { LINKS, atlasTargetForSlug, bestAtlasTab, buildCatalog } from "@/lib/atlas/catalog";
 import type { CatalogItem } from "@/lib/atlas/catalog";
-import { loadAtlas2 } from "@/lib/atlas/slices";
+import { ATLAS2_BASE, loadAtlas2 } from "@/lib/atlas/slices";
 import type { Atlas2 } from "@/lib/atlas/slices";
 import { accentHex, overlayPalette } from "@/lib/atlas/palette";
 import { SLICE_VIEWS } from "./SliceViewer";
@@ -62,6 +62,22 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     };
   }, []);
 
+  // Warm the MRI volumes (~4 MB) while the page is idle so the "MRI slices" tab opens without a wait.
+  useEffect(() => {
+    if (!atlas2) return;
+    if ((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return;
+    const go = () => {
+      for (const f of ["template.nii.gz", "labels.nii.gz", "tracts.nii.gz"]) fetch(`${ATLAS2_BASE}/${f}`).then((r) => r.arrayBuffer()).catch(() => undefined);
+    };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(go, { timeout: 5000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(go, 3000);
+    return () => window.clearTimeout(t);
+  }, [atlas2]);
+
   // theme colours (accent + categorical overlay colours); refresh on theme / light-dark switches
   useEffect(() => {
     const read = () => setPal({ accent: accentHex(), colors: overlayPalette() });
@@ -92,11 +108,32 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     if (direct) return direct;
     const l = LINKS[primaryKey];
     if (l) {
-      const m = items.find((i) => i.slug === primaryKey);
+      const m = items.find((i) => i.slug === primaryKey && !i.group);
       if (m) return m;
+      // a curriculum slug whose mesh has another id (e.g. "vagus-nerve" -> "vagus-nerve-x")
+      const t = atlasTargetForSlug(primaryKey);
+      if (t) return { key: `slug:${primaryKey}`, name: l.name, region: "other", meshIds: t.ids, approximate: t.approximate, slug: t.slices ? primaryKey : null, slices: t.slices, hay: "", group: false };
     }
     return null;
   }, [items, byKey, primaryKey, courseName]);
+
+  // Open each structure where it is shown most exactly: MRI slices when the 3D highlight is only approximate,
+  // the 3D model when the MRI atlas has no label. A view the student picks stays otherwise.
+  const tabFor = (it: CatalogItem, cur: Tab): Tab => {
+    const best = bestAtlasTab({ ids: it.meshIds, approximate: it.approximate, slices: it.slug ? it.slices : null });
+    if (cur === "model" && best === "slices") return "slices";
+    if (cur === "slices" && !it.slug) return "model";
+    return cur;
+  };
+  const resolvedOnce = useRef(false);
+  useEffect(() => {
+    if (!primary || resolvedOnce.current) return;
+    resolvedOnce.current = true;
+    if (initialView && VIEW_PARAM[initialView]) return; // the link asked for a view
+    const t = window.setTimeout(() => setTab((cur) => tabFor(primary, cur)), 0);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [primary]);
 
   const extras = useMemo(() => extraKeys.map((k) => byKey.get(k) ?? byKey.get(`slug:${k}`) ?? items.find((i) => i.slug === k)).filter((x): x is CatalogItem => !!x), [extraKeys, byKey, items]);
 
@@ -182,6 +219,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   function pick(key: string) {
     setCourseName(undefined);
     setPrimaryKey(key);
+    const it = byKey.get(key);
+    if (it) setTab((cur) => tabFor(it, cur));
   }
   function pickSlug(slug: string) {
     setCourseName(undefined);
@@ -348,7 +387,19 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               {sliceSrc ? ` (${sliceSrc})` : ""}
             </span>
           )}
-          {primary && tab === "model" && primary.approximate && <span className="text-hard">Approximate location in 3D (parent structure).</span>}
+          {primary && tab === "model" && primary.approximate && (
+            <span className="text-hard">
+              Approximate in 3D: the highlight is the structure that contains it.
+              {primary.slug && primary.slices !== "regional" && (
+                <>
+                  {" "}
+                  <button type="button" className="text-accent-2 underline underline-offset-2" onClick={() => setTab("slices")}>
+                    See it exactly in MRI slices
+                  </button>
+                </>
+              )}
+            </span>
+          )}
           {!primary && <span>Pick a structure to highlight it. Drag to rotate, scroll or pinch to zoom, right-drag or two fingers to pan.</span>}
         </div>
       </div>

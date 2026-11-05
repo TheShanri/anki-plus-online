@@ -26,9 +26,11 @@ export function courseSlug(code: string, settings: Record<string, unknown>): str
 
 /** The course to study: ?course=<id|code> if the user belongs to it, else their first enrolment (admins: any course). */
 export async function resolveCourse(sb: SupabaseClient, userId: string, wanted?: string | null): Promise<CourseCtx | null> {
-  const { data: enr } = await sb.from("enrollments").select("course_id, joined_at").eq("user_id", userId).order("joined_at", { ascending: true });
+  const [{ data: enr }, { data: courses }] = await Promise.all([
+    sb.from("enrollments").select("course_id, joined_at").eq("user_id", userId).order("joined_at", { ascending: true }),
+    sb.from("courses").select("id, code, title, settings").order("code"),
+  ]);
   let ids = (enr ?? []).map((e: { course_id: string }) => e.course_id);
-  const { data: courses } = await sb.from("courses").select("id, code, title, settings").order("code");
   const mine = (courses ?? []) as Array<{ id: string; code: string; title: string; settings: Record<string, unknown> }>;
   let pool = mine.filter((c) => ids.includes(c.id));
   if (!pool.length) pool = mine; // an admin without an enrolment sees every course RLS lets through
@@ -38,16 +40,26 @@ export async function resolveCourse(sb: SupabaseClient, userId: string, wanted?:
   return { id: pick.id, code: pick.code, title: pick.title, slug: courseSlug(pick.code, pick.settings ?? {}), settings: pick.settings ?? {} };
 }
 
+/** All rows of a paged query (PostgREST caps a response at 1,000 rows). The first page is fetched alone; when it is
+ *  full, the following pages are fetched in parallel waves, so ~3,000 rows cost two round trips instead of three. */
 export async function fetchAll<T>(make: (from: number, to: number) => PromiseLike<{ data: T[] | null; error: { message: string } | null }>): Promise<T[]> {
-  const out: T[] = [];
   const page = 1000;
-  for (let from = 0; ; from += page) {
-    const { data, error } = await make(from, from + page - 1);
-    if (error) throw new Error(error.message);
-    out.push(...(data ?? []));
-    if (!data || data.length < page) break;
+  const wave = 4;
+  const first = await make(0, page - 1);
+  if (first.error) throw new Error(first.error.message);
+  const out: T[] = [...(first.data ?? [])];
+  if (!first.data || first.data.length < page) return out;
+  for (let from = page; ; from += page * wave) {
+    const res = await Promise.all(Array.from({ length: wave }, (_, i) => make(from + i * page, from + (i + 1) * page - 1)));
+    let short = false;
+    for (const { data, error } of res) {
+      if (error) throw new Error(error.message);
+      if (short) continue;
+      out.push(...(data ?? []));
+      if (!data || data.length < page) short = true;
+    }
+    if (short) return out;
   }
-  return out;
 }
 
 export async function loadSettings(sb: SupabaseClient, userId: string): Promise<{ raw: Record<string, unknown>; learner: LearnerSettings }> {
@@ -89,21 +101,48 @@ export interface CourseIndex {
   ladders: Map<string, LadderRow>;
 }
 
-/** Light index of a course: units, topics, card ids (no content), and the user's states. */
-export async function loadIndex(sb: SupabaseClient, userId: string, courseId: string): Promise<CourseIndex> {
-  const [unitsR, topicsR, cards, states, ladders] = await Promise.all([
+// Course content (units, topics, the light card list) is the same for every member, changes rarely, and is the
+// biggest read on the study pages, so each server instance keeps it for a couple of minutes. It is only ever
+// read through resolveCourse(), which goes through the caller's RLS, so a cached course is one they may see.
+type CourseContent = { units: UnitRow[]; topics: TopicRow[]; cards: LightCard[] };
+const CONTENT_TTL = 120_000;
+const contentCache = new Map<string, { at: number; p: Promise<CourseContent> }>();
+
+async function fetchCourseContent(sb: SupabaseClient, courseId: string): Promise<CourseContent> {
+  const [unitsR, topicsR, cards] = await Promise.all([
     sb.from("units").select("id, slug, position, title").eq("course_id", courseId).order("position"),
     sb.from("topics").select("id, slug, unit_id, position, kind, title, meta").eq("course_id", courseId).order("position"),
     fetchAll<LightCard>((a, b) =>
-      sb.from("cards").select("id, slug, kind, topic_id, structure_id, position").eq("course_id", courseId).eq("status", "live").order("position").range(a, b),
+      sb.from("cards").select("id, slug, kind, topic_id, structure_id, position").eq("course_id", courseId).eq("status", "live").order("position").order("id").range(a, b),
     ),
-    fetchAll<CardStateRow>((a, b) => sb.from("card_states").select("*").eq("user_id", userId).range(a, b)),
-    fetchAll<LadderRow>((a, b) => sb.from("card_ladder").select("card_id, step, clean_streak, last_clean_at").eq("user_id", userId).range(a, b)),
+  ]);
+  if (unitsR.error) throw new Error(unitsR.error.message);
+  if (topicsR.error) throw new Error(topicsR.error.message);
+  return { units: (unitsR.data ?? []) as UnitRow[], topics: (topicsR.data ?? []) as TopicRow[], cards };
+}
+
+export function loadCourseContent(sb: SupabaseClient, courseId: string): Promise<CourseContent> {
+  const now = Date.now();
+  const hit = contentCache.get(courseId);
+  if (hit && now - hit.at < CONTENT_TTL) return hit.p;
+  const p = fetchCourseContent(sb, courseId);
+  contentCache.set(courseId, { at: now, p });
+  // never keep a failure or an empty read (e.g. a caller RLS hid the rows from)
+  p.then((c) => { if (!c.cards.length) contentCache.delete(courseId); }, () => contentCache.delete(courseId));
+  return p;
+}
+
+/** Light index of a course: units, topics, card ids (no content), and the user's states. */
+export async function loadIndex(sb: SupabaseClient, userId: string, courseId: string): Promise<CourseIndex> {
+  const [{ units, topics, cards }, states, ladders] = await Promise.all([
+    loadCourseContent(sb, courseId),
+    fetchAll<CardStateRow>((a, b) => sb.from("card_states").select("*").eq("user_id", userId).order("card_id").range(a, b)),
+    fetchAll<LadderRow>((a, b) => sb.from("card_ladder").select("card_id, step, clean_streak, last_clean_at").eq("user_id", userId).order("card_id").range(a, b)),
   ]);
   const cardIds = new Set(cards.map((c) => c.id));
   return {
-    units: (unitsR.data ?? []) as UnitRow[],
-    topics: (topicsR.data ?? []) as TopicRow[],
+    units,
+    topics,
     cards,
     states: new Map(states.filter((s) => cardIds.has(s.card_id)).map((s) => [s.card_id, s])),
     ladders: new Map(ladders.filter((l) => cardIds.has(l.card_id)).map((l) => [l.card_id, l])),
@@ -202,18 +241,27 @@ export async function buildStudyPayload(
   o: { scope: Scope; scopeKey: string; tzOffsetMin: number; exclude: Set<string>; bootstrap: boolean; now?: Date },
 ): Promise<StudyPayload> {
   const now = o.now ?? new Date();
-  const { learner } = await loadSettings(sb, userId);
-  const idx = await loadIndex(sb, userId, course.id);
+  const dayStart = startOfLocalDay(now, o.tzOffsetMin).toISOString();
+  // Everything that does not depend on the queue starts at once (one round trip of latency, not six).
+  const trapsP = Promise.all([
+    fetchAll<TrapRow>((a, b) => sb.from("card_traps").select("*").eq("user_id", userId).eq("retired", false).gte("misses", ARM_AT).order("card_id").order("pattern").range(a, b)),
+    fetchAll<PatternRow>((a, b) => sb.from("user_trap_patterns").select("pattern, kind, misses, hits, streak, last_miss, last_hit, retired").eq("user_id", userId).order("pattern").range(a, b)),
+  ]);
+  const namesP = o.bootstrap ? loadKnownNames(sb, course.id) : Promise.resolve(null);
+  // awaited further down; mark handled now so an early failure is not an unhandled rejection
+  trapsP.catch(() => {});
+  namesP.catch(() => {});
+  const [{ learner }, idx, newDone, revDone] = await Promise.all([
+    loadSettings(sb, userId),
+    loadIndex(sb, userId, course.id),
+    sb.from("review_logs").select("id", { count: "exact", head: true }).eq("user_id", userId).eq("state_before", 0).gte("reviewed_at", dayStart),
+    sb.from("review_logs").select("id", { count: "exact", head: true }).eq("user_id", userId).neq("state_before", 0).gte("reviewed_at", dayStart),
+  ]);
   const ordered = courseOrder(idx);
   const light = ordered.map(lightToStudy);
   const { solid, hasName } = solidStructures(light, idx.states, idx.ladders);
 
   // daily counts
-  const dayStart = startOfLocalDay(now, o.tzOffsetMin).toISOString();
-  const [newDone, revDone] = await Promise.all([
-    sb.from("review_logs").select("id", { count: "exact", head: true }).eq("user_id", userId).eq("state_before", 0).gte("reviewed_at", dayStart),
-    sb.from("review_logs").select("id", { count: "exact", head: true }).eq("user_id", userId).neq("state_before", 0).gte("reviewed_at", dayStart),
-  ]);
   const newDoneToday = newDone.count ?? 0;
   const reviewsDoneToday = revDone.count ?? 0;
   const newLeft = Math.max(0, learner.study.newPerDay - newDoneToday);
@@ -256,7 +304,12 @@ export async function buildStudyPayload(
   const ids = new Set(batch.map((e) => e.card.id));
   const structIds = new Set(batch.map((e) => e.card.structureId).filter((x): x is string => !!x));
   const theoryIds = o.scope.type === "weak" ? [] : idx.cards.filter((c) => c.kind === "theory" && c.structure_id && structIds.has(c.structure_id)).map((c) => c.id);
-  const firstRows = await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", [...new Set([...ids, ...theoryIds])]);
+  type StructRow = { id: string; slug: string; canonical_name: string; synonyms: string[]; region: string | null; info: StructureLite["info"] };
+  const STRUCT_COLS = "id, slug, canonical_name, synonyms, region, info";
+  const [firstRows, structFirst] = await Promise.all([
+    fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", [...new Set([...ids, ...theoryIds])]),
+    fetchRowsByIds<StructRow>(sb, "structures", STRUCT_COLS, [...structIds]),
+  ]);
   // explicit follow-up cards named by the batch's pins (practical exam stems), resolved by slug
   const slugToId = new Map(idx.cards.map((c) => [c.slug, c.id]));
   const explicitIds = new Set<string>();
@@ -266,24 +319,24 @@ export async function buildStudyPayload(
     if (Array.isArray(fc)) for (const slug of fc) { const id = typeof slug === "string" ? slugToId.get(slug) : undefined; if (id) explicitIds.add(id); }
   }
   const have = new Set(firstRows.map((r) => r.id));
-  const extraRows = await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", [...explicitIds].filter((i) => !have.has(i)));
+  const extraIds = [...explicitIds].filter((i) => !have.has(i));
+  const extraRows = extraIds.length ? await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", extraIds) : [];
   const rows = [...firstRows, ...extraRows];
   const allIds = rows.map((r) => r.id);
   const cards = rows.map(toStudyCard);
 
-  const structureIds = [...new Set(cards.map((c) => c.structureId).filter((x): x is string => !!x))];
-  const structRows = await fetchRowsByIds<{ id: string; slug: string; canonical_name: string; synonyms: string[]; region: string | null; info: StructureLite["info"] }>(
-    sb, "structures", "id, slug, canonical_name, synonyms, region, info", structureIds,
-  );
+  const haveStruct = new Set(structFirst.map((r) => r.id));
+  const moreStructIds = [...new Set(cards.map((c) => c.structureId).filter((x): x is string => !!x && !haveStruct.has(x)))];
+  const [structMore, noteRows, [trapRowsAll, patRows], names] = await Promise.all([
+    moreStructIds.length ? fetchRowsByIds<StructRow>(sb, "structures", STRUCT_COLS, moreStructIds) : Promise.resolve([] as StructRow[]),
+    fetchRowsByIds<{ card_id: string; body: string }>(sb, "user_card_notes", "card_id, body", allIds, "card_id", { user_id: userId }),
+    trapsP,
+    namesP,
+  ]);
   const structures: Record<string, StructureLite> = {};
-  for (const s of structRows) structures[s.id] = { id: s.id, slug: s.slug, name: s.canonical_name, synonyms: s.synonyms ?? [], region: s.region, info: s.info ?? {} };
+  for (const s of [...structFirst, ...structMore]) structures[s.id] = { id: s.id, slug: s.slug, name: s.canonical_name, synonyms: s.synonyms ?? [], region: s.region, info: s.info ?? {} };
 
   // traps
-  const [trapRowsAll, patRows, noteRows] = await Promise.all([
-    fetchAll<TrapRow>((a, b) => sb.from("card_traps").select("*").eq("user_id", userId).eq("retired", false).gte("misses", ARM_AT).range(a, b)),
-    fetchAll<PatternRow>((a, b) => sb.from("user_trap_patterns").select("pattern, kind, misses, hits, streak, last_miss, last_hit, retired").eq("user_id", userId).range(a, b)),
-    fetchRowsByIds<{ card_id: string; body: string }>(sb, "user_card_notes", "card_id, body", allIds, "card_id", { user_id: userId }),
-  ]);
   const patternWords: Record<string, number> = {};
   const byCard = new Map<string, TrapRow[]>();
   for (const t of trapRowsAll) {
@@ -298,14 +351,6 @@ export async function buildStudyPayload(
     const rowsFor = byCard.get(c.id) ?? [];
     trapMisses[c.id] = Math.round(rowsFor.reduce((s, r) => s + r.misses, 0) * 100) / 100;
     if (c.format === "type" && c.answer) traps[c.id] = activeSpots(c.answer, rowsFor, patRows, patternWords);
-  }
-
-  let names: Record<string, string> | null = null;
-  if (o.bootstrap) {
-    const all = await fetchAll<{ slug: string; canonical_name: string; synonyms: string[] }>((a, b) =>
-      sb.from("structures").select("slug, canonical_name, synonyms").eq("course_id", course.id).range(a, b),
-    );
-    names = buildKnownNames(all);
   }
 
   const states: Record<string, CardStateRow> = {};
@@ -335,15 +380,39 @@ export async function buildStudyPayload(
   };
 }
 
-/** `select ... where <col> in (ids)` in chunks (URL length), optionally with extra equality filters. */
+/** `select ... where <col> in (ids)` in chunks (URL length), fetched in parallel, optionally with extra equality filters. */
 export async function fetchRowsByIds<T>(sb: SupabaseClient, table: string, columns: string, ids: string[], col = "id", eq: Record<string, string> = {}): Promise<T[]> {
+  if (!ids.length) return [];
+  const chunks: string[][] = [];
+  for (let i = 0; i < ids.length; i += 60) chunks.push(ids.slice(i, i + 60));
+  const res = await Promise.all(
+    chunks.map((chunk) => {
+      let q = sb.from(table).select(columns).in(col, chunk);
+      for (const [k, v] of Object.entries(eq)) q = q.eq(k, v);
+      return q;
+    }),
+  );
   const out: T[] = [];
-  for (let i = 0; i < ids.length; i += 60) {
-    let q = sb.from(table).select(columns).in(col, ids.slice(i, i + 60));
-    for (const [k, v] of Object.entries(eq)) q = q.eq(k, v);
-    const { data, error } = await q;
+  for (const { data, error } of res) {
     if (error) throw new Error(error.message);
     out.push(...((data ?? []) as unknown as T[]));
   }
   return out;
+}
+
+// Known structure names of a course (for "that is another structure" feedback): static content, cached like loadCourseContent.
+const namesCache = new Map<string, { at: number; p: Promise<Record<string, string>> }>();
+export function loadKnownNames(sb: SupabaseClient, courseId: string): Promise<Record<string, string>> {
+  const now = Date.now();
+  const hit = namesCache.get(courseId);
+  if (hit && now - hit.at < CONTENT_TTL) return hit.p;
+  const p = fetchAll<{ slug: string; canonical_name: string; synonyms: string[] }>((a, b) =>
+    sb.from("structures").select("slug, canonical_name, synonyms").eq("course_id", courseId).order("slug").range(a, b),
+  ).then((all) => {
+    if (!all.length) namesCache.delete(courseId);
+    return buildKnownNames(all);
+  });
+  namesCache.set(courseId, { at: now, p });
+  p.catch(() => namesCache.delete(courseId));
+  return p;
 }

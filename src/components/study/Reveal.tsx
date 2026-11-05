@@ -1,9 +1,27 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+import { atlasTargetForSlug } from "@/lib/atlas/catalog";
 import type { StudyEngine, Current } from "@/lib/study/engine";
 import type { Grade } from "@/lib/fsrs";
 import { RUNGS } from "@/lib/study/ladder";
 import { TypeBox } from "./TypeBox";
+
+// the atlas opens in a modal over the card (loaded on first use), so the session is never left
+const AtlasPeek = dynamic(() => import("@/components/atlas/AtlasPeek"), { ssr: false });
+
+function AtlasButton({ slug, name }: { slug: string; name: string }) {
+  const [open, setOpen] = useState(false);
+  if (!atlasTargetForSlug(slug)) return null;
+  return (
+    <>
+      <button type="button" className="text-accent-2 underline-offset-2 hover:underline" onClick={() => setOpen(true)}>
+        View in the atlas
+      </button>
+      {open && <AtlasPeek slug={slug} name={name} onClose={() => setOpen(false)} />}
+    </>
+  );
+}
 
 const GRADE_NAMES: Record<Grade, string> = { 1: "Again", 2: "Hard", 3: "Good", 4: "Easy" };
 
@@ -59,9 +77,7 @@ function Info({ c, courseSlug }: { c: Current; courseSlug: string }) {
           ))}
         </dl>
       )}
-      {s && (
-        <a className="text-accent-2" href={`/atlas?s=${encodeURIComponent(s.slug)}`}>Open in 3D atlas</a>
-      )}
+      {s && <AtlasButton slug={s.slug} name={s.name} />}
     </div>
   );
 }

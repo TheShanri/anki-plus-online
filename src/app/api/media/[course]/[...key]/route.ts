@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 // Auth-gated course media: signed-in members of the course (or admins) get a redirect to a signed URL.
@@ -27,9 +27,9 @@ export async function GET(_req: Request, ctx: { params: Promise<{ course: string
   const supabase = await createClient();
   const admin = createAdminClient();
   if (!supabase || !admin) return new NextResponse("Not configured", { status: 503 });
-  const { data: u } = await supabase.auth.getUser();
-  if (!u.user) return new NextResponse("Sign in required", { status: 401 });
-  const uid = u.user.id;
+  const user = await getAuthUser();
+  if (!user) return new NextResponse("Sign in required", { status: 401 });
+  const uid = user.id;
   const now = Date.now();
 
   const ak = `${uid}|${course}`;

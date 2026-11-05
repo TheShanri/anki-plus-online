@@ -1,6 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { SettingsForm } from "@/components/home/SettingsForm";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { loadSettings } from "@/lib/study/server";
 import { STUDY_DEFAULTS, SCAFFOLD_DEFAULTS, TYPING_DEFAULTS } from "@/lib/study/settings";
 
@@ -12,9 +12,9 @@ export default async function SettingsPage() {
   let mnemonics = SCAFFOLD_DEFAULTS.mnemonics;
   let typing = TYPING_DEFAULTS.enabled;
   if (sb) {
-    const { data } = await sb.auth.getUser();
-    if (data.user) {
-      const { learner } = await loadSettings(sb, data.user.id);
+    const user = await getAuthUser();
+    if (user) {
+      const { learner } = await loadSettings(sb, user.id);
       retention = learner.study.retention;
       mnemonics = learner.scaffold.mnemonics;
       typing = learner.typing.enabled;

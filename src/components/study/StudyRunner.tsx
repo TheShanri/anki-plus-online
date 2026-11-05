@@ -10,6 +10,7 @@ import type { StudyPayload } from "@/lib/study/types";
 import { typingReminderDue } from "@/lib/study/settings";
 import { setSoundsEnabled, initFallbackBeepFromStorage, emit } from "@/lib/feedback/events";
 import { CardFace } from "@/components/cards/CardFace";
+import { resolveMediaSrc } from "@/components/cards/media";
 import { TypeBox } from "./TypeBox";
 import { Reveal } from "./Reveal";
 import { GearPopover } from "./Scaffolds";
@@ -58,6 +59,18 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const [syncState, setSyncState] = useState<{ pending: number; error: string | null }>({ pending: 0, error: null });
   const [reminder, setReminder] = useState(() => typingReminderDue(initial.settings.typing));
   const started = useRef(false);
+  const warmed = useRef(new Set<string>());
+
+  // Warm the next cards' images (each is an auth check + signed-URL redirect + download) so they paint instantly.
+  useEffect(() => {
+    for (const k of engine.upcomingImageKeys(4)) {
+      if (warmed.current.has(k)) continue;
+      warmed.current.add(k);
+      const img = new Image();
+      img.decoding = "async";
+      img.src = resolveMediaSrc(initial.course.slug, k);
+    }
+  });
 
   useEffect(() => {
     (window as unknown as { __ankiEngine?: StudyEngine }).__ankiEngine = engine; // debug / UI-test hook

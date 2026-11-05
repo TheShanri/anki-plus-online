@@ -242,6 +242,17 @@ export class StudyEngine {
     return this.settings.typing.enabled;
   }
 
+  /** Image keys of the next few queued cards, so the UI can warm them before they're shown. */
+  upcomingImageKeys(n = 4): string[] {
+    const keys: string[] = [];
+    for (const e of this.queue.pending) {
+      const k = e.card.image?.key;
+      if (k && !keys.includes(k)) keys.push(k);
+      if (keys.length >= n) break;
+    }
+    return keys;
+  }
+
   updateSettings(s: LearnerSettings): void {
     this.settings = s;
     this.changed();

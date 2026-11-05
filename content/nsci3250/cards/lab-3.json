@@ -8768,15 +8768,20 @@
   "slug": "lab-3-io-1769007615723-c2",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "primary-auditory-cortex",
   "status": "live",
   "position": 2101,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007615723 cloze 2"
   },
-  "answer": "a 41 and 42",
-  "accept": [],
+  "answer": "41, 42",
+  "accept": [
+   "BA 41, 42",
+   "area 41, 42",
+   "Brodmann area 41, 42",
+   "Brodmann's area 41, 42"
+  ],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
   "w": 1975,
@@ -8856,7 +8861,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Which Brodmann area is this?",
   "followups": []
  },
  {

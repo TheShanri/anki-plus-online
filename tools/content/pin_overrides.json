@@ -770,5 +770,12 @@
 "lab-8-diagrams-io-1770937764507-c5": {
 "status": "live",
 "structure": "trochlear-nucleus"
+},
+"lab-3-io-1769007615723-c2": {
+"status": "live",
+"structure": "primary-auditory-cortex",
+"answer": "41, 42",
+"note": "Brodmann area label (number only); answer is the area number",
+"prompt": "Which Brodmann area is this?"
 }
 }

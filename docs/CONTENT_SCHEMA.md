@@ -116,3 +116,16 @@ Structures on sections are ordinary `pin` cards (with `"tags": ["section"]`).
 
 ### Reserved for later
 `mcq` (choice questions), `spelling` (spelling reps of a structure's name).
+
+## Changes by the content agent (as built)
+- Structures are deduplicated by canonical name across the three lists (one structure, several `lists` entries). Compound list lines were split
+  (e.g. "Posterior vs. Anterior" -> `anterior`, `posterior`; "Caudate : head, body, tail" -> caudate + three children). Extra fields:
+  `abbreviations`, `concept` (true for directions/planes/ideas, no pin expected). Cranial nerves I-XII were added (the Unit 2 list gives only a heading).
+  Seed storage: `structures.synonyms` = synonyms + abbreviations; `info.lists/laterality/parent/abbreviations/concept`. Topic `meta.number/sources`.
+- Topic slugs are unpadded (`lab-13`, `lecture-7`). Card `content` JSON = every card field except slug/kind/topic/structure/status/position.
+- Media keys in cards end in `.webp` (the uploaded object); `media.mjs` finds the original under content-build.
+- Pin cards from Anki: optional `caption` (visible text shapes), `review_note` on drafts, `accept` mirrors the structure's synonyms/abbreviations.
+  Brodmann/Roman-numeral label cards carry a custom `prompt`.
+- Practical cards: pin with `pointer.type "existing"`, `masks: []`, `target: null`, `extra_images`; theory cards also carry `after_pin`, and
+  optional `image/w/h/pointer` when they are stand-alone stations. Pins list dependents in `followup_cards` (card slugs, always) and
+  `followups` (`<structure>:<facet>`, only when the pin has a structure). Theory `format`: type | keywords | tf | choice.

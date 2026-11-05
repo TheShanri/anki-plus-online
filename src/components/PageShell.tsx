@@ -12,8 +12,10 @@ export function PageShell({
   return (
     <section>
       <ConfigNotice />
-      {kicker && <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent-2">{kicker}</p>}
-      <h1 className="mb-6 font-display text-3xl tracking-wide">{title}</h1>
+      <header className="page-head">
+        {kicker && <p className="eyebrow">{kicker}</p>}
+        <h1 className="page-title">{title}</h1>
+      </header>
       {children}
     </section>
   );

@@ -1,0 +1,126 @@
+/* Backgrounds and effects, one scene per theme. Compositor-only: animations touch transform/opacity.
+   No backdrop-filter anywhere. data-effects: full (animated) | subtle (static decor, half strength) | off (flat).
+   prefers-reduced-motion stops every animation regardless of the setting. */
+.bg-scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; contain: strict; background: var(--bg); }
+.bg-scene > .scene { position: absolute; inset: 0; display: none; }
+html[data-theme="uvm-clinical"] .scene-clinical,
+html[data-theme="dark-academia"] .scene-academia,
+html[data-theme="synthwave-cortex"] .scene-synth { display: block; }
+html[data-effects="off"] .bg-scene .deco { display: none; }
+html[data-effects="subtle"] .bg-scene .anim, html[data-effects="off"] .bg-scene .anim { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .bg-scene .anim { animation: none !important; } }
+
+/* ---------------------------------------------------------------- UVM Clinical: quiet, almost flat */
+.scene-clinical .wash {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(21, 71, 52, 0.07), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 0% 0%, rgba(255, 212, 22, 0.07), transparent 70%);
+}
+html[data-mode="dark"] .scene-clinical .wash {
+  background:
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(143, 217, 182, 0.06), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 0% 0%, rgba(255, 212, 22, 0.05), transparent 70%);
+}
+
+/* ---------------------------------------------------------------- Dark Academia: a candlelit library */
+.scene-academia .room {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -8%, rgba(255, 190, 110, 0.12), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 50%, transparent 52%, rgba(0, 0, 0, 0.6) 100%),
+    linear-gradient(180deg, #14100c 0%, #110d0a 60%, #0d0a07 100%);
+}
+.scene-academia .grain {
+  position: absolute; inset: 0; opacity: calc(0.5 * var(--fx) + 0.2);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+.scene-academia .shelf {
+  position: absolute; top: 0; bottom: 0; width: min(15vw, 180px); opacity: calc(0.34 * var(--fx));
+  background:
+    repeating-linear-gradient(90deg, #4a2a1a 0 7px, #2d1b12 7px 10px, #5a2326 10px 16px, #2d1b12 16px 18px, #1f3a2e 18px 25px, #2d1b12 25px 27px, #6a5230 27px 31px, #2d1b12 31px 34px),
+    #1a120c;
+  background-size: 100% 100%;
+}
+.scene-academia .shelf::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(180deg, transparent 0 138px, rgba(0, 0, 0, 0.75) 138px 146px, #3a2718 146px 150px); }
+.scene-academia .shelf-l { left: 0; -webkit-mask-image: linear-gradient(90deg, #000 20%, transparent); mask-image: linear-gradient(90deg, #000 20%, transparent); }
+.scene-academia .shelf-r { right: 0; -webkit-mask-image: linear-gradient(270deg, #000 20%, transparent); mask-image: linear-gradient(270deg, #000 20%, transparent); }
+.scene-academia .candle {
+  position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; will-change: opacity;
+  background: radial-gradient(circle, rgba(255, 170, 80, 0.2), transparent 62%);
+}
+.scene-academia .candle-a { left: -14vmax; bottom: -22vmax; opacity: calc(0.9 * var(--fx)); animation: candle 4.1s ease-in-out infinite alternate; }
+.scene-academia .candle-b { right: -16vmax; bottom: -26vmax; opacity: calc(0.7 * var(--fx)); animation: candle 5.3s ease-in-out -2s infinite alternate; }
+@keyframes candle { 0% { opacity: calc(0.55 * var(--fx)); } 35% { opacity: calc(0.95 * var(--fx)); } 60% { opacity: calc(0.7 * var(--fx)); } 100% { opacity: calc(1 * var(--fx)); } }
+.scene-academia .mote {
+  position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #f3dca4; opacity: 0; will-change: transform, opacity;
+  animation: mote 16s linear infinite;
+}
+@keyframes mote { 0% { transform: translate3d(0, 0, 0); opacity: 0; } 12% { opacity: calc(0.55 * var(--fx)); } 88% { opacity: calc(0.35 * var(--fx)); } 100% { transform: translate3d(36px, -46vh, 0); opacity: 0; } }
+
+/* ---------------------------------------------------------------- Synthwave Cortex: neon horizon, wireframe brain, scrolling grid */
+.scene-synth { --horizon: 62%; }
+.scene-synth .sky {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% var(--horizon), rgba(255, 42, 109, 0.3), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 15% 10%, rgba(185, 103, 255, 0.2), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(5, 217, 232, 0.1), transparent 70%),
+    linear-gradient(180deg, #07000f 0%, #12002a 35%, #2a0848 55%, #46104f var(--horizon), #0b0016 var(--horizon), #080012 100%);
+}
+.scene-synth .stars {
+  position: absolute; inset: 0 0 40% 0; opacity: var(--fx);
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, #fff8, transparent 60%), radial-gradient(1px 1px at 30% 8%, #fff9, transparent 60%),
+    radial-gradient(1.5px 1.5px at 55% 25%, #fffa, transparent 60%), radial-gradient(1px 1px at 72% 12%, #fff7, transparent 60%),
+    radial-gradient(1px 1px at 88% 30%, #fff8, transparent 60%), radial-gradient(1px 1px at 20% 42%, #fff5, transparent 60%),
+    radial-gradient(1.5px 1.5px at 42% 48%, #fff6, transparent 60%), radial-gradient(1px 1px at 64% 40%, #fff6, transparent 60%),
+    radial-gradient(1px 1px at 5% 55%, #fff5, transparent 60%), radial-gradient(1px 1px at 94% 52%, #fff6, transparent 60%);
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes twinkle { from { opacity: calc(0.55 * var(--fx)); } to { opacity: var(--fx); } }
+.scene-synth .halo {
+  position: absolute; left: 50%; top: var(--horizon); width: min(110vw, 900px); height: min(70vw, 560px);
+  margin-left: calc(min(110vw, 900px) / -2); margin-top: calc(min(70vw, 560px) / -1.35);
+  background: radial-gradient(ellipse at 50% 60%, rgba(255, 42, 109, 0.42), rgba(185, 103, 255, 0.18) 45%, transparent 70%);
+  opacity: calc(0.75 * var(--fx)); animation: halo 5s ease-in-out infinite alternate; will-change: opacity;
+}
+@keyframes halo { from { opacity: calc(0.5 * var(--fx)); } to { opacity: calc(0.95 * var(--fx)); } }
+.scene-synth .brain {
+  position: absolute; left: 50%; top: var(--horizon); width: min(74vw, 560px); aspect-ratio: 420 / 290;
+  transform: translate(-50%, -76%); opacity: calc(0.3 + 0.55 * var(--fx));
+}
+.scene-synth .brain svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.scene-synth .ground {
+  position: absolute; left: 0; right: 0; top: var(--horizon); bottom: 0; overflow: hidden;
+  background: linear-gradient(180deg, #14012b 0%, #0b0016 60%, #070010 100%);
+  perspective: 420px; perspective-origin: 50% -6%;
+  border-top: 1px solid rgba(255, 42, 109, 0.8); box-shadow: 0 -1px 18px rgba(255, 42, 109, 0.5);
+}
+.scene-synth .plane { position: absolute; left: -60%; width: 220%; top: 0; height: 200%; transform-origin: 50% 0; transform: rotateX(74deg); }
+.scene-synth .lines {
+  position: absolute; left: 0; right: 0; top: -90px; bottom: 0; opacity: calc(0.35 + 0.65 * var(--fx));
+  background-image: linear-gradient(rgba(185, 103, 255, 0.85) 2px, transparent 2px), linear-gradient(90deg, rgba(185, 103, 255, 0.85) 2px, transparent 2px);
+  background-size: 90px 90px; background-position: center top;
+  animation: grid-flow 2.2s linear infinite; will-change: transform;
+}
+@keyframes grid-flow { from { transform: translateY(0); } to { transform: translateY(90px); } }
+.scene-synth .ground::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 0, 22, 0) 70%, #0b0016 100%), linear-gradient(180deg, rgba(70, 16, 79, 0.0) 0%, transparent 30%); }
+/* wide screens: the brain sits to the right of the reading column so body text never runs over it */
+@media (min-width: 1000px) {
+  .scene-synth .brain { left: 77%; width: min(40vw, 480px); }
+  .scene-synth .halo { left: 77%; width: min(70vw, 640px); margin-left: calc(min(70vw, 640px) / -2); }
+}
+@media (max-width: 640px) { .scene-synth .brain { width: 92vw; opacity: 0.4; } .scene-synth { --horizon: 56%; } }
+
+/* ---------------------------------------------------------------- feedback particles (FxLayer) */
+.fx-layer { position: fixed; inset: 0; z-index: 60; pointer-events: none; overflow: hidden; }
+.fx-p { position: absolute; left: 0; top: 0; will-change: transform, opacity; }
+
+/* Calm during a study session: no moving background while typing, and the scene steps back. */
+html:has(.st-wrap) .bg-scene .anim { animation: none !important; }
+html:has(.st-wrap) .scene-synth .lines { opacity: 0.3; }
+html:has(.st-wrap) .scene-synth .brain { opacity: 0.32; }
+html:has(.st-wrap) .scene-synth .halo { opacity: 0.35; }
+html:has(.st-wrap) .scene-academia .candle { opacity: 0.55; }
+html:has(.st-wrap) .scene-academia .mote { display: none; }

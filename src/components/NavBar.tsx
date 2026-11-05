@@ -1,52 +1,41 @@
 import Link from "next/link";
 import { getViewer } from "@/lib/session";
-
-const LINKS = [
-  { href: "/study", label: "Study" },
-  { href: "/course", label: "Course" },
-  { href: "/atlas", label: "Atlas" },
-  { href: "/settings", label: "Settings" },
-];
+import { NavMenu, type NavLinkItem } from "./NavMenu";
+import { ThemeCycle } from "./theme/ThemeCycle";
 
 export async function NavBar() {
   const viewer = await getViewer();
+  const links: NavLinkItem[] = viewer
+    ? [
+        { href: "/study", label: "Study" },
+        { href: "/course", label: "Course" },
+        { href: "/atlas", label: "Atlas" },
+        { href: "/settings", label: "Settings" },
+      ]
+    : [{ href: "/atlas", label: "Atlas" }];
+  if (viewer && (viewer.role === "professor" || viewer.role === "ta" || viewer.role === "admin")) links.push({ href: "/staff", label: "Staff" });
+  if (viewer?.role === "admin") links.push({ href: "/admin", label: "Admin" });
   return (
-    <header
-      className="sticky top-0 z-10 border-b border-panel-border bg-bg-2"
-      style={{ height: "var(--topbar-h)" }}
-    >
-      <nav className="mx-auto flex h-full max-w-5xl items-center gap-5 px-5">
-        <Link href="/" className="font-display text-sm tracking-[0.2em] text-accent">
-          ANKI+ ONLINE
+    <header className="nav">
+      <nav className="nav-inner" aria-label="Main">
+        <Link href="/" className="brand no-underline">
+          <span className="brand-mark" aria-hidden>A+</span>
+          <span className="brand-name">ANKI+ ONLINE</span>
         </Link>
-        <div className="flex flex-1 items-center gap-4 text-sm">
-          {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="text-text-dim hover:text-text">
-              {l.label}
-            </Link>
-          ))}
-          {viewer && (viewer.role === "professor" || viewer.role === "ta" || viewer.role === "admin") && (
-            <Link href="/staff" className="text-text-dim hover:text-text">
-              Staff
-            </Link>
+        <NavMenu links={links}>
+          <ThemeCycle />
+          {viewer ? (
+            <form action="/api/auth/logout" method="post" className="nav-user">
+              <Link href="/profile" className="nav-profile">{viewer.displayName || viewer.email}</Link>
+              <button className="btn" type="submit">Log out</button>
+            </form>
+          ) : (
+            <div className="nav-user">
+              <Link href="/login" className="btn">Log in</Link>
+              <Link href="/join" className="btn btn-primary">Join</Link>
+            </div>
           )}
-          {viewer?.role === "admin" && (
-            <Link href="/admin" className="text-text-dim hover:text-text">
-              Admin
-            </Link>
-          )}
-        </div>
-        {viewer ? (
-          <form action="/api/auth/logout" method="post" className="flex items-center gap-3 text-sm">
-            <Link href="/profile" className="text-text-dim hover:text-text">{viewer.displayName || viewer.email}</Link>
-            <button className="btn" type="submit">Log out</button>
-          </form>
-        ) : (
-          <div className="flex items-center gap-2">
-            <Link href="/login" className="btn">Log in</Link>
-            <Link href="/join" className="btn btn-primary">Join</Link>
-          </div>
-        )}
+        </NavMenu>
       </nav>
     </header>
   );

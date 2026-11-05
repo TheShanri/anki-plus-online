@@ -1,0 +1,354 @@
+/* ==========================================================================
+   Theme tokens. Three complete identities, switched by data-theme on <html>:
+     uvm-clinical (default) | dark-academia | synthwave-cortex
+   Every colour, font, radius, shadow, focus ring, duration and effect intensity is a CSS variable here.
+   Component code only uses these names (see globals.css for the Tailwind mapping). The names that existed
+   before the themes (--bg, --panel, --accent, --accent-2, --good...) are kept.
+   Also: data-mode="dark" (UVM Clinical dark variant) and data-effects="full|subtle|off".
+   Perf: only transform/opacity are ever animated; no backdrop-filter over animated layers.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- shared (theme-independent) */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --topbar-h: 60px;
+  --fx: 1;
+}
+html[data-effects="subtle"] { --fx: 0.5; }
+html[data-effects="off"] { --fx: 0; }
+
+/* ---------------------------------------------------------------- UVM Clinical (light) */
+:root,
+[data-theme="uvm-clinical"] {
+  --uvm-green: #154734;
+  --uvm-gold: #ffd416;
+
+  --bg: #f2f5f2;
+  --bg-2: #ffffff;
+  --bg-3: #e7ece8;
+  --panel: #ffffff;
+  --panel-solid: #ffffff;
+  --panel-2: #f6f8f6;
+  --panel-border: #d3dcd5;
+  --panel-border-hi: #7aa08c;
+  --text: #16201b;
+  --text-dim: #44524a;
+  --text-faint: #5b6a62;
+
+  --accent: #154734;
+  --accent-2: #1d6a4b;
+  --accent-fill: #154734;
+  --accent-ink: #ffffff;
+  --highlight: #ffd416;
+  --highlight-ink: #154734;
+  --link: #14573c;
+
+  --good: #1b7a4e;
+  --hard: #8a5d00;
+  --again: #b3261e;
+  --easy: #1d5f9e;
+  --new-c: #1d5f9e;
+  --learn-c: #a8431a;
+  --review-c: #1b7a4e;
+
+  /* legacy accent names, mapped to the palette */
+  --pink: var(--accent);
+  --cyan: var(--accent-2);
+  --purple: #5b6a62;
+  --orange: #8a5d00;
+  --yellow: #ffd416;
+  --blue: #1d5f9e;
+
+  --radius: 10px;
+  --radius-sm: 7px;
+  --radius-lg: 14px;
+  --shadow-card: 0 1px 2px rgba(21, 40, 31, 0.06), 0 2px 8px rgba(21, 40, 31, 0.05);
+  --shadow-pop: 0 10px 30px rgba(21, 40, 31, 0.16);
+  --glow-accent: none;
+  --glow-accent-2: none;
+  --text-glow-accent: none;
+  --text-glow-accent-2: none;
+  --focus-ring: 0 0 0 3px rgba(255, 212, 22, 0.9), 0 0 0 5px #154734;
+  --focus-outline: 2px solid #154734;
+  --selection: rgba(255, 212, 22, 0.55);
+  --scrollbar: rgba(21, 71, 52, 0.28);
+
+  --font-display: var(--ff-inter), "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--ff-inter), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--ff-mono), "Cascadia Code", Consolas, monospace;
+  --display-weight: 650;
+  --display-track: -0.015em;
+  --display-case: none;
+  --base-size: 15px;
+  --body-feat: normal;
+
+  --btn-bg: #ffffff;
+  --btn-fg: var(--text);
+  --btn-border: #c3cec7;
+  --btn-hover-border: #154734;
+  --btn-radius: var(--radius-sm);
+  --btn-font: var(--font-body);
+  --btn-size: 14px;
+  --btn-track: 0;
+  --btn-case: none;
+  --btn-weight: 600;
+  --btn-shadow: 0 1px 1px rgba(21, 40, 31, 0.08);
+  --btn-primary-shadow: 0 1px 2px rgba(21, 40, 31, 0.25);
+  --btn-lift: translateY(-1px);
+
+  --hm-l0: #e4eae6;
+  --hm-l1: #c5e3d2;
+  --hm-l2: #8fc7a8;
+  --hm-l3: #46956d;
+  --hm-l4: #1f6a49;
+  --hm-l5: #154734;
+  --hm-today: #154734;
+  --hm-radius: 3px;
+  --hm-glow: none;
+
+  --dur-fast: 120ms;
+  --dur-med: 200ms;
+  --dur-slow: 360ms;
+  color-scheme: light;
+}
+
+/* UVM Clinical, dark variant (optional): same green and gold, deep green-black neutrals */
+html[data-theme="uvm-clinical"][data-mode="dark"],
+[data-theme="uvm-clinical"][data-mode="dark"] {
+  --bg: #0d1612;
+  --bg-2: #12201a;
+  --bg-3: #182a22;
+  --panel: #13211b;
+  --panel-solid: #13211b;
+  --panel-2: #182a22;
+  --panel-border: #28402f;
+  --panel-border-hi: #4f7e63;
+  --text: #e8f0ea;
+  --text-dim: #adbfb3;
+  --text-faint: #8ea296;
+  --accent: #ffd416;
+  --accent-2: #8fd9b6;
+  --accent-fill: #ffd416;
+  --accent-ink: #10251b;
+  --highlight: #ffd416;
+  --highlight-ink: #10251b;
+  --link: #8fd9b6;
+  --good: #6fd6a0;
+  --hard: #f0b94a;
+  --again: #ff8f85;
+  --easy: #7cc0ff;
+  --new-c: #7cc0ff;
+  --learn-c: #ff9d73;
+  --review-c: #6fd6a0;
+  --purple: #8ea296;
+  --orange: #f0b94a;
+  --blue: #7cc0ff;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-pop: 0 14px 34px rgba(0, 0, 0, 0.5);
+  --focus-ring: 0 0 0 3px rgba(255, 212, 22, 0.9);
+  --focus-outline: 2px solid #ffd416;
+  --selection: rgba(255, 212, 22, 0.35);
+  --scrollbar: rgba(143, 217, 182, 0.3);
+  --btn-bg: #182a22;
+  --btn-border: #34503f;
+  --btn-hover-border: #ffd416;
+  --btn-shadow: none;
+  --btn-primary-shadow: none;
+  --hm-l0: #1a2a23;
+  --hm-l1: #20493a;
+  --hm-l2: #2d7656;
+  --hm-l3: #48a578;
+  --hm-l4: #8ad4ae;
+  --hm-l5: #ffd416;
+  --hm-today: #ffd416;
+  color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------- Dark Academia */
+[data-theme="dark-academia"] {
+  --wood: #2a1c12;
+  --parchment: #e8dcc2;
+  --gold: #c9a45c;
+  --gold-bright: #e6c983;
+  --brass: #a8854a;
+  --oxblood: #7d2429;
+  --oxblood-bright: #a8333a;
+
+  --bg: #110d0a;
+  --bg-2: #17110d;
+  --bg-3: #1f1712;
+  --panel: #1a130e;
+  --panel-solid: #1f1712;
+  --panel-2: #231a14;
+  --panel-border: rgba(201, 164, 92, 0.24);
+  --panel-border-hi: rgba(201, 164, 92, 0.5);
+  --text: #eadfc8;
+  --text-dim: #bdac8e;
+  --text-faint: #9a8a70;
+
+  --accent: #d2ae66;
+  --accent-2: #e6c983;
+  --accent-fill: #7d2429;
+  --accent-ink: #f8eed8;
+  --highlight: #e6c983;
+  --highlight-ink: #1d1712;
+  --link: #e6c983;
+
+  --good: #93bb8a;
+  --hard: #d9a35a;
+  --again: #e0806f;
+  --easy: #8fb0dc;
+  --new-c: #8fb0dc;
+  --learn-c: #e68a8f;
+  --review-c: #93bb8a;
+
+  --pink: var(--accent);
+  --cyan: var(--accent-2);
+  --purple: #a8854a;
+  --orange: #d08a4a;
+  --yellow: #ecd08e;
+  --blue: #7fa8dc;
+
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-lg: 10px;
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(230, 201, 131, 0.06);
+  --shadow-pop: 0 22px 60px rgba(0, 0, 0, 0.65);
+  --glow-accent: 0 0 14px rgba(230, 160, 70, 0.22);
+  --glow-accent-2: 0 0 14px rgba(230, 160, 70, 0.18);
+  --text-glow-accent: 0 1px 0 rgba(0, 0, 0, 0.55);
+  --text-glow-accent-2: 0 1px 0 rgba(0, 0, 0, 0.55);
+  --focus-ring: 0 0 0 2px #110d0a, 0 0 0 4px #e6c983;
+  --focus-outline: 2px solid #e6c983;
+  --selection: rgba(201, 164, 92, 0.38);
+  --scrollbar: rgba(201, 164, 92, 0.32);
+
+  --font-display: var(--ff-cormorant), "EB Garamond", Garamond, Georgia, serif;
+  --font-body: var(--ff-garamond), Garamond, Georgia, serif;
+  --font-mono: var(--ff-mono), Consolas, monospace;
+  --display-weight: 600;
+  --display-track: 0.01em;
+  --display-case: none;
+  --base-size: 17px;
+  --body-feat: "liga", "kern", "onum";
+
+  --btn-bg: #231a14;
+  --btn-fg: var(--text);
+  --btn-border: rgba(201, 164, 92, 0.4);
+  --btn-hover-border: #e6c983;
+  --btn-radius: var(--radius-sm);
+  --btn-font: var(--font-display);
+  --btn-size: 16px;
+  --btn-track: 0.06em;
+  --btn-case: none;
+  --btn-weight: 600;
+  --btn-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  --btn-primary-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(230, 201, 131, 0.25);
+  --btn-lift: translateY(-1px);
+
+  --hm-l0: rgba(201, 164, 92, 0.08);
+  --hm-l1: #46321f;
+  --hm-l2: #6a4a2a;
+  --hm-l3: #93693a;
+  --hm-l4: #c0924a;
+  --hm-l5: #ecc872;
+  --hm-today: #f3dca4;
+  --hm-radius: 2px;
+  --hm-glow: none;
+
+  --dur-fast: 160ms;
+  --dur-med: 280ms;
+  --dur-slow: 520ms;
+  color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------- Synthwave Cortex */
+[data-theme="synthwave-cortex"] {
+  --pink: #ff2a6d;
+  --cyan: #05d9e8;
+  --purple: #b967ff;
+  --orange: #ff9e3d;
+  --yellow: #fffb96;
+  --blue: #3d8bff;
+
+  --bg: #0b0016;
+  --bg-2: #1a0533;
+  --bg-3: #2b0b4d;
+  --panel: rgba(20, 5, 40, 0.92);
+  --panel-solid: #170630;
+  --panel-2: rgba(40, 12, 74, 0.62);
+  --panel-border: rgba(185, 103, 255, 0.34);
+  --panel-border-hi: rgba(255, 42, 109, 0.6);
+  --text: #f3e9ff;
+  --text-dim: #bba9db;
+  --text-faint: #9482ba;
+
+  --accent: #ff2a6d;
+  --accent-2: #05d9e8;
+  --accent-fill: #d4104f;
+  --accent-ink: #ffffff;
+  --highlight: #fffb96;
+  --highlight-ink: #1a0533;
+  --link: #05d9e8;
+
+  --good: #3dffa8;
+  --hard: #ff9e3d;
+  --again: #ff5a78;
+  --easy: #05d9e8;
+  --new-c: #4da3ff;
+  --learn-c: #ff6f94;
+  --review-c: #3dffa8;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --radius-lg: 22px;
+  --shadow-card: 0 0 0 1px rgba(185, 103, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-pop: 0 18px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 109, 0.18);
+  --glow-accent: 0 0 6px rgba(255, 42, 109, 0.9), 0 0 18px rgba(255, 42, 109, 0.55), 0 0 42px rgba(255, 42, 109, 0.25);
+  --glow-accent-2: 0 0 6px rgba(5, 217, 232, 0.9), 0 0 18px rgba(5, 217, 232, 0.5), 0 0 42px rgba(5, 217, 232, 0.22);
+  --text-glow-accent: 0 0 4px rgba(255, 42, 109, 0.9), 0 0 14px rgba(255, 42, 109, 0.6);
+  --text-glow-accent-2: 0 0 4px rgba(5, 217, 232, 0.9), 0 0 14px rgba(5, 217, 232, 0.6);
+  --focus-ring: 0 0 0 2px #0b0016, 0 0 0 4px #05d9e8, 0 0 14px rgba(5, 217, 232, 0.6);
+  --focus-outline: 2px solid #05d9e8;
+  --selection: rgba(255, 42, 109, 0.45);
+  --scrollbar: rgba(185, 103, 255, 0.4);
+
+  --font-display: var(--ff-orbitron), "Audiowide", "Segoe UI", sans-serif;
+  --font-body: var(--ff-grotesk), "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--ff-mono), "Cascadia Code", Consolas, monospace;
+  --display-weight: 700;
+  --display-track: 0.06em;
+  --display-case: none;
+  --base-size: 15px;
+  --body-feat: normal;
+
+  --btn-bg: var(--panel-2);
+  --btn-fg: var(--text);
+  --btn-border: var(--panel-border);
+  --btn-hover-border: var(--panel-border-hi);
+  --btn-radius: var(--radius-sm);
+  --btn-font: var(--font-display);
+  --btn-size: 12px;
+  --btn-track: 0.14em;
+  --btn-case: uppercase;
+  --btn-weight: 600;
+  --btn-shadow: none;
+  --btn-primary-shadow: var(--glow-accent);
+  --btn-lift: translateY(-1px);
+
+  --hm-l0: rgba(185, 103, 255, 0.1);
+  --hm-l1: #4b1a7a;
+  --hm-l2: #8a2bb8;
+  --hm-l3: #d42a8f;
+  --hm-l4: #ff2a6d;
+  --hm-l5: #ff9e3d;
+  --hm-today: #05d9e8;
+  --hm-radius: 3px;
+  --hm-glow: 0 0 8px rgba(255, 42, 109, 0.7);
+
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+  --dur-slow: 420ms;
+  color-scheme: dark;
+}

@@ -1,22 +1,29 @@
-import Link from "next/link";
-import { ConfigNotice } from "@/components/ConfigNotice";
+import { HomeDashboard } from "@/components/home/HomeDashboard";
+import { Landing } from "@/components/home/Landing";
+import { loadActivity, loadCourseView, loadPace, streakOf, todayStr } from "@/lib/home/data";
+import { getViewer } from "@/lib/session";
+import { createClient } from "@/lib/supabase/server";
+import { loadUiPrefs } from "@/lib/theme/server";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const viewer = await getViewer();
+  const sb = await createClient();
+  if (!viewer || !sb) return <Landing />;
+  const [view, days, { prefs }] = await Promise.all([loadCourseView(sb, viewer.id), loadActivity(sb), loadUiPrefs()]);
+  const pace = view ? await loadPace(sb, view.course.id) : null;
+  const today = todayStr();
   return (
-    <div className="py-10">
-      <ConfigNotice />
-      <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent-2">Neuroanatomy, typed from memory</p>
-      <h1 className="mt-3 font-display text-5xl leading-tight tracking-wide" style={{ textShadow: "var(--text-glow-accent)" }}>
-        ANKI PLUS Online
-      </h1>
-      <p className="mt-5 max-w-xl text-lg text-text-dim">
-        Type-the-answer flashcards for your anatomy course, scheduled with FSRS so you review each structure just
-        before you would forget it. Your professor sees your progress and time on task.
-      </p>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Link href="/login" className="btn">Log in</Link>
-        <Link href="/join" className="btn btn-primary">Join with course code</Link>
-      </div>
-    </div>
+    <HomeDashboard
+      name={viewer.displayName}
+      view={view}
+      days={days}
+      today={today}
+      streak={streakOf(days, today)}
+      pace={pace}
+      goal={prefs.dailyGoal}
+      showStreaks={view ? view.learner.scaffold.streaks : true}
+    />
   );
 }

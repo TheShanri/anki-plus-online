@@ -149,15 +149,25 @@ export function scaffold(answer: string, from: number, step: number, hintEnd = 0
   return out;
 }
 
-/** Text for the rung help line. */
+/** "horn", "horn and of", "horn, of and lateral" */
+function listWords(ws: string[]): string {
+  if (ws.length <= 1) return ws[0] ?? "";
+  return `${ws.slice(0, -1).join(", ")} and ${ws[ws.length - 1]}`;
+}
+
+/** Text for the rung help line: what to do with the scaffold on screen. */
 export function helpText(step: number, answer: string): string {
   const r = step >> 1;
-  const base = ["Copy: type what you see", "Skeleton: fill in the vowels", "First letters: finish each word"][r] ?? "";
+  const base = ["Copy: type what you see", "Skeleton: fill in the missing vowels", "First letters: finish each word"][r] ?? "";
   if (!(step & 1) || !answer) return base;
   const { units, fade } = levels(answer, step);
   const ws = units.filter((_, k) => fade.has(k)).map((u) => answer.slice(u.start, u.end));
-  const nextName = ["loses its vowels", "keeps just its first letter", "shows only its shape"][r];
-  return `${RUNGS[r]} > ${RUNGS[r + 1]}: fading gently, ${ws.length === 1 && units.length === 2 && units[0].front ? "the end of the word" : ws.join(" and ")} ${nextName}`;
+  const backHalf = ws.length === 1 && units.length === 2 && units[0].front;
+  const what = backHalf ? "the end of the word" : listWords(ws);
+  const many = !backHalf && ws.length > 1;
+  if (r === 0) return `Copy what you see; fill in the missing vowels ${backHalf ? "at the end of the word" : "in " + what}`;
+  if (r === 1) return `Fill in the missing vowels; ${what} ${many ? "show" : "shows"} only the first letter`;
+  return `Finish each word; ${what} ${many ? "are" : "is"} left blank`;
 }
 
 /** The "next time ..." text for a move from `step` to `next`. */

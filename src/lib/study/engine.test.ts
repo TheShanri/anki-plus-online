@@ -335,3 +335,12 @@ test("look-then-type wants the whole answer as shown, not a shorter accepted syn
   h.e.retypeInput("Anterior horn of lateral ventricle");
   assert.equal(h.e.cur!.retype!.done, true);
 });
+
+test("with a scaffold showing, the box follows the shown answer only (no synonym swaps the ghost)", async () => {
+  const c = card("Inferior horn of lateral ventricle", { accept: ["inferior horn of the lateral ventricle"] });
+  const h = harness(payload([c], { states: { [c.id]: { user_id: "u", card_id: c.id, due: new Date(0).toISOString(), stability: 1, difficulty: 5, elapsed_days: 1, scheduled_days: 1, learning_steps: 0, reps: 2, lapses: 0, state: 2, last_review: new Date(-86400000).toISOString() } }, ladders: { [c.id]: { card_id: c.id, step: 2, clean_streak: 0, last_clean_at: null } } }));
+  h.e.start();
+  assert.equal(h.e.cur!.practice, true);
+  h.type("Inferior horn of t");
+  assert.equal(h.e.cur!.typer!.state, "bad"); // "the" is not in the shown answer
+});

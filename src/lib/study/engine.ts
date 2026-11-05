@@ -423,12 +423,14 @@ export class StudyEngine {
     let spots: TrapSpot[] = [];
     const promptLen = (card.prompt + (card.vignette ?? "")).length;
     if (mode === "type") {
-      const variants = answerVariants(card.answer, card.accept, { requireSide: card.requireSide, max: 96 });
+      // With a scaffold showing (copy / skeleton / first letters) the box follows exactly the answer it shows, so a
+      // synonym cannot swap the ghost mid-word ("of the lateral" appearing only after "the" was typed).
+      const variants = practice ? retypeVariants(card) : answerVariants(card.answer, card.accept, { requireSide: card.requireSide, max: 96 });
       const hintsOn = sc.hints;
       const relearn = state?.state === 3;
       typer = new Typer({
         variants,
-        decorative: decorativeKeys(card.answer, card.accept, { requireSide: card.requireSide, max: 96 }),
+        decorative: decorativeKeys(card.answer, practice ? [] : card.accept, { requireSide: card.requireSide, max: 96 }),
         promptLen,
         mode: "grade",
         params: { hintAuto: hintsOn },

@@ -10,6 +10,10 @@ export type AtlasEntry = {
   bbox: [number[], number[]];
   centroid: number[];
   bytes?: number;
+  /** Nearest curriculum structures (bbox gap), precomputed. */
+  neighbors?: string[];
+  /** Mesh placed from the MNI atlases by registration (not native Z-Anatomy geometry). */
+  registered?: boolean;
   /** Member structure ids (groups, and meshes that also head a Z-Anatomy group such as the midbrain). */
   members?: string[];
 };
@@ -26,4 +30,11 @@ export type AtlasMapEntry = {
   fallbackParentId?: string;
   approximate: boolean;
   synonyms: string[];
+  /** Curriculum structure slug (content/nsci3250/structures.json). */
+  slug?: string;
+  /** Quality of the MRI-slice label, null when there is none. */
+  slices?: "exact" | "derived" | "regional" | null;
+  /** Where the structure is shown exactly: "3d" and/or "slices". */
+  exactIn?: string[];
+  registered?: boolean;
 };

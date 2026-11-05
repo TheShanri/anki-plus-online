@@ -11,6 +11,11 @@
    "Tentorium cerebelli",
    "Spinal dura",
    "Dura spinalis"
+  ],
+  "slug": "dura-mater",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Falx cerebri": {
@@ -18,26 +23,42 @@
    "falx-cerebri"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "falx-cerebri",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Tentorium cerebelli": {
   "meshIds": [
    "tentorium-cerebelli"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "tentorium-cerebelli",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Arachnoid mater": {
   "meshIds": [],
   "approximate": true,
   "synonyms": [],
-  "fallbackParentId": "meninges"
+  "fallbackParentId": "meninges",
+  "slug": "arachnoid-mater",
+  "slices": null,
+  "exactIn": []
  },
  "Pia mater": {
   "meshIds": [],
   "approximate": true,
   "synonyms": [],
-  "fallbackParentId": "meninges"
+  "fallbackParentId": "meninges",
+  "slug": "pia-mater",
+  "slices": null,
+  "exactIn": []
  },
  "Meningeal blood vessels": {
   "meshIds": [
@@ -49,7 +70,10 @@
    "Falx cerebri",
    "Tentorium cerebelli"
   ],
-  "fallbackParentId": "meninges"
+  "fallbackParentId": "meninges",
+  "slug": "meningeal-blood-vessels",
+  "slices": null,
+  "exactIn": []
  },
  "Cerebral blood vessels": {
   "meshIds": [
@@ -59,6 +83,11 @@
   "synonyms": [
    "Cerebral arterial circle",
    "Circulus arteriosus cerebri"
+  ],
+  "slug": "cerebral-blood-vessels",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Cerebral Cortex (Cerebrum)": {
@@ -87,6 +116,12 @@
   "approximate": false,
   "synonyms": [
    "Trucus encephali"
+  ],
+  "slug": "brainstem",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Cerebellum": {
@@ -94,7 +129,13 @@
    "cerebellum"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "cerebellum",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Lateral ventricle": {
   "meshIds": [
@@ -103,69 +144,129 @@
   "approximate": false,
   "synonyms": [
    "Ventriculus lateralis"
+  ],
+  "slug": "lateral-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Anterior horn": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-anterior-horn-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "anterior-horn-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Body": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-body-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "body-of-corpus-callosum",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Inferior horn": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-inferior-horn-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "inferior-horn-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Posterior horn": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-posterior-horn-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "posterior-horn-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Atrium or trigone": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-atrium-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "atrium-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Septum pellucidum": {
   "meshIds": [
    "septum-pellucidum"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "septum-pellucidum",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Foramina of Monro (singular: foramen)": {
   "meshIds": [
@@ -188,6 +289,12 @@
   "approximate": false,
   "synonyms": [
    "Ventriculus tertius"
+  ],
+  "slug": "third-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Cerebral aqueduct": {
@@ -198,6 +305,12 @@
   "synonyms": [
    "Aqueduct of midbrain",
    "Aquaeductus mesencephali"
+  ],
+  "slug": "cerebral-aqueduct",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Fourth ventricle": {
@@ -207,6 +320,12 @@
   "approximate": false,
   "synonyms": [
    "Ventriculus quartus"
+  ],
+  "slug": "fourth-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Foramina of Magendie and Luschka (medial and lateral apertures)": {
@@ -227,6 +346,11 @@
   "approximate": false,
   "synonyms": [
    "Plexus chorioideus"
+  ],
+  "slug": "choroid-plexus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Arachnoid granulations": {
@@ -238,7 +362,10 @@
    "Superior sagittal sinus",
    "Sinus sagittalis superior"
   ],
-  "fallbackParentId": "meninges"
+  "fallbackParentId": "meninges",
+  "slug": "arachnoid-granulations",
+  "slices": null,
+  "exactIn": []
  },
  "Superior sagittal sinus": {
   "meshIds": [
@@ -247,6 +374,11 @@
   "approximate": false,
   "synonyms": [
    "Sinus sagittalis superior"
+  ],
+  "slug": "superior-sagittal-sinus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Cerebral cortex": {
@@ -266,6 +398,11 @@
    "Lobus parietalis",
    "Temporal lobe",
    "Lobus temporalis"
+  ],
+  "slug": "cerebral-cortex",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Corpus callosum": {
@@ -273,7 +410,13 @@
    "corpus-callosum"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "corpus-callosum",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Basal ganglia (caudate, putamen, globus pallidus)": {
   "meshIds": [
@@ -294,7 +437,13 @@
    "hippocampus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "hippocampus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Amygdala": {
   "meshIds": [
@@ -304,6 +453,12 @@
   "synonyms": [
    "Amygdaloid body",
    "Corpus amygdaloideum"
+  ],
+  "slug": "amygdala",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Parahippocampal gyrus": {
@@ -314,6 +469,12 @@
   "synonyms": [
    "Medial occipitotemporal gyrus (Parahippocampal)",
    "Gyrus occipitotemporalis medialis"
+  ],
+  "slug": "parahippocampal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Uncus": {
@@ -325,21 +486,36 @@
    "Medial occipitotemporal gyrus (Parahippocampal)",
    "Gyrus occipitotemporalis medialis"
   ],
-  "fallbackParentId": "limbic-lobe"
+  "fallbackParentId": "limbic-lobe",
+  "slug": "uncus",
+  "slices": null,
+  "exactIn": []
  },
  "Thalamus": {
   "meshIds": [
    "thalamus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "thalamus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Hypothalamus": {
   "meshIds": [
    "hypothalamus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "hypothalamus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Massa intermedia/ Interthalamic adhesion": {
   "meshIds": [
@@ -358,6 +534,11 @@
   "approximate": false,
   "synonyms": [
    "Chiasma opticum"
+  ],
+  "slug": "optic-chiasm",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Mammillary bodies": {
@@ -368,6 +549,12 @@
   "synonyms": [
    "Mamillary body",
    "Corpus mammillare"
+  ],
+  "slug": "mammillary-bodies",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Pituitary Stalk (usually ripped, know general location)": {
@@ -387,6 +574,11 @@
   "approximate": false,
   "synonyms": [
    "Mesencephalon"
+  ],
+  "slug": "midbrain",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Pons": {
@@ -394,7 +586,13 @@
    "pons"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "pons",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Medulla": {
   "meshIds": [
@@ -403,6 +601,12 @@
   "approximate": false,
   "synonyms": [
    "Medulla oblongata"
+  ],
+  "slug": "medulla",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Primary Motor Cortex (Brodmann’s area 4)": {
@@ -440,6 +644,11 @@
    "Pars opercularis gyri frontalis inferioris",
    "Triangular part of inferior frontal gyrus",
    "Pars triangularis gyri frontalis inferioris"
+  ],
+  "slug": "broca-s-area",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Anterior Cingulate Cortex": {
@@ -450,7 +659,10 @@
   "synonyms": [
    "Cingulate gyrus and sulcus (Middle anterior part)"
   ],
-  "fallbackParentId": "limbic-lobe"
+  "fallbackParentId": "limbic-lobe",
+  "slug": "anterior-cingulate-cortex",
+  "slices": "regional",
+  "exactIn": []
  },
  "Dorsolateral Prefrontal Cortex": {
   "meshIds": [
@@ -461,7 +673,10 @@
    "Middle frontal gyrus",
    "Gyrus frontalis medius"
   ],
-  "fallbackParentId": "frontal-lobe"
+  "fallbackParentId": "frontal-lobe",
+  "slug": "dorsolateral-prefrontal-cortex",
+  "slices": "regional",
+  "exactIn": []
  },
  "Orbitofrontal Cortex": {
   "meshIds": [
@@ -471,6 +686,12 @@
   "synonyms": [
    "Orbital gyri",
    "Gyri orbitales"
+  ],
+  "slug": "orbitofrontal-cortex",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Ventromedial Prefrontal Cortex": {
@@ -485,7 +706,10 @@
    "Orbital gyri",
    "Gyri orbitales"
   ],
-  "fallbackParentId": "frontal-lobe"
+  "fallbackParentId": "frontal-lobe",
+  "slug": "ventromedial-prefrontal-cortex",
+  "slices": "regional",
+  "exactIn": []
  },
  "Anterior Perforated Substance": {
   "meshIds": [
@@ -496,7 +720,10 @@
    "Basal forebrain",
    "Pars basalis telencephali"
   ],
-  "fallbackParentId": "basal-forebrain"
+  "fallbackParentId": "basal-forebrain",
+  "slug": "anterior-perforated-substance",
+  "slices": null,
+  "exactIn": []
  },
  "Primary Somatosensensory Cortex (BA 3,1,2)": {
   "meshIds": [
@@ -589,7 +816,10 @@
    "Supramarginal gyrus",
    "Gyrus supramarginalis"
   ],
-  "fallbackParentId": "temporal-lobe"
+  "fallbackParentId": "temporal-lobe",
+  "slug": "wernicke-s-area",
+  "slices": null,
+  "exactIn": []
  },
  "Temporal lobe general association area": {
   "meshIds": [
@@ -599,6 +829,11 @@
   "synonyms": [
    "Temporal lobe",
    "Lobus temporalis"
+  ],
+  "slug": "temporal-lobe-general-association-area",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Association Fibers": {
@@ -610,7 +845,12 @@
    "White matter of telencephalon",
    "Substantia alba telencephali"
   ],
-  "fallbackParentId": "white-matter-of-telencephalon"
+  "fallbackParentId": "white-matter-of-telencephalon",
+  "slug": "association-fibers",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Commissural Fibers": {
   "meshIds": [
@@ -625,6 +865,12 @@
    "Commissura anterior",
    "Hippocampal commissure",
    "Commissura hippocampi"
+  ],
+  "slug": "commissural-fibers",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Projection Fibers": {
@@ -636,7 +882,12 @@
    "White matter of telencephalon",
    "Substantia alba telencephali"
   ],
-  "fallbackParentId": "white-matter-of-telencephalon"
+  "fallbackParentId": "white-matter-of-telencephalon",
+  "slug": "projection-fibers",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Anterior Commissure": {
   "meshIds": [
@@ -645,6 +896,12 @@
   "approximate": false,
   "synonyms": [
    "Commissura anterior"
+  ],
+  "slug": "anterior-commissure",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Corpus Callosum": {
@@ -652,18 +909,34 @@
    "corpus-callosum"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "corpus-callosum",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Internal Capsule": {
   "meshIds": [
-   "white-matter-of-telencephalon"
+   "mni-internal-capsule"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "White matter of telencephalon",
    "Substantia alba telencephali"
   ],
-  "fallbackParentId": "white-matter-of-telencephalon"
+  "fallbackParentId": "white-matter-of-telencephalon",
+  "slug": "internal-capsule",
+  "approxMeshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Interhemispheric fissure": {
   "meshIds": [
@@ -673,7 +946,10 @@
   "synonyms": [
    "Falx cerebri"
   ],
-  "fallbackParentId": "cerebrum"
+  "fallbackParentId": "cerebrum",
+  "slug": "interhemispheric-fissure",
+  "slices": null,
+  "exactIn": []
  },
  "Lateral fissure": {
   "meshIds": [
@@ -686,6 +962,11 @@
    "Lat_Fis-post",
    "Lat_Fis-ant-Horizont",
    "Lat_Fis-ant-Vertical"
+  ],
+  "slug": "lateral-fissure",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Central sulcus": {
@@ -695,6 +976,11 @@
   "approximate": false,
   "synonyms": [
    "Sulcus centralis"
+  ],
+  "slug": "central-sulcus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Parieto-occipital fissure": {
@@ -705,6 +991,11 @@
   "synonyms": [
    "Parieto-occipital sulcus",
    "Sulcus parietooccipitalis"
+  ],
+  "slug": "parieto-occipital-fissure",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Intraparietal fissure": {
@@ -715,6 +1006,11 @@
   "synonyms": [
    "Intraparietal sulcus",
    "Sulcus intraparietalis"
+  ],
+  "slug": "intraparietal-fissure",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Calcarine fissure": {
@@ -725,6 +1021,11 @@
   "synonyms": [
    "Calcarine sulcus",
    "Sulcus calcarinus"
+  ],
+  "slug": "calcarine-fissure",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Superior, Middle Inferior Frontal Gyri": {
@@ -759,6 +1060,12 @@
    "Cingulate gyrus and sulcus (Posterior dorsal part)",
    "Cingulate gyrus (Posteroventral part)",
    "Gyrus cinguli"
+  ],
+  "slug": "cingulate-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Precentral Gyrus": {
@@ -768,6 +1075,12 @@
   "approximate": false,
   "synonyms": [
    "Gyrus precentralis"
+  ],
+  "slug": "precentral-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Postcentral Gyrus": {
@@ -777,6 +1090,12 @@
   "approximate": false,
   "synonyms": [
    "Gyrus postcentralis"
+  ],
+  "slug": "postcentral-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Superior Parietal Lobule": {
@@ -786,6 +1105,12 @@
   "approximate": false,
   "synonyms": [
    "Lobulus parietalis superior"
+  ],
+  "slug": "superior-parietal-lobule",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Inferior Parietal Lobule": {
@@ -799,6 +1124,12 @@
    "Gyrus supramarginalis",
    "Angular gyrus",
    "Gyrus angularis"
+  ],
+  "slug": "inferior-parietal-lobule",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Superior, Middle, Inferior Temporal Gyri": {
@@ -825,6 +1156,12 @@
   "synonyms": [
    "Transverse temporal gyri",
    "Gyri temporales transversi"
+  ],
+  "slug": "transverse-temporal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Parahippocampal Gyrus": {
@@ -835,6 +1172,12 @@
   "synonyms": [
    "Medial occipitotemporal gyrus (Parahippocampal)",
    "Gyrus occipitotemporalis medialis"
+  ],
+  "slug": "parahippocampal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Dura, Arachnoid and Pia layers of meninges": {
@@ -859,14 +1202,22 @@
   "synonyms": [
    "Cauda equina"
   ],
-  "fallbackParentId": "spinal-cord"
+  "fallbackParentId": "spinal-cord",
+  "slug": "conus-medullaris",
+  "slices": null,
+  "exactIn": []
  },
  "Cauda Equina": {
   "meshIds": [
    "cauda-equina"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "cauda-equina",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Filum Terminale": {
   "meshIds": [
@@ -876,7 +1227,10 @@
   "synonyms": [
    "Cauda equina"
   ],
-  "fallbackParentId": "spinal-cord"
+  "fallbackParentId": "spinal-cord",
+  "slug": "filum-terminale",
+  "slices": null,
+  "exactIn": []
  },
  "Denticulate ligaments": {
   "meshIds": [
@@ -887,7 +1241,10 @@
    "Spinal dura",
    "Dura spinalis"
   ],
-  "fallbackParentId": "spinal-dura"
+  "fallbackParentId": "spinal-dura",
+  "slug": "denticulate-ligaments",
+  "slices": null,
+  "exactIn": []
  },
  "Dorsal and Ventral Rootlets and Roots": {
   "meshIds": [
@@ -910,6 +1267,11 @@
   "synonyms": [
    "Spinal ganglion",
    "Ganglion spinale"
+  ],
+  "slug": "dorsal-root-ganglion",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Dural sleeves": {
@@ -921,7 +1283,10 @@
    "Spinal dura",
    "Dura spinalis"
   ],
-  "fallbackParentId": "spinal-dura"
+  "fallbackParentId": "spinal-dura",
+  "slug": "dural-sleeves",
+  "slices": null,
+  "exactIn": []
  },
  "Spinal Nerves": {
   "meshIds": [
@@ -935,7 +1300,10 @@
    "Posterior root of spinal nerve",
    "Radix posterior nervi spinalis"
   ],
-  "fallbackParentId": "spinal-nerves"
+  "fallbackParentId": "spinal-nerves",
+  "slug": "spinal-nerves",
+  "slices": null,
+  "exactIn": []
  },
  "Dorsal and Ventral Rami": {
   "meshIds": [
@@ -959,6 +1327,11 @@
   "synonyms": [
    "Posterior horn of spinal cord",
    "Cornu posterius medullae spinalis"
+  ],
+  "slug": "dorsal-horn",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Ventral Horns": {
@@ -969,6 +1342,11 @@
   "synonyms": [
    "Anterior horn of spinal cord",
    "Cornu anterius medullae spinalis"
+  ],
+  "slug": "ventral-horn",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Lateral Horn": {
@@ -980,7 +1358,10 @@
    "Intermediolateral nucleus",
    "Nucleus intermediolateralis"
   ],
-  "fallbackParentId": "spinal-cord"
+  "fallbackParentId": "spinal-cord",
+  "slug": "lateral-horn",
+  "slices": null,
+  "exactIn": []
  },
  "Intermediate Zone": {
   "meshIds": [
@@ -996,6 +1377,11 @@
    "Nucleus intermediomedialis",
    "Intermediolateral nucleus",
    "Nucleus intermediolateralis"
+  ],
+  "slug": "intermediate-zone",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Dorsal Columns": {
@@ -1009,6 +1395,11 @@
    "Fasciculus gracilis",
    "Cuneate fasciculus",
    "Fasciculus cuneatus"
+  ],
+  "slug": "dorsal-columns",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Fasciculus Gracilis": {
@@ -1018,6 +1409,11 @@
   "approximate": false,
   "synonyms": [
    "Gracile fasciculus"
+  ],
+  "slug": "fasciculus-gracilis",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Fasciculus Cuneatus": {
@@ -1027,6 +1423,11 @@
   "approximate": false,
   "synonyms": [
    "Cuneate fasciculus"
+  ],
+  "slug": "fasciculus-cuneatus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Anterolateral Spinothalamic Tract": {
@@ -1040,6 +1441,11 @@
    "Tractus spinothalamicus anterior",
    "Lateral spinothalamic tract",
    "Tractus spinothalamicus lateralis"
+  ],
+  "slug": "anterolateral-spinothalamic-tract",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Dorsal Spinocerebellar Tract": {
@@ -1050,6 +1456,11 @@
   "synonyms": [
    "Posterior spinocerebellar tract",
    "Tractus spinocerebellaris posterior"
+  ],
+  "slug": "dorsal-spinocerebellar-tract",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "DREZ (lateral & medial)": {
@@ -1072,7 +1483,10 @@
    "Posterior horn of spinal cord",
    "Cornu posterius medullae spinalis"
   ],
-  "fallbackParentId": "posterior-horn-of-spinal-cord"
+  "fallbackParentId": "posterior-horn-of-spinal-cord",
+  "slug": "marginal-nucleus",
+  "slices": null,
+  "exactIn": []
  },
  "Substantia gelatinosa": {
   "meshIds": [
@@ -1083,14 +1497,22 @@
    "Posterior horn of spinal cord",
    "Cornu posterius medullae spinalis"
   ],
-  "fallbackParentId": "posterior-horn-of-spinal-cord"
+  "fallbackParentId": "posterior-horn-of-spinal-cord",
+  "slug": "substantia-gelatinosa",
+  "slices": null,
+  "exactIn": []
  },
  "Nucleus proprius": {
   "meshIds": [
    "nucleus-proprius"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "nucleus-proprius",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Column of Clarke (Nucleus dorsalis)": {
   "meshIds": [
@@ -1112,7 +1534,10 @@
    "Anterior horn of spinal cord",
    "Cornu anterius medullae spinalis"
   ],
-  "fallbackParentId": "grey-matter-of-spinal-cord"
+  "fallbackParentId": "grey-matter-of-spinal-cord",
+  "slug": "ventral-commissure-of-spinal-cord",
+  "slices": null,
+  "exactIn": []
  },
  "Anterior nucleus": {
   "meshIds": [
@@ -1121,6 +1546,12 @@
   "approximate": false,
   "synonyms": [
    "Thalamus"
+  ],
+  "slug": "anterior-nucleus-of-thalamus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Pulvinar": {
@@ -1130,6 +1561,12 @@
   "approximate": false,
   "synonyms": [
    "Thalamus"
+  ],
+  "slug": "pulvinar",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Medial geniculate nucleus": {
@@ -1140,6 +1577,12 @@
   "synonyms": [
    "Medial geniculate body",
    "Corpus geniculatum mediale"
+  ],
+  "slug": "medial-geniculate-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Lateral geniculate nucleus": {
@@ -1150,6 +1593,12 @@
   "synonyms": [
    "Lateral geniculate body",
    "Corpus geniculatum laterale"
+  ],
+  "slug": "lateral-geniculate-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Epithalamus": {
@@ -1159,20 +1608,36 @@
   "approximate": false,
   "synonyms": [
    "Habenula"
+  ],
+  "slug": "epithalamus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Pineal gland": {
   "meshIds": [
-   "habenula",
-   "posterior-commissure"
+   "mni-pineal-gland"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Habenula",
    "Posterior commissure",
    "Commissura posterior"
   ],
-  "fallbackParentId": "diencephalon"
+  "fallbackParentId": "diencephalon",
+  "slug": "pineal-gland",
+  "approxMeshIds": [
+   "habenula",
+   "posterior-commissure"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Optic tracts": {
   "meshIds": [
@@ -1182,6 +1647,12 @@
   "synonyms": [
    "Optic tract",
    "Tractus opticus"
+  ],
+  "slug": "optic-tract",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Pituitary stalk": {
@@ -1192,7 +1663,10 @@
   "synonyms": [
    "Hypothalamus"
   ],
-  "fallbackParentId": "hypothalamus"
+  "fallbackParentId": "hypothalamus",
+  "slug": "pituitary-stalk",
+  "slices": null,
+  "exactIn": []
  },
  "Superior Colliculus": {
   "meshIds": [
@@ -1201,6 +1675,12 @@
   "approximate": false,
   "synonyms": [
    "Colliculus superior"
+  ],
+  "slug": "superior-colliculus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Inferior Colliculus": {
@@ -1210,6 +1690,12 @@
   "approximate": false,
   "synonyms": [
    "Colliculus inferior"
+  ],
+  "slug": "inferior-colliculus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Brachium of the Inferior Colliculus": {
@@ -1220,6 +1706,11 @@
   "synonyms": [
    "Inferior colliculus",
    "Colliculus inferior"
+  ],
+  "slug": "brachium-of-the-inferior-colliculus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Cerebral Peduncles": {
@@ -1230,6 +1721,12 @@
   "synonyms": [
    "Base of peduncle",
    "Basis pedunculi"
+  ],
+  "slug": "cerebral-peduncles",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Interpeduncular Fossa": {
@@ -1239,6 +1736,11 @@
   "approximate": false,
   "synonyms": [
    "Fossa interpeduncularis"
+  ],
+  "slug": "interpeduncular-fossa",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Cerebellar Peduncles": {
@@ -1250,7 +1752,12 @@
    "Superior cerebellar peduncle",
    "Pedunculus cerebellaris superior"
   ],
-  "fallbackParentId": "brainstem"
+  "fallbackParentId": "brainstem",
+  "slug": "cerebellar-peduncles",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Superior Cerebellar Peduncle": {
   "meshIds": [
@@ -1259,27 +1766,53 @@
   "approximate": false,
   "synonyms": [
    "Pedunculus cerebellaris superior"
+  ],
+  "slug": "superior-cerebellar-peduncle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Middle Cerebellar Peduncle": {
   "meshIds": [
-   "pons"
+   "mni-middle-cerebellar-peduncle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "middle-cerebellar-peduncle",
+  "approxMeshIds": [
+   "pons"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Inferior Cerebellar Peduncle": {
   "meshIds": [
-   "medulla-oblongata"
+   "mni-inferior-cerebellar-peduncle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "inferior-cerebellar-peduncle",
+  "approxMeshIds": [
+   "medulla-oblongata"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Transverse fibers of the pons": {
   "meshIds": [
@@ -1289,7 +1822,10 @@
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "transverse-fibers-of-the-pons",
+  "slices": "regional",
+  "exactIn": []
  },
  "Facial Colliculus": {
   "meshIds": [
@@ -1300,7 +1836,10 @@
    "Nucleus of abducens nerve",
    "Nucleus nervi abducentis"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "facial-colliculus",
+  "slices": "regional",
+  "exactIn": []
  },
  "Pyramids": {
   "meshIds": [
@@ -1310,6 +1849,12 @@
   "synonyms": [
    "Pyramid of medulla oblongata",
    "Pyramis medullae oblongatae"
+  ],
+  "slug": "pyramids",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Olives": {
@@ -1320,6 +1865,12 @@
   "synonyms": [
    "Olive",
    "Oliva"
+  ],
+  "slug": "olives",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Cuneate and Gracile Tubercles": {
@@ -1340,7 +1891,10 @@
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "obex",
+  "slices": "regional",
+  "exactIn": []
  },
  "Area postrema": {
   "meshIds": [
@@ -1350,7 +1904,10 @@
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "area-postrema",
+  "slices": "regional",
+  "exactIn": []
  },
  "3rd ventricle": {
   "meshIds": [
@@ -1360,6 +1917,12 @@
   "synonyms": [
    "Third ventricle",
    "Ventriculus tertius"
+  ],
+  "slug": "third-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Cerebral Aqueduct": {
@@ -1370,6 +1933,12 @@
   "synonyms": [
    "Aqueduct of midbrain",
    "Aquaeductus mesencephali"
+  ],
+  "slug": "cerebral-aqueduct",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "4th Ventricle": {
@@ -1380,6 +1949,12 @@
   "synonyms": [
    "Fourth ventricle",
    "Ventriculus quartus"
+  ],
+  "slug": "fourth-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Interpeduncular cistern": {
@@ -1390,6 +1965,11 @@
   "synonyms": [
    "Interpeduncular fossa",
    "Fossa interpeduncularis"
+  ],
+  "slug": "interpeduncular-cistern",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "(Glossopharyngeal and vagus cannot be easily distinguished from one another; accessory is not present on our brainstems)": {
@@ -1410,16 +1990,32 @@
   "synonyms": [
    "Superior colliculus",
    "Colliculus superior"
+  ],
+  "slug": "superior-colliculus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Periaqueductal grey matter": {
   "meshIds": [
-   "aqueduct-of-midbrain"
+   "mni-periaqueductal-gray"
   ],
   "approximate": false,
   "synonyms": [
    "Aqueduct of midbrain",
    "Aquaeductus mesencephali"
+  ],
+  "slug": "periaqueductal-gray",
+  "approxMeshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Red nucleus": {
@@ -1429,6 +2025,12 @@
   "approximate": false,
   "synonyms": [
    "Nucleus ruber"
+  ],
+  "slug": "red-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Oculomotor nucleus": {
@@ -1439,6 +2041,11 @@
   "synonyms": [
    "Nucleus of oculomotor nerve",
    "Nucleus nervi oculomotorius"
+  ],
+  "slug": "oculomotor-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Edinger-Westphal nucleus": {
@@ -1449,18 +2056,33 @@
   "synonyms": [
    "Accessory nucleus of oculomotor nerve",
    "Nucleus accessorius nervi oculomotorii"
+  ],
+  "slug": "edinger-westphal-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Substantia nigra": {
   "meshIds": [
-   "base-of-peduncle"
+   "mni-substantia-nigra"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Base of peduncle",
    "Basis pedunculi"
   ],
-  "fallbackParentId": "midbrain"
+  "fallbackParentId": "midbrain",
+  "slug": "substantia-nigra",
+  "approxMeshIds": [
+   "base-of-peduncle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Cerebral peduncles": {
   "meshIds": [
@@ -1470,6 +2092,12 @@
   "synonyms": [
    "Base of peduncle",
    "Basis pedunculi"
+  ],
+  "slug": "cerebral-peduncles",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Interpeduncular fossa": {
@@ -1479,6 +2107,11 @@
   "approximate": false,
   "synonyms": [
    "Fossa interpeduncularis"
+  ],
+  "slug": "interpeduncular-fossa",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "CN III, Oculomotor nerve": {
@@ -1502,18 +2135,33 @@
    "Tractus spinothalamicus anterior",
    "Lateral spinothalamic tract",
    "Tractus spinothalamicus lateralis"
+  ],
+  "slug": "anterolateral-spinothalamic-tract",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Medial lemniscus": {
   "meshIds": [
-   "brainstem"
+   "mni-medial-lemniscus"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Brainstem",
    "Trucus encephali"
   ],
-  "fallbackParentId": "brainstem"
+  "fallbackParentId": "brainstem",
+  "slug": "medial-lemniscus",
+  "approxMeshIds": [
+   "brainstem"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Medial longitudinal fasciculus (MLF)": {
   "meshIds": [
@@ -1534,6 +2182,12 @@
   "synonyms": [
    "Inferior colliculus",
    "Colliculus inferior"
+  ],
+  "slug": "inferior-colliculus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "CN IV, Trochlear nucleus": {
@@ -1548,12 +2202,22 @@
  },
  "Periaqueductal grey": {
   "meshIds": [
-   "aqueduct-of-midbrain"
+   "mni-periaqueductal-gray"
   ],
   "approximate": false,
   "synonyms": [
    "Aqueduct of midbrain",
    "Aquaeductus mesencephali"
+  ],
+  "slug": "periaqueductal-gray",
+  "approxMeshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Trochlear Nucleus": {
@@ -1564,6 +2228,11 @@
   "synonyms": [
    "Nucleus of trochlear nerve",
    "Nucleus nervi trochlearis"
+  ],
+  "slug": "trochlear-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Decussation of Superior Cerebellar Peduncle (X/SCP)": {
@@ -1605,6 +2274,12 @@
   "synonyms": [
    "Fourth ventricle",
    "Ventriculus quartus"
+  ],
+  "slug": "fourth-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Motor trigeminal nucleus": {
@@ -1616,7 +2291,10 @@
    "Motor root of trigeminal nerve",
    "Radix motoria nervi trigemini"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "motor-trigeminal-nucleus",
+  "slices": "regional",
+  "exactIn": []
  },
  "Principal sensory nucleus of trigeminal": {
   "meshIds": [
@@ -1627,17 +2305,30 @@
    "Sensory root of trigeminal nerve",
    "Radix sensoria nervi trigemini"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "principal-sensory-nucleus-of-trigeminal",
+  "slices": "regional",
+  "exactIn": []
  },
  "Longitudinal fibers of the pons": {
   "meshIds": [
-   "pons"
+   "mni-longitudinal-fibers-of-the-pons"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "longitudinal-fibers-of-the-pons",
+  "approxMeshIds": [
+   "pons"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Pontine nuclei": {
   "meshIds": [
@@ -1647,7 +2338,10 @@
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "pontine-nuclei",
+  "slices": "regional",
+  "exactIn": []
  },
  "Facial colliculus": {
   "meshIds": [
@@ -1658,7 +2352,10 @@
    "Nucleus of abducens nerve",
    "Nucleus nervi abducentis"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "facial-colliculus",
+  "slices": "regional",
+  "exactIn": []
  },
  "Abducens nucleus": {
   "meshIds": [
@@ -1668,6 +2365,11 @@
   "synonyms": [
    "Nucleus of abducens nerve",
    "Nucleus nervi abducentis"
+  ],
+  "slug": "abducens-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Facial nucleus": {
@@ -1678,6 +2380,11 @@
   "synonyms": [
    "Motor nucleus of facial nerve",
    "Nucleus nervi facialis"
+  ],
+  "slug": "facial-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Vestibulocochlear complex": {
@@ -1694,6 +2401,11 @@
    "Nucleus cochlearis anterior",
    "Posterior cochlear nucleus",
    "Nucleus cochlearis posterior"
+  ],
+  "slug": "vestibulocochlear-complex",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "CN VII, Facial": {
@@ -1714,6 +2426,11 @@
   "synonyms": [
    "Nucleus of hypoglossal nerve",
    "Nucleus nervi hypoglossi"
+  ],
+  "slug": "hypoglossal-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Dorsal motor nucleus of vagus (DMV / DMX) Solitary nucleus": {
@@ -1732,7 +2449,12 @@
    "nucleus-ambiguus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "nucleus-ambiguus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
+  ]
  },
  "Inferior cerebellar peduncle (ICP)": {
   "meshIds": [
@@ -1752,6 +2474,12 @@
   "synonyms": [
    "Olive",
    "Oliva"
+  ],
+  "slug": "inferior-olivary-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Pyramid": {
@@ -1762,6 +2490,12 @@
   "synonyms": [
    "Pyramid of medulla oblongata",
    "Pyramis medullae oblongatae"
+  ],
+  "slug": "pyramids",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "CN IX, Glossopharyngeal": {
@@ -1802,6 +2536,11 @@
   "synonyms": [
    "Posterior spinocerebellar tract",
    "Tractus spinocerebellaris posterior"
+  ],
+  "slug": "dorsal-spinocerebellar-tract",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Gracile nucleus": {
@@ -1812,7 +2551,10 @@
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "gracile-nucleus",
+  "slices": "regional",
+  "exactIn": []
  },
  "Cuneate fasciculus": {
   "meshIds": [
@@ -1821,6 +2563,11 @@
   "approximate": false,
   "synonyms": [
    "Fasciculus cuneatus"
+  ],
+  "slug": "fasciculus-cuneatus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Cuneate nucleus": {
@@ -1831,7 +2578,10 @@
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "cuneate-nucleus",
+  "slices": "regional",
+  "exactIn": []
  },
  "Internal arcuate fibers": {
   "meshIds": [
@@ -1841,7 +2591,10 @@
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "internal-arcuate-fibers",
+  "slices": "regional",
+  "exactIn": []
  },
  "Spinal trigeminal nucleus": {
   "meshIds": [
@@ -1851,7 +2604,10 @@
   "synonyms": [
    "Medulla oblongata"
   ],
-  "fallbackParentId": "medulla-oblongata"
+  "fallbackParentId": "medulla-oblongata",
+  "slug": "spinal-trigeminal-nucleus",
+  "slices": "regional",
+  "exactIn": []
  },
  "Gracile fasciculus": {
   "meshIds": [
@@ -1860,6 +2616,11 @@
   "approximate": false,
   "synonyms": [
    "Fasciculus gracilis"
+  ],
+  "slug": "fasciculus-gracilis",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Pyramids/ motor decussation": {
@@ -1880,6 +2641,11 @@
   "approximate": false,
   "synonyms": [
    "Tractus corticospinalis lateralis"
+  ],
+  "slug": "lateral-corticospinal-tract",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Anterior corticospinal tract": {
@@ -1889,6 +2655,11 @@
   "approximate": false,
   "synonyms": [
    "Tractus corticospinalis anterior"
+  ],
+  "slug": "anterior-corticospinal-tract",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Lateral funiculus": {
@@ -1898,6 +2669,11 @@
   "approximate": false,
   "synonyms": [
    "Funiculus lateralis"
+  ],
+  "slug": "lateral-funiculus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Anterior/ventral funiculus": {
@@ -1908,6 +2684,11 @@
   "synonyms": [
    "Anterior funiculus",
    "Funiculus anterior"
+  ],
+  "slug": "anterior-funiculus",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Location of limb lower motor neurons": {
@@ -1919,7 +2700,10 @@
    "Anterior horn of spinal cord",
    "Cornu anterius medullae spinalis"
   ],
-  "fallbackParentId": "grey-matter-of-spinal-cord"
+  "fallbackParentId": "grey-matter-of-spinal-cord",
+  "slug": "location-of-limb-lower-motor-neurons",
+  "slices": null,
+  "exactIn": []
  },
  "Location of trunk lower motor neurons": {
   "meshIds": [
@@ -1930,7 +2714,10 @@
    "Anterior horn of spinal cord",
    "Cornu anterius medullae spinalis"
   ],
-  "fallbackParentId": "grey-matter-of-spinal-cord"
+  "fallbackParentId": "grey-matter-of-spinal-cord",
+  "slug": "location-of-trunk-lower-motor-neurons",
+  "slices": null,
+  "exactIn": []
  },
  "Cerebral peduncle": {
   "meshIds": [
@@ -1940,6 +2727,12 @@
   "synonyms": [
    "Base of peduncle",
    "Basis pedunculi"
+  ],
+  "slug": "cerebral-peduncles",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Superior colliculus": {
@@ -1949,6 +2742,12 @@
   "approximate": false,
   "synonyms": [
    "Colliculus superior"
+  ],
+  "slug": "superior-colliculus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Inferior colliculus": {
@@ -1958,6 +2757,12 @@
   "approximate": false,
   "synonyms": [
    "Colliculus inferior"
+  ],
+  "slug": "inferior-colliculus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "X/SCP (Decussation of superior cerebellar peduncle)": {
@@ -1979,7 +2784,10 @@
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "transverse-fibers-of-the-pons",
+  "slices": "regional",
+  "exactIn": []
  },
  "Pontine protuberance": {
   "meshIds": [
@@ -1989,27 +2797,52 @@
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "pontine-protuberance",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Middle cerebellar peduncle": {
   "meshIds": [
-   "pons"
+   "mni-middle-cerebellar-peduncle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "middle-cerebellar-peduncle",
+  "approxMeshIds": [
+   "pons"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Longitudinal fibers of pons": {
   "meshIds": [
-   "pons"
+   "mni-longitudinal-fibers-of-the-pons"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons"
+  "fallbackParentId": "pons",
+  "slug": "longitudinal-fibers-of-the-pons",
+  "approxMeshIds": [
+   "pons"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Olive (inferior olivary nucleus)": {
   "meshIds": [
@@ -2038,6 +2871,12 @@
   "approximate": false,
   "synonyms": [
    "Tractus opticus"
+  ],
+  "slug": "optic-tract",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Optic radiations": {
@@ -2049,7 +2888,12 @@
    "White matter of telencephalon",
    "Substantia alba telencephali"
   ],
-  "fallbackParentId": "white-matter-of-telencephalon"
+  "fallbackParentId": "white-matter-of-telencephalon",
+  "slug": "optic-radiations",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Suprachiasmatic nucleus (know general location of)": {
   "meshIds": [
@@ -2080,6 +2924,11 @@
   "synonyms": [
    "Nucleus of trochlear nerve",
    "Nucleus nervi trochlearis"
+  ],
+  "slug": "trochlear-nucleus",
+  "slices": "regional",
+  "exactIn": [
+   "3d"
   ]
  },
  "Interhemispheric Fissure or Median Longitudinal Cerebral Fissure": {
@@ -2100,6 +2949,12 @@
   "synonyms": [
    "Insula (Subcentral gyrus and ant. and post. sulci)",
    "Insula"
+  ],
+  "slug": "insular-cortex",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Septum pellucidum which separates the two lateral ventricles": {
@@ -2113,12 +2968,22 @@
  },
  "Genu": {
   "meshIds": [
-   "corpus-callosum"
+   "mni-genu-of-internal-capsule"
   ],
   "approximate": false,
   "synonyms": [
    "Corpus callosum"
-  ]
+  ],
+  "slug": "genu-of-internal-capsule",
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "approxMeshIds": [
+   "corpus-callosum"
+  ],
+  "registered": true
  },
  "Splenium": {
   "meshIds": [
@@ -2127,6 +2992,11 @@
   "approximate": false,
   "synonyms": [
    "Corpus callosum"
+  ],
+  "slug": "splenium-of-corpus-callosum",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Caudate : head, body, tail": {
@@ -2144,14 +3014,26 @@
    "putamen"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "putamen",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Globus pallidus": {
   "meshIds": [
    "globus-pallidus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "globus-pallidus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "1. Head of the caudate nucleus": {
   "meshIds": [
@@ -2174,25 +3056,45 @@
  },
  "Anterior limb": {
   "meshIds": [
-   "white-matter-of-telencephalon"
+   "mni-anterior-limb-of-internal-capsule"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "White matter of telencephalon",
    "Substantia alba telencephali"
   ],
-  "fallbackParentId": "white-matter-of-telencephalon"
+  "fallbackParentId": "white-matter-of-telencephalon",
+  "slug": "anterior-limb-of-internal-capsule",
+  "approxMeshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Posterior limb": {
   "meshIds": [
-   "white-matter-of-telencephalon"
+   "mni-posterior-limb-of-internal-capsule"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "White matter of telencephalon",
    "Substantia alba telencephali"
   ],
-  "fallbackParentId": "white-matter-of-telencephalon"
+  "fallbackParentId": "white-matter-of-telencephalon",
+  "slug": "posterior-limb-of-internal-capsule",
+  "approxMeshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Fornix (crus, body, columns)": {
   "meshIds": [
@@ -2212,7 +3114,10 @@
    "Basal forebrain",
    "Pars basalis telencephali"
   ],
-  "fallbackParentId": "basal-forebrain"
+  "fallbackParentId": "basal-forebrain",
+  "slug": "anterior-perforated-substance",
+  "slices": null,
+  "exactIn": []
  },
  "Interthalamic adhesion (massa intermedia)": {
   "meshIds": [
@@ -2255,7 +3160,10 @@
    "Third ventricle",
    "Ventriculus tertius"
   ],
-  "fallbackParentId": "third-ventricle"
+  "fallbackParentId": "third-ventricle",
+  "slug": "lamina-terminalis",
+  "slices": null,
+  "exactIn": []
  },
  "Anterior commissure": {
   "meshIds": [
@@ -2264,6 +3172,12 @@
   "approximate": false,
   "synonyms": [
    "Commissura anterior"
+  ],
+  "slug": "anterior-commissure",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Columns of the fornix": {
@@ -2273,6 +3187,11 @@
   "approximate": false,
   "synonyms": [
    "Fornix"
+  ],
+  "slug": "columns-of-the-fornix",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Infundibular stalk (infundibulum or pituitary stalk)": {
@@ -2292,6 +3211,11 @@
   "approximate": false,
   "synonyms": [
    "Stria medullaris thalami"
+  ],
+  "slug": "stria-medullaris-thalami",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Habenula": {
@@ -2299,7 +3223,13 @@
    "habenula"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "habenula",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Pineal gland or body": {
   "meshIds": [
@@ -2321,6 +3251,11 @@
   "approximate": false,
   "synonyms": [
    "Commissura posterior"
+  ],
+  "slug": "posterior-commissure",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Median Longitudinal Cerebral Fissure or the Interhemispheric Fissure": {
@@ -2366,29 +3301,54 @@
    "Cingulate gyrus and sulcus (Posterior dorsal part)",
    "Cingulate gyrus (Posteroventral part)",
    "Gyrus cinguli"
+  ],
+  "slug": "cingulate-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "anterior horn": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-anterior-horn-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "anterior-horn-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "body": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-body-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "body-of-corpus-callosum",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "trigone or atrium": {
   "meshIds": [
@@ -2403,41 +3363,76 @@
  },
  "posterior horn": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-posterior-horn-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "posterior-horn-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "inferior horn": {
   "meshIds": [
-   "lateral-ventricle"
+   "mni-inferior-horn-of-lateral-ventricle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle"
+  "fallbackParentId": "lateral-ventricle",
+  "slug": "inferior-horn-of-lateral-ventricle",
+  "approxMeshIds": [
+   "lateral-ventricle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "septum pellucidum": {
   "meshIds": [
    "septum-pellucidum"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "septum-pellucidum",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "genu": {
   "meshIds": [
-   "corpus-callosum"
+   "mni-genu-of-internal-capsule"
   ],
   "approximate": false,
   "synonyms": [
    "Corpus callosum"
-  ]
+  ],
+  "slug": "genu-of-internal-capsule",
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "approxMeshIds": [
+   "corpus-callosum"
+  ],
+  "registered": true
  },
  "splenium": {
   "meshIds": [
@@ -2446,6 +3441,11 @@
   "approximate": false,
   "synonyms": [
    "Corpus callosum"
+  ],
+  "slug": "splenium-of-corpus-callosum",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "caudate : head, body, tail": {
@@ -2463,14 +3463,26 @@
    "putamen"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "putamen",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "globus pallidus": {
   "meshIds": [
    "globus-pallidus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "globus-pallidus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Corpus Striatum and Lentiform nucleus": {
   "meshIds": [
@@ -2491,7 +3503,13 @@
    "hippocampus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "hippocampus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "amygdala": {
   "meshIds": [
@@ -2501,6 +3519,12 @@
   "synonyms": [
    "Amygdaloid body",
    "Corpus amygdaloideum"
+  ],
+  "slug": "amygdala",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "fornix (crus, body, columns)": {
@@ -2526,6 +3550,12 @@
    "Cingulate gyrus and sulcus (Posterior dorsal part)",
    "Cingulate gyrus (Posteroventral part)",
    "Gyrus cinguli"
+  ],
+  "slug": "cingulate-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "basal forebrain nuclei area": {
@@ -2540,16 +3570,26 @@
  },
  "Nucleus accumbens": {
   "meshIds": [
-   "caudate-nucleus",
-   "putamen"
+   "mni-nucleus-accumbens"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Caudate nucleus",
    "Nucleus caudatus",
    "Putamen"
   ],
-  "fallbackParentId": "corpus-striatum"
+  "fallbackParentId": "corpus-striatum",
+  "slug": "nucleus-accumbens",
+  "approxMeshIds": [
+   "caudate-nucleus",
+   "putamen"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "thalamus (dorsal thalamus)": {
   "meshIds": [
@@ -2599,6 +3639,12 @@
   "approximate": false,
   "synonyms": [
    "Thalamus"
+  ],
+  "slug": "pulvinar",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "third ventricle": {
@@ -2608,6 +3654,12 @@
   "approximate": false,
   "synonyms": [
    "Ventriculus tertius"
+  ],
+  "slug": "third-ventricle",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "optic chiasm": {
@@ -2617,6 +3669,11 @@
   "approximate": false,
   "synonyms": [
    "Chiasma opticum"
+  ],
+  "slug": "optic-chiasm",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "optic tract": {
@@ -2626,6 +3683,12 @@
   "approximate": false,
   "synonyms": [
    "Tractus opticus"
+  ],
+  "slug": "optic-tract",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "lamina terminalis": {
@@ -2637,7 +3700,10 @@
    "Third ventricle",
    "Ventriculus tertius"
   ],
-  "fallbackParentId": "third-ventricle"
+  "fallbackParentId": "third-ventricle",
+  "slug": "lamina-terminalis",
+  "slices": null,
+  "exactIn": []
  },
  "anterior commissure": {
   "meshIds": [
@@ -2646,6 +3712,12 @@
   "approximate": false,
   "synonyms": [
    "Commissura anterior"
+  ],
+  "slug": "anterior-commissure",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "columns of the fornix": {
@@ -2655,6 +3727,11 @@
   "approximate": false,
   "synonyms": [
    "Fornix"
+  ],
+  "slug": "columns-of-the-fornix",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "pituitary stalk (infundibular stalk, infundibulum)": {
@@ -2675,6 +3752,12 @@
   "synonyms": [
    "Mamillary body",
    "Corpus mammillare"
+  ],
+  "slug": "mammillary-bodies",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "pineal gland or body": {
@@ -2695,7 +3778,13 @@
    "habenula"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "habenula",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "posterior commissure": {
   "meshIds": [
@@ -2704,6 +3793,11 @@
   "approximate": false,
   "synonyms": [
    "Commissura posterior"
+  ],
+  "slug": "posterior-commissure",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "cerebral peduncles": {
@@ -2714,28 +3808,54 @@
   "synonyms": [
    "Base of peduncle",
    "Basis pedunculi"
+  ],
+  "slug": "cerebral-peduncles",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "substantia nigra": {
   "meshIds": [
-   "base-of-peduncle"
+   "mni-substantia-nigra"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Base of peduncle",
    "Basis pedunculi"
   ],
-  "fallbackParentId": "midbrain"
+  "fallbackParentId": "midbrain",
+  "slug": "substantia-nigra",
+  "approxMeshIds": [
+   "base-of-peduncle"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "subthalamic nucleus": {
   "meshIds": [
-   "thalamus"
+   "mni-subthalamic-nucleus"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Thalamus"
   ],
-  "fallbackParentId": "diencephalon"
+  "fallbackParentId": "diencephalon",
+  "slug": "subthalamic-nucleus",
+  "approxMeshIds": [
+   "thalamus"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "red nucleus": {
   "meshIds": [
@@ -2744,6 +3864,12 @@
   "approximate": false,
   "synonyms": [
    "Nucleus ruber"
+  ],
+  "slug": "red-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "cerebral aqueduct": {
@@ -2754,6 +3880,12 @@
   "synonyms": [
    "Aqueduct of midbrain",
    "Aquaeductus mesencephali"
+  ],
+  "slug": "cerebral-aqueduct",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Superior, middle, inferior cerebellar peduncle": {
@@ -2779,6 +3911,11 @@
   "synonyms": [
    "Tonsil of cerebellum",
    "Tonsilla cerebelli"
+  ],
+  "slug": "cerebellar-tonsil",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Flocculus": {
@@ -2786,7 +3923,12 @@
    "flocculus"
   ],
   "approximate": false,
-  "synonyms": []
+  "synonyms": [],
+  "slug": "flocculus",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  },
  "Vermis": {
   "meshIds": [
@@ -2808,6 +3950,12 @@
    "Folium vermis",
    "Nodule of vermis",
    "Nodulus vermis"
+  ],
+  "slug": "vermis",
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  },
  "Paravermis": {
@@ -2828,7 +3976,12 @@
    "Superior semilunar lobule",
    "Lobulus semilunaris superior"
   ],
-  "fallbackParentId": "cerebellum"
+  "fallbackParentId": "cerebellum",
+  "slug": "paravermis",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Lateral hemisphere": {
   "meshIds": [
@@ -2848,7 +4001,12 @@
    "Superior semilunar lobule",
    "Lobulus semilunaris superior"
   ],
-  "fallbackParentId": "cerebellum"
+  "fallbackParentId": "cerebellum",
+  "slug": "cerebellar-lateral-hemisphere",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  },
  "Dentate nucleus (in cross-section of cerebellum)": {
   "meshIds": [
@@ -2867,6 +4025,11 @@
   "approximate": false,
   "synonyms": [
    "Arteria basilaris"
+  ],
+  "slug": "basilar-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Cerebellar branches (three pairs supply cerebellum) – only ID for Superior Cerebellar Artery": {
@@ -2909,6 +4072,11 @@
    "Rami mediales pontis arteriae basilaris",
    "Lateral pontine branches of basilar artery",
    "Rami laterales pontis arteriae basilaris"
+  ],
+  "slug": "pontine-arteries",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Posterior Cerebral Artery": {
@@ -2918,6 +4086,11 @@
   "approximate": false,
   "synonyms": [
    "Arteria cerebri posterior"
+  ],
+  "slug": "posterior-cerebral-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Posterior Communicating Artery": {
@@ -2927,6 +4100,11 @@
   "approximate": false,
   "synonyms": [
    "Arteria communicans posterior"
+  ],
+  "slug": "posterior-communicating-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Internal Carotid Artery": {
@@ -2936,6 +4114,11 @@
   "approximate": false,
   "synonyms": [
    "Carotis interna"
+  ],
+  "slug": "internal-carotid-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Middle Cerebral Artery": {
@@ -2950,6 +4133,11 @@
    "Insular branches of middle cerebral artery (M2)",
    "Rami insulares arteriae mediae cerebri (M2)",
    "Middle cerebral artery (M3)"
+  ],
+  "slug": "middle-cerebral-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Lenticulostriate Arteries penetrating Anterior Perforated Substance": {
@@ -2969,6 +4157,11 @@
   "approximate": false,
   "synonyms": [
    "Arteria cerebri anterior"
+  ],
+  "slug": "anterior-cerebral-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Pericallosal Artery": {
@@ -2978,6 +4171,11 @@
   "approximate": false,
   "synonyms": [
    "Arteria pericallosa"
+  ],
+  "slug": "pericallosal-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "Callosomarginal Artery": {
@@ -2989,7 +4187,10 @@
    "Anterior cerebral artery",
    "Arteria cerebri anterior"
   ],
-  "fallbackParentId": "anterior-cerebral-artery"
+  "fallbackParentId": "anterior-cerebral-artery",
+  "slug": "callosomarginal-artery",
+  "slices": null,
+  "exactIn": []
  },
  "Anterior Communicating Artery": {
   "meshIds": [
@@ -2998,6 +4199,11 @@
   "approximate": false,
   "synonyms": [
    "Arteria communicans anterior"
+  ],
+  "slug": "anterior-communicating-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
   ]
  },
  "The Circle of Willis": {
@@ -3019,7 +4225,10 @@
    "Vertebral artery",
    "Arteria vertebralis"
   ],
-  "fallbackParentId": "vertebral-artery"
+  "fallbackParentId": "vertebral-artery",
+  "slug": "anterior-spinal-artery",
+  "slices": null,
+  "exactIn": []
  },
  "Posterior spinal arteries (only in a picture)": {
   "meshIds": [
@@ -3031,5 +4240,244 @@
    "Arteria vertebralis"
   ],
   "fallbackParentId": "vertebral-artery"
+ },
+ "Basal ganglia": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "basal-ganglia",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Primary motor cortex": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "primary-motor-cortex",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Primary somatosensory cortex": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "primary-somatosensory-cortex",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Primary auditory cortex": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "primary-auditory-cortex",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Superior frontal gyrus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "superior-frontal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Middle frontal gyrus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "middle-frontal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Inferior frontal gyrus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "inferior-frontal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Superior temporal gyrus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "superior-temporal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Middle temporal gyrus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "middle-temporal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Inferior temporal gyrus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "inferior-temporal-gyrus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Cuneate tubercle": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "cuneate-tubercle",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Gracile tubercle": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "gracile-tubercle",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Medial longitudinal fasciculus": {
+  "meshIds": [
+   "mni-medial-longitudinal-fasciculus"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "medial-longitudinal-fasciculus",
+  "approxMeshIds": [
+   "mni-medial-longitudinal-fasciculus"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
+ },
+ "Dorsal motor nucleus of the vagus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "dorsal-motor-nucleus-of-the-vagus",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Solitary nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "solitary-nucleus",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Paramedian pontine reticular formation": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "paramedian-pontine-reticular-formation",
+  "slices": "regional",
+  "exactIn": []
+ },
+ "Caudate nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "caudate-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Head of caudate nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "head-of-caudate-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Body of caudate nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "body-of-caudate-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Tail of caudate nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "tail-of-caudate-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Corpus striatum": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "corpus-striatum",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Lentiform nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "lentiform-nucleus",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Fornix": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "fornix",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Basal forebrain nuclei": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "basal-forebrain-nuclei",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
+ },
+ "Dentate nucleus": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "dentate-nucleus",
+  "slices": "regional",
+  "exactIn": []
  }
 }

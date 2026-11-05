@@ -2,18 +2,18 @@ import mapJson from "@/data/atlas-map.json";
 import { normalizeQuery } from "./index";
 import type { AtlasMapEntry } from "./types";
 
-const MAP = mapJson as Record<string, AtlasMapEntry>;
+const MAP = mapJson as unknown as Record<string, AtlasMapEntry>;
 const BY_NORM = new Map<string, AtlasMapEntry>(Object.entries(MAP).map(([k, v]) => [normalizeQuery(k), v]));
 
-export type AtlasTarget = { ids: string[]; approximate: boolean; fallbackId?: string };
+export type AtlasTarget = { ids: string[]; approximate: boolean; fallbackId?: string; slug?: string; slices?: "exact" | "derived" | "regional" | null };
 
-/** Course structure name (as printed in the official structure lists) to atlas ids, or null if it has no 3D model. */
+/** Course structure name (as printed in the official structure lists) to atlas ids, or null if it has neither a 3D model nor MRI labels. */
 export function atlasTargetForCourseName(name: string): AtlasTarget | null {
   const e = BY_NORM.get(normalizeQuery(name));
   if (!e) return null;
   const ids = e.meshIds.length ? e.meshIds : e.fallbackParentId ? [e.fallbackParentId] : [];
-  if (!ids.length) return null;
-  return { ids, approximate: e.approximate, fallbackId: e.fallbackParentId };
+  if (!ids.length && !e.slices) return null;
+  return { ids, approximate: e.approximate, fallbackId: e.fallbackParentId, slug: e.slug, slices: e.slices ?? null };
 }
 
 /** href for an "Open in 3D atlas" button, or null when the structure has no model. */

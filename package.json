@@ -13,6 +13,7 @@
     "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
+    "@niivue/niivue": "0.69.0",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
     "@supabase/ssr": "^0.12.7",

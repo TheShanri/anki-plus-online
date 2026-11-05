@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design tokens. Ported from ANKI+ (web/css/theme.css). Everything components use is a semantic
+   token (--bg, --text, --accent...) so a second theme only needs to redefine the same names under
+   [data-theme="..."]. Default theme: synthwave.
+   Perf rules (learned in ANKI+): animate only transform/opacity; never backdrop-filter over animated layers.
+   ========================================================================== */
+:root,
+[data-theme="synthwave"] {
+  --pink: #ff2a6d;
+  --cyan: #05d9e8;
+  --purple: #b967ff;
+  --orange: #ff9e3d;
+  --yellow: #fffb96;
+  --blue: #3d8bff;
+
+  --bg: #0b0016;
+  --bg-2: #1a0533;
+  --bg-3: #2b0b4d;
+  --panel: rgba(22, 6, 44, 0.62);
+  --panel-solid: #170630;
+  --panel-2: rgba(40, 12, 74, 0.55);
+  --panel-border: rgba(185, 103, 255, 0.28);
+  --panel-border-hi: rgba(255, 42, 109, 0.55);
+  --text: #f3e9ff;
+  --text-dim: #a996c9;
+  --text-faint: #6f5a93;
+
+  --accent: var(--pink);
+  --accent-2: var(--cyan);
+
+  --good: #3dffa8;
+  --hard: #ff9e3d;
+  --again: #ff3b5c;
+  --easy: #05d9e8;
+
+  --new-c: #4da3ff;
+  --learn-c: #ff4f7b;
+  --review-c: #3dffa8;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --radius-lg: 22px;
+
+  --glow-accent: 0 0 6px rgba(255, 42, 109, 0.9), 0 0 18px rgba(255, 42, 109, 0.55), 0 0 42px rgba(255, 42, 109, 0.25);
+  --glow-accent-2: 0 0 6px rgba(5, 217, 232, 0.9), 0 0 18px rgba(5, 217, 232, 0.5), 0 0 42px rgba(5, 217, 232, 0.22);
+  --text-glow-accent: 0 0 4px rgba(255, 42, 109, 0.9), 0 0 14px rgba(255, 42, 109, 0.6);
+  --text-glow-accent-2: 0 0 4px rgba(5, 217, 232, 0.9), 0 0 14px rgba(5, 217, 232, 0.6);
+
+  --font-display: "Orbitron", "Audiowide", "Segoe UI", sans-serif;
+  --font-body: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --topbar-h: 64px;
+  color-scheme: dark;
+}
+
+/* Second theme placeholder: a calmer, clinical look. Fill in / tune later; the names are the contract. */
+[data-theme="clinical"] {
+  --bg: #0a1117;
+  --bg-2: #101a22;
+  --bg-3: #16232d;
+  --panel: rgba(16, 26, 34, 0.9);
+  --panel-solid: #101a22;
+  --panel-2: rgba(22, 35, 45, 0.9);
+  --panel-border: rgba(127, 233, 255, 0.16);
+  --panel-border-hi: rgba(127, 233, 255, 0.4);
+  --text: #e8f4ff;
+  --text-dim: #8fa6b8;
+  --text-faint: #5b7183;
+  --accent: #7fe9ff;
+  --accent-2: #ffb86b;
+  --good: #7bdcae;
+  --hard: #ffb86b;
+  --again: #ff6b7f;
+  --easy: #7fe9ff;
+  --glow-accent: none;
+  --glow-accent-2: none;
+  --text-glow-accent: none;
+  --text-glow-accent-2: none;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --radius: 8px;
+  --radius-sm: 5px;
+  --radius-lg: 12px;
+}
+
+/* Expose tokens to Tailwind: bg-bg, text-text, border-panel-border, text-accent, rounded-card, font-display ... */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
+  --color-panel: var(--panel);
+  --color-panel-solid: var(--panel-solid);
+  --color-panel-2: var(--panel-2);
+  --color-panel-border: var(--panel-border);
+  --color-panel-border-hi: var(--panel-border-hi);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-pink: var(--pink);
+  --color-cyan: var(--cyan);
+  --color-purple: var(--purple);
+  --color-good: var(--good);
+  --color-hard: var(--hard);
+  --color-again: var(--again);
+  --color-easy: var(--easy);
+  --color-new: var(--new-c);
+  --color-learn: var(--learn-c);
+  --color-review: var(--review-c);
+  --radius-card: var(--radius);
+  --radius-card-sm: var(--radius-sm);
+  --radius-card-lg: var(--radius-lg);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --shadow-glow: var(--glow-accent);
+  --shadow-glow-2: var(--glow-accent-2);
+  --ease-out: var(--ease-out);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-shadow: var(--text-glow-accent-2); }
+button { font: inherit; color: inherit; }
+::selection { background: rgba(255, 42, 109, 0.45); color: #fff; }
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+/* ---------- background scene: static gradients plus one opacity-only twinkle layer, no filters ---------- */
+.bg-scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; contain: strict; }
+.bg-sky {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 62%, rgba(255, 42, 109, 0.28), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 15% 10%, rgba(185, 103, 255, 0.18), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(5, 217, 232, 0.1), transparent 70%),
+    linear-gradient(180deg, #07000f 0%, #12002a 35%, #2a0848 58%, #3d0a4f 64%, #0b0016 64.2%, #080012 100%);
+}
+.bg-stars {
+  position: absolute; inset: 0 0 40% 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, #fff8, transparent 60%),
+    radial-gradient(1px 1px at 30% 8%, #fff9, transparent 60%),
+    radial-gradient(1.5px 1.5px at 55% 25%, #fffa, transparent 60%),
+    radial-gradient(1px 1px at 72% 12%, #fff7, transparent 60%),
+    radial-gradient(1px 1px at 88% 30%, #fff8, transparent 60%),
+    radial-gradient(1px 1px at 20% 42%, #fff5, transparent 60%),
+    radial-gradient(1.5px 1.5px at 42% 48%, #fff6, transparent 60%),
+    radial-gradient(1px 1px at 64% 40%, #fff6, transparent 60%);
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+[data-theme="clinical"] .bg-sky { background: var(--bg); }
+[data-theme="clinical"] .bg-stars { display: none; }
+@keyframes twinkle { from { opacity: 0.55; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .bg-stars { animation: none; } }
+
+/* ---------- shared components ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 18px; border-radius: var(--radius-sm); cursor: pointer;
+  border: 1px solid var(--panel-border); background: var(--panel-2); color: var(--text);
+  font-family: var(--font-display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  transition: transform 0.15s var(--ease-out), border-color 0.15s;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--panel-border-hi); text-shadow: none; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: var(--glow-accent); }
+[data-theme="clinical"] .btn-primary { color: #04121a; }
+.input {
+  width: 100%; padding: 10px 12px; border-radius: var(--radius-sm);
+  background: var(--bg-2); border: 1px solid var(--panel-border); color: var(--text); font: inherit;
+}
+.input:focus { outline: none; border-color: var(--accent-2); }
+.label { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+.field-error { color: var(--again); font-size: 12px; margin-top: 3px; }
+.notice {
+  border: 1px dashed var(--hard); color: var(--hard); border-radius: var(--radius-sm);
+  padding: 10px 14px; font-size: 13px; background: rgba(255, 158, 61, 0.08);
+}

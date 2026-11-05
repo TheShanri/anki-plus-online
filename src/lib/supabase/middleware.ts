@@ -1,0 +1,35 @@
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
+import { SUPABASE_KEY, SUPABASE_URL, isSupabaseConfigured } from "@/lib/env";
+
+const PROTECTED = ["/study", "/course", "/settings", "/professor"];
+
+/** Refresh the Supabase session cookie and gate protected routes. */
+export async function updateSession(request: NextRequest) {
+  let response = NextResponse.next({ request });
+  // Without Supabase the app still renders (pages show a notice), so do not redirect.
+  if (!isSupabaseConfigured()) return response;
+
+  const supabase = createServerClient(SUPABASE_URL, SUPABASE_KEY, {
+    cookies: {
+      getAll: () => request.cookies.getAll(),
+      setAll(list) {
+        list.forEach(({ name, value }) => request.cookies.set(name, value));
+        response = NextResponse.next({ request });
+        list.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
+      },
+    },
+  });
+
+  // getUser() validates the JWT with the auth server (do not use getSession() here).
+  const { data } = await supabase.auth.getUser();
+  const path = request.nextUrl.pathname;
+  const isProtected = PROTECTED.some((p) => path === p || path.startsWith(p + "/"));
+  if (!data.user && isProtected) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
+    url.search = `?next=${encodeURIComponent(path)}`;
+    return NextResponse.redirect(url);
+  }
+  return response;
+}

@@ -206,6 +206,17 @@ export class SessionQueue {
   get size(): number {
     return this.pending.length + this.learning.length;
   }
+
+  /** A copy of the queue's order (for undo). */
+  snapshot(): { pending: Entry[]; learning: LearningItem[]; last: string | null } {
+    return { pending: this.pending.slice(), learning: this.learning.map((l) => ({ ...l })), last: this.last };
+  }
+
+  restore(s: { pending: Entry[]; learning: LearningItem[]; last: string | null }): void {
+    this.pending = s.pending.slice();
+    this.learning = s.learning.map((l) => ({ ...l }));
+    this.last = s.last;
+  }
 }
 
 /**

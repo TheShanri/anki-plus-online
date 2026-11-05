@@ -37,6 +37,7 @@ export function StudyRunner({ initial, scope, limit, tz }: { initial: StudyPaylo
       {
         now: () => Date.now(),
         send: (p) => getSync().send(p),
+        undo: (u) => getSync().undo(u),
         uuid: () => crypto.randomUUID(),
         sessionId: sessionIdFor("study"),
         fetchMore: async (exclude) => {
@@ -130,12 +131,62 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
     }
   }, [phase, c?.card.id, c?.mode]);
 
+  // Thought parking lot (ANKI+): jot a stray thought, Enter parks it and puts you back on the card; the clock waits.
+  const [park, setPark] = useState<{ text: string; at: number } | null>(null);
+  const parkRef = useRef<{ text: string; at: number } | null>(null);
+  useEffect(() => {
+    parkRef.current = park;
+  }, [park]);
+  const openPark = useCallback(() => {
+    if (parkRef.current) return;
+    const p = { text: "", at: Date.now() };
+    parkRef.current = p;
+    setPark(p);
+  }, []);
+  const closePark = (save: boolean) => {
+    const p = parkRef.current;
+    if (!p) return;
+    parkRef.current = null;
+    setPark(null);
+    if (save && p.text.trim()) {
+      try {
+        const k = "anki.parked.v1";
+        const list = JSON.parse(window.localStorage.getItem(k) ?? "[]") as Array<{ text: string; at: number }>;
+        list.push({ text: p.text.trim().slice(0, 500), at: Date.now() });
+        window.localStorage.setItem(k, JSON.stringify(list.slice(-50)));
+      } catch {
+        /* storage unavailable */
+      }
+      engine.say("Parked. It is safe on the session summary. Back to it.");
+    }
+    engine.pauseFor(Date.now() - p.at);
+    window.setTimeout(() => {
+      if (engine.phase === "prompt") (engine.cur?.mode === "keywords" ? kwRef.current : inputRef.current)?.focus();
+      else (document.querySelector(".retype-box .typebox-input") as HTMLInputElement | null)?.focus();
+    }, 0);
+  };
+
   // global keys
   const onKey = useCallback(
     (e: KeyboardEvent) => {
       const cc = engine.cur;
+      // Ctrl+Z: take back the last card (ANKI+). While typing a new answer it stays the text undo.
+      if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && (e.key === "z" || e.key === "Z")) {
+        const typing = engine.phase === "prompt" && !!(cc?.typer?.typed || cc?.typed);
+        if (engine.canUndo && !typing && !parkRef.current) {
+          e.preventDefault();
+          engine.undo();
+        }
+        return;
+      }
+      // Ctrl+Space / Alt+P: the thought parking lot
+      if ((e.ctrlKey && e.key === " ") || (e.altKey && (e.key === "p" || e.key === "P"))) {
+        e.preventDefault();
+        if (engine.phase === "prompt" || engine.phase === "reveal") openPark();
+        return;
+      }
       if (e.ctrlKey || e.metaKey || e.altKey) return;
-      if (engine.guardOpen || engine.phase === "done") return;
+      if (engine.guardOpen || engine.phase === "done" || parkRef.current) return;
       const target = e.target as HTMLElement | null;
       const inField = !!target && (target.tagName === "TEXTAREA" || (target.tagName === "INPUT" && !target.classList.contains("typebox-input")));
       if (inField) return;
@@ -190,7 +241,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
         }
       }
     },
-    [engine],
+    [engine, openPark],
   );
   useEffect(() => {
     window.addEventListener("keydown", onKey);
@@ -259,6 +310,11 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
         <span className={`combo-pill${engine.stats.combo >= 3 ? " on" : ""}`} aria-label="Combo">x{engine.stats.combo}</span>
         {syncState.pending > 0 && <span className="chip" title={syncState.error ?? "Saving…"}>{syncState.error ? "offline" : "saving"} {syncState.pending}</span>}
         <GearPopover scaffold={engine.settings.scaffold} onChanged={(s) => { engine.updateSettings({ ...engine.settings, scaffold: s }); setSoundsEnabled(s.sounds); }} />
+        {engine.canUndo && (
+          <button className="btn" type="button" title="Undo the last card (Ctrl+Z)" onClick={() => engine.undo()}>
+            Undo
+          </button>
+        )}
         <Link className="btn" href="/study">End</Link>
       </div>
 
@@ -389,6 +445,40 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       {engine.driftBackMs > 8000 && phase === "prompt" && <p className="v-notes" style={{ textAlign: "center" }}>Welcome back. The clock waited for you ({Math.round(engine.driftBackMs / 1000)} s).</p>}
       {toast && <div className="toast" role="status">{toast}</div>}
       {atlas && <AtlasPeek slug={atlas.slug} name={atlas.name} onClose={() => setAtlas(null)} />}
+      {park && (
+        <div className="overlay" role="dialog" aria-modal="true" aria-label="Thought parking lot" onClick={(e) => e.target === e.currentTarget && closePark(false)}>
+          <div className="modal">
+            <h2>Park a thought</h2>
+            <input
+              className="input"
+              autoFocus
+              value={park.text}
+              placeholder="What popped into your head?"
+              onChange={(e) => {
+                engine.activity();
+                const p = { ...park, text: e.target.value };
+                parkRef.current = p;
+                setPark(p);
+              }}
+              onKeyDown={(e) => {
+                e.stopPropagation();
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  closePark(true);
+                } else if (e.key === "Escape") {
+                  e.preventDefault();
+                  closePark(false);
+                }
+              }}
+            />
+            <p className="help-line" style={{ marginTop: 8 }}>
+              <span><span className="kbd">Enter</span> park it and back to the card</span>
+              <span><span className="kbd">Esc</span> never mind</span>
+              <span>The clock waits.</span>
+            </p>
+          </div>
+        </div>
+      )}
 
       {engine.guardOpen && (
         <div className="overlay" role="dialog" aria-modal="true" aria-label="Take a break">

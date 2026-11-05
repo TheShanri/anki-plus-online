@@ -296,3 +296,29 @@ test("Enter on an empty box (not a first look) is No answer: Again, like ANKI+",
   h.e.skipRetype(); // Esc: skip the lock-in and move on
   assert.equal(h.sent[0].rating, 1);
 });
+
+test("Ctrl+Z: the last card comes back as it was, and the answer is taken back", async () => {
+  const st: CardStateRow = { user_id: "u", card_id: "Pons", due: new Date(0).toISOString(), stability: 5, difficulty: 5, elapsed_days: 3, scheduled_days: 3, learning_steps: 0, reps: 4, lapses: 0, state: 2, last_review: new Date(-86400000 * 3).toISOString() };
+  const p = payload([card("Pons"), card("Medulla")], { states: { Pons: st }, ladders: { Pons: { card_id: "Pons", step: 6, clean_streak: 2, last_clean_at: null } } });
+  p.queue = [{ cardId: "Pons", source: "review" }, { cardId: "Medulla", source: "new" }];
+  const undos: unknown[] = [];
+  let t = 1_000_000;
+  const sent: AnswerPayload[] = [];
+  let n = 0;
+  const e = new StudyEngine(p, { now: () => t, send: (x) => sent.push(x), undo: (u) => undos.push(u), emit: () => {}, uuid: () => `00000000-0000-4000-8000-00000000000${++n}`, sessionId: "s", rand: () => 0.5 });
+  e.start();
+  assert.equal(e.cur!.card.id, "Pons");
+  for (let i = 1; i <= 4; i++) e.input("Pons".slice(0, i));
+  t += 3000;
+  if (e.phase === "prompt") e.submit(false);
+  e.accept(1); // a slip: rated Again
+  assert.equal(e.cur!.card.id, "Medulla");
+  assert.equal(e.canUndo, true);
+  e.undo();
+  assert.equal(e.cur!.card.id, "Pons");
+  assert.equal(e.phase, "prompt");
+  assert.equal(e.states.get("Pons")!.reps, 4); // state restored
+  assert.equal(e.stats.answered, 0);
+  assert.equal((undos[0] as { clientId: string }).clientId, sent[0].clientId);
+  assert.equal(e.canUndo, false); // one level, like ANKI+'s last-card undo
+});

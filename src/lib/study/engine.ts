@@ -38,6 +38,30 @@ export interface AnswerPayload {
   retention?: number;
 }
 
+/** Undo of the last answer, sent after it (or dropped together with it if it never left the browser). */
+export interface UndoPayload {
+  undo: true;
+  clientId: string;
+  cardId: string;
+  /** the card's state before the answer (null: it was new) */
+  state: CardStateRow | null;
+  ladder: { step: number; clean_streak: number } | null;
+}
+
+interface UndoSnap {
+  clientId: string;
+  entry: Entry;
+  boss: boolean;
+  prevState: CardStateRow | undefined;
+  prevLadder: LadderRow | undefined;
+  wasAnswered: boolean;
+  misses: number | undefined;
+  stats: Stats;
+  queue: ReturnType<SessionQueue["snapshot"]>;
+  sinceBoss: number;
+  run: GuardRun;
+}
+
 export interface Retype {
   kind: "fail" | "intro" | "near" | "reps";
   typer: Typer;
@@ -116,6 +140,8 @@ export interface Stats {
 export interface EngineDeps {
   now: () => number;
   send: (p: AnswerPayload) => void;
+  /** take back the last answer (Ctrl+Z) */
+  undo?: (u: UndoPayload) => void;
   emit?: typeof defaultEmit;
   /** load more cards (excluding ids already used this session) */
   fetchMore?: (exclude: string[]) => Promise<StudyPayload | null>;
@@ -181,6 +207,7 @@ export class StudyEngine {
   private driftStart = 0;
   private away = false;
   private opts: EngineOptions;
+  private lastAnswer: UndoSnap | null = null;
 
   constructor(payload: StudyPayload, deps: EngineDeps, opts: EngineOptions = {}) {
     this.payload = payload;
@@ -460,6 +487,19 @@ export class StudyEngine {
       this.stats.drifts++;
       this.changed();
     } else if (!away && this.drift) this.back(now);
+  }
+
+  /** The clock stood still for `ms` (e.g. the thought parking lot was open): no time cost, no auto hints. */
+  pauseFor(ms: number): void {
+    const c = this.cur;
+    if (ms <= 0) return;
+    if (c?.typer && this.phase === "prompt") {
+      c.typer.shift(ms);
+      c.shownAt += ms;
+    }
+    this.run.startedAt += ms;
+    this.activity();
+    this.changed();
   }
 
   private back(now: number): void {
@@ -851,6 +891,18 @@ export class StudyEngine {
     const now = this.deps.now();
     const chosen = (c.fixed && !c.selfGraded ? c.rating : Math.max(1, Math.min(rating ?? c.rating, 4))) as Grade;
     const wasBoss = c.isBoss;
+    const snap: Omit<UndoSnap, "clientId"> = {
+      entry: c.entry,
+      boss: c.isBoss,
+      prevState: this.states.get(c.card.id),
+      prevLadder: this.ladders.get(c.card.id),
+      wasAnswered: this.answered.has(c.card.id),
+      misses: this.cardMisses.get(c.card.id),
+      stats: { ...this.stats, ratings: { ...this.stats.ratings }, missed: this.stats.missed.slice() },
+      queue: this.queue.snapshot(),
+      sinceBoss: this.sinceBoss,
+      run: { ...this.run },
+    };
     const t = c.typer;
     const hinted = t?.hinted ?? 0;
     const date = new Date(now);
@@ -918,6 +970,7 @@ export class StudyEngine {
       payload.traps = { attempts, passes: c.guard?.passed ?? [], firstTryMisses: c.guard?.missed ?? [] };
     }
     this.deps.send(payload);
+    this.lastAnswer = { ...snap, clientId: payload.clientId };
 
     // stats and combo
     const s = this.stats;
@@ -962,6 +1015,34 @@ export class StudyEngine {
       }
     }
     void this.nextCard();
+  }
+
+  get canUndo(): boolean {
+    return !!this.lastAnswer && !this.guardOpen && (this.phase === "prompt" || this.phase === "reveal" || this.phase === "done");
+  }
+
+  /** Ctrl+Z (ANKI+): the last answered card comes back exactly as before, and its answer is taken back. */
+  undo(): void {
+    const u = this.lastAnswer;
+    if (!u || !this.canUndo) return;
+    this.lastAnswer = null;
+    const id = u.entry.card.id;
+    if (u.prevState) this.states.set(id, u.prevState);
+    else this.states.delete(id);
+    if (u.prevLadder) this.ladders.set(id, u.prevLadder);
+    else this.ladders.delete(id);
+    if (!u.wasAnswered) this.answered.delete(id);
+    if (u.misses === undefined) this.cardMisses.delete(id);
+    else this.cardMisses.set(id, u.misses);
+    this.queue.restore(u.queue);
+    this.sinceBoss = u.sinceBoss;
+    this.run = u.run;
+    this.roundOver = false;
+    this.deps.undo?.({ undo: true, clientId: u.clientId, cardId: id, state: u.prevState ?? null, ladder: u.prevLadder ? { step: u.prevLadder.step, clean_streak: u.prevLadder.clean_streak } : null });
+    this.present(u.entry, u.boss);
+    this.stats = u.stats; // after present(): a boss is not counted twice
+    this.emit("ui", { name: "undo" });
+    this.say("Undone: that card is back.");
   }
 
   private structureSolid(structureId: string): boolean {

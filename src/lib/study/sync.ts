@@ -2,20 +2,24 @@
 // Background answer sync. Answers are sent strictly in order (the server's FSRS state depends on order), retried
 // with backoff on network/server errors, kept in localStorage so a closed tab or a dead connection loses nothing
 // (the server is idempotent on clientId), and flushed with sendBeacon on pagehide.
-import type { AnswerPayload } from "./engine.ts";
+import type { AnswerPayload, UndoPayload } from "./engine.ts";
+
+type Item = AnswerPayload | UndoPayload;
+const isUndo = (x: Item): x is UndoPayload => (x as UndoPayload).undo === true;
 
 const KEY = "anki.pendingAnswers.v1";
 const URL_ANSWER = "/api/study/answer";
+const URL_UNDO = "/api/study/undo";
 
-function load(): AnswerPayload[] {
+function load(): Item[] {
   try {
     const raw = window.localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as AnswerPayload[]) : [];
+    return raw ? (JSON.parse(raw) as Item[]) : [];
   } catch {
     return [];
   }
 }
-function save(q: AnswerPayload[]): void {
+function save(q: Item[]): void {
   try {
     if (q.length) window.localStorage.setItem(KEY, JSON.stringify(q));
     else window.localStorage.removeItem(KEY);
@@ -25,7 +29,7 @@ function save(q: AnswerPayload[]): void {
 }
 
 export class AnswerSync {
-  private queue: AnswerPayload[] = [];
+  private queue: Item[] = [];
   private running = false;
   private fails = 0;
   private onStatus: (s: { pending: number; error: string | null }) => void = () => {};
@@ -53,6 +57,21 @@ export class AnswerSync {
     void this.pump();
   }
 
+  /** Take back an answer: if it has not left the browser yet it is simply dropped; otherwise the undo follows it. */
+  undo(u: UndoPayload): void {
+    const i = this.queue.findIndex((x) => !isUndo(x) && x.clientId === u.clientId);
+    if (i >= 0 && !(i === 0 && this.running)) {
+      this.queue.splice(i, 1);
+      save(this.queue);
+      this.onStatus({ pending: this.queue.length, error: null });
+      return;
+    }
+    this.queue.push(u);
+    save(this.queue);
+    this.onStatus({ pending: this.queue.length, error: null });
+    void this.pump();
+  }
+
   /** Resolves once everything queued so far is stored (or gives up after `ms`). */
   async drain(ms = 4000): Promise<void> {
     const end = Date.now() + ms;
@@ -67,7 +86,7 @@ export class AnswerSync {
         const head = this.queue[0];
         let res: Response | null = null;
         try {
-          res = await fetch(URL_ANSWER, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(head), keepalive: true });
+          res = await fetch(isUndo(head) ? URL_UNDO : URL_ANSWER, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(head), keepalive: true });
         } catch {
           res = null;
         }
@@ -96,6 +115,6 @@ export class AnswerSync {
 
   private beacon(): void {
     if (!this.queue.length || !("sendBeacon" in navigator)) return;
-    for (const p of this.queue.slice(0, 10)) navigator.sendBeacon(URL_ANSWER, new Blob([JSON.stringify(p)], { type: "text/plain" }));
+    for (const p of this.queue.slice(0, 10)) navigator.sendBeacon(isUndo(p) ? URL_UNDO : URL_ANSWER, new Blob([JSON.stringify(p)], { type: "text/plain" }));
   }
 }

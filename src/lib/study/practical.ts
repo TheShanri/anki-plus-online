@@ -72,3 +72,8 @@ export function scoreStation(draw: StationDraw, a: StationAnswer, spelling: Exam
 export function readSpelling(v: unknown): ExamSpelling {
   return v === "strict" || v === "normal" || v === "generous" ? v : "generous";
 }
+
+/** What the exam client may see: the question and its picture, never the answer. */
+export function publicCard(c: StudyCard): StudyCard {
+  return { ...c, answer: "", accept: [], keywords: undefined, explain: null, followups: [], choices: c.format === "choice" || c.format === "tf" ? c.choices : null };
+}

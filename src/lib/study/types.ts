@@ -2,6 +2,8 @@
 // into the shape the study UI works with. Tolerant: the content pipeline may store the card JSON either
 // flat in `content` or with media in the `media` column.
 import type { CardStateRow } from "../fsrs.ts";
+import type { LearnerSettings } from "./settings.ts";
+import type { TrapSpot } from "./traps.ts";
 
 export type CardKind = "pin" | "theory" | "pathway" | "section" | "clinical" | "mcq" | "type_answer";
 export type AnswerFormat = "type" | "keywords" | "tf" | "choice";
@@ -149,3 +151,25 @@ export function toStudyCard(row: CardRow): StudyCard {
 }
 
 export type { CardStateRow };
+
+export type EntrySourceName = "new" | "learning" | "review" | "followup" | "boss";
+
+/** What GET /api/study/queue returns (and the study client consumes). */
+export interface StudyPayload {
+  course: { id: string; code: string; title: string; slug: string; settings: Record<string, unknown> };
+  settings: LearnerSettings;
+  serverNow: string;
+  scope: string;
+  queue: Array<{ cardId: string; source: EntrySourceName }>;
+  cards: StudyCard[];
+  structures: Record<string, StructureLite>;
+  states: Record<string, CardStateRow>;
+  ladders: Record<string, LadderRow>;
+  traps: Record<string, TrapSpot[]>;
+  trapMisses: Record<string, number>;
+  notes: Record<string, string>;
+  counts: { new: number; learning: number; review: number; newDoneToday: number; reviewsDoneToday: number; newLeft: number; reviewsLeft: number };
+  /** canonical structure name / synonym -> slug, to catch "that is a different structure" */
+  names: Record<string, string> | null;
+  units: Array<{ slug: string; title: string }>;
+}

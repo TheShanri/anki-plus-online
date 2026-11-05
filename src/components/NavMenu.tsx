@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { OPEN_ATLAS_EVENT, studySessionOpen } from "@/lib/atlas/events";
 
 export interface NavLinkItem {
   href: string;
@@ -28,7 +29,20 @@ export function NavMenu({ links, children }: { links: NavLinkItem[]; children?: 
           {links.map((l) => {
             const on = path === l.href || path.startsWith(l.href + "/");
             return (
-              <Link key={l.href} href={l.href} className="nav-link" aria-current={on ? "page" : undefined}>
+              <Link
+                key={l.href}
+                href={l.href}
+                className="nav-link"
+                aria-current={on ? "page" : undefined}
+                onClick={(e) => {
+                  // during a study session the atlas opens over the cards instead of leaving them
+                  if (l.href === "/atlas" && studySessionOpen() && !e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                    e.preventDefault();
+                    setOpen(false);
+                    window.dispatchEvent(new Event(OPEN_ATLAS_EVENT));
+                  }
+                }}
+              >
                 {l.label}
               </Link>
             );

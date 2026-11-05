@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+import { OPEN_ATLAS_EVENT, registerStudySession } from "@/lib/atlas/events";
 import { StudyEngine } from "@/lib/study/engine";
 import { AnswerSync } from "@/lib/study/sync";
 import { sessionIdFor } from "@/lib/study/activity";
@@ -16,6 +18,9 @@ import { Reveal } from "./Reveal";
 import { GearPopover } from "./Scaffolds";
 import { Summary } from "./Summary";
 import "./study.css";
+
+// the nav's Atlas link opens the atlas over the cards during a session (loaded on first use)
+const AtlasPeek = dynamic(() => import("@/components/atlas/AtlasPeek"), { ssr: false });
 
 let syncSingleton: AnswerSync | null = null;
 function getSync(): AnswerSync {
@@ -58,6 +63,21 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const [, setTick] = useState(0);
   const [syncState, setSyncState] = useState<{ pending: number; error: string | null }>({ pending: 0, error: null });
   const [reminder, setReminder] = useState(() => typingReminderDue(initial.settings.typing));
+  const [atlas, setAtlas] = useState<{ slug: string | null; name?: string } | null>(null);
+
+  // Atlas from the nav: opens over the card. Before the answer is shown it opens on no structure (no spoilers).
+  useEffect(() => {
+    const unregister = registerStudySession();
+    const open = () => {
+      const s = engine.phase === "reveal" ? engine.cur?.structure : null;
+      setAtlas(s ? { slug: s.slug, name: s.name } : { slug: null });
+    };
+    window.addEventListener(OPEN_ATLAS_EVENT, open);
+    return () => {
+      unregister();
+      window.removeEventListener(OPEN_ATLAS_EVENT, open);
+    };
+  }, [engine]);
   const started = useRef(false);
   const warmed = useRef(new Set<string>());
 
@@ -339,6 +359,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       {engine.drift > 0 && <div className="drift-glow" aria-hidden />}
       {engine.driftBackMs > 8000 && phase === "prompt" && <p className="v-notes" style={{ textAlign: "center" }}>Welcome back. The clock waited for you ({Math.round(engine.driftBackMs / 1000)} s).</p>}
       {toast && <div className="toast" role="status">{toast}</div>}
+      {atlas && <AtlasPeek slug={atlas.slug} name={atlas.name} onClose={() => setAtlas(null)} />}
 
       {engine.guardOpen && (
         <div className="overlay" role="dialog" aria-modal="true" aria-label="Take a break">

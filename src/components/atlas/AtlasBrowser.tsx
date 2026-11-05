@@ -14,8 +14,8 @@ import { SLICE_VIEWS } from "./SliceViewer";
 import type { SliceOverlay, SliceView } from "./SliceViewer";
 
 const PANEL_H = 560;
-const Loading = ({ what }: { what: string }) => (
-  <div className="flex items-center justify-center rounded-card border border-panel-border text-sm text-text-dim" style={{ height: PANEL_H }}>
+const Loading = ({ what, h = PANEL_H }: { what: string; h?: number }) => (
+  <div className="flex items-center justify-center rounded-card border border-panel-border text-sm text-text-dim" style={{ height: h }}>
     Loading {what}...
   </div>
 );
@@ -26,7 +26,17 @@ type Tab = "model" | "slices";
 const VIEW_PARAM: Record<string, SliceView> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", transverse: "axial", multi: "multi", multiplanar: "multi", render: "render" };
 const VIEW_NAME: Record<SliceView, string> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", multi: "multi", render: "render" };
 
-type Props = { initialS?: string; initialN?: string; initialView?: string; initialAdd?: string; initialNb?: string };
+type Props = {
+  initialS?: string;
+  initialN?: string;
+  initialView?: string;
+  initialAdd?: string;
+  initialNb?: string;
+  /** Inside another page (the study overlay): leaves the URL alone. */
+  embedded?: boolean;
+  /** Viewer and list height in px (default 560). */
+  height?: number;
+};
 
 const QUALITY_TEXT: Record<string, string> = {
   exact: "Exact in MRI slices",
@@ -34,7 +44,8 @@ const QUALITY_TEXT: Record<string, string> = {
   regional: "Region only in MRI slices",
 };
 
-export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb }: Props) {
+export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb, embedded = false, height }: Props) {
+  const panelH = height ?? PANEL_H;
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [atlas2, setAtlas2] = useState<Atlas2 | null>(null);
   const [error, setError] = useState(false);
@@ -187,6 +198,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
 
   // URL deep link: /atlas?s=<id or slug>&view=coronal&add=a,b&nb=1
   useEffect(() => {
+    if (embedded) return;
     try {
       const p = new URLSearchParams();
       if (primary) p.set("s", primary.slug && tab === "slices" ? primary.slug : primary.key.replace(/^slug:/, ""));
@@ -198,7 +210,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     } catch {
       /* ignore */
     }
-  }, [primary, tab, sliceView, extraKeys, neighbors]);
+  }, [embedded, primary, tab, sliceView, extraKeys, neighbors]);
 
   const results = useMemo(() => {
     const terms = normalizeQuery(q).split(" ").filter(Boolean);
@@ -234,7 +246,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
 
   return (
     <div className="grid gap-4 lg:grid-cols-[300px_1fr]">
-      <div className="panel flex flex-col gap-3" style={{ maxHeight: PANEL_H }}>
+      <div className="panel flex flex-col gap-3" style={{ maxHeight: panelH }}>
         <label className="sr-only" htmlFor="atlas-search">
           Search structures
         </label>
@@ -363,7 +375,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
         </div>
 
         {tab === "model" ? (
-          <AtlasViewer structureIds={ids3d} mode={primary ? "focus" : "context"} approximate={primary?.approximate ?? false} label={primary?.name} height={PANEL_H} overlays={overlays3d} />
+          <AtlasViewer structureIds={ids3d} mode={primary ? "focus" : "context"} approximate={primary?.approximate ?? false} label={primary?.name} height={panelH} overlays={overlays3d} />
         ) : atlas2 ? (
           <SliceViewer
             atlas={atlas2}
@@ -373,10 +385,10 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
             view={sliceView}
             jumpTo={primary?.slug ?? null}
             onPick={pickSlug}
-            height={PANEL_H}
+            height={panelH}
           />
         ) : (
-          <Loading what="MRI atlas" />
+          <Loading what="MRI atlas" h={panelH} />
         )}
 
         <div className="flex flex-wrap items-center gap-2 text-sm text-text-dim">

@@ -1,0 +1,174 @@
+# Atlas name mapping: unmatched and approximate
+
+Course structure names: 349. Mapped exactly: 187. Mapped approximately (fallback parent highlighted, badge shown): 103. No 3D model (skull, orientation terms, eye, plexuses, lecture-note text): 59. Unmatched: 0.
+
+## Approximate matches (Z-Anatomy has no mesh of its own)
+
+- Arachnoid mater: highlight  (fallback parent: meninges)
+- Pia mater: highlight  (fallback parent: meninges)
+- Meningeal blood vessels: highlight falx-cerebri, tentorium-cerebelli (fallback parent: meninges)
+- Anterior horn: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- Body: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- Inferior horn: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- Posterior horn: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- Atrium or trigone: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- Foramina of Monro (singular: foramen): highlight lateral-ventricle, third-ventricle (fallback parent: third-ventricle)
+- Foramina of Magendie and Luschka (medial and lateral apertures): highlight fourth-ventricle (fallback parent: fourth-ventricle)
+- Arachnoid granulations: highlight superior-sagittal-sinus (fallback parent: meninges)
+- Uncus: highlight medial-occipitotemporal-gyrus-parahippocampal (fallback parent: limbic-lobe)
+- Massa intermedia/ Interthalamic adhesion: highlight thalamus (fallback parent: thalamus)
+- Pituitary Stalk (usually ripped, know general location): highlight hypothalamus (fallback parent: hypothalamus)
+- Premotor Cortex (BA 6): highlight superior-frontal-gyrus, middle-frontal-gyrus (fallback parent: frontal-lobe)
+- Anterior Cingulate Cortex: highlight cingulate-gyrus-and-sulcus-middle-anterior-part (fallback parent: limbic-lobe)
+- Dorsolateral Prefrontal Cortex: highlight middle-frontal-gyrus (fallback parent: frontal-lobe)
+- Ventromedial Prefrontal Cortex: highlight straight-gyrus-gyrus-rectus, orbital-gyri (fallback parent: frontal-lobe)
+- Anterior Perforated Substance: highlight basal-forebrain (fallback parent: basal-forebrain)
+- Primary Visual Cortex (BA 17): highlight calcarine-sulcus, cuneus, lingual-gyrus (fallback parent: occipital-lobe)
+- Wernicke’s Area: highlight superior-temporal-gyrus-lateral-part, angular-gyrus, supramarginal-gyrus (fallback parent: temporal-lobe)
+- Association Fibers: highlight white-matter-of-telencephalon (fallback parent: white-matter-of-telencephalon)
+- Projection Fibers: highlight white-matter-of-telencephalon (fallback parent: white-matter-of-telencephalon)
+- Internal Capsule: highlight white-matter-of-telencephalon (fallback parent: white-matter-of-telencephalon)
+- Interhemispheric fissure: highlight falx-cerebri (fallback parent: cerebrum)
+- Conus Medullaris: highlight cauda-equina (fallback parent: spinal-cord)
+- Filum Terminale: highlight cauda-equina (fallback parent: spinal-cord)
+- Denticulate ligaments: highlight spinal-dura (fallback parent: spinal-dura)
+- Dural sleeves: highlight spinal-dura (fallback parent: spinal-dura)
+- Spinal Nerves: highlight anterior-root-of-spinal-nerve, posterior-root-of-spinal-nerve (fallback parent: spinal-nerves)
+- Dorsal and Ventral Rami: highlight anterior-root-of-spinal-nerve, posterior-root-of-spinal-nerve (fallback parent: spinal-nerves)
+- Lateral Horn: highlight intermediolateral-nucleus (fallback parent: spinal-cord)
+- DREZ (lateral & medial): highlight posterolateral-tract (fallback parent: posterior-horn-of-spinal-cord)
+- Marginal nucleus: highlight posterior-horn-of-spinal-cord (fallback parent: posterior-horn-of-spinal-cord)
+- Substantia gelatinosa: highlight posterior-horn-of-spinal-cord (fallback parent: posterior-horn-of-spinal-cord)
+- Column of Clarke (Nucleus dorsalis): highlight intermediomedial-nucleus (fallback parent: grey-matter-of-spinal-cord)
+- Ventral commissure of spinal cord: highlight anterior-horn-of-spinal-cord (fallback parent: grey-matter-of-spinal-cord)
+- Pineal gland: highlight habenula, posterior-commissure (fallback parent: diencephalon)
+- Pituitary stalk: highlight hypothalamus (fallback parent: hypothalamus)
+- Cerebellar Peduncles: highlight superior-cerebellar-peduncle (fallback parent: brainstem)
+- Middle Cerebellar Peduncle: highlight pons (fallback parent: pons)
+- Inferior Cerebellar Peduncle: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Transverse fibers of the pons: highlight pons (fallback parent: pons)
+- Facial Colliculus: highlight nucleus-of-abducens-nerve (fallback parent: pons)
+- Cuneate and Gracile Tubercles: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Obex: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Area postrema: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Substantia nigra: highlight base-of-peduncle (fallback parent: midbrain)
+- Medial lemniscus: highlight brainstem (fallback parent: brainstem)
+- Medial longitudinal fasciculus (MLF): highlight brainstem (fallback parent: brainstem)
+- Decussation of Superior Cerebellar Peduncle (X/SCP): highlight superior-cerebellar-peduncle (fallback parent: midbrain)
+- Middle cerebellar peduncle (MCP): highlight pons (fallback parent: pons)
+- Motor trigeminal nucleus: highlight motor-root-of-trigeminal-nerve (fallback parent: pons)
+- Principal sensory nucleus of trigeminal: highlight sensory-root-of-trigeminal-nerve (fallback parent: pons)
+- Longitudinal fibers of the pons: highlight pons (fallback parent: pons)
+- Pontine nuclei: highlight pons (fallback parent: pons)
+- Facial colliculus: highlight nucleus-of-abducens-nerve (fallback parent: pons)
+- Dorsal motor nucleus of vagus (DMV / DMX) Solitary nucleus: highlight posterior-nucleus-of-vagus-nerve (fallback parent: medulla-oblongata)
+- Inferior cerebellar peduncle (ICP): highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Gracile nucleus: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Cuneate nucleus: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Internal arcuate fibers: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Spinal trigeminal nucleus: highlight medulla-oblongata (fallback parent: medulla-oblongata)
+- Pyramids/ motor decussation: highlight pyramid-of-medulla-oblongata (fallback parent: medulla-oblongata)
+- Location of limb lower motor neurons: highlight anterior-horn-of-spinal-cord (fallback parent: grey-matter-of-spinal-cord)
+- Location of trunk lower motor neurons: highlight anterior-horn-of-spinal-cord (fallback parent: grey-matter-of-spinal-cord)
+- X/SCP (Decussation of superior cerebellar peduncle): highlight superior-cerebellar-peduncle (fallback parent: midbrain)
+- Transverse fibers of pons: highlight pons (fallback parent: pons)
+- Pontine protuberance: highlight pons (fallback parent: pons)
+- Middle cerebellar peduncle: highlight pons (fallback parent: pons)
+- Longitudinal fibers of pons: highlight pons (fallback parent: pons)
+- Optic radiations: highlight white-matter-of-telencephalon (fallback parent: white-matter-of-telencephalon)
+- Suprachiasmatic nucleus (know general location of): highlight hypothalamus (fallback parent: hypothalamus)
+- MLF (medial longitudinal fasciculus): highlight brainstem (fallback parent: brainstem)
+- Interhemispheric Fissure or Median Longitudinal Cerebral Fissure: highlight falx-cerebri (fallback parent: cerebrum)
+- Anterior limb: highlight white-matter-of-telencephalon (fallback parent: white-matter-of-telencephalon)
+- Posterior limb: highlight white-matter-of-telencephalon (fallback parent: white-matter-of-telencephalon)
+- Anterior perforated substance: highlight basal-forebrain (fallback parent: basal-forebrain)
+- Interthalamic adhesion (massa intermedia): highlight thalamus (fallback parent: thalamus)
+- Lamina terminalis: highlight third-ventricle (fallback parent: third-ventricle)
+- Infundibular stalk (infundibulum or pituitary stalk): highlight hypothalamus (fallback parent: hypothalamus)
+- Pineal gland or body: highlight habenula, posterior-commissure (fallback parent: diencephalon)
+- Median Longitudinal Cerebral Fissure or the Interhemispheric Fissure: highlight falx-cerebri (fallback parent: cerebrum)
+- anterior horn: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- body: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- trigone or atrium: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- posterior horn: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- inferior horn: highlight lateral-ventricle (fallback parent: lateral-ventricle)
+- Nucleus accumbens: highlight caudate-nucleus, putamen (fallback parent: corpus-striatum)
+- interthalamic adhesion (massa intermedia): highlight thalamus (fallback parent: thalamus)
+- lamina terminalis: highlight third-ventricle (fallback parent: third-ventricle)
+- pituitary stalk (infundibular stalk, infundibulum): highlight hypothalamus (fallback parent: hypothalamus)
+- pineal gland or body: highlight habenula, posterior-commissure (fallback parent: diencephalon)
+- substantia nigra: highlight base-of-peduncle (fallback parent: midbrain)
+- subthalamic nucleus: highlight thalamus (fallback parent: diencephalon)
+- Superior, middle, inferior cerebellar peduncle: highlight superior-cerebellar-peduncle, pons, medulla-oblongata (fallback parent: brainstem)
+- Paravermis: highlight anterior-quadrangular-lobule, posterior-quadrangular-lobule, superior-semilunar-lobule, inferior-semilunar-lobule, biventral-lobule, gracile-lobule (fallback parent: cerebellum)
+- Lateral hemisphere: highlight anterior-quadrangular-lobule, posterior-quadrangular-lobule, superior-semilunar-lobule, inferior-semilunar-lobule, biventral-lobule, gracile-lobule (fallback parent: cerebellum)
+- Dentate nucleus (in cross-section of cerebellum): highlight cerebellum (fallback parent: cerebellum)
+- Lenticulostriate Arteries penetrating Anterior Perforated Substance: highlight middle-cerebral-artery-m1 (fallback parent: middle-cerebral-artery-m1)
+- Callosomarginal Artery: highlight anterior-cerebral-artery (fallback parent: anterior-cerebral-artery)
+- Anterior spinal artery: highlight vertebral-artery (fallback parent: vertebral-artery)
+- Posterior spinal arteries (only in a picture): highlight vertebral-artery (fallback parent: vertebral-artery)
+
+## No 3D model, intentionally (hide the Open in 3D atlas button)
+
+- Frontal Bone
+- Temporal Bone
+- Occipital Bone
+- Parietal Bone
+- Sphenoid Bone
+- Sagittal
+- Lambdoid
+- Coronal
+- Bregma
+- Lambda
+- Pterion
+- Foramen magnum
+- Anterior cranial fossa
+- Middle cranial fossa
+- Posterior cranial fossa
+- Epidural space
+- Subdural space
+- Subarachnoid space
+- Posterior vs. Anterior
+- Superior vs. Inferior
+- Rostral vs. Caudal
+- Dorsal vs. Ventral
+- Lateral vs. Medial; Median
+- Superficial vs. Deep
+- Sagittal (midsagittal, parasagittal)
+- Coronal (frontal)
+- Horizontal (axial, transverse)
+- Longitudinal axis of the nervous system (neuraxis)
+- Orientation of neuraxis in the cerebrum vs. brainstem/spinal cord
+- Mesencephalic flexure
+- Orientation of Motor Homunculus
+- Orientation of Somatosensory Homunculus
+- Vertebral body
+- Vertebral foramen
+- Vertebral arch
+- Transverse process
+- Spinous process
+- Intervertebral disc
+- Intervertebral foramen
+- Vertebral canal
+- Distinguish cervical, thoracic, lumbar and sacral vertebrae
+- Epidural, subdural, subarachnoid spaces
+- Brachial plexus
+- Lumbosacral plexus
+- Be able to identify the following structures on a histological image of the spinal cord:
+- Cornea
+- Sclera
+- Iris
+- Lens
+- Retina
+- Choroid
+- Know that PPRF (lateral gaze center) surrounds Abducens nucleus
+- Corpus Striatum is composed of:
+- 3. The region separating these two nuclear masses by fibers of the anterior limb of the internal capsule.
+- Lentiform (lens shaped) nucleus is composed of Putamen and Globus pallidus
+- Vertebral Artery
+- Major structures from coronal/horizontal specimens (i.e. basal ganglia, thalamus, corpus callosum, ventricles, septum pellucidum)
+- Differentiation of major imaging types
+- Brain bleeds
+
+## Unmatched: proposed fallback needed
+

@@ -1,0 +1,3035 @@
+{
+ "Dura mater": {
+  "meshIds": [
+   "falx-cerebri",
+   "tentorium-cerebelli",
+   "spinal-dura"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Falx cerebri",
+   "Tentorium cerebelli",
+   "Spinal dura",
+   "Dura spinalis"
+  ]
+ },
+ "Falx cerebri": {
+  "meshIds": [
+   "falx-cerebri"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Tentorium cerebelli": {
+  "meshIds": [
+   "tentorium-cerebelli"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Arachnoid mater": {
+  "meshIds": [],
+  "approximate": true,
+  "synonyms": [],
+  "fallbackParentId": "meninges"
+ },
+ "Pia mater": {
+  "meshIds": [],
+  "approximate": true,
+  "synonyms": [],
+  "fallbackParentId": "meninges"
+ },
+ "Meningeal blood vessels": {
+  "meshIds": [
+   "falx-cerebri",
+   "tentorium-cerebelli"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Falx cerebri",
+   "Tentorium cerebelli"
+  ],
+  "fallbackParentId": "meninges"
+ },
+ "Cerebral blood vessels": {
+  "meshIds": [
+   "cerebral-arterial-circle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Cerebral arterial circle",
+   "Circulus arteriosus cerebri"
+  ]
+ },
+ "Cerebral Cortex (Cerebrum)": {
+  "meshIds": [
+   "frontal-lobe",
+   "parietal-lobe",
+   "temporal-lobe",
+   "occipital-lobe",
+   "limbic-lobe",
+   "insula-subcentral-gyrus-and-ant-and-post-sulci"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Frontal lobe",
+   "Lobus frontalis",
+   "Parietal lobe",
+   "Lobus parietalis",
+   "Temporal lobe",
+   "Lobus temporalis"
+  ]
+ },
+ "Brainstem": {
+  "meshIds": [
+   "brainstem"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Trucus encephali"
+  ]
+ },
+ "Cerebellum": {
+  "meshIds": [
+   "cerebellum"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Lateral ventricle": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Ventriculus lateralis"
+  ]
+ },
+ "Anterior horn": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "Body": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "Inferior horn": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "Posterior horn": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "Atrium or trigone": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "Septum pellucidum": {
+  "meshIds": [
+   "septum-pellucidum"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Foramina of Monro (singular: foramen)": {
+  "meshIds": [
+   "lateral-ventricle",
+   "third-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis",
+   "Third ventricle",
+   "Ventriculus tertius"
+  ],
+  "fallbackParentId": "third-ventricle"
+ },
+ "Third ventricle": {
+  "meshIds": [
+   "third-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Ventriculus tertius"
+  ]
+ },
+ "Cerebral aqueduct": {
+  "meshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Aqueduct of midbrain",
+   "Aquaeductus mesencephali"
+  ]
+ },
+ "Fourth ventricle": {
+  "meshIds": [
+   "fourth-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Ventriculus quartus"
+  ]
+ },
+ "Foramina of Magendie and Luschka (medial and lateral apertures)": {
+  "meshIds": [
+   "fourth-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Fourth ventricle",
+   "Ventriculus quartus"
+  ],
+  "fallbackParentId": "fourth-ventricle"
+ },
+ "Choroid plexus": {
+  "meshIds": [
+   "choroid-plexus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Plexus chorioideus"
+  ]
+ },
+ "Arachnoid granulations": {
+  "meshIds": [
+   "superior-sagittal-sinus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior sagittal sinus",
+   "Sinus sagittalis superior"
+  ],
+  "fallbackParentId": "meninges"
+ },
+ "Superior sagittal sinus": {
+  "meshIds": [
+   "superior-sagittal-sinus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Sinus sagittalis superior"
+  ]
+ },
+ "Cerebral cortex": {
+  "meshIds": [
+   "frontal-lobe",
+   "parietal-lobe",
+   "temporal-lobe",
+   "occipital-lobe",
+   "limbic-lobe",
+   "insula-subcentral-gyrus-and-ant-and-post-sulci"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Frontal lobe",
+   "Lobus frontalis",
+   "Parietal lobe",
+   "Lobus parietalis",
+   "Temporal lobe",
+   "Lobus temporalis"
+  ]
+ },
+ "Corpus callosum": {
+  "meshIds": [
+   "corpus-callosum"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Basal ganglia (caudate, putamen, globus pallidus)": {
+  "meshIds": [
+   "caudate-nucleus",
+   "putamen",
+   "globus-pallidus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Caudate nucleus",
+   "Nucleus caudatus",
+   "Putamen",
+   "Globus pallidus"
+  ]
+ },
+ "Hippocampus": {
+  "meshIds": [
+   "hippocampus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Amygdala": {
+  "meshIds": [
+   "amygdaloid-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Amygdaloid body",
+   "Corpus amygdaloideum"
+  ]
+ },
+ "Parahippocampal gyrus": {
+  "meshIds": [
+   "medial-occipitotemporal-gyrus-parahippocampal"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial occipitotemporal gyrus (Parahippocampal)",
+   "Gyrus occipitotemporalis medialis"
+  ]
+ },
+ "Uncus": {
+  "meshIds": [
+   "medial-occipitotemporal-gyrus-parahippocampal"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medial occipitotemporal gyrus (Parahippocampal)",
+   "Gyrus occipitotemporalis medialis"
+  ],
+  "fallbackParentId": "limbic-lobe"
+ },
+ "Thalamus": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Hypothalamus": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Massa intermedia/ Interthalamic adhesion": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Thalamus"
+  ],
+  "fallbackParentId": "thalamus"
+ },
+ "Optic chiasm": {
+  "meshIds": [
+   "optic-chiasm"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Chiasma opticum"
+  ]
+ },
+ "Mammillary bodies": {
+  "meshIds": [
+   "mamillary-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Mamillary body",
+   "Corpus mammillare"
+  ]
+ },
+ "Pituitary Stalk (usually ripped, know general location)": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Hypothalamus"
+  ],
+  "fallbackParentId": "hypothalamus"
+ },
+ "Midbrain": {
+  "meshIds": [
+   "midbrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Mesencephalon"
+  ]
+ },
+ "Pons": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Medulla": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medulla oblongata"
+  ]
+ },
+ "Primary Motor Cortex (Brodmann’s area 4)": {
+  "meshIds": [
+   "precentral-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Precentral gyrus",
+   "Gyrus precentralis"
+  ]
+ },
+ "Premotor Cortex (BA 6)": {
+  "meshIds": [
+   "superior-frontal-gyrus",
+   "middle-frontal-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior frontal gyrus",
+   "Gyrus frontalis superior",
+   "Middle frontal gyrus",
+   "Gyrus frontalis medius"
+  ],
+  "fallbackParentId": "frontal-lobe"
+ },
+ "Broca’s Area": {
+  "meshIds": [
+   "opercular-part-of-inferior-frontal-gyrus",
+   "triangular-part-of-inferior-frontal-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Opercular part of inferior frontal gyrus",
+   "Pars opercularis gyri frontalis inferioris",
+   "Triangular part of inferior frontal gyrus",
+   "Pars triangularis gyri frontalis inferioris"
+  ]
+ },
+ "Anterior Cingulate Cortex": {
+  "meshIds": [
+   "cingulate-gyrus-and-sulcus-middle-anterior-part"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Cingulate gyrus and sulcus (Middle anterior part)"
+  ],
+  "fallbackParentId": "limbic-lobe"
+ },
+ "Dorsolateral Prefrontal Cortex": {
+  "meshIds": [
+   "middle-frontal-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Middle frontal gyrus",
+   "Gyrus frontalis medius"
+  ],
+  "fallbackParentId": "frontal-lobe"
+ },
+ "Orbitofrontal Cortex": {
+  "meshIds": [
+   "orbital-gyri"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Orbital gyri",
+   "Gyri orbitales"
+  ]
+ },
+ "Ventromedial Prefrontal Cortex": {
+  "meshIds": [
+   "straight-gyrus-gyrus-rectus",
+   "orbital-gyri"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Straight gyrus (Gyrus rectus)",
+   "Gyrus rectus",
+   "Orbital gyri",
+   "Gyri orbitales"
+  ],
+  "fallbackParentId": "frontal-lobe"
+ },
+ "Anterior Perforated Substance": {
+  "meshIds": [
+   "basal-forebrain"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Basal forebrain",
+   "Pars basalis telencephali"
+  ],
+  "fallbackParentId": "basal-forebrain"
+ },
+ "Primary Somatosensensory Cortex (BA 3,1,2)": {
+  "meshIds": [
+   "postcentral-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Postcentral gyrus",
+   "Gyrus postcentralis"
+  ]
+ },
+ "Somatosensory Association Cortex (BA 5&7)": {
+  "meshIds": [
+   "superior-parietal-lobule"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior parietal lobule",
+   "Lobulus parietalis superior"
+  ]
+ },
+ "Multimodal area (Parietal lobe general association area)": {
+  "meshIds": [
+   "parietal-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Parietal lobe",
+   "Lobus parietalis"
+  ]
+ },
+ "Primary Visual Cortex (BA 17)": {
+  "meshIds": [
+   "calcarine-sulcus",
+   "cuneus",
+   "lingual-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Calcarine sulcus",
+   "Sulcus calcarinus",
+   "Cuneus",
+   "Lingual gyrus",
+   "Gyrus lingualis"
+  ],
+  "fallbackParentId": "occipital-lobe"
+ },
+ "Visual Association Cortex (BA 18, 19)": {
+  "meshIds": [
+   "occipital-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Occipital lobe",
+   "Lobus occipitalis"
+  ]
+ },
+ "Primary Auditory Cortex (BA 41, 42)": {
+  "meshIds": [
+   "transverse-temporal-gyri"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Transverse temporal gyri",
+   "Gyri temporales transversi"
+  ]
+ },
+ "Auditory Association Area (BA 22)": {
+  "meshIds": [
+   "superior-temporal-gyrus-lateral-part"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior temporal gyrus (Lateral part)",
+   "Gyrus temporalis superior"
+  ]
+ },
+ "Wernicke’s Area": {
+  "meshIds": [
+   "superior-temporal-gyrus-lateral-part",
+   "angular-gyrus",
+   "supramarginal-gyrus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior temporal gyrus (Lateral part)",
+   "Gyrus temporalis superior",
+   "Angular gyrus",
+   "Gyrus angularis",
+   "Supramarginal gyrus",
+   "Gyrus supramarginalis"
+  ],
+  "fallbackParentId": "temporal-lobe"
+ },
+ "Temporal lobe general association area": {
+  "meshIds": [
+   "temporal-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Temporal lobe",
+   "Lobus temporalis"
+  ]
+ },
+ "Association Fibers": {
+  "meshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "White matter of telencephalon",
+   "Substantia alba telencephali"
+  ],
+  "fallbackParentId": "white-matter-of-telencephalon"
+ },
+ "Commissural Fibers": {
+  "meshIds": [
+   "corpus-callosum",
+   "anterior-commissure",
+   "hippocampal-commissure"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Corpus callosum",
+   "Anterior commissure",
+   "Commissura anterior",
+   "Hippocampal commissure",
+   "Commissura hippocampi"
+  ]
+ },
+ "Projection Fibers": {
+  "meshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "White matter of telencephalon",
+   "Substantia alba telencephali"
+  ],
+  "fallbackParentId": "white-matter-of-telencephalon"
+ },
+ "Anterior Commissure": {
+  "meshIds": [
+   "anterior-commissure"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Commissura anterior"
+  ]
+ },
+ "Corpus Callosum": {
+  "meshIds": [
+   "corpus-callosum"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Internal Capsule": {
+  "meshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "White matter of telencephalon",
+   "Substantia alba telencephali"
+  ],
+  "fallbackParentId": "white-matter-of-telencephalon"
+ },
+ "Interhemispheric fissure": {
+  "meshIds": [
+   "falx-cerebri"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Falx cerebri"
+  ],
+  "fallbackParentId": "cerebrum"
+ },
+ "Lateral fissure": {
+  "meshIds": [
+   "lat-fis-post",
+   "lat-fis-ant-horizont",
+   "lat-fis-ant-vertical"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Lat_Fis-post",
+   "Lat_Fis-ant-Horizont",
+   "Lat_Fis-ant-Vertical"
+  ]
+ },
+ "Central sulcus": {
+  "meshIds": [
+   "central-sulcus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Sulcus centralis"
+  ]
+ },
+ "Parieto-occipital fissure": {
+  "meshIds": [
+   "parieto-occipital-sulcus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Parieto-occipital sulcus",
+   "Sulcus parietooccipitalis"
+  ]
+ },
+ "Intraparietal fissure": {
+  "meshIds": [
+   "intraparietal-sulcus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Intraparietal sulcus",
+   "Sulcus intraparietalis"
+  ]
+ },
+ "Calcarine fissure": {
+  "meshIds": [
+   "calcarine-sulcus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Calcarine sulcus",
+   "Sulcus calcarinus"
+  ]
+ },
+ "Superior, Middle Inferior Frontal Gyri": {
+  "meshIds": [
+   "superior-frontal-gyrus",
+   "middle-frontal-gyrus",
+   "opercular-part-of-inferior-frontal-gyrus",
+   "triangular-part-of-inferior-frontal-gyrus",
+   "orbital-part-of-inferior-frontal-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior frontal gyrus",
+   "Gyrus frontalis superior",
+   "Middle frontal gyrus",
+   "Gyrus frontalis medius",
+   "Opercular part of inferior frontal gyrus",
+   "Pars opercularis gyri frontalis inferioris"
+  ]
+ },
+ "Cingulate Gyrus": {
+  "meshIds": [
+   "cingulate-gyrus-and-sulcus-middle-anterior-part",
+   "cingulate-gyrus-and-sulcus-middle-posterior-part",
+   "cingulate-gyrus-and-sulcus-posterior-dorsal-part",
+   "cingulate-gyrus-posteroventral-part"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Cingulate gyrus and sulcus (Middle anterior part)",
+   "Cingulate gyrus and sulcus (Middle posterior part)",
+   "Cingulate gyrus and sulcus (Posterior dorsal part)",
+   "Cingulate gyrus (Posteroventral part)",
+   "Gyrus cinguli"
+  ]
+ },
+ "Precentral Gyrus": {
+  "meshIds": [
+   "precentral-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Gyrus precentralis"
+  ]
+ },
+ "Postcentral Gyrus": {
+  "meshIds": [
+   "postcentral-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Gyrus postcentralis"
+  ]
+ },
+ "Superior Parietal Lobule": {
+  "meshIds": [
+   "superior-parietal-lobule"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Lobulus parietalis superior"
+  ]
+ },
+ "Inferior Parietal Lobule": {
+  "meshIds": [
+   "supramarginal-gyrus",
+   "angular-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Supramarginal gyrus",
+   "Gyrus supramarginalis",
+   "Angular gyrus",
+   "Gyrus angularis"
+  ]
+ },
+ "Superior, Middle, Inferior Temporal Gyri": {
+  "meshIds": [
+   "superior-temporal-gyrus-lateral-part",
+   "middle-temporal-gyrus",
+   "inferior-temporal-gyrus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior temporal gyrus (Lateral part)",
+   "Gyrus temporalis superior",
+   "Middle temporal gyrus",
+   "Gyrus temporalis medius",
+   "Inferior temporal gyrus",
+   "Gyrus temporalis inferior"
+  ]
+ },
+ "Transverse temporal gyrus": {
+  "meshIds": [
+   "transverse-temporal-gyri"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Transverse temporal gyri",
+   "Gyri temporales transversi"
+  ]
+ },
+ "Parahippocampal Gyrus": {
+  "meshIds": [
+   "medial-occipitotemporal-gyrus-parahippocampal"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial occipitotemporal gyrus (Parahippocampal)",
+   "Gyrus occipitotemporalis medialis"
+  ]
+ },
+ "Dura, Arachnoid and Pia layers of meninges": {
+  "meshIds": [
+   "falx-cerebri",
+   "tentorium-cerebelli",
+   "spinal-dura"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Falx cerebri",
+   "Tentorium cerebelli",
+   "Spinal dura",
+   "Dura spinalis"
+  ]
+ },
+ "Conus Medullaris": {
+  "meshIds": [
+   "cauda-equina"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Cauda equina"
+  ],
+  "fallbackParentId": "spinal-cord"
+ },
+ "Cauda Equina": {
+  "meshIds": [
+   "cauda-equina"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Filum Terminale": {
+  "meshIds": [
+   "cauda-equina"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Cauda equina"
+  ],
+  "fallbackParentId": "spinal-cord"
+ },
+ "Denticulate ligaments": {
+  "meshIds": [
+   "spinal-dura"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Spinal dura",
+   "Dura spinalis"
+  ],
+  "fallbackParentId": "spinal-dura"
+ },
+ "Dorsal and Ventral Rootlets and Roots": {
+  "meshIds": [
+   "anterior-root-of-spinal-nerve",
+   "posterior-root-of-spinal-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Anterior root of spinal nerve",
+   "Radix anterior nervi spinalis",
+   "Posterior root of spinal nerve",
+   "Radix posterior nervi spinalis"
+  ]
+ },
+ "Dorsal Root Ganglion": {
+  "meshIds": [
+   "spinal-ganglion"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Spinal ganglion",
+   "Ganglion spinale"
+  ]
+ },
+ "Dural sleeves": {
+  "meshIds": [
+   "spinal-dura"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Spinal dura",
+   "Dura spinalis"
+  ],
+  "fallbackParentId": "spinal-dura"
+ },
+ "Spinal Nerves": {
+  "meshIds": [
+   "anterior-root-of-spinal-nerve",
+   "posterior-root-of-spinal-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior root of spinal nerve",
+   "Radix anterior nervi spinalis",
+   "Posterior root of spinal nerve",
+   "Radix posterior nervi spinalis"
+  ],
+  "fallbackParentId": "spinal-nerves"
+ },
+ "Dorsal and Ventral Rami": {
+  "meshIds": [
+   "anterior-root-of-spinal-nerve",
+   "posterior-root-of-spinal-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior root of spinal nerve",
+   "Radix anterior nervi spinalis",
+   "Posterior root of spinal nerve",
+   "Radix posterior nervi spinalis"
+  ],
+  "fallbackParentId": "spinal-nerves"
+ },
+ "Dorsal Horns": {
+  "meshIds": [
+   "posterior-horn-of-spinal-cord"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Posterior horn of spinal cord",
+   "Cornu posterius medullae spinalis"
+  ]
+ },
+ "Ventral Horns": {
+  "meshIds": [
+   "anterior-horn-of-spinal-cord"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Anterior horn of spinal cord",
+   "Cornu anterius medullae spinalis"
+  ]
+ },
+ "Lateral Horn": {
+  "meshIds": [
+   "intermediolateral-nucleus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Intermediolateral nucleus",
+   "Nucleus intermediolateralis"
+  ],
+  "fallbackParentId": "spinal-cord"
+ },
+ "Intermediate Zone": {
+  "meshIds": [
+   "lateral-intermediate-substance",
+   "intermediomedial-nucleus",
+   "intermediolateral-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Lateral intermediate substance",
+   "Substantia intermedia lateralis",
+   "Intermediomedial nucleus",
+   "Nucleus intermediomedialis",
+   "Intermediolateral nucleus",
+   "Nucleus intermediolateralis"
+  ]
+ },
+ "Dorsal Columns": {
+  "meshIds": [
+   "gracile-fasciculus",
+   "cuneate-fasciculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Gracile fasciculus",
+   "Fasciculus gracilis",
+   "Cuneate fasciculus",
+   "Fasciculus cuneatus"
+  ]
+ },
+ "Fasciculus Gracilis": {
+  "meshIds": [
+   "gracile-fasciculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Gracile fasciculus"
+  ]
+ },
+ "Fasciculus Cuneatus": {
+  "meshIds": [
+   "cuneate-fasciculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Cuneate fasciculus"
+  ]
+ },
+ "Anterolateral Spinothalamic Tract": {
+  "meshIds": [
+   "anterior-spinothalamic-tract",
+   "lateral-spinothalamic-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Anterior spinothalamic tract",
+   "Tractus spinothalamicus anterior",
+   "Lateral spinothalamic tract",
+   "Tractus spinothalamicus lateralis"
+  ]
+ },
+ "Dorsal Spinocerebellar Tract": {
+  "meshIds": [
+   "posterior-spinocerebellar-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Posterior spinocerebellar tract",
+   "Tractus spinocerebellaris posterior"
+  ]
+ },
+ "DREZ (lateral & medial)": {
+  "meshIds": [
+   "posterolateral-tract"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Posterolateral tract",
+   "Fasciculus posterolateralis"
+  ],
+  "fallbackParentId": "posterior-horn-of-spinal-cord"
+ },
+ "Marginal nucleus": {
+  "meshIds": [
+   "posterior-horn-of-spinal-cord"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Posterior horn of spinal cord",
+   "Cornu posterius medullae spinalis"
+  ],
+  "fallbackParentId": "posterior-horn-of-spinal-cord"
+ },
+ "Substantia gelatinosa": {
+  "meshIds": [
+   "posterior-horn-of-spinal-cord"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Posterior horn of spinal cord",
+   "Cornu posterius medullae spinalis"
+  ],
+  "fallbackParentId": "posterior-horn-of-spinal-cord"
+ },
+ "Nucleus proprius": {
+  "meshIds": [
+   "nucleus-proprius"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Column of Clarke (Nucleus dorsalis)": {
+  "meshIds": [
+   "intermediomedial-nucleus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Intermediomedial nucleus",
+   "Nucleus intermediomedialis"
+  ],
+  "fallbackParentId": "grey-matter-of-spinal-cord"
+ },
+ "Ventral commissure of spinal cord": {
+  "meshIds": [
+   "anterior-horn-of-spinal-cord"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior horn of spinal cord",
+   "Cornu anterius medullae spinalis"
+  ],
+  "fallbackParentId": "grey-matter-of-spinal-cord"
+ },
+ "Anterior nucleus": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Thalamus"
+  ]
+ },
+ "Pulvinar": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Thalamus"
+  ]
+ },
+ "Medial geniculate nucleus": {
+  "meshIds": [
+   "medial-geniculate-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial geniculate body",
+   "Corpus geniculatum mediale"
+  ]
+ },
+ "Lateral geniculate nucleus": {
+  "meshIds": [
+   "lateral-geniculate-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Lateral geniculate body",
+   "Corpus geniculatum laterale"
+  ]
+ },
+ "Epithalamus": {
+  "meshIds": [
+   "habenula"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Habenula"
+  ]
+ },
+ "Pineal gland": {
+  "meshIds": [
+   "habenula",
+   "posterior-commissure"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Habenula",
+   "Posterior commissure",
+   "Commissura posterior"
+  ],
+  "fallbackParentId": "diencephalon"
+ },
+ "Optic tracts": {
+  "meshIds": [
+   "optic-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Optic tract",
+   "Tractus opticus"
+  ]
+ },
+ "Pituitary stalk": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Hypothalamus"
+  ],
+  "fallbackParentId": "hypothalamus"
+ },
+ "Superior Colliculus": {
+  "meshIds": [
+   "superior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Colliculus superior"
+  ]
+ },
+ "Inferior Colliculus": {
+  "meshIds": [
+   "inferior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Colliculus inferior"
+  ]
+ },
+ "Brachium of the Inferior Colliculus": {
+  "meshIds": [
+   "inferior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Inferior colliculus",
+   "Colliculus inferior"
+  ]
+ },
+ "Cerebral Peduncles": {
+  "meshIds": [
+   "base-of-peduncle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Base of peduncle",
+   "Basis pedunculi"
+  ]
+ },
+ "Interpeduncular Fossa": {
+  "meshIds": [
+   "interpeduncular-fossa"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fossa interpeduncularis"
+  ]
+ },
+ "Cerebellar Peduncles": {
+  "meshIds": [
+   "superior-cerebellar-peduncle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior cerebellar peduncle",
+   "Pedunculus cerebellaris superior"
+  ],
+  "fallbackParentId": "brainstem"
+ },
+ "Superior Cerebellar Peduncle": {
+  "meshIds": [
+   "superior-cerebellar-peduncle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Pedunculus cerebellaris superior"
+  ]
+ },
+ "Middle Cerebellar Peduncle": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Inferior Cerebellar Peduncle": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Transverse fibers of the pons": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Facial Colliculus": {
+  "meshIds": [
+   "nucleus-of-abducens-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Nucleus of abducens nerve",
+   "Nucleus nervi abducentis"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Pyramids": {
+  "meshIds": [
+   "pyramid-of-medulla-oblongata"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Pyramid of medulla oblongata",
+   "Pyramis medullae oblongatae"
+  ]
+ },
+ "Olives": {
+  "meshIds": [
+   "olive"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Olive",
+   "Oliva"
+  ]
+ },
+ "Cuneate and Gracile Tubercles": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Obex": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Area postrema": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "3rd ventricle": {
+  "meshIds": [
+   "third-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Third ventricle",
+   "Ventriculus tertius"
+  ]
+ },
+ "Cerebral Aqueduct": {
+  "meshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Aqueduct of midbrain",
+   "Aquaeductus mesencephali"
+  ]
+ },
+ "4th Ventricle": {
+  "meshIds": [
+   "fourth-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fourth ventricle",
+   "Ventriculus quartus"
+  ]
+ },
+ "Interpeduncular cistern": {
+  "meshIds": [
+   "interpeduncular-fossa"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Interpeduncular fossa",
+   "Fossa interpeduncularis"
+  ]
+ },
+ "(Glossopharyngeal and vagus cannot be easily distinguished from one another; accessory is not present on our brainstems)": {
+  "meshIds": [
+   "glossopharyngeal-nerve-ix"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Glossopharyngeal nerve (IX)",
+   "Nervus glossopharyngeus (IX)"
+  ]
+ },
+ "Superior colliculi": {
+  "meshIds": [
+   "superior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior colliculus",
+   "Colliculus superior"
+  ]
+ },
+ "Periaqueductal grey matter": {
+  "meshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Aqueduct of midbrain",
+   "Aquaeductus mesencephali"
+  ]
+ },
+ "Red nucleus": {
+  "meshIds": [
+   "red-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus ruber"
+  ]
+ },
+ "Oculomotor nucleus": {
+  "meshIds": [
+   "nucleus-of-oculomotor-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus of oculomotor nerve",
+   "Nucleus nervi oculomotorius"
+  ]
+ },
+ "Edinger-Westphal nucleus": {
+  "meshIds": [
+   "accessory-nucleus-of-oculomotor-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Accessory nucleus of oculomotor nerve",
+   "Nucleus accessorius nervi oculomotorii"
+  ]
+ },
+ "Substantia nigra": {
+  "meshIds": [
+   "base-of-peduncle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Base of peduncle",
+   "Basis pedunculi"
+  ],
+  "fallbackParentId": "midbrain"
+ },
+ "Cerebral peduncles": {
+  "meshIds": [
+   "base-of-peduncle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Base of peduncle",
+   "Basis pedunculi"
+  ]
+ },
+ "Interpeduncular fossa": {
+  "meshIds": [
+   "interpeduncular-fossa"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fossa interpeduncularis"
+  ]
+ },
+ "CN III, Oculomotor nerve": {
+  "meshIds": [
+   "oculomotor-nerve-iii"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Oculomotor nerve (III)",
+   "Nervus oculomotorius (III)"
+  ]
+ },
+ "Anterolateral tract": {
+  "meshIds": [
+   "anterior-spinothalamic-tract",
+   "lateral-spinothalamic-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Anterior spinothalamic tract",
+   "Tractus spinothalamicus anterior",
+   "Lateral spinothalamic tract",
+   "Tractus spinothalamicus lateralis"
+  ]
+ },
+ "Medial lemniscus": {
+  "meshIds": [
+   "brainstem"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Brainstem",
+   "Trucus encephali"
+  ],
+  "fallbackParentId": "brainstem"
+ },
+ "Medial longitudinal fasciculus (MLF)": {
+  "meshIds": [
+   "brainstem"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Brainstem",
+   "Trucus encephali"
+  ],
+  "fallbackParentId": "brainstem"
+ },
+ "Inferior colliculi": {
+  "meshIds": [
+   "inferior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Inferior colliculus",
+   "Colliculus inferior"
+  ]
+ },
+ "CN IV, Trochlear nucleus": {
+  "meshIds": [
+   "nucleus-of-trochlear-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus of trochlear nerve",
+   "Nucleus nervi trochlearis"
+  ]
+ },
+ "Periaqueductal grey": {
+  "meshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Aqueduct of midbrain",
+   "Aquaeductus mesencephali"
+  ]
+ },
+ "Trochlear Nucleus": {
+  "meshIds": [
+   "nucleus-of-trochlear-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus of trochlear nerve",
+   "Nucleus nervi trochlearis"
+  ]
+ },
+ "Decussation of Superior Cerebellar Peduncle (X/SCP)": {
+  "meshIds": [
+   "superior-cerebellar-peduncle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior cerebellar peduncle",
+   "Pedunculus cerebellaris superior"
+  ],
+  "fallbackParentId": "midbrain"
+ },
+ "Superior cerebellar peduncle (SCP)": {
+  "meshIds": [
+   "superior-cerebellar-peduncle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior cerebellar peduncle",
+   "Pedunculus cerebellaris superior"
+  ]
+ },
+ "Middle cerebellar peduncle (MCP)": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "4th ventricle": {
+  "meshIds": [
+   "fourth-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fourth ventricle",
+   "Ventriculus quartus"
+  ]
+ },
+ "Motor trigeminal nucleus": {
+  "meshIds": [
+   "motor-root-of-trigeminal-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Motor root of trigeminal nerve",
+   "Radix motoria nervi trigemini"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Principal sensory nucleus of trigeminal": {
+  "meshIds": [
+   "sensory-root-of-trigeminal-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Sensory root of trigeminal nerve",
+   "Radix sensoria nervi trigemini"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Longitudinal fibers of the pons": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Pontine nuclei": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Facial colliculus": {
+  "meshIds": [
+   "nucleus-of-abducens-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Nucleus of abducens nerve",
+   "Nucleus nervi abducentis"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Abducens nucleus": {
+  "meshIds": [
+   "nucleus-of-abducens-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus of abducens nerve",
+   "Nucleus nervi abducentis"
+  ]
+ },
+ "Facial nucleus": {
+  "meshIds": [
+   "motor-nucleus-of-facial-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Motor nucleus of facial nerve",
+   "Nucleus nervi facialis"
+  ]
+ },
+ "Vestibulocochlear complex": {
+  "meshIds": [
+   "vestibular-nuclei",
+   "anterior-cochlear-nucleus",
+   "posterior-cochlear-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Vestibular nuclei",
+   "Nuclei vestibulares",
+   "Anterior cochlear nucleus",
+   "Nucleus cochlearis anterior",
+   "Posterior cochlear nucleus",
+   "Nucleus cochlearis posterior"
+  ]
+ },
+ "CN VII, Facial": {
+  "meshIds": [
+   "facial-nerve-vii"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Facial nerve (VII)",
+   "Nervus facialis (VII)"
+  ]
+ },
+ "Hypoglossal nucleus": {
+  "meshIds": [
+   "nucleus-of-hypoglossal-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus of hypoglossal nerve",
+   "Nucleus nervi hypoglossi"
+  ]
+ },
+ "Dorsal motor nucleus of vagus (DMV / DMX) Solitary nucleus": {
+  "meshIds": [
+   "posterior-nucleus-of-vagus-nerve"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Posterior nucleus of vagus nerve",
+   "Nucleus posterior nervi vagi"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Nucleus Ambiguus": {
+  "meshIds": [
+   "nucleus-ambiguus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Inferior cerebellar peduncle (ICP)": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Inferior olivary nucleus": {
+  "meshIds": [
+   "olive"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Olive",
+   "Oliva"
+  ]
+ },
+ "Pyramid": {
+  "meshIds": [
+   "pyramid-of-medulla-oblongata"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Pyramid of medulla oblongata",
+   "Pyramis medullae oblongatae"
+  ]
+ },
+ "CN IX, Glossopharyngeal": {
+  "meshIds": [
+   "glossopharyngeal-nerve-ix"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Glossopharyngeal nerve (IX)",
+   "Nervus glossopharyngeus (IX)"
+  ]
+ },
+ "CN X, Vagus": {
+  "meshIds": [
+   "vagus-nerve-x"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Vagus nerve (X)",
+   "Nervus vagus (X)"
+  ]
+ },
+ "CN XII, Hypoglossal": {
+  "meshIds": [
+   "hypoglossal-nerve-xii"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Hypoglossal nerve (XII)",
+   "Nervus hypoglossus (XII)"
+  ]
+ },
+ "Dorsal spinocerebellar tract": {
+  "meshIds": [
+   "posterior-spinocerebellar-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Posterior spinocerebellar tract",
+   "Tractus spinocerebellaris posterior"
+  ]
+ },
+ "Gracile nucleus": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Cuneate fasciculus": {
+  "meshIds": [
+   "cuneate-fasciculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fasciculus cuneatus"
+  ]
+ },
+ "Cuneate nucleus": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Internal arcuate fibers": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Spinal trigeminal nucleus": {
+  "meshIds": [
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Gracile fasciculus": {
+  "meshIds": [
+   "gracile-fasciculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fasciculus gracilis"
+  ]
+ },
+ "Pyramids/ motor decussation": {
+  "meshIds": [
+   "pyramid-of-medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pyramid of medulla oblongata",
+   "Pyramis medullae oblongatae"
+  ],
+  "fallbackParentId": "medulla-oblongata"
+ },
+ "Lateral corticospinal tract": {
+  "meshIds": [
+   "lateral-corticospinal-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Tractus corticospinalis lateralis"
+  ]
+ },
+ "Anterior corticospinal tract": {
+  "meshIds": [
+   "anterior-corticospinal-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Tractus corticospinalis anterior"
+  ]
+ },
+ "Lateral funiculus": {
+  "meshIds": [
+   "lateral-funiculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Funiculus lateralis"
+  ]
+ },
+ "Anterior/ventral funiculus": {
+  "meshIds": [
+   "anterior-funiculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Anterior funiculus",
+   "Funiculus anterior"
+  ]
+ },
+ "Location of limb lower motor neurons": {
+  "meshIds": [
+   "anterior-horn-of-spinal-cord"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior horn of spinal cord",
+   "Cornu anterius medullae spinalis"
+  ],
+  "fallbackParentId": "grey-matter-of-spinal-cord"
+ },
+ "Location of trunk lower motor neurons": {
+  "meshIds": [
+   "anterior-horn-of-spinal-cord"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior horn of spinal cord",
+   "Cornu anterius medullae spinalis"
+  ],
+  "fallbackParentId": "grey-matter-of-spinal-cord"
+ },
+ "Cerebral peduncle": {
+  "meshIds": [
+   "base-of-peduncle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Base of peduncle",
+   "Basis pedunculi"
+  ]
+ },
+ "Superior colliculus": {
+  "meshIds": [
+   "superior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Colliculus superior"
+  ]
+ },
+ "Inferior colliculus": {
+  "meshIds": [
+   "inferior-colliculus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Colliculus inferior"
+  ]
+ },
+ "X/SCP (Decussation of superior cerebellar peduncle)": {
+  "meshIds": [
+   "superior-cerebellar-peduncle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior cerebellar peduncle",
+   "Pedunculus cerebellaris superior"
+  ],
+  "fallbackParentId": "midbrain"
+ },
+ "Transverse fibers of pons": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Pontine protuberance": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Middle cerebellar peduncle": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Longitudinal fibers of pons": {
+  "meshIds": [
+   "pons"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Pons"
+  ],
+  "fallbackParentId": "pons"
+ },
+ "Olive (inferior olivary nucleus)": {
+  "meshIds": [
+   "olive"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Olive",
+   "Oliva"
+  ]
+ },
+ "Optic nerve (CN II)": {
+  "meshIds": [
+   "optic-nerve-ii"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Optic nerve (II)",
+   "Nervus opticus (II)"
+  ]
+ },
+ "Optic tract": {
+  "meshIds": [
+   "optic-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Tractus opticus"
+  ]
+ },
+ "Optic radiations": {
+  "meshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "White matter of telencephalon",
+   "Substantia alba telencephali"
+  ],
+  "fallbackParentId": "white-matter-of-telencephalon"
+ },
+ "Suprachiasmatic nucleus (know general location of)": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Hypothalamus"
+  ],
+  "fallbackParentId": "hypothalamus"
+ },
+ "MLF (medial longitudinal fasciculus)": {
+  "meshIds": [
+   "brainstem"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Brainstem",
+   "Trucus encephali"
+  ],
+  "fallbackParentId": "brainstem"
+ },
+ "Trochlear nucleus": {
+  "meshIds": [
+   "nucleus-of-trochlear-nerve"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus of trochlear nerve",
+   "Nucleus nervi trochlearis"
+  ]
+ },
+ "Interhemispheric Fissure or Median Longitudinal Cerebral Fissure": {
+  "meshIds": [
+   "falx-cerebri"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Falx cerebri"
+  ],
+  "fallbackParentId": "cerebrum"
+ },
+ "Insular Cortex": {
+  "meshIds": [
+   "insula-subcentral-gyrus-and-ant-and-post-sulci"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Insula (Subcentral gyrus and ant. and post. sulci)",
+   "Insula"
+  ]
+ },
+ "Septum pellucidum which separates the two lateral ventricles": {
+  "meshIds": [
+   "septum-pellucidum"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Septum pellucidum"
+  ]
+ },
+ "Genu": {
+  "meshIds": [
+   "corpus-callosum"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Corpus callosum"
+  ]
+ },
+ "Splenium": {
+  "meshIds": [
+   "corpus-callosum"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Corpus callosum"
+  ]
+ },
+ "Caudate : head, body, tail": {
+  "meshIds": [
+   "caudate-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Caudate nucleus",
+   "Nucleus caudatus"
+  ]
+ },
+ "Putamen": {
+  "meshIds": [
+   "putamen"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Globus pallidus": {
+  "meshIds": [
+   "globus-pallidus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "1. Head of the caudate nucleus": {
+  "meshIds": [
+   "caudate-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Caudate nucleus",
+   "Nucleus caudatus"
+  ]
+ },
+ "2. Putamen": {
+  "meshIds": [
+   "putamen"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Putamen"
+  ]
+ },
+ "Anterior limb": {
+  "meshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "White matter of telencephalon",
+   "Substantia alba telencephali"
+  ],
+  "fallbackParentId": "white-matter-of-telencephalon"
+ },
+ "Posterior limb": {
+  "meshIds": [
+   "white-matter-of-telencephalon"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "White matter of telencephalon",
+   "Substantia alba telencephali"
+  ],
+  "fallbackParentId": "white-matter-of-telencephalon"
+ },
+ "Fornix (crus, body, columns)": {
+  "meshIds": [
+   "fornix"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fornix"
+  ]
+ },
+ "Anterior perforated substance": {
+  "meshIds": [
+   "basal-forebrain"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Basal forebrain",
+   "Pars basalis telencephali"
+  ],
+  "fallbackParentId": "basal-forebrain"
+ },
+ "Interthalamic adhesion (massa intermedia)": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Thalamus"
+  ],
+  "fallbackParentId": "thalamus"
+ },
+ "Anterior thalamic nuclei (creating anterior thalamic tubercles)": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Thalamus"
+  ]
+ },
+ "Medial and lateral geniculate nuclei": {
+  "meshIds": [
+   "medial-geniculate-body",
+   "lateral-geniculate-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial geniculate body",
+   "Corpus geniculatum mediale",
+   "Lateral geniculate body",
+   "Corpus geniculatum laterale"
+  ]
+ },
+ "Lamina terminalis": {
+  "meshIds": [
+   "third-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Third ventricle",
+   "Ventriculus tertius"
+  ],
+  "fallbackParentId": "third-ventricle"
+ },
+ "Anterior commissure": {
+  "meshIds": [
+   "anterior-commissure"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Commissura anterior"
+  ]
+ },
+ "Columns of the fornix": {
+  "meshIds": [
+   "fornix"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fornix"
+  ]
+ },
+ "Infundibular stalk (infundibulum or pituitary stalk)": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Hypothalamus"
+  ],
+  "fallbackParentId": "hypothalamus"
+ },
+ "Stria medullaris thalamicus": {
+  "meshIds": [
+   "stria-medullaris-thalami"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Stria medullaris thalami"
+  ]
+ },
+ "Habenula": {
+  "meshIds": [
+   "habenula"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Pineal gland or body": {
+  "meshIds": [
+   "habenula",
+   "posterior-commissure"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Habenula",
+   "Posterior commissure",
+   "Commissura posterior"
+  ],
+  "fallbackParentId": "diencephalon"
+ },
+ "Posterior commissure": {
+  "meshIds": [
+   "posterior-commissure"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Commissura posterior"
+  ]
+ },
+ "Median Longitudinal Cerebral Fissure or the Interhemispheric Fissure": {
+  "meshIds": [
+   "falx-cerebri"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Falx cerebri"
+  ],
+  "fallbackParentId": "cerebrum"
+ },
+ "Cortical Ribbon or Cortical gray matter": {
+  "meshIds": [
+   "frontal-lobe",
+   "parietal-lobe",
+   "temporal-lobe",
+   "occipital-lobe",
+   "limbic-lobe",
+   "insula-subcentral-gyrus-and-ant-and-post-sulci"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Frontal lobe",
+   "Lobus frontalis",
+   "Parietal lobe",
+   "Lobus parietalis",
+   "Temporal lobe",
+   "Lobus temporalis"
+  ]
+ },
+ "Cingulate gyrus": {
+  "meshIds": [
+   "cingulate-gyrus-and-sulcus-middle-anterior-part",
+   "cingulate-gyrus-and-sulcus-middle-posterior-part",
+   "cingulate-gyrus-and-sulcus-posterior-dorsal-part",
+   "cingulate-gyrus-posteroventral-part"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Cingulate gyrus and sulcus (Middle anterior part)",
+   "Cingulate gyrus and sulcus (Middle posterior part)",
+   "Cingulate gyrus and sulcus (Posterior dorsal part)",
+   "Cingulate gyrus (Posteroventral part)",
+   "Gyrus cinguli"
+  ]
+ },
+ "anterior horn": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "body": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "trigone or atrium": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "posterior horn": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "inferior horn": {
+  "meshIds": [
+   "lateral-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Lateral ventricle",
+   "Ventriculus lateralis"
+  ],
+  "fallbackParentId": "lateral-ventricle"
+ },
+ "septum pellucidum": {
+  "meshIds": [
+   "septum-pellucidum"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "genu": {
+  "meshIds": [
+   "corpus-callosum"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Corpus callosum"
+  ]
+ },
+ "splenium": {
+  "meshIds": [
+   "corpus-callosum"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Corpus callosum"
+  ]
+ },
+ "caudate : head, body, tail": {
+  "meshIds": [
+   "caudate-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Caudate nucleus",
+   "Nucleus caudatus"
+  ]
+ },
+ "putamen": {
+  "meshIds": [
+   "putamen"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "globus pallidus": {
+  "meshIds": [
+   "globus-pallidus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Corpus Striatum and Lentiform nucleus": {
+  "meshIds": [
+   "caudate-nucleus",
+   "putamen",
+   "globus-pallidus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Caudate nucleus",
+   "Nucleus caudatus",
+   "Putamen",
+   "Globus pallidus"
+  ]
+ },
+ "hippocampus": {
+  "meshIds": [
+   "hippocampus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "amygdala": {
+  "meshIds": [
+   "amygdaloid-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Amygdaloid body",
+   "Corpus amygdaloideum"
+  ]
+ },
+ "fornix (crus, body, columns)": {
+  "meshIds": [
+   "fornix"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fornix"
+  ]
+ },
+ "cingulate gyrus": {
+  "meshIds": [
+   "cingulate-gyrus-and-sulcus-middle-anterior-part",
+   "cingulate-gyrus-and-sulcus-middle-posterior-part",
+   "cingulate-gyrus-and-sulcus-posterior-dorsal-part",
+   "cingulate-gyrus-posteroventral-part"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Cingulate gyrus and sulcus (Middle anterior part)",
+   "Cingulate gyrus and sulcus (Middle posterior part)",
+   "Cingulate gyrus and sulcus (Posterior dorsal part)",
+   "Cingulate gyrus (Posteroventral part)",
+   "Gyrus cinguli"
+  ]
+ },
+ "basal forebrain nuclei area": {
+  "meshIds": [
+   "basal-forebrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Basal forebrain",
+   "Pars basalis telencephali"
+  ]
+ },
+ "Nucleus accumbens": {
+  "meshIds": [
+   "caudate-nucleus",
+   "putamen"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Caudate nucleus",
+   "Nucleus caudatus",
+   "Putamen"
+  ],
+  "fallbackParentId": "corpus-striatum"
+ },
+ "thalamus (dorsal thalamus)": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Thalamus"
+  ]
+ },
+ "interthalamic adhesion (massa intermedia)": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Thalamus"
+  ],
+  "fallbackParentId": "thalamus"
+ },
+ "anterior thalamic nuclei (creating anterior thalamic tubercles)": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Thalamus"
+  ]
+ },
+ "medial and lateral geniculate nuclei": {
+  "meshIds": [
+   "medial-geniculate-body",
+   "lateral-geniculate-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial geniculate body",
+   "Corpus geniculatum mediale",
+   "Lateral geniculate body",
+   "Corpus geniculatum laterale"
+  ]
+ },
+ "pulvinar": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Thalamus"
+  ]
+ },
+ "third ventricle": {
+  "meshIds": [
+   "third-ventricle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Ventriculus tertius"
+  ]
+ },
+ "optic chiasm": {
+  "meshIds": [
+   "optic-chiasm"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Chiasma opticum"
+  ]
+ },
+ "optic tract": {
+  "meshIds": [
+   "optic-tract"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Tractus opticus"
+  ]
+ },
+ "lamina terminalis": {
+  "meshIds": [
+   "third-ventricle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Third ventricle",
+   "Ventriculus tertius"
+  ],
+  "fallbackParentId": "third-ventricle"
+ },
+ "anterior commissure": {
+  "meshIds": [
+   "anterior-commissure"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Commissura anterior"
+  ]
+ },
+ "columns of the fornix": {
+  "meshIds": [
+   "fornix"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Fornix"
+  ]
+ },
+ "pituitary stalk (infundibular stalk, infundibulum)": {
+  "meshIds": [
+   "hypothalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Hypothalamus"
+  ],
+  "fallbackParentId": "hypothalamus"
+ },
+ "mammillary bodies": {
+  "meshIds": [
+   "mamillary-body"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Mamillary body",
+   "Corpus mammillare"
+  ]
+ },
+ "pineal gland or body": {
+  "meshIds": [
+   "habenula",
+   "posterior-commissure"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Habenula",
+   "Posterior commissure",
+   "Commissura posterior"
+  ],
+  "fallbackParentId": "diencephalon"
+ },
+ "habenula": {
+  "meshIds": [
+   "habenula"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "posterior commissure": {
+  "meshIds": [
+   "posterior-commissure"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Commissura posterior"
+  ]
+ },
+ "cerebral peduncles": {
+  "meshIds": [
+   "base-of-peduncle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Base of peduncle",
+   "Basis pedunculi"
+  ]
+ },
+ "substantia nigra": {
+  "meshIds": [
+   "base-of-peduncle"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Base of peduncle",
+   "Basis pedunculi"
+  ],
+  "fallbackParentId": "midbrain"
+ },
+ "subthalamic nucleus": {
+  "meshIds": [
+   "thalamus"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Thalamus"
+  ],
+  "fallbackParentId": "diencephalon"
+ },
+ "red nucleus": {
+  "meshIds": [
+   "red-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Nucleus ruber"
+  ]
+ },
+ "cerebral aqueduct": {
+  "meshIds": [
+   "aqueduct-of-midbrain"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Aqueduct of midbrain",
+   "Aquaeductus mesencephali"
+  ]
+ },
+ "Superior, middle, inferior cerebellar peduncle": {
+  "meshIds": [
+   "superior-cerebellar-peduncle",
+   "pons",
+   "medulla-oblongata"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Superior cerebellar peduncle",
+   "Pedunculus cerebellaris superior",
+   "Pons",
+   "Medulla oblongata"
+  ],
+  "fallbackParentId": "brainstem"
+ },
+ "Tonsil": {
+  "meshIds": [
+   "tonsil-of-cerebellum"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Tonsil of cerebellum",
+   "Tonsilla cerebelli"
+  ]
+ },
+ "Flocculus": {
+  "meshIds": [
+   "flocculus"
+  ],
+  "approximate": false,
+  "synonyms": []
+ },
+ "Vermis": {
+  "meshIds": [
+   "culmen",
+   "declive",
+   "folium-of-vermis",
+   "nodule-of-vermis",
+   "pyramis-of-vermis",
+   "tuber-of-vermis",
+   "uvula-of-vermis",
+   "lingula-of-cerebellum",
+   "central-lobule"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Culmen",
+   "Declive",
+   "Folium of vermis",
+   "Folium vermis",
+   "Nodule of vermis",
+   "Nodulus vermis"
+  ]
+ },
+ "Paravermis": {
+  "meshIds": [
+   "anterior-quadrangular-lobule",
+   "posterior-quadrangular-lobule",
+   "superior-semilunar-lobule",
+   "inferior-semilunar-lobule",
+   "biventral-lobule",
+   "gracile-lobule"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior quadrangular lobule",
+   "Lobulus quadrangularis anterior",
+   "Posterior quadrangular lobule",
+   "Lobulus quadrangularis posterior",
+   "Superior semilunar lobule",
+   "Lobulus semilunaris superior"
+  ],
+  "fallbackParentId": "cerebellum"
+ },
+ "Lateral hemisphere": {
+  "meshIds": [
+   "anterior-quadrangular-lobule",
+   "posterior-quadrangular-lobule",
+   "superior-semilunar-lobule",
+   "inferior-semilunar-lobule",
+   "biventral-lobule",
+   "gracile-lobule"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior quadrangular lobule",
+   "Lobulus quadrangularis anterior",
+   "Posterior quadrangular lobule",
+   "Lobulus quadrangularis posterior",
+   "Superior semilunar lobule",
+   "Lobulus semilunaris superior"
+  ],
+  "fallbackParentId": "cerebellum"
+ },
+ "Dentate nucleus (in cross-section of cerebellum)": {
+  "meshIds": [
+   "cerebellum"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Cerebellum"
+  ],
+  "fallbackParentId": "cerebellum"
+ },
+ "Basilar Artery": {
+  "meshIds": [
+   "basilar-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Arteria basilaris"
+  ]
+ },
+ "Cerebellar branches (three pairs supply cerebellum) – only ID for Superior Cerebellar Artery": {
+  "meshIds": [
+   "superior-cerebellar-artery",
+   "anterior-inferior-cerebellar-artery",
+   "posterior-inferior-cerebellar-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Superior cerebellar artery",
+   "Arteria cerebelli superior",
+   "Anterior inferior cerebellar artery",
+   "Arteria cerebelli inferior anterior",
+   "Posterior inferior cerebellar artery",
+   "Arteria cerebelli inferior posterior"
+  ]
+ },
+ "Penetrating branches (supply brain stem)": {
+  "meshIds": [
+   "medial-pontine-branches-of-basilar-artery",
+   "lateral-pontine-branches-of-basilar-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial pontine branches of basilar artery",
+   "Rami mediales pontis arteriae basilaris",
+   "Lateral pontine branches of basilar artery",
+   "Rami laterales pontis arteriae basilaris"
+  ]
+ },
+ "Pontine arteries": {
+  "meshIds": [
+   "medial-pontine-branches-of-basilar-artery",
+   "lateral-pontine-branches-of-basilar-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Medial pontine branches of basilar artery",
+   "Rami mediales pontis arteriae basilaris",
+   "Lateral pontine branches of basilar artery",
+   "Rami laterales pontis arteriae basilaris"
+  ]
+ },
+ "Posterior Cerebral Artery": {
+  "meshIds": [
+   "posterior-cerebral-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Arteria cerebri posterior"
+  ]
+ },
+ "Posterior Communicating Artery": {
+  "meshIds": [
+   "posterior-communicating-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Arteria communicans posterior"
+  ]
+ },
+ "Internal Carotid Artery": {
+  "meshIds": [
+   "internal-carotid-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Carotis interna"
+  ]
+ },
+ "Middle Cerebral Artery": {
+  "meshIds": [
+   "middle-cerebral-artery-m1",
+   "insular-branches-of-middle-cerebral-artery-m2",
+   "middle-cerebral-artery-m3"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Middle cerebral artery (M1)",
+   "Insular branches of middle cerebral artery (M2)",
+   "Rami insulares arteriae mediae cerebri (M2)",
+   "Middle cerebral artery (M3)"
+  ]
+ },
+ "Lenticulostriate Arteries penetrating Anterior Perforated Substance": {
+  "meshIds": [
+   "middle-cerebral-artery-m1"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Middle cerebral artery (M1)"
+  ],
+  "fallbackParentId": "middle-cerebral-artery-m1"
+ },
+ "Anterior Cerebral Artery": {
+  "meshIds": [
+   "anterior-cerebral-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Arteria cerebri anterior"
+  ]
+ },
+ "Pericallosal Artery": {
+  "meshIds": [
+   "pericallosal-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Arteria pericallosa"
+  ]
+ },
+ "Callosomarginal Artery": {
+  "meshIds": [
+   "anterior-cerebral-artery"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Anterior cerebral artery",
+   "Arteria cerebri anterior"
+  ],
+  "fallbackParentId": "anterior-cerebral-artery"
+ },
+ "Anterior Communicating Artery": {
+  "meshIds": [
+   "anterior-communicating-artery"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Arteria communicans anterior"
+  ]
+ },
+ "The Circle of Willis": {
+  "meshIds": [
+   "cerebral-arterial-circle"
+  ],
+  "approximate": false,
+  "synonyms": [
+   "Cerebral arterial circle",
+   "Circulus arteriosus cerebri"
+  ]
+ },
+ "Anterior spinal artery": {
+  "meshIds": [
+   "vertebral-artery"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Vertebral artery",
+   "Arteria vertebralis"
+  ],
+  "fallbackParentId": "vertebral-artery"
+ },
+ "Posterior spinal arteries (only in a picture)": {
+  "meshIds": [
+   "vertebral-artery"
+  ],
+  "approximate": true,
+  "synonyms": [
+   "Vertebral artery",
+   "Arteria vertebralis"
+  ],
+  "fallbackParentId": "vertebral-artery"
+ }
+}

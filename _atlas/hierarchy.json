@@ -1,0 +1,3125 @@
+{
+ "note": "Z-Anatomy Startup.blend (Blender 3.05). Real structure = object parenting through hidden FONT objects named '*.g'; collections are flat per body system.",
+ "suffixes": {
+  ".l/.r": "left/right geometry (mesh or curve), mirrored copies with identical vertex counts",
+  ".g": "hidden FONT object = group node; the parent of its members (this carries the real hierarchy)",
+  ".j": "hidden 2-vertex MESH anchor child of its .g group (junction/pivot, no anatomy)",
+  ".t": "FONT text label for a sub-part (hidden/helper)",
+  ".i": "tiny bone-landmark marker meshes (skeletal system only; none in nervous system)",
+  ".st": "FONT tutorial text on the loose Scene Collection (HOW TO ...)",
+  "no suffix": "midline / unpaired structure with its own geometry (e.g. Corpus callosum, Third ventricle)",
+  "'": "trailing apostrophe = duplicate-name disambiguation (Central canal')",
+  "*": "asterisk = Terminologia Neuroanatomica / FreeSurfer-derived alternative name for the patch"
+ },
+ "collections": {
+  "collection": "Scene Collection",
+  "objects": 15,
+  "geometry_objects": 2,
+  "children": [
+   {
+    "collection": "1: Skeletal system",
+    "objects": 2218,
+    "geometry_objects": 277
+   },
+   {
+    "collection": "2: Muscular insertions",
+    "objects": 705,
+    "geometry_objects": 705
+   },
+   {
+    "collection": "3: Joints",
+    "objects": 593,
+    "geometry_objects": 413
+   },
+   {
+    "collection": "4: Muscular system",
+    "objects": 894,
+    "geometry_objects": 683
+   },
+   {
+    "collection": "5: Cardiovascular system",
+    "objects": 757,
+    "geometry_objects": 676
+   },
+   {
+    "collection": "6: Lymphoid organs",
+    "objects": 276,
+    "geometry_objects": 163
+   },
+   {
+    "collection": "7: Nervous system & Sense organs",
+    "objects": 842,
+    "geometry_objects": 588
+   },
+   {
+    "collection": "8: Visceral systems",
+    "objects": 479,
+    "geometry_objects": 119
+   },
+   {
+    "collection": "9: Regions of human body",
+    "objects": 343,
+    "geometry_objects": 256
+   },
+   {
+    "collection": "Reference lines, reference planes, movements",
+    "objects": 54,
+    "geometry_objects": 47
+   },
+   {
+    "collection": "Cross section planes",
+    "objects": 3,
+    "geometry_objects": 3
+   },
+   {
+    "collection": "Bonus collection",
+    "objects": 1604,
+    "geometry_objects": 230,
+    "children": [
+     {
+      "collection": "Skeletal system",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Muscular insertions",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Arthrology",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Muscular system",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Cardiovascular system",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Nervous system",
+      "objects": 1,
+      "geometry_objects": 1
+     },
+     {
+      "collection": "Visceral systems",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Regions of human body",
+      "objects": 0,
+      "geometry_objects": 0
+     },
+     {
+      "collection": "Reference lines, planes & movements'",
+      "objects": 0,
+      "geometry_objects": 0
+     }
+    ]
+   }
+  ]
+ },
+ "nervous_system_groups": {
+  "group": "Nervous system & Sense organs",
+  "objects": [],
+  "children": [
+   {
+    "group": "Central nervous system",
+    "objects": [],
+    "children": [
+     {
+      "group": "Brain",
+      "objects": [],
+      "children": [
+       {
+        "group": "Brainstem",
+        "objects": [
+         {
+          "name": "Fourth ventricle",
+          "type": "MESH",
+          "verts": 2915,
+          "exported": true
+         },
+         {
+          "name": "Medulla oblongata.l",
+          "type": "MESH",
+          "verts": 3042,
+          "exported": true
+         },
+         {
+          "name": "Medulla oblongata.r",
+          "type": "MESH",
+          "verts": 3042,
+          "exported": true
+         },
+         {
+          "name": "Pons.l",
+          "type": "MESH",
+          "verts": 5088,
+          "exported": true
+         },
+         {
+          "name": "Pons.r",
+          "type": "MESH",
+          "verts": 5088,
+          "exported": true
+         }
+        ],
+        "children": [
+         {
+          "group": "Midbrain",
+          "objects": [
+           {
+            "name": "Interpeduncular fossa.l",
+            "type": "MESH",
+            "verts": 31,
+            "exported": true
+           },
+           {
+            "name": "Interpeduncular fossa.r",
+            "type": "MESH",
+            "verts": 31,
+            "exported": true
+           },
+           {
+            "name": "Midbrain.l",
+            "type": "MESH",
+            "verts": 3049,
+            "exported": true
+           },
+           {
+            "name": "Midbrain.r",
+            "type": "MESH",
+            "verts": 3049,
+            "exported": true
+           }
+          ],
+          "children": [
+           {
+            "group": "Central mesencephalic structures",
+            "objects": [
+             {
+              "name": "Aqueduct of midbrain",
+              "type": "MESH",
+              "verts": 256,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Cerebral peduncle",
+            "objects": [
+             {
+              "name": "Base of peduncle.l",
+              "type": "MESH",
+              "verts": 2531,
+              "exported": true
+             },
+             {
+              "name": "Base of peduncle.r",
+              "type": "MESH",
+              "verts": 2531,
+              "exported": true
+             }
+            ],
+            "children": [
+             {
+              "group": "Tegmentum of midbrain",
+              "objects": [],
+              "children": [
+               {
+                "group": "Grey matter of tegmentum of midbrain",
+                "objects": [
+                 {
+                  "name": "Nucleus of trochlear nerve.l",
+                  "type": "MESH",
+                  "verts": 26,
+                  "exported": true
+                 },
+                 {
+                  "name": "Nucleus of trochlear nerve.r",
+                  "type": "MESH",
+                  "verts": 26,
+                  "exported": true
+                 },
+                 {
+                  "name": "Red nucleus.l",
+                  "type": "MESH",
+                  "verts": 82,
+                  "exported": true
+                 },
+                 {
+                  "name": "Red nucleus.r",
+                  "type": "MESH",
+                  "verts": 82,
+                  "exported": true
+                 }
+                ],
+                "children": [
+                 {
+                  "group": "Oculomotor complex",
+                  "objects": [
+                   {
+                    "name": "Accessory nucleus of oculomotor nerve.l",
+                    "type": "MESH",
+                    "verts": 26,
+                    "exported": true
+                   },
+                   {
+                    "name": "Accessory nucleus of oculomotor nerve.r",
+                    "type": "MESH",
+                    "verts": 26,
+                    "exported": true
+                   },
+                   {
+                    "name": "Nucleus of oculomotor nerve.l",
+                    "type": "MESH",
+                    "verts": 26,
+                    "exported": true
+                   },
+                   {
+                    "name": "Nucleus of oculomotor nerve.r",
+                    "type": "MESH",
+                    "verts": 26,
+                    "exported": true
+                   }
+                  ],
+                  "children": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "group": "Tectum of midbrain",
+            "objects": [
+             {
+              "name": "Inferior colliculus.l",
+              "type": "MESH",
+              "verts": 236,
+              "exported": true
+             },
+             {
+              "name": "Inferior colliculus.r",
+              "type": "MESH",
+              "verts": 236,
+              "exported": true
+             },
+             {
+              "name": "Superior colliculus.l",
+              "type": "MESH",
+              "verts": 233,
+              "exported": true
+             },
+             {
+              "name": "Superior colliculus.r",
+              "type": "MESH",
+              "verts": 233,
+              "exported": true
+             }
+            ],
+            "children": []
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "group": "Cerebellum",
+        "objects": [
+         {
+          "name": "Anterior quadrangular lobule.l",
+          "type": "MESH",
+          "verts": 3270,
+          "exported": true
+         },
+         {
+          "name": "Anterior quadrangular lobule.r",
+          "type": "MESH",
+          "verts": 3270,
+          "exported": true
+         },
+         {
+          "name": "Biventral lobule.l",
+          "type": "MESH",
+          "verts": 4464,
+          "exported": true
+         },
+         {
+          "name": "Biventral lobule.r",
+          "type": "MESH",
+          "verts": 4464,
+          "exported": true
+         },
+         {
+          "name": "Central lobule",
+          "type": "MESH",
+          "verts": 505,
+          "exported": true
+         },
+         {
+          "name": "Culmen",
+          "type": "MESH",
+          "verts": 1194,
+          "exported": true
+         },
+         {
+          "name": "Declive",
+          "type": "MESH",
+          "verts": 1067,
+          "exported": true
+         },
+         {
+          "name": "Flocculus.l",
+          "type": "MESH",
+          "verts": 1869,
+          "exported": true
+         },
+         {
+          "name": "Flocculus.r",
+          "type": "MESH",
+          "verts": 1869,
+          "exported": true
+         },
+         {
+          "name": "Folium of vermis",
+          "type": "MESH",
+          "verts": 410,
+          "exported": true
+         },
+         {
+          "name": "Gracile lobule.l",
+          "type": "MESH",
+          "verts": 3488,
+          "exported": true
+         },
+         {
+          "name": "Gracile lobule.r",
+          "type": "MESH",
+          "verts": 3488,
+          "exported": true
+         },
+         {
+          "name": "Inferior semilunar lobule.l",
+          "type": "MESH",
+          "verts": 3901,
+          "exported": true
+         },
+         {
+          "name": "Inferior semilunar lobule.r",
+          "type": "MESH",
+          "verts": 3901,
+          "exported": true
+         },
+         {
+          "name": "Lingula of cerebellum",
+          "type": "MESH",
+          "verts": 530,
+          "exported": true
+         },
+         {
+          "name": "Nodule of vermis",
+          "type": "MESH",
+          "verts": 512,
+          "exported": true
+         },
+         {
+          "name": "Peduncle of flocculus.l",
+          "type": "MESH",
+          "verts": 1216,
+          "exported": true
+         },
+         {
+          "name": "Peduncle of flocculus.r",
+          "type": "MESH",
+          "verts": 1216,
+          "exported": true
+         },
+         {
+          "name": "Posterior quadrangular lobule.l",
+          "type": "MESH",
+          "verts": 1816,
+          "exported": true
+         },
+         {
+          "name": "Posterior quadrangular lobule.r",
+          "type": "MESH",
+          "verts": 1816,
+          "exported": true
+         },
+         {
+          "name": "Pyramis of vermis",
+          "type": "MESH",
+          "verts": 593,
+          "exported": true
+         },
+         {
+          "name": "Superior cerebellar peduncle.l",
+          "type": "MESH",
+          "verts": 4344,
+          "exported": true
+         },
+         {
+          "name": "Superior cerebellar peduncle.r",
+          "type": "MESH",
+          "verts": 4344,
+          "exported": true
+         },
+         {
+          "name": "Superior semilunar lobule.l",
+          "type": "MESH",
+          "verts": 4368,
+          "exported": true
+         },
+         {
+          "name": "Superior semilunar lobule.r",
+          "type": "MESH",
+          "verts": 4368,
+          "exported": true
+         },
+         {
+          "name": "Tonsil of cerebellum.l",
+          "type": "MESH",
+          "verts": 1821,
+          "exported": true
+         },
+         {
+          "name": "Tonsil of cerebellum.r",
+          "type": "MESH",
+          "verts": 1821,
+          "exported": true
+         },
+         {
+          "name": "Tuber of vermis",
+          "type": "MESH",
+          "verts": 591,
+          "exported": true
+         },
+         {
+          "name": "Uvula of vermis",
+          "type": "MESH",
+          "verts": 1118,
+          "exported": true
+         },
+         {
+          "name": "Wing of central lobule.l",
+          "type": "MESH",
+          "verts": 1585,
+          "exported": true
+         },
+         {
+          "name": "Wing of central lobule.r",
+          "type": "MESH",
+          "verts": 1585,
+          "exported": true
+         }
+        ],
+        "children": [
+         {
+          "group": "Cerebellar peduncles",
+          "objects": [],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "Cerebrum",
+        "objects": [],
+        "children": [
+         {
+          "group": "Cerebral hemisphere",
+          "objects": [],
+          "children": []
+         },
+         {
+          "group": "Diencephalon",
+          "objects": [
+           {
+            "name": "Habenula",
+            "type": "MESH",
+            "verts": 198,
+            "exported": true
+           },
+           {
+            "name": "Hypothalamus",
+            "type": "MESH",
+            "verts": 2148,
+            "exported": true
+           },
+           {
+            "name": "Lateral geniculate body.l",
+            "type": "MESH",
+            "verts": 304,
+            "exported": true
+           },
+           {
+            "name": "Lateral geniculate body.r",
+            "type": "MESH",
+            "verts": 304,
+            "exported": true
+           },
+           {
+            "name": "Mamillary body.l",
+            "type": "MESH",
+            "verts": 112,
+            "exported": true
+           },
+           {
+            "name": "Mamillary body.r",
+            "type": "MESH",
+            "verts": 112,
+            "exported": true
+           },
+           {
+            "name": "Medial geniculate body.l",
+            "type": "MESH",
+            "verts": 101,
+            "exported": true
+           },
+           {
+            "name": "Medial geniculate body.r",
+            "type": "MESH",
+            "verts": 101,
+            "exported": true
+           },
+           {
+            "name": "Optic chiasm.l",
+            "type": "MESH",
+            "verts": 448,
+            "exported": true
+           },
+           {
+            "name": "Optic chiasm.r",
+            "type": "MESH",
+            "verts": 448,
+            "exported": true
+           },
+           {
+            "name": "Optic tract.l",
+            "type": "MESH",
+            "verts": 1168,
+            "exported": true
+           },
+           {
+            "name": "Optic tract.r",
+            "type": "MESH",
+            "verts": 1168,
+            "exported": true
+           },
+           {
+            "name": "Thalamus.l",
+            "type": "MESH",
+            "verts": 381,
+            "exported": true
+           },
+           {
+            "name": "Thalamus.r",
+            "type": "MESH",
+            "verts": 381,
+            "exported": true
+           },
+           {
+            "name": "Third ventricle",
+            "type": "MESH",
+            "verts": 2158,
+            "exported": true
+           }
+          ],
+          "children": [
+           {
+            "group": "White matter of diencephalon",
+            "objects": [
+             {
+              "name": "Posterior commissure",
+              "type": "MESH",
+              "verts": 414,
+              "exported": true
+             },
+             {
+              "name": "Stria medullaris thalami.l",
+              "type": "MESH",
+              "verts": 423,
+              "exported": true
+             },
+             {
+              "name": "Stria medullaris thalami.r",
+              "type": "MESH",
+              "verts": 423,
+              "exported": true
+             }
+            ],
+            "children": []
+           }
+          ]
+         },
+         {
+          "group": "Telencephalon",
+          "objects": [
+           {
+            "name": "Lateral ventricle.l",
+            "type": "MESH",
+            "verts": 1451,
+            "exported": true
+           },
+           {
+            "name": "Lateral ventricle.r",
+            "type": "MESH",
+            "verts": 1451,
+            "exported": true
+           },
+           {
+            "name": "White matter of telencephalon.l",
+            "type": "MESH",
+            "verts": 67646,
+            "exported": true
+           },
+           {
+            "name": "White matter of telencephalon.r",
+            "type": "MESH",
+            "verts": 67646,
+            "exported": true
+           }
+          ],
+          "children": [
+           {
+            "group": "Basal forebrain",
+            "objects": [
+             {
+              "name": "Amygdaloid body.l",
+              "type": "MESH",
+              "verts": 194,
+              "exported": true
+             },
+             {
+              "name": "Amygdaloid body.r",
+              "type": "MESH",
+              "verts": 194,
+              "exported": true
+             },
+             {
+              "name": "Septal nuclei",
+              "type": "MESH",
+              "verts": 278,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Corpus striatum",
+            "objects": [
+             {
+              "name": "Globus pallidus.l",
+              "type": "MESH",
+              "verts": 2640,
+              "exported": true
+             },
+             {
+              "name": "Globus pallidus.r",
+              "type": "MESH",
+              "verts": 2640,
+              "exported": true
+             },
+             {
+              "name": "Lentiform nucleus.l",
+              "type": "MESH",
+              "verts": 1074,
+              "exported": true
+             },
+             {
+              "name": "Lentiform nucleus.r",
+              "type": "MESH",
+              "verts": 1074,
+              "exported": true
+             }
+            ],
+            "children": [
+             {
+              "group": "Dorsal striatum",
+              "objects": [
+               {
+                "name": "Caudate nucleus.l",
+                "type": "MESH",
+                "verts": 1287,
+                "exported": true
+               },
+               {
+                "name": "Caudate nucleus.r",
+                "type": "MESH",
+                "verts": 1287,
+                "exported": true
+               },
+               {
+                "name": "Putamen.l",
+                "type": "MESH",
+                "verts": 577,
+                "exported": true
+               },
+               {
+                "name": "Putamen.r",
+                "type": "MESH",
+                "verts": 577,
+                "exported": true
+               }
+              ],
+              "children": []
+             }
+            ]
+           },
+           {
+            "group": "Frontal lobe",
+            "objects": [
+             {
+              "name": "Inferior frontal sulcus.l",
+              "type": "MESH",
+              "verts": 413,
+              "exported": true
+             },
+             {
+              "name": "Inferior frontal sulcus.r",
+              "type": "MESH",
+              "verts": 413,
+              "exported": true
+             },
+             {
+              "name": "Lat_Fis-ant-Horizont.l",
+              "type": "MESH",
+              "verts": 89,
+              "exported": true
+             },
+             {
+              "name": "Lat_Fis-ant-Horizont.r",
+              "type": "MESH",
+              "verts": 89,
+              "exported": true
+             },
+             {
+              "name": "Lat_Fis-ant-Vertical.l",
+              "type": "MESH",
+              "verts": 99,
+              "exported": true
+             },
+             {
+              "name": "Lat_Fis-ant-Vertical.r",
+              "type": "MESH",
+              "verts": 99,
+              "exported": true
+             },
+             {
+              "name": "Middle frontal gyrus.l",
+              "type": "MESH",
+              "verts": 1141,
+              "exported": true
+             },
+             {
+              "name": "Middle frontal gyrus.r",
+              "type": "MESH",
+              "verts": 1141,
+              "exported": true
+             },
+             {
+              "name": "Olfactory sulcus.l",
+              "type": "MESH",
+              "verts": 275,
+              "exported": true
+             },
+             {
+              "name": "Olfactory sulcus.r",
+              "type": "MESH",
+              "verts": 275,
+              "exported": true
+             },
+             {
+              "name": "Opercular part of inferior frontal gyrus.l",
+              "type": "MESH",
+              "verts": 372,
+              "exported": true
+             },
+             {
+              "name": "Opercular part of inferior frontal gyrus.r",
+              "type": "MESH",
+              "verts": 372,
+              "exported": true
+             },
+             {
+              "name": "Orbital gyri (Frontomarginal gyrus and sulcus*).l",
+              "type": "MESH",
+              "verts": 330,
+              "exported": true
+             },
+             {
+              "name": "Orbital gyri (Frontomarginal gyrus and sulcus*).r",
+              "type": "MESH",
+              "verts": 330,
+              "exported": true
+             },
+             {
+              "name": "Orbital gyri.l",
+              "type": "MESH",
+              "verts": 756,
+              "exported": true
+             },
+             {
+              "name": "Orbital gyri.r",
+              "type": "MESH",
+              "verts": 756,
+              "exported": true
+             },
+             {
+              "name": "Orbital part of  inferior frontal gyrus.l",
+              "type": "MESH",
+              "verts": 95,
+              "exported": true
+             },
+             {
+              "name": "Orbital sulci (H-shaped orbital sulci*).l",
+              "type": "MESH",
+              "verts": 383,
+              "exported": true
+             },
+             {
+              "name": "Orbital sulci (H-shaped orbital sulci*).r",
+              "type": "MESH",
+              "verts": 383,
+              "exported": true
+             },
+             {
+              "name": "Orbital sulci (Lateral Orbital sulcus*).l",
+              "type": "MESH",
+              "verts": 102,
+              "exported": true
+             },
+             {
+              "name": "Orbital sulci (Lateral Orbital sulcus*).r",
+              "type": "MESH",
+              "verts": 102,
+              "exported": true
+             },
+             {
+              "name": "Paracentral gyrus and sulcus*.l",
+              "type": "MESH",
+              "verts": 377,
+              "exported": true
+             },
+             {
+              "name": "Paracentral gyrus and sulcus*.r",
+              "type": "MESH",
+              "verts": 377,
+              "exported": true
+             },
+             {
+              "name": "Paracentral sulcus.l",
+              "type": "MESH",
+              "verts": 338,
+              "exported": true
+             },
+             {
+              "name": "Paracentral sulcus.r",
+              "type": "MESH",
+              "verts": 338,
+              "exported": true
+             },
+             {
+              "name": "Precentral gyrus.l",
+              "type": "MESH",
+              "verts": 767,
+              "exported": true
+             },
+             {
+              "name": "Precentral gyrus.r",
+              "type": "MESH",
+              "verts": 767,
+              "exported": true
+             },
+             {
+              "name": "Precentral sulcus (Superior part)*.l",
+              "type": "MESH",
+              "verts": 286,
+              "exported": true
+             },
+             {
+              "name": "Precentral sulcus (Superior part)*.r",
+              "type": "MESH",
+              "verts": 286,
+              "exported": true
+             },
+             {
+              "name": "Precentral sulcus (inferior part)*.l",
+              "type": "MESH",
+              "verts": 391,
+              "exported": true
+             },
+             {
+              "name": "Precentral sulcus (inferior part)*.r",
+              "type": "MESH",
+              "verts": 391,
+              "exported": true
+             },
+             {
+              "name": "Straight gyrus (Gyrus rectus).l",
+              "type": "MESH",
+              "verts": 256,
+              "exported": true
+             },
+             {
+              "name": "Straight gyrus (Gyrus rectus).r",
+              "type": "MESH",
+              "verts": 256,
+              "exported": true
+             },
+             {
+              "name": "Superior frontal gyrus.l",
+              "type": "MESH",
+              "verts": 1872,
+              "exported": true
+             },
+             {
+              "name": "Superior frontal gyrus.r",
+              "type": "MESH",
+              "verts": 1872,
+              "exported": true
+             },
+             {
+              "name": "Superior frontal sulcus.l",
+              "type": "MESH",
+              "verts": 647,
+              "exported": true
+             },
+             {
+              "name": "Superior frontal sulcus.r",
+              "type": "MESH",
+              "verts": 647,
+              "exported": true
+             },
+             {
+              "name": "Transverse frontopolar gyrus and sulcus*.l",
+              "type": "MESH",
+              "verts": 123,
+              "exported": true
+             },
+             {
+              "name": "Transverse frontopolar gyrus and sulcus*.r",
+              "type": "MESH",
+              "verts": 123,
+              "exported": true
+             },
+             {
+              "name": "Triangular part of inferior frontal gyrus.l",
+              "type": "MESH",
+              "verts": 254,
+              "exported": true
+             },
+             {
+              "name": "Triangular part of inferior frontal gyrus.r",
+              "type": "MESH",
+              "verts": 254,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Insula",
+            "objects": [
+             {
+              "name": "Insula (Subcentral gyrus and ant. and post. sulci*).l",
+              "type": "MESH",
+              "verts": 372,
+              "exported": true
+             },
+             {
+              "name": "Insula (Subcentral gyrus and ant. and post. sulci*).r",
+              "type": "MESH",
+              "verts": 372,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Interlobar sulci",
+            "objects": [
+             {
+              "name": " Posterior transverse collateral sulcus.l",
+              "type": "MESH",
+              "verts": 102,
+              "exported": true
+             },
+             {
+              "name": " Posterior transverse collateral sulcus.r",
+              "type": "MESH",
+              "verts": 102,
+              "exported": true
+             },
+             {
+              "name": "Anterior occipital sulcus*.l",
+              "type": "MESH",
+              "verts": 184,
+              "exported": true
+             },
+             {
+              "name": "Anterior occipital sulcus*.r",
+              "type": "MESH",
+              "verts": 184,
+              "exported": true
+             },
+             {
+              "name": "Central sulcus.l",
+              "type": "MESH",
+              "verts": 722,
+              "exported": true
+             },
+             {
+              "name": "Central sulcus.r",
+              "type": "MESH",
+              "verts": 722,
+              "exported": true
+             },
+             {
+              "name": "Circular sulcus of insula.l",
+              "type": "MESH",
+              "verts": 401,
+              "exported": true
+             },
+             {
+              "name": "Circular sulcus of insula.r",
+              "type": "MESH",
+              "verts": 401,
+              "exported": true
+             },
+             {
+              "name": "Collateral sulcus.l",
+              "type": "MESH",
+              "verts": 575,
+              "exported": true
+             },
+             {
+              "name": "Collateral sulcus.r",
+              "type": "MESH",
+              "verts": 575,
+              "exported": true
+             },
+             {
+              "name": "Lat_Fis-post.l",
+              "type": "MESH",
+              "verts": 242,
+              "exported": true
+             },
+             {
+              "name": "Lat_Fis-post.r",
+              "type": "MESH",
+              "verts": 242,
+              "exported": true
+             },
+             {
+              "name": "Parieto-occipital sulcus.l",
+              "type": "MESH",
+              "verts": 824,
+              "exported": true
+             },
+             {
+              "name": "Parieto-occipital sulcus.r",
+              "type": "MESH",
+              "verts": 824,
+              "exported": true
+             },
+             {
+              "name": "Subparietal sulcus.l",
+              "type": "MESH",
+              "verts": 283,
+              "exported": true
+             },
+             {
+              "name": "Subparietal sulcus.r",
+              "type": "MESH",
+              "verts": 283,
+              "exported": true
+             },
+             {
+              "name": "Sulcus interm_prim-Jensen.l",
+              "type": "MESH",
+              "verts": 182,
+              "exported": true
+             },
+             {
+              "name": "Sulcus interm_prim-Jensen.r",
+              "type": "MESH",
+              "verts": 182,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Limbic lobe",
+            "objects": [
+             {
+              "name": "Cingulate gyrus (Posteroventral part*).l",
+              "type": "MESH",
+              "verts": 153,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus (Posteroventral part*).r",
+              "type": "MESH",
+              "verts": 153,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus and sulcus (Middle anterior part).l",
+              "type": "MESH",
+              "verts": 370,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus and sulcus (Middle anterior part).r",
+              "type": "MESH",
+              "verts": 370,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus and sulcus (Middle posterior part).l",
+              "type": "MESH",
+              "verts": 302,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus and sulcus (Middle posterior part).r",
+              "type": "MESH",
+              "verts": 302,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus and sulcus (Posterior dorsal part).l",
+              "type": "MESH",
+              "verts": 207,
+              "exported": true
+             },
+             {
+              "name": "Cingulate gyrus and sulcus (Posterior dorsal part).r",
+              "type": "MESH",
+              "verts": 207,
+              "exported": true
+             },
+             {
+              "name": "Cingulate sulcus (Marginal part*).l",
+              "type": "MESH",
+              "verts": 274,
+              "exported": true
+             },
+             {
+              "name": "Cingulate sulcus (Marginal part*).r",
+              "type": "MESH",
+              "verts": 274,
+              "exported": true
+             },
+             {
+              "name": "Hippocampus.l",
+              "type": "MESH",
+              "verts": 512,
+              "exported": true
+             },
+             {
+              "name": "Hippocampus.r",
+              "type": "MESH",
+              "verts": 512,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Occipital lobe",
+            "objects": [
+             {
+              "name": "Calcarine sulcus.l",
+              "type": "MESH",
+              "verts": 437,
+              "exported": true
+             },
+             {
+              "name": "Calcarine sulcus.r",
+              "type": "MESH",
+              "verts": 437,
+              "exported": true
+             },
+             {
+              "name": "Cuneus.l",
+              "type": "MESH",
+              "verts": 475,
+              "exported": true
+             },
+             {
+              "name": "Cuneus.r",
+              "type": "MESH",
+              "verts": 475,
+              "exported": true
+             },
+             {
+              "name": "Inferior occipital gyrus and sulcus*.l",
+              "type": "MESH",
+              "verts": 449,
+              "exported": true
+             },
+             {
+              "name": "Inferior occipital gyrus and sulcus*.r",
+              "type": "MESH",
+              "verts": 449,
+              "exported": true
+             },
+             {
+              "name": "Lateral occipital gyrus (Middle occipital gyrus*).l",
+              "type": "MESH",
+              "verts": 429,
+              "exported": true
+             },
+             {
+              "name": "Lateral occipital gyrus (Middle occipital gyrus*).r",
+              "type": "MESH",
+              "verts": 429,
+              "exported": true
+             },
+             {
+              "name": "Lingual gyrus.l",
+              "type": "MESH",
+              "verts": 841,
+              "exported": true
+             },
+             {
+              "name": "Lingual gyrus.r",
+              "type": "MESH",
+              "verts": 841,
+              "exported": true
+             },
+             {
+              "name": "Lunate sulcus.l",
+              "type": "MESH",
+              "verts": 195,
+              "exported": true
+             },
+             {
+              "name": "Lunate sulcus.r",
+              "type": "MESH",
+              "verts": 195,
+              "exported": true
+             },
+             {
+              "name": "Occipital pole.l",
+              "type": "MESH",
+              "verts": 479,
+              "exported": true
+             },
+             {
+              "name": "Occipital pole.r",
+              "type": "MESH",
+              "verts": 479,
+              "exported": true
+             },
+             {
+              "name": "Superior occipital gyri.l",
+              "type": "MESH",
+              "verts": 337,
+              "exported": true
+             },
+             {
+              "name": "Superior occipital gyri.r",
+              "type": "MESH",
+              "verts": 337,
+              "exported": true
+             },
+             {
+              "name": "Transverse occipital sulcus.l",
+              "type": "MESH",
+              "verts": 345,
+              "exported": true
+             },
+             {
+              "name": "Transverse occipital sulcus.r",
+              "type": "MESH",
+              "verts": 345,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Parietal lobe",
+            "objects": [
+             {
+              "name": "Angular gyrus.l",
+              "type": "MESH",
+              "verts": 759,
+              "exported": true
+             },
+             {
+              "name": "Angular gyrus.r",
+              "type": "MESH",
+              "verts": 759,
+              "exported": true
+             },
+             {
+              "name": "Intraparietal sulcus.l",
+              "type": "MESH",
+              "verts": 428,
+              "exported": true
+             },
+             {
+              "name": "Intraparietal sulcus.r",
+              "type": "MESH",
+              "verts": 428,
+              "exported": true
+             },
+             {
+              "name": "Postcentral gyrus.l",
+              "type": "MESH",
+              "verts": 578,
+              "exported": true
+             },
+             {
+              "name": "Postcentral gyrus.r",
+              "type": "MESH",
+              "verts": 578,
+              "exported": true
+             },
+             {
+              "name": "Postcentral sulcus.l",
+              "type": "MESH",
+              "verts": 595,
+              "exported": true
+             },
+             {
+              "name": "Postcentral sulcus.r",
+              "type": "MESH",
+              "verts": 595,
+              "exported": true
+             },
+             {
+              "name": "Precuneus.l",
+              "type": "MESH",
+              "verts": 652,
+              "exported": true
+             },
+             {
+              "name": "Precuneus.r",
+              "type": "MESH",
+              "verts": 652,
+              "exported": true
+             },
+             {
+              "name": "Superior parietal lobule.l",
+              "type": "MESH",
+              "verts": 603,
+              "exported": true
+             },
+             {
+              "name": "Superior parietal lobule.r",
+              "type": "MESH",
+              "verts": 603,
+              "exported": true
+             },
+             {
+              "name": "Supramarginal gyrus.l",
+              "type": "MESH",
+              "verts": 756,
+              "exported": true
+             },
+             {
+              "name": "Supramarginal gyrus.r",
+              "type": "MESH",
+              "verts": 756,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Temporal lobe",
+            "objects": [
+             {
+              "name": "Inferior temporal gyrus.l",
+              "type": "MESH",
+              "verts": 750,
+              "exported": true
+             },
+             {
+              "name": "Inferior temporal gyrus.r",
+              "type": "MESH",
+              "verts": 750,
+              "exported": true
+             },
+             {
+              "name": "Inferior temporal sulcus.l",
+              "type": "MESH",
+              "verts": 125,
+              "exported": true
+             },
+             {
+              "name": "Inferior temporal sulcus.r",
+              "type": "MESH",
+              "verts": 125,
+              "exported": true
+             },
+             {
+              "name": "Lateral occipitotemporal gyrus.l",
+              "type": "MESH",
+              "verts": 470,
+              "exported": true
+             },
+             {
+              "name": "Lateral occipitotemporal gyrus.r",
+              "type": "MESH",
+              "verts": 470,
+              "exported": true
+             },
+             {
+              "name": "Medial occipitotemporal gyrus (Parahippocampal*).l",
+              "type": "MESH",
+              "verts": 477,
+              "exported": true
+             },
+             {
+              "name": "Medial occipitotemporal gyrus (Parahippocampal*).r",
+              "type": "MESH",
+              "verts": 477,
+              "exported": true
+             },
+             {
+              "name": "Middle temporal gyrus.l",
+              "type": "MESH",
+              "verts": 657,
+              "exported": true
+             },
+             {
+              "name": "Middle temporal gyrus.r",
+              "type": "MESH",
+              "verts": 657,
+              "exported": true
+             },
+             {
+              "name": "Occipitotemporal sulcus (Lateral part*).l",
+              "type": "MESH",
+              "verts": 245,
+              "exported": true
+             },
+             {
+              "name": "Occipitotemporal sulcus (Lateral part*).r",
+              "type": "MESH",
+              "verts": 245,
+              "exported": true
+             },
+             {
+              "name": "Superior temporal gyrus (Lateral part).l",
+              "type": "MESH",
+              "verts": 538,
+              "exported": true
+             },
+             {
+              "name": "Superior temporal gyrus (Lateral part).r",
+              "type": "MESH",
+              "verts": 538,
+              "exported": true
+             },
+             {
+              "name": "Superior temporal sulcus.l",
+              "type": "MESH",
+              "verts": 1189,
+              "exported": true
+             },
+             {
+              "name": "Superior temporal sulcus.r",
+              "type": "MESH",
+              "verts": 1189,
+              "exported": true
+             },
+             {
+              "name": "Temporal plane.l",
+              "type": "MESH",
+              "verts": 280,
+              "exported": true
+             },
+             {
+              "name": "Temporal plane.r",
+              "type": "MESH",
+              "verts": 280,
+              "exported": true
+             },
+             {
+              "name": "Temporal pole.l",
+              "type": "MESH",
+              "verts": 274,
+              "exported": true
+             },
+             {
+              "name": "Temporal pole.r",
+              "type": "MESH",
+              "verts": 274,
+              "exported": true
+             },
+             {
+              "name": "Transverse temporal gyri.l",
+              "type": "MESH",
+              "verts": 119,
+              "exported": true
+             },
+             {
+              "name": "Transverse temporal gyri.r",
+              "type": "MESH",
+              "verts": 119,
+              "exported": true
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Walls of lateral ventricle",
+            "objects": [
+             {
+              "name": "Septum pellucidum",
+              "type": "MESH",
+              "verts": 1187,
+              "exported": true
+             }
+            ],
+            "children": []
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "group": "Ependyma",
+      "objects": [],
+      "children": []
+     },
+     {
+      "group": "Grey matter",
+      "objects": [],
+      "children": []
+     },
+     {
+      "group": "Meninges",
+      "objects": [],
+      "children": [
+       {
+        "group": "Dura",
+        "objects": [
+         {
+          "name": "Spinal dura",
+          "type": "MESH",
+          "verts": 18104,
+          "exported": true
+         }
+        ],
+        "children": [
+         {
+          "group": "Cranial dura",
+          "objects": [
+           {
+            "name": "Falx cerebri",
+            "type": "MESH",
+            "verts": 844,
+            "exported": true
+           },
+           {
+            "name": "Tentorium cerebelli.l",
+            "type": "MESH",
+            "verts": 1121,
+            "exported": true
+           },
+           {
+            "name": "Tentorium cerebelli.r",
+            "type": "MESH",
+            "verts": 1121,
+            "exported": true
+           }
+          ],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "Leptomeninges",
+        "objects": [],
+        "children": [
+         {
+          "group": "Pia",
+          "objects": [],
+          "children": [
+           {
+            "group": "Cranial pia",
+            "objects": [
+             {
+              "name": "Choroid plexus.l",
+              "type": "MESH",
+              "verts": 1324,
+              "exported": true
+             },
+             {
+              "name": "Choroid plexus.r",
+              "type": "MESH",
+              "verts": 1324,
+              "exported": true
+             }
+            ],
+            "children": []
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "group": "Reticular formation",
+      "objects": [],
+      "children": []
+     },
+     {
+      "group": "Spinal cord",
+      "objects": [],
+      "children": [
+       {
+        "group": "Central structures of spinal cord",
+        "objects": [
+         {
+          "name": "Central canal",
+          "type": "MESH",
+          "verts": 18,
+          "exported": true
+         },
+         {
+          "name": "Central canal'",
+          "type": "CURVE",
+          "verts": null,
+          "exported": true
+         }
+        ],
+        "children": []
+       },
+       {
+        "group": "Grey matter of spinal cord",
+        "objects": [],
+        "children": [
+         {
+          "group": "Anterior horn of spinal cord",
+          "objects": [
+           {
+            "name": "Anterior horn of spinal cord",
+            "type": "MESH",
+            "verts": 44,
+            "exported": true
+           },
+           {
+            "name": "Nucleus of accessory nerve.l",
+            "type": "MESH",
+            "verts": 58,
+            "exported": true
+           },
+           {
+            "name": "Nucleus of accessory nerve.r",
+            "type": "MESH",
+            "verts": 58,
+            "exported": true
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Intermediate zone of spinal cord",
+          "objects": [
+           {
+            "name": "Intermediolateral nucleus",
+            "type": "MESH",
+            "verts": 28,
+            "exported": true
+           },
+           {
+            "name": "Intermediomedial nucleus",
+            "type": "MESH",
+            "verts": 32,
+            "exported": true
+           },
+           {
+            "name": "Lateral intermediate substance",
+            "type": "MESH",
+            "verts": 68,
+            "exported": true
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Posterior horn of spinal cord",
+          "objects": [
+           {
+            "name": "Nucleus proprius",
+            "type": "MESH",
+            "verts": 16,
+            "exported": true
+           },
+           {
+            "name": "Posterior horn of spinal cord",
+            "type": "MESH",
+            "verts": 64,
+            "exported": true
+           },
+           {
+            "name": "Spinal reticular process",
+            "type": "MESH",
+            "verts": 34,
+            "exported": true
+           }
+          ],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "White matter of spinal cord",
+        "objects": [
+         {
+          "name": "Posterolateral tract",
+          "type": "MESH",
+          "verts": 44,
+          "exported": true
+         },
+         {
+          "name": "White matter of spinal cord",
+          "type": "MESH",
+          "verts": 80,
+          "exported": true
+         }
+        ],
+        "children": [
+         {
+          "group": "Anterior funiculus",
+          "objects": [
+           {
+            "name": "Anterior corticospinal tract",
+            "type": "MESH",
+            "verts": 36,
+            "exported": true
+           },
+           {
+            "name": "Anterior fasciculus proprius",
+            "type": "MESH",
+            "verts": 48,
+            "exported": true
+           },
+           {
+            "name": "Lateral vestibulospinal tract",
+            "type": "MESH",
+            "verts": 48,
+            "exported": true
+           },
+           {
+            "name": "Medial reticulospinal tract",
+            "type": "MESH",
+            "verts": 40,
+            "exported": true
+           },
+           {
+            "name": "Medial vestibulospinal tract",
+            "type": "MESH",
+            "verts": 16,
+            "exported": true
+           },
+           {
+            "name": "Tectospinal tract",
+            "type": "MESH",
+            "verts": 16,
+            "exported": true
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Anterolateral fasciculus",
+          "objects": [
+           {
+            "name": "Anterior spinothalamic tract",
+            "type": "MESH",
+            "verts": 40,
+            "exported": true
+           },
+           {
+            "name": "Lateral spinothalamic tract",
+            "type": "MESH",
+            "verts": 44,
+            "exported": true
+           },
+           {
+            "name": "Spinotectal tract",
+            "type": "MESH",
+            "verts": 16,
+            "exported": true
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Lateral funiculus",
+          "objects": [
+           {
+            "name": "Anterior spinocerebellar tract",
+            "type": "MESH",
+            "verts": 58,
+            "exported": true
+           },
+           {
+            "name": "Lateral corticospinal tract",
+            "type": "MESH",
+            "verts": 38,
+            "exported": true
+           },
+           {
+            "name": "Lateral fasciculus proprius",
+            "type": "MESH",
+            "verts": 100,
+            "exported": true
+           },
+           {
+            "name": "Lateral reticulospinal tract",
+            "type": "MESH",
+            "verts": 16,
+            "exported": true
+           },
+           {
+            "name": "Posterior spinocerebellar tract",
+            "type": "MESH",
+            "verts": 58,
+            "exported": true
+           },
+           {
+            "name": "Rubrospinal tract",
+            "type": "MESH",
+            "verts": 32,
+            "exported": true
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Posterior funiculus",
+          "objects": [
+           {
+            "name": "Cuneate fasciculus",
+            "type": "MESH",
+            "verts": 72,
+            "exported": true
+           },
+           {
+            "name": "Gracile fasciculus",
+            "type": "MESH",
+            "verts": 38,
+            "exported": true
+           },
+           {
+            "name": "Posterior fasciculus proprius",
+            "type": "MESH",
+            "verts": 66,
+            "exported": true
+           }
+          ],
+          "children": []
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "group": "White matter",
+      "objects": [],
+      "children": []
+     }
+    ]
+   },
+   {
+    "group": "Peripheral nervous system",
+    "objects": [],
+    "children": [
+     {
+      "group": "Autonomic division of peripheral nervous system",
+      "objects": [],
+      "children": [
+       {
+        "group": "Thoracolumbar part of autonomic division",
+        "objects": [
+         {
+          "name": "Sympathetic nerves.l",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Sympathetic nerves.r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Sympathetic trunk.l",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Sympathetic trunk.r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         }
+        ],
+        "children": []
+       }
+      ]
+     },
+     {
+      "group": "Cranial nerves",
+      "objects": [
+       {
+        "name": "Abducens nerve (VI).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Abducens nerve (VI).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Facial nerve (VII).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Facial nerve (VII).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Glossopharyngeal nerve (IX).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Glossopharyngeal nerve (IX).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Hypoglossal nerve (XII).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Hypoglossal nerve (XII).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Oculomotor nerve (III).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Oculomotor nerve (III).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Olfactory nerve (I).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Olfactory nerve (I).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Optic nerve (II).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Optic nerve (II).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Trigeminal nerve (V).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Trigeminal nerve (V).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Trochlear nerve (IV).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Trochlear nerve (IV).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Vagus nerve (X).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Vagus nerve (X).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Vestibulocochlear nerve (VIII).l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Vestibulocochlear nerve (VIII).r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       }
+      ],
+      "children": []
+     },
+     {
+      "group": "Ganglia",
+      "objects": [
+       {
+        "name": "Spinal ganglion.l",
+        "type": "MESH",
+        "verts": 882,
+        "exported": true
+       },
+       {
+        "name": "Spinal ganglion.r",
+        "type": "MESH",
+        "verts": 882,
+        "exported": true
+       }
+      ],
+      "children": []
+     },
+     {
+      "group": "Roots of nerves",
+      "objects": [
+       {
+        "name": "Cauda equina",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       }
+      ],
+      "children": []
+     },
+     {
+      "group": "Spinal nerves",
+      "objects": [
+       {
+        "name": "Anterior root of spinal nerve.l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Anterior root of spinal nerve.r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Posterior root of spinal nerve.l",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       },
+       {
+        "name": "Posterior root of spinal nerve.r",
+        "type": "CURVE",
+        "verts": null,
+        "exported": true
+       }
+      ],
+      "children": [
+       {
+        "group": "Brachial plexus",
+        "objects": [
+         {
+          "name": "Median nerve.l",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Median nerve.r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         }
+        ],
+        "children": [
+         {
+          "group": "Branches of lateral cord of brachial plexus",
+          "objects": [
+           {
+            "name": "Lateral pectoral nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Lateral pectoral nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Musculocutaneous nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Musculocutaneous nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Branches of medial cord of brachial plexus",
+          "objects": [
+           {
+            "name": "Medial antebrachial cutaneous nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Medial antebrachial cutaneous nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Medial brachial cutaneous nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Medial brachial cutaneous nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Medial pectoral nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Medial pectoral nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Ulnar nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Ulnar nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Branches of posterior cord of brachial plexus",
+          "objects": [
+           {
+            "name": "Axillary nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Axillary nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Inferior subscapular nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Inferior subscapular nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Radial nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Radial nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Superior subscapular nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Thoracodorsal nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Thoracodorsal nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Infraclavicular part of brachial plexus",
+          "objects": [
+           {
+            "name": "Posterior cord of brachial plexus.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Posterior cord of brachial plexus.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Supraclavicular branches of brachial plexus",
+          "objects": [
+           {
+            "name": "Dorsal scapular nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Dorsal scapular nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Long thoracic nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Long thoracic nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Subclavian nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Subclavian nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Suprascapular nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Suprascapular nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Supraclavicular part of brachial plexus",
+          "objects": [
+           {
+            "name": "Inferior trunk of brachial plexus.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Inferior trunk of brachial plexus.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Middle trunk of brachial plexus.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Middle trunk of brachial plexus.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Roots of brachial plexus.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Roots of brachial plexus.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Superior trunk of brachial plexus.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Superior trunk of brachial plexus.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "Cervical nerves",
+        "objects": [
+         {
+          "name": "Accessory nerve (XI).l",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Accessory nerve (XI).r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         }
+        ],
+        "children": []
+       },
+       {
+        "group": "Cervical plexus",
+        "objects": [],
+        "children": []
+       },
+       {
+        "group": "Lumbar nerves",
+        "objects": [],
+        "children": [
+         {
+          "group": "Anterior rami of lumbar nerves",
+          "objects": [
+           {
+            "name": "Ilio-inguinal nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Ilio-inguinal nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Iliohypogastric nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Iliohypogastric nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         },
+         {
+          "group": "Posterior rami of lumbar nerves",
+          "objects": [],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "Lumbosacral plexus",
+        "objects": [],
+        "children": [
+         {
+          "group": "Lumbar plexus",
+          "objects": [],
+          "children": [
+           {
+            "group": "Branches of anterior part of lumbar plexus",
+            "objects": [
+             {
+              "name": "Genitofemoral nerve.l",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Genitofemoral nerve.r",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Obturator nerve.l",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Obturator nerve.r",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             }
+            ],
+            "children": []
+           },
+           {
+            "group": "Branches of posterior part of lumbar plexus",
+            "objects": [
+             {
+              "name": "Femoral nerve.l",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Femoral nerve.r",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Lateral femoral cutaneous nerve.l",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Lateral femoral cutaneous nerve.r",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             },
+             {
+              "name": "Superior subscapular nerve.r",
+              "type": "CURVE",
+              "verts": null,
+              "exported": false
+             }
+            ],
+            "children": []
+           }
+          ]
+         },
+         {
+          "group": "Sacral plexus",
+          "objects": [
+           {
+            "name": "Anterior root of posterior femoral cutaneous nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Anterior root of posterior femoral cutaneous nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Nerve to piriformis muscle.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Nerve to piriformis muscle.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Nerve to quadratus femoris muscle.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Nerve to quadratus femoris muscle.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Posterior femoral cutaneous nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Posterior femoral cutaneous nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Posterior root of posterior femoral cutaneous nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Posterior root of posterior femoral cutaneous nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Pudendal nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Pudendal nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Sciatic nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Sciatic nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Superior gluteal nerve.l",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           },
+           {
+            "name": "Superior gluteal nerve.r",
+            "type": "CURVE",
+            "verts": null,
+            "exported": false
+           }
+          ],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "Thoracic nerves",
+        "objects": [
+         {
+          "name": "Intercostal nerves.l",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Intercostal nerves.r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         }
+        ],
+        "children": []
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "group": "Sense organs",
+    "objects": [],
+    "children": [
+     {
+      "group": "Ear",
+      "objects": [],
+      "children": [
+       {
+        "group": "External ear",
+        "objects": [
+         {
+          "name": "Tympanic membrane.l",
+          "type": "MESH",
+          "verts": 788,
+          "exported": false
+         },
+         {
+          "name": "Tympanic membrane.r",
+          "type": "MESH",
+          "verts": 788,
+          "exported": false
+         }
+        ],
+        "children": []
+       },
+       {
+        "group": "Internal ear",
+        "objects": [
+         {
+          "name": "Cochlea.l",
+          "type": "MESH",
+          "verts": 783,
+          "exported": false
+         },
+         {
+          "name": "Cochlea.r",
+          "type": "MESH",
+          "verts": 783,
+          "exported": false
+         },
+         {
+          "name": "Vestibule.l",
+          "type": "MESH",
+          "verts": 1086,
+          "exported": false
+         },
+         {
+          "name": "Vestibule.r",
+          "type": "MESH",
+          "verts": 1086,
+          "exported": false
+         }
+        ],
+        "children": []
+       },
+       {
+        "group": "Middle ear",
+        "objects": [
+         {
+          "name": "Auditory tube.l",
+          "type": "MESH",
+          "verts": 116,
+          "exported": false
+         },
+         {
+          "name": "Auditory tube.r",
+          "type": "MESH",
+          "verts": 116,
+          "exported": false
+         }
+        ],
+        "children": []
+       }
+      ]
+     },
+     {
+      "group": "Eye",
+      "objects": [],
+      "children": [
+       {
+        "group": "Accessory visual structures",
+        "objects": [
+         {
+          "name": "Suspensory ligament of eyeball.l",
+          "type": "MESH",
+          "verts": 2755,
+          "exported": false
+         },
+         {
+          "name": "Suspensory ligament of eyeball.r",
+          "type": "MESH",
+          "verts": 2755,
+          "exported": false
+         }
+        ],
+        "children": [
+         {
+          "group": "Lacrimal apparatus",
+          "objects": [
+           {
+            "name": "Lacrimal canaliculus.l",
+            "type": "MESH",
+            "verts": 210,
+            "exported": false
+           },
+           {
+            "name": "Lacrimal canaliculus.r",
+            "type": "MESH",
+            "verts": 210,
+            "exported": false
+           },
+           {
+            "name": "Lacrimal gland.l",
+            "type": "MESH",
+            "verts": 907,
+            "exported": false
+           },
+           {
+            "name": "Lacrimal gland.r",
+            "type": "MESH",
+            "verts": 907,
+            "exported": false
+           },
+           {
+            "name": "Lacrimal sac.l",
+            "type": "MESH",
+            "verts": 194,
+            "exported": false
+           },
+           {
+            "name": "Lacrimal sac.r",
+            "type": "MESH",
+            "verts": 194,
+            "exported": false
+           },
+           {
+            "name": "Nasolacrimal duct.l",
+            "type": "MESH",
+            "verts": 224,
+            "exported": false
+           },
+           {
+            "name": "Nasolacrimal duct.r",
+            "type": "MESH",
+            "verts": 224,
+            "exported": false
+           }
+          ],
+          "children": []
+         }
+        ]
+       },
+       {
+        "group": "Eyeball",
+        "objects": [
+         {
+          "name": "Anterior segment of eyeball.l",
+          "type": "MESH",
+          "verts": 416,
+          "exported": false
+         },
+         {
+          "name": "Anterior segment of eyeball.r",
+          "type": "MESH",
+          "verts": 416,
+          "exported": false
+         },
+         {
+          "name": "Ciliary body-curve.l",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Ciliary body-curve.r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         },
+         {
+          "name": "Cornea.l",
+          "type": "MESH",
+          "verts": 322,
+          "exported": false
+         },
+         {
+          "name": "Cornea.r",
+          "type": "MESH",
+          "verts": 322,
+          "exported": false
+         },
+         {
+          "name": "Equator of eyeball.r",
+          "type": "MESH",
+          "verts": 32,
+          "exported": false
+         },
+         {
+          "name": "External axis of eyeball",
+          "type": "MESH",
+          "verts": 3,
+          "exported": false
+         },
+         {
+          "name": "Internal axis of eyeball.r",
+          "type": "MESH",
+          "verts": 2,
+          "exported": false
+         },
+         {
+          "name": "Iris.l",
+          "type": "MESH",
+          "verts": 1734,
+          "exported": false
+         },
+         {
+          "name": "Iris.r",
+          "type": "MESH",
+          "verts": 1734,
+          "exported": false
+         },
+         {
+          "name": "Lens.l",
+          "type": "MESH",
+          "verts": 801,
+          "exported": false
+         },
+         {
+          "name": "Lens.r",
+          "type": "MESH",
+          "verts": 801,
+          "exported": false
+         },
+         {
+          "name": "Meridians of eyeball.r",
+          "type": "MESH",
+          "verts": 66,
+          "exported": false
+         },
+         {
+          "name": "Posterior segment of eyeball.l",
+          "type": "MESH",
+          "verts": 802,
+          "exported": false
+         },
+         {
+          "name": "Posterior segment of eyeball.r",
+          "type": "MESH",
+          "verts": 802,
+          "exported": false
+         },
+         {
+          "name": "Retina.l",
+          "type": "MESH",
+          "verts": 774,
+          "exported": false
+         },
+         {
+          "name": "Retina.r",
+          "type": "MESH",
+          "verts": 774,
+          "exported": false
+         },
+         {
+          "name": "Sclera.l",
+          "type": "MESH",
+          "verts": 577,
+          "exported": false
+         },
+         {
+          "name": "Sclera.r",
+          "type": "MESH",
+          "verts": 577,
+          "exported": false
+         },
+         {
+          "name": "Zonular fibers-curve.r",
+          "type": "CURVE",
+          "verts": null,
+          "exported": false
+         }
+        ],
+        "children": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cardiovascular_groups_cerebral": [
+  {
+   "group": "Cerebral arterial circle",
+   "objects": [
+    {
+     "name": "Anterior communicating artery",
+     "type": "MESH",
+     "verts": 42,
+     "exported": true
+    },
+    {
+     "name": "Posterior communicating artery.l",
+     "type": "CURVE",
+     "verts": null,
+     "exported": true
+    },
+    {
+     "name": "Posterior communicating artery.r",
+     "type": "CURVE",
+     "verts": null,
+     "exported": true
+    }
+   ],
+   "children": []
+  },
+  {
+   "group": "Dural venous sinuses",
+   "objects": [
+    {
+     "name": "Inferior petrosal sinus.l",
+     "type": "CURVE",
+     "verts": null,
+     "exported": true
+    },
+    {
+     "name": "Inferior petrosal sinus.r",
+     "type": "CURVE",
+     "verts": null,
+     "exported": true
+    },
+    {
+     "name": "Sigmoid sinus.l",
+     "type": "CURVE",
+     "verts": null,
+     "exported": true
+    },
+    {
+     "name": "Sigmoid sinus.r",
+     "type": "CURVE",
+     "verts": null,
+     "exported": true
+    }
+   ],
+   "children": []
+  }
+ ],
+ "meninges_group": {
+  "group": "Dura",
+  "objects": [
+   {
+    "name": "Spinal dura",
+    "type": "MESH",
+    "verts": 18104,
+    "exported": true
+   }
+  ],
+  "children": [
+   {
+    "group": "Cranial dura",
+    "objects": [
+     {
+      "name": "Falx cerebri",
+      "type": "MESH",
+      "verts": 844,
+      "exported": true
+     },
+     {
+      "name": "Tentorium cerebelli.l",
+      "type": "MESH",
+      "verts": 1121,
+      "exported": true
+     },
+     {
+      "name": "Tentorium cerebelli.r",
+      "type": "MESH",
+      "verts": 1121,
+      "exported": true
+     }
+    ],
+    "children": []
+   }
+  ]
+ },
+ "exported_structures": 229
+}

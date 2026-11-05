@@ -1,13 +1,11 @@
-// The scaffold ladder ("training wheels"), ported from ANKI+ (web/js/ru/wheels.js) for anatomy names.
-// Each card climbs
-//   0 copy           the whole answer is shown as ghost text; type what you see
-//   1 skeleton       consonants (and each word's first letter) shown, vowels to fill in (C_ud_t_ n_cl__s)
-//   2 first letters  only each word's first letter (C_____ n______)
-//   3 recall         no scaffold
-// A clean pass (no wrong keys, no extra hints) climbs one rung; a miss or give-up steps down one.
-// Long answers (a phrase of 6+ letters, one word of 9+) climb in HALF-STEPS so help fades gradually and
-// never drops away in one big chunk: on an odd step the shorter half of the words already wear the next
-// rung's scaffold (one long word: its back half). The step is 0..6 (rung = step >> 1).
+// The scaffold ladder, from ANKI+'s Russian training wheels (web/js/ru/wheels.js), made LIGHT for anatomy names
+// (not a foreign language: it behaves like ANKI+'s first look -> recall flow, with help only after a miss).
+// Rungs: 0 copy (the whole answer as ghost text), 1 skeleton (vowels to fill in: C__d_t_ n_cl__s),
+// 2 first letters (C______ n______), 3 recall (no scaffold). The step is 0..6 (rung = step >> 1).
+//   - a first look is the copy; the next showing is already from memory
+//   - a miss at recall brings back first letters once; another miss, the skeleton (never the copy again)
+//   - any clean pass with help goes straight back to recall
+// Odd half-steps (a fading word by word) only remain on cards saved by the older, Russian-strength ladder.
 // Below the recall rung an answer is practice: graded at most Hard, never counted as a clean recall, and its
 // typos never become spelling traps.
 import { isLetter } from "./text.ts";
@@ -203,11 +201,10 @@ export function ladderOutcome(step: number, r: LadderResult): LadderOutcome {
 
 /** The step after a move. */
 export function nextStep(step: number, out: LadderOutcome, long: boolean): number {
-  let n = step;
-  if (out === "top") n = Math.max(step, long ? 4 : 6);
-  else if (out === "up") n = long ? step + 1 : ((step >> 1) + 1) * 2;
-  else if (out === "down") n = long ? step - 2 : ((step >> 1) - 1) * 2;
-  return Math.max(0, Math.min(MAX_STEP, n));
+  void long; // answers of every length move the same (no half-steps for anatomy names)
+  if (out === "top" || out === "up") return MAX_STEP;
+  if (out === "down") return step >= MAX_STEP ? 4 : 2; // first letters, then the skeleton; never the copy again
+  return step === 0 ? MAX_STEP : step; // after the first look's copy: from memory next time
 }
 
 /** Clean-recall streak after an answer: only unaided correct answers at the recall rung count. */

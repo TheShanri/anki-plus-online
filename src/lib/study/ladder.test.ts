@@ -47,17 +47,16 @@ test("isLong: phrases of 6+ letters and single words of 9+", () => {
   assert.equal(isLong("Red nucleus"), true);
 });
 
-test("nextStep: short answers climb a whole rung, long ones half a step; a miss steps down", () => {
-  assert.equal(nextStep(0, "up", false), 2);
-  assert.equal(nextStep(2, "up", false), 4);
-  assert.equal(nextStep(4, "up", false), 6);
-  assert.equal(nextStep(0, "up", true), 1);
-  assert.equal(nextStep(1, "up", true), 2);
-  assert.equal(nextStep(6, "down", false), 4);
-  assert.equal(nextStep(3, "down", true), 1);
-  assert.equal(nextStep(0, "down", true), 0);
-  assert.equal(nextStep(0, "top", false), 6);
-  assert.equal(nextStep(0, "top", true), 4);
+test("nextStep (light, anatomy): first look -> recall; a miss brings first letters, then the skeleton; a clean pass -> recall", () => {
+  assert.equal(nextStep(0, "up", false), 6);
+  assert.equal(nextStep(0, "stay", true), 6); // a first look with typos in the copy: still from memory next time
+  assert.equal(nextStep(0, "top", true), 6);
+  assert.equal(nextStep(6, "down", true), 4);
+  assert.equal(nextStep(4, "down", true), 2);
+  assert.equal(nextStep(2, "down", false), 2); // never back to the copy
+  assert.equal(nextStep(4, "up", true), 6);
+  assert.equal(nextStep(2, "up", true), 6);
+  assert.equal(nextStep(4, "stay", true), 4);
   assert.equal(rungOf(5), 2);
 });
 

@@ -65,7 +65,7 @@ test("new card: first look, reveal, copy retype, accept; the ladder climbs", asy
   assert.equal(h.sent.length, 1);
   assert.equal(h.sent[0].rating, 3);
   assert.equal(h.sent[0].correct, null); // a first look is not a graded answer
-  assert.equal(h.sent[0].ladder?.stepAfter, 2); // short word: up a whole rung (copy -> skeleton)
+  assert.equal(h.sent[0].ladder?.stepAfter, 6); // after the first look: from memory next time
 });
 
 test("typing a new card unaided at first sight: Easy, jumps to recall, counts as a clean recall", async () => {
@@ -155,7 +155,7 @@ test("practice rung: scaffold shown, at most Hard, no clean recall", async () =>
   assert.equal(h.e.cur!.rating, 2);
   h.e.accept();
   assert.equal(h.sent[0].ladder?.stepBefore, 2);
-  assert.equal(h.sent[0].ladder?.stepAfter, 4);
+  assert.equal(h.sent[0].ladder?.stepAfter, 6); // a clean pass with help: straight back to recall
   assert.equal(h.e.ladders.get("Thalamus")!.clean_streak, 0);
 });
 

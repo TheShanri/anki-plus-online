@@ -1,5 +1,7 @@
 "use client";
+import { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { StudyEngine } from "@/lib/study/engine";
 import type { AnswerSync } from "@/lib/study/sync";
 
@@ -11,6 +13,25 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
   const sprint = engine.opts_limit() > 0 && engine.queue.size > 0;
   const seen = new Set<string>();
   const missed = s.missed.filter((m) => (seen.has(m.cardId) ? false : (seen.add(m.cardId), true)));
+  const router = useRouter();
+  const more = () => (sprint ? engine.moreRound() : window.location.assign(`/study/run?scope=${encodeURIComponent(scope)}`));
+  // ANKI+ done screen keys: Enter keeps going, Esc goes back
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        more();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        router.push("/study");
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
   return (
     <div className="st-wrap">
       <div className="panel">
@@ -44,6 +65,10 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
           <Link className="btn btn-primary" href={`/study/run?scope=${encodeURIComponent(scope)}`} onClick={() => setTimeout(() => window.location.reload(), 0)}>Study more</Link>
           <Link className="btn" href="/study">Back to study</Link>
         </div>
+        <p className="help-line" style={{ marginTop: 10 }}>
+          <span><span className="kbd">Enter</span> {sprint ? "one more round" : "study more"}</span>
+          <span><span className="kbd">Esc</span> back</span>
+        </p>
       </div>
     </div>
   );

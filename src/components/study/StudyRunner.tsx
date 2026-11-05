@@ -169,10 +169,21 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
         return;
       }
       if (engine.phase === "reveal" && cc) {
-        if (e.key === "Enter") {
+        const retyping = !!cc.retype && !cc.retype.done;
+        if (e.key === "Enter" || (e.key === " " && !retyping)) {
           e.preventDefault();
+          if (retyping) {
+            const box = document.querySelector(".retype-box .typebox");
+            box?.classList.remove("nudge");
+            void (box as HTMLElement | null)?.offsetWidth;
+            box?.classList.add("nudge");
+            return;
+          }
           engine.accept();
-        } else if (e.key === "Escape") engine.skipRetype();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          engine.skipRetype();
+        }
         else if (/^[1-4]$/.test(e.key) && (!cc.retype || cc.retype.done)) {
           e.preventDefault();
           engine.accept(Number(e.key) as 1 | 2 | 3 | 4);
@@ -257,7 +268,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
             {c.isBoss && <span className="chip boss">Boss</span>}
             {c.isFollowup && <span className="chip follow">Follow-up</span>}
             {kind && !c.isFollowup && <span className={`chip ${kind[0]}`}>{kind[1]}</span>}
-            {c.isFirstLook && <span className="chip">First look</span>}
+            {c.isFirstLook && <span className="chip first" title="New card: see it, then type it. Not scored.">First look · not scored</span>}
             {c.mode === "type" && c.practice && <span className="chip ladder">Ladder: {c.step & 1 ? "fading" : ["copy", "skeleton", "first letters"][c.step >> 1]}</span>}
             {c.guard?.has && <span className="chip">{c.guard.armed ? "Trap letters ahead" : "Trap letters"}</span>}
             {(state?.lapses ?? 0) >= 3 && <span className="chip">{state!.lapses} lapses</span>}
@@ -287,7 +298,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   trapLevel={c.guard?.armedLevel ?? 0}
                   gated={c.guard?.gateActive(engine.deps.now()) ?? false}
                   drifting={engine.drift > 0}
-                  placeholder={c.isFirstLook ? "Know it? Type it. Otherwise press Enter." : "Type the answer…"}
+                  placeholder={c.isFirstLook ? "Know it? Type it. Otherwise Enter = reveal" : c.practice ? "Type it…" : "Type the answer…"}
                   onChange={(v) => engine.input(v)}
                   onBeforeInput={(e) => {
                     if (engine.gateBlocks()) e.preventDefault();
@@ -301,7 +312,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   className="kw-input"
                   aria-label="Your answer"
                   value={c.typed}
-                  placeholder="Answer in your own words…"
+                  placeholder={c.isFirstLook ? "Know it? Type it. Otherwise Enter = reveal" : "Answer in your own words…"}
                   onChange={(e) => engine.input(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
@@ -321,29 +332,47 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                 </div>
               )}
               {c.mode === "self" && (
-                <p className="text-text-dim">Typing is off. Recall the answer, then reveal it and rate how well you knew it.</p>
+                <p className="text-text-dim">{c.isFirstLook ? "A new card: have a look at the answer, nothing is scored." : "Typing is off. Recall the answer, then reveal it and rate how well you knew it."}</p>
               )}
               <div className="help-line">
                 {engine.helpLine() && <span>{engine.helpLine()}</span>}
-                {c.mode === "type" && (
+                {c.isFirstLook && c.mode !== "self" ? (
+                  c.choices ? (
+                    <span>Pick it if you know it: a miss on a first look is not scored</span>
+                  ) : (
+                    <>
+                      <span><span className="kbd">Enter</span> reveal</span>
+                      <span>type it first if you know it</span>
+                    </>
+                  )
+                ) : c.mode === "type" ? (
                   <>
-                    <span><span className="kbd">Tab</span> {c.isFirstLook ? "show it" : "ghost hint"}</span>
+                    <span><span className="kbd">Tab</span> ghost hint</span>
                     <span><span className="kbd">Enter</span> submit</span>
                     <span><span className="kbd">Esc</span> show answer</span>
                   </>
-                )}
-                {(c.mode === "keywords" || c.mode === "self") && <span><span className="kbd">Enter</span> {c.mode === "self" ? "show answer" : "submit"}</span>}
+                ) : c.mode === "keywords" ? (
+                  <>
+                    <span><span className="kbd">Enter</span> submit</span>
+                    <span><span className="kbd">Shift Enter</span> new line</span>
+                    <span><span className="kbd">Esc</span> show answer</span>
+                  </>
+                ) : c.mode === "self" ? (
+                  <span><span className="kbd">Enter</span> show answer</span>
+                ) : c.choices ? (
+                  <span>
+                    <span className="kbd">{c.mode === "tf" ? "T" : "1"}</span>-<span className="kbd">{c.mode === "tf" ? "F" : c.choices.length}</span> pick · <span className="kbd">Esc</span> show answer
+                  </span>
+                ) : null}
               </div>
-              <div className="btn-row">
+              <div className="btn-row touch-only">
                 {c.mode === "type" && engine.settings.scaffold.hints && !c.isFirstLook && <button className="btn" type="button" onClick={() => engine.hint(true)}>Hint</button>}
-                {c.mode === "type" && <button className="btn" type="button" onClick={() => engine.submit(c.isFirstLook ? true : false)}>{c.isFirstLook ? "Show me" : "Submit"}</button>}
-                {c.mode !== "self" && c.mode !== "choice" && c.mode !== "tf" && !c.isFirstLook && <button className="btn" type="button" onClick={() => engine.submit(true)}>Show answer</button>}
-                {c.mode === "keywords" && <button className="btn btn-primary" type="button" onClick={() => engine.submit(false)}>Submit</button>}
+                {(c.mode === "type" || c.mode === "keywords") && <button className="btn btn-primary" type="button" onClick={() => engine.submit(false)}>{c.isFirstLook ? "Reveal" : "Submit"}</button>}
+                {(c.mode === "type" || c.mode === "keywords") && !c.isFirstLook && <button className="btn" type="button" onClick={() => engine.submit(true)}>Show answer</button>}
                 {c.mode === "self" && <button className="btn btn-primary" type="button" onClick={() => engine.submit(false)}>Show answer</button>}
               </div>
-              {c.mode === "type" && c.typer && c.typer.hinted + c.typer.typos >= 0 && !c.isFirstLook && (
+              {c.mode === "type" && c.typer && !c.isFirstLook && (
                 <div className="meter" aria-label="Predicted rating">
-                  rating:
                   {([1, 2, 3, 4] as const).map((g) => (
                     <span key={g} className={`g${g}${engine.predicted() === g ? " on" : ""}`}>{["Again", "Hard", "Good", "Easy"][g - 1]}</span>
                   ))}

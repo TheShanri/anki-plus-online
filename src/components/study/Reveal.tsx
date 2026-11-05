@@ -98,7 +98,10 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
   const retypeRef = useRef<HTMLInputElement>(null);
   const r = c.retype;
   useEffect(() => {
-    if (r && !r.done) retypeRef.current?.focus();
+    if (!r || r.done) return;
+    const el = retypeRef.current;
+    el?.focus({ preventScroll: true });
+    el?.closest(".retype-box")?.scrollIntoView({ block: "center", behavior: "smooth" });
   }, [r, r?.done, r?.repsLeft]);
   const t = c.typer;
   const hint = t?.hinted ? `${t.hinted} hint letter${t.hinted === 1 ? "" : "s"}` : "";
@@ -106,6 +109,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
   const secs = c.isFirstLook ? "" : `${(c.durationMs / 1000).toFixed(1)}s`;
   const notes = [c.why, hint, typos, secs].filter(Boolean).join(" · ");
   const wordClass = c.selfGraded ? "g3" : `g${c.rating}`;
+  const intro = c.headline === "FIRST LOOK";
   const canRate = engine.canAdvance;
   const saveNote = async () => {
     const body = noteText.trim();
@@ -117,8 +121,8 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
     <div className="reveal" aria-live="polite">
       <div className="verdict">
         {c.surprise && <span className="v-surprise">Surprise! You were sure.</span>}
-        <span className={`v-word ${wordClass}`}>{c.headline}</span>
-        {notes && <span className="v-notes">{notes}</span>}
+        <span className={`v-word ${intro ? "intro" : wordClass}`}>{c.headline}</span>
+        {intro ? <span className="v-notes">not scored{c.why ? ` · ${c.why}` : ""}</span> : notes && <span className="v-notes">{notes}</span>}
       </div>
       {c.mode !== "self" && <Diff c={c} />}
       {!c.diff && c.card.answer && <p className="answer-line" style={c.right || c.mode === "self" ? undefined : { color: "var(--good)" }}>{c.card.answer}</p>}
@@ -138,8 +142,10 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
       {r && (
         <div className="retype-box">
           <p className="retype-label">
-            {r.kind === "intro" ? "Look, then type it." : r.kind === "near" ? "Almost. Type it once more." : r.kind === "reps" ? `Lock it in: ${r.repsLeft} more time${r.repsLeft === 1 ? "" : "s"}.` : "Lock it in: type the answer once."}{" "}
-            <span className="v-notes">(not graded){r.typer.mode === "covered" ? " It hides at your first key; Tab peeks." : ""}</span>
+            <b className="text-accent-2">{r.kind === "intro" ? "Look, then type it" : r.kind === "near" ? "Almost." : r.kind === "reps" ? "Trap reps" : "Lock it in:"}</b>{" "}
+            {r.kind === "near" ? "Type it once more" : r.kind === "reps" ? `${r.repsLeft} more from memory` : r.kind === "fail" ? "type the answer once" : ""}
+            {r.typer.mode === "covered" ? <span className="v-notes"> — it hides at your first key</span> : null}
+            {r.kind !== "intro" && <span className="v-notes"> (not graded)</span>}
           </p>
           <TypeBox
             ref={retypeRef}
@@ -155,8 +161,15 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
               }
             }}
           />
-          <div className="btn-row">
-            <button type="button" className="btn" onClick={() => engine.peekRetype()}>Peek</button>
+          {!r.done && (
+            <div className="help-line">
+              <span><span className="kbd">Enter</span> when done</span>
+              {r.typer.mode === "covered" && <span><span className="kbd">Tab</span> peek</span>}
+              {(r.kind === "fail" || r.kind === "reps") && <span><span className="kbd">Esc</span> skip</span>}
+            </div>
+          )}
+          <div className="btn-row touch-only">
+            {r.typer.mode === "covered" && !r.done && <button type="button" className="btn" onClick={() => engine.peekRetype()}>Peek</button>}
             {(r.kind === "fail" || r.kind === "reps") && !r.done && <button type="button" className="btn" onClick={() => engine.skipRetype()}>Skip</button>}
           </div>
         </div>
@@ -193,9 +206,8 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
       {!c.fixed || c.selfGraded ? (
         <div className="grade-bar">
           {([1, 2, 3, 4] as Grade[]).map((g) => {
-            const max = c.selfGraded ? 4 : c.maxRating;
             return (
-              <button key={g} type="button" className={`grade-btn g${g}${g === c.rating ? " suggested" : ""}`} disabled={!canRate || g > max} onClick={() => engine.accept(g)}>
+              <button key={g} type="button" className={`grade-btn g${g}${g === c.rating ? " suggested" : ""}`} disabled={!canRate} onClick={() => engine.accept(g)}>
                 <b>{GRADE_NAMES[g]}</b>
                 <small>{c.previews?.[g] ?? ""}</small>
               </button>
@@ -203,16 +215,16 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
           })}
         </div>
       ) : null}
-      <p className="next-hint">
-        {!canRate ? (r && !r.done ? "Finish the retype to continue" : "One moment…") : (
-          <>
-            <span className="kbd">Enter</span> {c.fixed && !c.selfGraded ? "next card" : `accept ${GRADE_NAMES[c.rating]}`}
-            {!c.fixed || c.selfGraded ? <> · <span className="kbd">1</span>-<span className="kbd">4</span> choose{c.selfGraded ? "" : " (lower only)"}</> : null}
-          </>
-        )}
-      </p>
+      {canRate ? (
+        <p className="next-hint">
+          <span className="kbd">Enter</span> {c.fixed && !c.selfGraded ? "next card" : `accept ${GRADE_NAMES[c.rating]}`}
+          {!c.fixed || c.selfGraded ? <> · <span className="kbd">1</span>-<span className="kbd">4</span> choose</> : null}
+        </p>
+      ) : !r || r.done ? (
+        <p className="next-hint">One moment…</p>
+      ) : null}
       {c.fixed && !c.selfGraded && canRate && (
-        <div className="btn-row" style={{ justifyContent: "center", marginTop: 6 }}>
+        <div className="btn-row touch-only" style={{ justifyContent: "center", marginTop: 6 }}>
           <button type="button" className="btn btn-primary" onClick={() => engine.accept()}>Next card</button>
         </div>
       )}

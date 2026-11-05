@@ -378,7 +378,8 @@ export class StudyEngine {
     else if (card.format === "choice") mode = "choice";
 
     const isNew = !state || (state.state === 0 && state.reps === 0);
-    const isFirstLook = mode === "type" && isNew && !!card.answer;
+    // ANKI+ stage 1: every brand-new card is a first look (never scored), in every answer format
+    const isFirstLook = isNew && (mode === "choice" || mode === "tf" || !!card.answer);
     const ladderOn = sc.ladder && mode === "type";
     const step = ladderOn ? (isFirstLook ? 0 : ladder?.step ?? 0) : MAX_STEP;
     const practice = ladderOn && !isFirstLook && step < MAX_STEP;
@@ -437,7 +438,7 @@ export class StudyEngine {
   helpLine(): string {
     const c = this.cur;
     if (!c || !c.typer) return "";
-    if (c.isFirstLook) return "Know it? Type it. Otherwise Enter shows it.";
+    if (c.isFirstLook) return "";
     if (c.practice) return helpText(c.step, c.card.answer);
     return "";
   }
@@ -607,6 +608,11 @@ export class StudyEngine {
     c.picked = i;
     const typed = c.choices[i];
     const right = typed.trim().toLowerCase() === c.card.answer.trim().toLowerCase();
+    if (c.isFirstLook && !right) {
+      c.typed = typed;
+      c.durationMs = Math.round(this.deps.now() - c.shownAt);
+      return this.introReveal(c, "not that one: here it is", c.mode === "choice" && !!c.card.answer);
+    }
     this.conclude(c, { result: right ? "correct" : "wrong", matched: c.card.answer, edits: right ? 0 : 1, why: "", points: right ? 1 : 0 }, false, typed);
   }
 
@@ -614,13 +620,17 @@ export class StudyEngine {
     const c = this.cur;
     if (!c || this.phase !== "prompt") return;
     if (c.mode === "self") {
+      if (c.isFirstLook) return this.firstLookSelf(c);
       this.revealSelf(c);
       return;
     }
     const typed = c.typer?.typed ?? c.typed;
-    if (c.mode === "type" && c.isFirstLook) return this.submitFirstLook(c, giveUp);
-    if (!typed.trim() && !giveUp) return; // Enter on an empty box does nothing: Esc shows the answer
-    const verdict: Verdict = giveUp ? { result: "empty", matched: null, edits: 0, why: "Revealed", points: 0 } : this.judge(c);
+    if ((c.mode === "type" || c.mode === "keywords") && c.isFirstLook) return this.submitFirstLook(c, giveUp);
+    if ((c.mode === "choice" || c.mode === "tf") && c.isFirstLook) {
+      c.durationMs = Math.round(this.deps.now() - c.shownAt);
+      return this.introReveal(c, "", c.mode === "choice" && !!c.card.answer);
+    }
+    const verdict: Verdict = giveUp ? { result: "empty", matched: null, edits: 0, why: "Revealed", points: 0 } : !typed.trim() ? { result: "empty", matched: null, edits: 0, why: "No answer", points: 0 } : this.judge(c);
     this.conclude(c, verdict, giveUp, typed);
   }
 
@@ -635,13 +645,15 @@ export class StudyEngine {
   }
 
   private submitFirstLook(c: Current, giveUp: boolean): void {
-    const t = c.typer!;
+    const t = c.typer;
     const now = this.deps.now();
     c.fixed = true;
-    c.durationMs = Math.round(t.elapsed(now));
-    const typed = t.typed.trim();
+    c.durationMs = Math.round(t ? t.elapsed(now) : now - c.shownAt);
+    const typed = (t?.typed ?? c.typed).trim();
+    c.typed = typed;
     const verdict = typed && !giveUp ? this.judge(c) : null;
-    if (!giveUp && t.state === "match" && verdict?.result !== "wrong") {
+    const known = t ? t.state === "match" && verdict?.result !== "wrong" : verdict?.result === "correct";
+    if (!giveUp && known) {
       c.right = true;
       c.rating = 4;
       c.maxRating = 4;
@@ -661,20 +673,31 @@ export class StudyEngine {
       c.verdict = verdict;
       c.headline = "SO CLOSE";
       c.why = "almost: one more go";
-      c.diff = diffOps(typed, verdict.matched ?? c.card.answer, DEFAULT_CANON);
+      if (t) c.diff = diffOps(typed, verdict.matched ?? c.card.answer, DEFAULT_CANON);
       this.emit("near_miss", { edits: verdict.edits });
       this.enterReveal(c, true, "near");
       return;
     }
-    // a first look: not knowing a new card is no mistake
+    this.introReveal(c, typed ? "not quite: here it is" : "", true);
+  }
+
+  /** The first look itself: the answer, never scored, then look and type it once (ANKI+ stage 1). */
+  private introReveal(c: Current, why: string, retype: boolean): void {
+    c.fixed = true;
     c.right = false;
     c.gaveUp = true;
     c.rating = 3;
     c.maxRating = 3;
     c.headline = "FIRST LOOK";
-    c.why = typed ? "not quite: here it is" : "";
+    c.why = why;
     this.emit("reveal");
-    this.enterReveal(c, true, "intro");
+    this.enterReveal(c, retype, "intro");
+  }
+
+  /** Typing off: a new card's first look just shows the answer (no rating asked). */
+  private firstLookSelf(c: Current): void {
+    c.durationMs = Math.round(this.deps.now() - c.shownAt);
+    this.introReveal(c, "", false);
   }
 
   private conclude(c: Current, verdict: Verdict, giveUp: boolean, typed: string): void {
@@ -732,12 +755,12 @@ export class StudyEngine {
     const state = this.states.get(c.card.id) ?? null;
     const row = state ?? newCardState("me", c.card.id, new Date(now));
     c.previews = previews(row, new Date(now), this.settings.study.retention);
-    c.fixed = c.fixed || (c.mode === "type" && c.isFirstLook);
+    c.fixed = c.fixed || c.isFirstLook;
     // mnemonic offer: gentle, after repeated misses
     const lapses = (state?.lapses ?? 0) + (c.right ? 0 : 1);
     const misses = (this.cardMisses.get(c.card.id) ?? 0) + (c.right ? 0 : 1);
     c.mnemonicOffer = this.settings.scaffold.mnemonics && !c.isFirstLook && !c.note && (lapses >= 2 || misses >= 2) && c.card.kind !== "clinical";
-    if (wantRetype && kind && c.typer) {
+    if (wantRetype && kind && c.card.answer) {
       const reps = kind === "reps" ? Math.max(2, c.guard?.repsWanted() ?? 3) : 1;
       c.retype = this.makeRetype(c, kind, reps);
     }
@@ -746,7 +769,7 @@ export class StudyEngine {
 
   private makeRetype(c: Current, kind: Retype["kind"], reps: number): Retype {
     const now = this.deps.now();
-    const ladderCopy = this.settings.scaffold.ladder && c.step < MAX_STEP;
+    const ladderCopy = (this.settings.scaffold.ladder && c.step < MAX_STEP) || (kind === "intro" && c.mode !== "type");
     // look-cover-type by default; with the scaffold on below recall, the answer stays visible (copy)
     const mode = kind === "intro" || kind === "near" || kind === "fail" ? (ladderCopy ? "retype" : "covered") : "covered";
     const typer = new Typer({ variants: answerVariants(c.card.answer, c.card.accept, { requireSide: c.card.requireSide, max: 96 }), mode, now });
@@ -793,9 +816,13 @@ export class StudyEngine {
   skipRetype(): void {
     const r = this.cur?.retype;
     if (!r || r.done) return;
-    if (r.kind === "intro" || r.kind === "near") return; // those are part of learning the card
+    if (r.kind === "intro" || r.kind === "near") {
+      this.peekRetype(); // those are part of learning the card: Esc shows it again instead
+      return;
+    }
     r.done = true;
     this.changed();
+    this.accept();
   }
 
   setNote(body: string | null): void {
@@ -822,7 +849,7 @@ export class StudyEngine {
     if (!c || this.phase !== "reveal") return;
     if (!this.canAdvance) return;
     const now = this.deps.now();
-    const chosen = Math.max(1, Math.min(rating ?? c.rating, c.selfGraded ? 4 : c.maxRating)) as Grade;
+    const chosen = (c.fixed && !c.selfGraded ? c.rating : Math.max(1, Math.min(rating ?? c.rating, 4))) as Grade;
     const wasBoss = c.isBoss;
     const t = c.typer;
     const hinted = t?.hinted ?? 0;

@@ -161,3 +161,9 @@
   .typebox { padding: 12px; }
 }
 @media (prefers-reduced-motion: reduce) { .pin-target, .caret, .drift-glow { animation: none; } }
+
+/* ---------- ANKI+ parity: first look, key-first controls ---------- */
+.chip.first { color: var(--accent-2); border-color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 12%, transparent); }
+.v-word.intro { color: var(--accent-2); }
+/* buttons duplicate the keys: only screens without a keyboard need them */
+@media (hover: hover) and (pointer: fine) { .touch-only { display: none !important; } }

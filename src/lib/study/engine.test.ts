@@ -105,7 +105,7 @@ test("a wrong answer: diff, Again, lock-in retype required before moving on", as
   assert.equal(h.sent[0].ladder?.stepAfter, 4); // recall -> first letters
 });
 
-test("a near miss is Hard with a diff; the student can lower but not raise the rating", async () => {
+test("a near miss is Hard with a diff; 1-4 can pick any rating (ANKI+)", async () => {
   const st: CardStateRow = { user_id: "u", card_id: "Hippocampus", due: new Date(0).toISOString(), stability: 5, difficulty: 5, elapsed_days: 3, scheduled_days: 3, learning_steps: 0, reps: 4, lapses: 0, state: 2, last_review: new Date(-86400000 * 3).toISOString() };
   const h = harness(payload([card("Hippocampus")], { states: { Hippocampus: st }, ladders: { Hippocampus: { card_id: "Hippocampus", step: 6, clean_streak: 0, last_clean_at: null } } }));
   h.e.start();
@@ -115,8 +115,8 @@ test("a near miss is Hard with a diff; the student can lower but not raise the r
   assert.equal(h.e.cur!.rating, 2);
   assert.equal(h.e.cur!.retype?.kind, "near");
   h.e.retypeInput("Hippocampus");
-  h.e.accept(4); // cannot raise
-  assert.equal(h.sent[0].rating, 2);
+  h.e.accept(4); // any grade, as in ANKI+
+  assert.equal(h.sent[0].rating, 4);
 });
 
 test("ghost hints downgrade the rating and are counted", async () => {
@@ -178,7 +178,8 @@ test("theory follow-up is asked right after a solid name, not before", async () 
 });
 
 test("typing off: self-grade all four ratings, nothing typed is stored", async () => {
-  const p = payload([card("Thalamus")]);
+  const st: CardStateRow = { user_id: "u", card_id: "Thalamus", due: new Date(0).toISOString(), stability: 5, difficulty: 5, elapsed_days: 3, scheduled_days: 3, learning_steps: 0, reps: 4, lapses: 0, state: 2, last_review: new Date(-86400000 * 3).toISOString() };
+  const p = payload([card("Thalamus")], { states: { Thalamus: st } });
   p.settings.typing = { enabled: false, offSince: new Date(0).toISOString(), lastReminder: null };
   const h = harness(p);
   h.e.start();
@@ -232,4 +233,66 @@ test("session summary numbers and the micro-sprint limit", async () => {
   }
   assert.equal(e2.phase, "done");
   assert.equal(e2.stats.answered, 2);
+});
+
+test("typing off: a new card is a first look (answer shown, nothing to rate)", async () => {
+  const p = payload([card("Thalamus")]);
+  p.settings.typing = { enabled: false, offSince: new Date(0).toISOString(), lastReminder: null };
+  const h = harness(p);
+  h.e.start();
+  assert.equal(h.e.cur!.isFirstLook, true);
+  h.e.submit(false);
+  assert.equal(h.e.cur!.headline, "FIRST LOOK");
+  assert.equal(h.e.cur!.fixed, true);
+  h.e.accept(1); // digits do nothing on a first look
+  assert.equal(h.sent[0].rating, 3);
+  assert.equal(h.sent[0].correct, null);
+});
+
+test("a new free-text (theory) card is a first look: never scored, then typed once", async () => {
+  const th = card("Reward", { kind: "theory", format: "keywords", answer: "Reward, motivation", keywords: [["reward"], ["motivation"]] } as Partial<StudyCard>);
+  const p = payload([th]);
+  p.queue = [{ cardId: th.id, source: "new" }];
+  const h = harness(p);
+  h.e.start();
+  assert.equal(h.e.cur!.mode, "keywords");
+  assert.equal(h.e.cur!.isFirstLook, true);
+  h.e.input("no idea");
+  h.e.submit(false);
+  assert.equal(h.e.cur!.headline, "FIRST LOOK");
+  assert.equal(h.e.cur!.retype?.kind, "intro");
+  assert.equal(h.e.cur!.retype!.typer.ghost(), "Reward, motivation"); // copied, it is new
+  assert.equal(h.e.canAdvance, false);
+  h.e.retypeInput("Reward, motivation");
+  h.e.accept();
+  assert.equal(h.sent[0].rating, 3);
+  assert.equal(h.sent[0].correct, null);
+  assert.equal(h.e.stats.combo, 0); // neither builds nor breaks the combo
+});
+
+test("a wrong pick on a brand-new choice card is a first look, not a miss", async () => {
+  const mc = card("Q", { kind: "theory", format: "choice", answer: "Pons", choices: ["Pons", "Medulla", "Midbrain"] } as Partial<StudyCard>);
+  const p = payload([mc]);
+  p.queue = [{ cardId: mc.id, source: "new" }];
+  const h = harness(p);
+  h.e.start();
+  const wrong = h.e.cur!.choices!.findIndex((x) => x !== "Pons");
+  h.e.choose(wrong);
+  assert.equal(h.e.cur!.headline, "FIRST LOOK");
+  h.e.retypeInput("Pons");
+  h.e.accept();
+  assert.equal(h.sent[0].rating, 3);
+  assert.equal(h.sent[0].correct, null);
+});
+
+test("Enter on an empty box (not a first look) is No answer: Again, like ANKI+", async () => {
+  const st: CardStateRow = { user_id: "u", card_id: "Pons", due: new Date(0).toISOString(), stability: 5, difficulty: 5, elapsed_days: 3, scheduled_days: 3, learning_steps: 0, reps: 4, lapses: 0, state: 2, last_review: new Date(-86400000 * 3).toISOString() };
+  const h = harness(payload([card("Pons")], { states: { Pons: st }, ladders: { Pons: { card_id: "Pons", step: 6, clean_streak: 0, last_clean_at: null } } }));
+  h.e.start();
+  h.e.submit(false);
+  assert.equal(h.e.phase, "reveal");
+  assert.equal(h.e.cur!.rating, 1);
+  assert.equal(h.e.cur!.retype?.kind, "fail");
+  h.e.skipRetype(); // Esc: skip the lock-in and move on
+  assert.equal(h.sent[0].rating, 1);
 });

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Database helper over the Supabase Management API (needs SUPABASE_ACCESS_TOKEN + SUPABASE_PROJECT_REF
-// in .env.local). No psql or Docker needed.
+// Database helper. SQL goes straight to Postgres when SUPABASE_DB_URL is set (session pooler), otherwise
+// through the Supabase Management API (SUPABASE_ACCESS_TOKEN + SUPABASE_PROJECT_REF). auth-config always
+// needs the Management API token. No psql or Docker needed.
 //
 //   node scripts/db.mjs migrate            apply pending supabase/migrations/*.sql (tracked in app_migrations)
 //   node scripts/db.mjs status             list applied / pending migrations
@@ -16,8 +17,9 @@ if (existsSync(join(root, ".env.local"))) process.loadEnvFile(join(root, ".env.l
 
 const TOKEN = process.env.SUPABASE_ACCESS_TOKEN;
 const REF = process.env.SUPABASE_PROJECT_REF;
-if (!TOKEN || !REF) {
-  console.error("SUPABASE_ACCESS_TOKEN and SUPABASE_PROJECT_REF must be set (in .env.local).");
+const DB_URL = process.env.SUPABASE_DB_URL; // preferred for SQL: never expires (the API token does)
+if (!DB_URL && (!TOKEN || !REF)) {
+  console.error("Set SUPABASE_DB_URL, or SUPABASE_ACCESS_TOKEN + SUPABASE_PROJECT_REF (in .env.local).");
   process.exit(1);
 }
 const API = `https://api.supabase.com/v1/projects/${REF}`;
@@ -37,7 +39,16 @@ async function api(path, init = {}) {
   return body;
 }
 
+let pg = null;
 export async function sql(query) {
+  if (DB_URL) {
+    if (!pg) {
+      const { default: postgres } = await import("postgres");
+      pg = postgres(DB_URL, { ssl: "require", max: 1, onnotice: () => {} });
+    }
+    const res = await pg.unsafe(query);
+    return Array.isArray(res) ? [...res] : res;
+  }
   return api("/database/query", { method: "POST", body: JSON.stringify({ query }) });
 }
 
@@ -104,5 +115,7 @@ try {
   }
 } catch (e) {
   console.error(e.message);
-  process.exit(1);
+  process.exitCode = 1;
+} finally {
+  if (pg) await pg.end();
 }

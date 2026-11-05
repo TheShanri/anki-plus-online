@@ -114,6 +114,13 @@ Hybrid (see `_atlas/ATLAS_RESEARCH.md`): our own react-three-fiber viewer on Z-A
 on every structure card highlights the target and fades neighbours; rotate/zoom; parent-structure
 fallback with an "approximate location" label where Z-Anatomy lacks a mesh. Optional deep links to
 specialist atlases (siibra-explorer) where they exist.
+Owner follow-ups (2026-11-05):
+- Replace "approximate location" with exact structures wherever an established, openly licensed atlas
+  has them (e.g. CIT168, Allen HRA 2020, HCP-842 tracts, JHU white-matter labels, Brainstem Navigator,
+  SUIT): reuse verified atlases, never build anatomy from scratch, and include only curriculum structures.
+- Highlight neighbouring structures and any other structures together (multi-select, colour legend).
+- Views by cut: coronal, sagittal and transverse, toggleable, both as clipping cuts in the 3D model and
+  as MRI-style slices (NiiVue on an MNI template with a curriculum label atlas).
 
 ## Hosting
 - Vercel: a **different account** from the one the CLI is logged into now (the owner will log the CLI in).

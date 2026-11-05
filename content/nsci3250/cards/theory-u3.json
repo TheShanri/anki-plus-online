@@ -1,0 +1,2661 @@
+[
+ {
+  "slug": "theory-insular-cortex-function",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 1001,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the insular cortex.",
+  "format": "keywords",
+  "answer": "Taste (gustatory cortex), visceral sensation, pain, interoception",
+  "accept": [],
+  "keywords": [
+   [
+    "taste",
+    "gustatory",
+    "visceral",
+    "pain",
+    "interoception",
+    "autonomic"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-insular-cortex-supply",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "insular-cortex",
+  "status": "live",
+  "position": 1002,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery supplies the insular cortex?",
+  "format": "keywords",
+  "answer": "Middle cerebral artery",
+  "accept": [],
+  "keywords": [
+   [
+    "middle cerebral",
+    "MCA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-genu-of-corpus-callosum-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "genu-of-corpus-callosum",
+  "status": "live",
+  "position": 1003,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The genu of the corpus callosum connects which lobes?",
+  "format": "keywords",
+  "answer": "The two frontal lobes (forceps minor)",
+  "accept": [],
+  "keywords": [
+   [
+    "frontal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-splenium-of-corpus-callosum-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "splenium-of-corpus-callosum",
+  "status": "live",
+  "position": 1004,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The splenium of the corpus callosum connects which lobes?",
+  "format": "keywords",
+  "answer": "Occipital (and temporal) lobes (forceps major)",
+  "accept": [],
+  "keywords": [
+   [
+    "occipital",
+    "temporal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-splenium-of-corpus-callosum-lesion",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "splenium-of-corpus-callosum",
+  "status": "live",
+  "position": 1005,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A splenial lesion with left occipital damage causes which syndrome?",
+  "format": "keywords",
+  "answer": "Alexia without agraphia",
+  "accept": [],
+  "keywords": [
+   [
+    "alexia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-body-of-corpus-callosum-supply",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "body-of-corpus-callosum",
+  "status": "live",
+  "position": 1006,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery supplies the body of the corpus callosum?",
+  "format": "keywords",
+  "answer": "Pericallosal artery (from the anterior cerebral artery)",
+  "accept": [],
+  "keywords": [
+   [
+    "pericallosal",
+    "anterior cerebral",
+    "ACA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-caudate-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "caudate-nucleus",
+  "status": "live",
+  "position": 1007,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the caudate nucleus.",
+  "format": "keywords",
+  "answer": "Motor and cognitive loops: planning, learning, procedural habit",
+  "accept": [],
+  "keywords": [
+   [
+    "movement",
+    "motor",
+    "cognition",
+    "cognitive",
+    "learning",
+    "planning",
+    "habit"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-caudate-nucleus-lesion",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "caudate-nucleus",
+  "status": "live",
+  "position": 1008,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Atrophy of the caudate is the hallmark of which disease?",
+  "format": "keywords",
+  "answer": "Huntington disease",
+  "accept": [],
+  "keywords": [
+   [
+    "huntington"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-caudate-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "caudate-nucleus",
+  "status": "live",
+  "position": 1009,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Together, the caudate and putamen are called what?",
+  "format": "keywords",
+  "answer": "Striatum",
+  "accept": [],
+  "keywords": [
+   [
+    "striatum",
+    "neostriatum",
+    "dorsal striatum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-caudate-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "caudate-nucleus",
+  "status": "live",
+  "position": 1010,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the caudate nucleus arise?",
+  "format": "type",
+  "answer": "Telencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-head-of-caudate-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "head-of-caudate-nucleus",
+  "status": "live",
+  "position": 1011,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which ventricular horn lies medial to the head of the caudate?",
+  "format": "keywords",
+  "answer": "Anterior (frontal) horn of the lateral ventricle",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior",
+    "frontal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-tail-of-caudate-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "tail-of-caudate-nucleus",
+  "status": "live",
+  "position": 1012,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The tail of the caudate ends next to which structure?",
+  "format": "keywords",
+  "answer": "Amygdala",
+  "accept": [],
+  "keywords": [
+   [
+    "amygdala"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-putamen-function",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "putamen",
+  "status": "live",
+  "position": 1013,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the putamen.",
+  "format": "keywords",
+  "answer": "Motor loop of the basal ganglia: selecting and scaling voluntary movement",
+  "accept": [],
+  "keywords": [
+   [
+    "motor",
+    "movement",
+    "habit"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-putamen-supply",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "putamen",
+  "status": "live",
+  "position": 1014,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which arteries supply the putamen?",
+  "format": "type",
+  "answer": "Lenticulostriate arteries",
+  "accept": [
+   "lenticulostriate"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-putamen-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "putamen",
+  "status": "live",
+  "position": 1015,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The putamen and globus pallidus together form what nucleus?",
+  "format": "type",
+  "answer": "Lentiform nucleus",
+  "accept": [
+   "lentiform",
+   "lenticular"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-globus-pallidus-function",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "globus-pallidus",
+  "status": "live",
+  "position": 1016,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the role of the globus pallidus internus?",
+  "format": "keywords",
+  "answer": "Basal ganglia output: inhibits the thalamus",
+  "accept": [],
+  "keywords": [
+   [
+    "output",
+    "inhibit",
+    "inhibits",
+    "thalamus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-globus-pallidus-lesion",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "globus-pallidus",
+  "status": "live",
+  "position": 1017,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name a procedure targeting the globus pallidus for Parkinson disease.",
+  "format": "keywords",
+  "answer": "Deep brain stimulation (or pallidotomy)",
+  "accept": [],
+  "keywords": [
+   [
+    "deep brain",
+    "DBS",
+    "pallidotomy"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-corpus-striatum-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "corpus-striatum",
+  "status": "live",
+  "position": 1018,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name the three nuclei that form the corpus striatum.",
+  "format": "keywords",
+  "answer": "Caudate, putamen and globus pallidus",
+  "accept": [],
+  "keywords": [
+   [
+    "caudate"
+   ],
+   [
+    "putamen"
+   ],
+   [
+    "pallidus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lentiform-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "lentiform-nucleus",
+  "status": "live",
+  "position": 1019,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which two nuclei form the lentiform nucleus?",
+  "format": "keywords",
+  "answer": "Putamen and globus pallidus",
+  "accept": [],
+  "keywords": [
+   [
+    "putamen"
+   ],
+   [
+    "pallidus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lentiform-nucleus-supply",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "lentiform-nucleus",
+  "status": "live",
+  "position": 1020,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which arteries supply the lentiform nucleus?",
+  "format": "type",
+  "answer": "Lenticulostriate arteries",
+  "accept": [
+   "lenticulostriate"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-limb-of-internal-capsule-supply",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "anterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 1021,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which arteries supply the anterior limb of the internal capsule?",
+  "format": "keywords",
+  "answer": "Lenticulostriate arteries (MCA), with the recurrent artery of Heubner (ACA)",
+  "accept": [],
+  "keywords": [
+   [
+    "lenticulostriate",
+    "heubner"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-limb-of-internal-capsule-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "anterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 1022,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The anterior limb of the internal capsule lies between which two structures?",
+  "format": "keywords",
+  "answer": "Head of caudate and lentiform nucleus",
+  "accept": [],
+  "keywords": [
+   [
+    "caudate"
+   ],
+   [
+    "lentiform",
+    "putamen",
+    "pallidus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-genu-of-internal-capsule-passes",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "genu-of-internal-capsule",
+  "status": "live",
+  "position": 1023,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Which tract runs through the genu of the internal capsule?",
+  "format": "type",
+  "answer": "Corticobulbar fibres",
+  "accept": [
+   "corticobulbar"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-limb-of-internal-capsule-passes",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "posterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 1024,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract in the posterior limb of the internal capsule.",
+  "format": "keywords",
+  "answer": "Corticospinal tract or thalamocortical sensory radiations",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "thalamocortical",
+    "thalamic",
+    "sensory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-limb-of-internal-capsule-lesion",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "posterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 1025,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lacunar infarct of the posterior limb causes which deficit?",
+  "format": "keywords",
+  "answer": "Contralateral weakness (pure motor hemiparesis) or sensory loss",
+  "accept": [],
+  "keywords": [
+   [
+    "hemiparesis",
+    "weakness",
+    "hemiplegia",
+    "sensory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-limb-of-internal-capsule-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "posterior-limb-of-internal-capsule",
+  "status": "live",
+  "position": 1026,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The posterior limb lies between which two structures?",
+  "format": "keywords",
+  "answer": "Thalamus and lentiform nucleus",
+  "accept": [],
+  "keywords": [
+   [
+    "thalamus"
+   ],
+   [
+    "lentiform",
+    "putamen",
+    "pallidus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fornix-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "fornix",
+  "status": "live",
+  "position": 1027,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The fornix connects which two structures?",
+  "format": "keywords",
+  "answer": "Hippocampus to mammillary bodies",
+  "accept": [],
+  "keywords": [
+   [
+    "hippocampus"
+   ],
+   [
+    "mammillary"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fornix-function",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "fornix",
+  "status": "live",
+  "position": 1028,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the fornix?",
+  "format": "keywords",
+  "answer": "Carries hippocampal output for memory (Papez circuit)",
+  "accept": [],
+  "keywords": [
+   [
+    "memory",
+    "papez",
+    "hippocampus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fornix-lesion",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "fornix",
+  "status": "live",
+  "position": 1029,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the fornix causes which deficit?",
+  "format": "keywords",
+  "answer": "Anterograde amnesia",
+  "accept": [],
+  "keywords": [
+   [
+    "amnesia",
+    "anterograde",
+    "memory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-columns-of-the-fornix-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "columns-of-the-fornix",
+  "status": "live",
+  "position": 1030,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do the columns of the fornix terminate?",
+  "format": "keywords",
+  "answer": "Mammillary bodies (and septal nuclei)",
+  "accept": [],
+  "keywords": [
+   [
+    "mammillary"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-crus-of-fornix-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "crus-of-fornix",
+  "status": "live",
+  "position": 1031,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The crus of the fornix is the continuation of which hippocampal fibre bundle?",
+  "format": "keywords",
+  "answer": "The fimbria of the hippocampus",
+  "accept": [],
+  "keywords": [
+   [
+    "fimbria"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-body-of-fornix-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "body-of-fornix",
+  "status": "live",
+  "position": 1032,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The body of the fornix lies directly under which structure?",
+  "format": "keywords",
+  "answer": "Corpus callosum",
+  "accept": [],
+  "keywords": [
+   [
+    "corpus callosum",
+    "callosum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lamina-terminalis-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "lamina-terminalis",
+  "status": "live",
+  "position": 1033,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Between which structures does the lamina terminalis span?",
+  "format": "keywords",
+  "answer": "Optic chiasm and anterior commissure",
+  "accept": [],
+  "keywords": [
+   [
+    "optic chiasm",
+    "chiasm"
+   ],
+   [
+    "anterior commissure",
+    "commissure"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lamina-terminalis-embryology",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "lamina-terminalis",
+  "status": "live",
+  "position": 1034,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "The lamina terminalis marks the closure site of which embryonic structure?",
+  "format": "keywords",
+  "answer": "Anterior neuropore",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior",
+    "neuropore"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-stria-medullaris-thalami-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "stria-medullaris-thalami",
+  "status": "live",
+  "position": 1035,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The stria medullaris carries input to which nucleus?",
+  "format": "type",
+  "answer": "Habenula",
+  "accept": [
+   "habenular"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-habenula-connections",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "habenula",
+  "status": "live",
+  "position": 1036,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which tract carries habenular output to the interpeduncular nucleus?",
+  "format": "type",
+  "answer": "Fasciculus retroflexus",
+  "accept": [
+   "retroflexus",
+   "habenulointerpeduncular"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-habenula-embryology",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "habenula",
+  "status": "live",
+  "position": 1037,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the habenula arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-commissure-function",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "posterior-commissure",
+  "status": "live",
+  "position": 1038,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the posterior commissure.",
+  "format": "keywords",
+  "answer": "Pupillary light reflex (consensual), upgaze",
+  "accept": [],
+  "keywords": [
+   [
+    "pupil",
+    "pupillary",
+    "light reflex",
+    "upgaze",
+    "consensual"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-commissure-lesion",
+  "kind": "theory",
+  "topic": "lab-13",
+  "structure": "posterior-commissure",
+  "status": "live",
+  "position": 1039,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Compression at the posterior commissure causes which syndrome?",
+  "format": "keywords",
+  "answer": "Parinaud syndrome",
+  "accept": [],
+  "keywords": [
+   [
+    "parinaud",
+    "upgaze",
+    "upward gaze"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cortical-ribbon-function",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "cortical-ribbon",
+  "status": "live",
+  "position": 1040,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "The cortical ribbon contains which part of neurons (grey matter)?",
+  "format": "keywords",
+  "answer": "Neuronal cell bodies (grey matter)",
+  "accept": [],
+  "keywords": [
+   [
+    "cell bodies",
+    "neurons",
+    "grey matter",
+    "gray matter",
+    "somata"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basal-forebrain-nuclei-function",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "basal-forebrain-nuclei",
+  "status": "live",
+  "position": 1041,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What neurotransmitter do the basal forebrain nuclei (nucleus basalis) provide to cortex?",
+  "format": "keywords",
+  "answer": "Acetylcholine",
+  "accept": [],
+  "keywords": [
+   [
+    "acetylcholine",
+    "ACh",
+    "cholinergic"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basal-forebrain-nuclei-lesion",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "basal-forebrain-nuclei",
+  "status": "live",
+  "position": 1042,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Degeneration of the basal forebrain nuclei is associated with which disease?",
+  "format": "keywords",
+  "answer": "Alzheimer disease",
+  "accept": [],
+  "keywords": [
+   [
+    "alzheimer"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-accumbens-function",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "nucleus-accumbens",
+  "status": "live",
+  "position": 1043,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the nucleus accumbens.",
+  "format": "keywords",
+  "answer": "Reward, motivation, addiction",
+  "accept": [],
+  "keywords": [
+   [
+    "reward",
+    "motivation",
+    "addiction",
+    "pleasure"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-accumbens-connections",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "nucleus-accumbens",
+  "status": "live",
+  "position": 1044,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which midbrain area provides dopamine to the nucleus accumbens?",
+  "format": "keywords",
+  "answer": "Ventral tegmental area",
+  "accept": [],
+  "keywords": [
+   [
+    "ventral tegmental",
+    "VTA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subthalamic-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "subthalamic-nucleus",
+  "status": "live",
+  "position": 1045,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the subthalamic nucleus?",
+  "format": "keywords",
+  "answer": "Excitatory drive to GPi/SNr (indirect pathway), inhibiting movement",
+  "accept": [],
+  "keywords": [
+   [
+    "excitatory",
+    "indirect",
+    "inhibit",
+    "pallidus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subthalamic-nucleus-lesion",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "subthalamic-nucleus",
+  "status": "live",
+  "position": 1046,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the subthalamic nucleus causes which movement disorder?",
+  "format": "keywords",
+  "answer": "Hemiballismus (contralateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "ballismus",
+    "ballism"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subthalamic-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-14",
+  "structure": "subthalamic-nucleus",
+  "status": "live",
+  "position": 1047,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the subthalamic nucleus arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellar-tonsil-lesion",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "cerebellar-tonsil",
+  "status": "live",
+  "position": 1048,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Where do the cerebellar tonsils herniate, and what do they compress?",
+  "format": "keywords",
+  "answer": "Through the foramen magnum, compressing the medulla",
+  "accept": [],
+  "keywords": [
+   [
+    "foramen magnum"
+   ],
+   [
+    "medulla"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellar-tonsil-supply",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "cerebellar-tonsil",
+  "status": "live",
+  "position": 1049,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery supplies the cerebellar tonsil?",
+  "format": "type",
+  "answer": "PICA (posterior inferior cerebellar artery)",
+  "accept": [
+   "PICA",
+   "posterior inferior cerebellar"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-flocculus-function",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "flocculus",
+  "status": "live",
+  "position": 1050,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the flocculus?",
+  "format": "keywords",
+  "answer": "Vestibulo-ocular reflex and eye movement control (vestibulocerebellum)",
+  "accept": [],
+  "keywords": [
+   [
+    "vestibulo",
+    "eye",
+    "gaze",
+    "balance",
+    "vestibular"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vermis-function",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "vermis",
+  "status": "live",
+  "position": 1051,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the vermis control?",
+  "format": "keywords",
+  "answer": "Axial (trunk) balance and posture",
+  "accept": [],
+  "keywords": [
+   [
+    "trunk",
+    "axial",
+    "posture",
+    "balance",
+    "midline"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vermis-lesion",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "vermis",
+  "status": "live",
+  "position": 1052,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A vermis lesion causes which sign?",
+  "format": "keywords",
+  "answer": "Truncal ataxia (wide-based gait)",
+  "accept": [],
+  "keywords": [
+   [
+    "truncal",
+    "gait",
+    "wide"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vermis-connections",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "vermis",
+  "status": "live",
+  "position": 1053,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which deep cerebellar nucleus receives vermis output?",
+  "format": "type",
+  "answer": "Fastigial nucleus",
+  "accept": [
+   "fastigial"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-paravermis-function",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "paravermis",
+  "status": "live",
+  "position": 1054,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the paravermis (intermediate zone) control?",
+  "format": "keywords",
+  "answer": "Distal limb movements (ipsilateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "limb",
+    "limbs",
+    "distal",
+    "ipsilateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-paravermis-connections",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "paravermis",
+  "status": "live",
+  "position": 1055,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which deep cerebellar nuclei receive paravermis output?",
+  "format": "keywords",
+  "answer": "Interposed nuclei (globose and emboliform)",
+  "accept": [],
+  "keywords": [
+   [
+    "interposed",
+    "globose",
+    "emboliform"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellar-lateral-hemisphere-function",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "cerebellar-lateral-hemisphere",
+  "status": "live",
+  "position": 1056,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the lateral cerebellar hemisphere control?",
+  "format": "keywords",
+  "answer": "Planning and coordination of skilled limb movement (motor planning)",
+  "accept": [],
+  "keywords": [
+   [
+    "planning",
+    "skilled",
+    "limb",
+    "coordination"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellar-lateral-hemisphere-connections",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "cerebellar-lateral-hemisphere",
+  "status": "live",
+  "position": 1057,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which deep cerebellar nucleus receives lateral hemisphere output?",
+  "format": "type",
+  "answer": "Dentate nucleus",
+  "accept": [
+   "dentate"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dentate-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "dentate-nucleus",
+  "status": "live",
+  "position": 1058,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do dentate nucleus axons project?",
+  "format": "keywords",
+  "answer": "Contralateral red nucleus and VL thalamus via the superior cerebellar peduncle",
+  "accept": [],
+  "keywords": [
+   [
+    "red nucleus",
+    "thalamus",
+    "VL"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dentate-nucleus-passes",
+  "kind": "theory",
+  "topic": "lab-15",
+  "structure": "dentate-nucleus",
+  "status": "live",
+  "position": 1059,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which peduncle do dentate axons leave the cerebellum?",
+  "format": "type",
+  "answer": "Superior cerebellar peduncle",
+  "accept": [
+   "superior"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vertebral-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "vertebral-artery",
+  "status": "live",
+  "position": 1060,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Name one structure supplied by the vertebral arteries.",
+  "format": "keywords",
+  "answer": "Medulla, cerebellum (PICA), spinal cord (anterior spinal)",
+  "accept": [],
+  "keywords": [
+   [
+    "medulla",
+    "brainstem",
+    "cerebellum",
+    "spinal cord",
+    "PICA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vertebral-artery-passes",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "vertebral-artery",
+  "status": "live",
+  "position": 1061,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which opening do the vertebral arteries enter the skull?",
+  "format": "keywords",
+  "answer": "Foramen magnum",
+  "accept": [],
+  "keywords": [
+   [
+    "foramen magnum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vertebral-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "vertebral-artery",
+  "status": "live",
+  "position": 1062,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The two vertebral arteries unite to form which artery?",
+  "format": "type",
+  "answer": "Basilar artery",
+  "accept": [
+   "basilar"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basilar-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "basilar-artery",
+  "status": "live",
+  "position": 1063,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Name one structure supplied by the basilar artery.",
+  "format": "keywords",
+  "answer": "Pons, cerebellum, midbrain, occipital lobe (via PCA)",
+  "accept": [],
+  "keywords": [
+   [
+    "pons",
+    "cerebellum",
+    "midbrain",
+    "occipital",
+    "brainstem"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basilar-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "basilar-artery",
+  "status": "live",
+  "position": 1064,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Complete basilar artery occlusion can produce which syndrome?",
+  "format": "keywords",
+  "answer": "Locked-in syndrome",
+  "accept": [],
+  "keywords": [
+   [
+    "locked"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basilar-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "basilar-artery",
+  "status": "live",
+  "position": 1065,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Is the basilar artery part of the anterior or posterior circulation?",
+  "format": "keywords",
+  "answer": "Posterior",
+  "accept": [],
+  "keywords": [
+   [
+    "posterior"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-cerebellar-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 1066,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which structure does the superior cerebellar artery supply?",
+  "format": "keywords",
+  "answer": "Superior cerebellum (and rostral pons)",
+  "accept": [],
+  "keywords": [
+   [
+    "cerebellum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-cerebellar-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "superior-cerebellar-artery",
+  "status": "live",
+  "position": 1067,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which cranial nerve passes between the superior cerebellar artery and the posterior cerebral artery?",
+  "format": "keywords",
+  "answer": "Oculomotor nerve (CN III)",
+  "accept": [],
+  "keywords": [
+   [
+    "oculomotor",
+    "III",
+    "CN III",
+    "3"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-penetrating-branches-brainstem-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "penetrating-branches-brainstem",
+  "status": "live",
+  "position": 1068,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "What do the penetrating branches supply?",
+  "format": "keywords",
+  "answer": "The brainstem",
+  "accept": [],
+  "keywords": [
+   [
+    "brainstem"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pontine-arteries-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "pontine-arteries",
+  "status": "live",
+  "position": 1069,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which structure do the pontine arteries supply?",
+  "format": "type",
+  "answer": "The pons",
+  "accept": [
+   "pons"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pontine-arteries-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "pontine-arteries",
+  "status": "live",
+  "position": 1070,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The pontine arteries arise from which artery?",
+  "format": "type",
+  "answer": "Basilar artery",
+  "accept": [
+   "basilar"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-cerebral-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 1071,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Name one structure supplied by the posterior cerebral artery.",
+  "format": "keywords",
+  "answer": "Occipital lobe, inferior temporal lobe, thalamus",
+  "accept": [],
+  "keywords": [
+   [
+    "occipital",
+    "visual",
+    "temporal",
+    "thalamus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-cerebral-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 1072,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "PCA infarction causes which visual deficit?",
+  "format": "keywords",
+  "answer": "Contralateral homonymous hemianopia with macular sparing",
+  "accept": [],
+  "keywords": [
+   [
+    "homonymous",
+    "hemianopia",
+    "hemianopsia",
+    "hemianopic"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-cerebral-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-cerebral-artery",
+  "status": "live",
+  "position": 1073,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The posterior cerebral artery arises from which artery?",
+  "format": "keywords",
+  "answer": "Basilar artery (terminal branches)",
+  "accept": [],
+  "keywords": [
+   [
+    "basilar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-communicating-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-communicating-artery",
+  "status": "live",
+  "position": 1074,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The posterior communicating artery joins which two arteries?",
+  "format": "keywords",
+  "answer": "Internal carotid artery and posterior cerebral artery",
+  "accept": [],
+  "keywords": [
+   [
+    "internal carotid",
+    "ICA"
+   ],
+   [
+    "posterior cerebral",
+    "PCA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-communicating-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-communicating-artery",
+  "status": "live",
+  "position": 1075,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "An aneurysm of the posterior communicating artery compresses which cranial nerve?",
+  "format": "keywords",
+  "answer": "Oculomotor nerve (CN III)",
+  "accept": [],
+  "keywords": [
+   [
+    "oculomotor",
+    "III",
+    "CN III",
+    "3"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-carotid-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "internal-carotid-artery",
+  "status": "live",
+  "position": 1076,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "The internal carotid artery supplies which circulation?",
+  "format": "keywords",
+  "answer": "Anterior circulation",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-carotid-artery-passes",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "internal-carotid-artery",
+  "status": "live",
+  "position": 1077,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which canal does the internal carotid artery enter the skull?",
+  "format": "type",
+  "answer": "Carotid canal",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-carotid-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "internal-carotid-artery",
+  "status": "live",
+  "position": 1078,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Transient monocular vision loss from carotid disease is called what?",
+  "format": "keywords",
+  "answer": "Amaurosis fugax",
+  "accept": [],
+  "keywords": [
+   [
+    "amaurosis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-middle-cerebral-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 1079,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Name one area supplied by the middle cerebral artery.",
+  "format": "keywords",
+  "answer": "Lateral cortex: face and arm motor/sensory areas, language areas, basal ganglia (via lenticulostriates)",
+  "accept": [],
+  "keywords": [
+   [
+    "lateral",
+    "face",
+    "arm",
+    "language",
+    "broca",
+    "wernicke",
+    "basal ganglia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-middle-cerebral-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 1080,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Left MCA stroke commonly causes which deficits?",
+  "format": "keywords",
+  "answer": "Right face and arm weakness/sensory loss and aphasia",
+  "accept": [],
+  "keywords": [
+   [
+    "arm",
+    "face",
+    "aphasia",
+    "weakness"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-middle-cerebral-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "middle-cerebral-artery",
+  "status": "live",
+  "position": 1081,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which part of the homunculus does the MCA supply: the leg or the arm and face area?",
+  "format": "keywords",
+  "answer": "Arm and face",
+  "accept": [],
+  "keywords": [
+   [
+    "arm",
+    "face"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lenticulostriate-arteries-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "lenticulostriate-arteries",
+  "status": "live",
+  "position": 1082,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which structures do the lenticulostriate arteries supply?",
+  "format": "keywords",
+  "answer": "Basal ganglia (putamen, globus pallidus, caudate) and internal capsule",
+  "accept": [],
+  "keywords": [
+   [
+    "basal ganglia",
+    "putamen",
+    "caudate",
+    "pallidus",
+    "internal capsule"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lenticulostriate-arteries-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "lenticulostriate-arteries",
+  "status": "live",
+  "position": 1083,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The lenticulostriate arteries are branches of which artery?",
+  "format": "type",
+  "answer": "Middle cerebral artery",
+  "accept": [
+   "middle cerebral",
+   "MCA"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lenticulostriate-arteries-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "lenticulostriate-arteries",
+  "status": "live",
+  "position": 1084,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Occlusion of the lenticulostriate arteries causes what type of stroke?",
+  "format": "keywords",
+  "answer": "Lacunar infarct (pure motor hemiparesis)",
+  "accept": [],
+  "keywords": [
+   [
+    "lacunar",
+    "lacune",
+    "hemiparesis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-cerebral-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 1085,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which part of the homunculus does the anterior cerebral artery supply?",
+  "format": "keywords",
+  "answer": "Leg and foot (medial frontal and parietal lobes)",
+  "accept": [],
+  "keywords": [
+   [
+    "leg",
+    "legs",
+    "foot",
+    "medial"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-cerebral-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 1086,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "ACA infarction classically causes weakness in which body part?",
+  "format": "keywords",
+  "answer": "Contralateral leg",
+  "accept": [],
+  "keywords": [
+   [
+    "leg",
+    "legs",
+    "lower limb"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-cerebral-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-cerebral-artery",
+  "status": "live",
+  "position": 1087,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The anterior cerebral artery arises from which artery?",
+  "format": "type",
+  "answer": "Internal carotid artery",
+  "accept": [
+   "internal carotid",
+   "ICA"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pericallosal-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "pericallosal-artery",
+  "status": "live",
+  "position": 1088,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "The pericallosal artery runs along which structure?",
+  "format": "keywords",
+  "answer": "The corpus callosum",
+  "accept": [],
+  "keywords": [
+   [
+    "corpus callosum",
+    "callosum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pericallosal-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "pericallosal-artery",
+  "status": "live",
+  "position": 1089,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The pericallosal artery is a continuation of which artery?",
+  "format": "type",
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "anterior cerebral",
+   "ACA"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-callosomarginal-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "callosomarginal-artery",
+  "status": "live",
+  "position": 1090,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which gyrus does the callosomarginal artery supply?",
+  "format": "keywords",
+  "answer": "Cingulate gyrus (and paracentral lobule)",
+  "accept": [],
+  "keywords": [
+   [
+    "cingulate",
+    "paracentral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-callosomarginal-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "callosomarginal-artery",
+  "status": "live",
+  "position": 1091,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The callosomarginal artery is a branch of which artery?",
+  "format": "type",
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "anterior cerebral",
+   "ACA"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-communicating-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-communicating-artery",
+  "status": "live",
+  "position": 1092,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "The anterior communicating artery is the most common site of what?",
+  "format": "keywords",
+  "answer": "Berry (saccular) aneurysm",
+  "accept": [],
+  "keywords": [
+   [
+    "aneurysm",
+    "berry",
+    "saccular"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-communicating-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-communicating-artery",
+  "status": "live",
+  "position": 1093,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The anterior communicating artery joins which two arteries?",
+  "format": "keywords",
+  "answer": "The two anterior cerebral arteries",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior cerebral",
+    "ACA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-circle-of-willis-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "circle-of-willis",
+  "status": "live",
+  "position": 1094,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Name one artery that forms the circle of Willis.",
+  "format": "keywords",
+  "answer": "ACA, AComA, ICA, PComA, PCA",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior cerebral",
+    "anterior communicating",
+    "internal carotid",
+    "posterior communicating",
+    "posterior cerebral",
+    "ACA",
+    "PCA",
+    "ICA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-circle-of-willis-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "circle-of-willis",
+  "status": "live",
+  "position": 1095,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Berry aneurysms of the circle of Willis cause which type of bleed?",
+  "format": "keywords",
+  "answer": "Subarachnoid hemorrhage",
+  "accept": [],
+  "keywords": [
+   [
+    "subarachnoid"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-circle-of-willis-function",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "circle-of-willis",
+  "status": "live",
+  "position": 1096,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the circle of Willis?",
+  "format": "keywords",
+  "answer": "Collateral blood flow between the anterior and posterior circulations",
+  "accept": [],
+  "keywords": [
+   [
+    "collateral",
+    "anastomosis",
+    "anastomotic",
+    "redundancy",
+    "connect"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-spinal-artery-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-spinal-artery",
+  "status": "live",
+  "position": 1097,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "The anterior spinal artery supplies which part of the cord?",
+  "format": "keywords",
+  "answer": "Anterior two-thirds",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior",
+    "two-thirds",
+    "2/3"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-spinal-artery-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-spinal-artery",
+  "status": "live",
+  "position": 1098,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which arteries join to form the anterior spinal artery?",
+  "format": "type",
+  "answer": "Vertebral arteries",
+  "accept": [
+   "vertebral"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-spinal-artery-lesion",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "anterior-spinal-artery",
+  "status": "live",
+  "position": 1099,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Anterior spinal artery occlusion spares which sensory pathway?",
+  "format": "keywords",
+  "answer": "Dorsal columns (vibration, proprioception)",
+  "accept": [],
+  "keywords": [
+   [
+    "dorsal column",
+    "vibration",
+    "proprioception"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-spinal-arteries-supply",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-spinal-arteries",
+  "status": "live",
+  "position": 1100,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "The posterior spinal arteries supply which part of the cord?",
+  "format": "keywords",
+  "answer": "Posterior one-third (dorsal columns)",
+  "accept": [],
+  "keywords": [
+   [
+    "posterior",
+    "dorsal",
+    "one-third",
+    "1/3",
+    "dorsal column"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-spinal-arteries-connections",
+  "kind": "theory",
+  "topic": "lab-16",
+  "structure": "posterior-spinal-arteries",
+  "status": "live",
+  "position": 1101,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "From which arteries do the posterior spinal arteries usually arise?",
+  "format": "keywords",
+  "answer": "Vertebral arteries or PICA",
+  "accept": [],
+  "keywords": [
+   [
+    "vertebral",
+    "PICA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-major-imaging-types-function",
+  "kind": "theory",
+  "topic": "lab-17",
+  "structure": "major-imaging-types",
+  "status": "live",
+  "position": 1102,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "On CT, how does acute blood appear?",
+  "format": "keywords",
+  "answer": "Hyperdense (bright)",
+  "accept": [],
+  "keywords": [
+   [
+    "hyperdense",
+    "bright",
+    "white"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-major-imaging-types-lesion",
+  "kind": "theory",
+  "topic": "lab-17",
+  "structure": "major-imaging-types",
+  "status": "live",
+  "position": 1103,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Which MRI sequence detects acute ischaemic stroke within minutes?",
+  "format": "type",
+  "answer": "Diffusion-weighted imaging (DWI)",
+  "accept": [
+   "DWI",
+   "diffusion"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-brain-bleeds-lesion",
+  "kind": "theory",
+  "topic": "lab-17",
+  "structure": "brain-bleeds",
+  "status": "live",
+  "position": 1104,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "What shape is an epidural hematoma on CT?",
+  "format": "keywords",
+  "answer": "Lens-shaped (biconvex)",
+  "accept": [],
+  "keywords": [
+   [
+    "lens",
+    "biconvex",
+    "lenticular",
+    "biconcave",
+    "bi-concave"
+   ]
+  ],
+  "choices": null,
+  "require_side": false,
+  "explain": "Biconvex (lens-shaped) on CT; the course slide calls it bi-concave.",
+  "review_note": "Course slide says \"bi-concave\"; textbooks say biconvex/lens-shaped. Both accepted."
+ },
+ {
+  "slug": "theory-brain-bleeds-supply",
+  "kind": "theory",
+  "topic": "lab-17",
+  "structure": "brain-bleeds",
+  "status": "live",
+  "position": 1105,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery bleeds in an epidural hematoma?",
+  "format": "type",
+  "answer": "Middle meningeal artery",
+  "accept": [
+   "middle meningeal"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ }
+]

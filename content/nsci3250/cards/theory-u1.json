@@ -1,0 +1,4801 @@
+[
+ {
+  "slug": "theory-frontal-bone-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "frontal-bone",
+  "status": "live",
+  "position": 1001,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A fracture through the floor of the anterior cranial fossa (frontal bone / cribriform region) most likely produces loss of which sense?",
+  "format": "keywords",
+  "answer": "Smell (anosmia), with possible CSF rhinorrhoea",
+  "accept": [],
+  "keywords": [
+   [
+    "smell",
+    "anosmia",
+    "olfaction",
+    "olfactory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-temporal-bone-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "temporal-bone",
+  "status": "live",
+  "position": 1002,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A blow to the thin temporal bone at the pterion can tear which artery, causing which bleed?",
+  "format": "keywords",
+  "answer": "Middle meningeal artery; epidural hematoma",
+  "accept": [],
+  "keywords": [
+   [
+    "middle meningeal"
+   ],
+   [
+    "epidural",
+    "extradural"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-sphenoid-bone-passes",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "sphenoid-bone",
+  "status": "live",
+  "position": 1003,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one cranial nerve that passes through the superior orbital fissure of the sphenoid.",
+  "format": "keywords",
+  "answer": "III, IV, V1 (ophthalmic) or VI",
+  "accept": [],
+  "keywords": [
+   [
+    "oculomotor",
+    "trochlear",
+    "abducens",
+    "ophthalmic",
+    "III",
+    "IV",
+    "VI",
+    "V1",
+    "3",
+    "4",
+    "6"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pterion-supply",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "pterion",
+  "status": "live",
+  "position": 1004,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which meningeal artery lies just deep to the pterion?",
+  "format": "type",
+  "answer": "Middle meningeal artery",
+  "accept": [
+   "middle meningeal",
+   "MMA"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pterion-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "pterion",
+  "status": "live",
+  "position": 1005,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "What type of hematoma follows a fracture at the pterion?",
+  "format": "keywords",
+  "answer": "Epidural (extradural) hematoma",
+  "accept": [],
+  "keywords": [
+   [
+    "epidural",
+    "extradural"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-foramen-magnum-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "foramen-magnum",
+  "status": "live",
+  "position": 1006,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Cerebellar tonsillar herniation pushes through which bony opening?",
+  "format": "type",
+  "answer": "Foramen magnum",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-foramen-magnum-passes",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "foramen-magnum",
+  "status": "live",
+  "position": 1007,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one structure that passes through the foramen magnum.",
+  "format": "keywords",
+  "answer": "Medulla/spinal cord junction, vertebral arteries, spinal accessory roots",
+  "accept": [],
+  "keywords": [
+   [
+    "medulla",
+    "spinal cord",
+    "vertebral",
+    "accessory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-coronal-suture-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "coronal-suture",
+  "status": "live",
+  "position": 1008,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which bones meet at the coronal suture?",
+  "format": "keywords",
+  "answer": "Frontal and the two parietal bones",
+  "accept": [],
+  "keywords": [
+   [
+    "frontal"
+   ],
+   [
+    "parietal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-sagittal-suture-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "sagittal-suture",
+  "status": "live",
+  "position": 1009,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which bones meet at the sagittal suture?",
+  "format": "keywords",
+  "answer": "The two parietal bones",
+  "accept": [],
+  "keywords": [
+   [
+    "parietal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lambdoid-suture-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "lambdoid-suture",
+  "status": "live",
+  "position": 1010,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which bones meet at the lambdoid suture?",
+  "format": "keywords",
+  "answer": "Occipital and the two parietal bones",
+  "accept": [],
+  "keywords": [
+   [
+    "occipital"
+   ],
+   [
+    "parietal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-cranial-fossa-passes",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "anterior-cranial-fossa",
+  "status": "live",
+  "position": 1011,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Which cranial nerve passes through the cribriform plate of the anterior cranial fossa?",
+  "format": "type",
+  "answer": "Olfactory nerve (CN I)",
+  "accept": [
+   "olfactory",
+   "CN I",
+   "I",
+   "1"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-middle-cranial-fossa-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "middle-cranial-fossa",
+  "status": "live",
+  "position": 1012,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which endocrine gland sits in the sella turcica of the middle cranial fossa?",
+  "format": "keywords",
+  "answer": "Pituitary gland (hypophysis)",
+  "accept": [],
+  "keywords": [
+   [
+    "pituitary",
+    "hypophysis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-posterior-cranial-fossa-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "posterior-cranial-fossa",
+  "status": "live",
+  "position": 1013,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which brain structures lie in the posterior cranial fossa?",
+  "format": "keywords",
+  "answer": "Cerebellum, pons and medulla",
+  "accept": [],
+  "keywords": [
+   [
+    "cerebellum"
+   ],
+   [
+    "pons",
+    "medulla",
+    "brainstem"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dura-mater-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "dura-mater",
+  "status": "live",
+  "position": 1014,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the dura mater.",
+  "format": "keywords",
+  "answer": "Protects/supports the brain; forms the falx and tentorium; houses the venous sinuses",
+  "accept": [],
+  "keywords": [
+   [
+    "protect",
+    "support",
+    "venous sinus",
+    "sinuses",
+    "falx",
+    "tentorium"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dura-mater-supply",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "dura-mater",
+  "status": "live",
+  "position": 1015,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery is the main arterial supply of the dura mater?",
+  "format": "type",
+  "answer": "Middle meningeal artery",
+  "accept": [
+   "middle meningeal"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dura-mater-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "dura-mater",
+  "status": "live",
+  "position": 1016,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Which bleed lies between the skull and the dura mater?",
+  "format": "keywords",
+  "answer": "Epidural hematoma",
+  "accept": [],
+  "keywords": [
+   [
+    "epidural",
+    "extradural"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-arachnoid-mater-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "arachnoid-mater",
+  "status": "live",
+  "position": 1017,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the arachnoid mater.",
+  "format": "keywords",
+  "answer": "Encloses the subarachnoid space of CSF; arachnoid granulations drain CSF; barrier layer",
+  "accept": [],
+  "keywords": [
+   [
+    "csf",
+    "subarachnoid",
+    "granulation",
+    "barrier"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pia-mater-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "pia-mater",
+  "status": "live",
+  "position": 1018,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the pia mater do?",
+  "format": "keywords",
+  "answer": "Covers the surface of brain and spinal cord closely, supporting vessels (forms denticulate ligaments, filum terminale)",
+  "accept": [],
+  "keywords": [
+   [
+    "surface",
+    "covers",
+    "vessels",
+    "adhere",
+    "support"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subdural-space-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "subdural-space",
+  "status": "live",
+  "position": 1019,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Tearing of which vessels causes a subdural hematoma?",
+  "format": "keywords",
+  "answer": "Bridging veins",
+  "accept": [],
+  "keywords": [
+   [
+    "bridging",
+    "vein"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subdural-space-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "subdural-space",
+  "status": "live",
+  "position": 1020,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name one patient population with increased susceptibility to a subdural hematoma.",
+  "format": "keywords",
+  "answer": "Elderly (falls), shaken infants, alcohol use",
+  "accept": [],
+  "keywords": [
+   [
+    "elderly",
+    "aged",
+    "infant",
+    "baby",
+    "alcohol"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subarachnoid-space-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "subarachnoid-space",
+  "status": "live",
+  "position": 1021,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Rupture of a berry aneurysm bleeds into which meningeal space?",
+  "format": "keywords",
+  "answer": "Subarachnoid space",
+  "accept": [],
+  "keywords": [
+   [
+    "subarachnoid"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-subarachnoid-space-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "subarachnoid-space",
+  "status": "live",
+  "position": 1022,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "What fluid fills the subarachnoid space?",
+  "format": "type",
+  "answer": "Cerebrospinal fluid (CSF)",
+  "accept": [
+   "cerebrospinal fluid",
+   "csf"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-epidural-space-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "epidural-space",
+  "status": "live",
+  "position": 1023,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Rupture of which artery causes an epidural hematoma?",
+  "format": "type",
+  "answer": "Middle meningeal artery",
+  "accept": [
+   "middle meningeal"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-meningeal-blood-vessels-supply",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "meningeal-blood-vessels",
+  "status": "live",
+  "position": 1024,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "A bleed from a meningeal artery collects in which space?",
+  "format": "type",
+  "answer": "Epidural space",
+  "accept": [
+   "epidural",
+   "extradural"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-blood-vessels-supply",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "cerebral-blood-vessels",
+  "status": "live",
+  "position": 1025,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "In which meningeal space do the surface cerebral vessels lie?",
+  "format": "keywords",
+  "answer": "Subarachnoid space",
+  "accept": [],
+  "keywords": [
+   [
+    "subarachnoid"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-falx-cerebri-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "falx-cerebri",
+  "status": "live",
+  "position": 1026,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the falx cerebri separate?",
+  "format": "keywords",
+  "answer": "The two cerebral hemispheres",
+  "accept": [],
+  "keywords": [
+   [
+    "hemisphere",
+    "hemispheres",
+    "left",
+    "right"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-tentorium-cerebelli-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "tentorium-cerebelli",
+  "status": "live",
+  "position": 1027,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the tentorium cerebelli separate?",
+  "format": "keywords",
+  "answer": "The cerebellum from the occipital lobes (infratentorial vs supratentorial)",
+  "accept": [],
+  "keywords": [
+   [
+    "cerebellum"
+   ],
+   [
+    "occipital",
+    "cerebrum",
+    "cerebral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-tentorium-cerebelli-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "tentorium-cerebelli",
+  "status": "live",
+  "position": 1028,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Uncal herniation over the tentorial edge compresses which cranial nerve?",
+  "format": "keywords",
+  "answer": "Oculomotor nerve (CN III)",
+  "accept": [],
+  "keywords": [
+   [
+    "oculomotor",
+    "III",
+    "CN III",
+    "3"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-cortex-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "cerebral-cortex",
+  "status": "live",
+  "position": 1029,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the cerebral cortex.",
+  "format": "keywords",
+  "answer": "Higher cognition, voluntary movement, sensory perception, language",
+  "accept": [],
+  "keywords": [
+   [
+    "cognition",
+    "movement",
+    "sensation",
+    "sensory",
+    "perception",
+    "language",
+    "memory",
+    "motor"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-cortex-embryology",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "cerebral-cortex",
+  "status": "live",
+  "position": 1030,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which embryonic vesicle does the cerebral cortex arise?",
+  "format": "type",
+  "answer": "Telencephalon",
+  "accept": [
+   "forebrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellum-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "cerebellum",
+  "status": "live",
+  "position": 1031,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the cerebellum.",
+  "format": "keywords",
+  "answer": "Coordination, balance, motor learning and timing of movement",
+  "accept": [],
+  "keywords": [
+   [
+    "coordination",
+    "coordinate",
+    "balance",
+    "motor learning",
+    "timing",
+    "posture"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellum-embryology",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "cerebellum",
+  "status": "live",
+  "position": 1032,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the cerebellum develop?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellum-lesion",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "cerebellum",
+  "status": "live",
+  "position": 1033,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Which side shows ataxia after a unilateral cerebellar lesion?",
+  "format": "keywords",
+  "answer": "Ipsilateral (same side)",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-brainstem-function",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "brainstem",
+  "status": "live",
+  "position": 1034,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the brainstem.",
+  "format": "keywords",
+  "answer": "Conduit for tracts; cranial nerve nuclei; arousal and vital reflexes",
+  "accept": [],
+  "keywords": [
+   [
+    "tract",
+    "conduit",
+    "cranial nerve",
+    "arousal",
+    "consciousness",
+    "breathing",
+    "reticular"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-brainstem-connections",
+  "kind": "theory",
+  "topic": "lab-1",
+  "structure": "brainstem",
+  "status": "live",
+  "position": 1035,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name the three parts of the brainstem from rostral to caudal.",
+  "format": "keywords",
+  "answer": "Midbrain, pons, medulla",
+  "accept": [],
+  "keywords": [
+   [
+    "midbrain"
+   ],
+   [
+    "pons"
+   ],
+   [
+    "medulla"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-midbrain-embryology",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "midbrain",
+  "status": "live",
+  "position": 1036,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which primary vesicle does the midbrain arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pons-embryology",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "pons",
+  "status": "live",
+  "position": 1037,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the pons arise?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medulla-embryology",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "medulla",
+  "status": "live",
+  "position": 1038,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the medulla arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-thalamus-embryology",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 1039,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the thalamus arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypothalamus-embryology",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "hypothalamus",
+  "status": "live",
+  "position": 1040,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the hypothalamus arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-thalamus-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "thalamus",
+  "status": "live",
+  "position": 1041,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the thalamus.",
+  "format": "keywords",
+  "answer": "Relay of sensory information to the cortex (except olfaction); motor and limbic relays",
+  "accept": [],
+  "keywords": [
+   [
+    "relay",
+    "gateway",
+    "sensory",
+    "filter"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypothalamus-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "hypothalamus",
+  "status": "live",
+  "position": 1042,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the hypothalamus.",
+  "format": "keywords",
+  "answer": "Homeostasis: temperature, hunger, thirst, circadian rhythm, endocrine and autonomic control",
+  "accept": [],
+  "keywords": [
+   [
+    "temperature",
+    "thirst",
+    "hunger",
+    "feeding",
+    "sleep",
+    "circadian",
+    "pituitary",
+    "endocrine",
+    "autonomic",
+    "homeostasis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-ventricle-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "lateral-ventricle",
+  "status": "live",
+  "position": 1043,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the main function of the lateral ventricles?",
+  "format": "keywords",
+  "answer": "Contain choroid plexus that makes CSF; CSF passes via the foramina of Monro",
+  "accept": [],
+  "keywords": [
+   [
+    "csf",
+    "cerebrospinal",
+    "choroid"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-ventricle-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "lateral-ventricle",
+  "status": "live",
+  "position": 1044,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Through which foramen does the lateral ventricle drain into the third ventricle?",
+  "format": "type",
+  "answer": "Interventricular foramen (of Monro)",
+  "accept": [
+   "monro",
+   "interventricular"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-foramina-of-monro-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "foramina-of-monro",
+  "status": "live",
+  "position": 1045,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which two ventricles does the foramen of Monro connect?",
+  "format": "keywords",
+  "answer": "Lateral ventricle to third ventricle",
+  "accept": [],
+  "keywords": [
+   [
+    "lateral"
+   ],
+   [
+    "third"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-third-ventricle-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "third-ventricle",
+  "status": "live",
+  "position": 1046,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which channel connects the third ventricle to the fourth ventricle?",
+  "format": "type",
+  "answer": "Cerebral aqueduct (of Sylvius)",
+  "accept": [
+   "cerebral aqueduct",
+   "aqueduct",
+   "sylvius"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-aqueduct-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "cerebral-aqueduct",
+  "status": "live",
+  "position": 1047,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Aqueductal stenosis causes which condition?",
+  "format": "keywords",
+  "answer": "Obstructive (non-communicating) hydrocephalus",
+  "accept": [],
+  "keywords": [
+   [
+    "hydrocephalus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fourth-ventricle-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "fourth-ventricle",
+  "status": "live",
+  "position": 1048,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name one aperture through which CSF leaves the fourth ventricle.",
+  "format": "keywords",
+  "answer": "Foramen of Magendie (median) or foramina of Luschka (lateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "magendie",
+    "luschka",
+    "median aperture",
+    "lateral aperture"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-foramen-of-magendie-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "foramen-of-magendie",
+  "status": "live",
+  "position": 1049,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Does the foramen of Magendie lie in the midline or laterally?",
+  "format": "keywords",
+  "answer": "Midline (median aperture)",
+  "accept": [],
+  "keywords": [
+   [
+    "median",
+    "midline"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-foramina-of-luschka-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "foramina-of-luschka",
+  "status": "live",
+  "position": 1050,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The foramina of Luschka open into which space?",
+  "format": "keywords",
+  "answer": "Subarachnoid space (cerebellopontine angle)",
+  "accept": [],
+  "keywords": [
+   [
+    "subarachnoid",
+    "cerebellopontine"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-choroid-plexus-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "choroid-plexus",
+  "status": "live",
+  "position": 1051,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the choroid plexus?",
+  "format": "keywords",
+  "answer": "Produces CSF",
+  "accept": [],
+  "keywords": [
+   [
+    "produce",
+    "secrete",
+    "make",
+    "csf",
+    "cerebrospinal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-arachnoid-granulations-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "arachnoid-granulations",
+  "status": "live",
+  "position": 1052,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of arachnoid granulations?",
+  "format": "keywords",
+  "answer": "Reabsorb CSF into the dural venous sinuses",
+  "accept": [],
+  "keywords": [
+   [
+    "reabsorb",
+    "absorb",
+    "drain",
+    "csf"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-arachnoid-granulations-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "arachnoid-granulations",
+  "status": "live",
+  "position": 1053,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Failure of CSF reabsorption at the arachnoid granulations causes which type of hydrocephalus?",
+  "format": "keywords",
+  "answer": "Communicating hydrocephalus",
+  "accept": [],
+  "keywords": [
+   [
+    "communicating"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-sagittal-sinus-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "superior-sagittal-sinus",
+  "status": "live",
+  "position": 1054,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which structure projects into the superior sagittal sinus to drain CSF?",
+  "format": "keywords",
+  "answer": "Arachnoid granulations",
+  "accept": [],
+  "keywords": [
+   [
+    "granulation"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-corpus-callosum-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "corpus-callosum",
+  "status": "live",
+  "position": 1055,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the corpus callosum?",
+  "format": "keywords",
+  "answer": "Connects the two hemispheres, transferring information",
+  "accept": [],
+  "keywords": [
+   [
+    "hemisphere",
+    "interhemispheric",
+    "transfer",
+    "communicate",
+    "connect"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-corpus-callosum-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "corpus-callosum",
+  "status": "live",
+  "position": 1056,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Is the corpus callosum an association, commissural or projection tract?",
+  "format": "type",
+  "answer": "Commissural",
+  "accept": [
+   "commissure"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basal-ganglia-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "basal-ganglia",
+  "status": "live",
+  "position": 1057,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the basal ganglia.",
+  "format": "keywords",
+  "answer": "Selection and initiation of voluntary movement, habit, reward",
+  "accept": [],
+  "keywords": [
+   [
+    "movement",
+    "motor",
+    "initiation",
+    "selection",
+    "habit",
+    "reward"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-basal-ganglia-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "basal-ganglia",
+  "status": "live",
+  "position": 1058,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name one disease of the basal ganglia.",
+  "format": "keywords",
+  "answer": "Parkinson disease, Huntington disease, hemiballismus",
+  "accept": [],
+  "keywords": [
+   [
+    "parkinson",
+    "huntington",
+    "ballismus",
+    "dystonia",
+    "athetosis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hippocampus-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 1059,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the main function of the hippocampus?",
+  "format": "keywords",
+  "answer": "Formation of new declarative memory (and spatial navigation)",
+  "accept": [],
+  "keywords": [
+   [
+    "memory",
+    "spatial",
+    "navigation",
+    "learning"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hippocampus-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "hippocampus",
+  "status": "live",
+  "position": 1060,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Bilateral hippocampal damage causes which memory deficit?",
+  "format": "keywords",
+  "answer": "Anterograde amnesia",
+  "accept": [],
+  "keywords": [
+   [
+    "anterograde",
+    "amnesia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-amygdala-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "amygdala",
+  "status": "live",
+  "position": 1061,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the amygdala.",
+  "format": "keywords",
+  "answer": "Emotional processing, fear, emotional memory",
+  "accept": [],
+  "keywords": [
+   [
+    "emotion",
+    "fear",
+    "emotional",
+    "anxiety",
+    "aggression"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-amygdala-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "amygdala",
+  "status": "live",
+  "position": 1062,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which structure lies just posterior to the amygdala in the medial temporal lobe?",
+  "format": "type",
+  "answer": "Hippocampus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-uncus-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "uncus",
+  "status": "live",
+  "position": 1063,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Uncal herniation compresses which cranial nerve, producing a blown pupil?",
+  "format": "keywords",
+  "answer": "Oculomotor nerve (CN III)",
+  "accept": [],
+  "keywords": [
+   [
+    "oculomotor",
+    "III",
+    "CN III",
+    "3"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-parahippocampal-gyrus-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "parahippocampal-gyrus",
+  "status": "live",
+  "position": 1064,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which cortex in the parahippocampal gyrus feeds the hippocampus?",
+  "format": "keywords",
+  "answer": "Entorhinal cortex",
+  "accept": [],
+  "keywords": [
+   [
+    "entorhinal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-mammillary-bodies-function",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "mammillary-bodies",
+  "status": "live",
+  "position": 1065,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name the memory circuit in which the mammillary bodies participate.",
+  "format": "keywords",
+  "answer": "Papez circuit (limbic memory loop)",
+  "accept": [],
+  "keywords": [
+   [
+    "papez"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-mammillary-bodies-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "mammillary-bodies",
+  "status": "live",
+  "position": 1066,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Mammillary body damage from thiamine deficiency causes which syndrome?",
+  "format": "keywords",
+  "answer": "Wernicke-Korsakoff syndrome",
+  "accept": [],
+  "keywords": [
+   [
+    "wernicke",
+    "korsakoff"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-chiasm-lesion",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "optic-chiasm",
+  "status": "live",
+  "position": 1067,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Compression of the optic chiasm by a pituitary tumour causes which visual field loss?",
+  "format": "keywords",
+  "answer": "Bitemporal hemianopia",
+  "accept": [],
+  "keywords": [
+   [
+    "bitemporal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-chiasm-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "optic-chiasm",
+  "status": "live",
+  "position": 1068,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which retinal fibres decussate in the optic chiasm?",
+  "format": "keywords",
+  "answer": "Nasal (medial) retinal fibres",
+  "accept": [],
+  "keywords": [
+   [
+    "nasal",
+    "medial"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pituitary-stalk-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "pituitary-stalk",
+  "status": "live",
+  "position": 1069,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which structure does the pituitary stalk join to the pituitary gland?",
+  "format": "keywords",
+  "answer": "Hypothalamus (infundibulum)",
+  "accept": [],
+  "keywords": [
+   [
+    "hypothalamus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-interthalamic-adhesion-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "interthalamic-adhesion",
+  "status": "live",
+  "position": 1070,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The interthalamic adhesion bridges which two structures?",
+  "format": "keywords",
+  "answer": "The two thalami",
+  "accept": [],
+  "keywords": [
+   [
+    "thalami",
+    "thalamus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-septum-pellucidum-connections",
+  "kind": "theory",
+  "topic": "lab-2",
+  "structure": "septum-pellucidum",
+  "status": "live",
+  "position": 1071,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The septum pellucidum separates which two structures?",
+  "format": "keywords",
+  "answer": "The two lateral ventricles (anterior horns)",
+  "accept": [],
+  "keywords": [
+   [
+    "lateral ventricle",
+    "ventricles"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-motor-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-motor-cortex",
+  "status": "live",
+  "position": 1072,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann area is the primary motor cortex?",
+  "format": "type",
+  "answer": "BA 4",
+  "accept": [
+   "4",
+   "area 4"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-motor-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-motor-cortex",
+  "status": "live",
+  "position": 1073,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the primary motor cortex?",
+  "format": "keywords",
+  "answer": "Initiates voluntary movement of the contralateral body",
+  "accept": [],
+  "keywords": [
+   [
+    "voluntary",
+    "movement",
+    "motor"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-motor-cortex-supply",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-motor-cortex",
+  "status": "live",
+  "position": 1074,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery supplies the leg area of the primary motor cortex?",
+  "format": "keywords",
+  "answer": "Anterior cerebral artery",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior cerebral",
+    "ACA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-motor-cortex-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-motor-cortex",
+  "status": "live",
+  "position": 1075,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the right primary motor cortex produces weakness on which side?",
+  "format": "keywords",
+  "answer": "Left (contralateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "left",
+    "contralateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-premotor-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "premotor-cortex",
+  "status": "live",
+  "position": 1076,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann area is the premotor cortex?",
+  "format": "type",
+  "answer": "BA 6",
+  "accept": [
+   "6",
+   "area 6"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-premotor-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "premotor-cortex",
+  "status": "live",
+  "position": 1077,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the premotor cortex?",
+  "format": "keywords",
+  "answer": "Planning and sequencing of movement",
+  "accept": [],
+  "keywords": [
+   [
+    "planning",
+    "plan",
+    "sequencing",
+    "sequence",
+    "preparation"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-broca-s-area-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "broca-s-area",
+  "status": "live",
+  "position": 1078,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann areas form Broca's area?",
+  "format": "keywords",
+  "answer": "BA 44 and 45",
+  "accept": [],
+  "keywords": [
+   [
+    "44"
+   ],
+   [
+    "45"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-broca-s-area-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "broca-s-area",
+  "status": "live",
+  "position": 1079,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of Broca's area?",
+  "format": "keywords",
+  "answer": "Speech production",
+  "accept": [],
+  "keywords": [
+   [
+    "speech",
+    "production",
+    "expressive",
+    "language",
+    "articulation"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-broca-s-area-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "broca-s-area",
+  "status": "live",
+  "position": 1080,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to Broca's area causes which type of aphasia?",
+  "format": "keywords",
+  "answer": "Non-fluent (expressive) aphasia",
+  "accept": [],
+  "keywords": [
+   [
+    "expressive",
+    "non-fluent",
+    "nonfluent",
+    "broca"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-broca-s-area-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "broca-s-area",
+  "status": "live",
+  "position": 1081,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which tract connects Broca's area to Wernicke's area?",
+  "format": "type",
+  "answer": "Arcuate fasciculus",
+  "accept": [
+   "arcuate"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-wernicke-s-area-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "wernicke-s-area",
+  "status": "live",
+  "position": 1082,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann area is Wernicke's area?",
+  "format": "type",
+  "answer": "BA 22",
+  "accept": [
+   "22",
+   "area 22"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-wernicke-s-area-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "wernicke-s-area",
+  "status": "live",
+  "position": 1083,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of Wernicke's area?",
+  "format": "keywords",
+  "answer": "Language comprehension",
+  "accept": [],
+  "keywords": [
+   [
+    "comprehension",
+    "understanding",
+    "receptive"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-wernicke-s-area-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "wernicke-s-area",
+  "status": "live",
+  "position": 1084,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to Wernicke's area causes which type of aphasia?",
+  "format": "keywords",
+  "answer": "Fluent (receptive) aphasia",
+  "accept": [],
+  "keywords": [
+   [
+    "receptive",
+    "fluent",
+    "wernicke"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-cingulate-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "anterior-cingulate-cortex",
+  "status": "live",
+  "position": 1085,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the anterior cingulate cortex.",
+  "format": "keywords",
+  "answer": "Emotion, motivation, error monitoring, pain affect",
+  "accept": [],
+  "keywords": [
+   [
+    "emotion",
+    "motivation",
+    "error",
+    "pain",
+    "attention",
+    "autonomic"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsolateral-prefrontal-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "dorsolateral-prefrontal-cortex",
+  "status": "live",
+  "position": 1086,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the dorsolateral prefrontal cortex.",
+  "format": "keywords",
+  "answer": "Executive function: working memory, planning, attention",
+  "accept": [],
+  "keywords": [
+   [
+    "executive",
+    "working memory",
+    "planning",
+    "attention",
+    "flexibility"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-orbitofrontal-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "orbitofrontal-cortex",
+  "status": "live",
+  "position": 1087,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the orbitofrontal cortex.",
+  "format": "keywords",
+  "answer": "Reward valuation, decision-making, social behaviour, inhibition",
+  "accept": [],
+  "keywords": [
+   [
+    "reward",
+    "decision",
+    "social",
+    "inhibition",
+    "value"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-orbitofrontal-cortex-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "orbitofrontal-cortex",
+  "status": "live",
+  "position": 1088,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the orbitofrontal cortex classically causes what behavioural change?",
+  "format": "keywords",
+  "answer": "Disinhibition, inappropriate social behaviour (e.g. Phineas Gage)",
+  "accept": [],
+  "keywords": [
+   [
+    "disinhibition",
+    "disinhibited",
+    "impulsive",
+    "inappropriate",
+    "personality"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventromedial-prefrontal-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "ventromedial-prefrontal-cortex",
+  "status": "live",
+  "position": 1089,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the ventromedial prefrontal cortex.",
+  "format": "keywords",
+  "answer": "Emotion regulation, value-based decisions, social cognition",
+  "accept": [],
+  "keywords": [
+   [
+    "emotion",
+    "decision",
+    "value",
+    "social",
+    "regulation"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-somatosensory-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-somatosensory-cortex",
+  "status": "live",
+  "position": 1090,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann areas make up the primary somatosensory cortex?",
+  "format": "keywords",
+  "answer": "BA 3, 1 and 2",
+  "accept": [],
+  "keywords": [
+   [
+    "3"
+   ],
+   [
+    "1"
+   ],
+   [
+    "2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-somatosensory-cortex-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-somatosensory-cortex",
+  "status": "live",
+  "position": 1091,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the primary somatosensory cortex?",
+  "format": "keywords",
+  "answer": "Conscious perception of touch, vibration, proprioception from the contralateral body",
+  "accept": [],
+  "keywords": [
+   [
+    "touch",
+    "sensation",
+    "somatosensory",
+    "proprioception",
+    "vibration"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-somatosensory-cortex-supply",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-somatosensory-cortex",
+  "status": "live",
+  "position": 1092,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery supplies the leg region of the primary somatosensory cortex?",
+  "format": "keywords",
+  "answer": "Anterior cerebral artery",
+  "accept": [],
+  "keywords": [
+   [
+    "anterior cerebral",
+    "ACA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-somatosensory-cortex-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-somatosensory-cortex",
+  "status": "live",
+  "position": 1093,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which thalamic nucleus relays body sensation to the primary somatosensory cortex?",
+  "format": "type",
+  "answer": "VPL (ventral posterolateral nucleus)",
+  "accept": [
+   "VPL",
+   "ventral posterolateral"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-somatosensory-association-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "somatosensory-association-cortex",
+  "status": "live",
+  "position": 1094,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann areas make up the somatosensory association cortex?",
+  "format": "keywords",
+  "answer": "BA 5 and 7",
+  "accept": [],
+  "keywords": [
+   [
+    "5"
+   ],
+   [
+    "7"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-somatosensory-association-cortex-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "somatosensory-association-cortex",
+  "status": "live",
+  "position": 1095,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the somatosensory association cortex causes inability to recognise objects by touch. What is this called?",
+  "format": "keywords",
+  "answer": "Astereognosis (tactile agnosia)",
+  "accept": [],
+  "keywords": [
+   [
+    "astereognosis",
+    "agnosia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-parietal-lobe-general-association-area-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "parietal-lobe-general-association-area",
+  "status": "live",
+  "position": 1096,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A right parietal association lesion causes which syndrome?",
+  "format": "keywords",
+  "answer": "Contralateral (left) hemineglect",
+  "accept": [],
+  "keywords": [
+   [
+    "neglect",
+    "hemineglect"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-visual-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-visual-cortex",
+  "status": "live",
+  "position": 1097,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann area is the primary visual cortex?",
+  "format": "type",
+  "answer": "BA 17",
+  "accept": [
+   "17",
+   "area 17"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-visual-cortex-supply",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-visual-cortex",
+  "status": "live",
+  "position": 1098,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery supplies the primary visual cortex?",
+  "format": "keywords",
+  "answer": "Posterior cerebral artery (calcarine branch)",
+  "accept": [],
+  "keywords": [
+   [
+    "posterior cerebral",
+    "PCA",
+    "calcarine"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-visual-cortex-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-visual-cortex",
+  "status": "live",
+  "position": 1099,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the right primary visual cortex causes which visual field loss?",
+  "format": "keywords",
+  "answer": "Left homonymous hemianopia",
+  "accept": [],
+  "keywords": [
+   [
+    "left",
+    "homonymous",
+    "hemianopia",
+    "hemianopsia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-visual-cortex-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-visual-cortex",
+  "status": "live",
+  "position": 1100,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which thalamic nucleus relays vision to the primary visual cortex?",
+  "format": "type",
+  "answer": "Lateral geniculate nucleus",
+  "accept": [
+   "lateral geniculate",
+   "LGN"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-visual-association-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "visual-association-cortex",
+  "status": "live",
+  "position": 1101,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann areas are the visual association cortex?",
+  "format": "keywords",
+  "answer": "BA 18 and 19",
+  "accept": [],
+  "keywords": [
+   [
+    "18"
+   ],
+   [
+    "19"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-visual-association-cortex-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "visual-association-cortex",
+  "status": "live",
+  "position": 1102,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the ventral occipitotemporal visual association cortex impairs recognition of what?",
+  "format": "keywords",
+  "answer": "Faces and objects (agnosia, prosopagnosia)",
+  "accept": [],
+  "keywords": [
+   [
+    "face",
+    "faces",
+    "prosopagnosia",
+    "object",
+    "agnosia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-auditory-cortex-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-auditory-cortex",
+  "status": "live",
+  "position": 1103,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann areas are the primary auditory cortex?",
+  "format": "keywords",
+  "answer": "BA 41 and 42",
+  "accept": [],
+  "keywords": [
+   [
+    "41"
+   ],
+   [
+    "42"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-auditory-cortex-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-auditory-cortex",
+  "status": "live",
+  "position": 1104,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which thalamic nucleus relays hearing to the primary auditory cortex?",
+  "format": "type",
+  "answer": "Medial geniculate nucleus",
+  "accept": [
+   "medial geniculate",
+   "MGN"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-primary-auditory-cortex-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "primary-auditory-cortex",
+  "status": "live",
+  "position": 1105,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Why does a unilateral lesion of the primary auditory cortex cause little hearing loss?",
+  "format": "keywords",
+  "answer": "Auditory pathways are bilateral",
+  "accept": [],
+  "keywords": [
+   [
+    "bilateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-auditory-association-area-brodmann",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "auditory-association-area",
+  "status": "live",
+  "position": 1106,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "brodmann",
+  "prompt": "Which Brodmann area is the auditory association cortex?",
+  "format": "type",
+  "answer": "BA 22",
+  "accept": [
+   "22",
+   "area 22"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-temporal-lobe-general-association-area-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "temporal-lobe-general-association-area",
+  "status": "live",
+  "position": 1107,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the temporal association cortex.",
+  "format": "keywords",
+  "answer": "Object and face recognition, semantic memory, language",
+  "accept": [],
+  "keywords": [
+   [
+    "recognition",
+    "object",
+    "face",
+    "memory",
+    "semantic",
+    "language"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-association-fibers-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "association-fibers",
+  "status": "live",
+  "position": 1108,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What do association fibres connect?",
+  "format": "keywords",
+  "answer": "Cortical areas within the same hemisphere",
+  "accept": [],
+  "keywords": [
+   [
+    "same hemisphere",
+    "ipsilateral",
+    "within",
+    "intrahemispheric"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-commissural-fibers-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "commissural-fibers",
+  "status": "live",
+  "position": 1109,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What do commissural fibres connect?",
+  "format": "keywords",
+  "answer": "The two hemispheres (corresponding areas)",
+  "accept": [],
+  "keywords": [
+   [
+    "hemispheres",
+    "both",
+    "opposite",
+    "left",
+    "right"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-projection-fibers-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "projection-fibers",
+  "status": "live",
+  "position": 1110,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What do projection fibres connect?",
+  "format": "keywords",
+  "answer": "Cortex with subcortical structures (thalamus, brainstem, spinal cord)",
+  "accept": [],
+  "keywords": [
+   [
+    "subcortical",
+    "thalamus",
+    "brainstem",
+    "spinal cord",
+    "below"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-commissure-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "anterior-commissure",
+  "status": "live",
+  "position": 1111,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which structures does the anterior commissure connect?",
+  "format": "keywords",
+  "answer": "The two temporal lobes (amygdalae) and olfactory structures",
+  "accept": [],
+  "keywords": [
+   [
+    "temporal",
+    "amygdala",
+    "olfactory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-capsule-passes",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "internal-capsule",
+  "status": "live",
+  "position": 1112,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract passing through the internal capsule.",
+  "format": "keywords",
+  "answer": "Corticospinal, corticobulbar, corticopontine, thalamocortical",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "corticobulbar",
+    "corticopontine",
+    "thalamocortical",
+    "thalamic radiation"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-capsule-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "internal-capsule",
+  "status": "live",
+  "position": 1113,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lacunar stroke of the posterior limb of the internal capsule causes what deficit?",
+  "format": "keywords",
+  "answer": "Contralateral pure motor (or sensory) hemiparesis",
+  "accept": [],
+  "keywords": [
+   [
+    "hemiparesis",
+    "hemiplegia",
+    "weakness",
+    "motor"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-capsule-supply",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "internal-capsule",
+  "status": "live",
+  "position": 1114,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "supply",
+  "prompt": "Which artery group supplies the anterior limb of the internal capsule?",
+  "format": "type",
+  "answer": "Lenticulostriate arteries",
+  "accept": [
+   "lenticulostriate"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-central-sulcus-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "central-sulcus",
+  "status": "live",
+  "position": 1115,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which two gyri border the central sulcus?",
+  "format": "keywords",
+  "answer": "Precentral and postcentral gyri",
+  "accept": [],
+  "keywords": [
+   [
+    "precentral"
+   ],
+   [
+    "postcentral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-fissure-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "lateral-fissure",
+  "status": "live",
+  "position": 1116,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which artery runs in the lateral fissure?",
+  "format": "keywords",
+  "answer": "Middle cerebral artery",
+  "accept": [],
+  "keywords": [
+   [
+    "middle cerebral",
+    "MCA"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-calcarine-fissure-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "calcarine-fissure",
+  "status": "live",
+  "position": 1117,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Which cortex lies along the calcarine fissure?",
+  "format": "keywords",
+  "answer": "Primary visual cortex",
+  "accept": [],
+  "keywords": [
+   [
+    "primary visual",
+    "visual",
+    "V1"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-precentral-gyrus-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "precentral-gyrus",
+  "status": "live",
+  "position": 1118,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the precentral gyrus?",
+  "format": "keywords",
+  "answer": "Primary motor cortex: voluntary movement",
+  "accept": [],
+  "keywords": [
+   [
+    "motor",
+    "movement"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-postcentral-gyrus-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "postcentral-gyrus",
+  "status": "live",
+  "position": 1119,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the postcentral gyrus?",
+  "format": "keywords",
+  "answer": "Primary somatosensory cortex: body sensation",
+  "accept": [],
+  "keywords": [
+   [
+    "sensory",
+    "somatosensory",
+    "sensation",
+    "touch"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cingulate-gyrus-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "cingulate-gyrus",
+  "status": "live",
+  "position": 1120,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which structure lies immediately ventral to the cingulate gyrus?",
+  "format": "keywords",
+  "answer": "Corpus callosum",
+  "accept": [],
+  "keywords": [
+   [
+    "corpus callosum",
+    "callosum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-frontal-gyrus-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "inferior-frontal-gyrus",
+  "status": "live",
+  "position": 1121,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the left inferior frontal gyrus causes which aphasia?",
+  "format": "keywords",
+  "answer": "Broca (non-fluent) aphasia",
+  "accept": [],
+  "keywords": [
+   [
+    "broca",
+    "expressive",
+    "non-fluent",
+    "nonfluent"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-temporal-gyrus-lesion",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "superior-temporal-gyrus",
+  "status": "live",
+  "position": 1122,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the posterior left superior temporal gyrus causes which aphasia?",
+  "format": "keywords",
+  "answer": "Wernicke (fluent, receptive) aphasia",
+  "accept": [],
+  "keywords": [
+   [
+    "wernicke",
+    "receptive",
+    "fluent"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-transverse-temporal-gyrus-function",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "transverse-temporal-gyrus",
+  "status": "live",
+  "position": 1123,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the transverse temporal gyrus (Heschl's gyrus)?",
+  "format": "keywords",
+  "answer": "Primary auditory cortex: hearing",
+  "accept": [],
+  "keywords": [
+   [
+    "auditory",
+    "hearing",
+    "sound"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-parietal-lobule-connections",
+  "kind": "theory",
+  "topic": "lab-3",
+  "structure": "inferior-parietal-lobule",
+  "status": "live",
+  "position": 1124,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name one gyrus of the inferior parietal lobule.",
+  "format": "keywords",
+  "answer": "Supramarginal gyrus or angular gyrus",
+  "accept": [],
+  "keywords": [
+   [
+    "supramarginal",
+    "angular"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vertebral-body-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "vertebral-body",
+  "status": "live",
+  "position": 1125,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the vertebral body?",
+  "format": "keywords",
+  "answer": "Weight bearing; supports the body",
+  "accept": [],
+  "keywords": [
+   [
+    "weight",
+    "support",
+    "bear"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vertebral-foramen-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "vertebral-foramen",
+  "status": "live",
+  "position": 1126,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "What passes through the vertebral foramen/canal?",
+  "format": "keywords",
+  "answer": "The spinal cord (and meninges)",
+  "accept": [],
+  "keywords": [
+   [
+    "spinal cord",
+    "cord"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-intervertebral-disc-lesion",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "intervertebral-disc",
+  "status": "live",
+  "position": 1127,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A posterolateral disc herniation compresses which structure?",
+  "format": "keywords",
+  "answer": "The spinal nerve root",
+  "accept": [],
+  "keywords": [
+   [
+    "nerve root",
+    "root",
+    "spinal nerve"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-intervertebral-foramen-passes",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "intervertebral-foramen",
+  "status": "live",
+  "position": 1128,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "What passes through the intervertebral foramen?",
+  "format": "keywords",
+  "answer": "A spinal nerve (with the dorsal root ganglion)",
+  "accept": [],
+  "keywords": [
+   [
+    "spinal nerve",
+    "nerve",
+    "dorsal root ganglion",
+    "root"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-spinous-process-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "spinous-process",
+  "status": "live",
+  "position": 1129,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "A lumbar puncture is performed by passing between which structures?",
+  "format": "keywords",
+  "answer": "Between spinous processes (below L2)",
+  "accept": [],
+  "keywords": [
+   [
+    "spinous",
+    "L3",
+    "L4",
+    "L4-L5",
+    "L3-L4",
+    "below L2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-conus-medullaris-level",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "conus-medullaris",
+  "status": "live",
+  "position": 1130,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which vertebral level does the adult spinal cord end (conus medullaris)?",
+  "format": "keywords",
+  "answer": "L1-L2",
+  "accept": [],
+  "keywords": [
+   [
+    "L1",
+    "L2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-conus-medullaris-lesion",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "conus-medullaris",
+  "status": "live",
+  "position": 1131,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Conus medullaris syndrome gives early loss of which functions?",
+  "format": "keywords",
+  "answer": "Bladder, bowel (and sexual) function with saddle anaesthesia",
+  "accept": [],
+  "keywords": [
+   [
+    "bladder",
+    "bowel",
+    "saddle",
+    "sphincter"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cauda-equina-passes",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "cauda-equina",
+  "status": "live",
+  "position": 1132,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "What does the cauda equina consist of?",
+  "format": "keywords",
+  "answer": "Lumbar and sacral spinal nerve roots",
+  "accept": [],
+  "keywords": [
+   [
+    "nerve roots",
+    "roots",
+    "lumbar",
+    "sacral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cauda-equina-lesion",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "cauda-equina",
+  "status": "live",
+  "position": 1133,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name one sign of cauda equina syndrome.",
+  "format": "keywords",
+  "answer": "Saddle anaesthesia, urinary retention, leg weakness, areflexia",
+  "accept": [],
+  "keywords": [
+   [
+    "saddle",
+    "retention",
+    "incontinence",
+    "weakness",
+    "bladder",
+    "bowel"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-filum-terminale-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "filum-terminale",
+  "status": "live",
+  "position": 1134,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which meningeal layer forms the filum terminale?",
+  "format": "keywords",
+  "answer": "Pia mater",
+  "accept": [],
+  "keywords": [
+   [
+    "pia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-denticulate-ligaments-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "denticulate-ligaments",
+  "status": "live",
+  "position": 1135,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Denticulate ligaments are extensions of which meningeal layer?",
+  "format": "keywords",
+  "answer": "Pia mater",
+  "accept": [],
+  "keywords": [
+   [
+    "pia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-denticulate-ligaments-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "denticulate-ligaments",
+  "status": "live",
+  "position": 1136,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What do the denticulate ligaments do?",
+  "format": "keywords",
+  "answer": "Anchor the spinal cord to the dura, suspending it in the dural sac",
+  "accept": [],
+  "keywords": [
+   [
+    "anchor",
+    "suspend",
+    "hold",
+    "stabilise",
+    "stabilize",
+    "dura"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-root-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "dorsal-root",
+  "status": "live",
+  "position": 1137,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Do dorsal roots carry sensory or motor fibres?",
+  "format": "keywords",
+  "answer": "Sensory (afferent)",
+  "accept": [],
+  "keywords": [
+   [
+    "sensory",
+    "afferent"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventral-root-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "ventral-root",
+  "status": "live",
+  "position": 1138,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Do ventral roots carry sensory or motor fibres?",
+  "format": "keywords",
+  "answer": "Motor (efferent)",
+  "accept": [],
+  "keywords": [
+   [
+    "motor",
+    "efferent"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-root-ganglion-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 1139,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "What type of neuron is in the dorsal root ganglion?",
+  "format": "keywords",
+  "answer": "Pseudounipolar first-order sensory neurons",
+  "accept": [],
+  "keywords": [
+   [
+    "pseudounipolar",
+    "pseudo-unipolar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-root-ganglion-order",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 1140,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "Are dorsal root ganglion neurons first-, second- or third-order?",
+  "format": "keywords",
+  "answer": "First-order",
+  "accept": [],
+  "keywords": [
+   [
+    "first",
+    "1"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-root-ganglion-lesion",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "dorsal-root-ganglion",
+  "status": "live",
+  "position": 1141,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Which virus lies dormant in the dorsal root ganglia and causes a dermatomal rash?",
+  "format": "keywords",
+  "answer": "Varicella zoster (herpes zoster)",
+  "accept": [],
+  "keywords": [
+   [
+    "varicella",
+    "zoster",
+    "shingles",
+    "herpes"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-spinal-nerves-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "spinal-nerves",
+  "status": "live",
+  "position": 1142,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Are spinal nerves sensory, motor or mixed?",
+  "format": "keywords",
+  "answer": "Mixed (sensory and motor)",
+  "accept": [],
+  "keywords": [
+   [
+    "mixed",
+    "both"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-spinal-nerves-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "spinal-nerves",
+  "status": "live",
+  "position": 1143,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "How many pairs of spinal nerves are there?",
+  "format": "keywords",
+  "answer": "31",
+  "accept": [],
+  "keywords": [
+   [
+    "31;thirty-one"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-ramus-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "dorsal-ramus",
+  "status": "live",
+  "position": 1144,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the dorsal ramus of a spinal nerve supply?",
+  "format": "keywords",
+  "answer": "Deep back muscles and skin of the back",
+  "accept": [],
+  "keywords": [
+   [
+    "back",
+    "paraspinal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventral-ramus-function",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "ventral-ramus",
+  "status": "live",
+  "position": 1145,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What do the ventral rami supply and form?",
+  "format": "keywords",
+  "answer": "Anterior and lateral trunk and limbs; they form the plexuses",
+  "accept": [],
+  "keywords": [
+   [
+    "limb",
+    "limbs",
+    "plexus",
+    "plexuses",
+    "trunk"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-brachial-plexus-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "brachial-plexus",
+  "status": "live",
+  "position": 1146,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which ventral rami form the brachial plexus?",
+  "format": "keywords",
+  "answer": "C5 to T1",
+  "accept": [],
+  "keywords": [
+   [
+    "C5"
+   ],
+   [
+    "T1"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-brachial-plexus-lesion",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "brachial-plexus",
+  "status": "live",
+  "position": 1147,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "An upper trunk (C5-C6) brachial plexus injury is called what?",
+  "format": "keywords",
+  "answer": "Erb palsy (waiter's tip)",
+  "accept": [],
+  "keywords": [
+   [
+    "erb"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lumbosacral-plexus-connections",
+  "kind": "theory",
+  "topic": "lab-4",
+  "structure": "lumbosacral-plexus",
+  "status": "live",
+  "position": 1148,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which ventral rami form the lumbosacral plexus?",
+  "format": "keywords",
+  "answer": "L1 to S4",
+  "accept": [],
+  "keywords": [
+   [
+    "L1"
+   ],
+   [
+    "S4"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-horn-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-horn",
+  "status": "live",
+  "position": 1149,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the dorsal horn?",
+  "format": "keywords",
+  "answer": "Receives and processes sensory input (pain, temperature, touch)",
+  "accept": [],
+  "keywords": [
+   [
+    "sensory",
+    "afferent",
+    "pain",
+    "temperature",
+    "touch"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-horn-fiber_type",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-horn",
+  "status": "live",
+  "position": 1150,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "fiber_type",
+  "prompt": "Name one fibre type that carries pain into the dorsal horn.",
+  "format": "keywords",
+  "answer": "A-delta or C fibres",
+  "accept": [],
+  "keywords": [
+   [
+    "a-delta",
+    "adelta",
+    "delta",
+    "C fiber",
+    "C fibre",
+    "c fibers"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventral-horn-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "ventral-horn",
+  "status": "live",
+  "position": 1151,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Which neurons are in the ventral horn?",
+  "format": "keywords",
+  "answer": "Alpha (and gamma) lower motor neurons",
+  "accept": [],
+  "keywords": [
+   [
+    "lower motor",
+    "LMN",
+    "alpha",
+    "motor neuron"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventral-horn-lesion",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "ventral-horn",
+  "status": "live",
+  "position": 1152,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name one disease that destroys ventral horn motor neurons.",
+  "format": "keywords",
+  "answer": "Poliomyelitis or ALS or spinal muscular atrophy",
+  "accept": [],
+  "keywords": [
+   [
+    "polio",
+    "ALS",
+    "amyotrophic",
+    "spinal muscular"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-horn-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "lateral-horn",
+  "status": "live",
+  "position": 1153,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Which neurons lie in the lateral horn?",
+  "format": "keywords",
+  "answer": "Sympathetic preganglionic neurons",
+  "accept": [],
+  "keywords": [
+   [
+    "sympathetic"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-horn-level",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "lateral-horn",
+  "status": "live",
+  "position": 1154,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which spinal levels is the lateral horn found?",
+  "format": "keywords",
+  "answer": "T1 to L2",
+  "accept": [],
+  "keywords": [
+   [
+    "T1"
+   ],
+   [
+    "L2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-intermediate-zone-connections",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "intermediate-zone",
+  "status": "live",
+  "position": 1155,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The sacral parasympathetic nucleus lies in the intermediate zone at which levels?",
+  "format": "keywords",
+  "answer": "S2-S4",
+  "accept": [],
+  "keywords": [
+   [
+    "S2"
+   ],
+   [
+    "S4"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-columns-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-columns",
+  "status": "live",
+  "position": 1156,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one sensation carried in the dorsal columns.",
+  "format": "keywords",
+  "answer": "Fine touch, vibration, conscious proprioception, two-point discrimination",
+  "accept": [],
+  "keywords": [
+   [
+    "fine touch",
+    "vibration",
+    "proprioception",
+    "discrimination"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-columns-side",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-columns",
+  "status": "live",
+  "position": 1157,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "Do dorsal column axons ascend ipsilaterally or contralaterally in the cord?",
+  "format": "keywords",
+  "answer": "Ipsilaterally",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-columns-order",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-columns",
+  "status": "live",
+  "position": 1158,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "The dorsal columns contain axons of which order of neuron?",
+  "format": "keywords",
+  "answer": "First-order (DRG) neurons",
+  "accept": [],
+  "keywords": [
+   [
+    "first",
+    "1"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-columns-lesion",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-columns",
+  "status": "live",
+  "position": 1159,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the dorsal columns causes loss of which sensations, on which side?",
+  "format": "keywords",
+  "answer": "Vibration and proprioception, ipsilateral",
+  "accept": [],
+  "keywords": [
+   [
+    "vibration",
+    "proprioception"
+   ],
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-columns-receptor",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-columns",
+  "status": "live",
+  "position": 1160,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "receptor",
+  "prompt": "Name one receptor that feeds the dorsal columns.",
+  "format": "keywords",
+  "answer": "Meissner, Pacinian, Merkel, Ruffini corpuscles or muscle spindle",
+  "accept": [],
+  "keywords": [
+   [
+    "meissner",
+    "pacinian",
+    "merkel",
+    "ruffini",
+    "spindle"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fasciculus-gracilis-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "fasciculus-gracilis",
+  "status": "live",
+  "position": 1161,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Fasciculus gracilis carries sensation from which part of the body?",
+  "format": "keywords",
+  "answer": "Lower limb and lower trunk (below T6)",
+  "accept": [],
+  "keywords": [
+   [
+    "lower",
+    "leg",
+    "legs",
+    "below T6"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fasciculus-gracilis-connections",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "fasciculus-gracilis",
+  "status": "live",
+  "position": 1162,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "In which nucleus does the fasciculus gracilis synapse?",
+  "format": "type",
+  "answer": "Gracile nucleus",
+  "accept": [
+   "gracile",
+   "nucleus gracilis",
+   "gracilis"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fasciculus-cuneatus-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "fasciculus-cuneatus",
+  "status": "live",
+  "position": 1163,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Fasciculus cuneatus carries sensation from which part of the body?",
+  "format": "keywords",
+  "answer": "Upper limb and upper trunk (above T6)",
+  "accept": [],
+  "keywords": [
+   [
+    "upper",
+    "arm",
+    "arms",
+    "above T6"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-fasciculus-cuneatus-connections",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "fasciculus-cuneatus",
+  "status": "live",
+  "position": 1164,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "In which nucleus does the fasciculus cuneatus synapse?",
+  "format": "type",
+  "answer": "Cuneate nucleus",
+  "accept": [
+   "cuneate",
+   "nucleus cuneatus",
+   "cuneatus"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterolateral-spinothalamic-tract-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 1165,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one sensation carried in the anterolateral (spinothalamic) tract.",
+  "format": "keywords",
+  "answer": "Pain, temperature, itch, crude touch",
+  "accept": [],
+  "keywords": [
+   [
+    "pain",
+    "temperature",
+    "itch",
+    "crude touch"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterolateral-spinothalamic-tract-order",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 1166,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "The anterolateral tract contains axons of which order of neuron?",
+  "format": "keywords",
+  "answer": "Second-order",
+  "accept": [],
+  "keywords": [
+   [
+    "second",
+    "2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterolateral-spinothalamic-tract-side",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 1167,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "Do spinothalamic axons ascend ipsilateral or contralateral to the side of the body they serve?",
+  "format": "keywords",
+  "answer": "Contralateral (they cross in the ventral white commissure)",
+  "accept": [],
+  "keywords": [
+   [
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterolateral-spinothalamic-tract-fiber_type",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 1168,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "fiber_type",
+  "prompt": "Name one fibre type that carries pain and temperature to the cord.",
+  "format": "keywords",
+  "answer": "A-delta or C fibres",
+  "accept": [],
+  "keywords": [
+   [
+    "a-delta",
+    "adelta",
+    "delta",
+    "C fiber",
+    "C fibre"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterolateral-spinothalamic-tract-receptor",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 1169,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "receptor",
+  "prompt": "Name one receptor type for the sensations carried by the spinothalamic tract.",
+  "format": "keywords",
+  "answer": "Free nerve endings (nociceptors, thermoreceptors)",
+  "accept": [],
+  "keywords": [
+   [
+    "free nerve",
+    "nociceptor",
+    "thermoreceptor",
+    "nociceptive"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterolateral-spinothalamic-tract-connections",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "live",
+  "position": 1170,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "To which thalamic nucleus do spinothalamic axons project (body)?",
+  "format": "type",
+  "answer": "VPL",
+  "accept": [
+   "ventral posterolateral"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-spinocerebellar-tract-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 1171,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What sensation does the dorsal spinocerebellar tract carry?",
+  "format": "keywords",
+  "answer": "Unconscious proprioception from muscles and tendons (lower body)",
+  "accept": [],
+  "keywords": [
+   [
+    "unconscious",
+    "proprioception"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-spinocerebellar-tract-side",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 1172,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "Does the dorsal spinocerebellar tract end in the ipsilateral or contralateral cerebellum?",
+  "format": "keywords",
+  "answer": "Ipsilateral",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-spinocerebellar-tract-order",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 1173,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "Where are the cell bodies of the dorsal spinocerebellar tract axons?",
+  "format": "keywords",
+  "answer": "Clarke's nucleus (column of Clarke)",
+  "accept": [],
+  "keywords": [
+   [
+    "clarke",
+    "dorsalis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-spinocerebellar-tract-receptor",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 1174,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "receptor",
+  "prompt": "Name one receptor that feeds the spinocerebellar tracts.",
+  "format": "keywords",
+  "answer": "Muscle spindle or Golgi tendon organ",
+  "accept": [],
+  "keywords": [
+   [
+    "spindle",
+    "golgi",
+    "tendon"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-spinocerebellar-tract-passes",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "live",
+  "position": 1175,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which cerebellar peduncle does the dorsal spinocerebellar tract enter the cerebellum?",
+  "format": "type",
+  "answer": "Inferior cerebellar peduncle",
+  "accept": [
+   "inferior"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-root-entry-zone-fiber_type",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "dorsal-root-entry-zone",
+  "status": "live",
+  "position": 1176,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "fiber_type",
+  "prompt": "Which fibre types enter via the lateral part of the dorsal root entry zone?",
+  "format": "keywords",
+  "answer": "Small fibres: A-delta and C (pain, temperature)",
+  "accept": [],
+  "keywords": [
+   [
+    "a-delta",
+    "adelta",
+    "delta",
+    "C"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-dorsal-root-entry-zone-fiber_type",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "medial-dorsal-root-entry-zone",
+  "status": "live",
+  "position": 1177,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "fiber_type",
+  "prompt": "Name one fibre type entering at the medial dorsal root entry zone.",
+  "format": "keywords",
+  "answer": "A-alpha or A-beta (large myelinated)",
+  "accept": [],
+  "keywords": [
+   [
+    "a-alpha",
+    "aalpha",
+    "a-beta",
+    "abeta",
+    "alpha",
+    "beta"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-dorsal-root-entry-zone-fiber_type",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "lateral-dorsal-root-entry-zone",
+  "status": "live",
+  "position": 1178,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "fiber_type",
+  "prompt": "Name one fibre type entering at the lateral dorsal root entry zone.",
+  "format": "keywords",
+  "answer": "A-delta or C (small)",
+  "accept": [],
+  "keywords": [
+   [
+    "a-delta",
+    "adelta",
+    "delta",
+    "C"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-marginal-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "marginal-nucleus",
+  "status": "live",
+  "position": 1179,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the marginal nucleus (lamina I) process?",
+  "format": "keywords",
+  "answer": "Pain and temperature",
+  "accept": [],
+  "keywords": [
+   [
+    "pain",
+    "temperature"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-substantia-gelatinosa-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "substantia-gelatinosa",
+  "status": "live",
+  "position": 1180,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the role of the substantia gelatinosa (lamina II)?",
+  "format": "keywords",
+  "answer": "Modulates pain transmission (gate control)",
+  "accept": [],
+  "keywords": [
+   [
+    "pain",
+    "modulate",
+    "gate"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-substantia-gelatinosa-level",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "substantia-gelatinosa",
+  "status": "live",
+  "position": 1181,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "Which Rexed lamina is the substantia gelatinosa?",
+  "format": "keywords",
+  "answer": "Lamina II",
+  "accept": [],
+  "keywords": [
+   [
+    "II;2;two"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-proprius-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "nucleus-proprius",
+  "status": "live",
+  "position": 1182,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the nucleus proprius process?",
+  "format": "keywords",
+  "answer": "Touch (fine discriminative) and proprioceptive input (laminae III-IV)",
+  "accept": [],
+  "keywords": [
+   [
+    "touch",
+    "proprioception"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-column-of-clarke-level",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "column-of-clarke",
+  "status": "live",
+  "position": 1183,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which spinal levels is Clarke's column found?",
+  "format": "keywords",
+  "answer": "T1 to L2 (L3)",
+  "accept": [],
+  "keywords": [
+   [
+    "T1"
+   ],
+   [
+    "L2",
+    "L3"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-column-of-clarke-connections",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "column-of-clarke",
+  "status": "live",
+  "position": 1184,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which tract originates from Clarke's column?",
+  "format": "type",
+  "answer": "Dorsal spinocerebellar tract",
+  "accept": [
+   "dorsal spinocerebellar",
+   "spinocerebellar"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventral-commissure-of-spinal-cord-function",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "ventral-commissure-of-spinal-cord",
+  "status": "live",
+  "position": 1185,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What decussates in the ventral white commissure?",
+  "format": "keywords",
+  "answer": "Second-order spinothalamic (anterolateral) axons",
+  "accept": [],
+  "keywords": [
+   [
+    "spinothalamic",
+    "anterolateral",
+    "pain",
+    "temperature"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-ventral-commissure-of-spinal-cord-lesion",
+  "kind": "theory",
+  "topic": "lab-5",
+  "structure": "ventral-commissure-of-spinal-cord",
+  "status": "live",
+  "position": 1186,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Damage to the ventral white commissure (syringomyelia) causes which pattern of loss?",
+  "format": "keywords",
+  "answer": "Bilateral cape-like loss of pain and temperature, touch spared",
+  "accept": [],
+  "keywords": [
+   [
+    "pain",
+    "temperature",
+    "cape"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ }
+]

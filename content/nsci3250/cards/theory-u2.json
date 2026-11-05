@@ -1,0 +1,4848 @@
+[
+ {
+  "slug": "theory-anterior-nucleus-of-thalamus-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "anterior-nucleus-of-thalamus",
+  "status": "live",
+  "position": 1001,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name the memory circuit in which the anterior nucleus of the thalamus participates.",
+  "format": "keywords",
+  "answer": "Papez circuit",
+  "accept": [],
+  "keywords": [
+   [
+    "papez"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-nucleus-of-thalamus-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "anterior-nucleus-of-thalamus",
+  "status": "live",
+  "position": 1002,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which tract carries input to the anterior nucleus of the thalamus, and from where?",
+  "format": "keywords",
+  "answer": "Mammillothalamic tract, from the mammillary bodies",
+  "accept": [],
+  "keywords": [
+   [
+    "mammillothalamic",
+    "mammillary"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-nucleus-of-thalamus-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "anterior-nucleus-of-thalamus",
+  "status": "live",
+  "position": 1003,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the anterior nucleus of the thalamus arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pulvinar-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pulvinar",
+  "status": "live",
+  "position": 1004,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the pulvinar.",
+  "format": "keywords",
+  "answer": "Visual attention; integration of visual, auditory and somatosensory information",
+  "accept": [],
+  "keywords": [
+   [
+    "visual",
+    "attention",
+    "association",
+    "integration"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pulvinar-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pulvinar",
+  "status": "live",
+  "position": 1005,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the pulvinar arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-geniculate-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "medial-geniculate-nucleus",
+  "status": "live",
+  "position": 1006,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the medial geniculate nucleus?",
+  "format": "keywords",
+  "answer": "Relay of auditory information to the primary auditory cortex",
+  "accept": [],
+  "keywords": [
+   [
+    "auditory",
+    "hearing",
+    "sound"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-geniculate-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "medial-geniculate-nucleus",
+  "status": "live",
+  "position": 1007,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which structure sends input to the medial geniculate nucleus via the brachium?",
+  "format": "type",
+  "answer": "Inferior colliculus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-geniculate-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "medial-geniculate-nucleus",
+  "status": "live",
+  "position": 1008,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the medial geniculate nucleus arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-geniculate-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "lateral-geniculate-nucleus",
+  "status": "live",
+  "position": 1009,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the lateral geniculate nucleus?",
+  "format": "keywords",
+  "answer": "Relay of visual information from the retina to V1",
+  "accept": [],
+  "keywords": [
+   [
+    "visual",
+    "vision",
+    "retina",
+    "V1"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-geniculate-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "lateral-geniculate-nucleus",
+  "status": "live",
+  "position": 1010,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do axons from the lateral geniculate nucleus synapse?",
+  "format": "type",
+  "answer": "Primary visual cortex (V1)",
+  "accept": [
+   "primary visual,V1,calcarine,occipital,BA 17,17"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-geniculate-nucleus-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "lateral-geniculate-nucleus",
+  "status": "live",
+  "position": 1011,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the right LGN causes which visual field defect?",
+  "format": "keywords",
+  "answer": "Left homonymous hemianopia",
+  "accept": [],
+  "keywords": [
+   [
+    "left",
+    "homonymous",
+    "hemianopia",
+    "hemianopsia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-epithalamus-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "epithalamus",
+  "status": "live",
+  "position": 1012,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the epithalamus arise?",
+  "format": "type",
+  "answer": "Diencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-epithalamus-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "epithalamus",
+  "status": "live",
+  "position": 1013,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the epithalamus.",
+  "format": "keywords",
+  "answer": "Circadian rhythm via the pineal gland (melatonin); limbic-midbrain link via the habenula",
+  "accept": [],
+  "keywords": [
+   [
+    "circadian",
+    "pineal",
+    "melatonin",
+    "habenula",
+    "sleep"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pineal-gland-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pineal-gland",
+  "status": "live",
+  "position": 1014,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the pineal gland secrete?",
+  "format": "keywords",
+  "answer": "Melatonin",
+  "accept": [],
+  "keywords": [
+   [
+    "melatonin"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pineal-gland-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pineal-gland",
+  "status": "live",
+  "position": 1015,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A pineal tumour compressing the tectum causes which syndrome?",
+  "format": "keywords",
+  "answer": "Parinaud syndrome (impaired upgaze)",
+  "accept": [],
+  "keywords": [
+   [
+    "parinaud",
+    "upgaze",
+    "upward gaze"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-tract-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "optic-tract",
+  "status": "live",
+  "position": 1016,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the left optic tract causes which visual field loss?",
+  "format": "keywords",
+  "answer": "Right homonymous hemianopia",
+  "accept": [],
+  "keywords": [
+   [
+    "right",
+    "homonymous",
+    "hemianopia",
+    "hemianopsia"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-tract-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "optic-tract",
+  "status": "live",
+  "position": 1017,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do most optic tract fibres synapse?",
+  "format": "type",
+  "answer": "Lateral geniculate nucleus",
+  "accept": [
+   "lateral geniculate",
+   "LGN"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-tract-order",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "optic-tract",
+  "status": "live",
+  "position": 1018,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "Optic tract axons come from which retinal cell type?",
+  "format": "keywords",
+  "answer": "Retinal ganglion cells (third-order neurons of the visual pathway)",
+  "accept": [],
+  "keywords": [
+   [
+    "ganglion"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-colliculus-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "superior-colliculus",
+  "status": "live",
+  "position": 1019,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the superior colliculus.",
+  "format": "keywords",
+  "answer": "Visual reflexes, saccades, orienting head and eye movements",
+  "accept": [],
+  "keywords": [
+   [
+    "saccade",
+    "saccades",
+    "reflex",
+    "orienting",
+    "visual",
+    "eye movement"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-colliculus-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "superior-colliculus",
+  "status": "live",
+  "position": 1020,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which UMN tract originates from the superior colliculus?",
+  "format": "type",
+  "answer": "Tectospinal tract",
+  "accept": [
+   "tectospinal"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-colliculus-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "superior-colliculus",
+  "status": "live",
+  "position": 1021,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the superior colliculus arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-colliculus-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "inferior-colliculus",
+  "status": "live",
+  "position": 1022,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the inferior colliculus?",
+  "format": "keywords",
+  "answer": "Auditory relay and sound localisation",
+  "accept": [],
+  "keywords": [
+   [
+    "auditory",
+    "hearing",
+    "sound",
+    "localization",
+    "localisation"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-colliculus-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "inferior-colliculus",
+  "status": "live",
+  "position": 1023,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The inferior colliculus projects via its brachium to which thalamic nucleus?",
+  "format": "type",
+  "answer": "Medial geniculate nucleus",
+  "accept": [
+   "medial geniculate",
+   "MGN"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-colliculus-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "inferior-colliculus",
+  "status": "live",
+  "position": 1024,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the inferior colliculus arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-brachium-of-the-inferior-colliculus-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "brachium-of-the-inferior-colliculus",
+  "status": "live",
+  "position": 1025,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The brachium of the inferior colliculus connects which two structures?",
+  "format": "keywords",
+  "answer": "Inferior colliculus to medial geniculate nucleus",
+  "accept": [],
+  "keywords": [
+   [
+    "inferior colliculus"
+   ],
+   [
+    "medial geniculate",
+    "MGN"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-peduncles-passes",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 1026,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract that travels through the cerebral peduncle.",
+  "format": "keywords",
+  "answer": "Corticospinal, corticobulbar, corticopontine",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "corticobulbar",
+    "corticopontine"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-peduncles-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 1027,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Weber syndrome combines an ipsilateral CN III palsy with what contralateral finding?",
+  "format": "keywords",
+  "answer": "Contralateral hemiparesis",
+  "accept": [],
+  "keywords": [
+   [
+    "hemiparesis",
+    "hemiplegia",
+    "weakness"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebral-peduncles-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 1028,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle do the cerebral peduncles arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-interpeduncular-fossa-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "interpeduncular-fossa",
+  "status": "live",
+  "position": 1029,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve exits from the interpeduncular fossa?",
+  "format": "type",
+  "answer": "Oculomotor nerve (CN III)",
+  "accept": [
+   "oculomotor",
+   "CN III",
+   "III",
+   "3"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-interpeduncular-cistern-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "interpeduncular-cistern",
+  "status": "live",
+  "position": 1030,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name one structure within the interpeduncular cistern.",
+  "format": "keywords",
+  "answer": "Basilar artery tip, PCA, SCA or CN III",
+  "accept": [],
+  "keywords": [
+   [
+    "basilar",
+    "posterior cerebral",
+    "superior cerebellar",
+    "oculomotor",
+    "III"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-cerebellar-peduncle-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 1031,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The superior cerebellar peduncle carries output from which deep cerebellar nucleus, to where?",
+  "format": "keywords",
+  "answer": "Dentate nucleus to contralateral red nucleus and thalamus",
+  "accept": [],
+  "keywords": [
+   [
+    "dentate"
+   ],
+   [
+    "red nucleus",
+    "thalamus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-superior-cerebellar-peduncle-passes",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 1032,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract in the superior cerebellar peduncle.",
+  "format": "keywords",
+  "answer": "Dentatorubrothalamic fibres (efferent) or ventral spinocerebellar tract",
+  "accept": [],
+  "keywords": [
+   [
+    "dentatorubrothalamic",
+    "dentate",
+    "ventral spinocerebellar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-middle-cerebellar-peduncle-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "live",
+  "position": 1033,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The middle cerebellar peduncle carries fibres from which nuclei?",
+  "format": "keywords",
+  "answer": "Pontine nuclei (contralateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "pontine"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-cerebellar-peduncle-passes",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "live",
+  "position": 1034,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract entering the cerebellum through the inferior cerebellar peduncle.",
+  "format": "keywords",
+  "answer": "Dorsal spinocerebellar, olivocerebellar or vestibulocerebellar fibres",
+  "accept": [],
+  "keywords": [
+   [
+    "dorsal spinocerebellar",
+    "olivocerebellar",
+    "vestibulocerebellar",
+    "cuneocerebellar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cerebellar-peduncles-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "cerebellar-peduncles",
+  "status": "live",
+  "position": 1035,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle do the cerebellum and its peduncles arise?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-transverse-fibers-of-the-pons-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "transverse-fibers-of-the-pons",
+  "status": "live",
+  "position": 1036,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The transverse fibres of the pons originate in which nuclei and project to where?",
+  "format": "keywords",
+  "answer": "Pontine nuclei, to the contralateral cerebellum via the middle cerebellar peduncle",
+  "accept": [],
+  "keywords": [
+   [
+    "pontine"
+   ],
+   [
+    "contralateral",
+    "opposite",
+    "middle cerebellar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-colliculus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "facial-colliculus",
+  "status": "live",
+  "position": 1037,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which two cranial nerve components create/underlie the facial colliculus?",
+  "format": "keywords",
+  "answer": "Facial nerve fibres looping over the abducens nucleus (VII and VI)",
+  "accept": [],
+  "keywords": [
+   [
+    "facial",
+    "VII"
+   ],
+   [
+    "abducens",
+    "VI"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-colliculus-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "facial-colliculus",
+  "status": "live",
+  "position": 1038,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the facial colliculus produces which pair of deficits?",
+  "format": "keywords",
+  "answer": "Ipsilateral lateral gaze palsy and facial palsy",
+  "accept": [],
+  "keywords": [
+   [
+    "gaze",
+    "abducens"
+   ],
+   [
+    "facial"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pyramids-passes",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 1039,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Which tract runs in the pyramids of the medulla?",
+  "format": "type",
+  "answer": "Corticospinal tract",
+  "accept": [
+   "corticospinal"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pyramids-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 1040,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A lesion of the left medullary pyramid causes weakness on which side?",
+  "format": "keywords",
+  "answer": "Right (contralateral) body, below the face",
+  "accept": [],
+  "keywords": [
+   [
+    "right",
+    "contralateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pyramids-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 1041,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve exits just lateral to the pyramid (preolivary sulcus)?",
+  "format": "type",
+  "answer": "Hypoglossal nerve (CN XII)",
+  "accept": [
+   "hypoglossal",
+   "CN XII",
+   "XII",
+   "12"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-olives-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "olives",
+  "status": "live",
+  "position": 1042,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "The olive overlies which nucleus?",
+  "format": "type",
+  "answer": "Inferior olivary nucleus",
+  "accept": [
+   "inferior olivary"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-olives-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "olives",
+  "status": "live",
+  "position": 1043,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve exits just medial to the olive?",
+  "format": "keywords",
+  "answer": "Hypoglossal nerve (CN XII)",
+  "accept": [],
+  "keywords": [
+   [
+    "hypoglossal;CN XII;XII;12"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-olives-embryology",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "olives",
+  "status": "live",
+  "position": 1044,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the medulla (olive) arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cuneate-tubercle-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "cuneate-tubercle",
+  "status": "live",
+  "position": 1045,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which nucleus lies deep to the cuneate tubercle?",
+  "format": "type",
+  "answer": "Cuneate nucleus",
+  "accept": [
+   "cuneate",
+   "nucleus cuneatus"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-gracile-tubercle-connections",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "gracile-tubercle",
+  "status": "live",
+  "position": 1046,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which nucleus lies deep to the gracile tubercle?",
+  "format": "type",
+  "answer": "Gracile nucleus",
+  "accept": [
+   "gracile",
+   "nucleus gracilis"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-obex-level",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "obex",
+  "status": "live",
+  "position": 1047,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "The obex marks the transition between which two structures?",
+  "format": "keywords",
+  "answer": "Fourth ventricle and central canal (medulla and spinal cord)",
+  "accept": [],
+  "keywords": [
+   [
+    "fourth ventricle"
+   ],
+   [
+    "central canal",
+    "spinal cord"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-area-postrema-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "area-postrema",
+  "status": "live",
+  "position": 1048,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the area postrema?",
+  "format": "keywords",
+  "answer": "Chemoreceptor trigger zone: detects toxins and triggers vomiting",
+  "accept": [],
+  "keywords": [
+   [
+    "vomit",
+    "vomiting",
+    "emesis",
+    "nausea",
+    "chemoreceptor",
+    "toxin"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-periaqueductal-gray-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "periaqueductal-gray",
+  "status": "live",
+  "position": 1049,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the periaqueductal grey.",
+  "format": "keywords",
+  "answer": "Descending pain modulation; defensive behaviours",
+  "accept": [],
+  "keywords": [
+   [
+    "pain",
+    "analgesia",
+    "defence",
+    "defense",
+    "defensive",
+    "fear"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-periaqueductal-gray-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "periaqueductal-gray",
+  "status": "live",
+  "position": 1050,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the periaqueductal grey arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-red-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 1051,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which UMN tract originates from the red nucleus?",
+  "format": "type",
+  "answer": "Rubrospinal tract",
+  "accept": [
+   "rubrospinal"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-red-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 1052,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the red nucleus?",
+  "format": "keywords",
+  "answer": "Facilitates flexor tone/limb movement via the rubrospinal tract; relay from cerebellum",
+  "accept": [],
+  "keywords": [
+   [
+    "flexor",
+    "limb",
+    "movement",
+    "motor",
+    "rubrospinal",
+    "cerebellum"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-red-nucleus-side",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 1053,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "Does the rubrospinal tract descend ipsilateral or contralateral to the red nucleus?",
+  "format": "keywords",
+  "answer": "Contralateral",
+  "accept": [],
+  "keywords": [
+   [
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nucleus",
+  "status": "live",
+  "position": 1054,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the oculomotor nucleus.",
+  "format": "keywords",
+  "answer": "Medial rectus, superior rectus, inferior rectus, inferior oblique or levator palpebrae superioris",
+  "accept": [],
+  "keywords": [
+   [
+    "medial rectus",
+    "superior rectus",
+    "inferior rectus",
+    "inferior oblique",
+    "levator"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nucleus",
+  "status": "live",
+  "position": 1055,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the oculomotor nucleus?",
+  "format": "type",
+  "answer": "Oculomotor nerve (CN III)",
+  "accept": [
+   "oculomotor",
+   "CN III",
+   "III",
+   "3"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nucleus-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nucleus",
+  "status": "live",
+  "position": 1056,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At what midbrain level is the oculomotor nucleus found?",
+  "format": "keywords",
+  "answer": "Superior colliculus level",
+  "accept": [],
+  "keywords": [
+   [
+    "superior colliculus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nucleus",
+  "status": "live",
+  "position": 1057,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the oculomotor nucleus arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-edinger-westphal-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "edinger-westphal-nucleus",
+  "status": "live",
+  "position": 1058,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the Edinger-Westphal nucleus.",
+  "format": "keywords",
+  "answer": "Pupillary constriction (and lens accommodation)",
+  "accept": [],
+  "keywords": [
+   [
+    "pupil",
+    "constriction",
+    "miosis",
+    "accommodation",
+    "light reflex"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-edinger-westphal-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "edinger-westphal-nucleus",
+  "status": "live",
+  "position": 1059,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "What modality of fibres originate from the Edinger-Westphal nucleus?",
+  "format": "keywords",
+  "answer": "Parasympathetic (preganglionic)",
+  "accept": [],
+  "keywords": [
+   [
+    "parasympathetic"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-edinger-westphal-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "edinger-westphal-nucleus",
+  "status": "live",
+  "position": 1060,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle controlled by the Edinger-Westphal nucleus.",
+  "format": "keywords",
+  "answer": "Sphincter pupillae or ciliary muscle",
+  "accept": [],
+  "keywords": [
+   [
+    "sphincter pupillae",
+    "pupillary sphincter",
+    "ciliary"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-substantia-nigra-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "substantia-nigra",
+  "status": "live",
+  "position": 1061,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the main neurotransmitter of the substantia nigra pars compacta and what does it do?",
+  "format": "keywords",
+  "answer": "Dopamine to the striatum, facilitating movement",
+  "accept": [],
+  "keywords": [
+   [
+    "dopamine"
+   ],
+   [
+    "striatum",
+    "movement",
+    "caudate",
+    "putamen"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-substantia-nigra-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "substantia-nigra",
+  "status": "live",
+  "position": 1062,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Degeneration of the substantia nigra causes which disease?",
+  "format": "type",
+  "answer": "Parkinson disease",
+  "accept": [
+   "parkinson"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-substantia-nigra-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "substantia-nigra",
+  "status": "live",
+  "position": 1063,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the substantia nigra arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nerve-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nerve",
+  "status": "live",
+  "position": 1064,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one unique feature of the path of the oculomotor nerve.",
+  "format": "keywords",
+  "answer": "Exits the interpeduncular fossa between the PCA and SCA; parasympathetic fibres lie superficially",
+  "accept": [],
+  "keywords": [
+   [
+    "interpeduncular",
+    "PCA",
+    "posterior cerebral",
+    "superior cerebellar",
+    "parasympathetic",
+    "between"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nerve",
+  "status": "live",
+  "position": 1065,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A CN III palsy gives which eye position?",
+  "format": "keywords",
+  "answer": "Down and out (ptosis, dilated pupil)",
+  "accept": [],
+  "keywords": [
+   [
+    "down",
+    "out",
+    "abducted",
+    "lateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-oculomotor-nerve-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "oculomotor-nerve",
+  "status": "live",
+  "position": 1066,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the oculomotor nerve.",
+  "format": "keywords",
+  "answer": "Superior, medial, inferior rectus, inferior oblique, levator palpebrae",
+  "accept": [],
+  "keywords": [
+   [
+    "rectus",
+    "oblique",
+    "levator"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-lemniscus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "medial-lemniscus",
+  "status": "live",
+  "position": 1067,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one sensation carried by the medial lemniscus.",
+  "format": "keywords",
+  "answer": "Fine touch, vibration, conscious proprioception",
+  "accept": [],
+  "keywords": [
+   [
+    "fine touch",
+    "vibration",
+    "proprioception"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-lemniscus-order",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "medial-lemniscus",
+  "status": "live",
+  "position": 1068,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "The medial lemniscus contains axons of which order of neuron?",
+  "format": "keywords",
+  "answer": "Second-order",
+  "accept": [],
+  "keywords": [
+   [
+    "second",
+    "2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-lemniscus-side",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "medial-lemniscus",
+  "status": "live",
+  "position": 1069,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "Does the medial lemniscus carry information from the ipsilateral or contralateral body?",
+  "format": "keywords",
+  "answer": "Contralateral",
+  "accept": [],
+  "keywords": [
+   [
+    "contralateral",
+    "opposite"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-lemniscus-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "medial-lemniscus",
+  "status": "live",
+  "position": 1070,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do medial lemniscus axons synapse?",
+  "format": "type",
+  "answer": "VPL of the thalamus",
+  "accept": [
+   "VPL",
+   "ventral posterolateral",
+   "thalamus"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-longitudinal-fasciculus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "live",
+  "position": 1071,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the MLF?",
+  "format": "keywords",
+  "answer": "Coordinates conjugate eye movements (links CN III, IV, VI with vestibular nuclei)",
+  "accept": [],
+  "keywords": [
+   [
+    "conjugate",
+    "eye",
+    "gaze",
+    "vestibulo",
+    "coordinate"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-medial-longitudinal-fasciculus-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "live",
+  "position": 1072,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "An MLF lesion causes which eye movement disorder?",
+  "format": "keywords",
+  "answer": "Internuclear ophthalmoplegia (failure of ipsilateral adduction)",
+  "accept": [],
+  "keywords": [
+   [
+    "internuclear",
+    "INO",
+    "adduction"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trochlear-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "trochlear-nucleus",
+  "status": "live",
+  "position": 1073,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle does the trochlear nucleus innervate?",
+  "format": "type",
+  "answer": "Superior oblique (contralateral)",
+  "accept": [
+   "superior oblique"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trochlear-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "trochlear-nucleus",
+  "status": "live",
+  "position": 1074,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the trochlear nucleus?",
+  "format": "type",
+  "answer": "Trochlear nerve (CN IV)",
+  "accept": [
+   "trochlear",
+   "CN IV",
+   "IV",
+   "4"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trochlear-nucleus-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "trochlear-nucleus",
+  "status": "live",
+  "position": 1075,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which midbrain level is the trochlear nucleus found?",
+  "format": "keywords",
+  "answer": "Inferior colliculus level",
+  "accept": [],
+  "keywords": [
+   [
+    "inferior colliculus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trochlear-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "trochlear-nucleus",
+  "status": "live",
+  "position": 1076,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the trochlear nucleus arise?",
+  "format": "type",
+  "answer": "Mesencephalon",
+  "accept": [
+   "midbrain"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-decussation-of-the-superior-cerebellar-peduncle-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "decussation-of-the-superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 1077,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which midbrain level does the superior cerebellar peduncle decussate?",
+  "format": "keywords",
+  "answer": "Inferior colliculus level",
+  "accept": [],
+  "keywords": [
+   [
+    "inferior colliculus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-decussation-of-the-superior-cerebellar-peduncle-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "decussation-of-the-superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 1078,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do decussated superior cerebellar peduncle fibres terminate?",
+  "format": "keywords",
+  "answer": "Contralateral red nucleus and thalamus (VL)",
+  "accept": [],
+  "keywords": [
+   [
+    "red nucleus",
+    "thalamus",
+    "VL"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-trigeminal-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-trigeminal-nucleus",
+  "status": "live",
+  "position": 1079,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the motor trigeminal nucleus.",
+  "format": "keywords",
+  "answer": "Masseter, temporalis, medial or lateral pterygoid, tensor tympani",
+  "accept": [],
+  "keywords": [
+   [
+    "masseter",
+    "temporalis",
+    "pterygoid",
+    "tensor tympani",
+    "tensor veli",
+    "mylohyoid",
+    "digastric"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-trigeminal-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-trigeminal-nucleus",
+  "status": "live",
+  "position": 1080,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the motor trigeminal nucleus?",
+  "format": "type",
+  "answer": "Trigeminal nerve (CN V, V3)",
+  "accept": [
+   "trigeminal",
+   "CN V",
+   "V",
+   "5"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-trigeminal-nucleus-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-trigeminal-nucleus",
+  "status": "live",
+  "position": 1081,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which brainstem level is the motor trigeminal nucleus found?",
+  "format": "type",
+  "answer": "Mid pons",
+  "accept": [
+   "pons",
+   "pons"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-trigeminal-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-trigeminal-nucleus",
+  "status": "live",
+  "position": 1082,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the motor trigeminal nucleus arise?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-trigeminal-nucleus-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-trigeminal-nucleus",
+  "status": "live",
+  "position": 1083,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "With a unilateral motor trigeminal lesion, the jaw deviates toward which side on opening?",
+  "format": "keywords",
+  "answer": "Toward the weak (lesioned) side",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same",
+    "lesion",
+    "weak",
+    "toward"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-principal-sensory-nucleus-of-trigeminal-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "principal-sensory-nucleus-of-trigeminal",
+  "status": "live",
+  "position": 1084,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What sensation does the principal sensory nucleus of the trigeminal process?",
+  "format": "keywords",
+  "answer": "Discriminative touch from the face",
+  "accept": [],
+  "keywords": [
+   [
+    "touch",
+    "fine touch",
+    "discriminative",
+    "vibration"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-principal-sensory-nucleus-of-trigeminal-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "principal-sensory-nucleus-of-trigeminal",
+  "status": "live",
+  "position": 1085,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve provides input to the principal sensory nucleus?",
+  "format": "type",
+  "answer": "Trigeminal nerve (CN V)",
+  "accept": [
+   "trigeminal",
+   "CN V",
+   "V",
+   "5"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-principal-sensory-nucleus-of-trigeminal-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "principal-sensory-nucleus-of-trigeminal",
+  "status": "live",
+  "position": 1086,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which brainstem level is the principal sensory nucleus of the trigeminal?",
+  "format": "type",
+  "answer": "Mid pons",
+  "accept": [
+   "pons"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-longitudinal-fibers-of-the-pons-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "longitudinal-fibers-of-the-pons",
+  "status": "live",
+  "position": 1087,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract in the longitudinal fibres of the basis pontis.",
+  "format": "keywords",
+  "answer": "Corticospinal, corticobulbar, corticopontine",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "corticobulbar",
+    "corticopontine"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pontine-nuclei-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "pontine-nuclei",
+  "status": "live",
+  "position": 1088,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the pontine nuclei?",
+  "format": "keywords",
+  "answer": "Relay cortical information to the contralateral cerebellum",
+  "accept": [],
+  "keywords": [
+   [
+    "cerebellum",
+    "relay"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pontine-nuclei-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "pontine-nuclei",
+  "status": "live",
+  "position": 1089,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which cerebellar peduncle carries pontocerebellar fibres?",
+  "format": "type",
+  "answer": "Middle cerebellar peduncle",
+  "accept": [
+   "middle"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pontine-nuclei-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "pontine-nuclei",
+  "status": "live",
+  "position": 1090,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle do the pontine nuclei arise?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "abducens-nucleus",
+  "status": "live",
+  "position": 1091,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle does the abducens nucleus innervate?",
+  "format": "type",
+  "answer": "Lateral rectus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "abducens-nucleus",
+  "status": "live",
+  "position": 1092,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the abducens nucleus?",
+  "format": "type",
+  "answer": "Abducens nerve (CN VI)",
+  "accept": [
+   "abducens",
+   "CN VI",
+   "VI",
+   "6"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "abducens-nucleus",
+  "status": "live",
+  "position": 1093,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Stimulation of the abducens nucleus turns the eye which way?",
+  "format": "keywords",
+  "answer": "Laterally (abduction, toward the ear)",
+  "accept": [],
+  "keywords": [
+   [
+    "lateral",
+    "laterally",
+    "abduct",
+    "outward",
+    "out",
+    "ear"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nucleus-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "abducens-nucleus",
+  "status": "live",
+  "position": 1094,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which brainstem level is the abducens nucleus?",
+  "format": "type",
+  "answer": "Caudal pons",
+  "accept": [
+   "pons"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "abducens-nucleus",
+  "status": "live",
+  "position": 1095,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the abducens nucleus arise?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 1096,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the facial nucleus.",
+  "format": "keywords",
+  "answer": "Orbicularis oculi, buccinator, stapedius, platysma, frontalis, orbicularis oris",
+  "accept": [],
+  "keywords": [
+   [
+    "orbicularis",
+    "buccinator",
+    "stapedius",
+    "platysma",
+    "frontalis",
+    "zygomaticus",
+    "stylohyoid",
+    "digastric"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 1097,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the facial nucleus?",
+  "format": "type",
+  "answer": "Facial nerve (CN VII)",
+  "accept": [
+   "facial",
+   "CN VII",
+   "VII",
+   "7"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nucleus-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 1098,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Which part of the face is spared in an upper motor neuron facial palsy?",
+  "format": "keywords",
+  "answer": "Forehead (upper face)",
+  "accept": [],
+  "keywords": [
+   [
+    "forehead",
+    "upper"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nucleus-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 1099,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which brainstem level is the facial nucleus?",
+  "format": "type",
+  "answer": "Caudal pons",
+  "accept": [
+   "pons"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 1100,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the facial nucleus arise?",
+  "format": "type",
+  "answer": "Metencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vestibulocochlear-complex-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "vestibulocochlear-complex",
+  "status": "live",
+  "position": 1101,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the vestibulocochlear complex.",
+  "format": "keywords",
+  "answer": "Hearing and balance",
+  "accept": [],
+  "keywords": [
+   [
+    "hearing",
+    "balance",
+    "equilibrium",
+    "vestibular",
+    "auditory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vestibulocochlear-complex-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "vestibulocochlear-complex",
+  "status": "live",
+  "position": 1102,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve supplies the vestibulocochlear complex?",
+  "format": "type",
+  "answer": "Vestibulocochlear nerve (CN VIII)",
+  "accept": [
+   "vestibulocochlear",
+   "CN VIII",
+   "VIII",
+   "8"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nerve-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nerve",
+  "status": "live",
+  "position": 1103,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the facial nerve.",
+  "format": "keywords",
+  "answer": "Facial expression, tears and saliva, taste from anterior two-thirds of the tongue",
+  "accept": [],
+  "keywords": [
+   [
+    "expression",
+    "face",
+    "lacrimal",
+    "tear",
+    "saliva",
+    "taste",
+    "stapedius"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nerve",
+  "status": "live",
+  "position": 1104,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name the common idiopathic lower motor neuron facial palsy.",
+  "format": "keywords",
+  "answer": "Bell palsy",
+  "accept": [],
+  "keywords": [
+   [
+    "bell"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-facial-nerve-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "facial-nerve",
+  "status": "live",
+  "position": 1105,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Through which foramen does the facial nerve exit the skull?",
+  "format": "keywords",
+  "answer": "Stylomastoid foramen",
+  "accept": [],
+  "keywords": [
+   [
+    "stylomastoid"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nucleus-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nucleus",
+  "status": "live",
+  "position": 1106,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the hypoglossal nucleus.",
+  "format": "keywords",
+  "answer": "Genioglossus, hyoglossus, styloglossus or intrinsic tongue muscles",
+  "accept": [],
+  "keywords": [
+   [
+    "genioglossus",
+    "hyoglossus",
+    "styloglossus",
+    "intrinsic",
+    "tongue"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nucleus",
+  "status": "live",
+  "position": 1107,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the hypoglossal nucleus?",
+  "format": "keywords",
+  "answer": "Motor control of the tongue (movement for speech and swallowing)",
+  "accept": [],
+  "keywords": [
+   [
+    "tongue",
+    "movement"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nucleus-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nucleus",
+  "status": "live",
+  "position": 1108,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "With a unilateral hypoglossal lesion, the tongue deviates toward which side?",
+  "format": "keywords",
+  "answer": "Toward the lesion side (ipsilateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "lesion",
+    "same",
+    "toward"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nucleus",
+  "status": "live",
+  "position": 1109,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the hypoglossal nucleus?",
+  "format": "type",
+  "answer": "Hypoglossal nerve (CN XII)",
+  "accept": [
+   "hypoglossal",
+   "CN XII",
+   "XII",
+   "12"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nucleus",
+  "status": "live",
+  "position": 1110,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the hypoglossal nucleus arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-motor-nucleus-of-the-vagus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "dorsal-motor-nucleus-of-the-vagus",
+  "status": "live",
+  "position": 1111,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the dorsal motor nucleus of the vagus?",
+  "format": "keywords",
+  "answer": "Parasympathetic supply to thoracic and abdominal viscera",
+  "accept": [],
+  "keywords": [
+   [
+    "parasympathetic",
+    "viscera",
+    "heart",
+    "gut",
+    "visceral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-motor-nucleus-of-the-vagus-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "dorsal-motor-nucleus-of-the-vagus",
+  "status": "live",
+  "position": 1112,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "What modality of fibres originate from the dorsal motor nucleus of the vagus?",
+  "format": "keywords",
+  "answer": "Parasympathetic (visceral motor)",
+  "accept": [],
+  "keywords": [
+   [
+    "parasympathetic",
+    "visceral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-motor-nucleus-of-the-vagus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "dorsal-motor-nucleus-of-the-vagus",
+  "status": "live",
+  "position": 1113,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve arises from the dorsal motor nucleus of the vagus?",
+  "format": "type",
+  "answer": "Vagus nerve (CN X)",
+  "accept": [
+   "vagus",
+   "CN X",
+   "X",
+   "10"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-dorsal-motor-nucleus-of-the-vagus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "dorsal-motor-nucleus-of-the-vagus",
+  "status": "live",
+  "position": 1114,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the dorsal motor nucleus of the vagus arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-solitary-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "solitary-nucleus",
+  "status": "live",
+  "position": 1115,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the solitary nucleus.",
+  "format": "keywords",
+  "answer": "Taste and visceral sensation (chemo/baro-receptors, gut)",
+  "accept": [],
+  "keywords": [
+   [
+    "taste",
+    "gustatory",
+    "visceral",
+    "baroreceptor",
+    "chemoreceptor",
+    "gut",
+    "blood"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-solitary-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "solitary-nucleus",
+  "status": "live",
+  "position": 1116,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one cranial nerve carrying afferents to the solitary nucleus.",
+  "format": "keywords",
+  "answer": "VII, IX or X",
+  "accept": [],
+  "keywords": [
+   [
+    "VII",
+    "IX",
+    "X",
+    "facial",
+    "glossopharyngeal",
+    "vagus",
+    "7",
+    "9",
+    "10"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-solitary-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "solitary-nucleus",
+  "status": "live",
+  "position": 1117,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the solitary nucleus arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-ambiguus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "nucleus-ambiguus",
+  "status": "live",
+  "position": 1118,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of nucleus ambiguus.",
+  "format": "keywords",
+  "answer": "Motor control of the pharynx and larynx: swallowing, phonation, gag",
+  "accept": [],
+  "keywords": [
+   [
+    "swallow",
+    "swallowing",
+    "phonation",
+    "voice",
+    "gag",
+    "pharynx",
+    "larynx"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-ambiguus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "nucleus-ambiguus",
+  "status": "live",
+  "position": 1119,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one nerve that arises from nucleus ambiguus.",
+  "format": "keywords",
+  "answer": "Glossopharyngeal (IX), vagus (X) or cranial accessory (XI)",
+  "accept": [],
+  "keywords": [
+   [
+    "IX",
+    "X",
+    "XI",
+    "glossopharyngeal",
+    "vagus",
+    "accessory"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-ambiguus-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "nucleus-ambiguus",
+  "status": "live",
+  "position": 1120,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name one deficit after a nucleus ambiguus lesion.",
+  "format": "keywords",
+  "answer": "Dysphagia, hoarseness, dysarthria, uvula deviating away",
+  "accept": [],
+  "keywords": [
+   [
+    "dysphagia",
+    "hoarse",
+    "hoarseness",
+    "dysarthria",
+    "uvula"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-nucleus-ambiguus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "nucleus-ambiguus",
+  "status": "live",
+  "position": 1121,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does nucleus ambiguus arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-olivary-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "inferior-olivary-nucleus",
+  "status": "live",
+  "position": 1122,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the inferior olivary nucleus?",
+  "format": "keywords",
+  "answer": "Sends climbing fibres to the contralateral cerebellum for motor learning",
+  "accept": [],
+  "keywords": [
+   [
+    "climbing",
+    "cerebellum",
+    "motor learning",
+    "learning"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-olivary-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "inferior-olivary-nucleus",
+  "status": "live",
+  "position": 1123,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Through which cerebellar peduncle do olivocerebellar fibres travel?",
+  "format": "type",
+  "answer": "Inferior cerebellar peduncle",
+  "accept": [
+   "inferior"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-inferior-olivary-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "inferior-olivary-nucleus",
+  "status": "live",
+  "position": 1124,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the inferior olive arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-glossopharyngeal-nerve-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "glossopharyngeal-nerve",
+  "status": "live",
+  "position": 1125,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the glossopharyngeal nerve.",
+  "format": "keywords",
+  "answer": "Taste and sensation from posterior one-third of tongue, parotid secretion, carotid sinus, stylopharyngeus",
+  "accept": [],
+  "keywords": [
+   [
+    "taste",
+    "parotid",
+    "carotid",
+    "stylopharyngeus",
+    "gag",
+    "swallow",
+    "pharynx"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-glossopharyngeal-nerve-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "glossopharyngeal-nerve",
+  "status": "live",
+  "position": 1126,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle is innervated by the glossopharyngeal nerve?",
+  "format": "type",
+  "answer": "Stylopharyngeus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-glossopharyngeal-nerve-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "glossopharyngeal-nerve",
+  "status": "live",
+  "position": 1127,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which foramen does the glossopharyngeal nerve exit the skull?",
+  "format": "type",
+  "answer": "Jugular foramen",
+  "accept": [
+   "jugular"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vagus-nerve-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "vagus-nerve",
+  "status": "live",
+  "position": 1128,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the vagus nerve.",
+  "format": "keywords",
+  "answer": "Parasympathetic to thoracic and abdominal viscera; motor to pharynx and larynx",
+  "accept": [],
+  "keywords": [
+   [
+    "parasympathetic",
+    "heart",
+    "gut",
+    "pharynx",
+    "larynx",
+    "swallow",
+    "voice"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vagus-nerve-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "vagus-nerve",
+  "status": "live",
+  "position": 1129,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which foramen does the vagus nerve exit the skull?",
+  "format": "type",
+  "answer": "Jugular foramen",
+  "accept": [
+   "jugular"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vagus-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "vagus-nerve",
+  "status": "live",
+  "position": 1130,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "With a unilateral vagus lesion, the uvula deviates toward which side?",
+  "format": "keywords",
+  "answer": "Away from the lesion",
+  "accept": [],
+  "keywords": [
+   [
+    "away",
+    "opposite",
+    "contralateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nerve-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nerve",
+  "status": "live",
+  "position": 1131,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which canal does the hypoglossal nerve leave the skull?",
+  "format": "type",
+  "answer": "Hypoglossal canal",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-hypoglossal-nerve-muscle",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "hypoglossal-nerve",
+  "status": "live",
+  "position": 1132,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the hypoglossal nerve.",
+  "format": "keywords",
+  "answer": "Genioglossus, hyoglossus, styloglossus or intrinsic tongue muscles",
+  "accept": [],
+  "keywords": [
+   [
+    "genioglossus",
+    "hyoglossus",
+    "styloglossus",
+    "intrinsic",
+    "tongue"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-gracile-nucleus-order",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "gracile-nucleus",
+  "status": "live",
+  "position": 1133,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "The gracile nucleus contains which order of neuron in the DCML?",
+  "format": "keywords",
+  "answer": "Second-order",
+  "accept": [],
+  "keywords": [
+   [
+    "second",
+    "2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-gracile-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "gracile-nucleus",
+  "status": "live",
+  "position": 1134,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Do gracile nucleus axons cross the midline?",
+  "format": "keywords",
+  "answer": "Yes, as internal arcuate fibres in the caudal medulla",
+  "accept": [],
+  "keywords": [
+   [
+    "yes",
+    "cross",
+    "decussate",
+    "internal arcuate"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-gracile-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "gracile-nucleus",
+  "status": "live",
+  "position": 1135,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the gracile nucleus arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cuneate-nucleus-order",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "cuneate-nucleus",
+  "status": "live",
+  "position": 1136,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "The cuneate nucleus contains which order of neuron in the DCML?",
+  "format": "keywords",
+  "answer": "Second-order",
+  "accept": [],
+  "keywords": [
+   [
+    "second",
+    "2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cuneate-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "cuneate-nucleus",
+  "status": "live",
+  "position": 1137,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Cuneate nucleus relays sensation from which body region?",
+  "format": "keywords",
+  "answer": "Upper limb and upper trunk",
+  "accept": [],
+  "keywords": [
+   [
+    "upper",
+    "arm",
+    "arms"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cuneate-nucleus-embryology",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "cuneate-nucleus",
+  "status": "live",
+  "position": 1138,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "embryology",
+  "prompt": "From which secondary vesicle does the cuneate nucleus arise?",
+  "format": "type",
+  "answer": "Myelencephalon",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-arcuate-fibers-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "internal-arcuate-fibers",
+  "status": "live",
+  "position": 1139,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Internal arcuate fibres are the axons of which neurons, and what do they form?",
+  "format": "keywords",
+  "answer": "Gracile and cuneate nucleus axons; they form the medial lemniscus",
+  "accept": [],
+  "keywords": [
+   [
+    "gracile",
+    "cuneate"
+   ],
+   [
+    "medial lemniscus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-arcuate-fibers-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "internal-arcuate-fibers",
+  "status": "live",
+  "position": 1140,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which level does the DCML decussate?",
+  "format": "type",
+  "answer": "Caudal medulla",
+  "accept": [
+   "medulla"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-internal-arcuate-fibers-order",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "internal-arcuate-fibers",
+  "status": "live",
+  "position": 1141,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "Internal arcuate fibres are axons of which order of neuron?",
+  "format": "keywords",
+  "answer": "Second-order",
+  "accept": [],
+  "keywords": [
+   [
+    "second",
+    "2"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-spinal-trigeminal-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "live",
+  "position": 1142,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What sensation does the spinal trigeminal nucleus process?",
+  "format": "keywords",
+  "answer": "Pain and temperature from the face",
+  "accept": [],
+  "keywords": [
+   [
+    "pain",
+    "temperature"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-spinal-trigeminal-nucleus-side",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "live",
+  "position": 1143,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "After a lateral medullary infarct, which side of the face loses pain and temperature?",
+  "format": "keywords",
+  "answer": "Ipsilateral",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-spinal-trigeminal-nucleus-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "live",
+  "position": 1144,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one cranial nerve besides V that sends pain afferents to the spinal trigeminal nucleus.",
+  "format": "keywords",
+  "answer": "VII, IX or X",
+  "accept": [],
+  "keywords": [
+   [
+    "VII",
+    "IX",
+    "X",
+    "facial",
+    "glossopharyngeal",
+    "vagus"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-decussation-level",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-decussation",
+  "status": "live",
+  "position": 1145,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "level",
+  "prompt": "At which level is the motor (pyramidal) decussation?",
+  "format": "type",
+  "answer": "Caudal medulla (cervicomedullary junction)",
+  "accept": [
+   "medulla",
+   "caudal medulla",
+   "cervicomedullary"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-motor-decussation-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "motor-decussation",
+  "status": "live",
+  "position": 1146,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "What percentage of corticospinal fibres cross at the motor decussation?",
+  "format": "keywords",
+  "answer": "About 90%",
+  "accept": [],
+  "keywords": [
+   [
+    "90",
+    "85",
+    "10-15"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-corticospinal-tract-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "lateral-corticospinal-tract",
+  "status": "live",
+  "position": 1147,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the lateral corticospinal tract control?",
+  "format": "keywords",
+  "answer": "Voluntary movement of the contralateral limbs, especially distal muscles",
+  "accept": [],
+  "keywords": [
+   [
+    "limb",
+    "limbs",
+    "distal",
+    "voluntary",
+    "hand"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-corticospinal-tract-order",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "lateral-corticospinal-tract",
+  "status": "live",
+  "position": 1148,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "order",
+  "prompt": "Does the lateral corticospinal tract contain upper or lower motor neurons?",
+  "format": "keywords",
+  "answer": "Upper motor neurons",
+  "accept": [],
+  "keywords": [
+   [
+    "upper",
+    "UMN"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-corticospinal-tract-side",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "lateral-corticospinal-tract",
+  "status": "live",
+  "position": 1149,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "A lateral corticospinal tract lesion in the cord causes weakness on which side?",
+  "format": "keywords",
+  "answer": "Ipsilateral (below the lesion), since the tract has already crossed",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-corticospinal-tract-connections",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "lateral-corticospinal-tract",
+  "status": "live",
+  "position": 1150,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where do lateral corticospinal axons synapse?",
+  "format": "keywords",
+  "answer": "On ventral horn lower motor neurons (via interneurons)",
+  "accept": [],
+  "keywords": [
+   [
+    "ventral horn",
+    "lower motor",
+    "anterior horn"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-corticospinal-tract-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "anterior-corticospinal-tract",
+  "status": "live",
+  "position": 1151,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What does the anterior corticospinal tract control?",
+  "format": "keywords",
+  "answer": "Axial/trunk and proximal muscles, bilaterally",
+  "accept": [],
+  "keywords": [
+   [
+    "trunk",
+    "axial",
+    "proximal",
+    "neck"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-corticospinal-tract-side",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "anterior-corticospinal-tract",
+  "status": "live",
+  "position": 1152,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "side",
+  "prompt": "Where does the anterior corticospinal tract decussate?",
+  "format": "keywords",
+  "answer": "At the segmental level in the ventral white commissure",
+  "accept": [],
+  "keywords": [
+   [
+    "segmental",
+    "ventral white commissure",
+    "anterior white commissure",
+    "spinal level"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lateral-funiculus-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "lateral-funiculus",
+  "status": "live",
+  "position": 1153,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract in the lateral funiculus.",
+  "format": "keywords",
+  "answer": "Lateral corticospinal, rubrospinal, spinothalamic, spinocerebellar",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "rubrospinal",
+    "spinothalamic",
+    "anterolateral",
+    "spinocerebellar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-anterior-funiculus-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "anterior-funiculus",
+  "status": "live",
+  "position": 1154,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one tract in the anterior funiculus.",
+  "format": "keywords",
+  "answer": "Anterior corticospinal, vestibulospinal, reticulospinal, tectospinal",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "vestibulospinal",
+    "reticulospinal",
+    "tectospinal"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-location-of-limb-lower-motor-neurons-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "location-of-limb-lower-motor-neurons",
+  "status": "live",
+  "position": 1155,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Where in the ventral horn are limb lower motor neurons?",
+  "format": "keywords",
+  "answer": "Lateral part of the ventral horn",
+  "accept": [],
+  "keywords": [
+   [
+    "lateral"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-location-of-trunk-lower-motor-neurons-function",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "location-of-trunk-lower-motor-neurons",
+  "status": "live",
+  "position": 1156,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Where in the ventral horn are trunk (axial) lower motor neurons?",
+  "format": "keywords",
+  "answer": "Medial part of the ventral horn",
+  "accept": [],
+  "keywords": [
+   [
+    "medial"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-pontine-protuberance-passes",
+  "kind": "theory",
+  "topic": "lab-8",
+  "structure": "pontine-protuberance",
+  "status": "live",
+  "position": 1157,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name one fibre system in the basis pontis.",
+  "format": "keywords",
+  "answer": "Corticospinal, corticobulbar, corticopontine, pontocerebellar fibres",
+  "accept": [],
+  "keywords": [
+   [
+    "corticospinal",
+    "corticobulbar",
+    "corticopontine",
+    "pontocerebellar"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cornea-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "cornea",
+  "status": "live",
+  "position": 1158,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the cornea.",
+  "format": "keywords",
+  "answer": "Refracts light (major focusing power); protects the eye",
+  "accept": [],
+  "keywords": [
+   [
+    "refract",
+    "refraction",
+    "focus",
+    "protect",
+    "light"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-cornea-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "cornea",
+  "status": "live",
+  "position": 1159,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerves mediate the corneal reflex (afferent and efferent)?",
+  "format": "keywords",
+  "answer": "V1 (afferent) and VII (efferent)",
+  "accept": [],
+  "keywords": [
+   [
+    "V",
+    "V1",
+    "trigeminal"
+   ],
+   [
+    "VII",
+    "facial"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-sclera-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "sclera",
+  "status": "live",
+  "position": 1160,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the sclera.",
+  "format": "keywords",
+  "answer": "Gives the eye shape and protects it; muscle attachment",
+  "accept": [],
+  "keywords": [
+   [
+    "shape",
+    "protect",
+    "attach",
+    "muscle",
+    "support"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-nerve-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "optic-nerve",
+  "status": "live",
+  "position": 1161,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve number is the optic nerve?",
+  "format": "type",
+  "answer": "CN II",
+  "accept": [
+   "II",
+   "2"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "optic-nerve",
+  "status": "live",
+  "position": 1162,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Complete lesion of the right optic nerve causes what?",
+  "format": "keywords",
+  "answer": "Blindness in the right eye",
+  "accept": [],
+  "keywords": [
+   [
+    "right",
+    "monocular",
+    "blind"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-nerve-connections",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "optic-nerve",
+  "status": "live",
+  "position": 1163,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Where does the optic nerve go after the optic canal?",
+  "format": "type",
+  "answer": "Optic chiasm",
+  "accept": [
+   "chiasm"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-radiations-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "optic-radiations",
+  "status": "live",
+  "position": 1164,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What do the optic radiations connect?",
+  "format": "keywords",
+  "answer": "LGN to primary visual cortex (V1)",
+  "accept": [],
+  "keywords": [
+   [
+    "LGN",
+    "lateral geniculate"
+   ],
+   [
+    "V1",
+    "primary visual",
+    "occipital",
+    "calcarine"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-radiations-lesion",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "optic-radiations",
+  "status": "live",
+  "position": 1165,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Temporal lobe (Meyer loop) lesion of the optic radiations causes which defect?",
+  "format": "keywords",
+  "answer": "Contralateral superior quadrantanopia (pie in the sky)",
+  "accept": [],
+  "keywords": [
+   [
+    "superior",
+    "upper",
+    "pie"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-optic-radiations-passes",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "optic-radiations",
+  "status": "live",
+  "position": 1166,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Which part of the internal capsule do optic radiations pass through?",
+  "format": "keywords",
+  "answer": "Retrolenticular limb",
+  "accept": [],
+  "keywords": [
+   [
+    "retrolenticular",
+    "sublenticular"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-iris-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "iris",
+  "status": "live",
+  "position": 1167,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the iris.",
+  "format": "keywords",
+  "answer": "Controls pupil size and thus light entering the eye",
+  "accept": [],
+  "keywords": [
+   [
+    "pupil",
+    "light",
+    "aperture"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-iris-muscle",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "iris",
+  "status": "live",
+  "position": 1168,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which iris muscle constricts the pupil, and which division supplies it?",
+  "format": "keywords",
+  "answer": "Sphincter pupillae; parasympathetic (CN III)",
+  "accept": [],
+  "keywords": [
+   [
+    "sphincter"
+   ],
+   [
+    "parasympathetic",
+    "CN III",
+    "oculomotor"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lens-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "lens",
+  "status": "live",
+  "position": 1169,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the lens?",
+  "format": "keywords",
+  "answer": "Fine focusing of light on the retina (accommodation)",
+  "accept": [],
+  "keywords": [
+   [
+    "focus",
+    "focusing",
+    "accommodation",
+    "refract"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lens-muscle",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "lens",
+  "status": "live",
+  "position": 1170,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle changes the shape of the lens?",
+  "format": "type",
+  "answer": "Ciliary muscle",
+  "accept": [
+   "ciliary"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-lens-lesion",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "lens",
+  "status": "live",
+  "position": 1171,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "What is clouding of the lens called?",
+  "format": "type",
+  "answer": "Cataract",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-retina-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "retina",
+  "status": "live",
+  "position": 1172,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the retina?",
+  "format": "keywords",
+  "answer": "Converts light into neural signals (phototransduction)",
+  "accept": [],
+  "keywords": [
+   [
+    "light",
+    "photoreceptor",
+    "transduction",
+    "transduce",
+    "visual"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-retina-connections",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "retina",
+  "status": "live",
+  "position": 1173,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Name the retinal neuron whose axons form the optic nerve.",
+  "format": "keywords",
+  "answer": "Retinal ganglion cells",
+  "accept": [],
+  "keywords": [
+   [
+    "ganglion"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-retina-lesion",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "retina",
+  "status": "live",
+  "position": 1174,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Name one retinal disease.",
+  "format": "keywords",
+  "answer": "Retinal detachment, diabetic retinopathy, macular degeneration, central retinal artery occlusion",
+  "accept": [],
+  "keywords": [
+   [
+    "detachment",
+    "retinopathy",
+    "macular",
+    "occlusion",
+    "retinitis"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-choroid-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "choroid",
+  "status": "live",
+  "position": 1175,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the choroid.",
+  "format": "keywords",
+  "answer": "Vascular nourishment of the outer retina; absorbs stray light",
+  "accept": [],
+  "keywords": [
+   [
+    "blood",
+    "vascular",
+    "nourish",
+    "nutrient",
+    "absorb"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-suprachiasmatic-nucleus-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "suprachiasmatic-nucleus",
+  "status": "live",
+  "position": 1176,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the suprachiasmatic nucleus?",
+  "format": "keywords",
+  "answer": "Master circadian clock",
+  "accept": [],
+  "keywords": [
+   [
+    "circadian",
+    "clock",
+    "sleep",
+    "rhythm"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-suprachiasmatic-nucleus-connections",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "suprachiasmatic-nucleus",
+  "status": "live",
+  "position": 1177,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which tract carries light information to the suprachiasmatic nucleus?",
+  "format": "type",
+  "answer": "Retinohypothalamic tract",
+  "accept": [
+   "retinohypothalamic"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-paramedian-pontine-reticular-formation-function",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "paramedian-pontine-reticular-formation",
+  "status": "live",
+  "position": 1178,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "What is the function of the PPRF?",
+  "format": "keywords",
+  "answer": "Horizontal (lateral) conjugate gaze centre",
+  "accept": [],
+  "keywords": [
+   [
+    "horizontal",
+    "lateral",
+    "gaze",
+    "saccade"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-paramedian-pontine-reticular-formation-connections",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "paramedian-pontine-reticular-formation",
+  "status": "live",
+  "position": 1179,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "connections",
+  "prompt": "Which nucleus does the PPRF project to?",
+  "format": "type",
+  "answer": "Ipsilateral abducens nucleus",
+  "accept": [
+   "abducens"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-paramedian-pontine-reticular-formation-lesion",
+  "kind": "theory",
+  "topic": "lab-11",
+  "structure": "paramedian-pontine-reticular-formation",
+  "status": "live",
+  "position": 1180,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "A PPRF lesion causes inability to look toward which side?",
+  "format": "keywords",
+  "answer": "Toward the side of the lesion (ipsilateral)",
+  "accept": [],
+  "keywords": [
+   [
+    "ipsilateral",
+    "same",
+    "lesion"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-olfactory-nerve-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "olfactory-nerve",
+  "status": "live",
+  "position": 1181,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve number is the olfactory nerve?",
+  "format": "type",
+  "answer": "CN I",
+  "accept": [
+   "I",
+   "1"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-olfactory-nerve-passes",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "olfactory-nerve",
+  "status": "live",
+  "position": 1182,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Through which bony structure do olfactory axons pass?",
+  "format": "type",
+  "answer": "Cribriform plate of the ethmoid",
+  "accept": [
+   "cribriform"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-olfactory-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "olfactory-nerve",
+  "status": "live",
+  "position": 1183,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "What is loss of smell called?",
+  "format": "type",
+  "answer": "Anosmia",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trochlear-nerve-muscle",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "trochlear-nerve",
+  "status": "live",
+  "position": 1184,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle does the trochlear nerve innervate?",
+  "format": "type",
+  "answer": "Superior oblique",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trochlear-nerve-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "trochlear-nerve",
+  "status": "live",
+  "position": 1185,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Name one unique feature of the trochlear nerve.",
+  "format": "keywords",
+  "answer": "Exits dorsally from the midbrain, decussates, and is the smallest/longest intracranial nerve",
+  "accept": [],
+  "keywords": [
+   [
+    "dorsal",
+    "posterior",
+    "decussate",
+    "cross",
+    "smallest",
+    "longest"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trigeminal-nerve-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "trigeminal-nerve",
+  "status": "live",
+  "position": 1186,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the trigeminal nerve.",
+  "format": "keywords",
+  "answer": "Facial sensation; motor to muscles of mastication",
+  "accept": [],
+  "keywords": [
+   [
+    "facial sensation",
+    "sensation",
+    "mastication",
+    "chewing"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trigeminal-nerve-passes",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "trigeminal-nerve",
+  "status": "live",
+  "position": 1187,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "passes",
+  "prompt": "Name the foramen for one of the trigeminal divisions.",
+  "format": "keywords",
+  "answer": "V1 superior orbital fissure; V2 foramen rotundum; V3 foramen ovale",
+  "accept": [],
+  "keywords": [
+   [
+    "orbital fissure",
+    "rotundum",
+    "ovale"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-trigeminal-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "trigeminal-nerve",
+  "status": "live",
+  "position": 1188,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "What condition causes severe stabbing facial pain in the trigeminal distribution?",
+  "format": "type",
+  "answer": "Trigeminal neuralgia",
+  "accept": [
+   "tic douloureux"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nerve-muscle",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "abducens-nerve",
+  "status": "live",
+  "position": 1189,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Which muscle does the abducens nerve innervate?",
+  "format": "type",
+  "answer": "Lateral rectus",
+  "accept": [],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-abducens-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "abducens-nerve",
+  "status": "live",
+  "position": 1190,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "An abducens palsy leaves the eye in which position?",
+  "format": "keywords",
+  "answer": "Medially deviated (esotropia), unable to abduct",
+  "accept": [],
+  "keywords": [
+   [
+    "medial",
+    "medially",
+    "esotropia",
+    "adducted",
+    "in"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vestibulocochlear-nerve-function",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "vestibulocochlear-nerve",
+  "status": "live",
+  "position": 1191,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "function",
+  "prompt": "Name one function of the vestibulocochlear nerve.",
+  "format": "keywords",
+  "answer": "Hearing and balance",
+  "accept": [],
+  "keywords": [
+   [
+    "hearing",
+    "balance",
+    "equilibrium"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-vestibulocochlear-nerve-lesion",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "vestibulocochlear-nerve",
+  "status": "live",
+  "position": 1192,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "lesion",
+  "prompt": "Which tumour of CN VIII presents with hearing loss, tinnitus and vertigo?",
+  "format": "type",
+  "answer": "Vestibular schwannoma (acoustic neuroma)",
+  "accept": [
+   "schwannoma,acoustic neuroma"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-accessory-nerve-muscle",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "accessory-nerve",
+  "status": "live",
+  "position": 1193,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "muscle",
+  "prompt": "Name one muscle innervated by the spinal accessory nerve.",
+  "format": "keywords",
+  "answer": "Sternocleidomastoid or trapezius",
+  "accept": [],
+  "keywords": [
+   [
+    "sternocleidomastoid",
+    "trapezius",
+    "SCM"
+   ]
+  ],
+  "choices": null,
+  "require_side": false
+ },
+ {
+  "slug": "theory-accessory-nerve-cranial_nerve",
+  "kind": "theory",
+  "topic": "lab-7",
+  "structure": "accessory-nerve",
+  "status": "live",
+  "position": 1194,
+  "source": {
+   "type": "theory",
+   "ref": "content-theory agent"
+  },
+  "facet": "cranial_nerve",
+  "prompt": "Which cranial nerve number is the accessory nerve?",
+  "format": "type",
+  "answer": "CN XI",
+  "accept": [
+   "XI",
+   "11"
+  ],
+  "keywords": null,
+  "choices": null,
+  "require_side": false
+ }
+]

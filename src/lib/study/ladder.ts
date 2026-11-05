@@ -1,0 +1,208 @@
+// The scaffold ladder ("training wheels"), ported from ANKI+ (web/js/ru/wheels.js) for anatomy names.
+// Each card climbs
+//   0 copy           the whole answer is shown as ghost text; type what you see
+//   1 skeleton       consonants (and each word's first letter) shown, vowels to fill in (C_ud_t_ n_cl__s)
+//   2 first letters  only each word's first letter (C_____ n______)
+//   3 recall         no scaffold
+// A clean pass (no wrong keys, no extra hints) climbs one rung; a miss or give-up steps down one.
+// Long answers (a phrase of 6+ letters, one word of 9+) climb in HALF-STEPS so help fades gradually and
+// never drops away in one big chunk: on an odd step the shorter half of the words already wear the next
+// rung's scaffold (one long word: its back half). The step is 0..6 (rung = step >> 1).
+// Below the recall rung an answer is practice: graded at most Hard, never counted as a clean recall, and its
+// typos never become spelling traps.
+import { isLetter } from "./text.ts";
+
+export const RUNGS = ["copy", "skeleton", "first letters", "recall"] as const;
+export const MAX_STEP = 6;
+const VOWELS = "aeiouyAEIOUY";
+const MARK = /\p{M}/u;
+
+export type LadderOutcome = "top" | "up" | "stay" | "down";
+
+export function rungOf(step: number): number {
+  return Math.max(0, Math.min(3, step >> 1));
+}
+
+export function stepName(step: number): string {
+  return step & 1 ? `${RUNGS[step >> 1]} > ${RUNGS[(step >> 1) + 1]}` : RUNGS[step >> 1];
+}
+
+/** True once the card is at the recall rung: no scaffold, counts as a real recall. */
+export function isRecall(step: number): boolean {
+  return step >= MAX_STEP;
+}
+
+function wordsOf(answer: string): number {
+  return (answer.match(/[\p{L}\p{N}]+/gu) ?? []).length;
+}
+
+/** Long answers fade in half-steps. */
+export function isLong(answer: string): boolean {
+  const letters = [...answer].filter(isLetter).length;
+  return wordsOf(answer) >= 2 ? letters >= 6 : letters >= 9;
+}
+
+/** Split a word into rough syllables at vowel-group boundaries (Latin/Greek/English anatomy terms). */
+export function syllables(word: string): string[] {
+  const m = word.match(/[^aeiouyAEIOUY]*[aeiouyAEIOUY]+(?:[^aeiouyAEIOUY]+(?![aeiouyAEIOUY]))?/g);
+  if (!m) return [word];
+  const joined = m.join("");
+  if (joined.length < word.length) m[m.length - 1] += word.slice(joined.length);
+  return m;
+}
+
+interface Unit {
+  start: number;
+  end: number;
+  n: number;
+  front?: boolean;
+}
+
+function unitsOf(answer: string): Unit[] {
+  const out: Unit[] = [];
+  for (let i = 0; i < answer.length; ) {
+    if (!isLetter(answer[i])) {
+      i++;
+      continue;
+    }
+    const start = i;
+    let n = 0;
+    while (i < answer.length && (isLetter(answer[i]) || MARK.test(answer[i]))) {
+      if (isLetter(answer[i])) n++;
+      i++;
+    }
+    out.push({ start, end: i, n });
+  }
+  if (out.length === 1 && out[0].n >= 9) {
+    const w = out[0];
+    const syl = syllables(answer.slice(w.start, w.end));
+    let at = w.start;
+    let best = -1;
+    let bestD = Infinity;
+    let seen = 0;
+    for (const s of syl.slice(0, -1)) {
+      at += s.length;
+      seen += [...s].filter(isLetter).length;
+      const d = Math.abs(seen - w.n / 2);
+      if (d < bestD) {
+        bestD = d;
+        best = at;
+      }
+    }
+    if (best > 0) return [{ start: w.start, end: best, n: 0, front: true }, { start: best, end: w.end, n: 0 }];
+  }
+  return out;
+}
+
+/** On an odd step: which units fade first (the shorter half of the words, later ones on a tie; one long word: its back half). */
+function fadeGroup(units: Unit[]): Set<number> {
+  if (units.length === 2 && units[0].front) return new Set([1]);
+  const order = units.map((_, k) => k).sort((a, b) => units[a].n - units[b].n || b - a);
+  return new Set(order.slice(0, Math.ceil(units.length / 2)));
+}
+
+interface Levels {
+  lv: number[];
+  head: boolean[];
+  units: Unit[];
+  fade: Set<number>;
+}
+const CACHE = new Map<string, Levels>();
+
+function levels(answer: string, step: number): Levels {
+  const key = `${step}\u0000${answer}`;
+  const hit = CACHE.get(key);
+  if (hit) return hit;
+  const lo = step >> 1;
+  const units = unitsOf(answer);
+  const fade = step & 1 ? fadeGroup(units) : new Set<number>();
+  const lv = new Array<number>(answer.length).fill(lo);
+  const head = new Array<boolean>(answer.length).fill(false);
+  units.forEach((u, k) => {
+    const l = fade.has(k) ? Math.min(3, lo + 1) : lo;
+    for (let i = u.start; i < u.end; i++) lv[i] = l;
+    head[u.start] = true;
+  });
+  const v = { lv, head, units, fade };
+  if (CACHE.size > 200) CACHE.clear();
+  CACHE.set(key, v);
+  return v;
+}
+
+/** The rest of the answer from `from`, with the letters this step hides as "_" (per word: level 0 all shown,
+ *  1 consonants + the first letter, 2 the first letter, 3 none: just the shape). Each level shows a subset of
+ *  the one before, so the scaffold only ever thins out. Letters under `hintEnd` are always shown (hints). */
+export function scaffold(answer: string, from: number, step: number, hintEnd = 0): string {
+  const { lv, head } = levels(answer, step);
+  let out = "";
+  let shown = true;
+  for (let i = from; i < answer.length; i++) {
+    const ch = answer[i];
+    if (MARK.test(ch)) {
+      if (shown) out += ch;
+      continue;
+    }
+    const l = lv[i];
+    shown = i < hintEnd || l <= 0 || !isLetter(ch) || (l === 1 && (!VOWELS.includes(ch) || head[i])) || (l === 2 && head[i]);
+    out += shown ? ch : "_";
+  }
+  return out;
+}
+
+/** Text for the rung help line. */
+export function helpText(step: number, answer: string): string {
+  const r = step >> 1;
+  const base = ["Copy: type what you see", "Skeleton: fill in the vowels", "First letters: finish each word"][r] ?? "";
+  if (!(step & 1) || !answer) return base;
+  const { units, fade } = levels(answer, step);
+  const ws = units.filter((_, k) => fade.has(k)).map((u) => answer.slice(u.start, u.end));
+  const nextName = ["loses its vowels", "keeps just its first letter", "shows only its shape"][r];
+  return `${RUNGS[r]} > ${RUNGS[r + 1]}: fading gently, ${ws.length === 1 && units.length === 2 && units[0].front ? "the end of the word" : ws.join(" and ")} ${nextName}`;
+}
+
+/** The "next time ..." text for a move from `step` to `next`. */
+export function nextText(answer: string, step: number, next: number): string {
+  if (next === step) return "same help next time";
+  if (next < step) return `next time: back to ${stepName(next)}`;
+  if (next >= MAX_STEP) return "next time: from memory";
+  if (next & 1) return `next time: a little less help (${stepName(next)})`;
+  return `next time: ${RUNGS[next >> 1]}`;
+}
+
+export interface LadderResult {
+  /** the answer was correct (a clean match) */
+  right: boolean;
+  /** first look on a brand-new card */
+  firstLook: boolean;
+  /** typed it unaided on first sight / typed the intro copy cleanly */
+  introClean?: boolean;
+  typos: number;
+  hinted: number;
+}
+
+/** How this answer moves the card on the ladder. */
+export function ladderOutcome(step: number, r: LadderResult): LadderOutcome {
+  if (r.firstLook) {
+    if (r.right && r.hinted === 0) return "top"; // typed it unaided on first sight
+    return r.introClean ? "up" : "stay";
+  }
+  if (!r.right) return "down";
+  if (step >= MAX_STEP) return "stay";
+  return r.typos === 0 && r.hinted === 0 ? "up" : "stay";
+}
+
+/** The step after a move. */
+export function nextStep(step: number, out: LadderOutcome, long: boolean): number {
+  let n = step;
+  if (out === "top") n = Math.max(step, long ? 4 : 6);
+  else if (out === "up") n = long ? step + 1 : ((step >> 1) + 1) * 2;
+  else if (out === "down") n = long ? step - 2 : ((step >> 1) - 1) * 2;
+  return Math.max(0, Math.min(MAX_STEP, n));
+}
+
+/** Clean-recall streak after an answer: only unaided correct answers at the recall rung count. */
+export function nextCleanStreak(streak: number, o: { right: boolean; step: number; hinted: number; practice?: boolean }): number {
+  if (!o.right) return 0;
+  if (o.hinted > 0 || o.step < MAX_STEP || o.practice) return streak;
+  return streak + 1;
+}

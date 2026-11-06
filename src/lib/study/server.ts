@@ -164,18 +164,18 @@ export function courseOrder(idx: CourseIndex): LightCard[] {
   });
 }
 
-export type Scope = { type: "all" } | { type: "unit"; slug: string } | { type: "topic"; slug: string } | { type: "weak" };
+export type Scope = { type: "all" } | { type: "unit"; slug: string } | { type: "topic"; slug: string } | { type: "structure"; slug: string } | { type: "weak" };
 
 export function parseScope(s: string | null | undefined): Scope {
   if (!s || s === "all") return { type: "all" };
   if (s === "weak") return { type: "weak" };
   const [t, slug] = s.split(":");
-  if ((t === "unit" || t === "topic") && slug) return { type: t, slug };
+  if ((t === "unit" || t === "topic" || t === "structure") && slug) return { type: t, slug };
   return { type: "all" };
 }
 
 export function scopeTopicIds(idx: CourseIndex, scope: Scope): Set<string> | null {
-  if (scope.type === "all" || scope.type === "weak") return null;
+  if (scope.type === "all" || scope.type === "weak" || scope.type === "structure") return null;
   if (scope.type === "topic") return new Set(idx.topics.filter((t) => t.slug === scope.slug).map((t) => t.id));
   const unit = idx.units.find((u) => u.slug === scope.slug);
   return new Set(idx.topics.filter((t) => t.unit_id === unit?.id).map((t) => t.id));
@@ -270,6 +270,11 @@ export async function buildStudyPayload(
   // scope
   const topicSet = scopeTopicIds(idx, o.scope);
   let scoped = light.filter((c) => !o.exclude.has(c.id) && (!topicSet || (c.topicId && topicSet.has(c.topicId))));
+  if (o.scope.type === "structure") {
+    // one structure (from the atlas): its name cards, plus its theory cards once the name is solid
+    const { data: st } = await sb.from("structures").select("id").eq("course_id", course.id).eq("slug", o.scope.slug).maybeSingle();
+    scoped = scoped.filter((c) => !!st && c.structureId === st.id);
+  }
   if (o.scope.type === "weak") {
     // cards that have lapsed or are hard: the "weak spots" scope
     scoped = scoped.filter((c) => {

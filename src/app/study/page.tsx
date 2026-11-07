@@ -67,6 +67,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
         <Link className="btn" href={`${q("all")}&limit=10`}>Quick sprint (10 cards)</Link>
         <Link className="btn" href={q("weak")}>Weak spots</Link>
         <Link className="btn" href="/practical">Mock practical</Link>
+        <Link className="btn" href="/atlas/quiz">Atlas quiz</Link>
       </div>
       {!learner.typing.enabled && <p className="notice" style={{ marginBottom: 16 }}>Typing is switched off (Settings, Advanced). Cards are recalled and self-graded.</p>}
 

@@ -134,8 +134,12 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
         </div>
 
         <div className="grid content-start gap-2 text-sm">
-          <h3 className="font-mono text-[11px] uppercase tracking-widest text-hard">Supplementary</h3>
-          <p className="-mt-1 text-xs text-text-faint">Background written for this app, not from the course materials. Check your lecture notes for what is examined.</p>
+          <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-hard">
+            Supplementary
+            <Link href="/about#supplementary" className="normal-case tracking-normal text-text-faint underline-offset-2 hover:underline" title="Background written for this app, not from the course materials">
+              what is this?
+            </Link>
+          </h3>
           {d.supplementary.explanation && <p>{d.supplementary.explanation}</p>}
           {facts.length > 0 && (
             <dl className="grid grid-cols-[max-content_1fr] gap-x-3 gap-y-1">

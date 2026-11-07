@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
+import { AtlasModes } from "@/components/atlas/AtlasModes";
 import { QuizGame, type QuizItem } from "@/components/atlas/QuizGame";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { fetchAll, loadIndex, resolveCourse } from "@/lib/study/server";
@@ -46,6 +47,7 @@ export default async function AtlasQuizPage() {
 
   return (
     <PageShell title="Name that structure" kicker="Atlas quiz">
+      <AtlasModes />
       <QuizGame items={items} names={names} units={units.map((u) => ({ slug: u.slug, title: u.title }))} />
     </PageShell>
   );

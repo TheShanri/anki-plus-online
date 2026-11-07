@@ -25,7 +25,7 @@ export function AtlasAttribution({ compact = false }: { compact?: boolean }) {
           <A href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Z-Anatomy models</A> (nervous system only; split into one
           file per structure, decimated, and compressed) and are shared under{" "}
           <A href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</A>. You may copy and adapt them under the same
-          licence with attribution. Two Z-Anatomy models under non-commercial terms (inner ear, kidney) are not included.
+          licence with attribution. The solid &ldquo;Brain&rdquo; and &ldquo;Regions&rdquo; looks use gross.glb, a single merged file built from the same Z-Anatomy surface meshes (cortical gyri, cerebellum, brainstem) with sulcal shading baked into vertex colours (tools/atlas/build_gross.cjs); it carries the same licence. Two Z-Anatomy models under non-commercial terms (inner ear, kidney) are not included.
         </p>
       )}
       {!compact && (

@@ -11,6 +11,7 @@ import { ATLAS2_BASE, loadAtlas2 } from "@/lib/atlas/slices";
 import type { Atlas2 } from "@/lib/atlas/slices";
 import { accentHex, overlayPalette } from "@/lib/atlas/palette";
 import { SLICE_VIEWS } from "./SliceViewer";
+import { StructureInfo } from "./StructureInfo";
 import type { SliceOverlay, SliceView } from "./SliceViewer";
 
 const PANEL_H = 560;
@@ -58,6 +59,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [tab, setTab] = useState<Tab>(initialView && VIEW_PARAM[initialView] ? "slices" : "model");
   const [sliceView, setSliceView] = useState<SliceView>((initialView && VIEW_PARAM[initialView]) || "coronal");
   const [addQ, setAddQ] = useState("");
+  const [hoverKey, setHoverKey] = useState<string | null>(null);
   const [pal, setPal] = useState<{ accent: string; colors: string[] }>({ accent: "#ff2a6d", colors: ["#22d3ee", "#4ade80", "#fbbf24", "#a78bfa", "#f472b6", "#60a5fa", "#fb923c", "#2dd4bf"] });
 
   useEffect(() => {
@@ -174,8 +176,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const extraColor = (i: number) => pal.colors[i % pal.colors.length];
   const overlays3d = useMemo(
     () => [
-      ...extras.map((e, i) => ({ key: e.key, ids: e.meshIds, color: extraColor(i), opacity: 0.95 })),
-      ...nb3d.map((n, i) => ({ key: "nb:" + n.key, ids: n.ids, color: extraColor(extras.length + i), opacity: 0.6 })),
+      ...extras.map((e, i) => ({ key: e.key, ids: e.meshIds, color: extraColor(i), opacity: 1 })),
+      ...nb3d.map((n, i) => ({ key: "nb:" + n.key, ids: n.ids, color: extraColor(extras.length + i), opacity: 1 })),
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [extras, nb3d, pal.colors],
@@ -190,10 +192,10 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   );
   const legend =
     tab === "model"
-      ? [...extras.map((e, i) => ({ name: e.name, color: extraColor(i), kind: "added" })), ...nb3d.map((n, i) => ({ name: n.name, color: extraColor(extras.length + i), kind: "neighbour" }))]
+      ? [...extras.map((e, i) => ({ key: e.key, name: e.name, color: extraColor(i), kind: "added" })), ...nb3d.map((n, i) => ({ key: "nb:" + n.key, name: n.name, color: extraColor(extras.length + i), kind: "neighbour" }))]
       : [
-          ...extras.filter((e) => e.slug).map((e, i) => ({ name: e.name, color: extraColor(i), kind: "added" })),
-          ...nbSlices.map((n, i) => ({ name: n.name, color: extraColor(extras.length + i), kind: "neighbour" })),
+          ...extras.filter((e) => e.slug).map((e, i) => ({ key: e.key, name: e.name, color: extraColor(i), kind: "added" })),
+          ...nbSlices.map((n, i) => ({ key: "nb:" + n.key, name: n.name, color: extraColor(extras.length + i), kind: "neighbour" })),
         ];
 
   // URL deep link: /atlas?s=<id or slug>&view=coronal&add=a,b&nb=1
@@ -237,6 +239,12 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   function pickSlug(slug: string) {
     setCourseName(undefined);
     setPrimaryKey(slug);
+  }
+
+  /** A structure clicked in 3D becomes the primary selection (curriculum item when one exists). */
+  function pickMesh(id: string) {
+    const it = items.find((i) => i.meshIds.includes(id) && !i.group) ?? items.find((i) => i.meshIds.includes(id));
+    pick(it ? it.key : id);
   }
 
   const noSlices = primary && !primary.slug;
@@ -350,13 +358,22 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
           </div>
           <ul className="flex flex-1 flex-wrap items-center gap-1.5 text-xs" aria-label="Legend">
             {primary && (
-              <li className="flex items-center gap-1.5 rounded-sm border border-panel-border px-2 py-1">
+              <li
+                className={`flex items-center gap-1.5 rounded-sm border px-2 py-1 ${hoverKey === "primary" ? "border-accent-2" : "border-panel-border"}`}
+                onPointerEnter={() => setHoverKey("primary")}
+                onPointerLeave={() => setHoverKey(null)}
+              >
                 <span className="inline-block h-3 w-3 rounded-sm" style={{ background: pal.accent }} />
                 {primary.name}
               </li>
             )}
             {legend.map((l, i) => (
-              <li key={l.name + i} className="flex items-center gap-1.5 rounded-sm border border-panel-border px-2 py-1 text-text-dim">
+              <li
+                key={l.name + i}
+                className={`flex items-center gap-1.5 rounded-sm border px-2 py-1 text-text-dim ${hoverKey === l.key ? "border-accent-2 text-text" : "border-panel-border"}`}
+                onPointerEnter={() => setHoverKey(l.key)}
+                onPointerLeave={() => setHoverKey(null)}
+              >
                 <span className="inline-block h-3 w-3 rounded-sm" style={{ background: l.color }} />
                 {l.name}
                 {l.kind === "added" && (
@@ -375,7 +392,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
         </div>
 
         {tab === "model" ? (
-          <AtlasViewer structureIds={ids3d} mode={primary ? "focus" : "context"} approximate={primary?.approximate ?? false} label={primary?.name} height={panelH} overlays={overlays3d} />
+          <AtlasViewer structureIds={ids3d} mode={primary ? "focus" : "context"} approximate={primary?.approximate ?? false} label={primary?.name} height={panelH} overlays={overlays3d} onPickMesh={pickMesh} hoverKey={hoverKey} onHoverKey={setHoverKey} />
         ) : atlas2 ? (
           <SliceViewer
             atlas={atlas2}
@@ -390,6 +407,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
         ) : (
           <Loading what="MRI atlas" h={panelH} />
         )}
+
+        {primary?.slug && <StructureInfo slug={primary.slug} name={primary.name} />}
 
         <div className="flex flex-wrap items-center gap-2 text-sm text-text-dim">
           {primary && tab === "slices" && noSlices && <span>No MRI label for this structure in the open atlases; the 3D model is the reference.</span>}

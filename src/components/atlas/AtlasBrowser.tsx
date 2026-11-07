@@ -117,18 +117,28 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       }
     }
     if (!primaryKey) return null;
-    const direct = byKey.get(primaryKey) ?? byKey.get(`slug:${primaryKey}`);
-    if (direct) return direct;
+    // A curriculum slug wins: all of its meshes (inferior frontal gyrus = three parts) and its own MRI label
+    // (corpus striatum), even when a Z-Anatomy mesh or group has the same id.
     const l = LINKS[primaryKey];
-    if (l) {
-      const m = items.find((i) => i.slug === primaryKey && !i.group);
-      if (m) return m;
-      // a curriculum slug whose mesh has another id (e.g. "vagus-nerve" -> "vagus-nerve-x")
-      const t = atlasTargetForSlug(primaryKey);
-      if (t) return { key: `slug:${primaryKey}`, name: l.name, region: "other", meshIds: t.ids, approximate: t.approximate, slug: t.slices ? primaryKey : null, slices: t.slices, hay: "", group: false };
+    const t = l ? atlasTargetForSlug(primaryKey) : null;
+    if (l && t) {
+      const row = byKey.get(primaryKey);
+      const key = row && !row.group && t.ids.length === 1 && t.ids[0] === primaryKey ? primaryKey : `slug:${primaryKey}`;
+      return { key, name: l.name, region: row?.region ?? "other", meshIds: t.ids, approximate: t.approximate, slug: t.slices ? primaryKey : null, slices: t.slices, hay: "", group: false };
     }
-    return null;
+    return byKey.get(primaryKey) ?? byKey.get(`slug:${primaryKey}`) ?? null;
   }, [items, byKey, primaryKey, courseName]);
+
+  // The curriculum structure behind the selection, for the course-notes panel (any structure on the course
+  // lists, with or without an MRI label; a mesh picked in 3D maps to the structure that uses exactly it).
+  const infoSlug = useMemo(() => {
+    if (!primary) return null;
+    const k = primary.key.replace(/^slug:/, "");
+    if (LINKS[k]) return k;
+    if (primary.slug && LINKS[primary.slug]) return primary.slug;
+    const hit = Object.entries(LINKS).find(([, l]) => !l.approximate && l.meshIds.length === 1 && l.meshIds[0] === primary.key);
+    return hit ? hit[0] : null;
+  }, [primary]);
 
   // Open each structure where it is shown most exactly: MRI slices when the 3D highlight is only approximate,
   // the 3D model when the MRI atlas has no label. A view the student picks stays otherwise.
@@ -408,7 +418,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
           <Loading what="MRI atlas" h={panelH} />
         )}
 
-        {primary?.slug && <StructureInfo slug={primary.slug} name={primary.name} />}
+        {infoSlug && <StructureInfo slug={infoSlug} name={primary?.name} />}
 
         <div className="flex flex-wrap items-center gap-2 text-sm text-text-dim">
           {primary && tab === "slices" && noSlices && <span>No MRI label for this structure in the open atlases; the 3D model is the reference.</span>}

@@ -50,7 +50,10 @@ function buildMaps(atlas: Atlas2, items: { slug: string; color: string }[]) {
 }
 
 function lutFor(leaves: { id: number; name: string }[], colors: Map<number, string>) {
-  const R = [0], G = [0], B = [0], A = [0], I = [0], labels = [""];
+  // An empty entry at index -4 keeps background (0) away from the LUT's first texel: NiiVue rounds any voxel just
+  // above the minimum up to at least 2/256 of the table, which landed a third of the way into label 1 and painted
+  // the whole background whenever label 1 (substantia nigra / medial lemniscus) was highlighted.
+  const R = [0, 0], G = [0, 0], B = [0, 0], A = [0, 0], I = [-4, 0], labels = ["", ""];
   for (const l of leaves) {
     const c = colors.get(l.id);
     const [r, g, b] = c ? hexRgb(c) : [0, 0, 0];

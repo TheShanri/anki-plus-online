@@ -131,10 +131,12 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: ViewName; non
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
   useEffect(() => {
     // frame between the target and the whole brain so the surroundings stay in view
-    const c = box && !box.isEmpty() ? box.getCenter(new THREE.Vector3()).lerp(DEFAULT_CTX_CENTER, 0.35) : DEFAULT_CTX_CENTER.clone();
     const size = box && !box.isEmpty() ? box.getSize(new THREE.Vector3()).length() : 0.3;
+    // tiny targets (cranial nerve nuclei, geniculates, habenula...) would be specks at brain scale: come closer
+    const small = size < 0.03;
+    const c = box && !box.isEmpty() ? box.getCenter(new THREE.Vector3()).lerp(DEFAULT_CTX_CENTER, small ? 0.1 : 0.35) : DEFAULT_CTX_CENTER.clone();
     // Frame the whole brain around the target so students keep their bearings; they can zoom in.
-    const dist = view === "midsagittal" ? 0.42 : Math.min(0.6, Math.max(0.44, size * 2.6));
+    const dist = view === "midsagittal" ? 0.42 : small ? 0.22 : Math.min(0.6, Math.max(0.44, size * 2.6));
     const v = VIEWS.find((x) => x.id === view) ?? VIEWS[2];
     const target = view === "midsagittal" ? DEFAULT_CTX_CENTER.clone().setX(0) : c;
     camera.position.copy(target).addScaledVector(new THREE.Vector3(...v.dir).normalize(), dist);

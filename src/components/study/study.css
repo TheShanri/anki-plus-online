@@ -33,6 +33,23 @@
 
 /* ---------- study shell ---------- */
 .st-wrap { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; position: relative; }
+/* Cards with an image: the image gets its own column on wide landscape screens (sticky, as tall as the screen
+   allows) and sits on top, full width, on narrow or portrait ones. PinImage sizes itself from --pin-max-w/-h. */
+.st-wrap.wide { max-width: 1320px; }
+.page:has(.st-wrap.wide) { max-width: 1380px; }
+.st-split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; --pin-max-w: 100%; --pin-max-h: max(240px, 58dvh); }
+.st-media, .st-main { min-width: 0; }
+.st-main { display: flex; flex-direction: column; }
+@media (min-width: 900px) and (min-aspect-ratio: 6/5) {
+  .st-split { grid-template-columns: minmax(0, var(--media-fr, 1.4fr)) minmax(320px, 1fr); gap: 26px; align-items: start; }
+  .st-media { position: sticky; top: calc(var(--topbar-h, 56px) + 12px); --pin-max-h: max(300px, calc(100dvh - var(--topbar-h, 56px) - 150px)); }
+}
+@media (max-width: 640px) {
+  .page:has(.st-wrap) { padding: 14px 10px 56px; }
+  .st-wrap .panel { padding: 14px 12px; }
+  .st-split { gap: 12px; }
+}
+.answer-line, .diff, .v-word, .card-prompt, .card-heading { overflow-wrap: anywhere; }
 .st-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; }
 .st-counts { display: flex; gap: 14px; font-family: var(--font-mono); }
 .st-counts b { font-weight: 700; }

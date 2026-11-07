@@ -12,6 +12,7 @@ import type { StudyPayload } from "@/lib/study/types";
 import { typingReminderDue } from "@/lib/study/settings";
 import { setSoundsEnabled, initFallbackBeepFromStorage, emit } from "@/lib/feedback/events";
 import { CardFace } from "@/components/cards/CardFace";
+import { PinImage } from "@/components/cards/PinImage";
 import { resolveMediaSrc } from "@/components/cards/media";
 import { TypeBox } from "./TypeBox";
 import { Reveal } from "./Reveal";
@@ -288,8 +289,14 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const state = c ? engine.states.get(c.card.id) ?? null : null;
   const kind = c ? (c.isFirstLook || !state || state.reps === 0 ? ["new", "NEW"] : state.state === 1 || state.state === 3 ? ["learn", state.state === 3 ? "RELEARN" : "LEARNING"] : ["review", "REVIEW"]) : null;
 
+  // Cards with an image sit side by side with it on wide screens (stacked on narrow ones).
+  const media = c ? c.card.image ?? c.parent?.image : undefined;
+  // wide images get a wider column than tall ones, so both end up about as large as the screen allows
+  const mediaRatio = media?.w && media?.h ? media.w / media.h : 1.3;
+  const splitStyle = media ? ({ "--media-fr": mediaRatio >= 1.6 ? "2.2fr" : mediaRatio >= 1.15 ? "1.7fr" : "1.25fr" } as React.CSSProperties) : undefined;
+
   return (
-    <div className="st-wrap">
+    <div className={`st-wrap${media ? " wide" : ""}`}>
       {reminder && (
         <div className="banner" role="status">
           <span>Typing is switched off. Typing every answer is what trains the spelling the practical needs. Want to turn it back on?</span>
@@ -319,7 +326,13 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       </div>
 
       {c && (
-        <div className={`panel st-card${c.isBoss ? " boss" : ""}`} data-phase={phase}>
+        <div className={`panel st-card${c.isBoss ? " boss" : ""}${media ? " st-split" : ""}`} data-phase={phase} style={splitStyle}>
+          {media && (
+            <div className="st-media">
+              <PinImage courseSlug={initial.course.slug} image={media} mode={phase === "reveal" ? "reveal" : "prompt"} alt={c.card.prompt || "Lab image"} />
+            </div>
+          )}
+          <div className="st-main">
           <div className="chips">
             {c.isBoss && <span className="chip boss">Boss</span>}
             {c.isFollowup && <span className="chip follow">Follow-up</span>}
@@ -336,6 +349,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
             revealed={phase === "reveal"}
             contextImage={c.parent?.image}
             heading={c.isFollowup && c.structure ? `${c.structure.name}${c.card.facet ? " · " + c.card.facet.replace(/_/g, " ") : ""}` : undefined}
+            hideImage={!!media}
           />
 
           {phase === "prompt" && (
@@ -438,6 +452,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
           )}
 
           {phase === "reveal" && <Reveal engine={engine} c={c} courseSlug={initial.course.slug} />}
+          </div>
         </div>
       )}
 

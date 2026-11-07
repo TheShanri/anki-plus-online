@@ -52,7 +52,7 @@ function Info({ c, courseSlug }: { c: Current; courseSlug: string }) {
       {s && (
         <h4>
           {s.name}
-          {info?.latin ? ` · ${info.latin}` : ""}
+          {info?.latin && info.latin.trim().toLowerCase() !== s.name.trim().toLowerCase() ? ` · ${info.latin}` : ""}
         </h4>
       )}
       {c.card.explain && <p>{c.card.explain}</p>}

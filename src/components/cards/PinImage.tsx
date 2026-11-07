@@ -173,7 +173,7 @@ function PinImageView({ courseSlug, image, mode = "prompt", compact, className, 
     <div
       ref={frame}
       className={`pin-frame${compact ? " pin-compact" : ""}${view.s > 1 ? " pin-zoomed" : ""}${className ? " " + className : ""}`}
-      style={{ aspectRatio: String(ratio), maxWidth: compact ? undefined : `min(760px, calc(44vh * ${ratio}))` }}
+      style={{ aspectRatio: String(ratio), maxWidth: compact ? undefined : `min(var(--pin-max-w, 760px), calc(var(--pin-max-h, 44vh) * ${ratio}))` }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}

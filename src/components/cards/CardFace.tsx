@@ -14,6 +14,8 @@ export interface CardFaceProps {
   contextImage?: StudyCard["image"];
   /** extra label above the prompt (e.g. the structure name for a follow-up) */
   heading?: string;
+  /** the caller shows the image itself (side-by-side layouts) */
+  hideImage?: boolean;
 }
 
 const KIND_LABEL: Record<string, string> = {
@@ -26,11 +28,28 @@ const KIND_LABEL: Record<string, string> = {
   type_answer: "Question",
 };
 
-export function CardFace({ card, courseSlug, revealed, compact, contextImage, heading }: CardFaceProps) {
-  const image = card.image ?? contextImage;
+/** Pin cards are not all structures: some labels are directional terms, planes, regions or concepts. */
+const PIN_LABEL: Record<string, string> = {
+  structure: "Pin the structure",
+  direction: "Directional term",
+  plane: "Plane",
+  region: "Region",
+  term: "Term",
+  function: "Function",
+  space: "Space",
+  level: "Level",
+};
+
+export function kindLabel(card: StudyCard): string {
+  if (card.kind === "pin") return PIN_LABEL[card.answerKind ?? "structure"] ?? KIND_LABEL.pin;
+  return KIND_LABEL[card.kind] ?? "Card";
+}
+
+export function CardFace({ card, courseSlug, revealed, compact, contextImage, heading, hideImage }: CardFaceProps) {
+  const image = hideImage ? undefined : card.image ?? contextImage;
   return (
     <div className="card-face">
-      <p className="card-kind">{KIND_LABEL[card.kind] ?? "Card"}{card.facet ? ` · ${card.facet.replace(/_/g, " ")}` : ""}</p>
+      <p className="card-kind">{kindLabel(card)}{card.facet ? ` · ${card.facet.replace(/_/g, " ")}` : ""}</p>
       {image && (
         <PinImage
           courseSlug={courseSlug}

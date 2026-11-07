@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { StudyCard } from "@/lib/study/types";
 import { CardFace } from "@/components/cards/CardFace";
+import { PinImage } from "@/components/cards/PinImage";
 import { emit } from "@/lib/feedback/events";
 import { stationSeconds } from "@/lib/study/practical";
 import "./study.css";
@@ -161,14 +162,20 @@ function PracticalRun({ started }: { started: Started }) {
   };
   const submit = () => advance(false);
   return (
-    <div className="st-wrap">
+    <div className={`st-wrap${station.pin.image ? " wide" : ""}`}>
       <div className="st-top">
         <span className="chip">Station {idx + 1} of {stations.length}</span>
         <div className="prac-bar" style={{ flex: 1 }} aria-hidden><i style={{ width: "100%", transform: `scaleX(${left / secsOf(idx)})`, transformOrigin: "left" }} /></div>
         <span className={`prac-timer${left <= 10 ? " low" : ""}`} aria-label="Seconds left">{left}</span>
       </div>
-      <div className="panel">
-        <CardFace card={station.pin} courseSlug={course.slug} />
+      <div className={`panel${station.pin.image ? " st-split" : ""}`}>
+        {station.pin.image && (
+          <div className="st-media">
+            <PinImage courseSlug={course.slug} image={station.pin.image} mode="prompt" alt={station.pin.prompt || "Station image"} />
+          </div>
+        )}
+        <div className="st-main">
+        <CardFace card={station.pin} courseSlug={course.slug} hideImage />
         <form
           style={{ display: "grid", gap: 10, marginTop: 14 }}
           onSubmit={(e) => {
@@ -179,7 +186,7 @@ function PracticalRun({ started }: { started: Started }) {
             else submit();
           }}
         >
-          <input ref={firstRef} className="prac-input" aria-label="Your answer" autoCapitalize="off" autoCorrect="off" autoComplete="off" spellCheck={false} value={typed[0] ?? ""} onChange={(e) => set(0, e.target.value)} placeholder="Name the structure" />
+          <input ref={firstRef} className="prac-input" aria-label="Your answer" autoCapitalize="off" autoCorrect="off" autoComplete="off" spellCheck={false} value={typed[0] ?? ""} onChange={(e) => set(0, e.target.value)} placeholder="Your answer" />
           {station.followups.map((f, i) => (
             <div key={f.id}>
               <p className="card-prompt" style={{ fontSize: 16, marginBottom: 6 }}>{f.prompt}</p>
@@ -191,6 +198,7 @@ function PracticalRun({ started }: { started: Started }) {
             <span className="v-notes">{fields > 1 ? "Enter moves on. " : "Enter moves on. "}You cannot go back.</span>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );

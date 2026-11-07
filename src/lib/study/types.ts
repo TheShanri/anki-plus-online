@@ -42,6 +42,8 @@ export interface StudyCard {
   facet?: string;
   pathway?: string;
   step?: string;
+  /** what a pin/section answer is: structure | direction | plane | region | term | level (drives the label above the prompt) */
+  answerKind?: string;
   image?: PinImageData;
   followups: string[];
   /** explicit follow-up card slugs (practical exam stems), asked before the structure's theory cards */
@@ -146,6 +148,7 @@ export function toStudyCard(row: CardRow): StudyCard {
     facet: str(c.facet) || undefined,
     pathway: str(c.pathway) || undefined,
     step: str(c.step) || undefined,
+    answerKind: str(c.answer_kind) || undefined,
     image,
     followups: strs(c.followups),
     followupCards: strs(c.followup_cards),

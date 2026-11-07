@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState, useTransition } from "react";
+import Link from "next/link";
 import { sendResetEmail, setTemporaryPassword } from "@/app/staff/actions";
+import { Bar, TrendChart, type TrendPoint } from "./Charts";
 
 export type RosterRow = {
   user_id: string;
@@ -39,7 +41,14 @@ export type AtRisk = {
   median_min: number;
 };
 
-type SortKey = "name" | "section" | "week" | "sessions" | "cards" | "accuracy" | "streak" | "last";
+export type Overview = {
+  enrolled: number; active_week: number; active_30d: number; minutes_week: number; reviews_week: number;
+  reviews_total: number; accuracy: number | null; mock_attempts: number; mock_students: number; mock_avg_pct: number | null;
+};
+export type UnitProgress = { unit_id: string; unit_title: string; unit_position: number; cards: number; avg_solid_pct: number; avg_seen_pct: number };
+export type MockScore = { user_id: string; attempts: number; avg_pct: number; last_pct: number; last_at: string };
+
+type SortKey = "mock" | "name" | "section" | "week" | "sessions" | "cards" | "accuracy" | "streak" | "last";
 
 function Sparkline({ values }: { values: number[] }) {
   // Oldest on the left, this week on the right.
@@ -74,17 +83,28 @@ export function Dashboard(props: {
   weak: WeakRow[];
   atRisk: AtRisk[];
   isAdmin: boolean;
+  overview: Overview | null;
+  trend: TrendPoint[];
+  units: UnitProgress[];
+  mock: MockScore[];
 }) {
-  const { roster, weak, atRisk } = props;
+  const { roster, weak } = props;
   const [section, setSection] = useState("");
+  const [q, setQ] = useState("");
+  const [trendField, setTrendField] = useState<"active_students" | "reviews" | "minutes">("minutes");
+  const mockBy = useMemo(() => new Map(props.mock.map((m) => [m.user_id, m])), [props.mock]);
+  const sectionOf = useMemo(() => new Map(roster.map((r) => [r.user_id, r.lab_section])), [roster]);
+  const atRisk = props.atRisk.filter((a) => !section || sectionOf.get(a.user_id) === section);
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: "name", dir: 1 });
   const [msg, setMsg] = useState<string | null>(null);
   const [, start] = useTransition();
 
   const rows = useMemo(() => {
-    const f = roster.filter((r) => !section || r.lab_section === section);
+    const needle = q.trim().toLowerCase();
+    const f = roster.filter((r) => (!section || r.lab_section === section) && (!needle || `${r.display_name} ${r.email}`.toLowerCase().includes(needle)));
     const val = (r: RosterRow): string | number => {
       switch (sort.key) {
+        case "mock": return mockBy.get(r.user_id)?.avg_pct ?? -1;
         case "name": return r.display_name.toLowerCase();
         case "section": return r.lab_section ?? "";
         case "week": return r.weeks_min[0] ?? 0;
@@ -96,7 +116,7 @@ export function Dashboard(props: {
       }
     };
     return [...f].sort((a, b) => (val(a) < val(b) ? -1 : val(a) > val(b) ? 1 : 0) * sort.dir);
-  }, [roster, section, sort]);
+  }, [roster, section, sort, q, mockBy]);
 
   function th(key: SortKey, label: string) {
     const on = sort.key === key;
@@ -111,9 +131,9 @@ export function Dashboard(props: {
 
   function exportCsv() {
     const head = ["Name", "Pronouns", "Lab section", "Email", "Minutes this week", ...Array.from({ length: 8 }, (_, i) => `Minutes ${i + 1} wk ago`),
-      "Sessions", "Cards reviewed", "Accuracy %", "Streak (days)", "Last seen"];
+      "Sessions", "Cards reviewed", "Accuracy %", "Streak (days)", "Last seen", "Mock practicals", "Mock avg %"];
     const lines = [head, ...rows.map((r) => [r.display_name, r.pronouns, r.lab_section, r.email, ...r.weeks_min.slice(0, 9),
-      r.sessions, r.cards_reviewed, r.accuracy, r.streak, r.last_seen])].map((l) => l.map(csvCell).join(","));
+      r.sessions, r.cards_reviewed, r.accuracy, r.streak, r.last_seen, mockBy.get(r.user_id)?.attempts ?? 0, mockBy.get(r.user_id)?.avg_pct ?? ""])].map((l) => l.map(csvCell).join(","));
     const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -145,11 +165,49 @@ export function Dashboard(props: {
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-4 sm:grid-cols-3">
-        <div className="panel"><p className="label">Students</p><p className="font-display text-3xl">{roster.length}</p></div>
-        <div className="panel"><p className="label">Active this week</p><p className="font-display text-3xl">{roster.filter((r) => (r.weeks_min[0] ?? 0) > 0).length}</p></div>
-        <div className="panel"><p className="label">At risk</p><p className="font-display text-3xl">{atRisk.length}</p></div>
-      </div>
+      {props.overview && (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          {([
+            ["Enrolled", props.overview.enrolled],
+            ["Active this week", props.overview.active_week],
+            ["Active in 30 days", props.overview.active_30d],
+            ["Hours this week", Math.round((props.overview.minutes_week / 60) * 10) / 10],
+            ["Reviews this week", props.overview.reviews_week],
+            ["Accuracy", props.overview.accuracy == null ? "-" : `${props.overview.accuracy}%`],
+            ["Mock practicals", props.overview.mock_attempts],
+            ["Mock average", props.overview.mock_avg_pct == null ? "-" : `${props.overview.mock_avg_pct}%`],
+          ] as [string, string | number][]).map(([k, v]) => (
+            <div key={k} className="panel"><p className="label">{k}</p><p className="font-display text-2xl">{v}</p></div>
+          ))}
+        </div>
+      )}
+
+      <section className="panel">
+        <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+          <h2 className="font-display text-lg">Last 30 days</h2>
+          <div className="flex gap-1" role="radiogroup" aria-label="Chart metric">
+            {([["minutes", "Minutes"], ["reviews", "Reviews"], ["active_students", "Active students"]] as const).map(([k, l]) => (
+              <button key={k} type="button" role="radio" aria-checked={trendField === k} className={`btn ${trendField === k ? "btn-primary" : ""}`} style={{ padding: "0.2rem 0.6rem", fontSize: "0.8rem" }} onClick={() => setTrendField(k)}>{l}</button>
+            ))}
+          </div>
+        </div>
+        {props.trend.length > 0 && <TrendChart points={props.trend} field={trendField} label={trendField === "minutes" ? "Active minutes" : trendField === "reviews" ? "Reviews" : "Active students"} unit={trendField === "minutes" ? "min" : trendField === "reviews" ? "reviews" : "students"} />}
+      </section>
+
+      <section className="panel">
+        <h2 className="mb-1 font-display text-lg">Progress by unit</h2>
+        <p className="mb-3 text-sm text-text-dim">Class average share of each unit&apos;s cards that are solid (long memory); the faint bar is the share seen at least once.</p>
+        {props.units.length === 0 ? <p className="text-sm text-text-dim">No units yet.</p> : (
+          <ul className="space-y-2 text-sm">
+            {props.units.map((u) => (
+              <li key={u.unit_id} className="grid items-center gap-2 sm:grid-cols-[16rem_1fr]">
+                <span>{u.unit_title} <span className="text-text-faint">({u.cards} cards)</span></span>
+                <Bar pct={Number(u.avg_solid_pct)} secondary={Number(u.avg_seen_pct)} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       {msg && <p className="notice" role="status">{msg}</p>}
 
@@ -161,7 +219,7 @@ export function Dashboard(props: {
           <ul className="divide-y divide-panel-border text-sm">
             {atRisk.map((a) => (
               <li key={a.user_id} className="flex flex-wrap items-center justify-between gap-2 py-2">
-                <span><b>{a.display_name}</b> {a.lab_section && <span className="text-text-dim">({a.lab_section})</span>} <span className="text-text-dim">· {a.reason}</span></span>
+                <span><Link href={`/staff/student/${a.user_id}?course=${props.courseId}`}><b>{a.display_name}</b></Link> {a.lab_section && <span className="text-text-dim">({a.lab_section})</span>} <span className="text-text-dim">· {a.reason}</span></span>
                 <button className="btn" type="button" onClick={() => reset(a.user_id)}>Send reset email</button>
               </li>
             ))}
@@ -173,6 +231,7 @@ export function Dashboard(props: {
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
           <h2 className="font-display text-lg">Roster</h2>
           <div className="flex items-center gap-2">
+            <input className="input" style={{ width: "11rem" }} placeholder="Search name or email" aria-label="Search students" value={q} onChange={(e) => setQ(e.target.value)} />
             <select className="input" style={{ width: "auto" }} aria-label="Filter by lab section" value={section} onChange={(e) => setSection(e.target.value)}>
               <option value="">All sections</option>
               {props.sections.map((s) => <option key={s}>{s}</option>)}
@@ -181,25 +240,26 @@ export function Dashboard(props: {
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[820px] text-sm">
+          <table className="w-full min-w-[920px] text-sm">
             <thead>
               <tr className="border-b border-panel-border">
                 {th("name", "Name")}{th("section", "Section")}{th("week", "Min this week")}
                 <th className="px-2 py-2 text-left font-normal"><span className="label m-0">9 weeks</span></th>
-                {th("sessions", "Sessions")}{th("cards", "Cards")}{th("accuracy", "Accuracy")}{th("streak", "Streak")}{th("last", "Last seen")}
+                {th("sessions", "Sessions")}{th("cards", "Cards")}{th("accuracy", "Accuracy")}{th("mock", "Mock avg")}{th("streak", "Streak")}{th("last", "Last seen")}
                 <th />
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
                 <tr key={r.user_id} className="border-b border-panel-border/50">
-                  <td className="px-2 py-2">{r.display_name}{r.pronouns && <span className="text-text-faint"> ({r.pronouns})</span>}</td>
+                  <td className="px-2 py-2"><Link href={`/staff/student/${r.user_id}?course=${props.courseId}`}>{r.display_name}</Link>{r.pronouns && <span className="text-text-faint"> ({r.pronouns})</span>}</td>
                   <td className="px-2 py-2">{r.lab_section ?? "-"}</td>
                   <td className="px-2 py-2">{Math.round(r.weeks_min[0] ?? 0)}</td>
                   <td className="px-2 py-2"><Sparkline values={r.weeks_min} /></td>
                   <td className="px-2 py-2">{r.sessions}</td>
                   <td className="px-2 py-2">{r.cards_reviewed}</td>
                   <td className="px-2 py-2">{r.accuracy == null ? "-" : `${r.accuracy}%`}</td>
+                  <td className="px-2 py-2">{mockBy.get(r.user_id) ? `${mockBy.get(r.user_id)!.avg_pct}% (${mockBy.get(r.user_id)!.attempts})` : "-"}</td>
                   <td className="px-2 py-2">{r.streak}</td>
                   <td className="px-2 py-2">{ago(r.last_seen)}</td>
                   <td className="px-2 py-2 whitespace-nowrap">
@@ -208,7 +268,7 @@ export function Dashboard(props: {
                   </td>
                 </tr>
               ))}
-              {rows.length === 0 && <tr><td colSpan={10} className="px-2 py-6 text-center text-text-dim">No students yet. Share the join code from the settings below.</td></tr>}
+              {rows.length === 0 && <tr><td colSpan={11} className="px-2 py-6 text-center text-text-dim">No students yet. Share the join code from the settings below.</td></tr>}
             </tbody>
           </table>
         </div>

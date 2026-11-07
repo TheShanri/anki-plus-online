@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import Link from "next/link";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { ActivityMount } from "@/components/study/ActivityMount";
-import { BugReporter } from "@/components/bugs/BugReporter";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import { Backdrop } from "@/components/theme/Backdrop";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { fontVars } from "@/lib/theme/fonts";
@@ -37,7 +38,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <NavBar />
           <ActivityMount />
           <main className="page">{children}</main>
-          <BugReporter />
+          <footer className="mx-auto max-w-5xl px-4 pb-12 pt-4 text-center text-xs text-text-faint">
+            <Link href="/about" className="underline-offset-2 hover:underline">About, credits and privacy</Link>
+          </footer>
+          <FeedbackWidget />
         </ThemeProvider>
       </body>
     </html>

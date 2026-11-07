@@ -89,3 +89,32 @@ export async function setBugStatus(id: string, status: "open" | "fixed" | "dismi
   revalidatePath("/admin/bugs");
   return { ok: true };
 }
+
+// ----------------------------------------------------------------- feedback inbox
+export async function setFeedbackStatus(id: string, status: "new" | "seen" | "resolved", note: string): Promise<AdminResult> {
+  const ctx = await adminOnly();
+  if (!ctx) return { ok: false, message: "Admin only." };
+  if (!["new", "seen", "resolved"].includes(status)) return { ok: false, message: "Bad status." };
+  const { error } = await ctx.db.from("feedback").update({ status, admin_note: note.trim() || null }).eq("id", id);
+  if (error) return { ok: false, message: "Could not update." };
+  revalidatePath("/admin/feedback");
+  return { ok: true };
+}
+
+// ----------------------------------------------------------------- course basics
+export async function saveCourseBasics(courseId: string, form: FormData): Promise<AdminResult> {
+  const ctx = await adminOnly();
+  if (!ctx) return { ok: false, message: "Admin only." };
+  const station = Number(form.get("station_seconds"));
+  const spelling = String(form.get("exam_spelling") ?? "");
+  const term = String(form.get("term") ?? "").trim();
+  if (!Number.isFinite(station) || station < 10 || station > 600) return { ok: false, message: "Station time must be 10 to 600 seconds." };
+  if (spelling !== "strict" && spelling !== "generous") return { ok: false, message: "Choose strict or generous spelling." };
+  const { data: course } = await ctx.db.from("courses").select("settings").eq("id", courseId).maybeSingle();
+  if (!course) return { ok: false, message: "Course not found." };
+  const settings = { ...(course.settings as Record<string, unknown>), station_seconds: station, exam_spelling: spelling };
+  const { error } = await ctx.db.from("courses").update({ settings, term: term || null }).eq("id", courseId);
+  if (error) return { ok: false, message: "Could not save." };
+  revalidatePath("/admin");
+  return { ok: true, message: "Saved." };
+}

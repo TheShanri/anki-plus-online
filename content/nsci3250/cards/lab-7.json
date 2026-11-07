@@ -134,7 +134,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685081823-c2",
@@ -273,7 +279,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685081823-c3",
@@ -410,7 +422,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685081823-c4",
@@ -550,7 +568,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685081823-c5",
@@ -673,7 +697,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685101627-c1",
@@ -742,7 +773,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-7-io-1770685101627-c2",
@@ -809,7 +846,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-7-io-1770685101627-c3",
@@ -878,7 +921,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685101627-c4",
@@ -945,7 +994,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685101627-c5",
@@ -1015,7 +1070,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685123609-c1",
@@ -1062,7 +1123,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"ne ventral v\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"ne ventral v\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685123609-c2",
@@ -1109,7 +1176,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"dorsal v\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"dorsal v\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c1",
@@ -1262,7 +1335,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c2",
@@ -1415,7 +1495,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c3",
@@ -1566,7 +1653,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c4",
@@ -1717,7 +1811,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c5",
@@ -1868,7 +1969,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c6",
@@ -2019,7 +2127,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c7",
@@ -2171,7 +2286,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c8",
@@ -2322,7 +2444,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c9",
@@ -2476,7 +2604,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c10",
@@ -2627,7 +2762,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c11",
@@ -2778,7 +2919,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c12",
@@ -2929,7 +3077,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c13",
@@ -3082,7 +3236,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c14",
@@ -3227,7 +3387,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "text label, not a structure name [OCR 'Cranial nerves IX-XIl exit the medulla', conf 0.99]"
+  "review_note": "text label, not a structure name [OCR 'Cranial nerves IX-XIl exit the medulla', conf 0.99]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c15",
@@ -3372,7 +3538,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "text label, not a structure name [OCR 'Cranial nerves V-VIIl exit the pons', conf 0.98]"
+  "review_note": "text label, not a structure name [OCR 'Cranial nerves V-VIIl exit the pons', conf 0.98]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685184914-c16",
@@ -3517,7 +3689,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "text label, not a structure name [OCR 'Cranial nerves I-IV exit the midbrain or above', conf 1.00]"
+  "review_note": "text label, not a structure name [OCR 'Cranial nerves I-IV exit the midbrain or above', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c1",
@@ -3642,7 +3820,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c2",
@@ -3765,7 +3950,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c3",
@@ -3888,7 +4080,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c4",
@@ -4011,7 +4210,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c5",
@@ -4134,7 +4340,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c6",
@@ -4258,7 +4471,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c7",
@@ -4381,7 +4601,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c8",
@@ -4507,7 +4733,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c9",
@@ -4630,7 +4863,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c10",
@@ -4753,7 +4992,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c11",
@@ -4878,7 +5124,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685285246-c12",
@@ -5001,7 +5253,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c1",
@@ -5131,7 +5389,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c2",
@@ -5257,7 +5522,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c3",
@@ -5382,7 +5654,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c4",
@@ -5512,7 +5791,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c5",
@@ -5642,7 +5928,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c6",
@@ -5772,7 +6065,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c7",
@@ -5903,7 +6203,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c8",
@@ -6033,7 +6340,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c9",
@@ -6166,7 +6479,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c10",
@@ -6296,7 +6616,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c11",
@@ -6426,7 +6752,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c12",
@@ -6558,7 +6891,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685351957-c13",
@@ -6688,7 +7027,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770685384096-c1",
@@ -6748,7 +7093,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685384096-c2",
@@ -6812,7 +7163,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles"
+  ]
  },
  {
   "slug": "lab-7-io-1770685384096-c3",
@@ -6872,7 +7229,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685384096-c4",
@@ -6936,7 +7299,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685400546-c1",
@@ -7019,7 +7388,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685439875-c1",
@@ -7086,7 +7461,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-7-io-1770685439875-c2",
@@ -7155,7 +7536,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685439875-c3",
@@ -7226,7 +7614,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685439875-c4",
@@ -7298,7 +7693,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-7-io-1770685439875-c5",
@@ -7367,7 +7768,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685519025-c1",
@@ -7436,7 +7844,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-7-io-1770685519025-c2",
@@ -7508,7 +7922,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685519025-c3",
@@ -7578,7 +7998,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685519025-c4",
@@ -7649,7 +8075,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685519025-c5",
@@ -7720,7 +8154,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685604391-c1",
@@ -7890,7 +8331,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685604391-c2",
@@ -8065,7 +8512,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685604391-c3",
@@ -8258,7 +8711,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "function text (anterior thalamic nucleus); consider a theory card [OCR 'ingulate gyrus. Limbic nucleus which relays information to', conf 1.00]"
+  "review_note": "function text (anterior thalamic nucleus); consider a theory card [OCR 'ingulate gyrus. Limbic nucleus which relays information to', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-7-io-1770685604391-c4",
@@ -8459,7 +8919,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Parietal lobe general association area' (57); OCR text not recognised; long free-text label (not a structure name) [OCR 'Relays information to the posterior cortex, largely the visual and parietal association cortex', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Parietal lobe general association area' (57); OCR text not recognised; long free-text label (not a structure name) [OCR 'Relays information to the posterior cortex, largely the visual and parietal association cortex', conf 0.99]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685604391-c5",
@@ -8652,7 +9119,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "function text (medial geniculate nucleus); consider a theory card [OCR 'auditory cortex. Relays auditory information to the primary', conf 1.00]"
+  "review_note": "function text (medial geniculate nucleus); consider a theory card [OCR 'auditory cortex. Relays auditory information to the primary', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685604391-c6",
@@ -8845,7 +9319,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "function text (lateral geniculate nucleus); consider a theory card [OCR 'visual cortex. Relays visual information to the primary', conf 0.99]"
+  "review_note": "function text (lateral geniculate nucleus); consider a theory card [OCR 'visual cortex. Relays visual information to the primary', conf 0.99]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685642529-c1",
@@ -8893,7 +9374,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685642529-c2",
@@ -8941,7 +9429,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685694563-c1",
@@ -9053,7 +9548,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "descriptive text [OCR 'Tracking visual stimuli and for visual reflexes', conf 1.00]"
+  "review_note": "descriptive text [OCR 'Tracking visual stimuli and for visual reflexes', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685694563-c2",
@@ -9168,7 +9670,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685694563-c3",
@@ -9283,7 +9792,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685694563-c4",
@@ -9416,7 +9933,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685694563-c5",
@@ -9550,7 +10074,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'and for auditory reflexes. Carrying sound information up the brainstem Relay nucleus for the auditory system', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'and for auditory reflexes. Carrying sound information up the brainstem Relay nucleus for the auditory system', conf 0.99]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685715566-c1",
@@ -9605,7 +10136,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685715566-c2",
@@ -9662,7 +10200,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685715566-c3",
@@ -9719,7 +10264,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685753237-c1",
@@ -9809,7 +10362,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"cerebellum re\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"cerebellum re\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685753237-c2",
@@ -9898,7 +10458,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685753237-c3",
@@ -9989,7 +10556,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685753237-c4",
@@ -10080,7 +10654,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685753237-c5",
@@ -10192,7 +10773,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Paramedian pontine reticular formation' (50); OCR text not recognised; long free-text label (not a structure name) [OCR 'auditory cortex, layer IV Relays information to the prim', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Paramedian pontine reticular formation' (50); OCR text not recognised; long free-text label (not a structure name) [OCR 'auditory cortex, layer IV Relays information to the prim', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685780056-c1",
@@ -10266,7 +10854,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685780056-c2",
@@ -10336,7 +10931,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685780056-c3",
@@ -10405,7 +11007,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685780056-c4",
@@ -10476,7 +11085,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685780056-c5",
@@ -10545,7 +11161,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c1",
@@ -10663,7 +11286,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c2",
@@ -10782,7 +11412,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"midline ir\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"midline ir\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c3",
@@ -10900,7 +11536,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c4",
@@ -11018,7 +11661,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c5",
@@ -11141,7 +11791,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c6",
@@ -11259,7 +11916,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c7",
@@ -11377,7 +12041,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685863805-c8",
@@ -11525,7 +12196,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770685921224-c1",
@@ -11588,7 +12266,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685921224-c2",
@@ -11651,7 +12336,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685921224-c3",
@@ -11714,7 +12406,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685921224-c4",
@@ -11776,7 +12475,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685937875-c1",
@@ -11836,7 +12541,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685937875-c2",
@@ -11896,7 +12608,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685937875-c3",
@@ -11956,7 +12675,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770685937875-c4",
@@ -12016,7 +12742,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685961638-c1",
@@ -12069,7 +12801,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685961638-c2",
@@ -12125,7 +12863,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685961638-c3",
@@ -12181,7 +12926,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685995086-c1",
@@ -12275,7 +13027,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (66); OCR text not recognised; long free-text label (not a structure name) [OCR 'The most inferior, pointed end of the 4th ventricle', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (66); OCR text not recognised; long free-text label (not a structure name) [OCR 'The most inferior, pointed end of the 4th ventricle', conf 0.99]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685995086-c2",
@@ -12371,7 +13129,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685995086-c3",
@@ -12464,7 +13228,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770685995086-c4",
@@ -12558,7 +13328,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Primary somatosensory cortex' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Relay nuclei for the somatosensory system for lower body', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Primary somatosensory cortex' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Relay nuclei for the somatosensory system for lower body', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770685995086-c5",
@@ -12678,7 +13455,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "function text (cuneate tubercles); consider a theory card [OCR 'Relay nuclei for the somatosensory system for up', conf 1.00]"
+  "review_note": "function text (cuneate tubercles); consider a theory card [OCR 'Relay nuclei for the somatosensory system for up', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c1",
@@ -12789,7 +13573,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c2",
@@ -12900,7 +13691,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c3",
@@ -13013,7 +13811,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c4",
@@ -13124,7 +13929,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c5",
@@ -13233,7 +14045,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c6",
@@ -13345,7 +14163,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c7",
@@ -13457,7 +14282,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c8",
@@ -13566,7 +14398,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c9",
@@ -13677,7 +14515,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c10",
@@ -13793,7 +14637,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686037214-c11",
@@ -13909,7 +14760,14 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686056156-c1",
@@ -13955,7 +14813,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686076690-c1",
@@ -14009,7 +14874,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Third ventricle' (84); label is not on the official structure list; OCR passes disagree: 'he3rd Ventricle is' vs tight crop '3rd Ventricle' [OCR 'he3rd Ventricle is', conf 0.96]"
+  "review_note": "weak fuzzy match to 'Third ventricle' (84); label is not on the official structure list; OCR passes disagree: 'he3rd Ventricle is' vs tight crop '3rd Ventricle' [OCR 'he3rd Ventricle is', conf 0.96]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686076690-c2",
@@ -14067,7 +14938,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles"
+  ]
  },
  {
   "slug": "lab-7-io-1770686076690-c3",
@@ -14124,7 +15001,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles"
+  ]
  },
  {
   "slug": "lab-7-io-1770686112984-c1",
@@ -14203,7 +15086,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686112984-c2",
@@ -14278,7 +15167,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686112984-c3",
@@ -14378,7 +15273,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686160234-c1",
@@ -14431,7 +15333,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-7-io-1770686160234-c2",
@@ -14484,7 +15392,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686160234-c3",
@@ -14544,7 +15458,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686228689-c1",
@@ -14618,7 +15539,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686228689-c2",
@@ -14696,7 +15623,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686228689-c3",
@@ -14777,7 +15710,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686228689-c4",
@@ -14859,7 +15799,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686228689-c5",
@@ -14940,7 +15887,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770686228689-c6",
@@ -15024,7 +15977,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c1",
@@ -15161,7 +16121,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c2",
@@ -15298,7 +16265,14 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c3",
@@ -15435,7 +16409,14 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c4",
@@ -15565,7 +16546,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c5",
@@ -15703,7 +16690,14 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c6",
@@ -15840,7 +16834,13 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c7",
@@ -15980,7 +16980,14 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c8",
@@ -16114,7 +17121,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c9",
@@ -16248,7 +17262,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c10",
@@ -16385,7 +17405,13 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c11",
@@ -16522,7 +17548,14 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c12",
@@ -16654,7 +17687,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c13",
@@ -16791,7 +17830,13 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770686358070-c14",
@@ -16930,7 +17975,13 @@
    "type": "mask"
   },
   "prompt": "Name the cranial nerve.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c1",
@@ -17062,7 +18113,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c2",
@@ -17195,7 +18253,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c3",
@@ -17327,7 +18392,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c4",
@@ -17452,7 +18524,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c5",
@@ -17580,7 +18659,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c6",
@@ -17728,7 +18814,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "practice-question answer text [OCR 'Retinal ganglior be of the eye)', conf 1.00]"
+  "review_note": "practice-question answer text [OCR 'Retinal ganglior be of the eye)', conf 1.00]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-7-io-1770686410815-c7",
@@ -17876,7 +18969,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "practice-question answer text; consider a theory card [OCR 'Trig', conf 0.95]"
+  "review_note": "practice-question answer text; consider a theory card [OCR 'Trig', conf 0.95]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-7-io-1770727975215-c1",
@@ -17923,7 +19023,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"ns going TO\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"ns going TO\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770727975215-c2",
@@ -17970,7 +19076,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"s LEAVING\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"s LEAVING\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770728625914-c1",
@@ -18009,7 +19121,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770744842712-c1",
@@ -18073,7 +19191,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-7-io-1770744842712-c2",
@@ -18135,7 +19260,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770744842712-c3",
@@ -18202,7 +19333,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770744842712-c4",
@@ -18269,7 +19406,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves"
+  ]
  },
  {
   "slug": "lab-7-io-1770744857169-c1",
@@ -18323,7 +19466,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"longitudinal fi\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"longitudinal fi\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770744857169-c2",
@@ -18376,7 +19525,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "lab-7-io-1770744857169-c3",
@@ -18433,6 +19588,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  }
 ]

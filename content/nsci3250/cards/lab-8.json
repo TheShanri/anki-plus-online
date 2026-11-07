@@ -383,7 +383,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c2",
@@ -767,7 +774,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c3",
@@ -1150,7 +1165,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c4",
@@ -1533,7 +1556,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c5",
@@ -1927,7 +1958,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c6",
@@ -2314,7 +2353,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c7",
@@ -2706,7 +2752,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c8",
@@ -3101,7 +3155,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c9",
@@ -3484,7 +3545,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c10",
@@ -3872,7 +3940,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c11",
@@ -4264,7 +4339,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c12",
@@ -4660,7 +4742,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937472729-c13",
@@ -5052,7 +5142,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c1",
@@ -5374,7 +5471,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c2",
@@ -5691,7 +5796,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c3",
@@ -6016,7 +6129,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c4",
@@ -6341,7 +6461,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c5",
@@ -6659,7 +6787,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c6",
@@ -6980,7 +7115,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c7",
@@ -7298,7 +7440,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c8",
@@ -7616,7 +7766,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c9",
@@ -7936,7 +8093,16 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:autonomic",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c10",
@@ -8259,7 +8425,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937561484-c11",
@@ -8593,7 +8766,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Medulla"
+  "caption": "Rostral Medulla",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937611921-c1",
@@ -8797,7 +8977,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Medulla (Tubercle Level)"
+  "caption": "Caudal Medulla (Tubercle Level)",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937611921-c2",
@@ -8996,7 +9184,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Medulla (Tubercle Level)"
+  "caption": "Caudal Medulla (Tubercle Level)",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937611921-c3",
@@ -9201,7 +9397,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Medulla (Tubercle Level)"
+  "caption": "Caudal Medulla (Tubercle Level)",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937611921-c4",
@@ -9409,7 +9613,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Medulla (Tubercle Level)"
+  "caption": "Caudal Medulla (Tubercle Level)",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937611921-c5",
@@ -9612,7 +9824,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Medulla (Tubercle Level)"
+  "caption": "Caudal Medulla (Tubercle Level)",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937611921-c6",
@@ -9817,7 +10036,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Medulla (Tubercle Level)"
+  "caption": "Caudal Medulla (Tubercle Level)",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c1",
@@ -10087,7 +10314,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c2",
@@ -10355,7 +10590,15 @@
   "prompt": "Name the structure.",
   "followups": [],
   "caption": "Rostral Pons",
-  "review_note": "mask covers two labels (motor trigeminal nucleus / principal sensory trigeminal nucleus) [OCR 'hucievs tngeminal prinupal sensory', conf 0.92]"
+  "review_note": "mask covers two labels (motor trigeminal nucleus / principal sensory trigeminal nucleus) [OCR 'hucievs tngeminal prinupal sensory', conf 0.92]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c3",
@@ -10630,7 +10873,16 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c4",
@@ -10892,7 +11144,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c5",
@@ -11166,7 +11426,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c6",
@@ -11432,7 +11700,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c7",
@@ -11698,7 +11973,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937686697-c8",
@@ -11957,7 +12239,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Pons"
+  "caption": "Rostral Pons",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c1",
@@ -12261,7 +12550,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c2",
@@ -12557,7 +12853,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c3",
@@ -12848,7 +13151,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c4",
@@ -13146,7 +13456,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c5",
@@ -13433,7 +13751,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c6",
@@ -13722,7 +14048,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c7",
@@ -14013,7 +14347,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937764507-c8",
@@ -14321,7 +14662,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Caudal Midbrain"
+  "caption": "Caudal Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c1",
@@ -14647,7 +14996,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c2",
@@ -14966,7 +15322,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c3",
@@ -15293,7 +15657,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c4",
@@ -15614,7 +15986,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c5",
@@ -15938,7 +16317,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c6",
@@ -16259,7 +16646,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c7",
@@ -16581,7 +16975,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c8",
@@ -16939,7 +17341,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c9",
@@ -17262,7 +17671,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-diagrams-io-1770937860931-c10",
@@ -17579,7 +17996,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Rostral Midbrain"
+  "caption": "Rostral Midbrain",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c1",
@@ -17764,7 +18189,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c2",
@@ -17951,7 +18383,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c3",
@@ -18134,7 +18574,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c4",
@@ -18316,7 +18764,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c5",
@@ -18503,7 +18959,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c6",
@@ -18690,7 +19154,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c7",
@@ -18877,7 +19349,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c8",
@@ -19065,7 +19545,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c9",
@@ -19252,7 +19740,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c10",
@@ -19442,7 +19937,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c11",
@@ -19629,7 +20132,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c12",
@@ -19809,7 +20319,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c13",
@@ -19989,7 +20507,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c14",
@@ -20178,7 +20703,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c15",
@@ -20360,7 +20892,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c16",
@@ -20544,7 +21083,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c17",
@@ -20727,7 +21274,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c18",
@@ -20910,7 +21464,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c19",
@@ -21090,7 +21652,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c20",
@@ -21274,7 +21843,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c21",
@@ -21458,7 +22034,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Ventral View"
+  "caption": "Ventral View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:horizontal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c1",
@@ -21591,7 +22175,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c2",
@@ -21726,7 +22318,16 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:horizontal",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c3",
@@ -21861,7 +22462,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c4",
@@ -21994,7 +22603,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c5",
@@ -22132,7 +22749,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c6",
@@ -22265,7 +22890,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c7",
@@ -22399,7 +23031,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c8",
@@ -22533,7 +23173,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c9",
@@ -22667,7 +23315,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c10",
@@ -22801,7 +23457,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c11",
@@ -22935,7 +23599,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c12",
@@ -23070,7 +23742,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c13",
@@ -23204,7 +23883,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338013905-c14",
@@ -23339,7 +24025,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Dorsal View"
+  "caption": "Dorsal View",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338027314-c1",
@@ -23378,7 +24071,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c1",
@@ -23476,7 +24176,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c2",
@@ -23576,7 +24284,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c3",
@@ -23673,7 +24389,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c4",
@@ -23770,7 +24494,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c5",
@@ -23869,7 +24600,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:horizontal",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c6",
@@ -23971,7 +24711,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c7",
@@ -24066,7 +24814,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c8",
@@ -24163,7 +24919,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338056180-c9",
@@ -24265,7 +25029,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338072694-c1",
@@ -24304,7 +25076,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c1",
@@ -24411,7 +25190,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c2",
@@ -24518,7 +25304,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c3",
@@ -24622,7 +25415,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c4",
@@ -24724,7 +25525,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c5",
@@ -24833,7 +25642,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c6",
@@ -24937,7 +25754,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c7",
@@ -25042,7 +25866,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c8",
@@ -25144,7 +25976,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c9",
@@ -25250,7 +26090,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c10",
@@ -25354,7 +26201,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c1",
@@ -25451,7 +26306,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c2",
@@ -25549,7 +26411,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c3",
@@ -25647,7 +26517,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c4",
@@ -25745,7 +26623,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c5",
@@ -25846,7 +26732,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c6",
@@ -25945,7 +26839,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c7",
@@ -26047,7 +26950,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c8",
@@ -26149,7 +27060,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338133761-c9",
@@ -26244,7 +27163,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338208857-c1",
@@ -26283,7 +27210,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c1",
@@ -26394,7 +27328,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c2",
@@ -26506,7 +27447,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c3",
@@ -26618,7 +27567,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c4",
@@ -26730,7 +27687,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c5",
@@ -26845,7 +27810,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c6",
@@ -26960,7 +27933,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c7",
@@ -27075,7 +28056,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c8",
@@ -27188,7 +28177,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c9",
@@ -27297,7 +28293,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c10",
@@ -27410,7 +28414,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c11",
@@ -27520,7 +28531,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Motor decussation' (55); OCR text not recognised; long free-text label (not a structure name) [OCR 'Corticospinal, corticobulbar and corticopontine fibres AKA: Longitudinal fibers of the pons', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Motor decussation' (55); OCR text not recognised; long free-text label (not a structure name) [OCR 'Corticospinal, corticobulbar and corticopontine fibres AKA: Longitudinal fibers of the pons', conf 0.99]",
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338257112-c1",
@@ -27559,7 +28578,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c1",
@@ -27700,7 +28726,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c2",
@@ -27839,7 +28872,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c3",
@@ -27976,7 +29016,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c4",
@@ -28119,7 +29166,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:autonomic",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c5",
@@ -28256,7 +29312,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c6",
@@ -28398,7 +29462,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c7",
@@ -28538,7 +29609,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c8",
@@ -28675,7 +29754,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c9",
@@ -28814,7 +29901,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c10",
@@ -28958,7 +30052,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:autonomic"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c11",
@@ -29095,7 +30197,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c12",
@@ -29239,7 +30349,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c13",
@@ -29380,7 +30498,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c14",
@@ -29521,7 +30646,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c15",
@@ -29658,7 +30791,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338350149-c1",
@@ -29700,7 +30841,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c1",
@@ -29825,7 +30974,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c2",
@@ -29948,7 +31104,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c3",
@@ -30077,7 +31240,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c4",
@@ -30206,7 +31377,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c5",
@@ -30335,7 +31514,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c6",
@@ -30463,7 +31650,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c7",
@@ -30589,7 +31783,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c8",
@@ -30722,7 +31924,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c9",
@@ -30845,7 +32055,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c10",
@@ -30978,7 +32196,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "plane:horizontal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c11",
@@ -31105,7 +32331,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c12",
@@ -31232,7 +32465,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c13",
@@ -31355,6 +32596,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
+  ]
  }
 ]

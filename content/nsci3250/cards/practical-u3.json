@@ -30,7 +30,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:white-matter"
   ]
  },
  {
@@ -65,7 +69,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -87,7 +96,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q02"
+  "after_pin": "practical-u3-2025-q02",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q04",
@@ -121,7 +138,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:white-matter"
   ]
  },
  {
@@ -156,7 +177,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -193,7 +219,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "modality:sensory"
   ],
   "review_note": "answer is not on the official structure list"
  },
@@ -229,7 +259,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:diencephalon"
   ]
  },
  {
@@ -264,7 +298,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles"
   ]
  },
  {
@@ -301,7 +339,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum"
   ]
  },
  {
@@ -323,7 +365,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q09"
+  "after_pin": "practical-u3-2025-q09",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u3-2025-q11",
@@ -361,7 +411,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -383,7 +438,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q11"
+  "after_pin": "practical-u3-2025-q11",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u3-2025-q13",
@@ -420,7 +483,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -442,7 +510,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q13"
+  "after_pin": "practical-u3-2025-q13",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u3-2025-q15",
@@ -476,7 +552,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -498,7 +579,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q15"
+  "after_pin": "practical-u3-2025-q15",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u3-2025-q17",
@@ -532,7 +621,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:basal-ganglia"
   ]
  },
  {
@@ -555,7 +648,15 @@
   "format": "type",
   "require_side": false,
   "after_pin": "practical-u3-2025-q17",
-  "review_note": "free-text answer; add keyword groups"
+  "review_note": "free-text answer; add keyword groups",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u3-2025-q19",
@@ -591,7 +692,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:white-matter"
   ]
  },
  {
@@ -616,7 +721,14 @@
   "choices": null,
   "format": "tf",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q19"
+  "after_pin": "practical-u3-2025-q19",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:white-matter",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u3-2025-q21",
@@ -653,7 +765,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:vessels",
+   "modality:motor"
   ]
  },
  {
@@ -675,7 +792,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q21"
+  "after_pin": "practical-u3-2025-q21",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:vessels",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q23",
@@ -707,7 +832,10 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical"
   ]
  },
  {
@@ -729,7 +857,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q23"
+  "after_pin": "practical-u3-2025-q23",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q25",
@@ -756,7 +891,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q26",
@@ -790,7 +931,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:vessels"
   ]
  },
  {
@@ -812,7 +957,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u3-2025-q26"
+  "after_pin": "practical-u3-2025-q26",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "region:vessels",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q28",
@@ -844,7 +997,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u3-2025-q29",
@@ -876,7 +1035,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:diencephalon"
   ]
  },
  {
@@ -910,7 +1073,14 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u3-2025-q31",
@@ -937,7 +1107,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u3-2025-q32",
@@ -964,7 +1140,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q33",
@@ -997,7 +1179,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:vessels"
   ]
  },
  {
@@ -1025,7 +1211,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q35",
@@ -1052,7 +1244,13 @@
   "pointer": {
    "type": "existing",
    "color": "orange pin"
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q36",
@@ -1079,7 +1277,14 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u3-2025-q37",
@@ -1106,7 +1311,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u3-2025-q38",
@@ -1136,7 +1347,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:supply"
+  ]
  },
  {
   "slug": "practical-u3-2025-q39",
@@ -1169,7 +1386,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u3-2025-q40",
@@ -1196,7 +1419,13 @@
   "pointer": {
    "type": "existing",
    "color": "white pin"
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u3-2025-qB1",
@@ -1233,7 +1462,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "practical-u3-2025-qB2",
@@ -1265,7 +1500,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u3-2025"
+   "practical-u3-2025",
+   "unit:u3",
+   "kind:pin",
+   "source:practical",
+   "region:diencephalon"
   ]
  },
  {
@@ -1299,6 +1538,12 @@
   "pointer": {
    "type": "existing",
    "color": "pink circled region"
-  }
+  },
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  }
 ]

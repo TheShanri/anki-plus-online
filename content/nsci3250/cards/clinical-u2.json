@@ -26,7 +26,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:olfactory",
+   "theory:lesion"
   ],
   "structures": [
    "olfactory-nerve"
@@ -60,7 +66,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "optic-nerve"
@@ -94,7 +106,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "oculomotor-nerve"
@@ -128,7 +146,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "trochlear-nerve"
@@ -162,7 +186,14 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "region:brainstem",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "abducens-nerve",
@@ -197,7 +228,15 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "review_note": "Jaw deviates toward the weak side; standard detail beyond slides.",
   "structures": [
@@ -233,7 +272,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "trigeminal-nerve"
@@ -270,7 +315,14 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "facial-nerve",
@@ -305,7 +357,14 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:cranial-nerves",
+   "modality:motor",
+   "theory:lesion"
   ],
   "review_note": "Detail about forehead sparing is standard neuroanatomy; slides state corticobulbar input to the facial nucleus.",
   "structures": [
@@ -343,7 +402,14 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:auditory",
+   "modality:vestibular",
+   "theory:lesion"
   ],
   "structures": [
    "vestibulocochlear-nerve"
@@ -381,7 +447,14 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:vestibular",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -408,7 +481,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:cranial-nerves",
+   "theory:lesion"
   ],
   "structures": [
    "nucleus-ambiguus",
@@ -440,7 +519,12 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "theory:lesion"
   ],
   "structures": [
    "accessory-nerve"
@@ -474,7 +558,14 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
   ],
   "review_note": "Direction of deviation (toward the lesion) is standard neuroanatomy.",
   "structures": [
@@ -510,7 +601,13 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "trigeminal-nerve"
@@ -544,7 +641,12 @@
   ],
   "tags": [
    "clinical",
-   "cn"
+   "cn",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "theory:lesion"
   ],
   "structures": [
    "facial-nerve"
@@ -576,7 +678,13 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "optic-chiasm"
@@ -611,7 +719,13 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "optic-tract"
@@ -646,7 +760,14 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "review_note": "Cortex statement from lecture 11; Meyer's loop detail is standard.",
   "structures": [
@@ -676,7 +797,14 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "primary-visual-cortex"
@@ -707,7 +835,14 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "superior-colliculus"
@@ -740,7 +875,14 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "inferior-temporal-gyrus"
@@ -773,7 +915,14 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "medial-longitudinal-fasciculus"
@@ -804,7 +953,13 @@
   ],
   "tags": [
    "clinical",
-   "visual"
+   "visual",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
   ],
   "review_note": "Direction of deviation after FEF lesion is standard neuroanatomy; slide gives the intact-FEF direction rule.",
   "structures": []
@@ -835,7 +990,13 @@
   ],
   "tags": [
    "clinical",
-   "motor"
+   "motor",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:white-matter",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "internal-capsule"
@@ -865,7 +1026,13 @@
   ],
   "tags": [
    "clinical",
-   "motor"
+   "motor",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "motor-decussation"
@@ -897,7 +1064,13 @@
   ],
   "tags": [
    "clinical",
-   "motor"
+   "motor",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "red-nucleus"
@@ -929,7 +1102,13 @@
   ],
   "tags": [
    "clinical",
-   "motor"
+   "motor",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "red-nucleus"
@@ -960,7 +1139,13 @@
   ],
   "tags": [
    "clinical",
-   "motor"
+   "motor",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "cerebellar-lateral-hemisphere"
@@ -995,7 +1180,14 @@
   ],
   "tags": [
    "clinical",
-   "brainstem"
+   "brainstem",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
   "structures": [
@@ -1034,7 +1226,14 @@
   ],
   "tags": [
    "clinical",
-   "brainstem"
+   "brainstem",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
   "structures": [
@@ -1070,7 +1269,15 @@
   ],
   "tags": [
    "clinical",
-   "brainstem"
+   "brainstem",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:cranial-nerves",
+   "modality:visual",
+   "modality:motor",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
   "structures": [
@@ -1109,7 +1316,14 @@
   ],
   "tags": [
    "clinical",
-   "brainstem"
+   "brainstem",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "modality:visual",
+   "modality:motor",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
   "structures": [
@@ -1147,7 +1361,14 @@
   ],
   "tags": [
    "clinical",
-   "brainstem"
+   "brainstem",
+   "unit:u2",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
   "structures": [

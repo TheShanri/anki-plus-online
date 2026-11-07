@@ -21,7 +21,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-anterior-nucleus-of-thalamus-connections",
@@ -46,7 +54,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-anterior-nucleus-of-thalamus-embryology",
@@ -66,7 +82,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-pulvinar-function",
@@ -93,7 +116,17 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "modality:visual",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-pulvinar-embryology",
@@ -113,7 +146,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-medial-geniculate-nucleus-function",
@@ -139,7 +179,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-medial-geniculate-nucleus-connections",
@@ -159,7 +208,16 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-medial-geniculate-nucleus-embryology",
@@ -179,7 +237,16 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-lateral-geniculate-nucleus-function",
@@ -206,7 +273,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-lateral-geniculate-nucleus-connections",
@@ -228,7 +303,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lateral-geniculate-nucleus-lesion",
@@ -255,7 +338,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-epithalamus-embryology",
@@ -275,7 +366,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-epithalamus-function",
@@ -303,7 +401,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-pineal-gland-function",
@@ -327,7 +433,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-pineal-gland-lesion",
@@ -353,7 +466,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-optic-tract-lesion",
@@ -380,7 +500,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-optic-tract-connections",
@@ -403,7 +531,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-optic-tract-order",
@@ -427,7 +563,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-superior-colliculus-function",
@@ -456,7 +600,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-superior-colliculus-connections",
@@ -478,7 +630,16 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-superior-colliculus-embryology",
@@ -500,7 +661,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-inferior-colliculus-function",
@@ -528,7 +697,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-inferior-colliculus-connections",
@@ -551,7 +728,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-inferior-colliculus-embryology",
@@ -573,7 +758,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-brachium-of-the-inferior-colliculus-connections",
@@ -601,7 +794,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-cerebral-peduncles-passes",
@@ -627,7 +828,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-cerebral-peduncles-lesion",
@@ -653,7 +862,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-cerebral-peduncles-embryology",
@@ -675,7 +891,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-interpeduncular-fossa-cranial_nerve",
@@ -700,7 +923,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-interpeduncular-cistern-connections",
@@ -728,7 +959,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-superior-cerebellar-peduncle-connections",
@@ -756,7 +994,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-superior-cerebellar-peduncle-passes",
@@ -782,7 +1028,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-middle-cerebellar-peduncle-connections",
@@ -806,7 +1061,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-inferior-cerebellar-peduncle-passes",
@@ -833,7 +1096,17 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:vestibular",
+   "modality:motor",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-cerebellar-peduncles-embryology",
@@ -853,7 +1126,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-transverse-fibers-of-the-pons-connections",
@@ -882,7 +1163,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-facial-colliculus-cranial_nerve",
@@ -911,7 +1200,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-facial-colliculus-lesion",
@@ -939,7 +1236,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-pyramids-passes",
@@ -961,7 +1265,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-pyramids-lesion",
@@ -986,7 +1298,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-pyramids-cranial_nerve",
@@ -1011,7 +1331,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-olives-connections",
@@ -1033,7 +1361,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-olives-cranial_nerve",
@@ -1060,7 +1395,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-olives-embryology",
@@ -1080,7 +1422,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-cuneate-tubercle-connections",
@@ -1103,7 +1452,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-gracile-tubercle-connections",
@@ -1126,7 +1483,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-obex-level",
@@ -1154,7 +1519,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-area-postrema-function",
@@ -1183,7 +1555,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-periaqueductal-gray-function",
@@ -1212,7 +1591,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-periaqueductal-gray-embryology",
@@ -1234,7 +1620,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-red-nucleus-connections",
@@ -1256,7 +1649,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-red-nucleus-function",
@@ -1285,7 +1686,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-red-nucleus-side",
@@ -1310,7 +1719,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-oculomotor-nucleus-muscle",
@@ -1338,7 +1755,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-oculomotor-nucleus-cranial_nerve",
@@ -1363,7 +1788,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-oculomotor-nucleus-level",
@@ -1387,7 +1820,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-oculomotor-nucleus-embryology",
@@ -1409,7 +1850,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-edinger-westphal-nucleus-function",
@@ -1437,7 +1886,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-edinger-westphal-nucleus-connections",
@@ -1461,7 +1918,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "modality:autonomic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-edinger-westphal-nucleus-muscle",
@@ -1487,7 +1953,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-substantia-nigra-function",
@@ -1517,7 +1991,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-substantia-nigra-lesion",
@@ -1539,7 +2021,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-substantia-nigra-embryology",
@@ -1561,7 +2051,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-oculomotor-nerve-cranial_nerve",
@@ -1590,7 +2088,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "modality:autonomic",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-oculomotor-nerve-lesion",
@@ -1617,7 +2124,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-oculomotor-nerve-muscle",
@@ -1643,7 +2158,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-medial-lemniscus-function",
@@ -1669,7 +2192,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-medial-lemniscus-order",
@@ -1694,7 +2225,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-medial-lemniscus-side",
@@ -1719,7 +2258,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-medial-lemniscus-connections",
@@ -1743,7 +2290,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-medial-longitudinal-fasciculus-function",
@@ -1771,7 +2326,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:vestibular",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-medial-longitudinal-fasciculus-lesion",
@@ -1797,7 +2360,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-trochlear-nucleus-muscle",
@@ -1819,7 +2389,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-trochlear-nucleus-cranial_nerve",
@@ -1844,7 +2422,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-trochlear-nucleus-level",
@@ -1868,7 +2454,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "modality:visual",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-trochlear-nucleus-embryology",
@@ -1890,7 +2485,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-decussation-of-the-superior-cerebellar-peduncle-level",
@@ -1914,7 +2517,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:auditory",
+   "modality:motor",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-decussation-of-the-superior-cerebellar-peduncle-connections",
@@ -1940,7 +2552,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-muscle",
@@ -1970,7 +2590,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-cranial_nerve",
@@ -1995,7 +2624,16 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-level",
@@ -2018,7 +2656,16 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-embryology",
@@ -2038,7 +2685,16 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-lesion",
@@ -2066,7 +2722,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-principal-sensory-nucleus-of-trigeminal-function",
@@ -2093,7 +2758,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-principal-sensory-nucleus-of-trigeminal-cranial_nerve",
@@ -2118,7 +2791,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-principal-sensory-nucleus-of-trigeminal-level",
@@ -2140,7 +2821,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-longitudinal-fibers-of-the-pons-passes",
@@ -2166,7 +2855,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-pontine-nuclei-function",
@@ -2191,7 +2888,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-pontine-nuclei-connections",
@@ -2213,7 +2918,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-pontine-nuclei-embryology",
@@ -2233,7 +2946,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-abducens-nucleus-muscle",
@@ -2253,7 +2973,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-abducens-nucleus-cranial_nerve",
@@ -2278,7 +3006,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-abducens-nucleus-function",
@@ -2307,7 +3043,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-abducens-nucleus-level",
@@ -2329,7 +3073,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-abducens-nucleus-embryology",
@@ -2349,7 +3101,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-facial-nucleus-muscle",
@@ -2380,7 +3140,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-facial-nucleus-cranial_nerve",
@@ -2405,7 +3172,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-facial-nucleus-lesion",
@@ -2430,7 +3204,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-facial-nucleus-level",
@@ -2452,7 +3234,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-facial-nucleus-embryology",
@@ -2472,7 +3261,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-vestibulocochlear-complex-function",
@@ -2500,7 +3296,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:auditory",
+   "modality:vestibular",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-vestibulocochlear-complex-cranial_nerve",
@@ -2525,7 +3330,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:vestibular",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-facial-nerve-function",
@@ -2555,7 +3368,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-facial-nerve-lesion",
@@ -2579,7 +3399,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-facial-nerve-cranial_nerve",
@@ -2603,7 +3431,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nucleus-muscle",
@@ -2631,7 +3466,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nucleus-function",
@@ -2656,7 +3498,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nucleus-lesion",
@@ -2683,7 +3533,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nucleus-cranial_nerve",
@@ -2708,7 +3565,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nucleus-embryology",
@@ -2728,7 +3592,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-dorsal-motor-nucleus-of-the-vagus-function",
@@ -2756,7 +3627,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:autonomic",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsal-motor-nucleus-of-the-vagus-connections",
@@ -2781,7 +3661,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:autonomic",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dorsal-motor-nucleus-of-the-vagus-cranial_nerve",
@@ -2806,7 +3695,16 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:autonomic",
+   "modality:motor",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-dorsal-motor-nucleus-of-the-vagus-embryology",
@@ -2826,7 +3724,16 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:autonomic",
+   "modality:motor",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-solitary-nucleus-function",
@@ -2856,7 +3763,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-solitary-nucleus-cranial_nerve",
@@ -2888,7 +3802,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-solitary-nucleus-embryology",
@@ -2908,7 +3829,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-nucleus-ambiguus-function",
@@ -2938,7 +3866,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-nucleus-ambiguus-cranial_nerve",
@@ -2967,7 +3903,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:autonomic",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-nucleus-ambiguus-lesion",
@@ -2995,7 +3939,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-nucleus-ambiguus-embryology",
@@ -3015,7 +3966,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-inferior-olivary-nucleus-function",
@@ -3042,7 +4000,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-inferior-olivary-nucleus-connections",
@@ -3064,7 +4030,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-inferior-olivary-nucleus-embryology",
@@ -3084,7 +4058,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-glossopharyngeal-nerve-function",
@@ -3114,7 +4095,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-glossopharyngeal-nerve-muscle",
@@ -3134,7 +4122,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-glossopharyngeal-nerve-passes",
@@ -3156,7 +4151,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-vagus-nerve-function",
@@ -3186,7 +4188,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:autonomic",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-vagus-nerve-passes",
@@ -3208,7 +4219,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:autonomic",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-vagus-nerve-lesion",
@@ -3234,7 +4253,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:autonomic",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nerve-passes",
@@ -3254,7 +4281,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-hypoglossal-nerve-muscle",
@@ -3282,7 +4316,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-gracile-nucleus-order",
@@ -3307,7 +4348,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-gracile-nucleus-connections",
@@ -3334,7 +4383,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-gracile-nucleus-embryology",
@@ -3354,7 +4411,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-cuneate-nucleus-order",
@@ -3379,7 +4444,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-cuneate-nucleus-function",
@@ -3405,7 +4478,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-cuneate-nucleus-embryology",
@@ -3425,7 +4506,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-internal-arcuate-fibers-connections",
@@ -3453,7 +4542,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-internal-arcuate-fibers-level",
@@ -3475,7 +4572,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-internal-arcuate-fibers-order",
@@ -3500,7 +4604,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-spinal-trigeminal-nucleus-function",
@@ -3525,7 +4636,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-spinal-trigeminal-nucleus-side",
@@ -3550,7 +4669,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-spinal-trigeminal-nucleus-cranial_nerve",
@@ -3579,7 +4706,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-motor-decussation-level",
@@ -3603,7 +4738,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-motor-decussation-connections",
@@ -3629,7 +4772,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lateral-corticospinal-tract-function",
@@ -3657,7 +4808,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-lateral-corticospinal-tract-order",
@@ -3682,7 +4841,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-lateral-corticospinal-tract-side",
@@ -3707,7 +4874,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-lateral-corticospinal-tract-connections",
@@ -3733,7 +4908,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-anterior-corticospinal-tract-function",
@@ -3760,7 +4943,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-anterior-corticospinal-tract-side",
@@ -3787,7 +4979,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-lateral-funiculus-passes",
@@ -3815,7 +5015,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-anterior-funiculus-passes",
@@ -3842,7 +5051,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:vestibular",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-location-of-limb-lower-motor-neurons-function",
@@ -3866,7 +5084,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-location-of-trunk-lower-motor-neurons-function",
@@ -3890,7 +5116,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-pontine-protuberance-passes",
@@ -3917,7 +5152,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-cornea-function",
@@ -3945,7 +5188,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-cornea-cranial_nerve",
@@ -3975,7 +5226,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-sclera-function",
@@ -4003,7 +5262,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-optic-nerve-cranial_nerve",
@@ -4026,7 +5293,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-optic-nerve-lesion",
@@ -4052,7 +5327,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-optic-nerve-connections",
@@ -4074,7 +5357,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-optic-radiations-function",
@@ -4105,7 +5396,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-optic-radiations-lesion",
@@ -4131,7 +5430,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-optic-radiations-passes",
@@ -4156,7 +5463,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-iris-function",
@@ -4182,7 +5497,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-iris-muscle",
@@ -4211,7 +5534,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "modality:autonomic",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-lens-function",
@@ -4238,7 +5570,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-lens-muscle",
@@ -4260,7 +5600,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-lens-lesion",
@@ -4280,7 +5628,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-retina-function",
@@ -4308,7 +5664,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-retina-connections",
@@ -4332,7 +5696,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-retina-lesion",
@@ -4360,7 +5732,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-choroid-function",
@@ -4388,7 +5768,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-suprachiasmatic-nucleus-function",
@@ -4415,7 +5803,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-suprachiasmatic-nucleus-connections",
@@ -4437,7 +5833,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-paramedian-pontine-reticular-formation-function",
@@ -4464,7 +5868,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-paramedian-pontine-reticular-formation-connections",
@@ -4486,7 +5897,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-paramedian-pontine-reticular-formation-lesion",
@@ -4512,7 +5931,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-olfactory-nerve-cranial_nerve",
@@ -4535,7 +5961,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:olfactory",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-olfactory-nerve-passes",
@@ -4557,7 +5991,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:olfactory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-olfactory-nerve-lesion",
@@ -4577,7 +6019,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:olfactory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-trochlear-nerve-muscle",
@@ -4597,7 +6047,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-trochlear-nerve-cranial_nerve",
@@ -4626,7 +6084,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "theory-trigeminal-nerve-function",
@@ -4653,7 +6119,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:motor",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-trigeminal-nerve-passes",
@@ -4679,7 +6154,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-trigeminal-nerve-lesion",
@@ -4701,7 +6184,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-abducens-nerve-muscle",
@@ -4721,7 +6212,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-abducens-nerve-lesion",
@@ -4749,7 +6248,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-vestibulocochlear-nerve-function",
@@ -4775,7 +6282,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:auditory",
+   "modality:vestibular",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-vestibulocochlear-nerve-lesion",
@@ -4797,7 +6313,16 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "modality:auditory",
+   "modality:vestibular",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-accessory-nerve-muscle",
@@ -4823,7 +6348,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "theory-accessory-nerve-cranial_nerve",
@@ -4846,6 +6378,13 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:supplementary",
+   "region:cranial-nerves",
+   "theory:cranial-nerve"
+  ]
  }
 ]

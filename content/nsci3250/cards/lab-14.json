@@ -45,7 +45,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943023833-c2",
@@ -95,7 +103,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943034721-c1",
@@ -139,7 +155,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943047508-c1",
@@ -196,7 +219,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943047508-c2",
@@ -254,7 +284,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943047508-c3",
@@ -307,7 +344,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943065204-c1",
@@ -372,7 +415,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943065204-c2",
@@ -432,7 +482,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943065204-c3",
@@ -495,7 +553,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943065204-c4",
@@ -555,7 +620,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943083195-c1",
@@ -632,7 +703,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943083195-c2",
@@ -711,7 +789,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943083195-c3",
@@ -791,7 +876,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943083195-c4",
@@ -869,7 +962,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943083195-c5",
@@ -947,7 +1047,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943083195-c6",
@@ -1024,7 +1131,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c1",
@@ -1130,7 +1244,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c2",
@@ -1234,7 +1355,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c3",
@@ -1339,7 +1468,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:coronal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c4",
@@ -1441,7 +1578,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c5",
@@ -1543,7 +1686,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c6",
@@ -1649,7 +1800,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c7",
@@ -1755,7 +1913,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c8",
@@ -1859,7 +2024,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c9",
@@ -1965,7 +2137,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943123079-c10",
@@ -2072,7 +2251,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c1",
@@ -2197,7 +2383,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c2",
@@ -2324,7 +2517,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c3",
@@ -2451,7 +2651,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c4",
@@ -2578,7 +2785,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c5",
@@ -2701,7 +2916,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c6",
@@ -2827,7 +3050,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c7",
@@ -2952,7 +3183,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c8",
@@ -3075,7 +3313,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c9",
@@ -3202,7 +3447,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c10",
@@ -3325,7 +3577,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c11",
@@ -3452,7 +3712,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c12",
@@ -3578,7 +3846,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943163898-c13",
@@ -3705,7 +3980,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c1",
@@ -3837,7 +4119,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c2",
@@ -3971,7 +4261,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c3",
@@ -4105,7 +4402,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c4",
@@ -4240,7 +4544,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c5",
@@ -4374,7 +4685,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c6",
@@ -4511,7 +4829,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c7",
@@ -4645,7 +4970,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c8",
@@ -4775,7 +5108,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c9",
@@ -4909,7 +5249,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c10",
@@ -5039,7 +5386,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c11",
@@ -5172,7 +5527,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c12",
@@ -5304,7 +5666,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c13",
@@ -5439,7 +5808,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943207234-c14",
@@ -5573,7 +5949,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c1",
@@ -5698,7 +6081,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c2",
@@ -5821,7 +6212,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c3",
@@ -5948,7 +6347,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c4",
@@ -6076,7 +6482,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c5",
@@ -6203,7 +6616,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c6",
@@ -6328,7 +6748,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c7",
@@ -6453,7 +6881,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c8",
@@ -6578,7 +7014,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c9",
@@ -6701,7 +7145,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c10",
@@ -6831,7 +7283,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c11",
@@ -6957,7 +7416,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c12",
@@ -7082,7 +7548,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943244883-c13",
@@ -7209,7 +7682,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c1",
@@ -7315,7 +7795,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c2",
@@ -7419,7 +7907,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c3",
@@ -7528,7 +8023,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c4",
@@ -7630,7 +8132,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c5",
@@ -7736,7 +8246,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c6",
@@ -7843,7 +8361,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c7",
@@ -7949,7 +8474,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:coronal",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c8",
@@ -8055,7 +8589,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "plane:coronal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c9",
@@ -8161,7 +8703,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:basal-ganglia",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943306581-c10",
@@ -8266,7 +8815,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c1",
@@ -8372,7 +8928,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c2",
@@ -8476,7 +9039,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c3",
@@ -8582,7 +9152,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c4",
@@ -8688,7 +9266,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c5",
@@ -8790,7 +9375,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c6",
@@ -8897,7 +9490,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c7",
@@ -9002,7 +9602,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c8",
@@ -9111,7 +9719,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c9",
@@ -9216,7 +9831,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943338762-c10",
@@ -9323,7 +9945,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943358764-c1",
@@ -9390,7 +10019,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:coronal",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-14-io-1773943358764-c2",
@@ -9461,7 +10098,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943358764-c3",
@@ -9533,7 +10177,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943358764-c4",
@@ -9604,7 +10255,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943358764-c5",
@@ -9675,7 +10333,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-14-io-1773943373609-c1",
@@ -9724,7 +10390,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-14-io-1773943373609-c2",
@@ -9776,6 +10449,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:ventricles",
+   "plane:coronal",
+   "modality:sensory"
+  ]
  }
 ]

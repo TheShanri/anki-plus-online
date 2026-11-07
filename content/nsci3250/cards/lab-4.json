@@ -78,7 +78,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516030928-c2",
@@ -159,7 +165,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516030928-c3",
@@ -240,7 +252,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516030928-c4",
@@ -321,7 +339,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516030928-c5",
@@ -402,7 +426,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516030928-c6",
@@ -483,7 +513,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516030928-c7",
@@ -564,7 +600,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516053098-c1",
@@ -631,7 +673,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516053098-c2",
@@ -698,7 +746,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516053098-c3",
@@ -765,7 +819,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516053098-c4",
@@ -832,7 +892,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516053098-c5",
@@ -899,7 +965,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516084656-c1",
@@ -938,7 +1010,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516094139-c1",
@@ -977,7 +1055,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516104629-c1",
@@ -1016,7 +1100,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516126204-c1",
@@ -1084,7 +1174,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"Lateral v\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"Lateral v\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516126204-c2",
@@ -1151,7 +1247,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516126204-c3",
@@ -1218,7 +1320,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516126204-c4",
@@ -1285,7 +1393,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516126204-c5",
@@ -1352,7 +1466,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516287685-c1",
@@ -1449,7 +1569,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516287685-c2",
@@ -1577,7 +1703,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"cavity (thorax). chest\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"cavity (thorax). chest\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516287685-c3",
@@ -1674,7 +1806,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516287685-c4",
@@ -1771,7 +1909,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516287685-c5",
@@ -1870,7 +2014,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516313118-c1",
@@ -1940,7 +2090,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516313118-c2",
@@ -2010,7 +2166,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516313118-c3",
@@ -2080,7 +2242,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516313118-c4",
@@ -2151,7 +2319,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769516313118-c5",
@@ -2218,7 +2392,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516487990-c1",
@@ -2286,7 +2466,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'C7)', conf 1.00]"
+  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'C7)', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516487990-c2",
@@ -2354,7 +2540,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'T12)', conf 1.00]"
+  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'T12)', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516487990-c3",
@@ -2422,7 +2614,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L5)', conf 1.00]"
+  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L5)', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516487990-c4",
@@ -2490,7 +2688,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"S5, fused)\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"S5, fused)\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516487990-c5",
@@ -2558,7 +2762,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"1-4, fused)\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"1-4, fused)\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516588424-c1",
@@ -2611,7 +2821,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516588424-c2",
@@ -2664,7 +2880,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516588424-c3",
@@ -2717,7 +2939,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516781814-c1",
@@ -2756,7 +2984,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-4-io-1769516838904-c1",
@@ -2870,7 +3104,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "long slide text [OCR 'magnum foramen', conf 1.00]"
+  "review_note": "long slide text [OCR 'magnum foramen', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516838904-c2",
@@ -2954,7 +3194,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L1/L2', conf 1.00]"
+  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L1/L2', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516838904-c3",
@@ -3037,7 +3283,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516936642-c1",
@@ -3113,7 +3365,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769516936642-c2",
@@ -3189,7 +3447,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516936642-c3",
@@ -3265,7 +3529,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769516936642-c4",
@@ -3341,7 +3611,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769516936642-c5",
@@ -3415,7 +3691,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769516936642-c6",
@@ -3489,7 +3771,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769516970682-c1",
@@ -3544,7 +3832,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769516970682-c2",
@@ -3597,7 +3891,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769516970682-c3",
@@ -3650,7 +3950,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517022400-c1",
@@ -3714,7 +4020,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517022400-c2",
@@ -3778,7 +4091,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-4-io-1769517022400-c3",
@@ -3840,7 +4160,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517022400-c4",
@@ -3902,7 +4229,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c1",
@@ -3992,7 +4325,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c2",
@@ -4082,7 +4422,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c3",
@@ -4172,7 +4518,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c4",
@@ -4262,7 +4614,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c5",
@@ -4354,7 +4712,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c6",
@@ -4445,7 +4810,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c7",
@@ -4536,7 +4907,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517071719-c8",
@@ -4624,7 +5001,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517202844-c1",
@@ -4752,7 +5135,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"e sensory\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"e sensory\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517202844-c2",
@@ -4909,7 +5299,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517202844-c3",
@@ -5036,7 +5432,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-4-io-1769517202844-c4",
@@ -5196,7 +5599,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517202844-c5",
@@ -5332,7 +5741,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517263419-c1",
@@ -5381,7 +5797,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517263419-c2",
@@ -5430,7 +5852,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517290986-c1",
@@ -5504,7 +5932,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517290986-c2",
@@ -5582,7 +6016,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517290986-c3",
@@ -5658,7 +6099,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-4-io-1769517290986-c4",
@@ -5734,7 +6182,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517290986-c5",
@@ -5811,7 +6265,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517290986-c6",
@@ -5888,7 +6348,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517339614-c1",
@@ -5948,7 +6414,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vertebral-column"
+  ]
  },
  {
   "slug": "lab-4-io-1769517339614-c2",
@@ -6008,7 +6480,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517339614-c3",
@@ -6068,7 +6546,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517339614-c4",
@@ -6129,7 +6613,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "rotated text, unreadable [OCR 'e 31 p', conf 0.92]"
+  "review_note": "rotated text, unreadable [OCR 'e 31 p', conf 0.92]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517443192-c1",
@@ -6175,7 +6665,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517443192-c2",
@@ -6221,7 +6717,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517472959-c1",
@@ -6274,7 +6776,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517472959-c2",
@@ -6327,7 +6835,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517472959-c3",
@@ -6380,7 +6894,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517649228-c1",
@@ -6426,7 +6946,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517649228-c2",
@@ -6474,7 +7000,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-4-io-1769517744257-c1",
@@ -6527,7 +7059,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517744257-c2",
@@ -6580,7 +7118,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769517744257-c3",
@@ -6633,7 +7177,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518426394-c1",
@@ -6679,7 +7229,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518426394-c2",
@@ -6726,7 +7282,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "mask covers several stacked labels (Cauda equina / Sacral plexus / Lumbar plexus) [OCR 'Lumbar plexus-Sacral plexus', conf 0.99]"
+  "review_note": "mask covers several stacked labels (Cauda equina / Sacral plexus / Lumbar plexus) [OCR 'Lumbar plexus-Sacral plexus', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518455122-c1",
@@ -6765,7 +7327,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c1",
@@ -6853,7 +7421,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c2",
@@ -6942,7 +7516,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L1-S5', conf 0.95]"
+  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L1-S5', conf 0.95]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c3",
@@ -7030,7 +7610,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c4",
@@ -7119,7 +7705,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'i C5-T1', conf 1.00]"
+  "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'i C5-T1', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c5",
@@ -7208,7 +7800,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"n ventral\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"n ventral\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c6",
@@ -7297,7 +7895,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"ventral r\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"ventral r\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c7",
@@ -7385,7 +7989,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518577960-c8",
@@ -7473,7 +8083,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518631618-c1",
@@ -7548,7 +8164,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"n higher\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"n higher\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518631618-c2",
@@ -7622,7 +8244,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518631618-c3",
@@ -7697,7 +8325,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"y higher\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"y higher\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518631618-c4",
@@ -7772,7 +8406,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"e upper b\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"e upper b\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518631618-c5",
@@ -7846,7 +8486,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769518631618-c6",
@@ -7921,7 +8567,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"y lower\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"y lower\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545046761-c1",
@@ -7997,7 +8649,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545046761-c2",
@@ -8103,7 +8761,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545552822-c1",
@@ -8170,7 +8834,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545552822-c2",
@@ -8237,7 +8907,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545552822-c3",
@@ -8304,7 +8980,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545552822-c4",
@@ -8371,7 +9053,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545552822-c5",
@@ -8438,7 +9126,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545643842-c1",
@@ -8477,7 +9171,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545657708-c1",
@@ -8516,7 +9216,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545669044-c1",
@@ -8555,7 +9261,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769545680609-c1",
@@ -8594,7 +9306,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546943789-c1",
@@ -8640,7 +9358,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546943789-c2",
@@ -8686,7 +9410,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546996541-c1",
@@ -8754,7 +9484,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (32); OCR text not recognised; long free-text label (not a structure name) [OCR 'Safely below the spinal cord, which ends at L1/L2, so not at risk to damage spinal cord at this level. Cauda equina roots will float out of the way', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (32); OCR text not recognised; long free-text label (not a structure name) [OCR 'Safely below the spinal cord, which ends at L1/L2, so not at risk to damage spinal cord at this level. Cauda equina roots will float out of the way', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546996541-c2",
@@ -8821,7 +9557,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546996541-c3",
@@ -8889,7 +9631,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (38); OCR text not recognised; long free-text label (not a structure name) [OCR 'The spinal cord is present at the T12/L1 level, and there is a risk of piercing/ damaging the spinal cord if a needle is inserted at this level', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (38); OCR text not recognised; long free-text label (not a structure name) [OCR 'The spinal cord is present at the T12/L1 level, and there is a risk of piercing/ damaging the spinal cord if a needle is inserted at this level', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546996541-c4",
@@ -8957,7 +9705,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'There is no intervertebral disc in the sacrum, so it would be difficult to insert a needle in that region', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'There is no intervertebral disc in the sacrum, so it would be difficult to insert a needle in that region', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769546996541-c5",
@@ -9025,7 +9779,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'Needle would pass through the dura and arachnoid mater to reach the subarachnoid space, which contains CSF', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'Needle would pass through the dura and arachnoid mater to reach the subarachnoid space, which contains CSF', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769547073953-c1",
@@ -9167,7 +9927,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'larger nerves making up the lumbosacral plexus. medullaris, the downward angle of lumbar/sacral nerve roots, and the Appreciate the conus', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'larger nerves making up the lumbosacral plexus. medullaris, the downward angle of lumbar/sacral nerve roots, and the Appreciate the conus', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769547073953-c2",
@@ -9309,7 +10075,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Temporal lobe general association area' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'fine motor control to muscles of thoracic wall. arms), whereas thoracic ventral rami are small because there isn't much bigger (lumbosacral plexus to legs is even bigger than brachial plexus to Ventral rami in the plexuses are', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Temporal lobe general association area' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'fine motor control to muscles of thoracic wall. arms), whereas thoracic ventral rami are small because there isn't much bigger (lumbosacral plexus to legs is even bigger than brachial plexus to Ventral rami in the plexuses are', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-4-io-1769547073953-c3",
@@ -9451,7 +10224,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (35); OCR text not recognised; long free-text label (not a structure name) [OCR 'ontrol compared to regions such as our thc ixons that innervate the arms and legs, whi he plexus region because they are respons hicker nerves contain more axons. Therefor', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (35); OCR text not recognised; long free-text label (not a structure name) [OCR 'ontrol compared to regions such as our thc ixons that innervate the arms and legs, whi he plexus region because they are respons hicker nerves contain more axons. Therefor', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769549959444-c1",
@@ -9605,7 +10384,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (30); OCR text not recognised; long free-text label (not a structure name) [OCR 'Vhite matter represents ascending and traveling between the brain and spinal hite matter at lower levels because not o travel to that level. Likewise, there is in cervical levels because all tracts need at level to reach the brain spinal cord', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (30); OCR text not recognised; long free-text label (not a structure name) [OCR 'Vhite matter represents ascending and traveling between the brain and spinal hite matter at lower levels because not o travel to that level. Likewise, there is in cervical levels because all tracts need at level to reach the brain spinal cord', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769549959444-c2",
@@ -9767,7 +10552,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'Thel more grey matter in the levels that correspond to inn of the limbs. Brachial plexus (C5-T1) and lumbosacral (L1-S5). The medial aspect of the ventral horn represe innervation of postural muscles, which occurs at ever So, thoracic ventral horns would be small because th innervate a few muscles, all of which are postural tr muscles', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'Thel more grey matter in the levels that correspond to inn of the limbs. Brachial plexus (C5-T1) and lumbosacral (L1-S5). The medial aspect of the ventral horn represe innervation of postural muscles, which occurs at ever So, thoracic ventral horns would be small because th innervate a few muscles, all of which are postural tr muscles', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-4-io-1769549959444-c3",
@@ -9925,7 +10717,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'is larger because it has more white matter. Similar to first answer cervical spine', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'is larger because it has more white matter. Similar to first answer cervical spine', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769559858078-c1",
@@ -9979,7 +10777,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "I know... kind of a stretch"
+  "caption": "I know... kind of a stretch",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769559858078-c2",
@@ -10033,7 +10837,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "I know... kind of a stretch"
+  "caption": "I know... kind of a stretch",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769559858078-c3",
@@ -10087,7 +10897,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "I know... kind of a stretch"
+  "caption": "I know... kind of a stretch",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769560432382-c1",
@@ -10140,7 +10956,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769560432382-c2",
@@ -10194,7 +11016,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"above th\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"above th\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-4-io-1769560432382-c3",
@@ -10248,6 +11076,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "single word cut from a sentence [OCR 'below t', conf 0.87]"
+  "review_note": "single word cut from a sentence [OCR 'below t', conf 0.87]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  }
 ]

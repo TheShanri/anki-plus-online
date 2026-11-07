@@ -176,3 +176,34 @@ export interface StudyPayload {
   names: Record<string, string> | null;
   units: Array<{ slug: string; title: string }>;
 }
+
+/** A student's own mnemonic (always visible to them). */
+export interface OwnMnemonic {
+  id: string;
+  cardId: string | null;
+  structureId: string | null;
+  body: string;
+  visibility: "private" | "class";
+  anonymous: boolean;
+  hidden: boolean;
+  votes: number;
+  reports: number;
+}
+
+/** A classmate's shared mnemonic. `author` is null when they chose to stay anonymous (never their identity otherwise). */
+export interface SharedMnemonic {
+  id: string;
+  cardId: string | null;
+  structureId: string | null;
+  body: string;
+  author: string | null;
+  votes: number;
+  voted: boolean;
+  reported: boolean;
+}
+
+export interface MnemonicsResponse {
+  structure: { id: string; slug: string; name: string } | null;
+  mine: OwnMnemonic[];
+  shared: SharedMnemonic[];
+}

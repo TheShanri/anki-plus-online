@@ -25,7 +25,13 @@
    "type": "existing",
    "color": "purple colored region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2024-q10",
@@ -55,7 +61,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -85,7 +94,13 @@
    "type": "existing",
    "color": null
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "practical-u2-2024-q12",
@@ -115,7 +130,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -145,7 +163,13 @@
    "type": "existing",
    "color": "green circled region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "practical-u2-2024-q14",
@@ -175,7 +199,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -207,7 +234,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -239,7 +269,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -271,7 +304,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -303,7 +339,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -335,7 +374,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -365,7 +407,13 @@
    "type": "existing",
    "color": "blue circled region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2024-q21",
@@ -393,7 +441,13 @@
    "type": "existing",
    "color": "pink colored region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2024-q22",
@@ -423,7 +477,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -453,7 +510,13 @@
    "type": "existing",
    "color": null
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2024-q24",
@@ -483,7 +546,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -515,7 +581,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -545,7 +614,13 @@
    "type": "existing",
    "color": "pink outlined region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2024-q36",
@@ -573,7 +648,13 @@
    "type": "existing",
    "color": "yellow colored region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2024-q38",
@@ -601,7 +682,13 @@
    "type": "existing",
    "color": "green circled region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2024-q39",
@@ -631,7 +718,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2024"
+   "practical-u2-2024",
+   "unit:u2",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "no answer key in the course zip (practical-u2-2024 has none): owner must supply the answer"
  },
@@ -661,7 +751,13 @@
    "type": "existing",
    "color": null
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:order"
+  ]
  },
  {
   "slug": "practical-u2-2024-qB1",
@@ -689,7 +785,13 @@
    "type": "existing",
    "color": "blue circled region"
   },
-  "review_note": "no answer key in the course zip"
+  "review_note": "no answer key in the course zip",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "practical-u2-2025-q01",
@@ -732,7 +834,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:cranial-nerves",
+   "modality:visual"
   ]
  },
  {
@@ -754,7 +861,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q01"
+  "after_pin": "practical-u2-2025-q01",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:cranial-nerves",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "practical-u2-2025-q03",
@@ -790,7 +905,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:auditory"
   ]
  },
  {
@@ -812,7 +932,16 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q03"
+  "after_pin": "practical-u2-2025-q03",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:brainstem",
+   "modality:auditory",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-q05",
@@ -850,7 +979,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -878,7 +1011,15 @@
   "choices": null,
   "format": "keywords",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q05"
+  "after_pin": "practical-u2-2025-q05",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:brainstem",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "practical-u2-2025-q07",
@@ -911,7 +1052,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:sensory"
   ]
  },
  {
@@ -946,7 +1092,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -983,7 +1133,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -1005,7 +1159,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q09"
+  "after_pin": "practical-u2-2025-q09",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:brainstem",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "practical-u2-2025-q11",
@@ -1039,7 +1200,13 @@
   "pointer": {
    "type": "existing",
    "color": "purple colored region"
-  }
+  },
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-q12",
@@ -1073,7 +1240,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:visual"
   ]
  },
  {
@@ -1101,7 +1273,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u2-2025-q14",
@@ -1134,7 +1312,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -1169,7 +1352,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -1205,7 +1392,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -1239,7 +1430,13 @@
   "pointer": {
    "type": "existing",
    "color": "purple circled region"
-  }
+  },
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:cranial-nerve"
+  ]
  },
  {
   "slug": "practical-u2-2025-q18",
@@ -1271,7 +1468,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1310,7 +1512,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -1332,7 +1539,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q19"
+  "after_pin": "practical-u2-2025-q19",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-q21",
@@ -1368,7 +1583,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:motor"
   ]
  },
  {
@@ -1390,7 +1610,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q21"
+  "after_pin": "practical-u2-2025-q21",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:brainstem",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-q23",
@@ -1427,7 +1655,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:sensory"
   ]
  },
  {
@@ -1465,7 +1698,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -1487,7 +1725,16 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q24"
+  "after_pin": "practical-u2-2025-q24",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "practical-u2-2025-q26",
@@ -1519,7 +1766,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -1550,7 +1801,14 @@
   "pointer": {
    "type": "existing",
    "color": "purple circled region"
-  }
+  },
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "modality:sensory",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "practical-u2-2025-q28",
@@ -1584,7 +1842,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:sensory"
   ]
  },
  {
@@ -1609,7 +1872,15 @@
   "choices": null,
   "format": "tf",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q28"
+  "after_pin": "practical-u2-2025-q28",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:brainstem",
+   "modality:sensory",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u2-2025-q30",
@@ -1641,7 +1912,13 @@
   "pointer": {
    "type": "existing",
    "color": "blue circled region"
-  }
+  },
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-q31",
@@ -1669,7 +1946,13 @@
    "type": "existing",
    "color": "yellow circled region"
   },
-  "review_note": "free-text answer; add keyword groups"
+  "review_note": "free-text answer; add keyword groups",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2025-q32",
@@ -1701,7 +1984,13 @@
   "pointer": {
    "type": "existing",
    "color": "purple circled region"
-  }
+  },
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2025-q33",
@@ -1740,7 +2029,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:visual",
+   "modality:visual"
   ]
  },
  {
@@ -1762,7 +2056,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q33"
+  "after_pin": "practical-u2-2025-q33",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:visual",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-q35",
@@ -1796,7 +2098,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:visual",
+   "modality:visual"
   ]
  },
  {
@@ -1823,7 +2130,15 @@
   "choices": null,
   "format": "keywords",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q35"
+  "after_pin": "practical-u2-2025-q35",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:visual",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u2-2025-q37",
@@ -1853,7 +2168,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:visual",
+   "modality:visual"
   ]
  },
  {
@@ -1886,7 +2206,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem",
+   "modality:visual"
   ]
  },
  {
@@ -1921,7 +2246,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "region:visual",
+   "modality:visual"
   ]
  },
  {
@@ -1943,7 +2273,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u2-2025-q39"
+  "after_pin": "practical-u2-2025-q39",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "region:visual",
+   "modality:visual",
+   "theory:muscle"
+  ]
  },
  {
   "slug": "practical-u2-2025-qB1",
@@ -1971,7 +2309,13 @@
    "type": "existing",
    "color": "blue circled region"
   },
-  "review_note": "free-text answer; add keyword groups"
+  "review_note": "free-text answer; add keyword groups",
+  "tags": [
+   "unit:u2",
+   "kind:theory",
+   "source:practical",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u2-2025-qB2",
@@ -2001,7 +2345,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u2-2025"
+   "practical-u2-2025",
+   "unit:u2",
+   "kind:pin",
+   "source:practical",
+   "modality:motor"
   ],
   "review_note": "answer is not on the official structure list"
  }

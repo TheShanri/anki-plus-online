@@ -82,7 +82,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003929439-c2",
@@ -163,7 +169,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003929439-c3",
@@ -244,7 +256,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003929439-c4",
@@ -325,7 +343,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003929439-c5",
@@ -406,7 +430,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003929439-c6",
@@ -491,7 +521,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003929439-c7",
@@ -572,7 +608,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003972932-c1",
@@ -664,7 +706,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003972932-c2",
@@ -753,7 +801,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003972932-c3",
@@ -842,7 +896,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003972932-c4",
@@ -931,7 +991,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769003972932-c5",
@@ -1042,7 +1108,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:midsagittal"
+  ]
  },
  {
   "slug": "lab-3-io-1769004045338-c1",
@@ -1229,7 +1302,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-3-io-1769004045338-c2",
@@ -1402,7 +1482,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004045338-c3",
@@ -1575,7 +1661,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004045338-c4",
@@ -1748,7 +1840,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004045338-c5",
@@ -1923,7 +2021,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004346829-c1",
@@ -1995,7 +2100,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004346829-c2",
@@ -2067,7 +2179,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004346829-c3",
@@ -2134,7 +2253,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004346829-c4",
@@ -2205,7 +2331,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004346829-c5",
@@ -2273,7 +2405,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Motor decussation' (81); OCR text not recognised; long free-text label (not a structure name) [OCR 'Motor execution; large pyramidal cells here project to the brainstem or spinal cord to control motor neurons', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Motor decussation' (81); OCR text not recognised; long free-text label (not a structure name) [OCR 'Motor execution; large pyramidal cells here project to the brainstem or spinal cord to control motor neurons', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004445451-c1",
@@ -2336,7 +2475,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004445451-c2",
@@ -2396,7 +2542,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004445451-c3",
@@ -2456,7 +2608,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004445451-c4",
@@ -2516,7 +2674,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004632487-c1",
@@ -2619,7 +2783,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004632487-c2",
@@ -2722,7 +2893,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004632487-c3",
@@ -2819,7 +2997,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004632487-c4",
@@ -2917,7 +3101,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Premotor cortex' (62); OCR text not recognised; long free-text label (not a structure name) [OCR 'supplemental motor area as part of the premotor cortex; involved in motor planning', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Premotor cortex' (62); OCR text not recognised; long free-text label (not a structure name) [OCR 'supplemental motor area as part of the premotor cortex; involved in motor planning', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004632487-c5",
@@ -3051,7 +3242,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "descriptive slide text (premotor cortex, BA 6); consider a theory card [OCR 'frontal superior and middle', conf 1.00]"
+  "review_note": "descriptive slide text (premotor cortex, BA 6); consider a theory card [OCR 'frontal superior and middle', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769004762304-c1",
@@ -3108,7 +3306,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004762304-c2",
@@ -3161,7 +3365,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004762304-c3",
@@ -3214,7 +3424,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004906774-c1",
@@ -3260,7 +3476,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769004906774-c2",
@@ -3307,7 +3529,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; “planning for planning” for movement', conf 0.97]"
+  "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; “planning for planning” for movement', conf 0.97]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005221472-c1",
@@ -3406,7 +3634,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-3-io-1769005221472-c2",
@@ -3502,7 +3737,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005221472-c3",
@@ -3601,7 +3842,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005221472-c4",
@@ -3697,7 +3944,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005221472-c5",
@@ -3796,7 +4049,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005221472-c6",
@@ -3918,7 +4177,13 @@
   },
   "prompt": "What is this region involved in?",
   "followups": [],
-  "review_note": "\"Involved in\" text (orbitofrontal cortex); consider a theory card [OCR 'decision making Social and emc', conf 1.00]"
+  "review_note": "\"Involved in\" text (orbitofrontal cortex); consider a theory card [OCR 'decision making Social and emc', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005423450-c1",
@@ -3981,7 +4246,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005423450-c2",
@@ -4041,7 +4312,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005423450-c3",
@@ -4104,7 +4381,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005423450-c4",
@@ -4164,7 +4447,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005530766-c1",
@@ -4213,7 +4502,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005530766-c2",
@@ -4259,7 +4554,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005584290-c1",
@@ -4346,7 +4647,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005584290-c2",
@@ -4435,7 +4742,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005584290-c3",
@@ -4524,7 +4837,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005584290-c4",
@@ -4612,7 +4931,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005584290-c5",
@@ -4715,7 +5040,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769005845374-c1",
@@ -4795,7 +5127,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769005845374-c2",
@@ -4874,7 +5213,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769005845374-c3",
@@ -4948,7 +5294,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769005845374-c4",
@@ -5023,7 +5376,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Somatosensory association cortex' (45); OCR text not recognised; long free-text label (not a structure name) [OCR 'Receiving somatosensory information from the entire body and passes it to surrounding areas', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Somatosensory association cortex' (45); OCR text not recognised; long free-text label (not a structure name) [OCR 'Receiving somatosensory information from the entire body and passes it to surrounding areas', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769005845374-c5",
@@ -5101,7 +5461,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005845374-c6",
@@ -5180,7 +5546,13 @@
   },
   "prompt": "What is this region involved in?",
   "followups": [],
-  "review_note": "\"Involved in\" text (parietal association areas); consider a theory card [OCR 'Consolidating our sense of internal and external space', conf 1.00]"
+  "review_note": "\"Involved in\" text (parietal association areas); consider a theory card [OCR 'Consolidating our sense of internal and external space', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005986917-c1",
@@ -5257,7 +5629,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769005986917-c2",
@@ -5331,7 +5710,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005986917-c3",
@@ -5405,7 +5790,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769005986917-c4",
@@ -5493,7 +5884,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006230781-c1",
@@ -5571,7 +5968,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769006230781-c2",
@@ -5646,7 +6050,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"areas 5 7\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"areas 5 7\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006230781-c3",
@@ -5720,7 +6130,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006230781-c4",
@@ -5800,7 +6216,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769006230781-c5",
@@ -5881,7 +6304,14 @@
   },
   "prompt": "What is this region involved in?",
   "followups": [],
-  "review_note": "\"Involved in\" text; consider a theory card [OCR 'Processing somatosensory information received from the body', conf 1.00]"
+  "review_note": "\"Involved in\" text; consider a theory card [OCR 'Processing somatosensory information received from the body', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769006230781-c6",
@@ -5957,7 +6387,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006637282-c1",
@@ -6017,7 +6453,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006637282-c2",
@@ -6081,7 +6523,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006637282-c3",
@@ -6144,7 +6592,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769006637282-c4",
@@ -6206,7 +6660,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c1",
@@ -6366,7 +6827,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c2",
@@ -6526,7 +6994,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c3",
@@ -6681,7 +7156,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c4",
@@ -6838,7 +7319,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c5",
@@ -6993,7 +7481,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c6",
@@ -7149,7 +7644,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"e retinas t\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"e retinas t\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c7",
@@ -7334,7 +7836,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c8",
@@ -7494,7 +8003,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007064950-c9",
@@ -7679,7 +8195,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007127389-c1",
@@ -7751,7 +8274,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007127389-c2",
@@ -7823,7 +8353,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007127389-c3",
@@ -7890,7 +8427,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769007127389-c4",
@@ -7957,7 +8501,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007127389-c5",
@@ -8025,7 +8575,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Penetrating branches (brainstem)' (45); OCR text not recognised; long free-text label (not a structure name) [OCR 'Recognizing colors and shapes as well as depth perception', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Penetrating branches (brainstem)' (45); OCR text not recognised; long free-text label (not a structure name) [OCR 'Recognizing colors and shapes as well as depth perception', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007192364-c1",
@@ -8138,7 +8694,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007192364-c2",
@@ -8251,7 +8813,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007192364-c3",
@@ -8376,7 +8944,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007192364-c4",
@@ -8501,7 +9075,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007192364-c5",
@@ -8626,7 +9206,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007311201-c1",
@@ -8665,7 +9251,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c1",
@@ -8764,7 +9356,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c2",
@@ -8864,7 +9463,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c3",
@@ -8959,7 +9565,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c4",
@@ -9054,7 +9666,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c5",
@@ -9153,7 +9771,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c6",
@@ -9250,7 +9874,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c7",
@@ -9345,7 +9975,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c8",
@@ -9440,7 +10076,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769007615723-c9",
@@ -9539,7 +10182,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c1",
@@ -9637,7 +10288,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c2",
@@ -9737,7 +10394,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c3",
@@ -9833,7 +10497,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"e left h\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"e left h\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c4",
@@ -9928,7 +10598,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c5",
@@ -10024,7 +10700,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Language comprehension; i.e. the sensory part of speech and language', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Language comprehension; i.e. the sensory part of speech and language', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c6",
@@ -10123,7 +10806,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c7",
@@ -10223,7 +10912,13 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c8",
@@ -10318,7 +11013,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008135190-c9",
@@ -10418,7 +11119,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "descriptive slide text (Broca); consider a theory card [OCR 'language production; i.e. the motor part of speech', conf 0.99]"
+  "review_note": "descriptive slide text (Broca); consider a theory card [OCR 'language production; i.e. the motor part of speech', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769008249551-c1",
@@ -10457,7 +11165,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008267183-c1",
@@ -10496,7 +11211,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-3-io-1769008434584-c1",
@@ -10571,7 +11293,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Motor homunculus' (46); OCR text not recognised; long free-text label (not a structure name) [OCR 'The area that corresponds with motor to the mouth, lips, and tongue', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Motor homunculus' (46); OCR text not recognised; long free-text label (not a structure name) [OCR 'The area that corresponds with motor to the mouth, lips, and tongue', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769008434584-c2",
@@ -10645,7 +11374,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008434584-c3",
@@ -10720,7 +11455,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Ventromedial prefrontal cortex' (56); OCR text not recognised; long free-text label (not a structure name) [OCR 'In the medial aspect of the occipital lobe (viewed from midsagittal section), superior and inferior to the calcarine sulcus', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Ventromedial prefrontal cortex' (56); OCR text not recognised; long free-text label (not a structure name) [OCR 'In the medial aspect of the occipital lobe (viewed from midsagittal section), superior and inferior to the calcarine sulcus', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "plane:midsagittal",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769008434584-c4",
@@ -10795,7 +11538,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Transverse temporal gyrus' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'Transverse temporal gyrus, which runs perpendicular to the superior temporal gyrus', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Transverse temporal gyrus' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'Transverse temporal gyrus, which runs perpendicular to the superior temporal gyrus', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008434584-c5",
@@ -10870,7 +11619,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (33); OCR text not recognised; long free-text label (not a structure name) [OCR 'False in both the sensory and motor homunculus, the face region is located laterally, near the lateral fissure, and the foot region is located most medially deep in the longitudinal fissure', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (33); OCR text not recognised; long free-text label (not a structure name) [OCR 'False in both the sensory and motor homunculus, the face region is located laterally, near the lateral fissure, and the foot region is located most medially deep in the longitudinal fissure', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008434584-c6",
@@ -10945,7 +11702,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Principal sensory nucleus of trigeminal' (46); OCR text not recognised; long free-text label (not a structure name) [OCR 'Damage to Wernicke's area, located at the posterior aspect of the temporal lobe, near the border of the occipital and parietal lobes, on the LEFT side (in most individuals). This is a language sensory processing deficit', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Principal sensory nucleus of trigeminal' (46); OCR text not recognised; long free-text label (not a structure name) [OCR 'Damage to Wernicke's area, located at the posterior aspect of the temporal lobe, near the border of the occipital and parietal lobes, on the LEFT side (in most individuals). This is a language sensory processing deficit', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008467150-c1",
@@ -10991,7 +11755,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769008467150-c2",
@@ -11037,7 +11808,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008505980-c1",
@@ -11079,7 +11857,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:limbic"
+  ]
  },
  {
   "slug": "lab-3-io-1769008580203-c1",
@@ -11121,7 +11906,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c1",
@@ -11202,7 +11993,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c2",
@@ -11283,7 +12080,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c3",
@@ -11367,7 +12170,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c4",
@@ -11454,7 +12263,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c5",
@@ -11540,7 +12356,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c6",
@@ -11625,7 +12448,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008761149-c7",
@@ -11710,7 +12539,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c1",
@@ -11791,7 +12626,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c2",
@@ -11872,7 +12714,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c3",
@@ -11953,7 +12801,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c4",
@@ -12037,7 +12891,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c5",
@@ -12120,7 +12980,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c6",
@@ -12201,7 +13067,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008833895-c7",
@@ -12282,7 +13154,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769008887874-c1",
@@ -12342,7 +13221,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769008887874-c2",
@@ -12404,7 +13289,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-3-io-1769008887874-c3",
@@ -12467,7 +13359,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum"
+  ]
  },
  {
   "slug": "lab-3-io-1769008887874-c4",
@@ -12530,7 +13428,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769009015748-c1",
@@ -12808,7 +13712,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769009015748-c2",
@@ -13136,7 +14046,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769009015748-c3",
@@ -13456,7 +14372,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769009015748-c4",
@@ -13780,7 +14702,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769084443546-c1",
@@ -13850,7 +14778,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769084443546-c2",
@@ -13922,7 +14857,14 @@
    "type": "mask"
   },
   "prompt": "Which Brodmann area is this?",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769084443546-c3",
@@ -13989,7 +14931,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769084443546-c4",
@@ -14056,7 +15004,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769084443546-c5",
@@ -14124,7 +15079,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Primary somatosensory cortex' (39); OCR text not recognised; long free-text label (not a structure name) [OCR 'Processing auditory information and distinguishing different complex tones or speech', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Primary somatosensory cortex' (39); OCR text not recognised; long free-text label (not a structure name) [OCR 'Processing auditory information and distinguishing different complex tones or speech', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory"
+  ]
  },
  {
   "slug": "lab-3-io-1769085669383-c1",
@@ -14187,7 +15149,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769085669383-c2",
@@ -14247,7 +15215,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769085669383-c3",
@@ -14307,7 +15281,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769085669383-c4",
@@ -14367,7 +15347,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769086292778-c1",
@@ -14438,7 +15424,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769086292778-c2",
@@ -14505,7 +15497,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769086292778-c3",
@@ -14572,7 +15570,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-3-io-1769086292778-c4",
@@ -14641,7 +15646,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-3-io-1769086292778-c5",
@@ -14709,6 +15720,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area', conf 0.98]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area', conf 0.98]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:auditory",
+   "modality:visual",
+   "modality:sensory"
+  ]
  }
 ]

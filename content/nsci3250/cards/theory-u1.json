@@ -24,7 +24,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-temporal-bone-lesion",
@@ -52,7 +59,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-sphenoid-bone-passes",
@@ -86,7 +100,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-pterion-supply",
@@ -109,7 +130,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-pterion-lesion",
@@ -134,7 +162,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-foramen-magnum-lesion",
@@ -154,7 +189,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-foramen-magnum-passes",
@@ -181,7 +224,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-coronal-suture-connections",
@@ -208,7 +258,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "plane:coronal",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-sagittal-suture-connections",
@@ -232,7 +290,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "plane:sagittal",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lambdoid-suture-connections",
@@ -259,7 +325,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-anterior-cranial-fossa-passes",
@@ -284,7 +357,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "modality:olfactory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-middle-cranial-fossa-connections",
@@ -309,7 +390,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-posterior-cranial-fossa-connections",
@@ -338,7 +426,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:skull",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dura-mater-function",
@@ -367,7 +463,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dura-mater-supply",
@@ -389,7 +492,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-dura-mater-lesion",
@@ -414,7 +524,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-arachnoid-mater-function",
@@ -441,7 +558,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-pia-mater-function",
@@ -469,7 +593,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-subdural-space-lesion",
@@ -494,7 +625,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-subdural-space-connections",
@@ -522,7 +660,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-subarachnoid-space-lesion",
@@ -546,7 +691,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-subarachnoid-space-connections",
@@ -569,7 +721,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-epidural-space-lesion",
@@ -591,7 +750,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-meningeal-blood-vessels-supply",
@@ -614,7 +780,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-cerebral-blood-vessels-supply",
@@ -638,7 +811,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-falx-cerebri-function",
@@ -665,7 +845,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-tentorium-cerebelli-function",
@@ -694,7 +881,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-tentorium-cerebelli-lesion",
@@ -721,7 +916,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:meninges",
+   "modality:visual",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-cerebral-cortex-function",
@@ -752,7 +956,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-cerebral-cortex-embryology",
@@ -774,7 +985,13 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-cerebellum-function",
@@ -803,7 +1020,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-cerebellum-embryology",
@@ -823,7 +1048,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-cerebellum-lesion",
@@ -848,7 +1081,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-brainstem-function",
@@ -878,7 +1119,13 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-brainstem-connections",
@@ -908,7 +1155,13 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-midbrain-embryology",
@@ -930,7 +1183,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-pons-embryology",
@@ -950,7 +1210,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-medulla-embryology",
@@ -970,7 +1237,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-thalamus-embryology",
@@ -990,7 +1264,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-hypothalamus-embryology",
@@ -1010,7 +1291,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-thalamus-function",
@@ -1037,7 +1325,18 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "modality:olfactory",
+   "modality:limbic",
+   "modality:motor",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-hypothalamus-function",
@@ -1070,7 +1369,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "modality:autonomic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-lateral-ventricle-function",
@@ -1096,7 +1403,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-lateral-ventricle-connections",
@@ -1119,7 +1433,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-foramina-of-monro-connections",
@@ -1146,7 +1467,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-third-ventricle-connections",
@@ -1170,7 +1498,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-cerebral-aqueduct-lesion",
@@ -1194,7 +1529,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-fourth-ventricle-connections",
@@ -1221,7 +1563,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-foramen-of-magendie-connections",
@@ -1246,7 +1595,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-foramina-of-luschka-connections",
@@ -1271,7 +1627,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-choroid-plexus-function",
@@ -1299,7 +1663,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-arachnoid-granulations-function",
@@ -1326,7 +1697,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-arachnoid-granulations-lesion",
@@ -1350,7 +1728,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-superior-sagittal-sinus-connections",
@@ -1374,7 +1759,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "plane:sagittal",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-corpus-callosum-function",
@@ -1402,7 +1795,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-corpus-callosum-connections",
@@ -1424,7 +1824,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-basal-ganglia-function",
@@ -1453,7 +1860,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-basal-ganglia-lesion",
@@ -1481,7 +1896,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-hippocampus-function",
@@ -1508,7 +1931,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-hippocampus-lesion",
@@ -1533,7 +1964,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-amygdala-function",
@@ -1561,7 +2000,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-amygdala-connections",
@@ -1581,7 +2028,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-uncus-lesion",
@@ -1608,7 +2063,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:visual",
+   "modality:olfactory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-parahippocampal-gyrus-connections",
@@ -1632,7 +2096,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-mammillary-bodies-function",
@@ -1656,7 +2128,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-mammillary-bodies-lesion",
@@ -1681,7 +2161,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "modality:limbic",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-optic-chiasm-lesion",
@@ -1705,7 +2193,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-optic-chiasm-connections",
@@ -1730,7 +2226,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:visual",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-pituitary-stalk-connections",
@@ -1754,7 +2258,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-interthalamic-adhesion-connections",
@@ -1779,7 +2290,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-septum-pellucidum-connections",
@@ -1804,7 +2322,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:ventricles",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-primary-motor-cortex-brodmann",
@@ -1827,7 +2352,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-primary-motor-cortex-function",
@@ -1853,7 +2386,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-primary-motor-cortex-supply",
@@ -1878,7 +2419,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-primary-motor-cortex-lesion",
@@ -1903,7 +2452,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-premotor-cortex-brodmann",
@@ -1926,7 +2483,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-premotor-cortex-function",
@@ -1954,7 +2519,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-broca-s-area-brodmann",
@@ -1981,7 +2554,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-broca-s-area-function",
@@ -2009,7 +2589,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-broca-s-area-lesion",
@@ -2036,7 +2623,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-broca-s-area-connections",
@@ -2058,7 +2652,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-wernicke-s-area-brodmann",
@@ -2081,7 +2682,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-wernicke-s-area-function",
@@ -2107,7 +2715,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-wernicke-s-area-lesion",
@@ -2133,7 +2748,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-anterior-cingulate-cortex-function",
@@ -2162,7 +2784,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsolateral-prefrontal-cortex-function",
@@ -2190,7 +2820,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-orbitofrontal-cortex-function",
@@ -2218,7 +2855,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-orbitofrontal-cortex-lesion",
@@ -2246,7 +2890,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-ventromedial-prefrontal-cortex-function",
@@ -2274,7 +2925,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-primary-somatosensory-cortex-brodmann",
@@ -2304,7 +2962,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-primary-somatosensory-cortex-function",
@@ -2332,7 +2998,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-primary-somatosensory-cortex-supply",
@@ -2357,7 +3031,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-primary-somatosensory-cortex-connections",
@@ -2380,7 +3062,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-somatosensory-association-cortex-brodmann",
@@ -2407,7 +3097,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-somatosensory-association-cortex-lesion",
@@ -2432,7 +3130,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-parietal-lobe-general-association-area-lesion",
@@ -2457,7 +3163,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-primary-visual-cortex-brodmann",
@@ -2480,7 +3193,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-primary-visual-cortex-supply",
@@ -2506,7 +3227,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-primary-visual-cortex-lesion",
@@ -2533,7 +3262,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-primary-visual-cortex-connections",
@@ -2556,7 +3293,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-visual-association-cortex-brodmann",
@@ -2583,7 +3328,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-visual-association-cortex-lesion",
@@ -2611,7 +3364,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-primary-auditory-cortex-brodmann",
@@ -2638,7 +3399,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:auditory",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-primary-auditory-cortex-connections",
@@ -2661,7 +3430,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:auditory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-primary-auditory-cortex-lesion",
@@ -2685,7 +3462,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:auditory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-auditory-association-area-brodmann",
@@ -2708,7 +3493,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:auditory",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "theory-temporal-lobe-general-association-area-function",
@@ -2737,7 +3530,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-association-fibers-function",
@@ -2764,7 +3564,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-commissural-fibers-function",
@@ -2792,7 +3599,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-projection-fibers-function",
@@ -2820,7 +3634,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-anterior-commissure-connections",
@@ -2846,7 +3667,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "modality:olfactory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-internal-capsule-passes",
@@ -2874,7 +3703,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-internal-capsule-lesion",
@@ -2901,7 +3738,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "modality:motor",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-internal-capsule-supply",
@@ -2923,7 +3769,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-central-sulcus-connections",
@@ -2950,7 +3803,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lateral-fissure-connections",
@@ -2975,7 +3837,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-calcarine-fissure-function",
@@ -3001,7 +3870,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-precentral-gyrus-function",
@@ -3026,7 +3903,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-postcentral-gyrus-function",
@@ -3053,7 +3938,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-cingulate-gyrus-connections",
@@ -3078,7 +3971,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-inferior-frontal-gyrus-lesion",
@@ -3105,7 +4006,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-superior-temporal-gyrus-lesion",
@@ -3131,7 +4039,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-transverse-temporal-gyrus-function",
@@ -3157,7 +4072,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "modality:auditory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-inferior-parietal-lobule-connections",
@@ -3182,7 +4105,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cortex",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-vertebral-body-function",
@@ -3208,7 +4138,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:vertebral-column",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-vertebral-foramen-connections",
@@ -3233,7 +4170,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:vertebral-column",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-intervertebral-disc-lesion",
@@ -3259,7 +4203,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:vertebral-column",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-intervertebral-foramen-passes",
@@ -3286,7 +4237,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:vertebral-column",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-spinous-process-function",
@@ -3315,7 +4274,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:vertebral-column",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-conus-medullaris-level",
@@ -3340,7 +4306,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-conus-medullaris-lesion",
@@ -3367,7 +4340,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-cauda-equina-passes",
@@ -3394,7 +4374,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-cauda-equina-lesion",
@@ -3423,7 +4410,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-filum-terminale-connections",
@@ -3447,7 +4441,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-denticulate-ligaments-connections",
@@ -3471,7 +4472,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-denticulate-ligaments-function",
@@ -3500,7 +4508,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsal-root-function",
@@ -3525,7 +4540,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-ventral-root-function",
@@ -3550,7 +4574,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsal-root-ganglion-connections",
@@ -3575,7 +4608,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dorsal-root-ganglion-order",
@@ -3600,7 +4641,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-dorsal-root-ganglion-lesion",
@@ -3627,7 +4676,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-spinal-nerves-function",
@@ -3652,7 +4709,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-spinal-nerves-connections",
@@ -3677,7 +4743,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dorsal-ramus-function",
@@ -3702,7 +4775,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-ventral-ramus-function",
@@ -3730,7 +4810,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-brachial-plexus-connections",
@@ -3757,7 +4844,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-brachial-plexus-lesion",
@@ -3781,7 +4875,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-lumbosacral-plexus-connections",
@@ -3808,7 +4909,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dorsal-horn-function",
@@ -3836,7 +4944,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsal-horn-fiber_type",
@@ -3865,7 +4981,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "theory-ventral-horn-function",
@@ -3892,7 +5016,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-ventral-horn-lesion",
@@ -3919,7 +5051,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-lateral-horn-function",
@@ -3943,7 +5083,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:autonomic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-lateral-horn-level",
@@ -3970,7 +5118,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-intermediate-zone-connections",
@@ -3997,7 +5152,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:autonomic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dorsal-columns-function",
@@ -4024,7 +5187,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsal-columns-side",
@@ -4049,7 +5220,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-dorsal-columns-order",
@@ -4074,7 +5253,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-dorsal-columns-lesion",
@@ -4103,7 +5289,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-dorsal-columns-receptor",
@@ -4131,7 +5325,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:receptor"
+  ]
  },
  {
   "slug": "theory-fasciculus-gracilis-function",
@@ -4158,7 +5359,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-fasciculus-gracilis-connections",
@@ -4182,7 +5391,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-fasciculus-cuneatus-function",
@@ -4209,7 +5426,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-fasciculus-cuneatus-connections",
@@ -4233,7 +5458,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-function",
@@ -4260,7 +5493,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-order",
@@ -4285,7 +5526,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-side",
@@ -4310,7 +5559,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-fiber_type",
@@ -4338,7 +5595,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-receptor",
@@ -4365,7 +5630,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:receptor"
+  ]
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-connections",
@@ -4387,7 +5660,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dorsal-spinocerebellar-tract-function",
@@ -4412,7 +5693,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-dorsal-spinocerebellar-tract-side",
@@ -4437,7 +5726,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "modality:sensory",
+   "theory:side"
+  ]
  },
  {
   "slug": "theory-dorsal-spinocerebellar-tract-order",
@@ -4462,7 +5760,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "theory-dorsal-spinocerebellar-tract-receptor",
@@ -4488,7 +5794,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:sensory",
+   "theory:receptor"
+  ]
  },
  {
   "slug": "theory-dorsal-spinocerebellar-tract-passes",
@@ -4510,7 +5824,16 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-dorsal-root-entry-zone-fiber_type",
@@ -4542,7 +5865,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "theory-medial-dorsal-root-entry-zone-fiber_type",
@@ -4571,7 +5902,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "theory-lateral-dorsal-root-entry-zone-fiber_type",
@@ -4598,7 +5937,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "theory-marginal-nucleus-function",
@@ -4625,7 +5972,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-substantia-gelatinosa-function",
@@ -4651,7 +6005,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-substantia-gelatinosa-level",
@@ -4677,7 +6038,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-nucleus-proprius-function",
@@ -4705,7 +6073,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-column-of-clarke-level",
@@ -4733,7 +6109,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:level"
+  ]
  },
  {
   "slug": "theory-column-of-clarke-connections",
@@ -4756,7 +6139,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-ventral-commissure-of-spinal-cord-function",
@@ -4783,7 +6174,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-ventral-commissure-of-spinal-cord-lesion",
@@ -4809,6 +6208,13 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:supplementary",
+   "region:spinal-cord",
+   "theory:lesion"
+  ]
  }
 ]

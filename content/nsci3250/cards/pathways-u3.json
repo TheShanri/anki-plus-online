@@ -24,7 +24,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -52,7 +57,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -80,7 +90,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -111,7 +126,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -142,7 +162,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -175,7 +200,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -202,7 +232,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -229,7 +264,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -256,7 +296,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -283,7 +328,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -312,7 +362,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -344,7 +399,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -371,7 +431,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -398,7 +463,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -427,7 +497,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -454,7 +529,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -483,7 +563,12 @@
   ],
   "tags": [
    "pathway",
-   "cerebellar"
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -513,7 +598,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -543,7 +633,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -575,7 +670,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -605,7 +705,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -634,7 +739,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -661,7 +771,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -691,7 +806,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -724,7 +844,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -756,7 +881,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -790,7 +920,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -819,7 +954,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -846,7 +986,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -875,7 +1020,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -910,7 +1060,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -942,7 +1097,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -970,7 +1130,12 @@
   ],
   "tags": [
    "pathway",
-   "basal-ganglia"
+   "basal-ganglia",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -1001,7 +1166,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1028,7 +1198,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1056,7 +1231,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1083,7 +1263,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1113,7 +1298,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1141,7 +1331,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1170,7 +1365,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1203,7 +1403,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1232,7 +1437,12 @@
   ],
   "tags": [
    "pathway",
-   "olfactory"
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
   ]
  },
  {
@@ -1259,7 +1469,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-fornix"
+   "limbic-fornix",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1292,7 +1507,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-fornix"
+   "limbic-fornix",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1319,7 +1539,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-fornix"
+   "limbic-fornix",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1348,7 +1573,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-fornix"
+   "limbic-fornix",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1375,7 +1605,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-fornix"
+   "limbic-fornix",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1402,7 +1637,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-amygdala"
+   "limbic-amygdala",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1429,7 +1669,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-amygdala"
+   "limbic-amygdala",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1461,7 +1706,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-amygdala"
+   "limbic-amygdala",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1489,7 +1739,13 @@
   ],
   "tags": [
    "pathway",
-   "limbic-septal"
+   "limbic-septal",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:diencephalon",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1516,7 +1772,12 @@
   ],
   "tags": [
    "pathway",
-   "limbic-septal"
+   "limbic-septal",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1544,7 +1805,12 @@
   ],
   "tags": [
    "pathway",
-   "reward"
+   "reward",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1571,7 +1837,12 @@
   ],
   "tags": [
    "pathway",
-   "reward"
+   "reward",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  },
  {
@@ -1598,7 +1869,12 @@
   ],
   "tags": [
    "pathway",
-   "reward"
+   "reward",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
   ]
  }
 ]

@@ -148,7 +148,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -300,7 +305,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -542,7 +552,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -785,7 +800,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal"
   ]
  },
  {
@@ -1026,7 +1046,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -1269,7 +1294,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -1512,7 +1542,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal"
   ]
  },
  {
@@ -1755,7 +1790,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -2095,7 +2135,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -2438,7 +2483,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -2777,7 +2828,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -3118,7 +3174,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal"
   ]
  },
  {
@@ -3459,7 +3520,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -3799,7 +3865,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -4140,7 +4211,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -4482,7 +4558,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal"
   ]
  },
  {
@@ -4823,7 +4904,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -5162,7 +5248,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:horizontal"
   ]
  },
  {
@@ -5499,7 +5590,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -5839,7 +5936,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal"
   ]
  },
  {
@@ -6178,7 +6280,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:horizontal",
+   "modality:limbic"
   ]
  },
  {
@@ -6519,7 +6627,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -6861,7 +6974,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -7194,7 +7312,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -7530,7 +7653,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -7864,7 +7993,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:horizontal",
+   "modality:limbic"
   ]
  },
  {
@@ -8198,7 +8333,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal"
   ]
  },
  {
@@ -8533,7 +8673,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -8867,7 +9012,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -9200,7 +9350,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -9534,7 +9689,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -9867,7 +10027,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -10197,7 +10363,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -10529,7 +10701,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:horizontal"
   ]
  },
  {
@@ -10863,7 +11040,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:horizontal",
+   "modality:limbic"
   ]
  },
  {
@@ -11199,7 +11382,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal",
+   "modality:sensory"
   ]
  },
  {
@@ -11533,7 +11722,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -11977,7 +12171,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:horizontal"
   ]
  },
  {
@@ -12423,7 +12622,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal"
   ]
  },
  {
@@ -12865,7 +13069,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -13310,7 +13520,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:horizontal"
   ]
  },
  {
@@ -13755,7 +13970,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -14199,7 +14420,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:horizontal"
   ]
  },
  {
@@ -14645,7 +14871,14 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:visual",
+   "plane:horizontal",
+   "modality:visual",
+   "modality:auditory"
   ]
  },
  {
@@ -15091,7 +15324,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:visual",
+   "plane:horizontal",
+   "modality:visual"
   ]
  },
  {
@@ -15537,7 +15776,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:horizontal"
   ]
  },
  {
@@ -15981,7 +16225,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:horizontal"
   ]
  },
  {
@@ -16425,7 +16674,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:horizontal"
   ]
  },
  {
@@ -16871,7 +17125,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal"
   ]
  },
  {
@@ -17085,7 +17344,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:horizontal"
   ]
  },
  {
@@ -17300,7 +17564,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:horizontal",
+   "modality:limbic"
   ]
  },
  {
@@ -17515,7 +17785,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:horizontal",
+   "modality:limbic"
   ]
  },
  {
@@ -17728,7 +18004,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal"
   ]
  },
  {
@@ -17946,7 +18227,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:horizontal"
   ]
  },
  {
@@ -18157,7 +18443,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:horizontal",
+   "modality:limbic"
   ]
  },
  {
@@ -18368,7 +18660,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebellum",
+   "plane:horizontal",
+   "modality:motor"
   ]
  },
  {
@@ -18493,7 +18791,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal"
   ]
  },
  {
@@ -18617,7 +18920,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal"
   ]
  },
  {
@@ -18761,7 +19069,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -18907,7 +19220,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal"
   ]
  },
  {
@@ -19048,7 +19366,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -19201,7 +19525,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal"
   ]
  },
  {
@@ -19355,7 +19684,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -19506,7 +19841,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal"
   ]
  },
  {
@@ -19658,7 +19998,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal"
   ]
  },
  {
@@ -19810,7 +20155,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal"
   ]
  },
  {
@@ -19961,7 +20311,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal"
   ]
  },
  {
@@ -20289,7 +20644,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal"
   ]
  },
  {
@@ -20616,7 +20976,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -20941,7 +21306,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -21268,7 +21638,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal"
   ]
  },
  {
@@ -21595,7 +21970,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -21922,7 +22302,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal"
   ]
  },
  {
@@ -22245,7 +22630,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -22570,7 +22961,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -22896,7 +23293,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:visual",
+   "plane:coronal",
+   "modality:visual"
   ]
  },
  {
@@ -23200,7 +23603,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -23506,7 +23914,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -23812,7 +24225,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal"
   ]
  },
  {
@@ -24118,7 +24536,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -24424,7 +24847,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -24726,7 +25155,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -25031,7 +25466,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -25336,7 +25777,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal"
   ]
  },
  {
@@ -25640,7 +26086,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -25946,7 +26397,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -26252,7 +26708,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -26554,7 +27016,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:olfactory"
   ]
  },
  {
@@ -26856,7 +27324,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:coronal"
   ]
  },
  {
@@ -27204,7 +27677,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -27550,7 +28028,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -27898,7 +28382,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -28246,7 +28735,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal"
   ]
  },
  {
@@ -28595,7 +29089,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -28944,7 +29443,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal"
   ]
  },
  {
@@ -29290,7 +29794,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:coronal"
   ]
  },
  {
@@ -29637,7 +30146,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal"
   ]
  },
  {
@@ -29985,7 +30499,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -30329,7 +30848,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -30677,7 +31202,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -31025,7 +31556,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal"
   ]
  },
  {
@@ -31399,7 +31935,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -31771,7 +32313,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -32147,7 +32695,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -32523,7 +33076,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal"
   ]
  },
  {
@@ -32897,7 +33455,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:coronal"
   ]
  },
  {
@@ -33272,7 +33835,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal"
   ]
  },
  {
@@ -33648,7 +34216,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -34020,7 +34593,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -34394,7 +34973,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -34768,7 +35353,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -35142,7 +35733,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -35455,7 +36052,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -35768,7 +36371,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:basal-ganglia",
+   "plane:coronal"
   ]
  },
  {
@@ -36079,7 +36687,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:diencephalon",
+   "plane:coronal"
   ]
  },
  {
@@ -36392,7 +37005,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:visual",
+   "plane:coronal",
+   "modality:visual"
   ]
  },
  {
@@ -36708,7 +37327,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -37017,7 +37641,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -37330,7 +37960,14 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:visual",
+   "plane:coronal",
+   "modality:visual",
+   "modality:auditory"
   ]
  },
  {
@@ -37644,7 +38281,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -37922,7 +38564,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -38198,7 +38845,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -38476,7 +39128,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:limbic",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -38754,7 +39412,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal"
   ]
  },
  {
@@ -39028,7 +39691,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebrum",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -39305,7 +39974,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cerebellum",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -39584,7 +40259,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -39715,7 +40395,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:white-matter",
+   "plane:coronal"
   ]
  },
  {
@@ -39845,7 +40530,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -39972,7 +40662,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:cortex",
+   "plane:coronal",
+   "modality:limbic"
   ]
  },
  {
@@ -40104,7 +40800,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -40235,7 +40936,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:ventricles",
+   "plane:coronal"
   ]
  },
  {
@@ -40366,7 +41072,13 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u3",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem",
+   "plane:coronal",
+   "modality:motor"
   ]
  },
  {
@@ -40395,7 +41107,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Most anterior (frontal pole, surface view)."
  },
@@ -40424,7 +41140,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Anterior to the corpus callosum."
  },
@@ -40453,7 +41173,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Genu of the corpus callosum."
  },
@@ -40482,7 +41206,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Anterior horns of the lateral ventricles."
  },
@@ -40511,7 +41239,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Level of the nucleus accumbens."
  },
@@ -40540,7 +41272,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Anterior commissure."
  },
@@ -40569,7 +41305,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Anterior part of the thalamus."
  },
@@ -40598,7 +41338,12 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal",
+   "modality:motor"
   ],
   "explain": "Landmark: Level of the substantia nigra."
  },
@@ -40627,7 +41372,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Posterior thalamus."
  },
@@ -40656,7 +41405,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Trigone of the lateral ventricles."
  },
@@ -40685,7 +41438,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Posterior to the thalamus."
  },
@@ -40714,7 +41471,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:coronal"
   ],
   "explain": "Landmark: Posterior to the corpus callosum."
  },
@@ -40744,7 +41505,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Above the corpus callosum (centrum semiovale)."
  },
@@ -40773,7 +41538,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Through the body of the corpus callosum."
  },
@@ -40803,7 +41572,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Through the lateral ventricles (caudate head and septum pellucidum)."
  },
@@ -40833,7 +41606,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Through the thalamus and internal capsule (level 1)."
  },
@@ -40863,7 +41640,13 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal",
+   "modality:limbic",
+   "modality:motor"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Through the thalamus: putamen, globus pallidus and fornix (level 2)."
  },
@@ -40892,7 +41675,11 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Through the hypothalamus."
  },
@@ -40922,7 +41709,12 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u3",
+   "kind:section",
+   "source:lab",
+   "plane:horizontal",
+   "modality:limbic"
   ],
   "explain": "Horizontal section tour (lab 13). Landmark: Most inferior view (hippocampus, amygdala, midbrain)."
  }

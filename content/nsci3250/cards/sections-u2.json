@@ -247,7 +247,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u2",
+   "kind:pin",
+   "source:lab",
+   "region:brainstem"
   ]
  },
  {
@@ -275,7 +279,14 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual",
+   "modality:motor"
   ],
   "explain": "Level of the superior colliculus: red nuclei, substantia nigra, cerebral peduncles."
  },
@@ -304,7 +315,14 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:auditory",
+   "modality:motor"
   ],
   "explain": "Level of the inferior colliculus: decussation of the superior cerebellar peduncle."
  },
@@ -333,7 +351,14 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor",
+   "modality:sensory"
   ],
   "explain": "Level of the trigeminal nerve: principal sensory and motor trigeminal nuclei, MCP."
  },
@@ -362,7 +387,13 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual"
   ],
   "explain": "Level of the facial colliculus: abducens and facial nuclei."
  },
@@ -391,7 +422,13 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
   ],
   "explain": "Level of the olive: inferior olivary nucleus, pyramids."
  },
@@ -420,7 +457,13 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
   ],
   "explain": "Level of the gracile and cuneate nuclei: the sensory decussation (internal arcuate fibers)."
  },
@@ -450,7 +493,13 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
   ],
   "explain": "Level of the motor (pyramidal) decussation at the medulla-spinal cord junction."
  },
@@ -474,7 +523,12 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal"
   ]
  },
  {
@@ -497,7 +551,14 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor",
+   "modality:sensory"
   ]
  },
  {
@@ -520,7 +581,12 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal"
   ]
  },
  {
@@ -543,7 +609,13 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:sensory"
   ]
  },
  {
@@ -567,7 +639,14 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:auditory",
+   "modality:motor"
   ]
  },
  {
@@ -591,7 +670,14 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:visual",
+   "modality:motor"
   ]
  },
  {
@@ -615,7 +701,13 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u2",
+   "kind:section",
+   "source:lab",
+   "region:brainstem",
+   "plane:horizontal",
+   "modality:motor"
   ]
  }
 ]

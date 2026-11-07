@@ -43,7 +43,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410594506-c2",
@@ -91,7 +97,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410607197-c1",
@@ -137,7 +149,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410607197-c2",
@@ -185,7 +203,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410620064-c1",
@@ -231,7 +255,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410620064-c2",
@@ -279,7 +309,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410632095-c1",
@@ -325,7 +361,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410632095-c2",
@@ -373,7 +415,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c1",
@@ -468,7 +516,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c2",
@@ -563,7 +618,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c3",
@@ -658,7 +720,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c4",
@@ -753,7 +821,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c5",
@@ -848,7 +923,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c6",
@@ -943,7 +1025,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c7",
@@ -1045,7 +1134,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c8",
@@ -1140,7 +1236,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410662402-c9",
@@ -1235,7 +1337,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c1",
@@ -1316,7 +1425,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c2",
@@ -1397,7 +1513,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c3",
@@ -1478,7 +1601,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c4",
@@ -1559,7 +1689,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c5",
@@ -1640,7 +1777,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c6",
@@ -1728,7 +1872,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410683338-c7",
@@ -1809,7 +1960,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410705504-c1",
@@ -1883,7 +2041,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410705504-c2",
@@ -1957,7 +2122,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410705504-c3",
@@ -2031,7 +2203,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410705504-c4",
@@ -2105,7 +2284,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410705504-c5",
@@ -2179,7 +2365,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  },
  {
   "slug": "visual-system-supplemental-material-io-1772410705504-c6",
@@ -2253,6 +2446,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u2",
+   "kind:pin",
+   "source:anki-deck",
+   "region:visual",
+   "modality:visual"
+  ]
  }
 ]

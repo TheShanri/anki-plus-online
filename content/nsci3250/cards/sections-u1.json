@@ -181,7 +181,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:vertebral-column"
   ]
  },
  {
@@ -422,7 +426,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -756,7 +764,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1089,7 +1102,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -1421,7 +1438,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -1755,7 +1776,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -2087,7 +2113,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -2421,7 +2452,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -2754,7 +2790,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -3086,7 +3126,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -3418,7 +3462,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -3751,7 +3799,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -3995,7 +4047,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -4238,7 +4294,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -4481,7 +4542,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -4722,7 +4787,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -4965,7 +5034,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -5209,7 +5283,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -5479,7 +5557,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -5750,7 +5833,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -6021,7 +6109,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord"
   ]
  },
  {
@@ -6292,7 +6384,12 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -6603,7 +6700,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:skull"
   ]
  },
  {
@@ -6912,7 +7013,11 @@
   "followups": [],
   "tags": [
    "section",
-   "label-occlusion"
+   "label-occlusion",
+   "unit:u1",
+   "kind:pin",
+   "source:lab",
+   "region:skull"
   ]
  },
  {
@@ -6939,7 +7044,12 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal"
   ],
   "explain": "Cervical level: large ventral horns for limb muscles and a large amount of white matter."
  },
@@ -6965,7 +7075,13 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:motor"
   ],
   "explain": "Large oval cord, large dorsal columns and a large ventral horn; much white matter."
  },
@@ -6991,7 +7107,12 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal"
   ],
   "explain": "Small ventral horns, a lateral horn (T1-L2), small grey matter overall."
  },
@@ -7017,7 +7138,12 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal"
   ],
   "explain": "Large, round cord with big ventral and dorsal horns (limb enlargement) and less white matter."
  },
@@ -7043,7 +7169,12 @@
   "format": "type",
   "tags": [
    "section",
-   "level"
+   "level",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal"
   ],
   "explain": "Small cord with mostly grey matter and little white matter."
  },
@@ -7067,7 +7198,12 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal"
   ]
  },
  {
@@ -7090,7 +7226,13 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal",
+   "modality:autonomic"
   ]
  },
  {
@@ -7113,7 +7255,12 @@
   "format": "type",
   "tags": [
    "section",
-   "landmark"
+   "landmark",
+   "unit:u1",
+   "kind:section",
+   "source:lab",
+   "region:spinal-cord",
+   "plane:horizontal"
   ]
  }
 ]

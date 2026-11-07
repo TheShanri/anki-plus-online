@@ -26,7 +26,13 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "middle-cerebral-artery"
@@ -59,7 +65,13 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "middle-cerebral-artery"
@@ -89,7 +101,13 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "anterior-cerebral-artery"
@@ -122,7 +140,12 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "theory:lesion"
   ],
   "structures": [
    "posterior-cerebral-artery"
@@ -155,7 +178,14 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "region:white-matter",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "lenticulostriate-arteries",
@@ -186,7 +216,11 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -217,7 +251,11 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -246,7 +284,11 @@
   ],
   "tags": [
    "clinical",
-   "stroke"
+   "stroke",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -277,7 +319,13 @@
   ],
   "tags": [
    "clinical",
-   "bleed"
+   "bleed",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:skull",
+   "region:meninges",
+   "theory:lesion"
   ],
   "structures": [
    "pterion",
@@ -310,7 +358,12 @@
   ],
   "tags": [
    "clinical",
-   "bleed"
+   "bleed",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:meninges",
+   "theory:lesion"
   ],
   "structures": [
    "subdural-space"
@@ -342,7 +395,12 @@
   ],
   "tags": [
    "clinical",
-   "bleed"
+   "bleed",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:meninges",
+   "theory:lesion"
   ],
   "structures": [
    "subarachnoid-space"
@@ -375,7 +433,12 @@
   ],
   "tags": [
    "clinical",
-   "bleed"
+   "bleed",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "theory:lesion"
   ],
   "structures": [
    "circle-of-willis"
@@ -408,7 +471,13 @@
   ],
   "tags": [
    "clinical",
-   "bleed"
+   "bleed",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "lenticulostriate-arteries"
@@ -440,7 +509,11 @@
   ],
   "tags": [
    "clinical",
-   "bleed"
+   "bleed",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -473,7 +546,15 @@
   ],
   "tags": [
    "clinical",
-   "herniation"
+   "herniation",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebrum",
+   "region:meninges",
+   "modality:visual",
+   "modality:olfactory",
+   "theory:lesion"
   ],
   "structures": [
    "uncus",
@@ -507,7 +588,14 @@
   ],
   "tags": [
    "clinical",
-   "herniation"
+   "herniation",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebellum",
+   "region:skull",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "cerebellar-tonsil",
@@ -538,7 +626,11 @@
   ],
   "tags": [
    "clinical",
-   "herniation"
+   "herniation",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -569,7 +661,14 @@
   ],
   "tags": [
    "clinical",
-   "bg"
+   "bg",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "substantia-nigra"
@@ -600,7 +699,13 @@
   ],
   "tags": [
    "clinical",
-   "bg"
+   "bg",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "caudate-nucleus",
@@ -635,7 +740,14 @@
   ],
   "tags": [
    "clinical",
-   "bg"
+   "bg",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:brainstem",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "subthalamic-nucleus"
@@ -667,7 +779,14 @@
   ],
   "tags": [
    "clinical",
-   "limbic"
+   "limbic",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebrum",
+   "region:limbic",
+   "modality:limbic",
+   "theory:lesion"
   ],
   "structures": [
    "hippocampus",
@@ -698,7 +817,13 @@
   ],
   "tags": [
    "clinical",
-   "limbic"
+   "limbic",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic",
+   "theory:lesion"
   ],
   "structures": [
    "basal-forebrain-nuclei"
@@ -727,7 +852,13 @@
   ],
   "tags": [
    "clinical",
-   "limbic"
+   "limbic",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:lesion"
   ],
   "structures": [
    "amygdala"
@@ -757,7 +888,12 @@
   ],
   "tags": [
    "clinical",
-   "tumor"
+   "tumor",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebrum",
+   "theory:lesion"
   ],
   "structures": [
    "corpus-callosum"
@@ -786,7 +922,13 @@
   ],
   "tags": [
    "clinical",
-   "tumor"
+   "tumor",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "cerebellum"
@@ -815,7 +957,12 @@
   ],
   "tags": [
    "clinical",
-   "tumor"
+   "tumor",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "modality:auditory",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -848,7 +995,11 @@
   ],
   "tags": [
    "clinical",
-   "tumor"
+   "tumor",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -875,7 +1026,12 @@
   ],
   "tags": [
    "clinical",
-   "tumor"
+   "tumor",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebrum",
+   "theory:lesion"
   ],
   "structures": [
    "corpus-callosum"
@@ -912,7 +1068,11 @@
   ],
   "tags": [
    "clinical",
-   "imaging"
+   "imaging",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -941,7 +1101,11 @@
   ],
   "tags": [
    "clinical",
-   "imaging"
+   "imaging",
+   "unit:u3",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  }

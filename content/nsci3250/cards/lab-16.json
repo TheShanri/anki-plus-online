@@ -75,7 +75,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055004116-c2",
@@ -152,7 +158,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-16-io-1775055004116-c3",
@@ -229,7 +242,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055004116-c4",
@@ -305,7 +324,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055004116-c5",
@@ -382,7 +407,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055004116-c6",
@@ -458,7 +489,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055086584-c1",
@@ -521,7 +558,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-16-io-1775055086584-c2",
@@ -583,7 +627,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055086584-c3",
@@ -645,7 +695,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055086584-c4",
@@ -708,7 +764,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055111921-c1",
@@ -777,7 +839,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055111921-c2",
@@ -846,7 +914,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055111921-c3",
@@ -920,7 +994,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cranial-nerves",
+   "modality:visual"
+  ]
  },
  {
   "slug": "lab-16-io-1775055111921-c4",
@@ -990,7 +1071,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-16-io-1775055111921-c5",
@@ -1057,7 +1145,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum",
+   "modality:olfactory"
+  ]
  },
  {
   "slug": "lab-16-io-1775055132295-c1",
@@ -1112,7 +1207,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055132295-c2",
@@ -1167,7 +1268,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055132295-c3",
@@ -1224,7 +1331,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055155139-c1",
@@ -1319,7 +1432,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055174768-c1",
@@ -1372,7 +1491,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055174768-c2",
@@ -1425,7 +1550,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055174768-c3",
@@ -1480,7 +1611,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055186851-c1",
@@ -1533,7 +1670,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055186851-c2",
@@ -1586,7 +1729,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775055186851-c3",
@@ -1641,7 +1790,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134387630-c1",
@@ -1703,7 +1858,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134387630-c2",
@@ -1781,7 +1942,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134406721-c1",
@@ -1823,7 +1990,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-16-io-1775134440987-c1",
@@ -1899,7 +2072,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134440987-c2",
@@ -1975,7 +2154,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134440987-c3",
@@ -2053,7 +2238,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134440987-c4",
@@ -2129,7 +2320,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134440987-c5",
@@ -2205,7 +2402,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134440987-c6",
@@ -2283,7 +2486,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134468738-c1",
@@ -2361,7 +2570,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134468738-c2",
@@ -2437,7 +2652,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134468738-c3",
@@ -2515,7 +2736,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134468738-c4",
@@ -2591,7 +2818,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134468738-c5",
@@ -2667,7 +2900,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134468738-c6",
@@ -2745,7 +2984,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134507316-c1",
@@ -2823,7 +3068,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  },
  {
   "slug": "lab-16-io-1775134507316-c2",
@@ -2932,6 +3183,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "mask spans both the Left and Right labels of the diagram [OCR 'Right Posterior spinal artery', conf 0.99]"
+  "review_note": "mask spans both the Left and Right labels of the diagram [OCR 'Right Posterior spinal artery', conf 0.99]",
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:vessels"
+  ]
  }
 ]

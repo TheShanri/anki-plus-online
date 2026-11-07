@@ -164,18 +164,12 @@ export function courseOrder(idx: CourseIndex): LightCard[] {
   });
 }
 
-export type Scope = { type: "all" } | { type: "unit"; slug: string } | { type: "topic"; slug: string } | { type: "structure"; slug: string } | { type: "weak" };
-
-export function parseScope(s: string | null | undefined): Scope {
-  if (!s || s === "all") return { type: "all" };
-  if (s === "weak") return { type: "weak" };
-  const [t, slug] = s.split(":");
-  if ((t === "unit" || t === "topic" || t === "structure") && slug) return { type: t, slug };
-  return { type: "all" };
-}
+import { parseScope, isContentScope, type Scope } from "./scope.ts";
+export { parseScope };
+export type { Scope };
 
 export function scopeTopicIds(idx: CourseIndex, scope: Scope): Set<string> | null {
-  if (scope.type === "all" || scope.type === "weak" || scope.type === "structure") return null;
+  if (isContentScope(scope) || (scope.type !== "unit" && scope.type !== "topic")) return null;
   if (scope.type === "topic") return new Set(idx.topics.filter((t) => t.slug === scope.slug).map((t) => t.id));
   const unit = idx.units.find((u) => u.slug === scope.slug);
   return new Set(idx.topics.filter((t) => t.unit_id === unit?.id).map((t) => t.id));
@@ -274,6 +268,18 @@ export async function buildStudyPayload(
     // one structure (from the atlas): its name cards, plus its theory cards once the name is solid
     const { data: st } = await sb.from("structures").select("id").eq("course_id", course.id).eq("slug", o.scope.slug).maybeSingle();
     scoped = scoped.filter((c) => !!st && c.structureId === st.id);
+  } else if (o.scope.type === "structures") {
+    // several structures (e.g. "Study my red zones"): same rule as one structure
+    const { data: sts } = await sb.from("structures").select("id").eq("course_id", course.id).in("slug", o.scope.slugs);
+    const want = new Set((sts ?? []).map((r: { id: string }) => r.id));
+    scoped = scoped.filter((c) => !!c.structureId && want.has(c.structureId));
+  } else if (o.scope.type === "tag") {
+    // every live card carrying the tag (tags live in the card's content JSON)
+    const tagged = await fetchAll<{ id: string }>((a, b) =>
+      sb.from("cards").select("id").eq("course_id", course.id).eq("status", "live").contains("content", { tags: [o.scope.type === "tag" ? o.scope.tag : ""] }).order("id").range(a, b),
+    );
+    const want = new Set(tagged.map((r) => r.id));
+    scoped = scoped.filter((c) => want.has(c.id));
   }
   if (o.scope.type === "weak") {
     // cards that have lapsed or are hard: the "weak spots" scope
@@ -282,10 +288,11 @@ export async function buildStudyPayload(
       return !!st && (st.lapses > 0 || st.difficulty >= 7) && phaseOf(st, now, 86_400_000 * 365) !== "new";
     });
   }
+  const focused = o.scope.type === "tag" || o.scope.type === "structures";
   const entries = buildQueue(scoped, idx.states, idx.ladders, {
     now,
-    newLimit: o.scope.type === "weak" ? 0 : newLeft,
-    reviewLimit: o.scope.type === "weak" ? 60 : reviewsLeft,
+    newLimit: o.scope.type === "weak" ? 0 : focused ? Math.max(newLeft, 15) : newLeft,
+    reviewLimit: o.scope.type === "weak" ? 60 : focused ? Math.max(reviewsLeft, 40) : reviewsLeft,
     solid,
     hasName,
   });
@@ -334,7 +341,7 @@ export async function buildStudyPayload(
   const moreStructIds = [...new Set(cards.map((c) => c.structureId).filter((x): x is string => !!x && !haveStruct.has(x)))];
   const [structMore, noteRows, [trapRowsAll, patRows], names] = await Promise.all([
     moreStructIds.length ? fetchRowsByIds<StructRow>(sb, "structures", STRUCT_COLS, moreStructIds) : Promise.resolve([] as StructRow[]),
-    fetchRowsByIds<{ card_id: string; body: string }>(sb, "user_card_notes", "card_id, body", allIds, "card_id", { user_id: userId }),
+    fetchRowsByIds<{ card_id: string; body: string }>(sb, "mnemonics", "card_id, body", allIds, "card_id", { user_id: userId }),
     trapsP,
     namesP,
   ]);

@@ -23,7 +23,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Nissl substance is only found in axons.",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -52,7 +55,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "A longitudinal groove in the neural tube that separates dorsal (alar) and ventral (basal) plates",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -81,7 +87,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:olfactory"
   ],
   "answer": "Olfactory bulbs",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -110,7 +120,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Telencephalon",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -139,7 +152,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Neural tube defects such as spina bifida or anencephaly",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -168,7 +184,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Both are derived from the neural crest",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -197,7 +216,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:auditory"
   ],
   "answer": "Inferior horn of the lateral ventricle",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -226,7 +249,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Telencephalon – Anterior horn of lateral ventricles",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -255,7 +282,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:limbic"
   ],
   "answer": "Amygdala & hippocampus",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -284,7 +315,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Development of motor neurons in the spinal cord",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -313,7 +348,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Lateral ventricles",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -342,7 +380,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Feeling the sensation of your heartbeat and an upset stomach",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -371,7 +412,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:auditory"
   ],
   "answer": "Hearing (e.g. difficulty perceiving sounds)",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -400,7 +445,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:limbic"
   ],
   "answer": "Anterior cingulate cortex",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -429,7 +478,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Primary visual cortex",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -458,7 +511,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Dendritic spines",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -487,7 +543,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Layer 1 – principal output to spinal cord",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -516,7 +575,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "The spinal cord is organized grey-white-grey",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -545,7 +607,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Layer 5 is primarily composed of pseudo-unipolar cell bodies",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -574,7 +639,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Sense the position of their limbs in space with eyes closed",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -603,7 +672,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:autonomic"
   ],
   "answer": "Both pre- and post-ganglionic sympathetic neurons secrete norepinephrine",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -632,7 +705,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Golgi tendon organs – muscle length/stretch",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -661,7 +737,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Gamma motor neuron",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -690,7 +770,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "To ensure intrafusal fibers shorten along with extrafusal fibers, preserving spindle sensitivity to stretch",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -719,7 +803,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Aδ (Type 3)",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -748,7 +836,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "There are 29 pairs of spinal nerves",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -777,7 +868,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Pia mater",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -806,7 +900,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "VPL (ventral posterior lateral)",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -835,7 +933,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Lamina II – involved in pain modulation via interneurons",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -864,7 +966,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u1"
+   "practice-exam-u1",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Nucleus gracilis in the medulla",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
@@ -893,7 +999,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "VII, IX, X"
  },
@@ -921,7 +1031,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Superior cerebellar peduncle"
  },
@@ -949,7 +1063,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Gracile and cuneate nuclei"
  },
@@ -977,7 +1095,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Both c and d"
  },
@@ -1005,7 +1126,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "CN IV"
  },
@@ -1033,7 +1157,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Corticospinal tract fibers"
  },
@@ -1061,7 +1189,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:auditory"
   ],
   "answer": "Auditory processing"
  },
@@ -1089,7 +1221,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Visual reflexes and tracking"
  },
@@ -1117,7 +1253,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Medulla"
  },
@@ -1145,7 +1284,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "III and IV"
  },
@@ -1173,7 +1315,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Pontine nuclei"
  },
@@ -1201,7 +1347,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Proprioception and fine touch"
  },
@@ -1229,7 +1379,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual",
+   "modality:autonomic"
   ],
   "answer": "Edinger-Westphal nucleus"
  },
@@ -1257,7 +1412,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "CN VII (Facial)"
  },
@@ -1285,7 +1444,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "CN IV (Trochlear)"
  },
@@ -1313,7 +1476,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Caudal pons"
  },
@@ -1341,7 +1508,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "CN XI (Accessory)"
  },
@@ -1369,7 +1540,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Solitary nucleus"
  },
@@ -1397,7 +1571,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "CN IX (Glossopharyngeal)"
  },
@@ -1425,7 +1602,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "CN VII (Facial)"
  },
@@ -1453,7 +1634,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Tongue"
  },
@@ -1481,7 +1666,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Inferior olivary nucleus"
  },
@@ -1509,7 +1697,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "CN XI (Accessory)"
  },
@@ -1537,7 +1729,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Facial nerve fibers looping around the abducens nucleus"
  },
@@ -1565,7 +1761,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "CN V (Trigeminal)"
  },
@@ -1593,7 +1793,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "CN III (Oculomotor)"
  },
@@ -1621,7 +1825,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "CN XI (Accessory)"
  },
@@ -1649,7 +1856,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:autonomic",
+   "modality:motor"
   ],
   "answer": "Dorsal motor nucleus of vagus"
  },
@@ -1677,7 +1889,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Caudal midbrain"
  },
@@ -1705,7 +1921,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-4"
+   "si-session-4",
+   "unit:u1",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Pyramid"
  }

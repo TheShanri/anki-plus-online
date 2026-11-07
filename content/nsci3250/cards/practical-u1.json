@@ -27,7 +27,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:skull"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/003.webp"
@@ -62,7 +66,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:skull"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/006.webp"
@@ -102,7 +110,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:meninges"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/009.webp"
@@ -127,7 +139,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q03"
+  "after_pin": "practical-u1-2024-q03",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:meninges",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q05",
@@ -157,7 +176,13 @@
   "pointer": {
    "type": "existing",
    "color": "red pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q06",
@@ -191,7 +216,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -218,7 +248,16 @@
   "choices": null,
   "format": "keywords",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q06"
+  "after_pin": "practical-u1-2024-q06",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cerebellum",
+   "plane:midsagittal",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q08",
@@ -245,7 +284,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q09",
@@ -275,7 +320,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -308,7 +358,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:basal-ganglia"
   ]
  },
  {
@@ -341,7 +395,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles"
   ]
  },
  {
@@ -376,7 +434,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles"
   ]
  },
  {
@@ -411,7 +473,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum",
+   "modality:olfactory"
   ]
  },
  {
@@ -433,7 +500,16 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q13"
+  "after_pin": "practical-u1-2024-q13",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cerebrum",
+   "modality:olfactory",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u1-2024-q15",
@@ -467,7 +543,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:brainstem"
   ]
  },
  {
@@ -489,7 +569,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q15"
+  "after_pin": "practical-u1-2024-q15",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:brainstem",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "practical-u1-2024-q17",
@@ -521,7 +608,14 @@
   "pointer": {
    "type": "existing",
    "color": "blue pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q18",
@@ -554,7 +648,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex",
+   "modality:limbic"
   ]
  },
  {
@@ -592,7 +691,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/039.webp"
@@ -617,7 +720,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q19"
+  "after_pin": "practical-u1-2024-q19",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cortex",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u1-2024-q21",
@@ -653,7 +763,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex",
+   "modality:visual"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/043.webp"
@@ -683,7 +798,15 @@
   "choices": null,
   "format": "keywords",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q21"
+  "after_pin": "practical-u1-2024-q21",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cortex",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q23",
@@ -716,7 +839,13 @@
   "pointer": {
    "type": "existing",
    "color": "white pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u1-2024-q24",
@@ -749,7 +878,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum"
   ]
  },
  {
@@ -780,7 +913,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -811,7 +948,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -846,7 +987,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/056.webp"
@@ -871,7 +1016,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q27"
+  "after_pin": "practical-u1-2024-q27",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:spinal-cord",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q29",
@@ -909,7 +1061,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/060.webp"
@@ -934,7 +1091,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2024-q29"
+  "after_pin": "practical-u1-2024-q29",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u1-2024-q31",
@@ -966,7 +1131,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2024-q32",
@@ -998,7 +1169,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2024-q33",
@@ -1025,7 +1202,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2024-q34",
@@ -1052,7 +1235,14 @@
   "pointer": {
    "type": "existing",
    "color": "pink outlined region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:autonomic",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2024-q35",
@@ -1090,7 +1280,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1125,7 +1320,13 @@
   "pointer": {
    "type": "existing",
    "color": "blue highlighted region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u1-2024-q37",
@@ -1161,7 +1362,14 @@
   "pointer": {
    "type": "existing",
    "color": "yellow highlighted region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:sensory",
+   "theory:receptor"
+  ]
  },
  {
   "slug": "practical-u1-2024-q38",
@@ -1195,7 +1403,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:sensory"
   ]
  },
  {
@@ -1223,7 +1436,14 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practical-u1-2024-q40",
@@ -1255,7 +1475,13 @@
   "pointer": {
    "type": "existing",
    "color": "pink indicated region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "practical-u1-2024-qB1",
@@ -1287,7 +1513,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2024"
+   "practical-u1-2024",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:limbic",
+   "modality:limbic"
   ],
   "extra_images": [
    "decks/practical-u1-2024/pages/073.webp"
@@ -1325,7 +1556,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:skull"
   ]
  },
  {
@@ -1352,7 +1587,14 @@
   "choices": null,
   "format": "keywords",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q01"
+  "after_pin": "practical-u1-2025-q01",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:skull",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q03",
@@ -1382,7 +1624,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:skull"
   ]
  },
  {
@@ -1421,7 +1667,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles"
   ]
  },
  {
@@ -1448,7 +1698,14 @@
   "choices": null,
   "format": "keywords",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q04"
+  "after_pin": "practical-u1-2025-q04",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:ventricles",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q06",
@@ -1475,7 +1732,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q07",
@@ -1511,7 +1774,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:meninges"
   ]
  },
  {
@@ -1533,7 +1800,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q07"
+  "after_pin": "practical-u1-2025-q07",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:meninges",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q09",
@@ -1570,7 +1844,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum"
   ]
  },
  {
@@ -1592,7 +1870,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q09"
+  "after_pin": "practical-u1-2025-q09",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q11",
@@ -1620,7 +1906,14 @@
    "type": "existing",
    "color": "pink pin"
   },
-  "review_note": "free-text answer; add keyword groups"
+  "review_note": "free-text answer; add keyword groups",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q12",
@@ -1656,7 +1949,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:diencephalon"
   ]
  },
  {
@@ -1678,7 +1975,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q12"
+  "after_pin": "practical-u1-2025-q12",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:diencephalon",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "practical-u1-2025-q14",
@@ -1712,7 +2016,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:diencephalon",
+   "modality:limbic"
   ],
   "extra_images": [
    "decks/practical-u1-2025/pages/019.webp"
@@ -1746,7 +2055,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -1777,7 +2091,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -1818,7 +2137,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex",
+   "modality:sensory"
   ]
  },
  {
@@ -1844,7 +2168,15 @@
   ],
   "format": "choice",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q17"
+  "after_pin": "practical-u1-2025-q17",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cortex",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q19",
@@ -1871,7 +2203,13 @@
   "pointer": {
    "type": "existing",
    "color": "red pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:brodmann"
+  ]
  },
  {
   "slug": "practical-u1-2025-q20",
@@ -1903,7 +2241,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:white-matter"
   ]
  },
  {
@@ -1937,7 +2279,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex"
   ]
  },
  {
@@ -1971,7 +2317,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "practical-u1-2025-q23",
@@ -2004,7 +2356,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex"
   ]
  },
  {
@@ -2038,7 +2394,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex"
   ]
  },
  {
@@ -2069,7 +2429,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord"
   ]
  },
  {
@@ -2108,7 +2472,12 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -2130,7 +2499,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q26"
+  "after_pin": "practical-u1-2025-q26",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q28",
@@ -2164,7 +2541,11 @@
   ],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -2186,7 +2567,14 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practical-u1-2025-q28"
+  "after_pin": "practical-u1-2025-q28",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:vertebral-column",
+   "theory:function"
+  ]
  },
  {
   "slug": "practical-u1-2025-q30",
@@ -2216,7 +2604,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -2244,7 +2636,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2025-q32",
@@ -2276,7 +2674,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2025-q33",
@@ -2303,7 +2707,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2025-q34",
@@ -2330,7 +2740,13 @@
   "pointer": {
    "type": "existing",
    "color": "pink outlined region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:level"
+  ]
  },
  {
   "slug": "practical-u1-2025-q35",
@@ -2357,7 +2773,13 @@
   "pointer": {
    "type": "existing",
    "color": "blue highlighted region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:order"
+  ]
  },
  {
   "slug": "practical-u1-2025-q36",
@@ -2384,7 +2806,13 @@
   "pointer": {
    "type": "existing",
    "color": "blue highlighted region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:side"
+  ]
  },
  {
   "slug": "practical-u1-2025-q37",
@@ -2417,7 +2845,13 @@
   "pointer": {
    "type": "existing",
    "color": null
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:receptor"
+  ]
  },
  {
   "slug": "practical-u1-2025-q38",
@@ -2444,7 +2878,14 @@
   "pointer": {
    "type": "existing",
    "color": "yellow indicated region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:sensory",
+   "theory:order"
+  ]
  },
  {
   "slug": "practical-u1-2025-q39",
@@ -2477,7 +2918,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebellum",
+   "modality:sensory"
   ]
  },
  {
@@ -2510,7 +2956,13 @@
   "pointer": {
    "type": "existing",
    "color": "yellow indicated region"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:fiber-type"
+  ]
  },
  {
   "slug": "practical-u1-2025-qB1",
@@ -2540,7 +2992,10 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practical-u1-2025"
+   "practical-u1-2025",
+   "unit:u1",
+   "kind:pin",
+   "source:practical"
   ],
   "review_note": "answer is not on the official structure list"
  },
@@ -2574,7 +3029,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:meninges"
   ]
  },
  {
@@ -2602,7 +3061,14 @@
   "pointer": {
    "type": "existing",
    "color": "orange orange pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "practice-practical-lab3-q03",
@@ -2636,7 +3102,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles"
   ]
  },
  {
@@ -2664,7 +3134,13 @@
   "pointer": {
    "type": "existing",
    "color": "white white pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practice-practical-lab3-q05",
@@ -2694,7 +3170,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "modality:limbic"
   ],
   "review_note": "answer is not on the official structure list"
  },
@@ -2728,7 +3208,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex",
+   "modality:visual"
   ]
  },
  {
@@ -2759,7 +3244,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -2794,7 +3284,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:basal-ganglia"
   ]
  },
  {
@@ -2825,7 +3319,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:white-matter"
   ]
  },
  {
@@ -2862,7 +3360,12 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles",
+   "modality:motor"
   ]
  },
  {
@@ -2896,7 +3399,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum"
   ]
  },
  {
@@ -2931,7 +3438,12 @@
   ],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -2953,7 +3465,15 @@
   "choices": null,
   "format": "type",
   "require_side": false,
-  "after_pin": "practice-practical-lab3-q12"
+  "after_pin": "practice-practical-lab3-q12",
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "region:cerebrum",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "practice-practical-lab3-q14",
@@ -2986,7 +3506,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex"
   ]
  },
  {
@@ -3020,7 +3544,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:cortex"
   ]
  },
  {
@@ -3053,7 +3581,13 @@
   "pointer": {
    "type": "existing",
    "color": "white white pin"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practice-practical-lab3-q17",
@@ -3080,7 +3614,13 @@
   "pointer": {
    "type": "existing",
    "color": "black black pin (bumpy stuff)"
-  }
+  },
+  "tags": [
+   "unit:u1",
+   "kind:theory",
+   "source:practical",
+   "theory:function"
+  ]
  },
  {
   "slug": "practice-practical-lab3-q18",
@@ -3114,7 +3654,11 @@
   "followup_cards": [],
   "tags": [
    "practical",
-   "practice-practical-lab3"
+   "practice-practical-lab3",
+   "unit:u1",
+   "kind:pin",
+   "source:practical",
+   "region:ventricles"
   ]
  }
 ]

@@ -59,7 +59,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054616193-c2",
@@ -121,7 +129,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054616193-c3",
@@ -181,7 +198,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-15-io-1775054616193-c4",
@@ -245,7 +270,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c1",
@@ -340,7 +374,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c2",
@@ -437,7 +479,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c3",
@@ -535,7 +585,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c4",
@@ -630,7 +689,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c5",
@@ -725,7 +791,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c6",
@@ -820,7 +893,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c7",
@@ -918,7 +998,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c8",
@@ -1013,7 +1101,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054691725-c9",
@@ -1109,7 +1204,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"f SCP\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"f SCP\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054708727-c1",
@@ -1162,7 +1264,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054708727-c2",
@@ -1215,7 +1325,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054708727-c3",
@@ -1271,7 +1389,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054738817-c1",
@@ -1324,7 +1450,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054738817-c2",
@@ -1377,7 +1510,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054738817-c3",
@@ -1430,7 +1570,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:vestibular"
+  ]
  },
  {
   "slug": "lab-15-io-1775054817967-c1",
@@ -1564,7 +1712,15 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "stacked-letter vertical label read by eye as PARAVERMIS; verify which side [OCR '加sh克am', conf 0.38]"
+  "review_note": "stacked-letter vertical label read by eye as PARAVERMIS; verify which side [OCR '加sh克am', conf 0.38]",
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054817967-c2",
@@ -1731,7 +1887,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054817967-c3",
@@ -1898,7 +2061,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054886593-c1",
@@ -2025,7 +2195,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054886593-c2",
@@ -2188,7 +2366,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054886593-c3",
@@ -2347,7 +2532,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c1",
@@ -2431,7 +2623,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c2",
@@ -2512,7 +2713,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c3",
@@ -2593,7 +2802,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c4",
@@ -2674,7 +2890,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c5",
@@ -2758,7 +2981,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c6",
@@ -2842,7 +3074,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054912050-c7",
@@ -2926,7 +3167,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054931358-c1",
@@ -2982,7 +3232,16 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-15-io-1775054931358-c2",
@@ -3035,7 +3294,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-15-io-1775054931358-c3",
@@ -3091,6 +3358,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u3",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "plane:horizontal",
+   "plane:coronal",
+   "modality:motor"
+  ]
  }
 ]

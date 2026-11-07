@@ -23,7 +23,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Archicortex"
  },
@@ -51,7 +54,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:limbic"
   ],
   "answer": "Allocortex"
  },
@@ -79,7 +86,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:olfactory"
   ],
   "answer": "Paleocortex"
  },
@@ -107,7 +118,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Glutamate"
  },
@@ -135,7 +150,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Layer V"
  },
@@ -163,7 +182,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Hydrocephaly"
  },
@@ -191,7 +213,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:vestibular"
   ],
   "answer": "Saccule"
  },
@@ -219,7 +245,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Interposed; Paravermis"
  },
@@ -247,7 +277,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Neurons projecting from the cerebellar cortex to the deep cerebellar nuclei"
  },
@@ -275,7 +309,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Bradykinesia"
  },
@@ -303,7 +340,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Reptilian brain"
  },
@@ -331,7 +371,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:limbic"
   ],
   "answer": "Habenula; long-term memory consolidation"
  },
@@ -359,7 +403,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:olfactory"
   ],
   "answer": "Olfactory receptor cells are a type of glial cell"
  },
@@ -387,7 +435,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:limbic"
   ],
   "answer": "Amygdala"
  },
@@ -415,7 +467,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:limbic"
   ],
   "answer": "Hippocampus"
  },
@@ -443,7 +499,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "plane:sagittal"
   ],
   "answer": "Superior sagittal sinus"
  },
@@ -471,7 +531,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Schwann cells"
  },
@@ -499,7 +562,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Pons"
  },
@@ -527,7 +593,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "review_note": "key lists ['a', 'e'] answer(s); multi-answer or unreadable",
   "answer": "Basilar artery | Lenticulostriate arteries"
@@ -556,7 +625,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Cerebellum"
  },
@@ -584,7 +657,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "CT"
  },
@@ -612,7 +688,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "DSI"
  },
@@ -640,7 +719,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Metabolic activity"
  },
@@ -668,7 +750,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Positron emission tomography (PET)"
  },
@@ -696,7 +781,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Acquiring MRI images is time consuming"
  },
@@ -724,7 +812,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Epidural hemorrhage"
  },
@@ -752,7 +843,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Bleeding into the epidural space"
  },
@@ -780,7 +874,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Cerebellar artery thrombosis"
  },
@@ -808,7 +906,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Platinum coil"
  },
@@ -836,7 +937,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u3"
+   "practice-exam-u3",
+   "unit:u3",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Vision loss"
  }

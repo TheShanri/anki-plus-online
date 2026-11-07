@@ -29,7 +29,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -58,7 +63,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -83,7 +93,12 @@
   "format": "type",
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -119,7 +134,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -155,7 +175,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -181,7 +206,12 @@
   "format": "type",
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -207,7 +237,12 @@
   "format": "type",
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -235,7 +270,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -263,7 +303,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -296,7 +341,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -321,7 +371,12 @@
   "format": "tf",
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ],
   "explain": "They ascend ipsilaterally without synapsing until the medulla."
  },
@@ -352,7 +407,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -384,7 +444,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -408,7 +473,12 @@
   "format": "type",
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -438,7 +508,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -471,7 +546,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -498,7 +578,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -527,7 +612,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -556,7 +646,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -588,7 +683,12 @@
   ],
   "tags": [
    "pathway",
-   "dcml"
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -619,7 +719,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -660,7 +765,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -687,7 +797,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -719,7 +834,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -752,7 +872,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -780,7 +905,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -810,7 +940,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -839,7 +974,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -870,7 +1010,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -901,7 +1046,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -930,7 +1080,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -959,7 +1114,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -988,7 +1148,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1017,7 +1182,12 @@
   ],
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1042,7 +1212,12 @@
   "format": "tf",
   "tags": [
    "pathway",
-   "alst"
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ],
   "explain": "Reversed: anterolateral crosses in the cord, DCML in the caudal medulla."
  },
@@ -1073,7 +1248,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1104,7 +1284,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1134,7 +1319,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1163,7 +1353,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1193,7 +1388,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1220,7 +1420,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1249,7 +1454,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1277,7 +1487,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1308,7 +1523,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1337,7 +1557,12 @@
   ],
   "tags": [
    "pathway",
-   "dsct"
+   "dsct",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1371,7 +1596,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1399,7 +1629,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1428,7 +1663,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1458,7 +1698,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1487,7 +1732,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1514,7 +1764,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1542,7 +1797,12 @@
   ],
   "tags": [
    "pathway",
-   "sympathetic"
+   "sympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic"
   ]
  },
  {
@@ -1590,7 +1850,12 @@
   ],
   "tags": [
    "pathway",
-   "parasympathetic"
+   "parasympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
   ]
  },
  {
@@ -1617,7 +1882,12 @@
   ],
   "tags": [
    "pathway",
-   "parasympathetic"
+   "parasympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
   ]
  },
  {
@@ -1647,7 +1917,12 @@
   ],
   "tags": [
    "pathway",
-   "parasympathetic"
+   "parasympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
   ]
  },
  {
@@ -1675,7 +1950,12 @@
   ],
   "tags": [
    "pathway",
-   "parasympathetic"
+   "parasympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
   ]
  },
  {
@@ -1704,7 +1984,12 @@
   ],
   "tags": [
    "pathway",
-   "parasympathetic"
+   "parasympathetic",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
   ]
  },
  {
@@ -1734,7 +2019,12 @@
   ],
   "tags": [
    "pathway",
-   "umn-lmn"
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -1763,7 +2053,12 @@
   ],
   "tags": [
    "pathway",
-   "umn-lmn"
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -1790,7 +2085,12 @@
   ],
   "tags": [
    "pathway",
-   "umn-lmn"
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -1817,7 +2117,12 @@
   ],
   "tags": [
    "pathway",
-   "umn-lmn"
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -1850,7 +2155,12 @@
   ],
   "tags": [
    "pathway",
-   "umn-lmn"
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  },
  {
@@ -1887,7 +2197,12 @@
   ],
   "tags": [
    "pathway",
-   "umn-lmn"
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
   ]
  }
 ]

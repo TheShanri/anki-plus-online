@@ -67,7 +67,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349533294-c2",
@@ -137,7 +142,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349533294-c3",
@@ -204,7 +214,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349533294-c4",
@@ -271,7 +286,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349533294-c5",
@@ -341,7 +361,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c1",
@@ -452,7 +477,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c2",
@@ -561,7 +591,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c3",
@@ -670,7 +705,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c4",
@@ -779,7 +819,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c5",
@@ -888,7 +933,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c6",
@@ -997,7 +1047,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c7",
@@ -1106,7 +1161,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c8",
@@ -1218,7 +1278,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c9",
@@ -1327,7 +1392,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c10",
@@ -1436,7 +1506,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349595886-c11",
@@ -1545,7 +1620,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349694303-c1",
@@ -1679,7 +1759,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349694303-c2",
@@ -1813,7 +1898,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349694303-c3",
@@ -1947,7 +2037,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349694303-c4",
@@ -2081,7 +2176,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349694303-c5",
@@ -2245,7 +2345,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349694303-c6",
@@ -2409,7 +2514,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c1",
@@ -2526,7 +2636,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c2",
@@ -2640,7 +2755,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c3",
@@ -2757,7 +2877,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c4",
@@ -2871,7 +2996,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c5",
@@ -2988,7 +3118,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c6",
@@ -3105,7 +3240,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c7",
@@ -3222,7 +3362,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349784018-c8",
@@ -3362,7 +3507,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c1",
@@ -3474,7 +3624,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c2",
@@ -3586,7 +3741,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c3",
@@ -3699,7 +3859,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c4",
@@ -3809,7 +3974,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c5",
@@ -3919,7 +4089,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c6",
@@ -4032,7 +4207,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c7",
@@ -4145,7 +4325,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349833591-c8",
@@ -4277,7 +4462,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349849580-c1",
@@ -4326,7 +4516,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349849580-c2",
@@ -4375,7 +4570,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349863592-c1",
@@ -4438,7 +4638,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349863592-c2",
@@ -4498,7 +4703,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349863592-c3",
@@ -4558,7 +4768,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349863592-c4",
@@ -4621,7 +4836,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349889275-c1",
@@ -4674,7 +4894,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349889275-c2",
@@ -4727,7 +4952,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349889275-c3",
@@ -4782,7 +5012,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349907014-c1",
@@ -4838,7 +5073,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768349907014-c2",
@@ -4896,7 +5137,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:sagittal"
+  ]
  },
  {
   "slug": "lab-1-io-1768349907014-c3",
@@ -4955,7 +5202,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c1",
@@ -5086,7 +5339,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c2",
@@ -5217,7 +5475,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c3",
@@ -5348,7 +5611,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c4",
@@ -5493,7 +5761,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c5",
@@ -5638,7 +5911,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c6",
@@ -5771,7 +6049,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:white-matter"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c7",
@@ -5902,7 +6186,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c8",
@@ -6033,7 +6322,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c9",
@@ -6166,7 +6460,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-1-io-1768349970360-c10",
@@ -6297,7 +6597,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus; Bonus"
+  "caption": "Bonus; Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350003725-c1",
@@ -6348,7 +6653,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:sagittal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350003725-c2",
@@ -6399,7 +6710,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:sagittal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350018599-c1",
@@ -6444,7 +6761,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:horizontal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350086792-c1",
@@ -6486,7 +6809,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350114332-c1",
@@ -6532,7 +6861,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350114332-c2",
@@ -6578,7 +6912,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350188659-c1",
@@ -6645,7 +6984,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350188659-c2",
@@ -6712,7 +7056,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350188659-c3",
@@ -6782,7 +7131,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350188659-c4",
@@ -6851,7 +7206,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350188659-c5",
@@ -6918,7 +7279,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c1",
@@ -7013,7 +7379,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c2",
@@ -7108,7 +7480,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c3",
@@ -7203,7 +7582,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c4",
@@ -7300,7 +7685,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c5",
@@ -7395,7 +7786,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c6",
@@ -7490,7 +7887,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull",
+   "plane:sagittal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c7",
@@ -7587,7 +7991,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c8",
@@ -7682,7 +8092,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull",
+   "plane:sagittal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350248691-c9",
@@ -7777,7 +8194,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350308165-c1",
@@ -7858,7 +8282,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350308165-c2",
@@ -7939,7 +8369,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350308165-c3",
@@ -8020,7 +8456,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull",
+   "plane:sagittal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350308165-c4",
@@ -8101,7 +8544,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350308165-c5",
@@ -8198,7 +8648,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350351430-c1",
@@ -8251,7 +8707,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350351430-c2",
@@ -8304,7 +8766,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350351430-c3",
@@ -8357,7 +8825,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:skull"
+  ]
  },
  {
   "slug": "lab-1-io-1768350385936-c1",
@@ -8447,7 +8921,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350385936-c2",
@@ -8538,7 +9017,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"frontal lobes re\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"frontal lobes re\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350385936-c3",
@@ -8629,7 +9113,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "auto-audit: answer is an OCR fragment (\"temporal lobes re\") and cannot be typed; fix from the source slide"
+  "review_note": "auto-audit: answer is an OCR fragment (\"temporal lobes re\") and cannot be typed; fix from the source slide",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350385936-c4",
@@ -8750,7 +9239,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "free-text slide sentence; consider a theory card [OCR 'occipital lobes brainstem, cerebe', conf 1.00]"
+  "review_note": "free-text slide sentence; consider a theory card [OCR 'occipital lobes brainstem, cerebe', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-1-io-1768350425033-c1",
@@ -8817,7 +9312,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350425033-c2",
@@ -8884,7 +9384,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-1-io-1768350425033-c3",
@@ -8953,7 +9460,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350425033-c4",
@@ -9020,7 +9532,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350425033-c5",
@@ -9087,7 +9604,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350486722-c1",
@@ -9142,7 +9664,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350486722-c2",
@@ -9197,7 +9725,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350486722-c3",
@@ -9252,7 +9786,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350516543-c1",
@@ -9300,7 +9840,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350516543-c2",
@@ -9348,7 +9894,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-1-io-1768350557977-c1",
@@ -9402,7 +9955,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus"
+  "caption": "Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350557977-c2",
@@ -9456,7 +10014,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus"
+  "caption": "Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350557977-c3",
@@ -9513,7 +10076,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "Bonus"
+  "caption": "Bonus",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350575753-c1",
@@ -9569,7 +10138,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350575753-c2",
@@ -9624,7 +10198,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350575753-c3",
@@ -9677,7 +10256,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-1-io-1768350626824-c1",
@@ -9737,7 +10323,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350626824-c2",
@@ -9797,7 +10388,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350626824-c3",
@@ -9862,7 +10458,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-1-io-1768350626824-c4",
@@ -9927,7 +10529,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-1-io-1768350670118-c1",
@@ -9990,7 +10598,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "plane:coronal"
+  ]
  },
  {
   "slug": "lab-1-io-1768350670118-c2",
@@ -10050,7 +10664,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350670118-c3",
@@ -10110,7 +10729,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350670118-c4",
@@ -10170,7 +10794,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350689204-c1",
@@ -10220,7 +10849,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-1-io-1768350689204-c2",
@@ -10270,7 +10905,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex"
+  ]
  },
  {
   "slug": "lab-1-io-1768350706933-c1",
@@ -10312,7 +10953,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebrum"
+  ]
  },
  {
   "slug": "lab-1-io-1768350782186-c1",
@@ -10372,7 +11019,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350782186-c2",
@@ -10432,7 +11084,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350782186-c3",
@@ -10492,7 +11149,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350782186-c4",
@@ -10552,7 +11214,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350839527-c1",
@@ -10613,7 +11280,12 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "lol"
+  "caption": "lol",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350839527-c2",
@@ -10676,7 +11348,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "lol"
+  "caption": "lol",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350839527-c3",
@@ -10737,7 +11415,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "lol"
+  "caption": "lol",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350839527-c4",
@@ -10798,7 +11482,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "caption": "lol"
+  "caption": "lol",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350850597-c1",
@@ -10860,7 +11550,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350850597-c2",
@@ -10920,7 +11616,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck"
+  ]
  },
  {
   "slug": "lab-1-io-1768350850597-c3",
@@ -10982,7 +11683,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  },
  {
   "slug": "lab-1-io-1768350850597-c4",
@@ -11044,6 +11751,12 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:meninges"
+  ]
  }
 ]

@@ -23,7 +23,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Cerebral peduncles"
  },
@@ -51,7 +55,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Substantia nigra"
  },
@@ -79,7 +87,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Area postrema"
  },
@@ -107,7 +118,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Ventral; lateral"
  },
@@ -135,7 +150,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:autonomic"
   ],
   "answer": "Post-ganglionic parasympathetic nuclei"
  },
@@ -163,7 +182,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "III"
  },
@@ -191,7 +213,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Principal sensory nucleus of trigeminal"
  },
@@ -219,7 +245,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:autonomic"
   ],
   "answer": "VII"
  },
@@ -246,7 +276,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "VII"
  },
@@ -274,7 +307,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Solitary nucleus"
  },
@@ -302,7 +338,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Ophthalmic division of trigeminal (V3)"
  },
@@ -330,7 +370,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Spinal nucleus of trigeminal"
  },
@@ -355,7 +399,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "False"
  },
@@ -383,7 +431,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Left arm and chest"
  },
@@ -411,7 +462,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "VPL"
  },
@@ -439,7 +494,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Corticopontine neuron"
  },
@@ -467,7 +526,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:autonomic",
+   "modality:motor"
   ],
   "answer": "Parasympathetic motor to thoracic and abdominal viscera"
  },
@@ -495,7 +559,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Rubrospinal tract"
  },
@@ -523,7 +591,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "It descends ipsilaterally from the cortex and bilaterally innervates LMNs of the trunk"
  },
@@ -551,7 +623,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Red nucleus"
  },
@@ -579,7 +655,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "All of the above"
  },
@@ -607,7 +687,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "There are three types of cones, each maximally sensitive to different wavelengths of light."
  },
@@ -635,7 +718,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "It is a transparent anterior structure that refracts incoming light"
  },
@@ -663,7 +749,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Optic chiasm"
  },
@@ -691,7 +781,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual"
   ],
   "answer": "Medial longitudinal fasciculus"
  },
@@ -719,7 +813,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "practice-exam-u2"
+   "practice-exam-u2",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Left facial nerve"
  },
@@ -747,7 +844,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Pseudounipolar"
  },
@@ -775,7 +876,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Principal sensory nucleus of trigeminal"
  },
@@ -803,7 +908,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Proprioception and fine touch"
  },
@@ -831,7 +940,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "The lower limb"
  },
@@ -859,7 +972,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Ventroposterolateral (VPL) nucleus of the thalamus"
  },
@@ -887,7 +1004,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor",
+   "modality:sensory"
   ],
   "answer": "Dorsal spinocerebellar"
  },
@@ -915,7 +1037,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "The trigeminal ganglion"
  },
@@ -943,7 +1069,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor",
+   "modality:sensory"
   ],
   "answer": "Dorsal spinocerebellar tract"
  },
@@ -971,7 +1102,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "In the spinal cord via the ventral white commissure"
  },
@@ -999,7 +1133,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:sensory"
   ],
   "answer": "Dorsal root ganglion (DRG)"
  },
@@ -1027,7 +1165,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "A neuron that originates in the CNS and synapses onto a lower motor neuron"
  },
@@ -1055,7 +1197,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Limb muscles"
  },
@@ -1083,7 +1229,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Pyramidal decussation in the medulla"
  },
@@ -1111,7 +1261,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Anterior corticospinal tract"
  },
@@ -1139,7 +1293,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Flexion of the upper limbs"
  },
@@ -1167,7 +1325,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Superior and inferior colliculi"
  },
@@ -1195,7 +1357,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:vestibular"
   ],
   "answer": "Vestibulospinal tract"
  },
@@ -1223,7 +1389,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Innervates brainstem cranial nerve motor nuclei"
  },
@@ -1251,7 +1421,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:visual",
+   "modality:motor"
   ],
   "answer": "Oculomotor, trochlear, and abducens nuclei"
  },
@@ -1279,7 +1454,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Regulation of voluntary movement"
  },
@@ -1307,7 +1486,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Lateral ventral horn"
  },
@@ -1335,7 +1518,12 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "plane:horizontal",
+   "modality:motor"
   ],
   "answer": "Anterior corticospinal tract"
  },
@@ -1363,7 +1551,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Hypoglossal nucleus"
  },
@@ -1391,7 +1583,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Decerebrate rigidity"
  },
@@ -1419,7 +1615,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Relay motor plans to the cerebellum"
  },
@@ -1447,7 +1647,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "80%"
  },
@@ -1475,7 +1679,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Reticulospinal tract"
  },
@@ -1503,7 +1711,10 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam"
   ],
   "answer": "Upper cervical spinal cord (C1-C5)"
  },
@@ -1531,7 +1742,13 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:auditory",
+   "modality:visual",
+   "modality:motor"
   ],
   "answer": "Tectospinal tract"
  },
@@ -1559,7 +1776,11 @@
   "require_side": false,
   "tags": [
    "written",
-   "si-session-5"
+   "si-session-5",
+   "unit:u2",
+   "kind:theory",
+   "source:practice-exam",
+   "modality:motor"
   ],
   "answer": "Loss of voluntary movement on the left side of the body"
  }

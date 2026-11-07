@@ -171,3 +171,19 @@
 .v-word.intro { color: var(--accent-2); }
 /* buttons duplicate the keys: only screens without a keyboard need them */
 @media (hover: hover) and (pointer: fine) { .touch-only { display: none !important; } }
+
+/* tags + mnemonics */
+.tag-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.chip.tag { font-size: 10px; letter-spacing: 0.08em; padding: 1px 8px; color: var(--text-faint); }
+.chip.tag.f-region { color: var(--accent-2); }
+.chip.tag.f-plane { color: var(--learn-c); }
+.chip.tag.f-modality { color: var(--review-c); }
+.mnemo-item { display: grid; gap: 2px; padding-top: 6px; border-top: 1px dashed var(--panel-border); }
+.mnemo-item:first-of-type { border-top: 0; padding-top: 0; }
+.mnemo-class { display: grid; gap: 6px; margin-top: 6px; }
+.mnemo-opts { display: flex; flex-wrap: wrap; gap: 4px 16px; border: 0; padding: 0; margin: 0; font-size: 13px; }
+.mnemo-opts label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.mnemo-link { background: none; border: 0; padding: 0; font: inherit; color: var(--accent-2); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.mnemo-link.on { color: var(--good); }
+.struct-mnemo .info-panel { margin-top: 0; }
+.chip.tag-link { text-decoration: none; } .chip.tag-link:hover, .chip.tag-link:focus-visible { border-color: var(--accent-2); color: var(--accent-2); }

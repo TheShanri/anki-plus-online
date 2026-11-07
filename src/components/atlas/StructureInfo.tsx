@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { resolveMediaSrc } from "@/components/cards/media";
+import { MnemonicPanel } from "@/components/study/MnemonicPanel";
 import "@/components/study/study.css"; // chips
 
 type CardInfo = {
@@ -158,6 +159,10 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
             </p>
           )}
         </div>
+      </div>
+
+      <div className="struct-mnemo">
+        <MnemonicPanel key={d.slug} structureSlug={d.slug} />
       </div>
 
       {images.length > 0 && (

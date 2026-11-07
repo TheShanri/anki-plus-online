@@ -45,7 +45,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:skull"
   ]
  },
  {
@@ -94,7 +98,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -136,7 +143,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:skull"
   ]
  },
  {
@@ -188,7 +199,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:ventricles"
   ]
  },
  {
@@ -237,7 +252,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -285,7 +303,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "plane:horizontal"
   ]
  },
  {
@@ -336,7 +358,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:meninges"
   ]
  },
  {
@@ -385,7 +411,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -437,7 +466,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebrum"
   ]
  },
  {
@@ -486,7 +519,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex",
+   "modality:limbic"
   ]
  },
  {
@@ -534,7 +572,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:ventricles",
+   "modality:motor"
   ]
  },
  {
@@ -585,7 +628,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:diencephalon"
   ]
  },
  {
@@ -634,7 +681,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -680,7 +730,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:diencephalon",
+   "modality:limbic"
   ]
  },
  {
@@ -722,7 +777,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -764,7 +824,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:basal-ganglia",
+   "modality:motor"
   ]
  },
  {
@@ -819,7 +884,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex",
+   "modality:sensory"
   ]
  },
  {
@@ -868,7 +938,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -915,7 +988,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex",
+   "modality:visual"
   ]
  },
  {
@@ -959,7 +1037,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:white-matter"
   ]
  },
  {
@@ -1004,7 +1086,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex"
   ]
  },
  {
@@ -1046,7 +1132,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1091,7 +1180,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex"
   ]
  },
  {
@@ -1136,7 +1229,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex"
   ]
  },
  {
@@ -1178,7 +1275,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:spinal-cord"
   ]
  },
  {
@@ -1231,7 +1332,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -1280,7 +1386,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1329,7 +1438,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -1378,7 +1491,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1420,7 +1536,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -1463,7 +1583,10 @@
   "followups": [],
   "review_note": "multiple-choice answer letter from a practice question [OCR 'C', conf 0.90]",
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1505,7 +1628,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1547,7 +1673,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1589,7 +1718,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1631,7 +1763,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1673,7 +1808,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1715,7 +1853,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "modality:sensory"
   ]
  },
  {
@@ -1760,7 +1902,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebellum",
+   "modality:sensory"
   ]
  },
  {
@@ -1803,7 +1950,10 @@
   "followups": [],
   "review_note": "answer text from a practice question [OCR 'Aa or AB', conf 0.99]",
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1845,7 +1995,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -1887,7 +2040,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:skull"
   ]
  },
  {
@@ -1929,7 +2086,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:skull"
   ]
  },
  {
@@ -1980,7 +2141,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:meninges"
   ]
  },
  {
@@ -2031,7 +2196,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:meninges"
   ]
  },
  {
@@ -2073,7 +2242,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -2122,7 +2294,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebellum",
+   "modality:motor"
   ]
  },
  {
@@ -2175,7 +2352,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "plane:midsagittal"
   ]
  },
  {
@@ -2217,7 +2398,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -2259,7 +2443,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -2303,7 +2492,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:basal-ganglia"
   ]
  },
  {
@@ -2347,7 +2540,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:ventricles"
   ]
  },
  {
@@ -2393,7 +2590,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:ventricles"
   ]
  },
  {
@@ -2442,7 +2643,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebrum",
+   "modality:olfactory"
   ]
  },
  {
@@ -2495,7 +2701,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebrum",
+   "modality:limbic"
   ]
  },
  {
@@ -2544,7 +2755,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:brainstem"
   ]
  },
  {
@@ -2593,7 +2808,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -2636,7 +2854,10 @@
   "followups": [],
   "review_note": "multiple-choice answer from a practice question [OCR 'D-Foot', conf 0.99]",
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -2681,7 +2902,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex",
+   "modality:limbic"
   ]
  },
  {
@@ -2726,7 +2952,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex"
   ]
  },
  {
@@ -2777,7 +3007,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cortex",
+   "modality:visual"
   ]
  },
  {
@@ -2826,7 +3061,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "modality:visual"
   ]
  },
  {
@@ -2868,7 +3107,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -2913,7 +3155,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebrum"
   ]
  },
  {
@@ -2955,7 +3201,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -2997,7 +3247,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:vertebral-column"
   ]
  },
  {
@@ -3046,7 +3300,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:spinal-cord"
   ]
  },
  {
@@ -3097,7 +3355,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:meninges"
   ]
  },
  {
@@ -3150,7 +3412,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -3199,7 +3466,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3242,7 +3512,10 @@
   "followups": [],
   "review_note": "multiple-choice answer letter from a practice question [OCR 'B', conf 0.82]",
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3285,7 +3558,10 @@
   "followups": [],
   "review_note": "multiple-choice answer letter from a practice question [OCR 'B', conf 0.99]",
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3327,7 +3603,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3369,7 +3648,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "modality:autonomic"
   ]
  },
  {
@@ -3418,7 +3701,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:spinal-cord",
+   "modality:sensory"
   ]
  },
  {
@@ -3460,7 +3748,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3503,7 +3794,10 @@
   "followups": [],
   "review_note": "answer text from a practice question [OCR 'Meissener, Merkel, Pacinian, Ruffini, GTO, M. Spindle', conf 1.00]",
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3548,7 +3842,12 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "region:cerebellum",
+   "modality:sensory"
   ]
  },
  {
@@ -3590,7 +3889,11 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical",
+   "modality:motor"
   ]
  },
  {
@@ -3632,7 +3935,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  },
  {
@@ -3674,7 +3980,10 @@
   "prompt": "Name the structure.",
   "followups": [],
   "tags": [
-   "practice-practical"
+   "practice-practical",
+   "unit:u1",
+   "kind:pin",
+   "source:practice-practical"
   ]
  }
 ]

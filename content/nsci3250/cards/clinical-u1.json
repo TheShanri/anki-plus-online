@@ -30,7 +30,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "dorsal-columns",
@@ -66,7 +72,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "anterolateral-spinothalamic-tract"
@@ -101,7 +113,14 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebellum",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "review_note": "Vignette synthesised from lecture 5 pathway content; no direct course vignette.",
   "structures": [
@@ -134,7 +153,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -164,7 +189,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -205,7 +236,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope. Derived from lecture 5/10 tract positions.",
   "structures": []
@@ -238,7 +275,14 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "anterior-spinal-artery",
@@ -268,7 +312,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:vessels",
+   "region:spinal-cord",
+   "theory:lesion"
   ],
   "structures": [
    "posterior-spinal-arteries"
@@ -300,7 +350,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:autonomic",
+   "theory:lesion"
   ],
   "review_note": "Not in the course slides (standard neuroanatomy); TA owner to confirm it is in scope.",
   "structures": [
@@ -330,7 +386,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "cauda-equina"
@@ -365,7 +427,12 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "theory:lesion"
   ],
   "structures": [
    "conus-medullaris",
@@ -395,7 +462,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": [
    "spinal-nerves"
@@ -432,7 +505,13 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory",
+   "theory:lesion"
   ],
   "structures": []
  },
@@ -465,7 +544,15 @@
   ],
   "tags": [
    "clinical",
-   "cord"
+   "cord",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cranial-nerves",
+   "region:skull",
+   "region:spinal-cord",
+   "modality:olfactory",
+   "theory:lesion"
   ],
   "structures": [
    "olfactory-nerve",
@@ -501,7 +588,12 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "theory:lesion"
   ],
   "structures": [
    "broca-s-area"
@@ -536,7 +628,12 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "theory:lesion"
   ],
   "structures": [
    "wernicke-s-area"
@@ -565,7 +662,12 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "theory:lesion"
   ],
   "structures": [
    "parietal-lobe-general-association-area",
@@ -597,7 +699,13 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "modality:auditory",
+   "theory:lesion"
   ],
   "structures": [
    "transverse-temporal-gyrus",
@@ -631,7 +739,13 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "modality:motor",
+   "theory:lesion"
   ],
   "structures": [
    "primary-motor-cortex",
@@ -666,7 +780,13 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "modality:visual",
+   "theory:lesion"
   ],
   "structures": [
    "primary-visual-cortex",
@@ -696,7 +816,13 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cerebrum",
+   "region:cortex",
+   "theory:lesion"
   ],
   "structures": [
    "insular-cortex"
@@ -726,7 +852,13 @@
   ],
   "tags": [
    "clinical",
-   "cortex"
+   "cortex",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:cortex",
+   "modality:limbic",
+   "theory:lesion"
   ],
   "structures": [
    "anterior-cingulate-cortex"
@@ -755,7 +887,12 @@
   ],
   "tags": [
    "clinical",
-   "ventricles"
+   "ventricles",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:ventricles",
+   "theory:lesion"
   ],
   "structures": [
    "foramina-of-monro",
@@ -785,7 +922,12 @@
   ],
   "tags": [
    "clinical",
-   "ventricles"
+   "ventricles",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "region:ventricles",
+   "theory:lesion"
   ],
   "review_note": "Synthesised from ventricular anatomy (lecture 2); no direct vignette in the course.",
   "structures": [
@@ -815,7 +957,11 @@
   ],
   "tags": [
    "clinical",
-   "development"
+   "development",
+   "unit:u1",
+   "kind:clinical",
+   "source:lecture",
+   "theory:lesion"
   ],
   "structures": []
  }

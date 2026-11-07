@@ -281,7 +281,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c2",
@@ -563,7 +569,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c3",
@@ -844,7 +857,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c4",
@@ -1127,7 +1147,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c5",
@@ -1428,7 +1455,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c6",
@@ -1724,7 +1758,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c7",
@@ -2020,7 +2060,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c8",
@@ -2323,7 +2369,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c9",
@@ -2651,7 +2703,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c10",
@@ -2947,7 +3006,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695003621-c11",
@@ -3279,7 +3345,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c1",
@@ -3533,7 +3606,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c2",
@@ -3785,7 +3864,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c3",
@@ -4036,7 +4122,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c4",
@@ -4291,7 +4384,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c5",
@@ -4543,7 +4642,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c6",
@@ -4796,7 +4901,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c7",
@@ -5063,7 +5175,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c8",
@@ -5329,7 +5448,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c9",
@@ -5595,7 +5720,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c10",
@@ -5864,7 +5995,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c11",
@@ -6158,7 +6295,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c12",
@@ -6424,7 +6568,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695249054-c13",
@@ -6694,7 +6845,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c1",
@@ -6959,7 +7117,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c2",
@@ -7227,7 +7392,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c3",
@@ -7493,7 +7664,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c4",
@@ -7759,7 +7937,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c5",
@@ -8024,7 +8209,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c6",
@@ -8309,7 +8500,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c7",
@@ -8588,7 +8785,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c8",
@@ -8867,7 +9070,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c9",
@@ -9153,7 +9362,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c10",
@@ -9464,7 +9679,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c11",
@@ -9755,7 +9977,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769695438588-c12",
@@ -10034,7 +10263,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c1",
@@ -10330,7 +10566,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c2",
@@ -10624,7 +10866,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c3",
@@ -10915,7 +11164,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c4",
@@ -11202,7 +11458,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c5",
@@ -11492,7 +11754,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c6",
@@ -11789,7 +12057,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c7",
@@ -12083,7 +12357,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c8",
@@ -12377,7 +12657,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696394309-c9",
@@ -12704,7 +12991,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "tiny rotated label, identified by colour/position; verify [OCR 'Anterolateals innothalamic', conf 0.77]"
+  "review_note": "tiny rotated label, identified by colour/position; verify [OCR 'Anterolateals innothalamic', conf 0.77]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c1",
@@ -12785,7 +13079,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c2",
@@ -12867,7 +13168,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Posterior horn of lateral ventricle' (50); OCR text not recognised; long free-text label (not a structure name) [OCR 'Golgi tendon organs (muscle tension) and Muscle Spindles (muscle length)', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Posterior horn of lateral ventricle' (50); OCR text not recognised; long free-text label (not a structure name) [OCR 'Golgi tendon organs (muscle tension) and Muscle Spindles (muscle length)', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c3",
@@ -12949,7 +13256,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "free-text answer [OCR 'Medial DREZ, because they are heavily myelinated', conf 1.00]"
+  "review_note": "free-text answer [OCR 'Medial DREZ, because they are heavily myelinated', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c4",
@@ -13033,7 +13346,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c5",
@@ -13115,7 +13435,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Lateral fissure' (55); OCR text not recognised; long free-text label (not a structure name) [OCR 'The DSCT travels on the same side (ipsilateral) as the stimulus sensation', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Lateral fissure' (55); OCR text not recognised; long free-text label (not a structure name) [OCR 'The DSCT travels on the same side (ipsilateral) as the stimulus sensation', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c6",
@@ -13197,7 +13523,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "free-text answer [OCR 'The second-order neuron synapses in the ipsilateral cerebellum', conf 1.00]"
+  "review_note": "free-text answer [OCR 'The second-order neuron synapses in the ipsilateral cerebellum', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-5-io-1769696547113-c7",
@@ -13279,7 +13612,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (33); OCR text not recognised; long free-text label (not a structure name) [OCR 'The axons of the second-order cells are myelinated we know this in part because they travel in the white matter, which maintains a myelinated appearance', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (33); OCR text not recognised; long free-text label (not a structure name) [OCR 'The axons of the second-order cells are myelinated we know this in part because they travel in the white matter, which maintains a myelinated appearance', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c1",
@@ -13427,7 +13766,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "free-text answer [OCR 'nsation, proprioception 'Touch, vibration, pressure', conf 0.99]"
+  "review_note": "free-text answer [OCR 'nsation, proprioception 'Touch, vibration, pressure', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c2",
@@ -13575,7 +13921,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Brainstem' (75); OCR text not recognised; long free-text label (not a structure name) [OCR 'contralateral VPL of the thalamus. medulla), and second-order neurons synapse in order neurons synapse in nucleus cuneatus (brainstem First', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Brainstem' (75); OCR text not recognised; long free-text label (not a structure name) [OCR 'contralateral VPL of the thalamus. medulla), and second-order neurons synapse in order neurons synapse in nucleus cuneatus (brainstem First', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c3",
@@ -13700,7 +14053,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c4",
@@ -13827,7 +14186,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c5",
@@ -13952,7 +14318,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c6",
@@ -14080,7 +14452,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696795188-c7",
@@ -14207,7 +14586,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769696917835-c1",
@@ -14274,7 +14660,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  },
  {
   "slug": "lab-5-io-1769696917835-c2",
@@ -14341,7 +14734,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696917835-c3",
@@ -14408,7 +14807,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696917835-c4",
@@ -14481,7 +14886,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769696917835-c5",
@@ -14551,7 +14962,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c1",
@@ -14698,7 +15116,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c2",
@@ -14846,7 +15270,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]"
+  "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c3",
@@ -14995,7 +15425,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c4",
@@ -15143,7 +15580,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'Myelinated, which we know in part because we can see this portion of the spinal cord stains dark with the myelin stain', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'Myelinated, which we know in part because we can see this portion of the spinal cord stains dark with the myelin stain', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c5",
@@ -15313,7 +15756,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'anterolateral spinothalamic tract. ventral commissure to contralateral spinal cord and ascends in Crosses the', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'anterolateral spinothalamic tract. ventral commissure to contralateral spinal cord and ascends in Crosses the', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c6",
@@ -15483,7 +15933,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'After synapsing in the nucleus proprius, second-order neurons cross the ventral commissure and ascend in the anterolateral spinothalamic tract', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'After synapsing in the nucleus proprius, second-order neurons cross the ventral commissure and ascend in the anterolateral spinothalamic tract', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769700348409-c7",
@@ -15653,7 +16110,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'First-order neurons synaps substantia gelatinosa nucleus proprius, and sec cross to ascend on the contralateral side', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'First-order neurons synaps substantia gelatinosa nucleus proprius, and sec cross to ascend on the contralateral side', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c1",
@@ -15763,7 +16226,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Somatosensory homunculus' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Sensory Input: Foot (Fast, Sharp Pain) [Fiber Type: A-delta]', conf 1.00]"
+  "review_note": "weak fuzzy match to 'Somatosensory homunculus' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Sensory Input: Foot (Fast, Sharp Pain) [Fiber Type: A-delta]', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c2",
@@ -15873,7 +16343,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Somatosensory homunculus' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Sensory Input: Hand (Slow, Dull Pain/Temp) [Fiber Type: C Fibers]', conf 0.99]"
+  "review_note": "weak fuzzy match to 'Somatosensory homunculus' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Sensory Input: Hand (Slow, Dull Pain/Temp) [Fiber Type: C Fibers]', conf 0.99]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c3",
@@ -15984,7 +16461,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c4",
@@ -16094,7 +16578,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "pathway flow-chart label [OCR 'Synapse (T1 Thoracic) Substantia Gelatinosa Nucleus Proprius', conf 0.98]"
+  "review_note": "pathway flow-chart label [OCR 'Synapse (T1 Thoracic) Substantia Gelatinosa Nucleus Proprius', conf 0.98]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c5",
@@ -16203,7 +16693,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c6",
@@ -16314,7 +16810,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c7",
@@ -16427,7 +16930,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c8",
@@ -16543,7 +17052,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c9",
@@ -16653,7 +17169,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "pathway flow-chart label [OCR 'Brainstem Passage (Medulla Pons)', conf 1.00]"
+  "review_note": "pathway flow-chart label [OCR 'Brainstem Passage (Medulla Pons)', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c10",
@@ -16763,7 +17285,14 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "pathway flow-chart label [OCR 'Thalamus Synapse (VPL NucÍeus)', conf 1.00]"
+  "review_note": "pathway flow-chart label [OCR 'Thalamus Synapse (VPL NucÍeus)', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769734912436-c11",
@@ -16878,7 +17407,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c1",
@@ -16987,7 +17523,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c2",
@@ -17096,7 +17639,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c3",
@@ -17205,7 +17755,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c4",
@@ -17314,7 +17870,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c5",
@@ -17426,7 +17988,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c6",
@@ -17537,7 +18106,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c7",
@@ -17649,7 +18225,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c8",
@@ -17761,7 +18344,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c9",
@@ -17870,7 +18460,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:brainstem",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c10",
@@ -17981,7 +18578,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:diencephalon"
+  ]
  },
  {
   "slug": "lab-5-io-1769735630176-c11",
@@ -18096,7 +18699,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cortex",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735915192-c1",
@@ -18170,7 +18780,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735915192-c2",
@@ -18248,7 +18865,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735915192-c3",
@@ -18329,7 +18953,13 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "pathway flow-chart label [OCR 'Spinal Cord Synapse Column of Clark', conf 1.00]"
+  "review_note": "pathway flow-chart label [OCR 'Spinal Cord Synapse Column of Clark', conf 1.00]",
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769735915192-c4",
@@ -18406,7 +19036,14 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:sensory"
+  ]
  },
  {
   "slug": "lab-5-io-1769735915192-c5",
@@ -18482,7 +19119,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:spinal-cord"
+  ]
  },
  {
   "slug": "lab-5-io-1769735915192-c6",
@@ -18556,6 +19199,13 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "source:anki-deck",
+   "region:cerebellum",
+   "modality:motor"
+  ]
  }
 ]

@@ -6,6 +6,7 @@ import type { StudyEngine, Current } from "@/lib/study/engine";
 import type { Grade } from "@/lib/fsrs";
 import { RUNGS } from "@/lib/study/ladder";
 import { TypeBox } from "./TypeBox";
+import { MnemonicPanel } from "./MnemonicPanel";
 
 // the atlas opens in a modal over the card (loaded on first use), so the session is never left
 const AtlasPeek = dynamic(() => import("@/components/atlas/AtlasPeek"), { ssr: false });
@@ -94,7 +95,6 @@ function Pips({ step, next }: { step: number; next: number }) {
 }
 
 export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Current; courseSlug: string }) {
-  const [noteText, setNoteText] = useState("");
   const retypeRef = useRef<HTMLInputElement>(null);
   const r = c.retype;
   useEffect(() => {
@@ -111,12 +111,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
   const wordClass = c.selfGraded ? "g3" : `g${c.rating}`;
   const intro = c.headline === "FIRST LOOK";
   const canRate = engine.canAdvance;
-  const saveNote = async () => {
-    const body = noteText.trim();
-    if (!body) return;
-    engine.setNote(body);
-    await fetch("/api/study/note", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ cardId: c.card.id, body }) }).catch(() => {});
-  };
+  const faceted = c.card.tags.filter((t) => /^(region|plane|modality|theory|source):/.test(t));
   return (
     <div className="reveal" aria-live="polite">
       <div className="verdict">
@@ -177,25 +172,28 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
 
       <Info c={c} courseSlug={courseSlug} />
 
-      {c.note && (
-        <div className="info-panel">
-          <h4>Your mnemonic</h4>
-          <p>{c.note}</p>
-        </div>
+      {faceted.length > 0 && (
+        <p className="tag-chips" aria-label="Tags">
+          {faceted.map((t) => (
+            <span key={t} className={`chip tag f-${t.split(":")[0]}`} title={t.replace(":", ": ")}>{t.slice(t.indexOf(":") + 1).replace(/-/g, " ")}</span>
+          ))}
+        </p>
       )}
-      {c.mnemonicOffer && (
-        <div className="info-panel">
-          <h4>This one keeps slipping</h4>
-          <p>Want to write your own memory hook for it? Something silly or personal works best.</p>
-          <div className="note-form">
-            <textarea rows={2} maxLength={400} value={noteText} onChange={(e) => setNoteText(e.target.value)} placeholder="e.g. Hippo + campus: a hippo on a campus lawn" aria-label="Your mnemonic" />
-            <div className="btn-row">
-              <button type="button" className="btn btn-primary" onClick={() => void saveNote()}>Save mnemonic</button>
-              <button type="button" className="btn" onClick={() => engine.setNote(null)}>Not now</button>
-            </div>
-          </div>
-        </div>
-      )}
+
+
+        <MnemonicPanel
+          key={c.card.id}
+          cardId={c.card.id}
+          autoOpen={c.mnemonicOffer}
+          nudge="This one keeps slipping. Want to write your own memory hook for it? Something silly or personal works best."
+          onOwnChange={(body) => {
+            if (engine.cur?.card.id === c.card.id) engine.setNote(body);
+          }}
+          onDismiss={() => {
+            if (c.mnemonicOffer && engine.cur?.card.id === c.card.id) engine.setNote(null);
+          }}
+        />
+
 
       {c.ladderNote && c.mode === "type" && (
         <p className="v-notes" style={{ marginTop: 8 }}>

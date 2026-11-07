@@ -26,7 +26,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-insular-cortex-supply",
@@ -51,7 +58,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-genu-of-corpus-callosum-connections",
@@ -75,7 +89,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-splenium-of-corpus-callosum-connections",
@@ -100,7 +121,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-splenium-of-corpus-callosum-lesion",
@@ -124,7 +152,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-body-of-corpus-callosum-supply",
@@ -150,7 +185,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-caudate-nucleus-function",
@@ -180,7 +222,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-caudate-nucleus-lesion",
@@ -204,7 +254,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-caudate-nucleus-connections",
@@ -230,7 +287,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-caudate-nucleus-embryology",
@@ -250,7 +315,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-head-of-caudate-nucleus-connections",
@@ -275,7 +347,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-tail-of-caudate-nucleus-connections",
@@ -299,7 +378,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-putamen-function",
@@ -325,7 +412,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-putamen-supply",
@@ -347,7 +442,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-putamen-connections",
@@ -370,7 +473,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-globus-pallidus-function",
@@ -397,7 +508,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-globus-pallidus-lesion",
@@ -423,7 +542,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-corpus-striatum-connections",
@@ -453,7 +580,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lentiform-nucleus-connections",
@@ -480,7 +615,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lentiform-nucleus-supply",
@@ -502,7 +645,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:basal-ganglia",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-anterior-limb-of-internal-capsule-supply",
@@ -527,7 +677,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-anterior-limb-of-internal-capsule-connections",
@@ -556,7 +713,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-genu-of-internal-capsule-passes",
@@ -578,7 +742,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-posterior-limb-of-internal-capsule-passes",
@@ -605,7 +777,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "modality:motor",
+   "modality:sensory",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-posterior-limb-of-internal-capsule-lesion",
@@ -632,7 +813,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "modality:motor",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-posterior-limb-of-internal-capsule-connections",
@@ -661,7 +851,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:white-matter",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-fornix-connections",
@@ -688,7 +885,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-fornix-function",
@@ -714,7 +919,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-fornix-lesion",
@@ -740,7 +953,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-columns-of-the-fornix-connections",
@@ -764,7 +985,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-crus-of-fornix-connections",
@@ -788,7 +1017,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-body-of-fornix-connections",
@@ -813,7 +1050,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lamina-terminalis-connections",
@@ -842,7 +1087,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "modality:visual",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lamina-terminalis-embryology",
@@ -867,7 +1120,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-stria-medullaris-thalami-connections",
@@ -889,7 +1149,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-habenula-connections",
@@ -912,7 +1179,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-habenula-embryology",
@@ -932,7 +1206,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-posterior-commissure-function",
@@ -960,7 +1241,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "modality:visual",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-posterior-commissure-lesion",
@@ -986,7 +1275,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:diencephalon",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-cortical-ribbon-function",
@@ -1014,7 +1310,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-basal-forebrain-nuclei-function",
@@ -1040,7 +1343,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-basal-forebrain-nuclei-lesion",
@@ -1064,7 +1375,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-nucleus-accumbens-function",
@@ -1091,7 +1410,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-nucleus-accumbens-connections",
@@ -1116,7 +1443,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:limbic",
+   "modality:limbic",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-subthalamic-nucleus-function",
@@ -1143,7 +1478,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-subthalamic-nucleus-lesion",
@@ -1168,7 +1511,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-subthalamic-nucleus-embryology",
@@ -1188,7 +1539,15 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:brainstem",
+   "modality:motor",
+   "theory:embryology"
+  ]
  },
  {
   "slug": "theory-cerebellar-tonsil-lesion",
@@ -1215,7 +1574,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-cerebellar-tonsil-supply",
@@ -1238,7 +1605,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-flocculus-function",
@@ -1266,7 +1641,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:vestibular",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-vermis-function",
@@ -1294,7 +1677,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "plane:horizontal",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-vermis-lesion",
@@ -1320,7 +1711,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-vermis-connections",
@@ -1342,7 +1740,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-paravermis-function",
@@ -1369,7 +1775,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-paravermis-connections",
@@ -1395,7 +1808,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-cerebellar-lateral-hemisphere-function",
@@ -1422,7 +1843,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-cerebellar-lateral-hemisphere-connections",
@@ -1444,7 +1873,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dentate-nucleus-connections",
@@ -1470,7 +1907,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-dentate-nucleus-passes",
@@ -1492,7 +1937,15 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebellum",
+   "modality:motor",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-vertebral-artery-supply",
@@ -1520,7 +1973,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-vertebral-artery-passes",
@@ -1544,7 +2005,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-vertebral-artery-connections",
@@ -1566,7 +2034,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-basilar-artery-supply",
@@ -1594,7 +2069,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-basilar-artery-lesion",
@@ -1618,7 +2101,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-basilar-artery-connections",
@@ -1642,7 +2132,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-superior-cerebellar-artery-supply",
@@ -1666,7 +2163,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-superior-cerebellar-artery-connections",
@@ -1693,7 +2198,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:visual",
+   "modality:motor",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-penetrating-branches-brainstem-supply",
@@ -1717,7 +2231,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-pontine-arteries-supply",
@@ -1739,7 +2260,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-pontine-arteries-connections",
@@ -1761,7 +2289,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-posterior-cerebral-artery-supply",
@@ -1788,7 +2323,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-posterior-cerebral-artery-lesion",
@@ -1815,7 +2357,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-posterior-cerebral-artery-connections",
@@ -1839,7 +2389,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-posterior-communicating-artery-connections",
@@ -1868,7 +2425,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-posterior-communicating-artery-lesion",
@@ -1895,7 +2459,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-internal-carotid-artery-supply",
@@ -1919,7 +2491,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-internal-carotid-artery-passes",
@@ -1939,7 +2518,14 @@
   "accept": [],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:passes"
+  ]
  },
  {
   "slug": "theory-internal-carotid-artery-lesion",
@@ -1963,7 +2549,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-middle-cerebral-artery-supply",
@@ -1993,7 +2586,16 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:motor",
+   "modality:sensory",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-middle-cerebral-artery-lesion",
@@ -2020,7 +2622,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-middle-cerebral-artery-connections",
@@ -2045,7 +2655,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lenticulostriate-arteries-supply",
@@ -2073,7 +2690,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:motor",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-lenticulostriate-arteries-connections",
@@ -2096,7 +2721,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-lenticulostriate-arteries-lesion",
@@ -2122,7 +2754,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:motor",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-anterior-cerebral-artery-supply",
@@ -2149,7 +2789,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-anterior-cerebral-artery-lesion",
@@ -2175,7 +2822,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-anterior-cerebral-artery-connections",
@@ -2198,7 +2852,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-pericallosal-artery-supply",
@@ -2223,7 +2884,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-pericallosal-artery-connections",
@@ -2246,7 +2914,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-callosomarginal-artery-supply",
@@ -2271,7 +2946,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:limbic",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-callosomarginal-artery-connections",
@@ -2294,7 +2977,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-anterior-communicating-artery-lesion",
@@ -2320,7 +3010,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-anterior-communicating-artery-connections",
@@ -2345,7 +3042,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-circle-of-willis-supply",
@@ -2376,7 +3080,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-circle-of-willis-lesion",
@@ -2400,7 +3111,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-circle-of-willis-function",
@@ -2428,7 +3146,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-anterior-spinal-artery-supply",
@@ -2454,7 +3179,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-anterior-spinal-artery-connections",
@@ -2476,7 +3208,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-anterior-spinal-artery-lesion",
@@ -2502,7 +3241,15 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "modality:sensory",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-posterior-spinal-arteries-supply",
@@ -2530,7 +3277,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:supply"
+  ]
  },
  {
   "slug": "theory-posterior-spinal-arteries-connections",
@@ -2555,7 +3309,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:vessels",
+   "theory:connections"
+  ]
  },
  {
   "slug": "theory-major-imaging-types-function",
@@ -2581,7 +3342,14 @@
    ]
   ],
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:function"
+  ]
  },
  {
   "slug": "theory-major-imaging-types-lesion",
@@ -2604,7 +3372,14 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-brain-bleeds-lesion",
@@ -2634,7 +3409,15 @@
   "choices": null,
   "require_side": false,
   "explain": "Biconvex (lens-shaped) on CT; the course slide calls it bi-concave.",
-  "review_note": "Course slide says \"bi-concave\"; textbooks say biconvex/lens-shaped. Both accepted."
+  "review_note": "Course slide says \"bi-concave\"; textbooks say biconvex/lens-shaped. Both accepted.",
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "modality:visual",
+   "theory:lesion"
+  ]
  },
  {
   "slug": "theory-brain-bleeds-supply",
@@ -2656,6 +3439,13 @@
   ],
   "keywords": null,
   "choices": null,
-  "require_side": false
+  "require_side": false,
+  "tags": [
+   "unit:u3",
+   "kind:theory",
+   "source:supplementary",
+   "region:cerebrum",
+   "theory:supply"
+  ]
  }
 ]

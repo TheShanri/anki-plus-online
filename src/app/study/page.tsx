@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { ActivityGrid } from "@/components/study/ActivityGrid";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
+import { TagPicker, type TagCount } from "@/components/study/TagPicker";
 import { computeOverview, loadIndex, loadSettings, resolveCourse } from "@/lib/study/server";
 import "@/components/study/study.css";
 
@@ -36,11 +37,13 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
   settingsP.catch(() => {});
   const course = await resolveCourse(sb, user.id, sp.course);
   if (!course) return <PageShell title="Study" kicker="Study"><p className="text-text-dim">Join a course first.</p></PageShell>;
-  const [idx, { learner }, act] = await Promise.all([
+  const [idx, { learner }, act, tagsR] = await Promise.all([
     loadIndex(sb, user.id, course.id),
     settingsP,
     actP,
+    sb.rpc("course_tag_counts", { p_course: course.id }),
   ]);
+  const tags = ((tagsR.data ?? []) as Array<{ tag: string; n: number }>).map((t): TagCount => ({ tag: t.tag, n: t.n }));
   const ov = computeOverview(idx, new Date());
   const days = ((act.data ?? []) as Array<{ day: string; reviews: number }>).map((d) => ({ day: String(d.day), reviews: d.reviews }));
   const q = (s: string) => `/study/run?scope=${encodeURIComponent(s)}${sp.course ? `&course=${sp.course}` : ""}`;
@@ -70,6 +73,8 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
         <Link className="btn" href="/atlas/quiz">Atlas quiz</Link>
       </div>
       {!learner.typing.enabled && <p className="notice" style={{ marginBottom: 16 }}>Typing is switched off (Settings, Advanced). Cards are recalled and self-graded.</p>}
+
+      <TagPicker tags={tags} course={sp.course} />
 
       <h2 className="font-display" style={{ fontSize: 16, margin: "8px 0 10px" }}>Pick a unit or topic</h2>
       {unitsSorted.length === 0 && <p className="text-text-dim">No content in this course yet.</p>}

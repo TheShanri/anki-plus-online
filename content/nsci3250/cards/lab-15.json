@@ -73,7 +73,9 @@
    "ref": "apkg/lab-15 note 1775054616193 cloze 2"
   },
   "answer": "Cerebellar peduncles",
-  "accept": [],
+  "accept": [
+   "cerebellar peduncle"
+  ],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-859c17180d6190073fbc751050e0b2e959ee0f77.webp",
   "w": 1228,
@@ -256,7 +258,7 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054691725 cloze 1"
   },
-  "answer": "Cerebellar Cortex",
+  "answer": "Cerebellar cortex",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -1018,7 +1020,7 @@
   "kind": "pin",
   "topic": "lab-15",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 208,
   "source": {
    "type": "apkg",
@@ -1106,7 +1108,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"f SCP\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-15-io-1775054708727-c1",

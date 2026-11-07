@@ -176,7 +176,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003929439 cloze 3"
   },
-  "answer": "Occipital Lobe",
+  "answer": "Occipital lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -257,7 +257,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003929439 cloze 4"
   },
-  "answer": "Temporal Lobe",
+  "answer": "Temporal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -338,7 +338,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003929439 cloze 5"
   },
-  "answer": "Frontal Lobe",
+  "answer": "Frontal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -504,7 +504,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003929439 cloze 7"
   },
-  "answer": "Lateral V",
+  "answer": "Lateral view",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -766,7 +766,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003972932 cloze 3"
   },
-  "answer": "Occipital Lobe",
+  "answer": "Occipital lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
@@ -855,7 +855,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003972932 cloze 4"
   },
-  "answer": "Frontal Lobe",
+  "answer": "Frontal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
@@ -3174,7 +3174,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769004762304 cloze 3"
   },
-  "answer": "left",
+  "answer": "Left",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-3373c9c1329fcb554a1aaca5c74352cbd536ed40.webp",
@@ -3614,7 +3614,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769005221472 cloze 4"
   },
-  "answer": "n: Self control, regulation of emotions",
+  "answer": "Self control, regulation of emotions",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-5deaea72cb9cde5d8264ec19ab6ac5c01d012f44.webp",
@@ -5578,7 +5578,7 @@
   "kind": "pin",
   "topic": "lab-3",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1501,
   "source": {
    "type": "apkg",
@@ -5645,7 +5645,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"areas 5 7\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-3-io-1769006230781-c3",
@@ -6538,7 +6539,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007064950 cloze 3"
   },
-  "answer": "occipital l",
+  "answer": "Occipital lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -6999,7 +7000,7 @@
   "kind": "pin",
   "topic": "lab-3",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1705,
   "source": {
    "type": "apkg",
@@ -7147,7 +7148,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"e retinas t\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-3-io-1769007064950-c7",
@@ -7160,7 +7162,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007064950 cloze 7"
   },
-  "answer": "lateral geniculate nucleus of the thalamus",
+  "answer": "Lateral geniculate nucleus of the thalamus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -7505,7 +7507,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007064950 cloze 9"
   },
-  "answer": "radiations. optic",
+  "answer": "Optic radiations",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -7834,7 +7836,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007127389 cloze 3"
   },
-  "answer": "primary visual",
+  "answer": "Primary visual",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f19946e51337506e1b3e59b8150f67d1faf4257a.webp",
@@ -7901,7 +7903,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007127389 cloze 4"
   },
-  "answer": "occipital l",
+  "answer": "Occipital lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f19946e51337506e1b3e59b8150f67d1faf4257a.webp",
@@ -8970,7 +8972,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007615723 cloze 4"
   },
-  "answer": "transverse temporal",
+  "answer": "Transverse temporal",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -9261,7 +9263,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007615723 cloze 7"
   },
-  "answer": "sound information",
+  "answer": "Sound information",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -9742,7 +9744,7 @@
   "kind": "pin",
   "topic": "lab-3",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2202,
   "source": {
    "type": "apkg",
@@ -9830,7 +9832,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"e left h\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-3-io-1769008135190-c4",
@@ -9843,7 +9846,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769008135190 cloze 4"
   },
-  "answer": "lateral f",
+  "answer": "Lateral fissure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -10233,7 +10236,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769008135190 cloze 8"
   },
-  "answer": "left hemisphere",
+  "answer": "Left hemisphere",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -11720,7 +11723,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769008833895 cloze 1"
   },
-  "answer": "Postcentral g",
+  "answer": "Postcentral gyrus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -12130,7 +12133,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769008833895 cloze 6"
   },
-  "answer": "Central s",
+  "answer": "Central sulcus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -12211,7 +12214,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769008833895 cloze 7"
   },
-  "answer": "Postcentral s",
+  "answer": "Postcentral sulcus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -13932,7 +13935,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769084443546 cloze 3"
   },
-  "answer": "Temporal l",
+  "answer": "Temporal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b40526a6b0728615a294caa34d08915268499b37.webp",
@@ -13999,7 +14002,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769084443546 cloze 4"
   },
-  "answer": "primary auditory",
+  "answer": "Primary auditory",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b40526a6b0728615a294caa34d08915268499b37.webp",
@@ -14515,7 +14518,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769086292778 cloze 3"
   },
-  "answer": "primary somatosensory",
+  "answer": "Primary somatosensory",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-e2e69ff182e80cf86896a707970d72cfbb3da953.webp",

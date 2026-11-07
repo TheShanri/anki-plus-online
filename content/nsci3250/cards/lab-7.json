@@ -1022,7 +1022,7 @@
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 300,
   "source": {
    "type": "apkg",
@@ -1061,14 +1061,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"ne ventral v\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770685123609-c2",
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 301,
   "source": {
    "type": "apkg",
@@ -1107,7 +1108,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"dorsal v\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770685184914-c1",
@@ -5269,7 +5271,9 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 3"
   },
   "answer": "Optic tract",
-  "accept": [],
+  "accept": [
+   "optic tracts"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0e96905b32f3588df6d9a58b552255d6e94a6211.webp",
   "w": 1023,
@@ -6945,7 +6949,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685400546 cloze 1"
   },
-  "answer": "production Melatonin",
+  "answer": "Melatonin production",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
@@ -7096,7 +7100,9 @@
    "ref": "apkg/lab-7 note 1770685439875 cloze 2"
   },
   "answer": "Optic tract",
-  "accept": [],
+  "accept": [
+   "optic tracts"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-c974db93d3eab3855c490c3276fb8be3a23ae336.webp",
   "w": 1167,
@@ -7727,7 +7733,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685604391 cloze 1"
   },
-  "answer": "relay information to the cerebral cortex",
+  "answer": "Relay information to the cerebral cortex",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -9290,7 +9296,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685694563 cloze 4"
   },
-  "answer": "colliculus. the brachium of the inferior",
+  "answer": "Brachium of the inferior colliculus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp",
@@ -9720,7 +9726,7 @@
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1500,
   "source": {
    "type": "apkg",
@@ -9802,7 +9808,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"cerebellum re\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770685753237-c2",
@@ -10343,7 +10350,9 @@
    "ref": "apkg/lab-7 note 1770685780056 cloze 3"
   },
   "answer": "Optic tract",
-  "accept": [],
+  "accept": [
+   "optic tracts"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-60aff57df851d5928d49c771b1510693e819a462.webp",
   "w": 1786,
@@ -10549,7 +10558,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685863805 cloze 1"
   },
-  "answer": "retina of the eye",
+  "answer": "Retina of the eye",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -10661,7 +10670,7 @@
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1701,
   "source": {
    "type": "apkg",
@@ -10772,7 +10781,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"midline ir\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770685863805-c3",
@@ -10785,7 +10795,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685863805 cloze 3"
   },
-  "answer": "thalamus and superior colliculus",
+  "answer": "Thalamus and superior colliculus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11380,7 +11390,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685863805 cloze 8"
   },
-  "answer": "information processing visual",
+  "answer": "Visual information processing",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11959,7 +11969,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685937875 cloze 4"
   },
-  "answer": "floor of the 4th ventricle",
+  "answer": "Floor of the 4th ventricle",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp",
@@ -12074,7 +12084,8 @@
   },
   "answer": "Gracile tubercle",
   "accept": [
-   "tuberculum gracile"
+   "tuberculum gracile",
+   "gracile tubercles"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -12129,7 +12140,8 @@
   },
   "answer": "Cuneate tubercle",
   "accept": [
-   "tuberculum cuneatum"
+   "tuberculum cuneatum",
+   "cuneate tubercles"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -12372,7 +12384,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685995086 cloze 3"
   },
-  "answer": "vomiting",
+  "answer": "Vomiting",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -13015,7 +13027,9 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 4"
   },
   "answer": "Cerebellar peduncles",
-  "accept": [],
+  "accept": [
+   "cerebellar peduncle"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
   "w": 1874,
@@ -13234,7 +13248,8 @@
   },
   "answer": "Cuneate tubercle",
   "accept": [
-   "tuberculum cuneatum"
+   "tuberculum cuneatum",
+   "cuneate tubercles"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
@@ -13345,7 +13360,8 @@
   },
   "answer": "Gracile tubercle",
   "accept": [
-   "tuberculum gracile"
+   "tuberculum gracile",
+   "gracile tubercles"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
@@ -14124,7 +14140,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
@@ -14274,8 +14291,11 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770686112984 cloze 3"
   },
-  "answer": "nerves (CN III) oculomotor",
-  "accept": [],
+  "answer": "Oculomotor nerves",
+  "accept": [
+   "oculomotor nerve",
+   "CN III"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
   "w": 1748,
@@ -14537,7 +14557,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770686228689 cloze 1"
   },
-  "answer": "e: Lateral striations",
+  "answer": "Lateral striations",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-92db090c4dae6a3bcf46964e7b0352a573063adf.webp",
@@ -15976,7 +15996,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b579a13d6110fb327c9174e45581a5aa87bf0530.webp",
@@ -16109,7 +16130,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b579a13d6110fb327c9174e45581a5aa87bf0530.webp",
@@ -16514,7 +16536,9 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 12"
   },
   "answer": "Olives",
-  "accept": [],
+  "accept": [
+   "olive"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b579a13d6110fb327c9174e45581a5aa87bf0530.webp",
   "w": 1772,
@@ -17859,7 +17883,7 @@
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 3000,
   "source": {
    "type": "apkg",
@@ -17898,14 +17922,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"ns going TO\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770727975215-c2",
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 3001,
   "source": {
    "type": "apkg",
@@ -17944,7 +17969,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"s LEAVING\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770728625914-c1",
@@ -17999,7 +18025,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
@@ -18060,7 +18087,9 @@
    "ref": "apkg/lab-7 note 1770744842712 cloze 2"
   },
   "answer": "Olives",
-  "accept": [],
+  "accept": [
+   "olive"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
   "w": 2000,
@@ -18247,7 +18276,7 @@
   "kind": "pin",
   "topic": "lab-7",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 3300,
   "source": {
    "type": "apkg",
@@ -18293,7 +18322,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"longitudinal fi\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-7-io-1770744857169-c2",
@@ -18306,7 +18336,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770744857169 cloze 2"
   },
-  "answer": "cortical efferent",
+  "answer": "Cortical efferent",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",

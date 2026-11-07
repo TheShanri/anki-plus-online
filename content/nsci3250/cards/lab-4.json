@@ -1023,7 +1023,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 600,
   "source": {
    "type": "apkg",
@@ -1083,7 +1083,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"Lateral v\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769516126204-c2",
@@ -1364,7 +1365,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516287685 cloze 1"
   },
-  "answer": "neck region",
+  "answer": "Neck region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1455,7 +1456,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 701,
   "source": {
    "type": "apkg",
@@ -1575,7 +1576,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"cavity (thorax). chest\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769516287685-c3",
@@ -1685,7 +1687,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516287685 cloze 4"
   },
-  "answer": "lower back",
+  "answer": "Lower back",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1782,8 +1784,10 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516287685 cloze 5"
   },
-  "answer": "tailbone\" or coccyx",
-  "accept": [],
+  "answer": "Coccyx",
+  "accept": [
+   "tailbone"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
   "w": 1815,
@@ -2160,7 +2164,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516313118 cloze 5"
   },
-  "answer": "Coccygeal (Co. 1-4, fused",
+  "answer": "Coccygeal (Co. 1-4, fused)",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d2d9c3aa86ee6c21cfff663889556fef01df6604.webp",
@@ -2425,7 +2429,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 903,
   "source": {
    "type": "apkg",
@@ -2485,14 +2489,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"S5, fused)\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769516487990-c5",
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 904,
   "source": {
    "type": "apkg",
@@ -2552,7 +2557,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"1-4, fused)\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769516588424-c1",
@@ -2618,7 +2624,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516588424 cloze 2"
   },
-  "answer": "axis",
+  "answer": "Axis",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
@@ -2671,7 +2677,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516588424 cloze 3"
   },
-  "answer": "vertebra prominens",
+  "answer": "Vertebra prominens",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
@@ -2961,7 +2967,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516838904 cloze 3"
   },
-  "answer": "rib cage",
+  "answer": "Rib cage",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp",
@@ -3660,7 +3666,8 @@
   "answer": "Dorsal horn",
   "accept": [
    "posterior horn of spinal cord",
-   "posterior gray horn"
+   "posterior gray horn",
+   "dorsal horns"
   ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-37394375432b4c9220aa1d7bdaaba00dd3ab9f3d.webp",
@@ -3723,7 +3730,8 @@
   "answer": "Ventral horn",
   "accept": [
    "anterior horn of spinal cord",
-   "anterior gray horn"
+   "anterior gray horn",
+   "ventral horns"
   ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-37394375432b4c9220aa1d7bdaaba00dd3ab9f3d.webp",
@@ -4623,7 +4631,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1700,
   "source": {
    "type": "apkg",
@@ -4743,7 +4751,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"e sensory\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769517202844-c2",
@@ -4756,7 +4765,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517202844 cloze 2"
   },
-  "answer": "sleeve. dural",
+  "answer": "Dural sleeve",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -4913,7 +4922,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517202844 cloze 3"
   },
-  "answer": "(motor)",
+  "answer": "Motor",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5040,8 +5049,11 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517202844 cloze 4"
   },
-  "answer": "motor sensory) (mixed",
-  "accept": [],
+  "answer": "Mixed",
+  "accept": [
+   "mixed (motor and sensory)",
+   "motor and sensory"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
   "w": 1642,
@@ -6381,7 +6393,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517649228 cloze 1"
   },
-  "answer": "dural sac",
+  "answer": "Dural sac",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-77b3bdf9378c4f360af489db4305bb554237925e.webp",
@@ -6475,7 +6487,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517744257 cloze 1"
   },
-  "answer": "rootlets",
+  "answer": "Rootlets",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-fa3270990f226a00a120fed95de78974c32cceab.webp",
@@ -6528,7 +6540,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517744257 cloze 2"
   },
-  "answer": "roots",
+  "answer": "Roots",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-fa3270990f226a00a120fed95de78974c32cceab.webp",
@@ -7114,7 +7126,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2704,
   "source": {
    "type": "apkg",
@@ -7195,14 +7207,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"n ventral\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769518577960-c6",
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2705,
   "source": {
    "type": "apkg",
@@ -7283,7 +7296,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"ventral r\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769518577960-c7",
@@ -7296,7 +7310,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518577960 cloze 7"
   },
-  "answer": "lower limbs and pelvis",
+  "answer": "Lower limbs and pelvis",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7384,7 +7398,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518577960 cloze 8"
   },
-  "answer": "upper limbs",
+  "answer": "Upper limbs",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7466,7 +7480,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2800,
   "source": {
    "type": "apkg",
@@ -7533,7 +7547,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"n higher\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769518631618-c2",
@@ -7546,7 +7561,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518631618 cloze 2"
   },
-  "answer": "proximal",
+  "answer": "Proximal",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -7614,7 +7629,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2802,
   "source": {
    "type": "apkg",
@@ -7681,14 +7696,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"y higher\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769518631618-c4",
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2803,
   "source": {
    "type": "apkg",
@@ -7755,7 +7771,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"e upper b\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769518631618-c5",
@@ -7768,7 +7785,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518631618 cloze 5"
   },
-  "answer": "distal",
+  "answer": "Distal",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -7836,7 +7853,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2805,
   "source": {
    "type": "apkg",
@@ -7903,7 +7920,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"y lower\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769545046761-c1",
@@ -7916,7 +7934,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769545046761 cloze 1"
   },
-  "answer": "chest and back",
+  "answer": "Chest and back",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-54fcdcc22c44eb8cd123daa9e072dab7fa4fca9a.webp",
@@ -7992,7 +8010,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769545046761 cloze 2"
   },
-  "answer": "and hands arm",
+  "answer": "Arms and hands",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-54fcdcc22c44eb8cd123daa9e072dab7fa4fca9a.webp",
@@ -9920,7 +9938,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769559858078 cloze 1"
   },
-  "answer": "cervical",
+  "answer": "Cervical",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp",
@@ -9974,7 +9992,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769559858078 cloze 2"
   },
-  "answer": "thoracic",
+  "answer": "Thoracic",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp",
@@ -10028,7 +10046,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769559858078 cloze 3"
   },
-  "answer": "lumbar",
+  "answer": "Lumbar",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp",
@@ -10082,7 +10100,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769560432382 cloze 1"
   },
-  "answer": "exit",
+  "answer": "Exit",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
@@ -10129,7 +10147,7 @@
   "kind": "pin",
   "topic": "lab-4",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 4001,
   "source": {
    "type": "apkg",
@@ -10175,7 +10193,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"above th\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-4-io-1769560432382-c3",

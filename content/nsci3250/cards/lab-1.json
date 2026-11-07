@@ -11,7 +11,10 @@
    "ref": "apkg/lab-1 note 1768349533294 cloze 1"
   },
   "answer": "Rostral or anterior",
-  "accept": [],
+  "accept": [
+   "Rostral",
+   "Anterior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-35d7dba4ce6758080a1801c8e787e2608ac7bb58.webp",
   "w": 813,
@@ -282,7 +285,10 @@
    "ref": "apkg/lab-1 note 1768349533294 cloze 5"
   },
   "answer": "Caudal or posterior",
-  "accept": [],
+  "accept": [
+   "Caudal",
+   "Posterior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-35d7dba4ce6758080a1801c8e787e2608ac7bb58.webp",
   "w": 813,
@@ -2417,7 +2423,10 @@
    "ref": "apkg/lab-1 note 1768349784018 cloze 1"
   },
   "answer": "Dorsal/Superior",
-  "accept": [],
+  "accept": [
+   "Dorsal",
+   "Superior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e85801e47c5aa9fc57729a0542837fc3628f343a.webp",
   "w": 1262,
@@ -2876,7 +2885,10 @@
    "ref": "apkg/lab-1 note 1768349784018 cloze 5"
   },
   "answer": "Ventral/Inferior",
-  "accept": [],
+  "accept": [
+   "Ventral",
+   "Inferior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e85801e47c5aa9fc57729a0542837fc3628f343a.webp",
   "w": 1262,
@@ -2990,7 +3002,10 @@
    "ref": "apkg/lab-1 note 1768349784018 cloze 6"
   },
   "answer": "Ventral/anterior",
-  "accept": [],
+  "accept": [
+   "Ventral",
+   "Anterior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e85801e47c5aa9fc57729a0542837fc3628f343a.webp",
   "w": 1262,
@@ -3104,7 +3119,10 @@
    "ref": "apkg/lab-1 note 1768349784018 cloze 7"
   },
   "answer": "Dorsal/posterior",
-  "accept": [],
+  "accept": [
+   "Dorsal",
+   "Posterior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e85801e47c5aa9fc57729a0542837fc3628f343a.webp",
   "w": 1262,
@@ -3217,7 +3235,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349784018 cloze 8"
   },
-  "answer": "mesencephalic flexure Indicates site of",
+  "answer": "Mesencephalic flexure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e85801e47c5aa9fc57729a0542837fc3628f343a.webp",
@@ -3582,7 +3600,10 @@
    "ref": "apkg/lab-1 note 1768349833591 cloze 3"
   },
   "answer": "Anterior/Ventral",
-  "accept": [],
+  "accept": [
+   "Anterior",
+   "Ventral"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-2ab8ed43dafadad6d6a15bc14246fcea8b9539a6.webp",
   "w": 1205,
@@ -3912,7 +3933,10 @@
    "ref": "apkg/lab-1 note 1768349833591 cloze 6"
   },
   "answer": "Posterior/Dorsal",
-  "accept": [],
+  "accept": [
+   "Posterior",
+   "Dorsal"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-2ab8ed43dafadad6d6a15bc14246fcea8b9539a6.webp",
   "w": 1205,
@@ -4134,7 +4158,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349833591 cloze 8"
   },
-  "answer": "mesencephalic flexure Indicates site of",
+  "answer": "Mesencephalic flexure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-2ab8ed43dafadad6d6a15bc14246fcea8b9539a6.webp",
@@ -4267,7 +4291,10 @@
    "ref": "apkg/lab-1 note 1768349849580 cloze 1"
   },
   "answer": "Dorsal/Superior",
-  "accept": [],
+  "accept": [
+   "Dorsal",
+   "Superior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-3fd792e1b63bbd1d08951c4130ebac4f43f82684.webp",
   "w": 1036,
@@ -4313,7 +4340,10 @@
    "ref": "apkg/lab-1 note 1768349849580 cloze 2"
   },
   "answer": "Ventral/Inferior",
-  "accept": [],
+  "accept": [
+   "Ventral",
+   "Inferior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-3fd792e1b63bbd1d08951c4130ebac4f43f82684.webp",
   "w": 1036,
@@ -4359,7 +4389,10 @@
    "ref": "apkg/lab-1 note 1768349863592 cloze 1"
   },
   "answer": "Dorsal/Superior",
-  "accept": [],
+  "accept": [
+   "Dorsal",
+   "Superior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-934c67caecfb698148f2ac4058c28e5cf1bc1d5c.webp",
   "w": 1110,
@@ -4539,7 +4572,10 @@
    "ref": "apkg/lab-1 note 1768349863592 cloze 4"
   },
   "answer": "Ventral/Inferior",
-  "accept": [],
+  "accept": [
+   "Ventral",
+   "Inferior"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-934c67caecfb698148f2ac4058c28e5cf1bc1d5c.webp",
   "w": 1110,
@@ -4761,7 +4797,6 @@
   },
   "answer": "Coronal plane",
   "accept": [
-   "coronal",
    "frontal plane",
    "frontal"
   ],
@@ -4818,7 +4853,6 @@
   },
   "answer": "Sagittal plane",
   "accept": [
-   "sagittal",
    "midsagittal",
    "mid-sagittal",
    "parasagittal",
@@ -6278,7 +6312,6 @@
   },
   "answer": "Sagittal plane",
   "accept": [
-   "sagittal",
    "midsagittal",
    "mid-sagittal",
    "parasagittal",
@@ -6330,7 +6363,6 @@
   },
   "answer": "Sagittal plane",
   "accept": [
-   "sagittal",
    "midsagittal",
    "mid-sagittal",
    "parasagittal",
@@ -6427,7 +6459,6 @@
   },
   "answer": "Coronal plane",
   "accept": [
-   "coronal",
    "frontal plane",
    "frontal"
   ],
@@ -6438,7 +6469,7 @@
   "target": {
    "shape": "rect",
    "x": 0.0079,
-   "y": 0.0,
+   "y": 0,
    "w": 0.1943,
    "h": 0.0817
   },
@@ -6446,7 +6477,7 @@
    {
     "shape": "rect",
     "x": 0.0079,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1943,
     "h": 0.0817
    }
@@ -6696,7 +6727,6 @@
   },
   "answer": "Coronal plane",
   "accept": [
-   "coronal",
    "frontal plane",
    "frontal"
   ],
@@ -6997,9 +7027,7 @@
    "ref": "apkg/lab-1 note 1768350248691 cloze 2"
   },
   "answer": "Coronal suture",
-  "accept": [
-   "coronal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-66e5af8857a23fd8991d9bae0d629001460361d3.webp",
   "w": 813,
@@ -7381,9 +7409,7 @@
    "ref": "apkg/lab-1 note 1768350248691 cloze 6"
   },
   "answer": "Sagittal suture",
-  "accept": [
-   "sagittal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-66e5af8857a23fd8991d9bae0d629001460361d3.webp",
   "w": 813,
@@ -7575,9 +7601,7 @@
    "ref": "apkg/lab-1 note 1768350248691 cloze 8"
   },
   "answer": "Sagittal suture",
-  "accept": [
-   "sagittal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-66e5af8857a23fd8991d9bae0d629001460361d3.webp",
   "w": 813,
@@ -7672,9 +7696,7 @@
    "ref": "apkg/lab-1 note 1768350248691 cloze 9"
   },
   "answer": "Coronal suture",
-  "accept": [
-   "coronal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-66e5af8857a23fd8991d9bae0d629001460361d3.webp",
   "w": 813,
@@ -7931,9 +7953,7 @@
    "ref": "apkg/lab-1 note 1768350308165 cloze 3"
   },
   "answer": "Sagittal suture",
-  "accept": [
-   "sagittal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e8dc208eacd2736bbf999e205cc31938246b155f.webp",
   "w": 1138,
@@ -8014,9 +8034,7 @@
    "ref": "apkg/lab-1 note 1768350308165 cloze 4"
   },
   "answer": "Coronal suture",
-  "accept": [
-   "coronal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e8dc208eacd2736bbf999e205cc31938246b155f.webp",
   "w": 1138,
@@ -8352,7 +8370,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350385936 cloze 1"
   },
-  "answer": "cranial fossae",
+  "answer": "Cranial fossae",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-cf222cf98440db6bbfa2bb0b9799dc8b0ffea853.webp",
@@ -8436,7 +8454,7 @@
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1901,
   "source": {
    "type": "apkg",
@@ -8519,14 +8537,15 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"frontal lobes re\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-1-io-1768350385936-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 1902,
   "source": {
    "type": "apkg",
@@ -8609,7 +8628,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"temporal lobes re\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-1-io-1768350385936-c4",
@@ -8743,7 +8763,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350425033 cloze 1"
   },
-  "answer": "Occipital Lobe",
+  "answer": "Occipital lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-6dcf8f9c7caf954cd658ea3f49101a85f9ea2444.webp",
@@ -8946,7 +8966,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350425033 cloze 4"
   },
-  "answer": "Temporal Lobe",
+  "answer": "Temporal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-6dcf8f9c7caf954cd658ea3f49101a85f9ea2444.webp",
@@ -9013,7 +9033,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350425033 cloze 5"
   },
-  "answer": "Frontal Lobe",
+  "answer": "Frontal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-6dcf8f9c7caf954cd658ea3f49101a85f9ea2444.webp",
@@ -9341,7 +9361,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350557977 cloze 1"
   },
-  "answer": "branches of the middle meningeal artery",
+  "answer": "Branches of the middle meningeal artery",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-7c378610cf7d30e81eec422b5bf0f03b32c3d52f.webp",
@@ -9506,8 +9526,11 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350575753 cloze 1"
   },
-  "answer": "1. Cerebrum or Cerebral",
-  "accept": [],
+  "answer": "Cerebrum",
+  "accept": [
+   "Cerebral",
+   "Cerebrum or cerebral"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-08b8fc050f15b653d94631ce2e9293401ec04e07.webp",
   "w": 1457,
@@ -9919,7 +9942,6 @@
   },
   "answer": "Coronal plane",
   "accept": [
-   "coronal",
    "frontal plane",
    "frontal"
   ],
@@ -10303,7 +10325,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350782186 cloze 1"
   },
-  "answer": "external (superficial) to the dura",
+  "answer": "External (superficial) to the dura",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
@@ -10363,7 +10385,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350782186 cloze 2"
   },
-  "answer": "e: between dura and arachnoid",
+  "answer": "Between dura and arachnoid",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
@@ -10423,7 +10445,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350782186 cloze 3"
   },
-  "answer": "e: between arachnoid and pia",
+  "answer": "Between arachnoid and pia",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
@@ -10483,7 +10505,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350782186 cloze 4"
   },
-  "answer": "cerebrospinal fluid",
+  "answer": "Cerebrospinal fluid",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",

@@ -4252,11 +4252,11 @@
    "type": "pdf-labels",
    "ref": "lecture-04 page 30 text label"
   },
-  "answer": "Intermediate zone (lateral horn)",
+  "answer": "Intermediate zone",
   "accept": [
    "intermediate gray",
-   "lateral horn",
-   "zona intermedia"
+   "zona intermedia",
+   "Intermediate zone lateral horn"
   ],
   "require_side": false,
   "image": "decks/lecture-04/pages/030.webp",
@@ -4979,11 +4979,12 @@
    "type": "pdf-labels",
    "ref": "lecture-04 page 30 text label"
   },
-  "answer": "Anterior (ventral) funiculus",
+  "answer": "Anterior funiculus",
   "accept": [
    "anterior column",
    "ventral column",
-   "ventral funiculus"
+   "ventral funiculus",
+   "Anterior ventral funiculus"
   ],
   "require_side": false,
   "image": "decks/lecture-04/pages/030.webp",
@@ -5763,11 +5764,11 @@
    "type": "pdf-labels",
    "ref": "lecture-04 page 31 text label"
   },
-  "answer": "Intermediate zone (lateral horn)",
+  "answer": "Intermediate zone",
   "accept": [
    "intermediate gray",
-   "lateral horn",
-   "zona intermedia"
+   "zona intermedia",
+   "Intermediate zone lateral horn"
   ],
   "require_side": false,
   "image": "decks/lecture-04/pages/031.webp",

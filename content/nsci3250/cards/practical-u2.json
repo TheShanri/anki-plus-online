@@ -704,7 +704,14 @@
   },
   "answer": "Abducens nerve",
   "accept": [
-   "Abducens n. (CN VI)"
+   "Abducens n. (CN VI)",
+   "cranial nerve VI",
+   "cranial nerve 6",
+   "6th cranial nerve",
+   "VI",
+   "abducens",
+   "abducent nerve",
+   "CN VI"
   ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/002.webp",
@@ -761,7 +768,9 @@
    "ref": "practical-u2-2025 Q3"
   },
   "answer": "Inferior colliculus",
-  "accept": [],
+  "accept": [
+   "inferior colliculi"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/003.webp",
   "w": 1200,
@@ -817,7 +826,11 @@
    "ref": "practical-u2-2025 Q5"
   },
   "answer": "Cerebral peduncles",
-  "accept": [],
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/005.webp",
   "w": 1200,
@@ -879,7 +892,10 @@
    "ref": "practical-u2-2025 Q7"
   },
   "answer": "Gracile tubercle",
-  "accept": [],
+  "accept": [
+   "gracile tubercles",
+   "tuberculum gracile"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/006.webp",
   "w": 1200,
@@ -910,7 +926,11 @@
    "ref": "practical-u2-2025 Q8"
   },
   "answer": "Transverse fibers of the pons",
-  "accept": [],
+  "accept": [
+   "transverse pontine fibers",
+   "transverse fibers of pons",
+   "pontocerebellar fibers"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/007.webp",
   "w": 1200,
@@ -941,7 +961,9 @@
    "ref": "practical-u2-2025 Q9"
   },
   "answer": "Olives",
-  "accept": [],
+  "accept": [
+   "olive"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/009.webp",
   "w": 1200,
@@ -1006,7 +1028,8 @@
    "Sympathetics",
    "Parasympathetics",
    "Somatic sensory",
-   "Special sensory F. Visceral sensory"
+   "Special sensory",
+   "Visceral sensory"
   ],
   "format": "choice",
   "require_side": false,
@@ -1030,7 +1053,11 @@
    "ref": "practical-u2-2025 Q12"
   },
   "answer": "Trochlear nucleus",
-  "accept": [],
+  "accept": [
+   "CN IV nucleus",
+   "nucleus of CN IV",
+   "IV nucleus"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/011.webp",
   "w": 1200,
@@ -1089,7 +1116,8 @@
   },
   "answer": "Superior cerebellar peduncle",
   "accept": [
-   "SCP"
+   "SCP",
+   "brachium conjunctivum"
   ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/013.webp",
@@ -1121,7 +1149,11 @@
    "ref": "practical-u2-2025 Q15"
   },
   "answer": "Facial nucleus",
-  "accept": [],
+  "accept": [
+   "CN VII nucleus",
+   "facial motor nucleus",
+   "nucleus of CN VII"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/014.webp",
   "w": 1200,
@@ -1152,7 +1184,12 @@
    "ref": "practical-u2-2025 Q16"
   },
   "answer": "Solitary nucleus",
-  "accept": [],
+  "accept": [
+   "nucleus solitarius",
+   "nucleus of the solitary tract",
+   "solitary tract nucleus",
+   "NTS"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/015.webp",
   "w": 1200,
@@ -1216,7 +1253,9 @@
    "ref": "practical-u2-2025 Q18"
   },
   "answer": "Fasciculus cuneatus",
-  "accept": [],
+  "accept": [
+   "cuneate fasciculus"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/017.webp",
   "w": 1200,
@@ -1247,7 +1286,11 @@
    "ref": "practical-u2-2025 Q19"
   },
   "answer": "Anterior corticospinal tract",
-  "accept": [],
+  "accept": [
+   "ventral corticospinal tract",
+   "anterior CST",
+   "ACST"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/018.webp",
   "w": 1200,
@@ -1303,7 +1346,9 @@
    "ref": "practical-u2-2025 Q21"
   },
   "answer": "Red nucleus",
-  "accept": [],
+  "accept": [
+   "nucleus ruber"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/019.webp",
   "w": 1200,
@@ -1360,7 +1405,12 @@
   },
   "answer": "Principal sensory nucleus of trigeminal",
   "accept": [
-   "Principal sensory nucleu of V"
+   "Principal sensory nucleu of V",
+   "principal trigeminal nucleus",
+   "chief sensory nucleus",
+   "trigeminal principal sensory nucleus",
+   "principal sensory trigeminal nucleus",
+   "main sensory nucleus"
   ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/020.webp",
@@ -1393,7 +1443,8 @@
   },
   "answer": "Inferior cerebellar peduncle",
   "accept": [
-   "ICP"
+   "ICP",
+   "restiform body"
   ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/021.webp",
@@ -1450,7 +1501,9 @@
    "ref": "practical-u2-2025 Q26"
   },
   "answer": "Internal arcuate fibers",
-  "accept": [],
+  "accept": [
+   "internal arcuate fibres"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/022.webp",
   "w": 1200,
@@ -1483,7 +1536,10 @@
   "facet": "muscle",
   "prompt": "True or False: The nucleus circled in purple relays proprioception from the muscles of mastication.",
   "answer": "False",
-  "accept": [],
+  "accept": [
+   "false",
+   "f"
+  ],
   "keywords": null,
   "choices": null,
   "format": "tf",
@@ -1545,7 +1601,10 @@
   "facet": "level",
   "prompt": "True or False: At the level shown, the tract circled in blue contains sensory information from both the body and the face.",
   "answer": "False",
-  "accept": [],
+  "accept": [
+   "false",
+   "f"
+  ],
   "keywords": null,
   "choices": null,
   "format": "tf",
@@ -1657,7 +1716,10 @@
   },
   "answer": "Optic radiations",
   "accept": [
-   "Opitc radiations"
+   "Opitc radiations",
+   "geniculocalcarine tract",
+   "optic radiation",
+   "geniculocalcarine radiation"
   ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/029.webp",
@@ -1806,7 +1868,9 @@
    "ref": "practical-u2-2025 Q38"
   },
   "answer": "Superior colliculus",
-  "accept": [],
+  "accept": [
+   "superior colliculi"
+  ],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/033.webp",
   "w": 1200,

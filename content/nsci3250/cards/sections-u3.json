@@ -12,7 +12,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "body of CC",
    "body of the corpus callosum",
    "corpus callosum body"
@@ -165,7 +164,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "body of LV",
    "body of the lateral ventricle",
    "lateral ventricle body"
@@ -318,7 +316,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -1045,7 +1042,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "body of LV",
    "body of the lateral ventricle",
    "lateral ventricle body"
@@ -1775,7 +1771,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -3480,7 +3475,6 @@
   },
   "answer": "Genu of internal capsule",
   "accept": [
-   "genu",
    "internal capsule genu",
    "knee of internal capsule"
   ],
@@ -6883,7 +6877,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -8890,7 +8883,6 @@
   },
   "answer": "Genu of internal capsule",
   "accept": [
-   "genu",
    "internal capsule genu",
    "knee of internal capsule"
   ],
@@ -18641,7 +18633,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -20314,7 +20305,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "body of CC",
    "body of the corpus callosum",
    "corpus callosum body"
@@ -23226,7 +23216,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "body of CC",
    "body of the corpus callosum",
    "corpus callosum body"
@@ -26883,7 +26872,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "body of CC",
    "body of the corpus callosum",
    "corpus callosum body"
@@ -27578,7 +27566,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "body of LV",
    "body of the lateral ventricle",
    "lateral ventricle body"
@@ -40396,8 +40383,9 @@
   "w": 898,
   "h": 764,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 1: most anterior (frontal pole, surface view)",
+  "answer": "Coronal section 1",
   "accept": [
+   "Coronal section 1: most anterior (frontal pole, surface view)",
    "most anterior (frontal pole, surface view)",
    "most anterior",
    "section 1",
@@ -40408,7 +40396,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Most anterior (frontal pole, surface view)."
  },
  {
   "slug": "sections-u3-coronal-2",
@@ -40424,9 +40413,9 @@
   "w": 927,
   "h": 784,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 2: anterior to the corpus callosum",
+  "answer": "Coronal section 2",
   "accept": [
-   "anterior to the corpus callosum",
+   "Coronal section 2: anterior to the corpus callosum",
    "anterior to the corpus callosum",
    "section 2",
    "#2"
@@ -40436,7 +40425,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Anterior to the corpus callosum."
  },
  {
   "slug": "sections-u3-coronal-3",
@@ -40452,9 +40442,9 @@
   "w": 909,
   "h": 852,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 3: genu of the corpus callosum",
+  "answer": "Coronal section 3",
   "accept": [
-   "genu of the corpus callosum",
+   "Coronal section 3: genu of the corpus callosum",
    "genu of the corpus callosum",
    "section 3",
    "#3"
@@ -40464,7 +40454,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Genu of the corpus callosum."
  },
  {
   "slug": "sections-u3-coronal-4",
@@ -40480,9 +40471,9 @@
   "w": 917,
   "h": 878,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 4: anterior horns of the lateral ventricles",
+  "answer": "Coronal section 4",
   "accept": [
-   "anterior horns of the lateral ventricles",
+   "Coronal section 4: anterior horns of the lateral ventricles",
    "anterior horns of the lateral ventricles",
    "section 4",
    "#4"
@@ -40492,7 +40483,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Anterior horns of the lateral ventricles."
  },
  {
   "slug": "sections-u3-coronal-5",
@@ -40508,9 +40500,9 @@
   "w": 963,
   "h": 949,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 5: level of the nucleus accumbens",
+  "answer": "Coronal section 5",
   "accept": [
-   "level of the nucleus accumbens",
+   "Coronal section 5: level of the nucleus accumbens",
    "level of the nucleus accumbens",
    "section 5",
    "#5"
@@ -40520,7 +40512,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Level of the nucleus accumbens."
  },
  {
   "slug": "sections-u3-coronal-6",
@@ -40536,9 +40529,9 @@
   "w": 953,
   "h": 928,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 6: anterior commissure",
+  "answer": "Coronal section 6",
   "accept": [
-   "anterior commissure",
+   "Coronal section 6: anterior commissure",
    "anterior commissure",
    "section 6",
    "#6"
@@ -40548,7 +40541,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Anterior commissure."
  },
  {
   "slug": "sections-u3-coronal-7",
@@ -40564,9 +40558,9 @@
   "w": 963,
   "h": 917,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 7: anterior part of the thalamus",
+  "answer": "Coronal section 7",
   "accept": [
-   "anterior part of the thalamus",
+   "Coronal section 7: anterior part of the thalamus",
    "anterior part of the thalamus",
    "section 7",
    "#7"
@@ -40576,7 +40570,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Anterior part of the thalamus."
  },
  {
   "slug": "sections-u3-coronal-8",
@@ -40592,9 +40587,9 @@
   "w": 992,
   "h": 977,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 8: level of the substantia nigra",
+  "answer": "Coronal section 8",
   "accept": [
-   "level of the substantia nigra",
+   "Coronal section 8: level of the substantia nigra",
    "level of the substantia nigra",
    "section 8",
    "#8"
@@ -40604,7 +40599,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Level of the substantia nigra."
  },
  {
   "slug": "sections-u3-coronal-9",
@@ -40620,9 +40616,9 @@
   "w": 1000,
   "h": 1050,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 9: posterior thalamus",
+  "answer": "Coronal section 9",
   "accept": [
-   "posterior thalamus",
+   "Coronal section 9: posterior thalamus",
    "posterior thalamus",
    "section 9",
    "#9"
@@ -40632,7 +40628,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Posterior thalamus."
  },
  {
   "slug": "sections-u3-coronal-10",
@@ -40648,9 +40645,9 @@
   "w": 979,
   "h": 1052,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 10: trigone of the lateral ventricles",
+  "answer": "Coronal section 10",
   "accept": [
-   "trigone of the lateral ventricles",
+   "Coronal section 10: trigone of the lateral ventricles",
    "trigone of the lateral ventricles",
    "section 10",
    "#10"
@@ -40660,7 +40657,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Trigone of the lateral ventricles."
  },
  {
   "slug": "sections-u3-coronal-11",
@@ -40676,9 +40674,9 @@
   "w": 1003,
   "h": 1084,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 11: posterior to the thalamus",
+  "answer": "Coronal section 11",
   "accept": [
-   "posterior to the thalamus",
+   "Coronal section 11: posterior to the thalamus",
    "posterior to the thalamus",
    "section 11",
    "#11"
@@ -40688,7 +40686,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Posterior to the thalamus."
  },
  {
   "slug": "sections-u3-coronal-12",
@@ -40704,9 +40703,9 @@
   "w": 1038,
   "h": 1068,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
-  "answer": "Coronal section 12: posterior to the corpus callosum",
+  "answer": "Coronal section 12",
   "accept": [
-   "posterior to the corpus callosum",
+   "Coronal section 12: posterior to the corpus callosum",
    "posterior to the corpus callosum",
    "section 12",
    "#12"
@@ -40716,7 +40715,8 @@
   "tags": [
    "section",
    "level"
-  ]
+  ],
+  "explain": "Landmark: Posterior to the corpus callosum."
  },
  {
   "slug": "sections-u3-horizontal-1",
@@ -40732,11 +40732,13 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 1: above the corpus callosum (centrum semiovale)",
+  "answer": "Horizontal section 1",
   "accept": [
+   "Horizontal section 1: above the corpus callosum (centrum semiovale)",
    "above the corpus callosum",
    "above the corpus callosum (centrum semiovale)",
-   "section 1"
+   "section 1",
+   "#1"
   ],
   "require_side": false,
   "format": "type",
@@ -40744,7 +40746,7 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Above the corpus callosum (centrum semiovale)."
  },
  {
   "slug": "sections-u3-horizontal-2",
@@ -40760,11 +40762,12 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 2: through the body of the corpus callosum",
+  "answer": "Horizontal section 2",
   "accept": [
+   "Horizontal section 2: through the body of the corpus callosum",
    "through the body of the corpus callosum",
-   "through the body of the corpus callosum",
-   "section 2"
+   "section 2",
+   "#2"
   ],
   "require_side": false,
   "format": "type",
@@ -40772,7 +40775,7 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Through the body of the corpus callosum."
  },
  {
   "slug": "sections-u3-horizontal-3",
@@ -40788,11 +40791,13 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 3: through the lateral ventricles (caudate head and septum pellucidum)",
+  "answer": "Horizontal section 3",
   "accept": [
+   "Horizontal section 3: through the lateral ventricles (caudate head and septum pellucidum)",
    "through the lateral ventricles",
    "through the lateral ventricles (caudate head and septum pellucidum)",
-   "section 3"
+   "section 3",
+   "#3"
   ],
   "require_side": false,
   "format": "type",
@@ -40800,7 +40805,7 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Through the lateral ventricles (caudate head and septum pellucidum)."
  },
  {
   "slug": "sections-u3-horizontal-4",
@@ -40816,11 +40821,13 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 4: through the thalamus and internal capsule (level 1)",
+  "answer": "Horizontal section 4",
   "accept": [
+   "Horizontal section 4: through the thalamus and internal capsule (level 1)",
    "through the thalamus and internal capsule",
    "through the thalamus and internal capsule (level 1)",
-   "section 4"
+   "section 4",
+   "#4"
   ],
   "require_side": false,
   "format": "type",
@@ -40828,7 +40835,7 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Through the thalamus and internal capsule (level 1)."
  },
  {
   "slug": "sections-u3-horizontal-5",
@@ -40844,11 +40851,13 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 5: through the thalamus: putamen, globus pallidus and fornix (level 2)",
+  "answer": "Horizontal section 5",
   "accept": [
+   "Horizontal section 5: through the thalamus: putamen, globus pallidus and fornix (level 2)",
    "through the thalamus: putamen, globus pallidus and fornix",
    "through the thalamus: putamen, globus pallidus and fornix (level 2)",
-   "section 5"
+   "section 5",
+   "#5"
   ],
   "require_side": false,
   "format": "type",
@@ -40856,7 +40865,7 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Through the thalamus: putamen, globus pallidus and fornix (level 2)."
  },
  {
   "slug": "sections-u3-horizontal-6",
@@ -40872,11 +40881,12 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 6: through the hypothalamus",
+  "answer": "Horizontal section 6",
   "accept": [
+   "Horizontal section 6: through the hypothalamus",
    "through the hypothalamus",
-   "through the hypothalamus",
-   "section 6"
+   "section 6",
+   "#6"
   ],
   "require_side": false,
   "format": "type",
@@ -40884,7 +40894,7 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Through the hypothalamus."
  },
  {
   "slug": "sections-u3-horizontal-7",
@@ -40900,11 +40910,13 @@
   "w": 1236,
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
-  "answer": "Horizontal section 7: most inferior view (hippocampus, amygdala, midbrain)",
+  "answer": "Horizontal section 7",
   "accept": [
+   "Horizontal section 7: most inferior view (hippocampus, amygdala, midbrain)",
    "most inferior view",
    "most inferior view (hippocampus, amygdala, midbrain)",
-   "section 7"
+   "section 7",
+   "#7"
   ],
   "require_side": false,
   "format": "type",
@@ -40912,6 +40924,6 @@
    "section",
    "level"
   ],
-  "explain": "Horizontal section tour (lab 13)."
+  "explain": "Horizontal section tour (lab 13). Landmark: Most inferior view (hippocampus, amygdala, midbrain)."
  }
 ]

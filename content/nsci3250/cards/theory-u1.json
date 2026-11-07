@@ -3672,7 +3672,8 @@
   "accept": [],
   "keywords": [
    [
-    "31;thirty-one"
+    "31",
+    "thirty-one"
    ]
   ],
   "choices": null,
@@ -4531,8 +4532,13 @@
    [
     "a-delta",
     "adelta",
-    "delta",
-    "C"
+    "delta"
+   ],
+   [
+    "C",
+    "c fiber",
+    "c fibers",
+    "c fibre"
    ]
   ],
   "choices": null,
@@ -4612,7 +4618,9 @@
   "accept": [],
   "keywords": [
    [
-    "pain",
+    "pain"
+   ],
+   [
     "temperature"
    ]
   ],
@@ -4663,7 +4671,9 @@
   "accept": [],
   "keywords": [
    [
-    "II;2;two"
+    "II",
+    "2",
+    "two"
    ]
   ],
   "choices": null,
@@ -4687,8 +4697,11 @@
   "accept": [],
   "keywords": [
    [
-    "touch",
-    "proprioception"
+    "touch"
+   ],
+   [
+    "proprioception",
+    "proprioceptive"
    ]
   ],
   "choices": null,

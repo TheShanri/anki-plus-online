@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import type { StudyCard } from "@/lib/study/types";
 import { CardFace } from "@/components/cards/CardFace";
 import { emit } from "@/lib/feedback/events";
+import { stationSeconds } from "@/lib/study/practical";
 import "./study.css";
 
 interface Station {
@@ -51,7 +52,7 @@ export function PracticalSetup({ units, defaultSeconds }: { units: UnitOption[];
   return (
     <div className="panel" style={{ maxWidth: 640, display: "grid", gap: 14 }}>
       <p className="text-text-dim">
-        A timed lab practical: each station shows a pin on a photo. Type the name (and answer its follow-up). {defaultSeconds} seconds a station, no going back, no feedback until the end.
+        A timed lab practical: each station shows a pin on a photo. Type the name (and answer its follow-up). {defaultSeconds} seconds for the pin, plus about {Math.round(defaultSeconds * 0.6)} for each follow-up, no going back, no feedback until the end.
       </p>
       <div>
         <p className="label">Units</p>
@@ -69,7 +70,7 @@ export function PracticalSetup({ units, defaultSeconds }: { units: UnitOption[];
       <div>
         <label className="label" htmlFor="stations">Stations</label>
         <input id="stations" className="input" type="number" min={1} max={Math.max(1, Math.min(100, available))} value={count} style={{ maxWidth: 120 }} onChange={(e) => setCount(Number(e.target.value))} />
-        <p className="text-text-faint" style={{ fontSize: 12, marginTop: 4 }}>About {Math.round((Math.min(count, available) * defaultSeconds) / 60)} minutes. {available} pin cards available.</p>
+        <p className="text-text-faint" style={{ fontSize: 12, marginTop: 4 }}>About {Math.round((Math.min(count, available) * defaultSeconds * 1.5) / 60)} minutes (follow-ups add time). {available} pin cards available.</p>
       </div>
       {err && <p className="field-error">{err}</p>}
       <div className="btn-row"><button type="button" className="btn btn-primary" disabled={busy || available === 0} onClick={() => void start()}>{busy ? "Preparing…" : "Start practical"}</button></div>
@@ -81,7 +82,8 @@ function PracticalRun({ started }: { started: Started }) {
   const router = useRouter();
   const { stations, seconds, attemptId, course } = started;
   const [idx, setIdx] = useState(0);
-  const [left, setLeft] = useState(seconds);
+  const secsOf = (i: number) => stationSeconds(seconds, stations[i]?.followups.length ?? 0);
+  const [left, setLeft] = useState(secsOf(0));
   const [typed, setTyped] = useState<string[]>([""]);
   const answers = useRef<Array<{ cardId: string; typed: string; followups: string[]; timedOut?: boolean }>>([]);
   const cur = useRef({ typed: "", fu: [] as string[] });
@@ -115,7 +117,7 @@ function PracticalRun({ started }: { started: Started }) {
       if (idx + 1 >= stations.length) void finish();
       else {
         setIdx(idx + 1);
-        setLeft(seconds);
+        setLeft(secsOf(idx + 1));
         setTyped(new Array(1 + stations[idx + 1].followups.length).fill(""));
       }
     },
@@ -130,7 +132,7 @@ function PracticalRun({ started }: { started: Started }) {
   // one deadline per station: robust against throttled background timers
   useEffect(() => {
     if (finishing || !station) return;
-    const deadline = Date.now() + seconds * 1000;
+    const deadline = Date.now() + secsOf(idx) * 1000;
     const iv = window.setInterval(() => {
       const l = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
       setLeft(l);
@@ -162,7 +164,7 @@ function PracticalRun({ started }: { started: Started }) {
     <div className="st-wrap">
       <div className="st-top">
         <span className="chip">Station {idx + 1} of {stations.length}</span>
-        <div className="prac-bar" style={{ flex: 1 }} aria-hidden><i style={{ width: "100%", transform: `scaleX(${left / seconds})`, transformOrigin: "left" }} /></div>
+        <div className="prac-bar" style={{ flex: 1 }} aria-hidden><i style={{ width: "100%", transform: `scaleX(${left / secsOf(idx)})`, transformOrigin: "left" }} /></div>
         <span className={`prac-timer${left <= 10 ? " low" : ""}`} aria-label="Seconds left">{left}</span>
       </div>
       <div className="panel">

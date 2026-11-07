@@ -1203,7 +1203,7 @@
   "pathway": "acst",
   "step": "decussation",
   "prompt": "True or false: the anterior corticospinal tract decussates in the medulla.",
-  "answer": "False (it stays uncrossed and terminates bilaterally)",
+  "answer": "False",
   "accept": [
    "false",
    "f"
@@ -1213,7 +1213,8 @@
   "tags": [
    "pathway",
    "acst"
-  ]
+  ],
+  "explain": "It stays uncrossed and terminates bilaterally."
  },
  {
   "slug": "pathways-u2-corticobulbar-target",
@@ -1840,8 +1841,9 @@
   "format": "keywords",
   "keywords": [
    [
-    "reticular formation",
-    "pontine",
+    "pontine"
+   ],
+   [
     "medullary"
    ]
   ],

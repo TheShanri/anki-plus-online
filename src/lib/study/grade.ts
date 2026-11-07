@@ -104,10 +104,11 @@ export function gradeTyped(typed: string, spec: AnswerSpec, opts: GradeOptions =
   if (!t) return { result: "empty", matched: null, edits: 0, why: "No answer", points: 0 };
   const comp = compiled ?? compileAnswer(spec, flags);
 
-  // structure-aware: an accepted short form that names another structure (or several) is not accepted
+  // structure-aware: an accepted short form that names another structure (or several) is not accepted.
+  // Cards with no linked structure (level / section cards) listed their accepts on purpose: no veto there.
   const owner = opts.knownNames?.[t];
   const exactIdx0 = comp.canon.indexOf(t);
-  if (exactIdx0 > 0 && owner && owner !== opts.ownSlug && t !== comp.canon[0]) {
+  if (exactIdx0 > 0 && owner && opts.ownSlug && owner !== opts.ownSlug && t !== comp.canon[0]) {
     return { result: "wrong", matched: null, edits: 99, why: owner === "*" ? "Too generic: name the structure fully" : "That is a different structure", kind: "other_structure", points: 0 };
   }
 

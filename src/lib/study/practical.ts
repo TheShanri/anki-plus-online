@@ -4,6 +4,12 @@ import type { StudyCard } from "./types.ts";
 
 export const DEFAULT_STATION_SECONDS = 75;
 
+/** The real practical gives about 110 s per numbered question (75 min / ~40), and a pin plus its follow-up is two questions:
+ *  the setting is the time for the pin; each follow-up adds 60% of it. */
+export function stationSeconds(base: number, followups: number): number {
+  return Math.round(base * (1 + 0.6 * Math.max(0, followups)));
+}
+
 export interface StationDraw {
   pin: StudyCard;
   followups: StudyCard[];

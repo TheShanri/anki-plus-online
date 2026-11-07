@@ -10,7 +10,7 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942152320 cloze 1"
   },
-  "answer": "Rostral Midbrain",
+  "answer": "Rostral midbrain",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-f87273f916d1e0063e33d7a736232f9e9ce79fbd.webp",
@@ -1379,7 +1379,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-f87273f916d1e0063e33d7a736232f9e9ce79fbd.webp",
@@ -1846,7 +1847,7 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942254287 cloze 1"
   },
-  "answer": "Caudal Midbrain",
+  "answer": "Caudal midbrain",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-8b3da05452245a508c7d6b9e7bf57522114dc2db.webp",
@@ -2668,7 +2669,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-8b3da05452245a508c7d6b9e7bf57522114dc2db.webp",
@@ -3080,7 +3082,7 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942366482 cloze 1"
   },
-  "answer": "Rostral Pons",
+  "answer": "Rostral pons",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-ce425c70b47b0be3ff37d7d4f73e2a9a3ead2348.webp",
@@ -5034,7 +5036,7 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942514188 cloze 1"
   },
-  "answer": "Caudal Pons",
+  "answer": "Caudal pons",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-d2e3ef5fe431aa14e496e9d2f1b689210c4fd312.webp",
@@ -8451,7 +8453,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -8585,7 +8587,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -8697,7 +8699,7 @@
   "target": {
    "shape": "rect",
    "x": 0.6024,
-   "y": 0.0,
+   "y": 0,
    "w": 0.1604,
    "h": 0.0362
   },
@@ -8719,7 +8721,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -8855,7 +8857,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -8991,7 +8993,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9126,7 +9128,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9263,7 +9265,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9400,7 +9402,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9537,7 +9539,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9639,7 +9641,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-b5719c79c0fa5207b71606cd14bb1c91d413a173.webp",
@@ -9670,7 +9673,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9804,7 +9807,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -9934,7 +9937,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -10071,7 +10074,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -10204,7 +10207,7 @@
    {
     "shape": "rect",
     "x": 0.6024,
-    "y": 0.0,
+    "y": 0,
     "w": 0.1604,
     "h": 0.0362
    },
@@ -10936,7 +10939,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp",
@@ -12175,7 +12179,10 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 8"
   },
   "answer": "Pyramids/Motor Decussation",
-  "accept": [],
+  "accept": [
+   "Pyramids",
+   "Motor decussation"
+  ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-7b39dc431d7674453c3aa482b164981ebf715d62.webp",
   "w": 2000,

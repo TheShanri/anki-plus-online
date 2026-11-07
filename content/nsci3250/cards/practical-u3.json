@@ -11,7 +11,10 @@
    "ref": "practical-u3-2025 Q1"
   },
   "answer": "Genu of corpus callosum",
-  "accept": [],
+  "accept": [
+   "genu of CC",
+   "genu of the corpus callosum"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/002.webp",
   "w": 1200,
@@ -98,7 +101,11 @@
    "ref": "practical-u3-2025 Q4"
   },
   "answer": "Anterior limb of internal capsule",
-  "accept": [],
+  "accept": [
+   "anterior limb",
+   "internal capsule anterior limb",
+   "ALIC"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/004.webp",
   "w": 1200,
@@ -130,7 +137,9 @@
   },
   "answer": "Crus of fornix",
   "accept": [
-   "Crura of fornix"
+   "Crura of fornix",
+   "fornix crus",
+   "crus"
   ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/005.webp",
@@ -161,8 +170,14 @@
    "type": "practical",
    "ref": "practical-u3-2025 Q6"
   },
-  "answer": "Posterior horn of LV (or inferior or trigone)",
-  "accept": [],
+  "answer": "Posterior horn of lateral ventricle",
+  "accept": [
+   "Posterior horn of LV",
+   "posterior horn",
+   "inferior horn",
+   "trigone",
+   "atrium"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/006.webp",
   "w": 1200,
@@ -195,7 +210,9 @@
   },
   "answer": "Interthalamic adhesion",
   "accept": [
-   "Massa Intermedia"
+   "Massa Intermedia",
+   "thalamic adhesion",
+   "intermediate mass"
   ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/006.webp",
@@ -228,7 +245,9 @@
   },
   "answer": "Fourth ventricle",
   "accept": [
-   "4th Ventricle"
+   "4th Ventricle",
+   "ventricle IV",
+   "4V"
   ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/007.webp",
@@ -260,7 +279,9 @@
    "ref": "practical-u3-2025 Q9"
   },
   "answer": "Vermis",
-  "accept": [],
+  "accept": [
+   "cerebellar vermis"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/008.webp",
   "w": 1200,
@@ -317,7 +338,9 @@
   },
   "answer": "Middle cerebellar peduncle",
   "accept": [
-   "MCP (middle cerebellar peduncle)"
+   "MCP (middle cerebellar peduncle)",
+   "brachium pontis",
+   "MCP"
   ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/009.webp",
@@ -375,7 +398,8 @@
   },
   "answer": "Cerebellar tonsil",
   "accept": [
-   "Tonsil"
+   "Tonsil",
+   "tonsils"
   ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/010.webp",
@@ -488,9 +512,7 @@
    "ref": "practical-u3-2025 Q17"
   },
   "answer": "Caudate nucleus",
-  "accept": [
-   "Caudate nucleus (head or body)"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/012.webp",
   "w": 1200,
@@ -547,7 +569,9 @@
    "ref": "practical-u3-2025 Q19"
   },
   "answer": "Anterior commissure",
-  "accept": [],
+  "accept": [
+   "AC"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/013.webp",
   "w": 1200,
@@ -584,7 +608,10 @@
   "facet": "function",
   "prompt": "True or false: This structure serves as one of the boundaries of the hypothalamus Magnified view",
   "answer": "True",
-  "accept": [],
+  "accept": [
+   "true",
+   "t"
+  ],
   "keywords": null,
   "choices": null,
   "format": "tf",
@@ -603,7 +630,10 @@
    "ref": "practical-u3-2025 Q21"
   },
   "answer": "Superior cerebellar artery",
-  "accept": [],
+  "accept": [
+   "superior cerebellar a.",
+   "SCA"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/014.webp",
   "w": 1200,
@@ -828,7 +858,9 @@
    "ref": "practical-u3-2025 Q29"
   },
   "answer": "Thalamus",
-  "accept": [],
+  "accept": [
+   "dorsal thalamus"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/019.webp",
   "w": 1200,
@@ -947,7 +979,8 @@
   },
   "answer": "Anterior cerebral artery",
   "accept": [
-   "ACA (anterior cerebral a.)"
+   "ACA (anterior cerebral a.)",
+   "ACA"
   ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/022.webp",
@@ -1089,7 +1122,10 @@
   "facet": "supply",
   "prompt": "True or false: The territory encompassed by this tumor receives its blood supply from the lenticulostriate arteries.",
   "answer": "False",
-  "accept": [],
+  "accept": [
+   "false",
+   "f"
+  ],
   "keywords": null,
   "choices": null,
   "format": "tf",
@@ -1179,8 +1215,12 @@
   "accept": [],
   "keywords": [
    [
-    "17",
-    "18",
+    "17"
+   ],
+   [
+    "18"
+   ],
+   [
     "19"
    ]
   ],
@@ -1207,7 +1247,9 @@
    "ref": "practical-u3-2025 QB2"
   },
   "answer": "Posterior commissure",
-  "accept": [],
+  "accept": [
+   "PC"
+  ],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/030.webp",
   "w": 1200,

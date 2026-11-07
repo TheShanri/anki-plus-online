@@ -1713,7 +1713,8 @@
   "answer": "Columns of the fornix",
   "accept": [
    "fornix columns",
-   "columns of fornix"
+   "columns of fornix",
+   "column of the fornix"
   ],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-16bca8722530044221ee7e8bf63bffcd9887b72c.webp",
@@ -1883,7 +1884,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -1960,7 +1960,7 @@
    "type": "apkg",
    "ref": "apkg/lab-13 note 1773766588139 cloze 2"
   },
-  "answer": "crus",
+  "answer": "Crus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-81640d8aca5cea4291b7f8aca270742f0fbb2232.webp",
@@ -2037,7 +2037,8 @@
   "answer": "Columns of the fornix",
   "accept": [
    "fornix columns",
-   "columns of fornix"
+   "columns of fornix",
+   "column of the fornix"
   ],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-81640d8aca5cea4291b7f8aca270742f0fbb2232.webp",
@@ -2113,7 +2114,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -2191,7 +2191,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -2516,7 +2515,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "lateral ventricle body",
    "body of the lateral ventricle",
    "body of LV"
@@ -2581,7 +2579,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -2709,7 +2706,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -2930,7 +2926,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -3084,7 +3079,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "lateral ventricle body",
    "body of the lateral ventricle",
    "body of LV"
@@ -5089,7 +5083,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -5930,7 +5923,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -7196,7 +7188,8 @@
   "answer": "Columns of the fornix",
   "accept": [
    "fornix columns",
-   "columns of fornix"
+   "columns of fornix",
+   "column of the fornix"
   ],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-fd9263bc7fef21c4c1ce87f1fb795f25e55c2f28.webp",
@@ -7478,7 +7471,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],

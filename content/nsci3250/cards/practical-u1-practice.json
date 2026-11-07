@@ -152,7 +152,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-cf274cc7a41c388b4ff928a63779138b8cad6348.webp",
@@ -2136,7 +2137,11 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158222061 cloze 2"
   },
   "answer": "Mid-sagittal or sagittal",
-  "accept": [],
+  "accept": [
+   "Mid-sagittal",
+   "Midsagittal",
+   "Sagittal"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-0f9bae51101a0e074ba0ba3710e2f57bcee6063c.webp",
   "w": 1563,

@@ -14,7 +14,8 @@
   "accept": [
    "posterior columns",
    "posterior funiculus",
-   "dorsal funiculus"
+   "dorsal funiculus",
+   "dorsal column"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-3757d677530d0fa3dae027c050bad8e52046ff84.webp",
@@ -859,7 +860,8 @@
   "answer": "Ventral horn",
   "accept": [
    "anterior horn of spinal cord",
-   "anterior gray horn"
+   "anterior gray horn",
+   "ventral horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-3757d677530d0fa3dae027c050bad8e52046ff84.webp",
@@ -1141,7 +1143,8 @@
   "answer": "Dorsal horn",
   "accept": [
    "posterior horn of spinal cord",
-   "posterior gray horn"
+   "posterior gray horn",
+   "dorsal horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-3757d677530d0fa3dae027c050bad8e52046ff84.webp",
@@ -3293,7 +3296,8 @@
   "accept": [
    "posterior columns",
    "posterior funiculus",
-   "dorsal funiculus"
+   "dorsal funiculus",
+   "dorsal column"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-264d9c632f0d242aa48862eae59f82afd163face.webp",
@@ -4555,7 +4559,8 @@
   "answer": "Ventral horn",
   "accept": [
    "anterior horn of spinal cord",
-   "anterior gray horn"
+   "anterior gray horn",
+   "ventral horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-264d9c632f0d242aa48862eae59f82afd163face.webp",
@@ -4807,7 +4812,8 @@
   "answer": "Dorsal horn",
   "accept": [
    "posterior horn of spinal cord",
-   "posterior gray horn"
+   "posterior gray horn",
+   "dorsal horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-264d9c632f0d242aa48862eae59f82afd163face.webp",
@@ -7237,7 +7243,8 @@
   "answer": "Dorsal horn",
   "accept": [
    "posterior horn of spinal cord",
-   "posterior gray horn"
+   "posterior gray horn",
+   "dorsal horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-15ae2c035fd265cae67015cffa086d192fd614a3.webp",
@@ -7502,7 +7509,8 @@
   "answer": "Ventral horn",
   "accept": [
    "anterior horn of spinal cord",
-   "anterior gray horn"
+   "anterior gray horn",
+   "ventral horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-15ae2c035fd265cae67015cffa086d192fd614a3.webp",
@@ -8033,7 +8041,8 @@
   "accept": [
    "posterior columns",
    "posterior funiculus",
-   "dorsal funiculus"
+   "dorsal funiculus",
+   "dorsal column"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-15ae2c035fd265cae67015cffa086d192fd614a3.webp",
@@ -10042,7 +10051,8 @@
   "accept": [
    "posterior columns",
    "posterior funiculus",
-   "dorsal funiculus"
+   "dorsal funiculus",
+   "dorsal column"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-fdbbb4e627de3b53210143f0526f52dc03cea59e.webp",
@@ -10630,7 +10640,8 @@
   "answer": "Dorsal horn",
   "accept": [
    "posterior horn of spinal cord",
-   "posterior gray horn"
+   "posterior gray horn",
+   "dorsal horns"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-fdbbb4e627de3b53210143f0526f52dc03cea59e.webp",
@@ -14553,7 +14564,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769700348409 cloze 1"
   },
-  "answer": "y? Pain, temperature",
+  "answer": "Pain, temperature",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",

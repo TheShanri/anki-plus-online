@@ -713,7 +713,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768765127010 cloze 1"
   },
-  "answer": "ventricles lateral",
+  "answer": "Lateral ventricles",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-647e5096a684323d312daf4265bfec7ef94888b4.webp",
@@ -812,7 +812,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768765147495 cloze 1"
   },
-  "answer": "commissural f",
+  "answer": "Commissural fibers",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-dde149c9fa74c3ac27dc19cbdc41d755d57a056c.webp",
@@ -1016,7 +1016,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768765220127 cloze 1"
   },
-  "answer": "vital structures",
+  "answer": "Vital structures",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-0973cc89bf29adf509fa0c71f643d5d3bf006fae.webp",
@@ -1821,7 +1821,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "lateral ventricle body",
    "body of the lateral ventricle",
    "body of LV"
@@ -2556,7 +2555,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "lateral ventricle body",
    "body of the lateral ventricle",
    "body of LV"
@@ -2907,7 +2905,8 @@
   },
   "answer": "Lateral ventricle",
   "accept": [
-   "LV"
+   "LV",
+   "lateral ventricles"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8b98950bfaf5bc37311a699ade36ee3a39f3058.webp",
@@ -3475,7 +3474,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768767646795 cloze 2"
   },
-  "answer": "(Diencephalon)",
+  "answer": "Diencephalon",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8b98950bfaf5bc37311a699ade36ee3a39f3058.webp",
@@ -3814,7 +3813,6 @@
   },
   "answer": "Coronal plane",
   "accept": [
-   "coronal",
    "frontal plane",
    "frontal"
   ],
@@ -3871,7 +3869,6 @@
   },
   "answer": "Sagittal plane",
   "accept": [
-   "sagittal",
    "midsagittal",
    "mid-sagittal",
    "parasagittal",
@@ -4067,7 +4064,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768768924518 cloze 1"
   },
-  "answer": "lateral, 3rd and 4th",
+  "answer": "Lateral, 3rd and 4th",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-db693a37aad2a36fdd1bfd4485c1c41c28599093.webp",
@@ -4108,7 +4105,8 @@
   },
   "answer": "Lateral ventricle",
   "accept": [
-   "LV"
+   "LV",
+   "lateral ventricles"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-05767f5ea305e50583a05a633b0efa472c97ac42.webp",
@@ -4555,7 +4553,8 @@
   },
   "answer": "Lateral ventricle",
   "accept": [
-   "LV"
+   "LV",
+   "lateral ventricles"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -5048,7 +5047,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768769257758 cloze 7"
   },
-  "answer": "Subarachnoid space around brain and spinal cord",
+  "answer": "Subarachnoid space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -5145,7 +5144,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -5441,7 +5441,8 @@
   },
   "answer": "Lateral ventricle",
   "accept": [
-   "LV"
+   "LV",
+   "lateral ventricles"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8339e721226df396b3e557b4459a541e0049b2e.webp",
@@ -6174,7 +6175,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8339e721226df396b3e557b4459a541e0049b2e.webp",
@@ -6380,7 +6382,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-b6d173d5257c70170c2a3e498f9c0c1031b6813f.webp",
@@ -6421,7 +6424,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-be079c2cab5951601abab32ebdfb4a833b8822da.webp",
@@ -6462,7 +6466,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-6580f94ce5dff3246f3ae5436624f32c44042682.webp",
@@ -6501,7 +6506,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768769980503 cloze 1"
   },
-  "answer": "reabsorb",
+  "answer": "Reabsorb",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
@@ -6767,7 +6772,7 @@
   "kind": "pin",
   "topic": "lab-2",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 2604,
   "source": {
    "type": "apkg",
@@ -6827,7 +6832,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"dural sinuses, t\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-2-io-1768770026307-c1",
@@ -7087,9 +7093,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 3"
   },
   "answer": "Coronal suture",
-  "accept": [
-   "coronal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp",
   "w": 547,
@@ -7170,9 +7174,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 4"
   },
   "answer": "Sagittal suture",
-  "accept": [
-   "sagittal"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp",
   "w": 547,
@@ -7254,7 +7256,8 @@
   },
   "answer": "Arachnoid granulations",
   "accept": [
-   "arachnoid villi"
+   "arachnoid villi",
+   "arachnoid granulation"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp",
@@ -7689,8 +7692,11 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768771540931 cloze 4"
   },
-  "answer": "(Cerebral cortex, neocortex, cortical ribbon)",
-  "accept": [],
+  "answer": "Cerebral cortex",
+  "accept": [
+   "neocortex",
+   "cortical ribbon"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-e31ecc2262c1b0ed89d0c567946e5cd63c10c467.webp",
   "w": 2000,
@@ -7860,7 +7866,6 @@
   },
   "answer": "Sagittal plane",
   "accept": [
-   "sagittal",
    "midsagittal",
    "mid-sagittal",
    "parasagittal",
@@ -9717,7 +9722,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -11012,7 +11016,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768772062676 cloze 1"
   },
-  "answer": "horn of lateral ventricle inferior",
+  "answer": "Inferior horn of lateral ventricle",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -11172,7 +11176,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768772062676 cloze 2"
   },
-  "answer": "(anger, fear)",
+  "answer": "Anger, fear",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -12420,7 +12424,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768772690586 cloze 1"
   },
-  "answer": "diencephalon; f",
+  "answer": "Diencephalon",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp",
@@ -13124,7 +13128,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 1"
   },
-  "answer": "temporal lobes",
+  "answer": "Temporal lobes",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -13289,7 +13293,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 2"
   },
-  "answer": "pain and olfaction (smell)",
+  "answer": "Pain and olfaction (smell)",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -13454,7 +13458,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 3"
   },
-  "answer": "ventricle third",
+  "answer": "Third ventricle",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -13841,7 +13845,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 5"
   },
-  "answer": "acute stress",
+  "answer": "Acute stress",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14330,7 +14334,7 @@
   "kind": "pin",
   "topic": "lab-2",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 4307,
   "source": {
    "type": "apkg",
@@ -14488,7 +14492,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"of Cranial Nerve I\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-2-io-1768773534376-c9",
@@ -14501,7 +14506,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 9"
   },
-  "answer": "visual inputs",
+  "answer": "Visual inputs",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14666,7 +14671,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 10"
   },
-  "answer": "neural tube",
+  "answer": "Neural tube",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15700,7 +15705,8 @@
   },
   "answer": "Lateral ventricle",
   "accept": [
-   "LV"
+   "LV",
+   "lateral ventricles"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/The-Basal-Ganglia-Coronal-Section-at-Thalamus1.webp",
@@ -17526,7 +17532,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768776886492 cloze 1"
   },
-  "answer": "(sensory relay)",
+  "answer": "Sensory relay",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp",
@@ -17600,7 +17606,7 @@
   "kind": "pin",
   "topic": "lab-2",
   "structure": null,
-  "status": "live",
+  "status": "draft",
   "position": 5201,
   "source": {
    "type": "apkg",
@@ -17707,7 +17713,8 @@
    "type": "mask"
   },
   "prompt": "Name the structure.",
-  "followups": []
+  "followups": [],
+  "review_note": "auto-audit: answer is an OCR fragment (\"homeostasis), (autonomic, endocrine\") and cannot be typed; fix from the source slide"
  },
  {
   "slug": "lab-2-io-1768777108242-c1",
@@ -18075,7 +18082,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768777402235 cloze 1"
   },
-  "answer": "oligodendrocytes",
+  "answer": "Oligodendrocytes",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
@@ -20031,7 +20038,8 @@
   },
   "answer": "Lateral ventricle",
   "accept": [
-   "LV"
+   "LV",
+   "lateral ventricles"
   ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-63f309d746274b2e21902f505573ccac448cfd41.webp",

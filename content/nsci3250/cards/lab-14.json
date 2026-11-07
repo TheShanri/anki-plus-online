@@ -447,7 +447,6 @@
   },
   "answer": "Genu of corpus callosum",
   "accept": [
-   "genu",
    "genu of CC",
    "genu of the corpus callosum"
   ],
@@ -509,7 +508,7 @@
    "type": "apkg",
    "ref": "apkg/lab-14 note 1773943065204 cloze 4"
   },
-  "answer": "Temporal Lobe",
+  "answer": "Temporal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
@@ -1353,7 +1352,7 @@
    "type": "apkg",
    "ref": "apkg/lab-14 note 1773943123079 cloze 4"
   },
-  "answer": "Temporal Lobe",
+  "answer": "Temporal lobe",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
@@ -1875,7 +1874,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -2189,7 +2187,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -2214,7 +2212,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -2317,7 +2314,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -2444,7 +2441,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -2470,7 +2467,8 @@
   "answer": "Columns of the fornix",
   "accept": [
    "fornix columns",
-   "columns of fornix"
+   "columns of fornix",
+   "column of the fornix"
   ],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
@@ -2570,7 +2568,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -2693,7 +2691,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -2819,7 +2817,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -2944,7 +2942,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3067,7 +3065,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3194,7 +3192,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3317,7 +3315,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3444,7 +3442,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3570,7 +3568,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3605,7 +3603,7 @@
   "h": 916,
   "target": {
    "shape": "rect",
-   "x": 0.0,
+   "x": 0,
    "y": 0.0881,
    "w": 0.1437,
    "h": 0.184
@@ -3697,7 +3695,7 @@
    },
    {
     "shape": "rect",
-    "x": 0.0,
+    "x": 0,
     "y": 0.0881,
     "w": 0.1437,
     "h": 0.184
@@ -3854,7 +3852,6 @@
   },
   "answer": "Body of corpus callosum",
   "accept": [
-   "body",
    "corpus callosum body",
    "body of CC",
    "body of the corpus callosum"
@@ -3989,7 +3986,6 @@
   },
   "answer": "Body of lateral ventricle",
   "accept": [
-   "body",
    "lateral ventricle body",
    "body of the lateral ventricle",
    "body of LV"
@@ -4795,7 +4791,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
@@ -7649,7 +7646,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
@@ -9622,7 +9620,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",

@@ -10,12 +10,12 @@
    "type": "pdf-labels",
    "ref": "lecture-11 page 25 text label"
   },
-  "answer": "Paramedian pontine reticular formation (PPRF)",
+  "answer": "Paramedian pontine reticular formation",
   "accept": [
    "PPRF",
    "horizontal gaze center",
    "lateral gaze center",
-   "pprf"
+   "Paramedian pontine reticular formation PPRF"
   ],
   "require_side": false,
   "image": "decks/lecture-11/pages/025.webp",

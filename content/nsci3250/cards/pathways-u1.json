@@ -893,7 +893,9 @@
   "keywords": [
    [
     "anterior",
-    "ventral",
+    "ventral"
+   ],
+   [
     "lateral"
    ]
   ],
@@ -1031,7 +1033,7 @@
   "pathway": "alst",
   "step": "compare-dcml",
   "prompt": "True or false: the DCML pathway crosses in the spinal cord while the anterolateral pathway crosses in the medulla.",
-  "answer": "False (reversed): anterolateral crosses in the cord, DCML in the caudal medulla",
+  "answer": "False",
   "accept": [
    "false",
    "f"
@@ -1041,7 +1043,8 @@
   "tags": [
    "pathway",
    "alst"
-  ]
+  ],
+  "explain": "Reversed: anterolateral crosses in the cord, DCML in the caudal medulla."
  },
  {
   "slug": "pathways-u1-dsct-modality",

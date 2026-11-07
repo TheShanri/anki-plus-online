@@ -396,7 +396,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 2"
   },
-  "answer": "peduncle superior cerebellar",
+  "answer": "Superior cerebellar peduncle",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-87e52297325f03754c58533fc56b0308f786aa31.webp",
@@ -5065,7 +5065,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 1"
   },
-  "answer": "complex vestibulocochlear",
+  "answer": "Vestibulocochlear complex",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-a55fa99c90864a7e3967620bae7a6c45b5fa5ab9.webp",
@@ -6996,7 +6996,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-a55fa99c90864a7e3967620bae7a6c45b5fa5ab9.webp",
@@ -9627,7 +9628,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-019320367c83e0cd5fd9c1c8f17d8496bd25d74c.webp",
@@ -11709,7 +11711,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 8"
   },
-  "answer": "fibers of pons transverse",
+  "answer": "Transverse fibers of the pons",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-55046b652ff3dc9f23ae40fdc518ebfecaf91f9a.webp",
@@ -12568,7 +12570,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 3"
   },
-  "answer": "colliculi Inferior",
+  "answer": "Inferior colliculi",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-8213278b337242b04deedd70a4eb3ec5a435c24f.webp",
@@ -13736,7 +13738,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-8213278b337242b04deedd70a4eb3ec5a435c24f.webp",
@@ -18145,7 +18148,9 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 4"
   },
   "answer": "Optic tract",
-  "accept": [],
+  "accept": [
+   "optic tracts"
+  ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
   "w": 2000,
@@ -20187,7 +20192,9 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 15"
   },
   "answer": "Olives",
-  "accept": [],
+  "accept": [
+   "olive"
+  ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
   "w": 2000,
@@ -20369,7 +20376,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
@@ -21098,7 +21106,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
@@ -22271,7 +22280,8 @@
   },
   "answer": "Cuneate tubercle",
   "accept": [
-   "tuberculum cuneatum"
+   "tuberculum cuneatum",
+   "cuneate tubercles"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-9eedecc88a82ef2ca08ecab23ebfe72238957e0a.webp",
@@ -22404,7 +22414,8 @@
   },
   "answer": "Gracile tubercle",
   "accept": [
-   "tuberculum gracile"
+   "tuberculum gracile",
+   "gracile tubercles"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-9eedecc88a82ef2ca08ecab23ebfe72238957e0a.webp",
@@ -22940,7 +22951,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-9eedecc88a82ef2ca08ecab23ebfe72238957e0a.webp",
@@ -23340,7 +23352,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338027314 cloze 1"
   },
-  "answer": "Rostral Midbrain",
+  "answer": "Rostral midbrain",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-85543087a60ce93761df80c42faa1970726250f3.webp",
@@ -24266,7 +24278,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338072694 cloze 1"
   },
-  "answer": "Rostral Pons",
+  "answer": "Rostral pons",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-4d82b26a3badd9a4bcbe9808ea7225646dbbb972.webp",
@@ -25148,7 +25160,8 @@
   "answer": "Cerebral peduncles",
   "accept": [
    "crus cerebri",
-   "basis pedunculi"
+   "basis pedunculi",
+   "cerebral peduncle"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-4d82b26a3badd9a4bcbe9808ea7225646dbbb972.webp",
@@ -26244,7 +26257,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338208857 cloze 1"
   },
-  "answer": "Caudal Pons",
+  "answer": "Caudal pons",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -26730,12 +26743,13 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 5"
   },
-  "answer": "Vestibular nucleus",
+  "answer": "Vestibulocochlear complex",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
    "vestibular complex",
-   "cochlear nuclei"
+   "cochlear nuclei",
+   "vestibular nucleus"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -26844,11 +26858,13 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 6"
   },
-  "answer": "Abducent nucleus and nerve",
+  "answer": "Abducens nucleus",
   "accept": [
    "CN VI nucleus",
    "nucleus of CN VI",
-   "VI nucleus"
+   "VI nucleus",
+   "abducent nucleus",
+   "abducens nucleus and nerve"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -26957,11 +26973,13 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 7"
   },
-  "answer": "Trigeminal spinal nucleus and tract",
+  "answer": "Spinal trigeminal nucleus",
   "accept": [
    "spinal nucleus of trigeminal",
    "trigeminal spinal nucleus",
-   "spinal nucleus of V"
+   "spinal nucleus of V",
+   "trigeminal spinal nucleus and tract",
+   "spinal trigeminal nucleus and tract"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -27515,7 +27533,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338257112 cloze 1"
   },
-  "answer": "Rostral Medulla",
+  "answer": "Rostral medulla",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -28114,7 +28132,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 5"
   },
-  "answer": "vestibular nucleus vestibular nucleus",
+  "answer": "Vestibular nucleus",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -28953,7 +28971,7 @@
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 11"
   },
-  "answer": "spinocerebellar tracts",
+  "answer": "Spinocerebellar tracts",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -29378,7 +29396,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -29653,7 +29672,10 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338350149 cloze 1"
   },
   "answer": "Caudal Medulla/ Sensory Decussation",
-  "accept": [],
+  "accept": [
+   "Caudal medulla",
+   "Sensory decussation"
+  ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",
   "w": 2000,
@@ -31099,7 +31121,8 @@
   "answer": "Pyramids",
   "accept": [
    "medullary pyramids",
-   "medullary pyramid"
+   "medullary pyramid",
+   "pyramid"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",

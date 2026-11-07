@@ -77,7 +77,14 @@
  },
  "Cerebral blood vessels": {
   "meshIds": [
-   "cerebral-arterial-circle"
+   "cerebral-arterial-circle",
+   "anterior-cerebral-artery",
+   "pericallosal-artery",
+   "middle-cerebral-artery-m1",
+   "middle-cerebral-artery-m3",
+   "posterior-cerebral-artery",
+   "basilar-artery",
+   "superior-cerebellar-artery"
   ],
   "approximate": false,
   "synonyms": [
@@ -175,23 +182,21 @@
  },
  "Body": {
   "meshIds": [
-   "mni-body-of-lateral-ventricle"
+   "corpus-callosum"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle",
+  "fallbackParentId": "corpus-callosum",
   "slug": "body-of-corpus-callosum",
   "approxMeshIds": [
    "lateral-ventricle"
   ],
   "registered": true,
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": []
  },
  "Inferior horn": {
   "meshIds": [
@@ -1543,31 +1548,31 @@
   "meshIds": [
    "thalamus"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Thalamus"
   ],
   "slug": "anterior-nucleus-of-thalamus",
   "slices": "exact",
   "exactIn": [
-   "3d",
    "slices"
-  ]
+  ],
+  "fallbackParentId": "thalamus"
  },
  "Pulvinar": {
   "meshIds": [
    "thalamus"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Thalamus"
   ],
   "slug": "pulvinar",
   "slices": "exact",
   "exactIn": [
-   "3d",
    "slices"
-  ]
+  ],
+  "fallbackParentId": "thalamus"
  },
  "Medial geniculate nucleus": {
   "meshIds": [
@@ -1731,17 +1736,16 @@
  },
  "Interpeduncular Fossa": {
   "meshIds": [
-   "interpeduncular-fossa"
+   "midbrain"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Fossa interpeduncularis"
   ],
   "slug": "interpeduncular-fossa",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "midbrain"
  },
  "Cerebellar Peduncles": {
   "meshIds": [
@@ -1829,7 +1833,7 @@
  },
  "Facial Colliculus": {
   "meshIds": [
-   "nucleus-of-abducens-nerve"
+   "pons"
   ],
   "approximate": true,
   "synonyms": [
@@ -1959,18 +1963,17 @@
  },
  "Interpeduncular cistern": {
   "meshIds": [
-   "interpeduncular-fossa"
+   "midbrain"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Interpeduncular fossa",
    "Fossa interpeduncularis"
   ],
   "slug": "interpeduncular-cistern",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "midbrain"
  },
  "(Glossopharyngeal and vagus cannot be easily distinguished from one another; accessory is not present on our brainstems)": {
   "meshIds": [
@@ -2102,17 +2105,16 @@
  },
  "Interpeduncular fossa": {
   "meshIds": [
-   "interpeduncular-fossa"
+   "midbrain"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Fossa interpeduncularis"
   ],
   "slug": "interpeduncular-fossa",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "midbrain"
  },
  "CN III, Oculomotor nerve": {
   "meshIds": [
@@ -2284,7 +2286,7 @@
  },
  "Motor trigeminal nucleus": {
   "meshIds": [
-   "motor-root-of-trigeminal-nerve"
+   "pons"
   ],
   "approximate": true,
   "synonyms": [
@@ -2298,7 +2300,7 @@
  },
  "Principal sensory nucleus of trigeminal": {
   "meshIds": [
-   "sensory-root-of-trigeminal-nerve"
+   "pons"
   ],
   "approximate": true,
   "synonyms": [
@@ -2345,7 +2347,7 @@
  },
  "Facial colliculus": {
   "meshIds": [
-   "nucleus-of-abducens-nerve"
+   "pons"
   ],
   "approximate": true,
   "synonyms": [
@@ -2989,15 +2991,14 @@
   "meshIds": [
    "corpus-callosum"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Corpus callosum"
   ],
   "slug": "splenium-of-corpus-callosum",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "corpus-callosum"
  },
  "Caudate : head, body, tail": {
   "meshIds": [
@@ -3332,23 +3333,21 @@
  },
  "body": {
   "meshIds": [
-   "mni-body-of-lateral-ventricle"
+   "corpus-callosum"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
   ],
-  "fallbackParentId": "lateral-ventricle",
+  "fallbackParentId": "corpus-callosum",
   "slug": "body-of-corpus-callosum",
   "approxMeshIds": [
    "lateral-ventricle"
   ],
   "registered": true,
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": []
  },
  "trigone or atrium": {
   "meshIds": [
@@ -3438,15 +3437,14 @@
   "meshIds": [
    "corpus-callosum"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Corpus callosum"
   ],
   "slug": "splenium-of-corpus-callosum",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "corpus-callosum"
  },
  "caudate : head, body, tail": {
   "meshIds": [
@@ -3636,16 +3634,16 @@
   "meshIds": [
    "thalamus"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Thalamus"
   ],
   "slug": "pulvinar",
   "slices": "exact",
   "exactIn": [
-   "3d",
    "slices"
-  ]
+  ],
+  "fallbackParentId": "thalamus"
  },
  "third ventricle": {
   "meshIds": [
@@ -4180,14 +4178,14 @@
  },
  "Callosomarginal Artery": {
   "meshIds": [
-   "anterior-cerebral-artery"
+   "pericallosal-artery"
   ],
   "approximate": true,
   "synonyms": [
    "Anterior cerebral artery",
    "Arteria cerebri anterior"
   ],
-  "fallbackParentId": "anterior-cerebral-artery",
+  "fallbackParentId": "pericallosal-artery",
   "slug": "callosomarginal-artery",
   "slices": null,
   "exactIn": []
@@ -4899,7 +4897,12 @@
  },
  "Circle of Willis": {
   "meshIds": [
-   "cerebral-arterial-circle"
+   "cerebral-arterial-circle",
+   "anterior-communicating-artery",
+   "posterior-communicating-artery",
+   "anterior-cerebral-artery",
+   "posterior-cerebral-artery",
+   "basilar-artery"
   ],
   "approximate": false,
   "synonyms": [],

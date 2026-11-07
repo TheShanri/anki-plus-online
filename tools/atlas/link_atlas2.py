@@ -26,6 +26,32 @@ for g in gaps:
                       bytes=os.path.getsize(fp), registered=True)
     added[g["slug"]] = g["id"]
 
+
+# 1b. bbox sanity: recompute every bbox from the GLB itself (a stale index bbox, e.g. the hypothalamus one that
+# reached down to the spinal cord, makes the viewer frame empty space and show nothing).
+import struct
+def glb_bbox(fp):
+    b = open(fp, "rb").read(); n = struct.unpack("<I", b[12:16])[0]; j = json.loads(b[20:20 + n])
+    lo, hi = np.full(3, 1e9), np.full(3, -1e9)
+    for nd in j["nodes"]:
+        if nd.get("mesh") is None or "rotation" in nd: continue
+        for p in j["meshes"][nd["mesh"]]["primitives"]:
+            a = j["accessors"][p["attributes"]["POSITION"]]
+            sc = {5122: 32767, 5120: 127, 5123: 65535, 5121: 255}.get(a["componentType"], 1) if a.get("normalized") else 1
+            s_, t_ = np.array(nd.get("scale", [1, 1, 1])), np.array(nd.get("translation", [0, 0, 0]))
+            for m_ in (np.array(a["min"]) / sc * s_ + t_, np.array(a["max"]) / sc * s_ + t_):
+                lo, hi = np.minimum(lo, m_), np.maximum(hi, m_)
+    return lo, hi
+for k, e in S.items():
+    fp = os.path.join(ROOT, "public/atlas", e.get("file") or "")
+    if not e.get("file") or not os.path.exists(fp): continue
+    lo, hi = glb_bbox(fp)
+    if hi[0] < lo[0]: continue
+    old = np.array(e["bbox"])
+    if np.abs(np.array([lo, hi]) - old).max() > 0.003:
+        print("bbox fixed:", k)
+        e["bbox"] = [[round(float(x), 5) for x in lo], [round(float(x) , 5) for x in hi]]
+
 # 2. 3D neighbours (bbox gap), among curriculum meshes
 cur = set(i for v in amap.values() for i in v["meshIds"]) | set(added.values())
 def box(e): return np.array(e["bbox"][0]), np.array(e["bbox"][1])
@@ -99,6 +125,25 @@ OVERRIDE = {
     "ventral-rootlets": (["anterior-root-of-spinal-nerve"], True),
     "accessory-nerve": (["nucleus-of-accessory-nerve"], True),
 }
+
+# Vetting fixes (atlas screenshot review): the mapped mesh was either the whole parent shown as if exact, or a mesh
+# so tiny / the wrong shape that the highlight was invisible or misleading. Shown as approximate on the containing mesh.
+APPROX_FIX = {
+    "pulvinar": (["thalamus"], True),
+    "anterior-nucleus-of-thalamus": (["thalamus"], True),
+    "facial-colliculus": (["pons"], True),
+    "interpeduncular-fossa": (["midbrain"], True),
+    "interpeduncular-cistern": (["midbrain"], True),
+    "motor-trigeminal-nucleus": (["pons"], True),
+    "principal-sensory-nucleus-of-trigeminal": (["pons"], True),
+    # these were mapped to an unrelated mesh through a shared short name ("Genu", "Body") or shown as exact
+    "genu-of-corpus-callosum": (["corpus-callosum"], True),
+    "body-of-corpus-callosum": (["corpus-callosum"], True),
+    "splenium-of-corpus-callosum": (["corpus-callosum"], True),
+    "callosomarginal-artery": (["pericallosal-artery"], True),
+    "circle-of-willis": (["cerebral-arterial-circle", "anterior-communicating-artery", "posterior-communicating-artery", "anterior-cerebral-artery", "posterior-cerebral-artery", "basilar-artery"], False),
+    "cerebral-blood-vessels": (["cerebral-arterial-circle", "anterior-cerebral-artery", "pericallosal-artery", "middle-cerebral-artery-m1", "middle-cerebral-artery-m3", "posterior-cerebral-artery", "basilar-artery", "superior-cerebellar-artery"], False),
+}
 IDX_BY_NAME = {}
 for k, e in S.items():
     IDX_BY_NAME.setdefault(norm(e["name"]), k)
@@ -147,6 +192,20 @@ for st in structs:
                            slices=sl["quality"] if sl else None, exactIn=e["exactIn"], registered=bool(e.get("registered")))
     elif sl:
         links[slug] = dict(name=st["name"], meshIds=[], approximate=False, fallbackParentId=None, slices=sl["quality"], exactIn=["slices"] if sl["quality"] != "regional" else [], registered=False)
+
+# apply the vetting fixes to the final links (and to the atlas-map entry only when it belongs to this slug alone)
+for slug, (ids, ap) in APPROX_FIX.items():
+    l = links.get(slug)
+    if not l: print("APPROX_FIX: unknown slug", slug); continue
+    assert all(i in S for i in ids), (slug, ids)
+    l["registered"] = False
+    l["meshIds"] = list(ids); l["approximate"] = ap; l["fallbackParentId"] = ids[0] if ap else None
+    l["exactIn"] = [w for w in l["exactIn"] if w != "3d"] + ([] if ap else ["3d"])
+    for e in amap.values():
+        if e.get("slug") == slug:
+            e["meshIds"] = list(ids); e["approximate"] = ap; e["exactIn"] = l["exactIn"]
+            if ap: e["fallbackParentId"] = ids[0]
+            else: e.pop("fallbackParentId", None)
 json.dump(amap, open(os.path.join(ROOT, "src/data/atlas-map.json"), "w", encoding="utf8"), indent=1, ensure_ascii=False)
 json.dump(links, open(os.path.join(ROOT, "src/data/atlas-links.json"), "w", encoding="utf8"), separators=(",", ":"), ensure_ascii=False)
 ap = [k for k, v in amap.items() if v.get("approximate")]

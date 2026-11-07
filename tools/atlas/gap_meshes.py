@@ -32,7 +32,8 @@ MESH_OK = {"anterior-horn-of-lateral-ventricle", "body-of-lateral-ventricle", "i
            "atrium-of-lateral-ventricle", "internal-capsule", "anterior-limb-of-internal-capsule", "genu-of-internal-capsule", "posterior-limb-of-internal-capsule",
            "pineal-gland", "middle-cerebellar-peduncle", "inferior-cerebellar-peduncle", "substantia-nigra", "medial-lemniscus", "medial-longitudinal-fasciculus",
            "longitudinal-fibers-of-the-pons", "subthalamic-nucleus", "periaqueductal-gray", "red-nucleus", "superior-cerebellar-peduncle", "nucleus-accumbens"}
-FORCE = {"periaqueductal-gray", "genu-of-internal-capsule"}  # Z-Anatomy map entry points at the aqueduct / a parent, not the structure
+FORCE = {"periaqueductal-gray", "genu-of-internal-capsule", "inferior-horn-of-lateral-ventricle"}  # Z-Anatomy map entry points at the aqueduct / a parent, not the structure
+OPEN = {"periaqueductal-gray", "inferior-horn-of-lateral-ventricle"}  # structures whose label has thin spurious columns
 gaps = []
 for st in structs:
     slug = st["slug"]
@@ -50,6 +51,16 @@ for slug in gaps:
     m = np.zeros(v1.shape, np.float32)
     if s["labels"]: m[np.isin(v1, s["labels"])] = 1
     if s["tracts"]: m[np.isin(v2, s["tracts"])] = 1
+    # drop stray label voxels far from the structure (they became long slivers, e.g. in the inferior horn and the periaqueductal gray)
+    # thin one-voxel-wide columns (the PAG label runs down the central canal) are removed by a small opening
+    op = ndi.binary_opening(m > 0, iterations=2) if slug in OPEN else m > 0
+    if op.sum() > 0.5 * (m > 0).sum(): m = op.astype(np.float32)
+    cc, ncc = ndi.label(m > 0, structure=np.ones((3, 3, 3)))
+    if ncc > 1:
+        sizes = ndi.sum(m > 0, cc, range(1, ncc + 1))
+        keep = [i + 1 for i, sz in enumerate(sizes) if sz >= 0.05 * sizes.max()]
+        if len(keep) < ncc: print("  dropped", ncc - len(keep), "stray component(s) of", slug)
+        m[~np.isin(cc, keep)] = 0
     nz = np.argwhere(m > 0)
     if len(nz) < 50: print("skip tiny", slug); continue
     lo = np.maximum(nz.min(0) - 4, 0); hi = np.minimum(nz.max(0) + 5, m.shape)

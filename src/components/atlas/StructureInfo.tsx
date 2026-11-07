@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { resolveMediaSrc } from "@/components/cards/media";
+import "@/components/study/study.css"; // chips
 
 type CardInfo = {
   id: string;

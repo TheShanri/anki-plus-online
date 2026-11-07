@@ -201,7 +201,7 @@
    "ref": "practical-u3-2025 Q6"
   },
   "answer": "Posterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "Posterior horn of LV",
    "posterior horn",
@@ -284,7 +284,7 @@
    "ref": "practical-u3-2025 Q8"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th Ventricle",
    "ventricle IV",

@@ -16,9 +16,9 @@ const concept = new Set(JSON.parse(readFileSync(join(root, "content", "nsci3250"
 const exact = new Map();
 for (const [kind, list] of Object.entries(table.answers)) for (const a of list) exact.set(a.toLowerCase(), kind);
 
-const NOUN = { structure: "structure", direction: "directional term", plane: "plane", region: "region", term: "term", function: "function", level: "level" };
+const NOUN = { structure: "structure", direction: "directional term", plane: "plane", region: "region", term: "term", function: "function", space: "space", level: "level" };
 const FN_LEADER = "Name the function of the part the leader line / label points to.";
-const KINDS = "structure|directional term|plane|region|term|function|level";
+const KINDS = "structure|directional term|plane|region|term|function|space|level";
 const GEN = new RegExp("^Name the (" + KINDS + ")\[.]$");
 const GEN_LEADER = new RegExp("^Name the (" + KINDS + ") the leader line / label points to\[.]$");
 

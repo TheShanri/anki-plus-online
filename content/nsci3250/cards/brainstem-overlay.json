@@ -58,7 +58,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 1"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -193,7 +193,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -2007,7 +2007,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 1"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -2123,7 +2123,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -3328,7 +3328,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 1"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -3483,7 +3483,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -6503,7 +6503,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 6"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -6704,7 +6704,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -9007,7 +9007,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 2"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -9127,7 +9127,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",

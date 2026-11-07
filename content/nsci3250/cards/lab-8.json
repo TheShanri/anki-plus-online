@@ -4776,7 +4776,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 13"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -5153,7 +5153,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "Rostral Pons",
   "tags": [
@@ -8469,7 +8469,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 11"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -8788,7 +8788,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "Rostral Medulla",
   "tags": [
@@ -12610,7 +12610,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 2"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -12891,7 +12891,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "Caudal Midbrain",
   "tags": [
@@ -14730,7 +14730,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 1"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -15041,7 +15041,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "Rostral Midbrain",
   "tags": [
@@ -25199,7 +25199,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 1"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -25292,7 +25292,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -28733,7 +28733,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 1"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -28860,7 +28860,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",

@@ -11,7 +11,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 1"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -77,7 +77,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -100,7 +100,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 2"
   },
   "answer": "Inferior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -167,7 +167,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -189,7 +189,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 3"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -253,7 +253,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -275,7 +275,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 4"
   },
   "answer": "Posterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -341,7 +341,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -530,7 +530,7 @@
    "ref": "apkg/lab-13 note 1773765507953 cloze 1"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -603,7 +603,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -625,7 +625,7 @@
    "ref": "apkg/lab-13 note 1773765507953 cloze 2"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -698,7 +698,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -2786,7 +2786,7 @@
    "ref": "apkg/lab-13 note 1773766643752 cloze 1"
   },
   "answer": "Body of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -2836,7 +2836,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -3414,7 +3414,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 5"
   },
   "answer": "Body of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -3478,7 +3478,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -4461,7 +4461,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 6"
   },
   "answer": "Atrium of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "atrium",
    "trigone",
@@ -4617,7 +4617,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -5345,7 +5345,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 11"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -5502,7 +5502,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -6997,7 +6997,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 6"
   },
   "answer": "Posterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -7126,7 +7126,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -7594,7 +7594,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 10"
   },
   "answer": "Foramina of Monro",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -7722,7 +7722,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -7894,7 +7894,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 12"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -8023,7 +8023,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -10187,7 +10187,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 13"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -10307,7 +10307,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -10894,7 +10894,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 5"
   },
   "answer": "Inferior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -10982,7 +10982,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -11212,7 +11212,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 8"
   },
   "answer": "Inferior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -11300,7 +11300,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u3",

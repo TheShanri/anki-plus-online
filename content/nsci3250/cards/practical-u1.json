@@ -421,7 +421,7 @@
    "ref": "practical-u1-2024 Q12"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -3124,7 +3124,7 @@
    "ref": "practice-practical-lab3 Q3"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -3386,7 +3386,7 @@
    "ref": "practice-practical-lab3 Q10"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -3687,7 +3687,7 @@
    "ref": "practice-practical-lab3 Q18"
   },
   "answer": "Body of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",

@@ -11158,7 +11158,7 @@
    "ref": "apkg/lab-1 note 1768350782186 cloze 2"
   },
   "answer": "Between dura and arachnoid",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
@@ -11204,7 +11204,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11224,7 +11224,7 @@
    "ref": "apkg/lab-1 note 1768350782186 cloze 3"
   },
   "answer": "Between arachnoid and pia",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
@@ -11270,7 +11270,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11423,7 +11423,7 @@
    "ref": "apkg/lab-1 note 1768350839527 cloze 2"
   },
   "answer": "Epidural space",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "extradural space"
   ],
@@ -11471,7 +11471,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "lol",
   "tags": [
@@ -11493,7 +11493,7 @@
    "ref": "apkg/lab-1 note 1768350839527 cloze 3"
   },
   "answer": "Subdural space",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-1b553778dec0468f1755c883f953496cb5c74ab3.webp",
@@ -11539,7 +11539,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "lol",
   "tags": [
@@ -11561,7 +11561,7 @@
    "ref": "apkg/lab-1 note 1768350839527 cloze 4"
   },
   "answer": "Subarachnoid space",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-1b553778dec0468f1755c883f953496cb5c74ab3.webp",
@@ -11607,7 +11607,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "caption": "lol",
   "tags": [

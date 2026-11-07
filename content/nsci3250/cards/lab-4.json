@@ -3677,7 +3677,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 5"
   },
   "answer": "Subdural space",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-399e2b390cde6814981b305755813ff1bc3a5d75.webp",
@@ -3737,7 +3737,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3758,7 +3758,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 6"
   },
   "answer": "Subarachnoid space",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-399e2b390cde6814981b305755813ff1bc3a5d75.webp",
@@ -3818,7 +3818,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u1",

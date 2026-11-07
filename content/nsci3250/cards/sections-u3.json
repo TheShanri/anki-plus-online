@@ -169,7 +169,7 @@
    "ref": "lab-13 page 7 text label"
   },
   "answer": "Body of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "body of LV",
    "body of the lateral ventricle",
@@ -303,7 +303,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -1071,7 +1071,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Body of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "body of LV",
    "body of the lateral ventricle",
@@ -1296,7 +1296,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -2164,7 +2164,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "AH",
    "anterior horn",
@@ -2489,7 +2489,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -6669,7 +6669,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Atrium of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "atrium",
    "atrium or trigone",
@@ -6993,7 +6993,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -7356,7 +7356,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "AH",
    "anterior horn",
@@ -7674,7 +7674,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -8380,7 +8380,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Foramina of Monro",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "foramen of Monro",
    "foramina of Monroe",
@@ -8697,7 +8697,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -11096,7 +11096,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Posterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "PH",
    "occipital horn",
@@ -11414,7 +11414,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -18077,7 +18077,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Inferior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "IH",
    "inferior horn",
@@ -18277,7 +18277,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -19607,7 +19607,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "AH",
    "anterior horn",
@@ -19743,7 +19743,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -26191,7 +26191,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3V",
    "3rd ventricle",
@@ -26479,7 +26479,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -28140,7 +28140,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Body of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "body of LV",
    "body of the lateral ventricle",
@@ -28470,7 +28470,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -28848,7 +28848,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Foramina of Monro",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "foramen of Monro",
    "foramina of Monroe",
@@ -29179,7 +29179,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -30263,7 +30263,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3V",
    "3rd ventricle",
@@ -30593,7 +30593,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -32437,7 +32437,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3V",
    "3rd ventricle",
@@ -32795,7 +32795,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -37142,7 +37142,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Inferior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "IH",
    "inferior horn",
@@ -37440,7 +37440,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -38101,7 +38101,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "CA",
    "aqueduct",
@@ -38397,7 +38397,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -40121,7 +40121,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "CA",
    "aqueduct",
@@ -40382,7 +40382,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -40543,7 +40543,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -40655,7 +40655,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -40813,7 +40813,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Atrium of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "atrium",
    "atrium or trigone",
@@ -40927,7 +40927,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -40951,7 +40951,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4V",
    "4th ventricle",
@@ -41064,7 +41064,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the space the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",

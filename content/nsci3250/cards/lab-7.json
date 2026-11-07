@@ -7167,7 +7167,7 @@
    "ref": "apkg/lab-7 note 1770685384096 cloze 2"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -7217,7 +7217,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -14428,7 +14428,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 8"
   },
   "answer": "区 Ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
@@ -14523,7 +14523,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -15025,7 +15025,7 @@
    "ref": "apkg/lab-7 note 1770686076690 cloze 2"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -15069,7 +15069,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -15090,7 +15090,7 @@
    "ref": "apkg/lab-7 note 1770686076690 cloze 3"
   },
   "answer": "Fourth ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -15133,7 +15133,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -15430,7 +15430,7 @@
    "ref": "apkg/lab-7 note 1770686160234 cloze 1"
   },
   "answer": "Subarachnoid space",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
@@ -15469,7 +15469,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -15490,7 +15490,7 @@
    "ref": "apkg/lab-7 note 1770686160234 cloze 2"
   },
   "answer": "Interpeduncular cistern",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
@@ -15529,7 +15529,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -19264,7 +19264,7 @@
    "ref": "apkg/lab-7 note 1770728625914 cloze 1"
   },
   "answer": "Interpeduncular cistern",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-d207242d4072464d2d06e70ff2c046c7d96631cc.webp",
@@ -19289,7 +19289,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "unit:u2",

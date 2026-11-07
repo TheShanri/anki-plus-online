@@ -208,6 +208,33 @@
       "1st order neuron (drg cervical/thoracic)",
       "1st order neuron (drg sacral/lumbar)",
       "synapse (l1 lumbar) marginal zone nucleus"
+    ],
+    "space": [
+      "cerebral aqueduct",
+      "through cerebral aqueduct",
+      "fourth ventricle",
+      "third ventricle",
+      "lateral ventricle",
+      "lateral ventricles",
+      "anterior horn of lateral ventricle",
+      "inferior horn of lateral ventricle",
+      "posterior horn of lateral ventricle",
+      "body of lateral ventricle",
+      "atrium of lateral ventricle",
+      "inferior horn of lateral ventricle all the way to trigone",
+      "foramina of monro",
+      "foramina of luschka",
+      "foramen of magendie",
+      "interventricular foramen",
+      "central canal",
+      "interpeduncular cistern",
+      "epidural space",
+      "subdural space",
+      "subarachnoid space",
+      "lateral, 3rd and 4th",
+      "区 ventricle",
+      "between dura and arachnoid",
+      "between arachnoid and pia"
     ]
   },
   "cardSlugs": {

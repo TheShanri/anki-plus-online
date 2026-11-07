@@ -549,7 +549,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157846315 cloze 1"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -580,7 +580,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -2610,7 +2610,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158274608 cloze 1"
   },
   "answer": "Third ventricle",
-  "answer_kind": "structure",
+  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -2639,7 +2639,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the space.",
   "followups": [],
   "tags": [
    "practice-practical",

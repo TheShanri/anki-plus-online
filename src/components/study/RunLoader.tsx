@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { StudyPayload } from "@/lib/study/types";
 import { StudyRunner } from "./StudyRunner";
@@ -31,7 +31,10 @@ export function RunLoader({ scope, limit, course, initial = null }: { scope: str
       live = false;
     };
   }, [scope, course, initial]);
+  // The engine only exists in the browser: render the loading line for the server and the hydration pass alike,
+  // then the session (a server-built first batch would otherwise mismatch on hydration).
+  const client = useSyncExternalStore(() => () => {}, () => true, () => false);
   if (error) return <div className="panel"><p className="field-error">{error}</p><Link className="btn" href="/study">Back</Link></div>;
-  if (!payload) return <div className="panel"><p className="text-text-dim">Loading your cards…</p></div>;
+  if (!payload || !client) return <div className="panel"><p className="text-text-dim">Loading your cards…</p></div>;
   return <StudyRunner initial={payload} scope={scope} limit={limit} tz={tz} />;
 }

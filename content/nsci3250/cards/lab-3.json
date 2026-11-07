@@ -3692,7 +3692,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 2"
   },
   "answer": "Motivation and goal setting",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-5deaea72cb9cde5d8264ec19ab6ac5c01d012f44.webp",
@@ -3774,7 +3774,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3901,7 +3901,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 4"
   },
   "answer": "Self control, regulation of emotions",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-5deaea72cb9cde5d8264ec19ab6ac5c01d012f44.webp",
@@ -3983,7 +3983,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4110,7 +4110,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 6"
   },
   "answer": "Social and emotional decision making",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -4309,7 +4309,7 @@
    "ref": "apkg/lab-3 note 1769005423450 cloze 2"
   },
   "answer": "Executive function, working memory",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-422c221be5606b2a2e81e285ca7f47b7755e3afe.webp",
@@ -4355,7 +4355,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4446,7 +4446,7 @@
    "ref": "apkg/lab-3 note 1769005423450 cloze 4"
   },
   "answer": "Social and emotional decision making",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-422c221be5606b2a2e81e285ca7f47b7755e3afe.webp",
@@ -4492,7 +4492,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4569,7 +4569,7 @@
    "ref": "apkg/lab-3 note 1769005530766 cloze 2"
   },
   "answer": "Social and emotional decision making",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-cb0ad22609d127586a2f18ca2988183085727b61.webp",
@@ -4601,7 +4601,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9993,7 +9993,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 7"
   },
   "answer": "Sound information",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -10074,7 +10074,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",

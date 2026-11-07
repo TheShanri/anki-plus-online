@@ -7376,7 +7376,7 @@
    "ref": "apkg/lab-7 note 1770685400546 cloze 1"
   },
   "answer": "Melatonin production",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
@@ -7445,7 +7445,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -8243,7 +8243,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 1"
   },
   "answer": "Relay information to the cerebral cortex",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -8399,7 +8399,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -12037,7 +12037,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 7"
   },
   "answer": "eliciting visual reflexes and tracking motions",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -12141,7 +12141,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -13264,7 +13264,7 @@
    "ref": "apkg/lab-7 note 1770685995086 cloze 3"
   },
   "answer": "Vomiting",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -13343,7 +13343,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u2",

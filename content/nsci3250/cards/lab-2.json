@@ -4869,7 +4869,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 1"
   },
   "answer": "Produced in choroid plexus",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -4950,7 +4950,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -7069,7 +7069,7 @@
    "ref": "apkg/lab-2 note 1768769980503 cloze 1"
   },
   "answer": "Reabsorb",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
@@ -7122,7 +7122,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -14399,7 +14399,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 2"
   },
   "answer": "Pain and olfaction (smell)",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14550,7 +14550,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15661,7 +15661,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 9"
   },
   "answer": "Visual inputs",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15812,7 +15812,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -18976,7 +18976,7 @@
    "ref": "apkg/lab-2 note 1768776886492 cloze 1"
   },
   "answer": "Sensory relay",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp",
@@ -19042,7 +19042,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",

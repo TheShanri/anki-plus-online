@@ -222,7 +222,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157796680 cloze 2"
   },
   "answer": "Drain reabsorb CSF",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-cf274cc7a41c388b4ff928a63779138b8cad6348.webp",
@@ -254,7 +254,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -3795,7 +3795,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158482694 cloze 1"
   },
   "answer": "Pain, temp, itch, crude touch",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-acb498763e0986451d4dbebbb005f46687c91339.webp",
@@ -3820,7 +3820,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "practice-practical",

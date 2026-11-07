@@ -13057,7 +13057,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 1"
   },
   "answer": "Unconscious proprioception",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13124,7 +13124,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15047,7 +15047,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 1"
   },
   "answer": "Pain, temperature",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -15180,7 +15180,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -16673,7 +16673,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 5"
   },
   "answer": "Synapse (L1 Lumbar) Marginal Zone Nucleus",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -16768,7 +16768,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17510,7 +17510,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 1"
   },
   "answer": "Sensory Input (Legs/T6 and below)",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17605,7 +17605,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17627,7 +17627,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 2"
   },
   "answer": "Sensory Input (Arms/T6 and above)",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17722,7 +17722,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17744,7 +17744,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 3"
   },
   "answer": "1st Order Neuron (DRG Cervical/Thoracic)",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17839,7 +17839,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17860,7 +17860,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 4"
   },
   "answer": "1st Order Neuron (DRG Sacral/Lumbar)",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17955,7 +17955,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -18813,7 +18813,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 1"
   },
   "answer": "Sensory Input (Legs/Muscle Spindles)",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-b4f79c0003be3d2cd664436763c69fb17a06779b.webp",
@@ -18873,7 +18873,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",

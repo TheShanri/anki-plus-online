@@ -5384,7 +5384,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 3"
   },
   "answer": "Motor",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5497,7 +5497,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5519,7 +5519,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 4"
   },
   "answer": "Mixed",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [
    "mixed (motor and sensory)",
    "motor and sensory"
@@ -5665,7 +5665,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11051,7 +11051,7 @@
    "ref": "apkg/lab-4 note 1769560432382 cloze 1"
   },
   "answer": "Exit",
-  "answer_kind": "term",
+  "answer_kind": "function",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
@@ -11090,7 +11090,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the function.",
   "followups": [],
   "tags": [
    "unit:u1",

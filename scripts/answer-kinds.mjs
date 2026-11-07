@@ -16,8 +16,9 @@ const concept = new Set(JSON.parse(readFileSync(join(root, "content", "nsci3250"
 const exact = new Map();
 for (const [kind, list] of Object.entries(table.answers)) for (const a of list) exact.set(a.toLowerCase(), kind);
 
-const NOUN = { structure: "structure", direction: "directional term", plane: "plane", region: "region", term: "term", level: "level" };
-const KINDS = "structure|directional term|plane|region|term|level";
+const NOUN = { structure: "structure", direction: "directional term", plane: "plane", region: "region", term: "term", function: "function", level: "level" };
+const FN_LEADER = "Name the function of the part the leader line / label points to.";
+const KINDS = "structure|directional term|plane|region|term|function|level";
 const GEN = new RegExp("^Name the (" + KINDS + ")\[.]$");
 const GEN_LEADER = new RegExp("^Name the (" + KINDS + ") the leader line / label points to\[.]$");
 
@@ -53,7 +54,7 @@ for (const f of readdirSync(dir).filter((f) => f.endsWith(".json"))) {
     let prompt = c.prompt;
     if (c.kind === "pin") {
       if (!prompt || GEN.test(prompt)) prompt = `Name the ${NOUN[kind]}.`;
-      else if (GEN_LEADER.test(prompt)) prompt = `Name the ${NOUN[kind]} the leader line / label points to.`;
+      else if (GEN_LEADER.test(prompt) || prompt === FN_LEADER) prompt = kind === "function" ? FN_LEADER : `Name the ${NOUN[kind]} the leader line / label points to.`;
       else if (kind !== "structure") stat.custom.push(`${c.slug} [${kind}] "${prompt}" -> ${c.answer}`);
       if (prompt !== c.prompt) stat.changed[kind] = (stat.changed[kind] ?? 0) + 1;
     }

@@ -11,6 +11,7 @@
    "ref": "apkg/lab-16 note 1775055004116 cloze 1"
   },
   "answer": "Posterior communicating artery",
+  "answer_kind": "structure",
   "accept": [
    "PCom",
    "PComA",
@@ -95,6 +96,7 @@
    "ref": "apkg/lab-16 note 1775055004116 cloze 2"
   },
   "answer": "Superior cerebellar artery",
+  "answer_kind": "structure",
   "accept": [
    "superior cerebellar a.",
    "SCA"
@@ -179,6 +181,7 @@
    "ref": "apkg/lab-16 note 1775055004116 cloze 3"
   },
   "answer": "Vertebral artery",
+  "answer_kind": "structure",
   "accept": [
    "vertebral arteries",
    "VA"
@@ -262,6 +265,7 @@
    "ref": "apkg/lab-16 note 1775055004116 cloze 4"
   },
   "answer": "Basilar artery",
+  "answer_kind": "structure",
   "accept": [
    "basilar"
   ],
@@ -344,6 +348,7 @@
    "ref": "apkg/lab-16 note 1775055004116 cloze 5"
   },
   "answer": "Pontine arteries",
+  "answer_kind": "structure",
   "accept": [
    "pontine branches",
    "pontine artery"
@@ -427,6 +432,7 @@
    "ref": "apkg/lab-16 note 1775055004116 cloze 6"
   },
   "answer": "Posterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "PCA"
   ],
@@ -509,6 +515,7 @@
    "ref": "apkg/lab-16 note 1775055086584 cloze 1"
   },
   "answer": "Superior cerebellar artery",
+  "answer_kind": "structure",
   "accept": [
    "superior cerebellar a.",
    "SCA"
@@ -579,6 +586,7 @@
    "ref": "apkg/lab-16 note 1775055086584 cloze 2"
   },
   "answer": "Posterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "PCA"
   ],
@@ -647,6 +655,7 @@
    "ref": "apkg/lab-16 note 1775055086584 cloze 3"
   },
   "answer": "Basilar artery",
+  "answer_kind": "structure",
   "accept": [
    "basilar"
   ],
@@ -715,6 +724,7 @@
    "ref": "apkg/lab-16 note 1775055086584 cloze 4"
   },
   "answer": "Vertebral artery",
+  "answer_kind": "structure",
   "accept": [
    "vertebral arteries",
    "VA"
@@ -784,6 +794,7 @@
    "ref": "apkg/lab-16 note 1775055111921 cloze 1"
   },
   "answer": "Posterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "PCA"
   ],
@@ -859,6 +870,7 @@
    "ref": "apkg/lab-16 note 1775055111921 cloze 2"
   },
   "answer": "Basilar artery",
+  "answer_kind": "structure",
   "accept": [
    "basilar"
   ],
@@ -934,6 +946,7 @@
    "ref": "apkg/lab-16 note 1775055111921 cloze 3"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -1015,6 +1028,7 @@
    "ref": "apkg/lab-16 note 1775055111921 cloze 4"
   },
   "answer": "Superior cerebellar artery",
+  "answer_kind": "structure",
   "accept": [
    "superior cerebellar a.",
    "SCA"
@@ -1092,6 +1106,7 @@
    "ref": "apkg/lab-16 note 1775055111921 cloze 5"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-16/media/paste-0ac765f29d3dfd263eda148c4b50de74735d6a82.webp",
@@ -1166,6 +1181,7 @@
    "ref": "apkg/lab-16 note 1775055132295 cloze 1"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA"
   ],
@@ -1227,6 +1243,7 @@
    "ref": "apkg/lab-16 note 1775055132295 cloze 2"
   },
   "answer": "Middle cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "MCA"
   ],
@@ -1288,6 +1305,7 @@
    "ref": "apkg/lab-16 note 1775055132295 cloze 3"
   },
   "answer": "Internal carotid artery",
+  "answer_kind": "structure",
   "accept": [
    "internal carotid arteries",
    "internal carotid",
@@ -1351,6 +1369,7 @@
    "ref": "apkg/lab-16 note 1775055155139 cloze 1"
   },
   "answer": "Anterior communicating artery",
+  "answer_kind": "structure",
   "accept": [
    "ACom",
    "AComA",
@@ -1452,6 +1471,7 @@
    "ref": "apkg/lab-16 note 1775055174768 cloze 1"
   },
   "answer": "Callosomarginal artery",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-16/media/paste-3c7d8a0142ae95d52dfd614378d5794fff4ec317.webp",
@@ -1511,6 +1531,7 @@
    "ref": "apkg/lab-16 note 1775055174768 cloze 2"
   },
   "answer": "Pericallosal artery",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-16/media/paste-3c7d8a0142ae95d52dfd614378d5794fff4ec317.webp",
@@ -1570,6 +1591,7 @@
    "ref": "apkg/lab-16 note 1775055174768 cloze 3"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA"
   ],
@@ -1631,6 +1653,7 @@
    "ref": "apkg/lab-16 note 1775055186851 cloze 1"
   },
   "answer": "Pericallosal artery",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-16/media/paste-2e8174e7ff2cd6dc15f08df3276adf0e4b3b19fd.webp",
@@ -1690,6 +1713,7 @@
    "ref": "apkg/lab-16 note 1775055186851 cloze 2"
   },
   "answer": "Callosomarginal artery",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-16/media/paste-2e8174e7ff2cd6dc15f08df3276adf0e4b3b19fd.webp",
@@ -1749,6 +1773,7 @@
    "ref": "apkg/lab-16 note 1775055186851 cloze 3"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA"
   ],
@@ -1810,6 +1835,7 @@
    "ref": "apkg/lab-16 note 1775134387630 cloze 1"
   },
   "answer": "Middle cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "MCA"
   ],
@@ -1878,6 +1904,7 @@
    "ref": "apkg/lab-16 note 1775134387630 cloze 2"
   },
   "answer": "Lenticulostriate arteries",
+  "answer_kind": "structure",
   "accept": [
    "lenticulostriate",
    "lenticulostriate branches",
@@ -1962,6 +1989,7 @@
    "ref": "apkg/lab-16 note 1775134406721 cloze 1"
   },
   "answer": "Anterior perforated substance",
+  "answer_kind": "structure",
   "accept": [
    "anterior perforated space",
    "APS"
@@ -2010,6 +2038,7 @@
    "ref": "apkg/lab-16 note 1775134440987 cloze 1"
   },
   "answer": "Middle cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "MCA"
   ],
@@ -2092,6 +2121,7 @@
    "ref": "apkg/lab-16 note 1775134440987 cloze 2"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA"
   ],
@@ -2174,6 +2204,7 @@
    "ref": "apkg/lab-16 note 1775134440987 cloze 3"
   },
   "answer": "Anterior communicating artery",
+  "answer_kind": "structure",
   "accept": [
    "ACom",
    "AComA",
@@ -2258,6 +2289,7 @@
    "ref": "apkg/lab-16 note 1775134440987 cloze 4"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA"
   ],
@@ -2340,6 +2372,7 @@
    "ref": "apkg/lab-16 note 1775134440987 cloze 5"
   },
   "answer": "Posterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "PCA"
   ],
@@ -2422,6 +2455,7 @@
    "ref": "apkg/lab-16 note 1775134440987 cloze 6"
   },
   "answer": "Posterior communicating artery",
+  "answer_kind": "structure",
   "accept": [
    "PCom",
    "PComA",
@@ -2506,6 +2540,7 @@
    "ref": "apkg/lab-16 note 1775134468738 cloze 1"
   },
   "answer": "Internal carotid artery",
+  "answer_kind": "structure",
   "accept": [
    "internal carotid arteries",
    "internal carotid",
@@ -2590,6 +2625,7 @@
    "ref": "apkg/lab-16 note 1775134468738 cloze 2"
   },
   "answer": "Posterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "PCA"
   ],
@@ -2672,6 +2708,7 @@
    "ref": "apkg/lab-16 note 1775134468738 cloze 3"
   },
   "answer": "Posterior communicating artery",
+  "answer_kind": "structure",
   "accept": [
    "PCom",
    "PComA",
@@ -2756,6 +2793,7 @@
    "ref": "apkg/lab-16 note 1775134468738 cloze 4"
   },
   "answer": "Middle cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "MCA"
   ],
@@ -2838,6 +2876,7 @@
    "ref": "apkg/lab-16 note 1775134468738 cloze 5"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA"
   ],
@@ -2920,6 +2959,7 @@
    "ref": "apkg/lab-16 note 1775134468738 cloze 6"
   },
   "answer": "Anterior communicating artery",
+  "answer_kind": "structure",
   "accept": [
    "ACom",
    "AComA",
@@ -3004,6 +3044,7 @@
    "ref": "apkg/lab-16 note 1775134507316 cloze 1"
   },
   "answer": "Anterior spinal artery",
+  "answer_kind": "structure",
   "accept": [
    "ASA"
   ],
@@ -3088,6 +3129,7 @@
    "ref": "apkg/lab-16 note 1775134507316 cloze 2"
   },
   "answer": "Posterior spinal arteries",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinal artery"
   ],

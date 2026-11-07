@@ -11,6 +11,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 1"
   },
   "answer": "Facial colliculus",
+  "answer_kind": "structure",
   "accept": [
    "facial colliculi"
   ],
@@ -404,6 +405,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 2"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-87e52297325f03754c58533fc56b0308f786aa31.webp",
@@ -796,6 +798,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 3"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -1187,6 +1190,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 4"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -1578,6 +1582,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 5"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -1980,6 +1985,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 6"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -2374,6 +2380,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 7"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -2774,6 +2781,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 8"
   },
   "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fibers of pons",
    "longitudinal pontine fibers"
@@ -3176,6 +3184,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 9"
   },
   "answer": "Pontine nuclei",
+  "answer_kind": "structure",
   "accept": [
    "pontine nucleus",
    "basilar pontine nuclei"
@@ -3566,6 +3575,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 10"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "transverse pontine fibers",
    "transverse fibers of pons",
@@ -3961,6 +3971,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 11"
   },
   "answer": "Facial nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VII nucleus",
    "facial motor nucleus",
@@ -4360,6 +4371,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 12"
   },
   "answer": "Abducens nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VI nucleus",
    "nucleus of CN VI",
@@ -4764,6 +4776,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937472729 cloze 13"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -5163,6 +5176,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 1"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-a55fa99c90864a7e3967620bae7a6c45b5fa5ab9.webp",
@@ -5493,6 +5507,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 2"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -5818,6 +5833,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 3"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -6150,6 +6166,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 4"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -6483,6 +6500,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 5"
   },
   "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "inferior olive",
    "olivary nucleus",
@@ -6808,6 +6826,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 6"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -7136,6 +7155,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 7"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -7462,6 +7482,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 8"
   },
   "answer": "Hypoglossal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN XII nucleus",
    "nucleus of CN XII",
@@ -7787,6 +7808,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 9"
   },
   "answer": "Dorsal motor nucleus of the vagus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal motor nucleus of vagus",
    "dorsal motor nucleus of X",
@@ -8116,6 +8138,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 10"
   },
   "answer": "Solitary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus solitarius",
    "nucleus of the solitary tract",
@@ -8446,6 +8469,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937561484 cloze 11"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -8787,6 +8811,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937611921 cloze 1"
   },
   "answer": "Gracile nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus gracilis",
    "gracilis nucleus"
@@ -8999,6 +9024,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937611921 cloze 2"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -9206,6 +9232,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937611921 cloze 3"
   },
   "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "spinal nucleus of trigeminal",
    "trigeminal spinal nucleus",
@@ -9419,6 +9446,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937611921 cloze 4"
   },
   "answer": "Cuneate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus cuneatus",
    "cuneatus nucleus"
@@ -9635,6 +9663,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937611921 cloze 5"
   },
   "answer": "Internal arcuate fibers",
+  "answer_kind": "structure",
   "accept": [
    "internal arcuate fibres"
   ],
@@ -9845,6 +9874,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937611921 cloze 6"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -10058,6 +10088,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 1"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -10336,6 +10367,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 2"
   },
   "answer": "hucievs tngeminal prinupal sensory",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-55046b652ff3dc9f23ae40fdc518ebfecaf91f9a.webp",
@@ -10612,6 +10644,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 3"
   },
   "answer": "Motor trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "trigeminal motor nucleus",
    "motor nucleus of trigeminal",
@@ -10896,6 +10929,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 4"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -11166,6 +11200,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 5"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -11448,6 +11483,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 6"
   },
   "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fibers of pons",
    "longitudinal pontine fibers"
@@ -11721,6 +11757,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 7"
   },
   "answer": "Pontine nuclei",
+  "answer_kind": "structure",
   "accept": [
    "pontine nucleus",
    "basilar pontine nuclei"
@@ -11994,6 +12031,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937686697 cloze 8"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-55046b652ff3dc9f23ae40fdc518ebfecaf91f9a.webp",
@@ -12260,6 +12298,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 1"
   },
   "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
   "accept": [
    "periaqueductal grey",
    "periaqueductal grey matter",
@@ -12571,6 +12610,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 2"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -12874,6 +12914,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 3"
   },
   "answer": "Inferior colliculi",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-8213278b337242b04deedd70a4eb3ec5a435c24f.webp",
@@ -13172,6 +13213,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 4"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -13478,6 +13520,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 5"
   },
   "answer": "Trochlear nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN IV nucleus",
    "nucleus of CN IV",
@@ -13773,6 +13816,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 6"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -14070,6 +14114,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 7"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -14368,6 +14413,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937764507 cloze 8"
   },
   "answer": "Decussation of the superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "SCP decussation",
    "decussation of superior cerebellar peduncle",
@@ -14684,6 +14730,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 1"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -15017,6 +15064,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 2"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -15344,6 +15392,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 3"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -15679,6 +15728,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 4"
   },
   "answer": "Cerebral",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-47cbe3933135ce6c8bcf5d9695eb176c59b91132.webp",
@@ -15984,7 +16034,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "caption": "Rostral Midbrain",
   "tags": [
@@ -16007,6 +16057,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 5"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -16339,6 +16390,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 6"
   },
   "answer": "Interpeduncular fossa",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-47cbe3933135ce6c8bcf5d9695eb176c59b91132.webp",
@@ -16667,6 +16719,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 7"
   },
   "answer": "Oculomotor nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN III nucleus",
    "nucleus of CN III",
@@ -16997,6 +17050,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 8"
   },
   "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
   "accept": [
    "periaqueductal grey",
    "periaqueductal grey matter",
@@ -17362,6 +17416,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 9"
   },
   "answer": "Red nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus ruber"
   ],
@@ -17693,6 +17748,7 @@
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 10"
   },
   "answer": "Edinger-Westphal",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-47cbe3933135ce6c8bcf5d9695eb176c59b91132.webp",
@@ -18018,6 +18074,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 1"
   },
   "answer": "Pituitary stalk",
+  "answer_kind": "structure",
   "accept": [
    "infundibulum",
    "infundibular stalk",
@@ -18210,6 +18267,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 2"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -18405,6 +18463,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 3"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -18596,6 +18655,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 4"
   },
   "answer": "Optic tract",
+  "answer_kind": "structure",
   "accept": [
    "optic tracts"
   ],
@@ -18786,6 +18846,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 5"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -18981,6 +19042,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 6"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -19176,6 +19238,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 7"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -19371,6 +19434,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 8"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -19567,6 +19631,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 9"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -19761,6 +19826,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 10"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -19959,6 +20025,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 11"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -20153,6 +20220,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 12"
   },
   "answer": "Vagus nerve roots",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
@@ -20341,6 +20409,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 13"
   },
   "answer": "Hypoglossal nerve roots",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
@@ -20528,6 +20597,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 14"
   },
   "answer": "Accessory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XI",
    "cranial nerve 11",
@@ -20724,6 +20794,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 15"
   },
   "answer": "Olives",
+  "answer_kind": "structure",
   "accept": [
    "olive"
   ],
@@ -20913,6 +20984,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 16"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -21105,6 +21177,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 17"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -21295,6 +21368,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 18"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -21486,6 +21560,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 19"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3408fcd80ca832ee0fc846b50b04f8d119e9ecc2.webp",
@@ -21673,6 +21748,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 20"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -21864,6 +21940,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771337956349 cloze 21"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -22056,6 +22133,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 1"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -22197,6 +22275,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 2"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -22341,6 +22420,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 3"
   },
   "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior brachium",
    "brachium of inferior colliculus",
@@ -22484,6 +22564,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 4"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -22625,6 +22706,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 5"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -22771,6 +22853,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 6"
   },
   "answer": "Facial colliculus",
+  "answer_kind": "structure",
   "accept": [
    "facial colliculi"
   ],
@@ -22911,6 +22994,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 7"
   },
   "answer": "Cuneate tubercle",
+  "answer_kind": "structure",
   "accept": [
    "tuberculum cuneatum",
    "cuneate tubercles"
@@ -23053,6 +23137,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 8"
   },
   "answer": "Gracile tubercle",
+  "answer_kind": "structure",
   "accept": [
    "tuberculum gracile",
    "gracile tubercles"
@@ -23195,6 +23280,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 9"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -23337,6 +23423,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 10"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -23479,6 +23566,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 11"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -23621,6 +23709,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 12"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -23763,6 +23852,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 13"
   },
   "answer": "Pulvinar",
+  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
@@ -23904,6 +23994,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338013905 cloze 14"
   },
   "answer": "Pineal gland",
+  "answer_kind": "structure",
   "accept": [
    "pineal body",
    "pineal",
@@ -24046,6 +24137,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338027314 cloze 1"
   },
   "answer": "Rostral midbrain",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-85543087a60ce93761df80c42faa1970726250f3.webp",
@@ -24070,7 +24162,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -24092,6 +24184,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 1"
   },
   "answer": "Edinger-Westphal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "visceral oculomotor nucleus",
    "EW"
@@ -24198,6 +24291,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 2"
   },
   "answer": "Oculomotor nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN III nucleus",
    "nucleus of CN III",
@@ -24306,6 +24400,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 3"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -24411,6 +24506,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 4"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -24515,6 +24611,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 5"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -24623,6 +24720,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 6"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -24733,6 +24831,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 7"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-85543087a60ce93761df80c42faa1970726250f3.webp",
@@ -24836,6 +24935,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 8"
   },
   "answer": "Red nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus ruber"
   ],
@@ -24941,6 +25041,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338056180 cloze 9"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -25051,6 +25152,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338072694 cloze 1"
   },
   "answer": "Rostral pons",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-4d82b26a3badd9a4bcbe9808ea7225646dbbb972.webp",
@@ -25075,7 +25177,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -25097,6 +25199,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 1"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -25211,6 +25314,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 2"
   },
   "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
   "accept": [
    "periaqueductal grey",
    "periaqueductal grey matter",
@@ -25325,6 +25429,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 3"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -25437,6 +25542,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 4"
   },
   "answer": "Trochlear nerve fibres",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-4d82b26a3badd9a4bcbe9808ea7225646dbbb972.webp",
@@ -25547,6 +25653,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 5"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -25664,6 +25771,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 6"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -25775,6 +25883,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 7"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -25888,6 +25997,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 8"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-4d82b26a3badd9a4bcbe9808ea7225646dbbb972.webp",
@@ -25998,6 +26108,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 9"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -26111,6 +26222,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338097848 cloze 10"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -26223,6 +26335,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 1"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -26327,6 +26440,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 2"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -26433,6 +26547,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 3"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -26539,6 +26654,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 4"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -26645,6 +26761,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 5"
   },
   "answer": "Principal sensory nucleus of trigeminal",
+  "answer_kind": "structure",
   "accept": [
    "principal trigeminal nucleus",
    "chief sensory nucleus",
@@ -26754,6 +26871,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 6"
   },
   "answer": "Motor trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "trigeminal motor nucleus",
    "motor nucleus of trigeminal",
@@ -26862,6 +26980,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 7"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -26972,6 +27091,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 8"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -27082,6 +27202,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338133761 cloze 9"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-b9ca5bae32ed2113d8aae87eb498e210a04bb361.webp",
@@ -27185,6 +27306,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338208857 cloze 1"
   },
   "answer": "Caudal pons",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -27209,7 +27331,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -27231,6 +27353,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 1"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -27349,6 +27472,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 2"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -27469,6 +27593,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 3"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -27589,6 +27714,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 4"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -27709,6 +27835,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 5"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
@@ -27832,6 +27959,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 6"
   },
   "answer": "Abducens nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VI nucleus",
    "nucleus of CN VI",
@@ -27955,6 +28083,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 7"
   },
   "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "spinal nucleus of trigeminal",
    "trigeminal spinal nucleus",
@@ -28078,6 +28207,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 8"
   },
   "answer": "Facial nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VII nucleus",
    "facial motor nucleus",
@@ -28198,6 +28328,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 9"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -28315,6 +28446,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 10"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "transverse pontine fibers",
    "transverse fibers of pons",
@@ -28435,6 +28567,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 11"
   },
   "answer": "Corticospinal, corticobulbar and corticopontine fibres AKA: Longitudinal fibers of the pons",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -28529,7 +28662,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Motor decussation' (55); OCR text not recognised; long free-text label (not a structure name) [OCR 'Corticospinal, corticobulbar and corticopontine fibres AKA: Longitudinal fibers of the pons', conf 0.99]",
   "tags": [
@@ -28553,6 +28686,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338257112 cloze 1"
   },
   "answer": "Rostral medulla",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -28577,7 +28711,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -28599,6 +28733,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 1"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -28747,6 +28882,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 2"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -28893,6 +29029,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 3"
   },
   "answer": "Hypoglossal nucleus and nerve",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -29037,6 +29174,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 4"
   },
   "answer": "Dorsal motor nucleus of the vagus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal motor nucleus of vagus",
    "dorsal motor nucleus of X",
@@ -29189,6 +29327,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 5"
   },
   "answer": "Vestibular nucleus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -29334,6 +29473,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 6"
   },
   "answer": "Solitary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus solitarius",
    "nucleus of the solitary tract",
@@ -29483,6 +29623,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 7"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -29631,6 +29772,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 8"
   },
   "answer": "Trigeminal nucleus and tract",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -29776,6 +29918,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 9"
   },
   "answer": "Nucleus ambiguus",
+  "answer_kind": "structure",
   "accept": [
    "ambiguus nucleus"
   ],
@@ -29922,6 +30065,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 10"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -30074,6 +30218,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 11"
   },
   "answer": "Spinocerebellar tracts",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -30219,6 +30364,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 12"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -30371,6 +30517,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 13"
   },
   "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "inferior olive",
    "olivary nucleus",
@@ -30519,6 +30666,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 14"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -30668,6 +30816,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338316625 cloze 15"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-19197e2f9c1d2fac6eb931fadb30febed6fdf9b6.webp",
@@ -30813,6 +30962,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338350149 cloze 1"
   },
   "answer": "Caudal Medulla/ Sensory Decussation",
+  "answer_kind": "level",
   "accept": [
    "Caudal medulla",
    "Sensory decussation"
@@ -30840,7 +30990,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -30863,6 +31013,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 1"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -30995,6 +31146,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 2"
   },
   "answer": "Floor of fourth ventricle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",
@@ -31125,6 +31277,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 3"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
@@ -31262,6 +31415,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 4"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
@@ -31399,6 +31553,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 5"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
@@ -31536,6 +31691,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 6"
   },
   "answer": "Solitary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus solitarius",
    "nucleus of the solitary tract",
@@ -31671,6 +31827,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 7"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -31805,6 +31962,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 8"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -31946,6 +32104,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 9"
   },
   "answer": "Trigeminal nucleus and tract",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",
@@ -32077,6 +32236,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 10"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -32218,6 +32378,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 11"
   },
   "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "inferior olive",
    "olivary nucleus",
@@ -32352,6 +32513,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 12"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -32487,6 +32649,7 @@
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 13"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",

@@ -11,6 +11,7 @@
    "ref": "apkg/lab-14 note 1773943023833 cloze 1"
   },
   "answer": "Nucleus accumbens",
+  "answer_kind": "structure",
   "accept": [
    "accumbens"
   ],
@@ -67,6 +68,7 @@
    "ref": "apkg/lab-14 note 1773943023833 cloze 2"
   },
   "answer": "Basal forebrain nuclei",
+  "answer_kind": "region",
   "accept": [
    "basal forebrain area",
    "basal forebrain",
@@ -102,7 +104,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -125,6 +127,7 @@
    "ref": "apkg/lab-14 note 1773943034721 cloze 1"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
@@ -176,6 +179,7 @@
    "ref": "apkg/lab-14 note 1773943047508 cloze 1"
   },
   "answer": "Cortical ribbon",
+  "answer_kind": "structure",
   "accept": [
    "cortical gray matter",
    "cortical grey matter",
@@ -240,6 +244,7 @@
    "ref": "apkg/lab-14 note 1773943047508 cloze 2"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
@@ -305,6 +310,7 @@
    "ref": "apkg/lab-14 note 1773943047508 cloze 3"
   },
   "answer": "White Matter (Corona Radiata, association fibers)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-5cfc2b3d9ccfaaad40fd406f1b2db75465078095.webp",
@@ -343,7 +349,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -364,6 +370,7 @@
    "ref": "apkg/lab-14 note 1773943065204 cloze 1"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
@@ -436,6 +443,7 @@
    "ref": "apkg/lab-14 note 1773943065204 cloze 2"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
@@ -504,6 +512,7 @@
    "ref": "apkg/lab-14 note 1773943065204 cloze 3"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -574,6 +583,7 @@
    "ref": "apkg/lab-14 note 1773943065204 cloze 4"
   },
   "answer": "Temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-68c9d2828f4a9d3d0e3a4dc90e88625c2b5e2183.webp",
@@ -619,7 +629,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -640,6 +650,7 @@
    "ref": "apkg/lab-14 note 1773943083195 cloze 1"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -724,6 +735,7 @@
    "ref": "apkg/lab-14 note 1773943083195 cloze 2"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
@@ -810,6 +822,7 @@
    "ref": "apkg/lab-14 note 1773943083195 cloze 3"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -898,6 +911,7 @@
    "ref": "apkg/lab-14 note 1773943083195 cloze 4"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -983,6 +997,7 @@
    "ref": "apkg/lab-14 note 1773943083195 cloze 5"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -1068,6 +1083,7 @@
    "ref": "apkg/lab-14 note 1773943083195 cloze 6"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -1130,7 +1146,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1152,6 +1168,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 1"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -1265,6 +1282,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 2"
   },
   "answer": "Nucleus accumbens",
+  "answer_kind": "structure",
   "accept": [
    "accumbens"
   ],
@@ -1377,6 +1395,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 3"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -1490,6 +1509,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 4"
   },
   "answer": "Temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
@@ -1577,7 +1597,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1598,6 +1618,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 5"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-5607b9253ec563d244718fb226eb22c1d4d99d01.webp",
@@ -1708,6 +1729,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 6"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "anterior limb",
    "internal capsule anterior limb",
@@ -1821,6 +1843,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 7"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -1934,6 +1957,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 8"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -2045,6 +2069,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 9"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -2158,6 +2183,7 @@
    "ref": "apkg/lab-14 note 1773943123079 cloze 10"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
@@ -2272,6 +2298,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 1"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -2404,6 +2431,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 2"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -2538,6 +2566,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 3"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -2672,6 +2701,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 4"
   },
   "answer": "Columns of the fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix columns",
    "columns of fornix",
@@ -2807,6 +2837,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 5"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
@@ -2938,6 +2969,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 6"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -3072,6 +3104,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 7"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -3204,6 +3237,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 8"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
@@ -3334,6 +3368,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 9"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -3468,6 +3503,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 10"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-90e83d967b657ac40f283a869b63ef951d69ce2f.webp",
@@ -3599,6 +3635,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 11"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -3734,6 +3771,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 12"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -3845,7 +3883,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -3867,6 +3905,7 @@
    "ref": "apkg/lab-14 note 1773943163898 cloze 13"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "anterior limb",
    "internal capsule anterior limb",
@@ -4001,6 +4040,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 1"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -4141,6 +4181,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 2"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -4282,6 +4323,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 3"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -4423,6 +4465,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 4"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -4565,6 +4608,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 5"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -4706,6 +4750,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 6"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -4850,6 +4895,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 7"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -4992,6 +5038,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 8"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
@@ -5129,6 +5176,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 9"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -5270,6 +5318,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 10"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-273de26ef5b1e14d2af6216c2822be0a0cded017.webp",
@@ -5408,6 +5457,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 11"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -5526,7 +5576,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -5548,6 +5598,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 12"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -5687,6 +5738,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 13"
   },
   "answer": "Anterior nucleus of thalamus",
+  "answer_kind": "structure",
   "accept": [
    "anterior nucleus",
    "anterior thalamic nucleus",
@@ -5829,6 +5881,7 @@
    "ref": "apkg/lab-14 note 1773943207234 cloze 14"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate body",
    "body of caudate",
@@ -5970,6 +6023,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 1"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -6103,6 +6157,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 2"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
@@ -6234,6 +6289,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -6368,6 +6424,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 4"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -6503,6 +6560,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 5"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "posterior limb",
    "internal capsule posterior limb",
@@ -6637,6 +6695,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 6"
   },
   "answer": "Subthalamic nucleus",
+  "answer_kind": "structure",
   "accept": [
    "STN"
   ],
@@ -6770,6 +6829,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 7"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -6903,6 +6963,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 8"
   },
   "answer": "Red nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus ruber"
   ],
@@ -7036,6 +7097,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 9"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-583481346360c01098c6ec1301ad7ab7e280add6.webp",
@@ -7167,6 +7229,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 10"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -7304,6 +7367,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 11"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -7415,7 +7479,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -7437,6 +7501,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 12"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -7569,6 +7634,7 @@
    "ref": "apkg/lab-14 note 1773943244883 cloze 13"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate body",
    "body of caudate",
@@ -7703,6 +7769,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 1"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix crus",
    "crura of fornix",
@@ -7817,6 +7884,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 2"
   },
   "answer": "Posterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "PC"
   ],
@@ -7928,6 +7996,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 3"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -8044,6 +8113,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 4"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-c183c7eb067f7bffc14be4bd465ebb4374036fdf.webp",
@@ -8154,6 +8224,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 5"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -8268,6 +8339,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 6"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -8382,6 +8454,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 7"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -8497,6 +8570,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 8"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
@@ -8611,6 +8685,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 9"
   },
   "answer": "Tail of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate tail",
    "tail of caudate",
@@ -8724,6 +8799,7 @@
    "ref": "apkg/lab-14 note 1773943306581 cloze 10"
   },
   "answer": "Pulvinar",
+  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
@@ -8836,6 +8912,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 1"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -8949,6 +9026,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 2"
   },
   "answer": "Choroid plexus",
+  "answer_kind": "structure",
   "accept": [
    "ChP"
   ],
@@ -9060,6 +9138,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 3"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix crus",
    "crura of fornix",
@@ -9174,6 +9253,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 4"
   },
   "answer": "Pineal gland",
+  "answer_kind": "structure",
   "accept": [
    "pineal body",
    "pineal",
@@ -9287,6 +9367,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 5"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-4e408df3f24a09cfec9fca4227887bdabc5751a3.webp",
@@ -9397,6 +9478,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 6"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -9511,6 +9593,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 7"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -9624,6 +9707,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 8"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -9740,6 +9824,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 9"
   },
   "answer": "Pulvinar",
+  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
@@ -9852,6 +9937,7 @@
    "ref": "apkg/lab-14 note 1773943338762 cloze 10"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "trigone",
@@ -9966,6 +10052,7 @@
    "ref": "apkg/lab-14 note 1773943358764 cloze 1"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-9cd9f9d3869f8f86bbbd2a18715d6197ac2a1be5.webp",
@@ -10041,6 +10128,7 @@
    "ref": "apkg/lab-14 note 1773943358764 cloze 2"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -10119,6 +10207,7 @@
    "ref": "apkg/lab-14 note 1773943358764 cloze 3"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "trigone",
@@ -10198,6 +10287,7 @@
    "ref": "apkg/lab-14 note 1773943358764 cloze 4"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -10276,6 +10366,7 @@
    "ref": "apkg/lab-14 note 1773943358764 cloze 5"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -10355,6 +10446,7 @@
    "ref": "apkg/lab-14 note 1773943373609 cloze 1"
   },
   "answer": "Dentate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "dentate",
    "lateral cerebellar nucleus"
@@ -10411,6 +10503,7 @@
    "ref": "apkg/lab-14 note 1773943373609 cloze 2"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",

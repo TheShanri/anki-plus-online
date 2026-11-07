@@ -11,6 +11,7 @@
    "ref": "lab-13 page 7 text label"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "body of CC",
    "body of the corpus callosum",
@@ -168,6 +169,7 @@
    "ref": "lab-13 page 7 text label"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "body of LV",
    "body of the lateral ventricle",
@@ -325,6 +327,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -572,6 +575,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -820,6 +824,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -1066,6 +1071,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "body of LV",
    "body of the lateral ventricle",
@@ -1314,6 +1320,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "body of caudate",
    "body of the caudate nucleus",
@@ -1562,6 +1569,7 @@
    "ref": "lab-13 page 8 text label"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -1810,6 +1818,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -2155,6 +2164,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "AH",
    "anterior horn",
@@ -2504,6 +2514,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -2848,6 +2859,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -3194,6 +3206,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "ALIC",
    "anterior limb",
@@ -3540,6 +3553,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Genu of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "internal capsule genu",
    "knee of internal capsule"
@@ -3885,6 +3899,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "PLIC",
    "internal capsule posterior limb",
@@ -4231,6 +4246,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Anterior nucleus of thalamus",
+  "answer_kind": "structure",
   "accept": [
    "anterior nucleus",
    "anterior thalamic nuclei",
@@ -4578,6 +4594,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "ALIC",
    "anterior limb",
@@ -4924,6 +4941,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -5268,6 +5286,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-13/pages/009.webp",
@@ -5611,6 +5630,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Pulvinar",
+  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
@@ -5956,6 +5976,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -6301,6 +6322,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -6647,6 +6669,7 @@
    "ref": "lab-13 page 9 text label"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "atrium or trigone",
@@ -6994,6 +7017,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -7332,6 +7356,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "AH",
    "anterior horn",
@@ -7674,6 +7699,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Columns of the fornix",
+  "answer_kind": "structure",
   "accept": [
    "column of the fornix",
    "columns of fornix",
@@ -8014,6 +8040,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -8353,6 +8380,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "foramina of Monroe",
@@ -8693,6 +8721,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "ALIC",
    "anterior limb",
@@ -9032,6 +9061,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Genu of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "internal capsule genu",
    "knee of internal capsule"
@@ -9370,6 +9400,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "PLIC",
    "internal capsule posterior limb",
@@ -9709,6 +9740,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "GP",
    "pallidum"
@@ -10048,6 +10080,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-13/pages/010.webp",
@@ -10384,6 +10417,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -10721,6 +10755,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "crura of fornix",
    "crus",
@@ -11061,6 +11096,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "PH",
    "occipital horn",
@@ -11403,6 +11439,7 @@
    "ref": "lab-13 page 10 text label"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -11742,6 +11779,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -12191,6 +12229,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -12642,6 +12681,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-13/pages/011.webp",
@@ -13090,6 +13130,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -13516,7 +13557,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the region the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -13540,6 +13581,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "GP",
    "pallidum"
@@ -13991,6 +14033,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -14440,6 +14483,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "MGN",
    "medial geniculate",
@@ -14893,6 +14937,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "LGN",
    "lateral geniculate",
@@ -15345,6 +15390,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Tail of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate tail",
    "tail of caudate",
@@ -15796,6 +15842,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Posterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "PC"
   ],
@@ -16245,6 +16292,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Habenula",
+  "answer_kind": "structure",
   "accept": [
    "habenular nuclei"
   ],
@@ -16694,6 +16742,7 @@
    "ref": "lab-13 page 11 text label"
   },
   "answer": "Pineal gland",
+  "answer_kind": "structure",
   "accept": [
    "epiphysis",
    "pineal",
@@ -17145,6 +17194,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Anterior perforated substance",
+  "answer_kind": "structure",
   "accept": [
    "APS",
    "anterior perforated space"
@@ -17364,6 +17414,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mamillary bodies",
    "mamillary body",
@@ -17585,6 +17636,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid body",
    "amygdaloid complex",
@@ -17806,6 +17858,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -18024,6 +18077,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "IH",
    "inferior horn",
@@ -18247,6 +18301,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-13/pages/012.webp",
@@ -18464,6 +18519,7 @@
    "ref": "lab-13 page 12 text label"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-13/pages/012.webp",
@@ -18681,6 +18737,7 @@
    "ref": "lab-14 page 4 text label"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "cerebral longitudinal fissure",
    "longitudinal cerebral fissure",
@@ -18811,6 +18868,7 @@
    "ref": "lab-14 page 4 text label"
   },
   "answer": "Cortical ribbon",
+  "answer_kind": "structure",
   "accept": [
    "cortical gray",
    "cortical gray matter",
@@ -18940,6 +18998,7 @@
    "ref": "lab-14 page 5 text label"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -19089,6 +19148,7 @@
    "ref": "lab-14 page 5 text label"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "cerebral longitudinal fissure",
    "longitudinal cerebral fissure",
@@ -19240,6 +19300,7 @@
    "ref": "lab-14 page 5 text label"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/005.webp",
@@ -19387,6 +19448,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "cerebral longitudinal fissure",
    "longitudinal cerebral fissure",
@@ -19545,6 +19607,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "AH",
    "anterior horn",
@@ -19705,6 +19768,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "CC",
    "callosum"
@@ -19861,6 +19925,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -20018,6 +20083,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -20175,6 +20241,7 @@
    "ref": "lab-14 page 6 text label"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -20307,7 +20374,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the region the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -20331,6 +20398,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "cerebral longitudinal fissure",
    "longitudinal cerebral fissure",
@@ -20664,6 +20732,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "body of CC",
    "body of the corpus callosum",
@@ -20996,6 +21065,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -21326,6 +21396,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -21658,6 +21729,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "ALIC",
    "anterior limb",
@@ -21990,6 +22062,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -22322,6 +22395,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/007.webp",
@@ -22651,6 +22725,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Nucleus accumbens",
+  "answer_kind": "structure",
   "accept": [
    "accumbens"
   ],
@@ -22982,6 +23057,7 @@
    "ref": "lab-14 page 7 text label"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "chiasm",
    "optic chiasma"
@@ -23314,6 +23390,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -23623,6 +23700,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "body of CC",
    "body of the corpus callosum",
@@ -23934,6 +24012,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -24245,6 +24324,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "ALIC",
    "anterior limb",
@@ -24556,6 +24636,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Columns of the fornix",
+  "answer_kind": "structure",
   "accept": [
    "column of the fornix",
    "columns of fornix",
@@ -24868,6 +24949,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/008.webp",
@@ -25176,6 +25258,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "GP",
    "pallidum"
@@ -25487,6 +25570,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -25773,7 +25857,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the region the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -25797,6 +25881,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -26106,6 +26191,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3V",
    "3rd ventricle",
@@ -26417,6 +26503,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid body",
    "amygdaloid complex",
@@ -26729,6 +26816,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/008.webp",
@@ -27037,6 +27125,7 @@
    "ref": "lab-14 page 8 text label"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/008.webp",
@@ -27344,6 +27433,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "body of CC",
    "body of the corpus callosum",
@@ -27697,6 +27787,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -28049,6 +28140,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "body of LV",
    "body of the lateral ventricle",
@@ -28402,6 +28494,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "body of caudate",
    "body of the caudate nucleus",
@@ -28755,6 +28848,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "foramina of Monroe",
@@ -29109,6 +29203,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Anterior nucleus of thalamus",
+  "answer_kind": "structure",
   "accept": [
    "anterior nucleus",
    "anterior thalamic nuclei",
@@ -29463,6 +29558,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -29814,6 +29910,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -30142,7 +30239,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the region the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -30166,6 +30263,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3V",
    "3rd ventricle",
@@ -30519,6 +30617,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/009.webp",
@@ -30869,6 +30968,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mamillary bodies",
    "mamillary body",
@@ -31223,6 +31323,7 @@
    "ref": "lab-14 page 9 text label"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "basis pedunculi",
    "cerebral peduncle",
@@ -31576,6 +31677,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -31956,6 +32058,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/010.webp",
@@ -32334,6 +32437,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3V",
    "3rd ventricle",
@@ -32715,6 +32819,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "body of caudate",
    "body of the caudate nucleus",
@@ -33096,6 +33201,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -33475,6 +33581,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -33831,7 +33938,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure the leader line / label points to.",
+  "prompt": "Name the region the leader line / label points to.",
   "followups": [],
   "tags": [
    "section",
@@ -33855,6 +33962,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "PLIC",
    "internal capsule posterior limb",
@@ -34236,6 +34344,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/010.webp",
@@ -34614,6 +34723,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Subthalamic nucleus",
+  "answer_kind": "structure",
   "accept": [
    "STN"
   ],
@@ -34994,6 +35104,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Red nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus ruber"
   ],
@@ -35374,6 +35485,7 @@
    "ref": "lab-14 page 10 text label"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -35754,6 +35866,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "crura of fornix",
    "crus",
@@ -36073,6 +36186,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Tail of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate tail",
    "tail of caudate",
@@ -36391,6 +36505,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Posterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "PC"
   ],
@@ -36707,6 +36822,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "LGN",
    "lateral geniculate",
@@ -37026,6 +37142,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "IH",
    "inferior horn",
@@ -37347,6 +37464,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/011.webp",
@@ -37662,6 +37780,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "MGN",
    "medial geniculate",
@@ -37982,6 +38101,7 @@
    "ref": "lab-14 page 11 text label"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "CA",
    "aqueduct",
@@ -38301,6 +38421,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -38584,6 +38705,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Choroid plexus",
+  "answer_kind": "structure",
   "accept": [
    "ChP"
   ],
@@ -38865,6 +38987,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "crura of fornix",
    "crus",
@@ -39149,6 +39272,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Pineal gland",
+  "answer_kind": "structure",
   "accept": [
    "epiphysis",
    "pineal",
@@ -39432,6 +39556,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/012.webp",
@@ -39712,6 +39837,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "MCP",
    "brachium pontis"
@@ -39995,6 +40121,7 @@
    "ref": "lab-14 page 12 text label"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "CA",
    "aqueduct",
@@ -40279,6 +40406,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -40415,6 +40543,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -40550,6 +40679,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-14/pages/013.webp",
@@ -40683,6 +40813,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "atrium or trigone",
@@ -40820,6 +40951,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4V",
    "4th ventricle",
@@ -40956,6 +41088,7 @@
    "ref": "lab-14 page 13 text label"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramid",
    "medullary pyramids",
@@ -41096,6 +41229,7 @@
   "h": 764,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 1",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 1: most anterior (frontal pole, surface view)",
    "most anterior (frontal pole, surface view)",
@@ -41130,6 +41264,7 @@
   "h": 784,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 2",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 2: anterior to the corpus callosum",
    "anterior to the corpus callosum",
@@ -41163,6 +41298,7 @@
   "h": 852,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 3",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 3: genu of the corpus callosum",
    "genu of the corpus callosum",
@@ -41196,6 +41332,7 @@
   "h": 878,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 4",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 4: anterior horns of the lateral ventricles",
    "anterior horns of the lateral ventricles",
@@ -41229,6 +41366,7 @@
   "h": 949,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 5",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 5: level of the nucleus accumbens",
    "level of the nucleus accumbens",
@@ -41262,6 +41400,7 @@
   "h": 928,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 6",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 6: anterior commissure",
    "anterior commissure",
@@ -41295,6 +41434,7 @@
   "h": 917,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 7",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 7: anterior part of the thalamus",
    "anterior part of the thalamus",
@@ -41328,6 +41468,7 @@
   "h": 977,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 8",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 8: level of the substantia nigra",
    "level of the substantia nigra",
@@ -41362,6 +41503,7 @@
   "h": 1050,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 9",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 9: posterior thalamus",
    "posterior thalamus",
@@ -41395,6 +41537,7 @@
   "h": 1052,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 10",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 10: trigone of the lateral ventricles",
    "trigone of the lateral ventricles",
@@ -41428,6 +41571,7 @@
   "h": 1084,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 11",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 11: posterior to the thalamus",
    "posterior to the thalamus",
@@ -41461,6 +41605,7 @@
   "h": 1068,
   "prompt": "Which coronal plane (landmark level) is this section? Lab 14 numbers them from anterior (#1) to posterior (#12).",
   "answer": "Coronal section 12",
+  "answer_kind": "level",
   "accept": [
    "Coronal section 12: posterior to the corpus callosum",
    "posterior to the corpus callosum",
@@ -41494,6 +41639,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 1",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 1: above the corpus callosum (centrum semiovale)",
    "above the corpus callosum",
@@ -41528,6 +41674,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 2",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 2: through the body of the corpus callosum",
    "through the body of the corpus callosum",
@@ -41561,6 +41708,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 3",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 3: through the lateral ventricles (caudate head and septum pellucidum)",
    "through the lateral ventricles",
@@ -41595,6 +41743,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 4",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 4: through the thalamus and internal capsule (level 1)",
    "through the thalamus and internal capsule",
@@ -41629,6 +41778,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 5",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 5: through the thalamus: putamen, globus pallidus and fornix (level 2)",
    "through the thalamus: putamen, globus pallidus and fornix",
@@ -41665,6 +41815,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 6",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 6: through the hypothalamus",
    "through the hypothalamus",
@@ -41698,6 +41849,7 @@
   "h": 1600,
   "prompt": "At which level was this horizontal section cut? (Lab 13 tour, numbered from superior #1 to inferior #7.)",
   "answer": "Horizontal section 7",
+  "answer_kind": "level",
   "accept": [
    "Horizontal section 7: most inferior view (hippocampus, amygdala, midbrain)",
    "most inferior view",

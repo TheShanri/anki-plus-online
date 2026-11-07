@@ -11,6 +11,7 @@
    "ref": "practical-u1-2024 Q1"
   },
   "answer": "Frontal bone",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/002.webp",
@@ -50,6 +51,7 @@
    "ref": "practical-u1-2024 Q2"
   },
   "answer": "Bregma",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/005.webp",
@@ -88,6 +90,7 @@
    "ref": "practical-u1-2024 Q3"
   },
   "answer": "Falx cerebri",
+  "answer_kind": "structure",
   "accept": [
    "falx"
   ],
@@ -196,6 +199,7 @@
    "ref": "practical-u1-2024 Q6"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/015.webp",
@@ -304,6 +308,7 @@
    "ref": "practical-u1-2024 Q9"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/020.webp",
@@ -340,6 +345,7 @@
    "ref": "practical-u1-2024 Q10"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "Caudate"
   ],
@@ -377,6 +383,7 @@
    "ref": "practical-u1-2024 Q11"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -414,6 +421,7 @@
    "ref": "practical-u1-2024 Q12"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -453,6 +461,7 @@
    "ref": "practical-u1-2024 Q13"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/028.webp",
@@ -523,6 +532,7 @@
    "ref": "practical-u1-2024 Q15"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/031.webp",
@@ -629,6 +639,7 @@
    "ref": "practical-u1-2024 Q18"
   },
   "answer": "Anterior cingulate cortex",
+  "answer_kind": "region",
   "accept": [
    "anterior cingulate",
    "ACC"
@@ -668,6 +679,7 @@
    "ref": "practical-u1-2024 Q19"
   },
   "answer": "Anterior perforated substance",
+  "answer_kind": "structure",
   "accept": [
    "anterior perforated space",
    "APS"
@@ -741,6 +753,7 @@
    "ref": "practical-u1-2024 Q21"
   },
   "answer": "Calcarine fissure",
+  "answer_kind": "structure",
   "accept": [
    "calcarine sulcus"
   ],
@@ -859,6 +872,7 @@
    "ref": "practical-u1-2024 Q24"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -897,6 +911,7 @@
    "ref": "practical-u1-2024 Q25"
   },
   "answer": "Spinous process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/051.webp",
@@ -932,6 +947,7 @@
    "ref": "practical-u1-2024 Q26"
   },
   "answer": "Vertebral foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/053.webp",
@@ -967,6 +983,7 @@
    "ref": "practical-u1-2024 Q27"
   },
   "answer": "Filum terminale",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2024/pages/055.webp",
@@ -1037,6 +1054,7 @@
    "ref": "practical-u1-2024 Q29"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "DRG",
    "spinal ganglion",
@@ -1256,6 +1274,7 @@
    "ref": "practical-u1-2024 Q35"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "Anterolateral Spinothalamic",
    "anterolateral tract",
@@ -1383,6 +1402,7 @@
    "ref": "practical-u1-2024 Q38"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "Dorsal spinocerebellar",
    "posterior spinocerebellar tract",
@@ -1495,6 +1515,7 @@
    "ref": "practical-u1-2024 QB1"
   },
   "answer": "Nucleus accumbens",
+  "answer_kind": "structure",
   "accept": [
    "accumbens"
   ],
@@ -1536,6 +1557,7 @@
    "ref": "practical-u1-2025 Q1"
   },
   "answer": "Lambda",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/002.webp",
@@ -1608,6 +1630,7 @@
    "ref": "practical-u1-2025 Q3"
   },
   "answer": "Foramen magnum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/004.webp",
@@ -1643,6 +1666,7 @@
    "ref": "practical-u1-2025 Q4"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "Arachnoid villi / granulations",
    "arachnoid villi",
@@ -1752,6 +1776,7 @@
    "ref": "practical-u1-2025 Q7"
   },
   "answer": "Arachnoid mater",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid"
   ],
@@ -1821,6 +1846,7 @@
    "ref": "practical-u1-2025 Q9"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -1927,6 +1953,7 @@
    "ref": "practical-u1-2025 Q12"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -1996,6 +2023,7 @@
    "ref": "practical-u1-2025 Q14"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "Mamillary Bodies",
    "mammillary body",
@@ -2039,6 +2067,7 @@
    "ref": "practical-u1-2025 Q15"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/021.webp",
@@ -2075,6 +2104,7 @@
    "ref": "practical-u1-2025 Q16"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/023.webp",
@@ -2111,6 +2141,7 @@
    "ref": "practical-u1-2025 Q17"
   },
   "answer": "Primary somatosensory cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -2223,6 +2254,7 @@
    "ref": "practical-u1-2025 Q20"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -2260,6 +2292,7 @@
    "ref": "practical-u1-2025 Q21"
   },
   "answer": "Transverse temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "Heschl's gyrus",
    "Heschl gyrus"
@@ -2337,6 +2370,7 @@
    "ref": "practical-u1-2025 Q23"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "Parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -2375,6 +2409,7 @@
    "ref": "practical-u1-2025 Q24"
   },
   "answer": "Wernicke's area",
+  "answer_kind": "region",
   "accept": [
    "Wernicke area",
    "sensory speech area"
@@ -2413,6 +2448,7 @@
    "ref": "practical-u1-2025 Q25"
   },
   "answer": "Cauda equina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/039.webp",
@@ -2448,6 +2484,7 @@
    "ref": "practical-u1-2025 Q26"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "DRG",
    "spinal ganglion",
@@ -2521,6 +2558,7 @@
    "ref": "practical-u1-2025 Q28"
   },
   "answer": "Spinous process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/043.webp",
@@ -2588,6 +2626,7 @@
    "ref": "practical-u1-2025 Q30"
   },
   "answer": "Intervertebral foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/045.webp",
@@ -2899,6 +2938,7 @@
    "ref": "practical-u1-2025 Q39"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -2976,6 +3016,7 @@
    "ref": "practical-u1-2025 QB1"
   },
   "answer": "Missing corpus callosum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/058.webp",
@@ -3011,6 +3052,7 @@
    "ref": "practice-practical-lab3 Q1"
   },
   "answer": "Falx cerebri",
+  "answer_kind": "structure",
   "accept": [
    "falx"
   ],
@@ -3082,6 +3124,7 @@
    "ref": "practice-practical-lab3 Q3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -3154,6 +3197,7 @@
    "ref": "practice-practical-lab3 Q5"
   },
   "answer": "Mammillary bodies of hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practice-practical-lab3/pages/001.webp",
@@ -3190,6 +3234,7 @@
    "ref": "practice-practical-lab3 Q6"
   },
   "answer": "Calcarine fissure",
+  "answer_kind": "structure",
   "accept": [
    "calcarine sulcus"
   ],
@@ -3228,6 +3273,7 @@
    "ref": "practice-practical-lab3 Q7"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practice-practical-lab3/pages/002.webp",
@@ -3264,6 +3310,7 @@
    "ref": "practice-practical-lab3 Q8"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "Head of caudate",
    "caudate head",
@@ -3303,6 +3350,7 @@
    "ref": "practice-practical-lab3 Q9"
   },
   "answer": "Internal capsule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practice-practical-lab3/pages/002.webp",
@@ -3338,6 +3386,7 @@
    "ref": "practice-practical-lab3 Q10"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -3380,6 +3429,7 @@
    "ref": "practice-practical-lab3 Q11"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "Insula",
    "insular lobe"
@@ -3418,6 +3468,7 @@
    "ref": "practice-practical-lab3 Q12"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practice-practical-lab3/pages/003.webp",
@@ -3487,6 +3538,7 @@
    "ref": "practice-practical-lab3 Q14"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -3525,6 +3577,7 @@
    "ref": "practice-practical-lab3 Q15"
   },
   "answer": "Dorsolateral prefrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "dorsolateral prefrontal",
    "DLPFC"
@@ -3563,7 +3616,7 @@
    "ref": "practice-practical-lab3 Q16"
   },
   "facet": "function",
-  "prompt": "Function?",
+  "prompt": "What is the function of the structure shown?",
   "answer": "Arachnoid granulations/villi: reabsorb CSF into the dural venous sinus",
   "accept": [],
   "keywords": [
@@ -3601,7 +3654,7 @@
    "ref": "practice-practical-lab3 Q17"
   },
   "facet": "function",
-  "prompt": "Function?",
+  "prompt": "What is the function of the structure shown?",
   "answer": "Choroid plexus: produces CSF",
   "accept": [],
   "keywords": null,
@@ -3634,6 +3687,7 @@
    "ref": "practice-practical-lab3 Q18"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",

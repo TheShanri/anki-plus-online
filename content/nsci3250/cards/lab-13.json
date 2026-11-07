@@ -11,6 +11,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 1"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -99,6 +100,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 2"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -187,6 +189,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 3"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -272,6 +275,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 4"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -360,6 +364,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 5"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-a70182ec1f84dfecd40066c1ad3549629daab120.webp",
@@ -441,6 +446,7 @@
    "ref": "apkg/lab-13 note 1773765458587 cloze 6"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -524,6 +530,7 @@
    "ref": "apkg/lab-13 note 1773765507953 cloze 1"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -618,6 +625,7 @@
    "ref": "apkg/lab-13 note 1773765507953 cloze 2"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -712,6 +720,7 @@
    "ref": "apkg/lab-13 note 1773765507953 cloze 3"
   },
   "answer": "Interthalamic adhesion",
+  "answer_kind": "structure",
   "accept": [
    "massa intermedia",
    "thalamic adhesion",
@@ -836,6 +845,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 1"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -929,6 +939,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 2"
   },
   "answer": "Tail of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate tail",
    "tail of caudate",
@@ -1021,6 +1032,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 3"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -1111,6 +1123,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 4"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate body",
    "body of caudate",
@@ -1203,6 +1216,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 5"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -1295,6 +1309,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 6"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate"
   ],
@@ -1385,6 +1400,7 @@
    "ref": "apkg/lab-13 note 1773765551089 cloze 7"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-3f777a79ea3b1875a172f64a5909ea5341da5281.webp",
@@ -1474,6 +1490,7 @@
    "ref": "apkg/lab-13 note 1773766330731 cloze 1"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -1553,6 +1570,7 @@
    "ref": "apkg/lab-13 note 1773766330731 cloze 2"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-8caec126547c4db5081830b4bfe1f3fe10031e04.webp",
@@ -1629,6 +1647,7 @@
    "ref": "apkg/lab-13 note 1773766330731 cloze 3"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -1708,6 +1727,7 @@
    "ref": "apkg/lab-13 note 1773766330731 cloze 4"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -1785,6 +1805,7 @@
    "ref": "apkg/lab-13 note 1773766330731 cloze 5"
   },
   "answer": "Tail of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate tail",
    "tail of caudate",
@@ -1864,6 +1885,7 @@
    "ref": "apkg/lab-13 note 1773766375456 cloze 1"
   },
   "answer": "Columns of the fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix columns",
    "columns of fornix",
@@ -1930,6 +1952,7 @@
    "ref": "apkg/lab-13 note 1773766375456 cloze 2"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -1994,6 +2017,7 @@
    "ref": "apkg/lab-13 note 1773766375456 cloze 3"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix crus",
    "crura of fornix",
@@ -2060,6 +2084,7 @@
    "ref": "apkg/lab-13 note 1773766588139 cloze 1"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -2145,6 +2170,7 @@
    "ref": "apkg/lab-13 note 1773766588139 cloze 2"
   },
   "answer": "Crus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-81640d8aca5cea4291b7f8aca270742f0fbb2232.webp",
@@ -2225,6 +2251,7 @@
    "ref": "apkg/lab-13 note 1773766588139 cloze 3"
   },
   "answer": "Columns of the fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix columns",
    "columns of fornix",
@@ -2311,6 +2338,7 @@
    "ref": "apkg/lab-13 note 1773766588139 cloze 4"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -2395,6 +2423,7 @@
    "ref": "apkg/lab-13 note 1773766588139 cloze 5"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -2480,6 +2509,7 @@
    "ref": "apkg/lab-13 note 1773766588139 cloze 6"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -2565,6 +2595,7 @@
    "ref": "apkg/lab-13 note 1773766623205 cloze 1"
   },
   "answer": "Cortical ribbon",
+  "answer_kind": "structure",
   "accept": [
    "cortical gray matter",
    "cortical grey matter",
@@ -2629,6 +2660,7 @@
    "ref": "apkg/lab-13 note 1773766623205 cloze 2"
   },
   "answer": "Centrum Semiovale (White matter)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-bcd7b3312006008de7296955ac9ba1fd5cc7b3f4.webp",
@@ -2688,6 +2720,7 @@
    "ref": "apkg/lab-13 note 1773766623205 cloze 3"
   },
   "answer": "Interhemispheric fissure",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
@@ -2753,6 +2786,7 @@
    "ref": "apkg/lab-13 note 1773766643752 cloze 1"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -2824,6 +2858,7 @@
    "ref": "apkg/lab-13 note 1773766643752 cloze 2"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -2894,6 +2929,7 @@
    "ref": "apkg/lab-13 note 1773766643752 cloze 3"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -2965,6 +3001,7 @@
    "ref": "apkg/lab-13 note 1773766643752 cloze 4"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -3036,6 +3073,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 1"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -3121,6 +3159,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 2"
   },
   "answer": "Body of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate body",
    "body of caudate",
@@ -3206,6 +3245,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 3"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -3290,6 +3330,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 4"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -3373,6 +3414,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 5"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -3458,6 +3500,7 @@
    "ref": "apkg/lab-13 note 1773766673981 cloze 6"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -3543,6 +3586,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 1"
   },
   "answer": "Internal capsule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-43dd90fb427db957a02107ecf2f9842d3caed4fa.webp",
@@ -3715,6 +3759,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 2"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -3889,6 +3934,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 3"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-43dd90fb427db957a02107ecf2f9842d3caed4fa.webp",
@@ -4062,6 +4108,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 4"
   },
   "answer": "Body of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix body"
   ],
@@ -4237,6 +4284,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 5"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -4413,6 +4461,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 6"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "trigone",
@@ -4590,6 +4639,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 7"
   },
   "answer": "Pulvinar",
+  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
@@ -4765,6 +4815,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 8"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -4939,6 +4990,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 9"
   },
   "answer": "Anterior nucleus of thalamus",
+  "answer_kind": "structure",
   "accept": [
    "anterior nucleus",
    "anterior thalamic nucleus",
@@ -5116,6 +5168,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 10"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -5292,6 +5345,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 11"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -5471,6 +5525,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 12"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -5646,6 +5701,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 13"
   },
   "answer": "Genu",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-43dd90fb427db957a02107ecf2f9842d3caed4fa.webp",
@@ -5817,6 +5873,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 14"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "anterior limb",
    "internal capsule anterior limb",
@@ -6007,6 +6064,7 @@
    "ref": "apkg/lab-13 note 1773940278598 cloze 15"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "posterior limb",
    "internal capsule posterior limb",
@@ -6197,6 +6255,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 1"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "anterior limb",
    "internal capsule anterior limb",
@@ -6345,6 +6404,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 2"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -6492,6 +6552,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 3"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "posterior limb",
    "internal capsule posterior limb",
@@ -6640,6 +6701,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 4"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -6786,6 +6848,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 5"
   },
   "answer": "Splenium of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "splenium",
    "splenium of CC",
@@ -6934,6 +6997,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 6"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -7085,6 +7149,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 7"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix crus",
    "crura of fornix",
@@ -7234,6 +7299,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 8"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-fd9263bc7fef21c4c1ce87f1fb795f25e55c2f28.webp",
@@ -7379,6 +7445,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 9"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -7527,6 +7594,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 10"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -7676,6 +7744,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 11"
   },
   "answer": "Columns of the fornix",
+  "answer_kind": "structure",
   "accept": [
    "fornix columns",
    "columns of fornix",
@@ -7825,6 +7894,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 12"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -7976,6 +8046,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 13"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -8123,6 +8194,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 14"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -8269,6 +8341,7 @@
    "ref": "apkg/lab-13 note 1773940338429 cloze 15"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -8417,6 +8490,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 1"
   },
   "answer": "Head of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate head",
    "head of caudate",
@@ -8558,6 +8632,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 2"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-411034f6e55e5bb61a7ebb4abdd05aa926556699.webp",
@@ -8696,6 +8771,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 3"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -8837,6 +8913,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 4"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -8976,6 +9053,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 5"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -9119,6 +9197,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 6"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
@@ -9261,6 +9340,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 7"
   },
   "answer": "Habenula",
+  "answer_kind": "structure",
   "accept": [
    "habenular nuclei"
   ],
@@ -9400,6 +9480,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 8"
   },
   "answer": "Pineal gland",
+  "answer_kind": "structure",
   "accept": [
    "pineal body",
    "pineal",
@@ -9541,6 +9622,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 9"
   },
   "answer": "Posterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "PC"
   ],
@@ -9680,6 +9762,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 10"
   },
   "answer": "Tail of caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate tail",
    "tail of caudate",
@@ -9821,6 +9904,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 11"
   },
   "answer": "Posterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "posterior limb",
    "internal capsule posterior limb",
@@ -9962,6 +10046,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 12"
   },
   "answer": "Insular cortex",
+  "answer_kind": "region",
   "accept": [
    "insula",
    "insular lobe"
@@ -10080,7 +10165,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -10102,6 +10187,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 13"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -10243,6 +10329,7 @@
    "ref": "apkg/lab-13 note 1773940385900 cloze 14"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -10382,6 +10469,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 1"
   },
   "answer": "Anterior perforated substance",
+  "answer_kind": "structure",
   "accept": [
    "anterior perforated space",
    "APS"
@@ -10487,6 +10575,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 2"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-fa3bb1e556408f798ed83432ac91fa6363908f8e.webp",
@@ -10589,6 +10678,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 3"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -10696,6 +10786,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 4"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -10803,6 +10894,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 5"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -10912,6 +11004,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 6"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-fa3bb1e556408f798ed83432ac91fa6363908f8e.webp",
@@ -11015,6 +11108,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 7"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-13/media/paste-fa3bb1e556408f798ed83432ac91fa6363908f8e.webp",
@@ -11118,6 +11212,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 8"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -11227,6 +11322,7 @@
    "ref": "apkg/lab-13 note 1773940417966 cloze 9"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],

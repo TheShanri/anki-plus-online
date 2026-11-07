@@ -11,6 +11,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 1"
   },
   "answer": "Dorsal columns",
+  "answer_kind": "structure",
   "accept": [
    "posterior columns",
    "posterior funiculus",
@@ -301,6 +302,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 2"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -590,6 +592,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 3"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -878,6 +881,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 4"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn of spinal cord",
    "anterior gray horn",
@@ -1168,6 +1172,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 5"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn of spinal cord",
    "posterior gray horn",
@@ -1476,6 +1481,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 6"
   },
   "answer": "Nucleus proprius",
+  "answer_kind": "structure",
   "accept": [
    "proper sensory nucleus",
    "NP"
@@ -1778,6 +1784,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 7"
   },
   "answer": "Substantia gelatinosa",
+  "answer_kind": "structure",
   "accept": [
    "lamina II",
    "SG"
@@ -2080,6 +2087,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 8"
   },
   "answer": "Marginal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "marginal zone",
    "marginal zone nucleus",
@@ -2389,6 +2397,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 9"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -2724,6 +2733,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 10"
   },
   "answer": "Dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "dorsal root entry zone (DREZ)",
    "DREZ"
@@ -3027,6 +3037,7 @@
    "ref": "apkg/lab-5 note 1769695003621 cloze 11"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -3366,6 +3377,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 1"
   },
   "answer": "Dorsal columns",
+  "answer_kind": "structure",
   "accept": [
    "posterior columns",
    "posterior funiculus",
@@ -3626,6 +3638,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 2"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -3885,6 +3898,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 3"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -4143,6 +4157,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 4"
   },
   "answer": "Column of Clarke",
+  "answer_kind": "structure",
   "accept": [
    "Clarke's column",
    "nucleus dorsalis",
@@ -4404,6 +4419,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 5"
   },
   "answer": "Lateral horn",
+  "answer_kind": "structure",
   "accept": [
    "intermediolateral cell column",
    "IML"
@@ -4662,6 +4678,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 6"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn of spinal cord",
    "anterior gray horn",
@@ -4922,6 +4939,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 7"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn of spinal cord",
    "posterior gray horn",
@@ -5196,6 +5214,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 8"
   },
   "answer": "Nucleus proprius",
+  "answer_kind": "structure",
   "accept": [
    "proper sensory nucleus",
    "NP"
@@ -5468,6 +5487,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 9"
   },
   "answer": "Substantia gelatinosa",
+  "answer_kind": "structure",
   "accept": [
    "lamina II",
    "SG"
@@ -5740,6 +5760,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 10"
   },
   "answer": "Marginal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "marginal zone",
    "marginal zone nucleus",
@@ -6015,6 +6036,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 11"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -6316,6 +6338,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 12"
   },
   "answer": "Dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "dorsal root entry zone (DREZ)",
    "DREZ"
@@ -6589,6 +6612,7 @@
    "ref": "apkg/lab-5 note 1769695249054 cloze 13"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -6866,6 +6890,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 1"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -7138,6 +7163,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 2"
   },
   "answer": "Column of Clarke",
+  "answer_kind": "structure",
   "accept": [
    "Clarke's column",
    "nucleus dorsalis",
@@ -7412,6 +7438,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 3"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn of spinal cord",
    "posterior gray horn",
@@ -7685,6 +7712,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 4"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn of spinal cord",
    "anterior gray horn",
@@ -7958,6 +7986,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 5"
   },
   "answer": "Lateral horn",
+  "answer_kind": "structure",
   "accept": [
    "intermediolateral cell column",
    "IML"
@@ -8229,6 +8258,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 6"
   },
   "answer": "Dorsal columns",
+  "answer_kind": "structure",
   "accept": [
    "posterior columns",
    "posterior funiculus",
@@ -8520,6 +8550,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 7"
   },
   "answer": "Nucleus proprius",
+  "answer_kind": "structure",
   "accept": [
    "proper sensory nucleus",
    "NP"
@@ -8805,6 +8836,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 8"
   },
   "answer": "Substantia gelatinosa",
+  "answer_kind": "structure",
   "accept": [
    "lamina II",
    "SG"
@@ -9090,6 +9122,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 9"
   },
   "answer": "Marginal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "marginal zone",
    "marginal zone nucleus",
@@ -9382,6 +9415,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 10"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -9700,6 +9734,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 11"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -9998,6 +10033,7 @@
    "ref": "apkg/lab-5 note 1769695438588 cloze 12"
   },
   "answer": "Dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "dorsal root entry zone (DREZ)",
    "DREZ"
@@ -10284,6 +10320,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 1"
   },
   "answer": "Dorsal columns",
+  "answer_kind": "structure",
   "accept": [
    "posterior columns",
    "posterior funiculus",
@@ -10586,6 +10623,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 2"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -10887,6 +10925,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 3"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn of spinal cord",
    "posterior gray horn",
@@ -11185,6 +11224,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 4"
   },
   "answer": "Horn Ventral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-fdbbb4e627de3b53210143f0526f52dc03cea59e.webp",
@@ -11457,7 +11497,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11478,6 +11518,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 5"
   },
   "answer": "Nucleus proprius",
+  "answer_kind": "structure",
   "accept": [
    "proper sensory nucleus",
    "NP"
@@ -11774,6 +11815,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 6"
   },
   "answer": "Marginal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "marginal zone",
    "marginal zone nucleus",
@@ -12077,6 +12119,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 7"
   },
   "answer": "Substantia gelatinosa",
+  "answer_kind": "structure",
   "accept": [
    "lamina II",
    "SG"
@@ -12377,6 +12420,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 8"
   },
   "answer": "Dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "dorsal root entry zone (DREZ)",
    "DREZ"
@@ -12678,6 +12722,7 @@
    "ref": "apkg/lab-5 note 1769696394309 cloze 9"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -13012,6 +13057,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 1"
   },
   "answer": "Unconscious proprioception",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13078,7 +13124,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -13100,6 +13146,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 2"
   },
   "answer": "Golgi tendon organs (muscle tension) and Muscle Spindles (muscle length)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13166,7 +13213,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Posterior horn of lateral ventricle' (50); OCR text not recognised; long free-text label (not a structure name) [OCR 'Golgi tendon organs (muscle tension) and Muscle Spindles (muscle length)', conf 1.00]",
   "tags": [
@@ -13188,6 +13235,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 3"
   },
   "answer": "Medial DREZ, because they are heavily myelinated",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13276,6 +13324,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 4"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -13367,6 +13416,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 5"
   },
   "answer": "The DSCT travels on the same side (ipsilateral) as the stimulus sensation",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13433,7 +13483,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Lateral fissure' (55); OCR text not recognised; long free-text label (not a structure name) [OCR 'The DSCT travels on the same side (ipsilateral) as the stimulus sensation', conf 0.99]",
   "tags": [
@@ -13455,6 +13505,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 6"
   },
   "answer": "The second-order neuron synapses in the ipsilateral cerebellum",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13521,7 +13572,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "free-text answer [OCR 'The second-order neuron synapses in the ipsilateral cerebellum', conf 1.00]",
   "tags": [
@@ -13544,6 +13595,7 @@
    "ref": "apkg/lab-5 note 1769696547113 cloze 7"
   },
   "answer": "The axons of the second-order cells are myelinated we know this in part because they travel in the white matter, which maintains a myelinated appearance",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
@@ -13610,7 +13662,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (33); OCR text not recognised; long free-text label (not a structure name) [OCR 'The axons of the second-order cells are myelinated we know this in part because they travel in the white matter, which maintains a myelinated appearance', conf 0.99]",
   "tags": [
@@ -13632,6 +13684,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 1"
   },
   "answer": "nsation, proprioception 'Touch, vibration, pressure",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
@@ -13787,6 +13840,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 2"
   },
   "answer": "contralateral VPL of the thalamus. medulla), and second-order neurons synapse in order neurons synapse in nucleus cuneatus (brainstem First",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
@@ -13919,7 +13973,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Brainstem' (75); OCR text not recognised; long free-text label (not a structure name) [OCR 'contralateral VPL of the thalamus. medulla), and second-order neurons synapse in order neurons synapse in nucleus cuneatus (brainstem First', conf 1.00]",
   "tags": [
@@ -13942,6 +13996,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 3"
   },
   "answer": "Ascends on same side (ipsilateral)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
@@ -14073,6 +14128,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 4"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -14207,6 +14263,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 5"
   },
   "answer": "Ascends on same side (ipsilateral)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
@@ -14338,6 +14395,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 6"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -14473,6 +14531,7 @@
    "ref": "apkg/lab-5 note 1769696795188 cloze 7"
   },
   "answer": "Medial dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "medial DREZ"
   ],
@@ -14607,6 +14666,7 @@
    "ref": "apkg/lab-5 note 1769696917835 cloze 1"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-cedeea8baac0aabb6e9d0ed82e89d63c346164f9.webp",
@@ -14681,6 +14741,7 @@
    "ref": "apkg/lab-5 note 1769696917835 cloze 2"
   },
   "answer": "Muscle spindle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-cedeea8baac0aabb6e9d0ed82e89d63c346164f9.webp",
@@ -14754,6 +14815,7 @@
    "ref": "apkg/lab-5 note 1769696917835 cloze 3"
   },
   "answer": "Golgi tendon organ",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-cedeea8baac0aabb6e9d0ed82e89d63c346164f9.webp",
@@ -14827,6 +14889,7 @@
    "ref": "apkg/lab-5 note 1769696917835 cloze 4"
   },
   "answer": "Column of Clarke",
+  "answer_kind": "structure",
   "accept": [
    "Clarke's column",
    "nucleus dorsalis",
@@ -14906,6 +14969,7 @@
    "ref": "apkg/lab-5 note 1769696917835 cloze 5"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -14983,6 +15047,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 1"
   },
   "answer": "Pain, temperature",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -15115,7 +15180,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15136,6 +15201,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 2"
   },
   "answer": "Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -15268,7 +15334,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]",
   "tags": [
@@ -15290,6 +15356,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 3"
   },
   "answer": "Lateral dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "lateral DREZ"
   ],
@@ -15446,6 +15513,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 4"
   },
   "answer": "Myelinated, which we know in part because we can see this portion of the spinal cord stains dark with the myelin stain",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -15578,7 +15646,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'Myelinated, which we know in part because we can see this portion of the spinal cord stains dark with the myelin stain', conf 0.99]",
   "tags": [
@@ -15600,6 +15668,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 5"
   },
   "answer": "anterolateral spinothalamic tract. ventral commissure to contralateral spinal cord and ascends in Crosses the",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -15754,7 +15823,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'anterolateral spinothalamic tract. ventral commissure to contralateral spinal cord and ascends in Crosses the', conf 1.00]",
   "tags": [
@@ -15777,6 +15846,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 6"
   },
   "answer": "After synapsing in the nucleus proprius, second-order neurons cross the ventral commissure and ascend in the anterolateral spinothalamic tract",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -15931,7 +16001,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'After synapsing in the nucleus proprius, second-order neurons cross the ventral commissure and ascend in the anterolateral spinothalamic tract', conf 0.99]",
   "tags": [
@@ -15954,6 +16024,7 @@
    "ref": "apkg/lab-5 note 1769700348409 cloze 7"
   },
   "answer": "First-order neurons synaps substantia gelatinosa nucleus proprius, and sec cross to ascend on the contralateral side",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
@@ -16108,7 +16179,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'First-order neurons synaps substantia gelatinosa nucleus proprius, and sec cross to ascend on the contralateral side', conf 1.00]",
   "tags": [
@@ -16130,6 +16201,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 1"
   },
   "answer": "Sensory Input: Foot (Fast, Sharp Pain) [Fiber Type: A-delta]",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -16224,7 +16296,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Somatosensory homunculus' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Sensory Input: Foot (Fast, Sharp Pain) [Fiber Type: A-delta]', conf 1.00]",
   "tags": [
@@ -16247,6 +16319,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 2"
   },
   "answer": "Sensory Input: Hand (Slow, Dull Pain/Temp) [Fiber Type: C Fibers]",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -16341,7 +16414,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Somatosensory homunculus' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Sensory Input: Hand (Slow, Dull Pain/Temp) [Fiber Type: C Fibers]', conf 0.99]",
   "tags": [
@@ -16364,6 +16437,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 3"
   },
   "answer": "Lateral dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "lateral DREZ"
   ],
@@ -16482,6 +16556,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 4"
   },
   "answer": "Synapse (T1 Thoracic) Substantia Gelatinosa Nucleus Proprius",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -16598,6 +16673,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 5"
   },
   "answer": "Synapse (L1 Lumbar) Marginal Zone Nucleus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -16692,7 +16768,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -16713,6 +16789,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 6"
   },
   "answer": "Lateral dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "lateral DREZ"
   ],
@@ -16831,6 +16908,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 7"
   },
   "answer": "Ventral commissure of spinal cord",
+  "answer_kind": "structure",
   "accept": [
    "anterior white commissure",
    "ventral white commissure",
@@ -16950,6 +17028,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 8"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -17073,6 +17152,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 9"
   },
   "answer": "Brainstem Passage (Medulla Pons)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -17189,6 +17269,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 10"
   },
   "answer": "Thalamus Synapse (VPL NucÍeus)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -17306,6 +17387,7 @@
    "ref": "apkg/lab-5 note 1769734912436 cloze 11"
   },
   "answer": "Primary somatosensory cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -17406,7 +17488,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17428,6 +17510,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 1"
   },
   "answer": "Sensory Input (Legs/T6 and below)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17522,7 +17605,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17544,6 +17627,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 2"
   },
   "answer": "Sensory Input (Arms/T6 and above)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17638,7 +17722,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17660,6 +17744,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 3"
   },
   "answer": "1st Order Neuron (DRG Cervical/Thoracic)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17754,7 +17839,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17775,6 +17860,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 4"
   },
   "answer": "1st Order Neuron (DRG Sacral/Lumbar)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -17869,7 +17955,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17890,6 +17976,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 5"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -18009,6 +18096,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 6"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -18127,6 +18215,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 7"
   },
   "answer": "Cuneate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus cuneatus",
    "cuneatus nucleus"
@@ -18246,6 +18335,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 8"
   },
   "answer": "Gracile nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus gracilis",
    "gracilis nucleus"
@@ -18365,6 +18455,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 9"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -18481,6 +18572,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 10"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -18598,6 +18690,7 @@
    "ref": "apkg/lab-5 note 1769735630176 cloze 11"
   },
   "answer": "Primary somatosensory cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -18698,7 +18791,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -18720,6 +18813,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 1"
   },
   "answer": "Sensory Input (Legs/Muscle Spindles)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-b4f79c0003be3d2cd664436763c69fb17a06779b.webp",
@@ -18779,7 +18873,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -18801,6 +18895,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 2"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "spinal ganglion",
    "posterior root ganglion",
@@ -18886,6 +18981,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 3"
   },
   "answer": "Spinal cord synapse: column of Clarke",
+  "answer_kind": "term",
   "accept": [
    "Clarke's column",
    "nucleus dorsalis",
@@ -18951,7 +19047,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "pathway flow-chart label [OCR 'Spinal Cord Synapse Column of Clark', conf 1.00]",
   "tags": [
@@ -18973,6 +19069,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 4"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -19057,6 +19154,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 5"
   },
   "answer": "Brainstem",
+  "answer_kind": "structure",
   "accept": [
    "brain stem"
   ],
@@ -19139,6 +19237,7 @@
    "ref": "apkg/lab-5 note 1769735915192 cloze 6"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-b4f79c0003be3d2cd664436763c69fb17a06779b.webp",

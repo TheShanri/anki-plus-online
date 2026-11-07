@@ -45,6 +45,7 @@
    "ref": "practical-u2-2024 Q10"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/003.webp",
@@ -114,6 +115,7 @@
    "ref": "practical-u2-2024 Q12"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/005.webp",
@@ -183,6 +185,7 @@
    "ref": "practical-u2-2024 Q14"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/007.webp",
@@ -218,6 +221,7 @@
    "ref": "practical-u2-2024 Q15"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/008.webp",
@@ -253,6 +257,7 @@
    "ref": "practical-u2-2024 Q16"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/009.webp",
@@ -288,6 +293,7 @@
    "ref": "practical-u2-2024 Q17"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/010.webp",
@@ -323,6 +329,7 @@
    "ref": "practical-u2-2024 Q18"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/011.webp",
@@ -358,6 +365,7 @@
    "ref": "practical-u2-2024 Q19"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/012.webp",
@@ -461,6 +469,7 @@
    "ref": "practical-u2-2024 Q22"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/015.webp",
@@ -530,6 +539,7 @@
    "ref": "practical-u2-2024 Q24"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/017.webp",
@@ -565,6 +575,7 @@
    "ref": "practical-u2-2024 Q34"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/018.webp",
@@ -702,6 +713,7 @@
    "ref": "practical-u2-2024 Q39"
   },
   "answer": "",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2024/pages/022.webp",
@@ -805,6 +817,7 @@
    "ref": "practical-u2-2025 Q1"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "Abducens n. (CN VI)",
    "cranial nerve VI",
@@ -883,6 +896,7 @@
    "ref": "practical-u2-2025 Q3"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -955,6 +969,7 @@
    "ref": "practical-u2-2025 Q5"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "cerebral peduncle",
    "crus cerebri",
@@ -1033,6 +1048,7 @@
    "ref": "practical-u2-2025 Q7"
   },
   "answer": "Gracile tubercle",
+  "answer_kind": "structure",
   "accept": [
    "gracile tubercles",
    "tuberculum gracile"
@@ -1072,6 +1088,7 @@
    "ref": "practical-u2-2025 Q8"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "transverse pontine fibers",
    "transverse fibers of pons",
@@ -1111,6 +1128,7 @@
    "ref": "practical-u2-2025 Q9"
   },
   "answer": "Olives",
+  "answer_kind": "structure",
   "accept": [
    "olive"
   ],
@@ -1220,6 +1238,7 @@
    "ref": "practical-u2-2025 Q12"
   },
   "answer": "Trochlear nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN IV nucleus",
    "nucleus of CN IV",
@@ -1293,6 +1312,7 @@
    "ref": "practical-u2-2025 Q14"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "SCP",
    "brachium conjunctivum"
@@ -1332,6 +1352,7 @@
    "ref": "practical-u2-2025 Q15"
   },
   "answer": "Facial nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VII nucleus",
    "facial motor nucleus",
@@ -1371,6 +1392,7 @@
    "ref": "practical-u2-2025 Q16"
   },
   "answer": "Solitary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus solitarius",
    "nucleus of the solitary tract",
@@ -1450,6 +1472,7 @@
    "ref": "practical-u2-2025 Q18"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -1488,6 +1511,7 @@
    "ref": "practical-u2-2025 Q19"
   },
   "answer": "Anterior corticospinal tract",
+  "answer_kind": "structure",
   "accept": [
    "ventral corticospinal tract",
    "anterior CST",
@@ -1561,6 +1585,7 @@
    "ref": "practical-u2-2025 Q21"
   },
   "answer": "Red nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus ruber"
   ],
@@ -1632,6 +1657,7 @@
    "ref": "practical-u2-2025 Q23"
   },
   "answer": "Principal sensory nucleus of trigeminal",
+  "answer_kind": "structure",
   "accept": [
    "Principal sensory nucleu of V",
    "principal trigeminal nucleus",
@@ -1675,6 +1701,7 @@
    "ref": "practical-u2-2025 Q24"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "ICP",
    "restiform body"
@@ -1748,6 +1775,7 @@
    "ref": "practical-u2-2025 Q26"
   },
   "answer": "Internal arcuate fibers",
+  "answer_kind": "structure",
   "accept": [
    "internal arcuate fibres"
   ],
@@ -1822,6 +1850,7 @@
    "ref": "practical-u2-2025 Q28"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/024.webp",
@@ -2004,6 +2033,7 @@
    "ref": "practical-u2-2025 Q33"
   },
   "answer": "Optic radiations",
+  "answer_kind": "structure",
   "accept": [
    "Opitc radiations",
    "geniculocalcarine tract",
@@ -2078,6 +2108,7 @@
    "ref": "practical-u2-2025 Q35"
   },
   "answer": "Choroid",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/031.webp",
@@ -2152,6 +2183,7 @@
    "ref": "practical-u2-2025 Q37"
   },
   "answer": "Retina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/032.webp",
@@ -2188,6 +2220,7 @@
    "ref": "practical-u2-2025 Q38"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -2226,6 +2259,7 @@
    "ref": "practical-u2-2025 Q39"
   },
   "answer": "Lens",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/034.webp",
@@ -2329,6 +2363,7 @@
    "ref": "practical-u2-2025 QB2"
   },
   "answer": "Lateral corticospinal",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u2-2025/pages/036.webp",

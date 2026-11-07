@@ -5652,7 +5652,7 @@
    "ref": "content-theory agent"
   },
   "facet": "connections",
-  "prompt": "To which thalamic nucleus do spinothalamic axons project (body)?",
+  "prompt": "To which thalamic nucleus do spinothalamic axons from the body project?",
   "format": "type",
   "answer": "VPL",
   "accept": [

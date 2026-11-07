@@ -11,6 +11,7 @@
    "ref": "apkg/lab-7 note 1770685081823 cloze 1"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-18be16eb9ac88592b2a4bc24a0670407fbabb013.webp",
@@ -133,7 +134,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -154,6 +155,7 @@
    "ref": "apkg/lab-7 note 1770685081823 cloze 2"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -299,6 +301,7 @@
    "ref": "apkg/lab-7 note 1770685081823 cloze 3"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-18be16eb9ac88592b2a4bc24a0670407fbabb013.webp",
@@ -442,6 +445,7 @@
    "ref": "apkg/lab-7 note 1770685081823 cloze 4"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -588,6 +592,7 @@
    "ref": "apkg/lab-7 note 1770685081823 cloze 5"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-18be16eb9ac88592b2a4bc24a0670407fbabb013.webp",
@@ -718,6 +723,7 @@
    "ref": "apkg/lab-7 note 1770685101627 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -793,6 +799,7 @@
    "ref": "apkg/lab-7 note 1770685101627 cloze 2"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b951d436149efd984a9ead592b60c54330e6a5d5.webp",
@@ -866,6 +873,7 @@
    "ref": "apkg/lab-7 note 1770685101627 cloze 3"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -941,6 +949,7 @@
    "ref": "apkg/lab-7 note 1770685101627 cloze 4"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b951d436149efd984a9ead592b60c54330e6a5d5.webp",
@@ -1014,6 +1023,7 @@
    "ref": "apkg/lab-7 note 1770685101627 cloze 5"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -1090,6 +1100,7 @@
    "ref": "apkg/lab-7 note 1770685123609 cloze 1"
   },
   "answer": "ne ventral v",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-827eee1541cf50209a04078bef2d4c0fd9aecf43.webp",
@@ -1121,7 +1132,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"ne ventral v\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -1143,6 +1154,7 @@
    "ref": "apkg/lab-7 note 1770685123609 cloze 2"
   },
   "answer": "dorsal v",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-827eee1541cf50209a04078bef2d4c0fd9aecf43.webp",
@@ -1174,7 +1186,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"dorsal v\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -1196,6 +1208,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 1"
   },
   "answer": "Olfactory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve I",
    "cranial nerve 1",
@@ -1356,6 +1369,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 2"
   },
   "answer": "Olfactory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve I",
    "cranial nerve 1",
@@ -1516,6 +1530,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 3"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -1674,6 +1689,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 4"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -1832,6 +1848,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 5"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -1990,6 +2007,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 6"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -2148,6 +2166,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 7"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -2307,6 +2326,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 8"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -2464,6 +2484,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 9"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -2625,6 +2646,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 10"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -2782,6 +2804,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 11"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -2940,6 +2963,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 12"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -3097,6 +3121,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 13"
   },
   "answer": "Accessory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XI",
    "cranial nerve 11",
@@ -3256,6 +3281,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 14"
   },
   "answer": "Cranial nerves IX-XIl exit the medulla",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-8acd0dba6b3b71e60bf0ab9870d86961740a46f4.webp",
@@ -3407,6 +3433,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 15"
   },
   "answer": "Cranial nerves V-VIIl exit the pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-8acd0dba6b3b71e60bf0ab9870d86961740a46f4.webp",
@@ -3558,6 +3585,7 @@
    "ref": "apkg/lab-7 note 1770685184914 cloze 16"
   },
   "answer": "Cranial nerves I-IV exit the midbrain or above",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-8acd0dba6b3b71e60bf0ab9870d86961740a46f4.webp",
@@ -3709,6 +3737,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 1"
   },
   "answer": "Olfactory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve I",
    "cranial nerve 1",
@@ -3841,6 +3870,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 2"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -3971,6 +4001,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 3"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -4101,6 +4132,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 4"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -4231,6 +4263,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 5"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -4361,6 +4394,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 6"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -4492,6 +4526,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 7"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -4621,6 +4656,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 8"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -4754,6 +4790,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 9"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -4883,6 +4920,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 10"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -5013,6 +5051,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 11"
   },
   "answer": "Accessory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XI",
    "cranial nerve 11",
@@ -5144,6 +5183,7 @@
    "ref": "apkg/lab-7 note 1770685285246 cloze 12"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -5273,6 +5313,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 1"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -5410,6 +5451,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 2"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -5543,6 +5585,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 3"
   },
   "answer": "Optic tract",
+  "answer_kind": "structure",
   "accept": [
    "optic tracts"
   ],
@@ -5675,6 +5718,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 4"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -5812,6 +5856,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 5"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -5949,6 +5994,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 6"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -6086,6 +6132,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 7"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -6224,6 +6271,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 8"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -6360,6 +6408,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 9"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -6500,6 +6549,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 10"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -6636,6 +6686,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 11"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -6773,6 +6824,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 12"
   },
   "answer": "Accessory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XI",
    "cranial nerve 11",
@@ -6911,6 +6963,7 @@
    "ref": "apkg/lab-7 note 1770685351957 cloze 13"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -7047,6 +7100,7 @@
    "ref": "apkg/lab-7 note 1770685384096 cloze 1"
   },
   "answer": "Thalami",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
@@ -7113,6 +7167,7 @@
    "ref": "apkg/lab-7 note 1770685384096 cloze 2"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -7183,6 +7238,7 @@
    "ref": "apkg/lab-7 note 1770685384096 cloze 3"
   },
   "answer": "Epithalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
@@ -7249,6 +7305,7 @@
    "ref": "apkg/lab-7 note 1770685384096 cloze 4"
   },
   "answer": "Pineal gland",
+  "answer_kind": "structure",
   "accept": [
    "pineal body",
    "pineal",
@@ -7319,6 +7376,7 @@
    "ref": "apkg/lab-7 note 1770685400546 cloze 1"
   },
   "answer": "Melatonin production",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
@@ -7387,7 +7445,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -7408,6 +7466,7 @@
    "ref": "apkg/lab-7 note 1770685439875 cloze 1"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-c974db93d3eab3855c490c3276fb8be3a23ae336.webp",
@@ -7481,6 +7540,7 @@
    "ref": "apkg/lab-7 note 1770685439875 cloze 2"
   },
   "answer": "Optic tract",
+  "answer_kind": "structure",
   "accept": [
    "optic tracts"
   ],
@@ -7557,6 +7617,7 @@
    "ref": "apkg/lab-7 note 1770685439875 cloze 3"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
@@ -7635,6 +7696,7 @@
    "ref": "apkg/lab-7 note 1770685439875 cloze 4"
   },
   "answer": "Pituitary stalk",
+  "answer_kind": "structure",
   "accept": [
    "infundibulum",
    "infundibular stalk",
@@ -7713,6 +7775,7 @@
    "ref": "apkg/lab-7 note 1770685439875 cloze 5"
   },
   "answer": "Basal ganglia",
+  "answer_kind": "region",
   "accept": [
    "basal nuclei"
   ],
@@ -7767,7 +7830,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -7789,6 +7852,7 @@
    "ref": "apkg/lab-7 note 1770685519025 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -7864,6 +7928,7 @@
    "ref": "apkg/lab-7 note 1770685519025 cloze 2"
   },
   "answer": "Anterior nucleus of thalamus",
+  "answer_kind": "structure",
   "accept": [
    "anterior nucleus",
    "anterior thalamic nucleus",
@@ -7942,6 +8007,7 @@
    "ref": "apkg/lab-7 note 1770685519025 cloze 3"
   },
   "answer": "Pulvinar",
+  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
@@ -8018,6 +8084,7 @@
    "ref": "apkg/lab-7 note 1770685519025 cloze 4"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -8097,6 +8164,7 @@
    "ref": "apkg/lab-7 note 1770685519025 cloze 5"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
@@ -8175,6 +8243,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 1"
   },
   "answer": "Relay information to the cerebral cortex",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -8330,7 +8399,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -8351,6 +8420,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 2"
   },
   "answer": "Anterior nucleus of thalamus",
+  "answer_kind": "structure",
   "accept": [
    "anterior nucleus",
    "anterior thalamic nucleus",
@@ -8532,6 +8602,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 3"
   },
   "answer": "Function: limbic nucleus which relays information to the cingulate gyrus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -8709,7 +8780,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "function text (anterior thalamic nucleus); consider a theory card [OCR 'ingulate gyrus. Limbic nucleus which relays information to', conf 1.00]",
   "tags": [
@@ -8732,6 +8803,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 4"
   },
   "answer": "Relays information to the posterior cortex, largely the visual and parietal association cortex",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -8917,7 +8989,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Parietal lobe general association area' (57); OCR text not recognised; long free-text label (not a structure name) [OCR 'Relays information to the posterior cortex, largely the visual and parietal association cortex', conf 0.99]",
   "tags": [
@@ -8940,6 +9012,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 5"
   },
   "answer": "Function: relays auditory information to the primary auditory cortex",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -9117,7 +9190,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "function text (medial geniculate nucleus); consider a theory card [OCR 'auditory cortex. Relays auditory information to the primary', conf 1.00]",
   "tags": [
@@ -9140,6 +9213,7 @@
    "ref": "apkg/lab-7 note 1770685604391 cloze 6"
   },
   "answer": "Function: relays visual information to the primary visual cortex",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
@@ -9317,7 +9391,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "function text (lateral geniculate nucleus); consider a theory card [OCR 'visual cortex. Relays visual information to the primary', conf 0.99]",
   "tags": [
@@ -9340,6 +9414,7 @@
    "ref": "apkg/lab-7 note 1770685642529 cloze 1"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -9395,6 +9470,7 @@
    "ref": "apkg/lab-7 note 1770685642529 cloze 2"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -9450,6 +9526,7 @@
    "ref": "apkg/lab-7 note 1770685694563 cloze 1"
   },
   "answer": "Tracking visual stimuli and for visual reflexes",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp",
@@ -9546,7 +9623,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "descriptive text [OCR 'Tracking visual stimuli and for visual reflexes', conf 1.00]",
   "tags": [
@@ -9569,6 +9646,7 @@
    "ref": "apkg/lab-7 note 1770685694563 cloze 2"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
@@ -9691,6 +9769,7 @@
    "ref": "apkg/lab-7 note 1770685694563 cloze 3"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -9814,6 +9893,7 @@
    "ref": "apkg/lab-7 note 1770685694563 cloze 4"
   },
   "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp",
@@ -9954,6 +10034,7 @@
    "ref": "apkg/lab-7 note 1770685694563 cloze 5"
   },
   "answer": "and for auditory reflexes. Carrying sound information up the brainstem Relay nucleus for the auditory system",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp",
@@ -10072,7 +10153,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'and for auditory reflexes. Carrying sound information up the brainstem Relay nucleus for the auditory system', conf 0.99]",
   "tags": [
@@ -10095,6 +10176,7 @@
    "ref": "apkg/lab-7 note 1770685715566 cloze 1"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -10157,6 +10239,7 @@
    "ref": "apkg/lab-7 note 1770685715566 cloze 2"
   },
   "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior brachium",
    "brachium of inferior colliculus",
@@ -10221,6 +10304,7 @@
    "ref": "apkg/lab-7 note 1770685715566 cloze 3"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -10286,6 +10370,7 @@
    "ref": "apkg/lab-7 note 1770685753237 cloze 1"
   },
   "answer": "cerebellum re",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
@@ -10383,6 +10468,7 @@
    "ref": "apkg/lab-7 note 1770685753237 cloze 2"
   },
   "answer": "Auditory System",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
@@ -10479,6 +10565,7 @@
    "ref": "apkg/lab-7 note 1770685753237 cloze 3"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -10577,6 +10664,7 @@
    "ref": "apkg/lab-7 note 1770685753237 cloze 4"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -10675,6 +10763,7 @@
    "ref": "apkg/lab-7 note 1770685753237 cloze 5"
   },
   "answer": "auditory cortex, layer IV Relays information to the prim",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
@@ -10794,6 +10883,7 @@
    "ref": "apkg/lab-7 note 1770685780056 cloze 1"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -10875,6 +10965,7 @@
    "ref": "apkg/lab-7 note 1770685780056 cloze 2"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -10952,6 +11043,7 @@
    "ref": "apkg/lab-7 note 1770685780056 cloze 3"
   },
   "answer": "Optic tract",
+  "answer_kind": "structure",
   "accept": [
    "optic tracts"
   ],
@@ -11028,6 +11120,7 @@
    "ref": "apkg/lab-7 note 1770685780056 cloze 4"
   },
   "answer": "Lateral geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
@@ -11106,6 +11199,7 @@
    "ref": "apkg/lab-7 note 1770685780056 cloze 5"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -11182,6 +11276,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 1"
   },
   "answer": "Retina of the eye",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11307,6 +11402,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 2"
   },
   "answer": "midline ir",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11410,7 +11506,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"midline ir\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -11432,6 +11528,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 3"
   },
   "answer": "Thalamus and superior colliculus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11557,6 +11654,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 4"
   },
   "answer": "Retinal axons s",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11682,6 +11780,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 5"
   },
   "answer": "Primary visual cortex",
+  "answer_kind": "region",
   "accept": [
    "striate cortex",
    "visual cortex",
@@ -11790,7 +11889,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -11812,6 +11911,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 6"
   },
   "answer": "Retinal axons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11937,6 +12037,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 7"
   },
   "answer": "eliciting visual reflexes and tracking motions",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -12040,7 +12141,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -12062,6 +12163,7 @@
    "ref": "apkg/lab-7 note 1770685863805 cloze 8"
   },
   "answer": "Visual information processing",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -12217,6 +12319,7 @@
    "ref": "apkg/lab-7 note 1770685921224 cloze 1"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -12287,6 +12390,7 @@
    "ref": "apkg/lab-7 note 1770685921224 cloze 2"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -12357,6 +12461,7 @@
    "ref": "apkg/lab-7 note 1770685921224 cloze 3"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -12427,6 +12532,7 @@
    "ref": "apkg/lab-7 note 1770685921224 cloze 4"
   },
   "answer": "Facial colliculus",
+  "answer_kind": "structure",
   "accept": [
    "facial colliculi"
   ],
@@ -12495,6 +12601,7 @@
    "ref": "apkg/lab-7 note 1770685937875 cloze 1"
   },
   "answer": "Cerebellum and pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp",
@@ -12562,6 +12669,7 @@
    "ref": "apkg/lab-7 note 1770685937875 cloze 2"
   },
   "answer": "Cerebellum with midbrain and thalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp",
@@ -12629,6 +12737,7 @@
    "ref": "apkg/lab-7 note 1770685937875 cloze 3"
   },
   "answer": "Cerebellum and medulla",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp",
@@ -12696,6 +12805,7 @@
    "ref": "apkg/lab-7 note 1770685937875 cloze 4"
   },
   "answer": "Floor of the 4th ventricle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp",
@@ -12762,6 +12872,7 @@
    "ref": "apkg/lab-7 note 1770685961638 cloze 1"
   },
   "answer": "Obex",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -12821,6 +12932,7 @@
    "ref": "apkg/lab-7 note 1770685961638 cloze 2"
   },
   "answer": "Gracile tubercle",
+  "answer_kind": "structure",
   "accept": [
    "tuberculum gracile",
    "gracile tubercles"
@@ -12884,6 +12996,7 @@
    "ref": "apkg/lab-7 note 1770685961638 cloze 3"
   },
   "answer": "Cuneate tubercle",
+  "answer_kind": "structure",
   "accept": [
    "tuberculum cuneatum",
    "cuneate tubercles"
@@ -12947,6 +13060,7 @@
    "ref": "apkg/lab-7 note 1770685995086 cloze 1"
   },
   "answer": "The most inferior, pointed end of the 4th ventricle",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -13025,7 +13139,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (66); OCR text not recognised; long free-text label (not a structure name) [OCR 'The most inferior, pointed end of the 4th ventricle', conf 0.99]",
   "tags": [
@@ -13047,6 +13161,7 @@
    "ref": "apkg/lab-7 note 1770685995086 cloze 2"
   },
   "answer": "Area postrema",
+  "answer_kind": "structure",
   "accept": [
    "chemoreceptor trigger zone",
    "AP"
@@ -13149,6 +13264,7 @@
    "ref": "apkg/lab-7 note 1770685995086 cloze 3"
   },
   "answer": "Vomiting",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -13227,7 +13343,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -13248,6 +13364,7 @@
    "ref": "apkg/lab-7 note 1770685995086 cloze 4"
   },
   "answer": "Relay nuclei for the somatosensory system for lower body",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -13349,6 +13466,7 @@
    "ref": "apkg/lab-7 note 1770685995086 cloze 5"
   },
   "answer": "Function: relay nuclei for the somatosensory system for upper body",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
@@ -13453,7 +13571,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "function text (cuneate tubercles); consider a theory card [OCR 'Relay nuclei for the somatosensory system for up', conf 1.00]",
   "tags": [
@@ -13476,6 +13594,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 1"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -13594,6 +13713,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 2"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -13712,6 +13832,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 3"
   },
   "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior brachium",
    "brachium of inferior colliculus",
@@ -13832,6 +13953,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 4"
   },
   "answer": "Cerebellar peduncles",
+  "answer_kind": "structure",
   "accept": [
    "cerebellar peduncle"
   ],
@@ -13950,6 +14072,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 5"
   },
   "answer": "Obex",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
@@ -14065,6 +14188,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 6"
   },
   "answer": "Cuneate tubercle",
+  "answer_kind": "structure",
   "accept": [
    "tuberculum cuneatum",
    "cuneate tubercles"
@@ -14184,6 +14308,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 7"
   },
   "answer": "Gracile tubercle",
+  "answer_kind": "structure",
   "accept": [
    "tuberculum gracile",
    "gracile tubercles"
@@ -14303,6 +14428,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 8"
   },
   "answer": "区 Ventricle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
@@ -14418,6 +14544,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 9"
   },
   "answer": "Facial colliculus",
+  "answer_kind": "structure",
   "accept": [
    "facial colliculi"
   ],
@@ -14535,6 +14662,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 10"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -14658,6 +14786,7 @@
    "ref": "apkg/lab-7 note 1770686037214 cloze 11"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -14781,6 +14910,7 @@
    "ref": "apkg/lab-7 note 1770686056156 cloze 1"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -14834,6 +14964,7 @@
    "ref": "apkg/lab-7 note 1770686076690 cloze 1"
   },
   "answer": "he3rd Ventricle is",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b20d5a6973bcccab5a8791df5d0c47a7dd41ba84.webp",
@@ -14894,6 +15025,7 @@
    "ref": "apkg/lab-7 note 1770686076690 cloze 2"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -14958,6 +15090,7 @@
    "ref": "apkg/lab-7 note 1770686076690 cloze 3"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -15021,6 +15154,7 @@
    "ref": "apkg/lab-7 note 1770686112984 cloze 1"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -15106,6 +15240,7 @@
    "ref": "apkg/lab-7 note 1770686112984 cloze 2"
   },
   "answer": "Interpeduncular fossa",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
@@ -15187,6 +15322,7 @@
    "ref": "apkg/lab-7 note 1770686112984 cloze 3"
   },
   "answer": "Oculomotor nerves",
+  "answer_kind": "structure",
   "accept": [
    "oculomotor nerve",
    "CN III"
@@ -15294,6 +15430,7 @@
    "ref": "apkg/lab-7 note 1770686160234 cloze 1"
   },
   "answer": "Subarachnoid space",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
@@ -15353,6 +15490,7 @@
    "ref": "apkg/lab-7 note 1770686160234 cloze 2"
   },
   "answer": "Interpeduncular cistern",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
@@ -15412,6 +15550,7 @@
    "ref": "apkg/lab-7 note 1770686160234 cloze 3"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -15479,6 +15618,7 @@
    "ref": "apkg/lab-7 note 1770686228689 cloze 1"
   },
   "answer": "Lateral striations",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-92db090c4dae6a3bcf46964e7b0352a573063adf.webp",
@@ -15559,6 +15699,7 @@
    "ref": "apkg/lab-7 note 1770686228689 cloze 2"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "transverse pontine fibers",
    "transverse fibers of pons",
@@ -15643,6 +15784,7 @@
    "ref": "apkg/lab-7 note 1770686228689 cloze 3"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -15731,6 +15873,7 @@
    "ref": "apkg/lab-7 note 1770686228689 cloze 4"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -15820,6 +15963,7 @@
    "ref": "apkg/lab-7 note 1770686228689 cloze 5"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -15907,6 +16051,7 @@
    "ref": "apkg/lab-7 note 1770686228689 cloze 6"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -15998,6 +16143,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 1"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -16142,6 +16288,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 2"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -16286,6 +16433,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 3"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -16430,6 +16578,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 4"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b579a13d6110fb327c9174e45581a5aa87bf0530.webp",
@@ -16566,6 +16715,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 5"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -16711,6 +16861,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 6"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -16854,6 +17005,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 7"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -17001,6 +17153,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 8"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -17142,6 +17295,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 9"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -17282,6 +17436,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 10"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -17425,6 +17580,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 11"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -17569,6 +17725,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 12"
   },
   "answer": "Olives",
+  "answer_kind": "structure",
   "accept": [
    "olive"
   ],
@@ -17707,6 +17864,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 13"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -17850,6 +18008,7 @@
    "ref": "apkg/lab-7 note 1770686358070 cloze 14"
   },
   "answer": "Accessory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XI",
    "cranial nerve 11",
@@ -17995,6 +18154,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 1"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -18134,6 +18294,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 2"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -18274,6 +18435,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 3"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -18413,6 +18575,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 4"
   },
   "answer": "Pyramids and olive",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
@@ -18545,6 +18708,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 5"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -18680,6 +18844,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 6"
   },
   "answer": "Retinal ganglion cells (inside the globe of the eye)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
@@ -18835,6 +19000,7 @@
    "ref": "apkg/lab-7 note 1770686410815 cloze 7"
   },
   "answer": "Trigeminal n. (CN V)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
@@ -18967,7 +19133,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "practice-question answer text; consider a theory card [OCR 'Trig', conf 0.95]",
   "tags": [
@@ -18990,6 +19156,7 @@
    "ref": "apkg/lab-7 note 1770727975215 cloze 1"
   },
   "answer": "ns going TO",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-f5060d74bc15e2ca8a3b3d3dff6af99cef191637.webp",
@@ -19043,6 +19210,7 @@
    "ref": "apkg/lab-7 note 1770727975215 cloze 2"
   },
   "answer": "s LEAVING",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-f5060d74bc15e2ca8a3b3d3dff6af99cef191637.webp",
@@ -19096,6 +19264,7 @@
    "ref": "apkg/lab-7 note 1770728625914 cloze 1"
   },
   "answer": "Interpeduncular cistern",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-d207242d4072464d2d06e70ff2c046c7d96631cc.webp",
@@ -19141,6 +19310,7 @@
    "ref": "apkg/lab-7 note 1770744842712 cloze 1"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -19212,6 +19382,7 @@
    "ref": "apkg/lab-7 note 1770744842712 cloze 2"
   },
   "answer": "Olives",
+  "answer_kind": "structure",
   "accept": [
    "olive"
   ],
@@ -19280,6 +19451,7 @@
    "ref": "apkg/lab-7 note 1770744842712 cloze 3"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -19353,6 +19525,7 @@
    "ref": "apkg/lab-7 note 1770744842712 cloze 4"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -19426,6 +19599,7 @@
    "ref": "apkg/lab-7 note 1770744857169 cloze 1"
   },
   "answer": "longitudinal fi",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
@@ -19486,6 +19660,7 @@
    "ref": "apkg/lab-7 note 1770744857169 cloze 2"
   },
   "answer": "Cortical efferent",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
@@ -19524,7 +19699,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -19545,6 +19720,7 @@
    "ref": "apkg/lab-7 note 1770744857169 cloze 3"
   },
   "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "inferior olive",
    "olivary nucleus",

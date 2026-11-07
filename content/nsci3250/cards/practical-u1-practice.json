@@ -11,6 +11,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157768261 cloze 1"
   },
   "answer": "Lambda",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b91e729deabd1a93f6d2105bde66bb672a78c24c.webp",
@@ -64,6 +65,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157768261 cloze 2"
   },
   "answer": "Parietal x2, Occipital",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b91e729deabd1a93f6d2105bde66bb672a78c24c.webp",
@@ -116,6 +118,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157782033 cloze 1"
   },
   "answer": "Foramen magnum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-d0dbb79a660e3201136d18a3664ada3d20d7a443.webp",
@@ -162,6 +165,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157796680 cloze 1"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -218,6 +222,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157796680 cloze 2"
   },
   "answer": "Drain reabsorb CSF",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-cf274cc7a41c388b4ff928a63779138b8cad6348.webp",
@@ -249,7 +254,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -270,6 +275,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157806548 cloze 1"
   },
   "answer": "Horizontal plane",
+  "answer_kind": "plane",
   "accept": [
    "horizontal",
    "axial",
@@ -300,7 +306,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -322,6 +328,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157821324 cloze 1"
   },
   "answer": "Arachnoid mater",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid"
   ],
@@ -377,6 +384,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157821324 cloze 2"
   },
   "answer": "Dorsal",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-5f7b06c4bee3da18c57a3b2c56221dd64cd6e144.webp",
@@ -408,7 +416,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -429,6 +437,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157834555 cloze 1"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -485,6 +494,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157834555 cloze 2"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-11c925d5837d1d1860a1ce790d0cbf7eb458e924.webp",
@@ -539,6 +549,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157846315 cloze 1"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -592,6 +603,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157862259 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -647,6 +659,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157862259 cloze 2"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-ba7ac0de1cc495d6d1a4e82fcf6dcb0c98a26bf3.webp",
@@ -678,7 +691,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -699,6 +712,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157873486 cloze 1"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -750,6 +764,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157883962 cloze 1"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-46f8e54a9d310b486490d35198518010e38a5f2e.webp",
@@ -797,6 +812,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157896431 cloze 1"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b4bc261ddb9a075b3b82c98563397a41d2b22801.webp",
@@ -844,6 +860,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157910342 cloze 1"
   },
   "answer": "Primary somatosensory cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -881,7 +898,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -904,6 +921,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157910342 cloze 2"
   },
   "answer": "C -Face",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-0e0473809e2531625d6235e54feebfcc96c595a4.webp",
@@ -956,6 +974,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157922621 cloze 1"
   },
   "answer": "Primary visual cortex",
+  "answer_kind": "region",
   "accept": [
    "striate cortex",
    "visual cortex",
@@ -985,7 +1004,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1008,6 +1027,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157935279 cloze 1"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -1056,6 +1076,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157947215 cloze 1"
   },
   "answer": "Transverse temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "Heschl's gyrus",
    "Heschl gyrus"
@@ -1105,6 +1126,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157958302 cloze 1"
   },
   "answer": "A. Broca's aphasia",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b289baf08f2f62f5384a2196b38917434cd952b2.webp",
@@ -1129,7 +1151,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1150,6 +1172,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157968818 cloze 1"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -1199,6 +1222,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157978684 cloze 1"
   },
   "answer": "Wernicke's area",
+  "answer_kind": "region",
   "accept": [
    "Wernicke area",
    "sensory speech area"
@@ -1226,7 +1250,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1248,6 +1272,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770157988829 cloze 1"
   },
   "answer": "Cauda equina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b17ded14d643c8827bb427fe4e115f2279c64a49.webp",
@@ -1294,6 +1319,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158001764 cloze 1"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "spinal ganglion",
    "posterior root ganglion",
@@ -1352,6 +1378,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158001764 cloze 2"
   },
   "answer": "Pseudounipolar",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-30d6ae503da54387d0eeb88b699b1b8a392a7c88.webp",
@@ -1383,7 +1410,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1404,6 +1431,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158013230 cloze 1"
   },
   "answer": "Spinous process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-00cc86967579e125e07500e410c3c25335e0ec6f.webp",
@@ -1457,6 +1485,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158013230 cloze 2"
   },
   "answer": "Dorsal",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-00cc86967579e125e07500e410c3c25335e0ec6f.webp",
@@ -1488,7 +1517,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1509,6 +1538,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158023139 cloze 1"
   },
   "answer": "Intervertebral foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-35a2c106afb44ddaef5b17a74fcc30ef8d605371.webp",
@@ -1555,6 +1585,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158046109 cloze 1"
   },
   "answer": "C",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b07700ea4a26115f3cfbd62b5efb20af2443bfdb.webp",
@@ -1579,7 +1610,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "multiple-choice answer letter from a practice question [OCR 'C', conf 0.90]",
   "tags": [
@@ -1601,6 +1632,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158055595 cloze 1"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-ddce92283b2f1fba7c3771092e6f6076a464e9d6.webp",
@@ -1625,7 +1657,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1646,6 +1678,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158066437 cloze 1"
   },
   "answer": "Sympahtetic pre-ganglionics",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-8d2910013a546e5c2f631e81e6c6676b3afbcbec.webp",
@@ -1691,6 +1724,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158078388 cloze 1"
   },
   "answer": "Second-order",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-566d1c47a8d7470e29cd3d6fd18a6152ba6c11e7.webp",
@@ -1715,7 +1749,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1736,6 +1770,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158087530 cloze 1"
   },
   "answer": "Ipsilateral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b49eb397d2b082b313abf9e0d11c6ea6a0e5cb0c.webp",
@@ -1760,7 +1795,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1781,6 +1816,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158096931 cloze 1"
   },
   "answer": "GTO, Spindles, M M R P",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-6fa0f294568248ae6b9ab9d217924dddbb3d9914.webp",
@@ -1826,6 +1862,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158108985 cloze 1"
   },
   "answer": "Ipsilateral Dorsal Root Ganglion",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-16cdcbb55d2e6aee058af3c1ed897dbd117094ef.webp",
@@ -1872,6 +1909,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158120859 cloze 1"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -1922,6 +1960,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158132979 cloze 1"
   },
   "answer": "Aa or AB",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-26449316db6d28fa2aeffed22a409052d7dad4a6.webp",
@@ -1946,7 +1985,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "answer text from a practice question [OCR 'Aa or AB', conf 0.99]",
   "tags": [
@@ -1968,6 +2007,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158143256 cloze 1"
   },
   "answer": "Missing corpus callosum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-7e88676f644a99973380d07cb69b48f3640ddfc2.webp",
@@ -2013,6 +2053,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158175100 cloze 1"
   },
   "answer": "Frontal bone",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-18d74f875a2469bfba87834ba52021c9878c71cf.webp",
@@ -2059,6 +2100,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158186128 cloze 1"
   },
   "answer": "Bregma",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-2f6489dec92bd4ddb541d8dfce27b83889fe91a5.webp",
@@ -2105,6 +2147,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158198212 cloze 1"
   },
   "answer": "Falx cerebri",
+  "answer_kind": "structure",
   "accept": [
    "falx"
   ],
@@ -2160,6 +2203,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158198212 cloze 2"
   },
   "answer": "Dura mater",
+  "answer_kind": "structure",
   "accept": [
    "dura"
   ],
@@ -2215,6 +2259,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158211402 cloze 1"
   },
   "answer": "False",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-3a2a24a861d810e73ee3462f60a19393cca5c9a2.webp",
@@ -2239,7 +2284,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -2260,6 +2305,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158222061 cloze 1"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-0f9bae51101a0e074ba0ba3710e2f57bcee6063c.webp",
@@ -2314,6 +2360,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158222061 cloze 2"
   },
   "answer": "Mid-sagittal or sagittal",
+  "answer_kind": "plane",
   "accept": [
    "Mid-sagittal",
    "Midsagittal",
@@ -2349,7 +2396,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -2371,6 +2418,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158232316 cloze 1"
   },
   "answer": "Ventral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-d02add8cc8fd4d781168d1c6d26f4ccedc5f9a2d.webp",
@@ -2395,7 +2443,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -2416,6 +2464,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158241992 cloze 1"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-7d396e90902f6efac4db3d6d6a3b2c30ad64642c.webp",
@@ -2463,6 +2512,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158253233 cloze 1"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate"
   ],
@@ -2511,6 +2561,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158265104 cloze 1"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -2559,6 +2610,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158274608 cloze 1"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -2609,6 +2661,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158286520 cloze 1"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-8851c2a7fdf138194b6fbfa99fdf39d1a92b3bdc.webp",
@@ -2663,6 +2716,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158286520 cloze 2"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -2721,6 +2775,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158301495 cloze 1"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-eb023ef3565971b6b2c9c2812d24d977fc98af89.webp",
@@ -2774,6 +2829,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158301495 cloze 2"
   },
   "answer": "Metencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-eb023ef3565971b6b2c9c2812d24d977fc98af89.webp",
@@ -2805,7 +2861,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -2826,6 +2882,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158312387 cloze 1"
   },
   "answer": "D - Foot",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-4b3ea9e130e801e70536c78b088a95cb5812cd8d.webp",
@@ -2872,6 +2929,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158322197 cloze 1"
   },
   "answer": "Anterior cingulate cortex",
+  "answer_kind": "region",
   "accept": [
    "anterior cingulate",
    "ACC"
@@ -2899,7 +2957,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -2922,6 +2980,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158334387 cloze 1"
   },
   "answer": "Anterior perforated substance",
+  "answer_kind": "structure",
   "accept": [
    "anterior perforated space",
    "APS"
@@ -2971,6 +3030,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158348436 cloze 1"
   },
   "answer": "Calcarine fissure",
+  "answer_kind": "structure",
   "accept": [
    "calcarine sulcus"
   ],
@@ -3027,6 +3087,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158348436 cloze 2"
   },
   "answer": "Primary visual cortex vision",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-8729ae2f63ff48d204ca5f7d2199d131f66ee61f.webp",
@@ -3080,6 +3141,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158358057 cloze 1"
   },
   "answer": "B- Hemineglect syndrome",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-910ce7bad33bddf34703180d422570c471ee5ed8.webp",
@@ -3104,7 +3166,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -3125,6 +3187,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158373193 cloze 1"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -3174,6 +3237,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158382628 cloze 1"
   },
   "answer": "Spinous process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-836b0050d2564f6481c193b32a9c557d1e57f3db.webp",
@@ -3220,6 +3284,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158391622 cloze 1"
   },
   "answer": "Vertebral foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-6be7dc4a296c8a7706eb11263a66340eb8cc9705.webp",
@@ -3266,6 +3331,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158404535 cloze 1"
   },
   "answer": "Filum terminale",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-dc95565846da9ddd8216fd873ba9c7d782cc6156.webp",
@@ -3319,6 +3385,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158404535 cloze 2"
   },
   "answer": "Pia mater",
+  "answer_kind": "structure",
   "accept": [
    "pia"
   ],
@@ -3374,6 +3441,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158420602 cloze 1"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "spinal ganglion",
    "posterior root ganglion",
@@ -3432,6 +3500,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158420602 cloze 2"
   },
   "answer": "Pseudounipolar",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-c5cabfea76b0f7e82215f9329661e1e862bc8527.webp",
@@ -3463,7 +3532,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -3484,6 +3553,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158431376 cloze 1"
   },
   "answer": "B",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-4b2e7fe23bd256264c7576c360de9d19c9f1b7bf.webp",
@@ -3508,7 +3578,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "multiple-choice answer letter from a practice question [OCR 'B', conf 0.82]",
   "tags": [
@@ -3530,6 +3600,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158443155 cloze 1"
   },
   "answer": "B",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-defcd05f306ad25c2b5bb8d62fe43bc746abca07.webp",
@@ -3554,7 +3625,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "multiple-choice answer letter from a practice question [OCR 'B', conf 0.99]",
   "tags": [
@@ -3576,6 +3647,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158451909 cloze 1"
   },
   "answer": "Thoracic",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-897ad1336069ce98d27974bcb16db75b007a85a4.webp",
@@ -3600,7 +3672,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -3621,6 +3693,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158462800 cloze 1"
   },
   "answer": "Sympathetic preganglionics",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-99e756a09dfc886c9fa52c0a7be2afebc7b02d32.webp",
@@ -3667,6 +3740,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158474064 cloze 1"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -3721,6 +3795,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158482694 cloze 1"
   },
   "answer": "Pain, temp, itch, crude touch",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-acb498763e0986451d4dbebbb005f46687c91339.webp",
@@ -3745,7 +3820,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -3766,6 +3841,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158493604 cloze 1"
   },
   "answer": "Meissner, Merkel, Pacinian, Ruffini, GTO, muscle spindle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-09228ecd4dd1c39b9f2aa2b9e3c2d6e64a6c6ce3.webp",
@@ -3812,6 +3888,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158502826 cloze 1"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -3862,6 +3939,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158512361 cloze 1"
   },
   "answer": "Ipsilateral cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-9fb095e83995b03ad6f6d1e4d8a2d389ef25d7f9.webp",
@@ -3908,6 +3986,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770158525625 cloze 1"
   },
   "answer": "C or A-delta",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-3f74ab9a1980923fdeb04d4c4c4a30d041314420.webp",
@@ -3932,7 +4011,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -3953,6 +4032,7 @@
    "ref": "apkg/unit-1-practice-practicals note 1770159070154 cloze 1"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-54de48bf2ef9f8ee318fc1efcd6616e0d61cf23c.webp",
@@ -3977,7 +4057,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "practice-practical",

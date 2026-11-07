@@ -11,6 +11,7 @@
    "ref": "apkg/lab-15 note 1775054616193 cloze 1"
   },
   "answer": "Vermis",
+  "answer_kind": "structure",
   "accept": [
    "cerebellar vermis"
   ],
@@ -81,6 +82,7 @@
    "ref": "apkg/lab-15 note 1775054616193 cloze 2"
   },
   "answer": "Cerebellar peduncles",
+  "answer_kind": "structure",
   "accept": [
    "cerebellar peduncle"
   ],
@@ -152,6 +154,7 @@
    "ref": "apkg/lab-15 note 1775054616193 cloze 3"
   },
   "answer": "Flocculonodular lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-859c17180d6190073fbc751050e0b2e959ee0f77.webp",
@@ -197,7 +200,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -220,6 +223,7 @@
    "ref": "apkg/lab-15 note 1775054616193 cloze 4"
   },
   "answer": "Cerebellar lateral hemisphere",
+  "answer_kind": "structure",
   "accept": [
    "lateral hemisphere",
    "cerebellar hemisphere",
@@ -293,6 +297,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 1"
   },
   "answer": "Cerebellar cortex",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -396,6 +401,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 2"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -501,6 +507,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 3"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -608,6 +615,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 4"
   },
   "answer": "Deep Nuclei",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -710,6 +718,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 5"
   },
   "answer": "Fastigial",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -812,6 +821,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 6"
   },
   "answer": "Interposed",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -914,6 +924,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 7"
   },
   "answer": "Dentate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "dentate",
    "lateral cerebellar nucleus"
@@ -1020,6 +1031,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 8"
   },
   "answer": "White Matter",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -1100,7 +1112,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1122,6 +1134,7 @@
    "ref": "apkg/lab-15 note 1775054691725 cloze 9"
   },
   "answer": "f SCP",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
@@ -1225,6 +1238,7 @@
    "ref": "apkg/lab-15 note 1775054708727 cloze 1"
   },
   "answer": "Cerebellar cortex",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-a10a2bfdc3f3638a25053dec8981351ad89ba974.webp",
@@ -1286,6 +1300,7 @@
    "ref": "apkg/lab-15 note 1775054708727 cloze 2"
   },
   "answer": "Cerebellar white matter",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-a10a2bfdc3f3638a25053dec8981351ad89ba974.webp",
@@ -1347,6 +1362,7 @@
    "ref": "apkg/lab-15 note 1775054708727 cloze 3"
   },
   "answer": "Dentate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "dentate",
    "lateral cerebellar nucleus"
@@ -1411,6 +1427,7 @@
    "ref": "apkg/lab-15 note 1775054738817 cloze 1"
   },
   "answer": "Anterior lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-e1cb7011642ef8c2c8ca1a6cc24ca3ae03aa082b.webp",
@@ -1449,7 +1466,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1471,6 +1488,7 @@
    "ref": "apkg/lab-15 note 1775054738817 cloze 2"
   },
   "answer": "Posterior lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-e1cb7011642ef8c2c8ca1a6cc24ca3ae03aa082b.webp",
@@ -1509,7 +1527,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1531,6 +1549,7 @@
    "ref": "apkg/lab-15 note 1775054738817 cloze 3"
   },
   "answer": "Flocculonodular lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-e1cb7011642ef8c2c8ca1a6cc24ca3ae03aa082b.webp",
@@ -1569,7 +1588,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1592,6 +1611,7 @@
    "ref": "apkg/lab-15 note 1775054817967 cloze 1"
   },
   "answer": "Paravermis",
+  "answer_kind": "structure",
   "accept": [
    "paravermal zone",
    "intermediate zone of cerebellum",
@@ -1734,6 +1754,7 @@
    "ref": "apkg/lab-15 note 1775054817967 cloze 2"
   },
   "answer": "Paravermis Paravermis",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-7f6f15a5a7e5af479c258628aca74050b3d5c5c3.webp",
@@ -1908,6 +1929,7 @@
    "ref": "apkg/lab-15 note 1775054817967 cloze 3"
   },
   "answer": "Lateral Lateral Sphere Sphere",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-7f6f15a5a7e5af479c258628aca74050b3d5c5c3.webp",
@@ -2082,6 +2104,7 @@
    "ref": "apkg/lab-15 note 1775054886593 cloze 1"
   },
   "answer": "Vermis",
+  "answer_kind": "structure",
   "accept": [
    "cerebellar vermis"
   ],
@@ -2217,6 +2240,7 @@
    "ref": "apkg/lab-15 note 1775054886593 cloze 2"
   },
   "answer": "Paravermis Paravermis",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-fbda37a29f44a21bba50fdca240268e74175e6bd.webp",
@@ -2387,6 +2411,7 @@
    "ref": "apkg/lab-15 note 1775054886593 cloze 3"
   },
   "answer": "Lateral Hemisphere Lateral Hemisphere",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-fbda37a29f44a21bba50fdca240268e74175e6bd.webp",
@@ -2553,6 +2578,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 1"
   },
   "answer": "Cerebellar tonsil",
+  "answer_kind": "structure",
   "accept": [
    "tonsil",
    "tonsils"
@@ -2646,6 +2672,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 2"
   },
   "answer": "Flocculus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c81afee53348667ffafa0c6a608e4e70399ab774.webp",
@@ -2735,6 +2762,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 3"
   },
   "answer": "Nodule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c81afee53348667ffafa0c6a608e4e70399ab774.webp",
@@ -2823,6 +2851,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 4"
   },
   "answer": "Flocculo-nodular lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c81afee53348667ffafa0c6a608e4e70399ab774.webp",
@@ -2889,7 +2918,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -2911,6 +2940,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 5"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -3004,6 +3034,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 6"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -3097,6 +3128,7 @@
    "ref": "apkg/lab-15 note 1775054912050 cloze 7"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -3190,6 +3222,7 @@
    "ref": "apkg/lab-15 note 1775054931358 cloze 1"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -3255,6 +3288,7 @@
    "ref": "apkg/lab-15 note 1775054931358 cloze 2"
   },
   "answer": "Flocculus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-895a29fce45b8628b1c999486c417c8aa1b43a03.webp",
@@ -3316,6 +3350,7 @@
    "ref": "apkg/lab-15 note 1775054931358 cloze 3"
   },
   "answer": "Cerebellar tonsil",
+  "answer_kind": "structure",
   "accept": [
    "tonsil",
    "tonsils"

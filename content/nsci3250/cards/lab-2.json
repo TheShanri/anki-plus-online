@@ -11,6 +11,7 @@
    "ref": "apkg/lab-2 note 1768765076136 cloze 1"
   },
   "answer": "Cerebral cortex",
+  "answer_kind": "structure",
   "accept": [
    "cerebrum",
    "cortex"
@@ -146,6 +147,7 @@
    "ref": "apkg/lab-2 note 1768765076136 cloze 2"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -296,6 +298,7 @@
    "ref": "apkg/lab-2 note 1768765076136 cloze 3"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-2971455469ee815abc0e29abfa93b301a0dec879.webp",
@@ -426,7 +429,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -446,6 +449,7 @@
    "ref": "apkg/lab-2 note 1768765076136 cloze 4"
   },
   "answer": "Brainstem",
+  "answer_kind": "structure",
   "accept": [
    "brain stem"
   ],
@@ -594,6 +598,7 @@
    "ref": "apkg/lab-2 note 1768765076136 cloze 5"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-2971455469ee815abc0e29abfa93b301a0dec879.webp",
@@ -742,6 +747,7 @@
    "ref": "apkg/lab-2 note 1768765127010 cloze 1"
   },
   "answer": "Lateral ventricles",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-647e5096a684323d312daf4265bfec7ef94888b4.webp",
@@ -846,6 +852,7 @@
    "ref": "apkg/lab-2 note 1768765147495 cloze 1"
   },
   "answer": "Commissural fibers",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-dde149c9fa74c3ac27dc19cbdc41d755d57a056c.webp",
@@ -870,7 +877,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -890,6 +897,7 @@
    "ref": "apkg/lab-2 note 1768765172356 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -951,6 +959,7 @@
    "ref": "apkg/lab-2 note 1768765172356 cloze 2"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-cb16ca59ef089c66fc220843b0498cbd7b227b6f.webp",
@@ -1010,6 +1019,7 @@
    "ref": "apkg/lab-2 note 1768765172356 cloze 3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -1073,6 +1083,7 @@
    "ref": "apkg/lab-2 note 1768765220127 cloze 1"
   },
   "answer": "Vital structures",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-0973cc89bf29adf509fa0c71f643d5d3bf006fae.webp",
@@ -1097,7 +1108,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1117,6 +1128,7 @@
    "ref": "apkg/lab-2 note 1768765591990 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -1192,6 +1204,7 @@
    "ref": "apkg/lab-2 note 1768765591990 cloze 2"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-8057ab930a2cfca35e92bae3512b530474d20b7f.webp",
@@ -1265,6 +1278,7 @@
    "ref": "apkg/lab-2 note 1768765591990 cloze 3"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -1340,6 +1354,7 @@
    "ref": "apkg/lab-2 note 1768765591990 cloze 4"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-8057ab930a2cfca35e92bae3512b530474d20b7f.webp",
@@ -1413,6 +1428,7 @@
    "ref": "apkg/lab-2 note 1768765591990 cloze 5"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -1489,6 +1505,7 @@
    "ref": "apkg/lab-2 note 1768765599337 cloze 1"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-8057ab930a2cfca35e92bae3512b530474d20b7f.webp",
@@ -1520,7 +1537,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1540,6 +1557,7 @@
    "ref": "apkg/lab-2 note 1768765599337 cloze 2"
   },
   "answer": "Brainstem",
+  "answer_kind": "structure",
   "accept": [
    "brain stem"
   ],
@@ -1593,6 +1611,7 @@
    "ref": "apkg/lab-2 note 1768765682755 cloze 1"
   },
   "answer": "Mesencephalic flexure",
+  "answer_kind": "term",
   "accept": [
    "cephalic flexure",
    "midbrain flexure"
@@ -1620,7 +1639,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1640,6 +1659,7 @@
    "ref": "apkg/lab-2 note 1768765797297 cloze 1"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -1718,6 +1738,7 @@
    "ref": "apkg/lab-2 note 1768765797297 cloze 2"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -1795,6 +1816,7 @@
    "ref": "apkg/lab-2 note 1768765797297 cloze 3"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -1873,6 +1895,7 @@
    "ref": "apkg/lab-2 note 1768765797297 cloze 4"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -1950,6 +1973,7 @@
    "ref": "apkg/lab-2 note 1768765797297 cloze 5"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -2027,6 +2051,7 @@
    "ref": "apkg/lab-2 note 1768766089971 cloze 1"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -2100,6 +2125,7 @@
    "ref": "apkg/lab-2 note 1768766089971 cloze 2"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -2173,6 +2199,7 @@
    "ref": "apkg/lab-2 note 1768766089971 cloze 3"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "trigone",
@@ -2244,6 +2271,7 @@
    "ref": "apkg/lab-2 note 1768766089971 cloze 4"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -2317,6 +2345,7 @@
    "ref": "apkg/lab-2 note 1768766744370 cloze 1"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -2404,6 +2433,7 @@
    "ref": "apkg/lab-2 note 1768766744370 cloze 2"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -2489,6 +2519,7 @@
    "ref": "apkg/lab-2 note 1768766744370 cloze 3"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -2576,6 +2607,7 @@
    "ref": "apkg/lab-2 note 1768766744370 cloze 4"
   },
   "answer": "Atrium of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "atrium",
    "trigone",
@@ -2661,6 +2693,7 @@
    "ref": "apkg/lab-2 note 1768766744370 cloze 5"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -2748,6 +2781,7 @@
    "ref": "apkg/lab-2 note 1768766744370 cloze 6"
   },
   "answer": "Body of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "lateral ventricle body",
    "body of the lateral ventricle",
@@ -2832,6 +2866,7 @@
    "ref": "apkg/lab-2 note 1768766799993 cloze 1"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -2888,6 +2923,7 @@
    "ref": "apkg/lab-2 note 1768766799993 cloze 2"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -2945,6 +2981,7 @@
    "ref": "apkg/lab-2 note 1768767077428 cloze 1"
   },
   "answer": "Foramina of Luschka",
+  "answer_kind": "structure",
   "accept": [
    "lateral apertures",
    "lateral aperture",
@@ -3008,6 +3045,7 @@
    "ref": "apkg/lab-2 note 1768767077428 cloze 2"
   },
   "answer": "Foramen of Magendie",
+  "answer_kind": "structure",
   "accept": [
    "median aperture",
    "medial aperture",
@@ -3071,6 +3109,7 @@
    "ref": "apkg/lab-2 note 1768767077428 cloze 3"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -3134,6 +3173,7 @@
    "ref": "apkg/lab-2 note 1768767628108 cloze 1"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -3218,6 +3258,7 @@
    "ref": "apkg/lab-2 note 1768767628108 cloze 2"
   },
   "answer": "Septum pellucidum",
+  "answer_kind": "structure",
   "accept": [
    "pellucid septum"
   ],
@@ -3301,6 +3342,7 @@
    "ref": "apkg/lab-2 note 1768767628108 cloze 3"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -3387,6 +3429,7 @@
    "ref": "apkg/lab-2 note 1768767628108 cloze 4"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -3472,6 +3515,7 @@
    "ref": "apkg/lab-2 note 1768767628108 cloze 5"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -3558,6 +3602,7 @@
    "ref": "apkg/lab-2 note 1768767628108 cloze 6"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -3643,6 +3688,7 @@
    "ref": "apkg/lab-2 note 1768767646795 cloze 1"
   },
   "answer": "Telencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8b98950bfaf5bc37311a699ade36ee3a39f3058.webp",
@@ -3726,7 +3772,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3746,6 +3792,7 @@
    "ref": "apkg/lab-2 note 1768767646795 cloze 2"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8b98950bfaf5bc37311a699ade36ee3a39f3058.webp",
@@ -3829,7 +3876,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3849,6 +3896,7 @@
    "ref": "apkg/lab-2 note 1768767646795 cloze 3"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -3955,6 +4003,7 @@
    "ref": "apkg/lab-2 note 1768767646795 cloze 4"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -4100,6 +4149,7 @@
    "ref": "apkg/lab-2 note 1768768713303 cloze 1"
   },
   "answer": "Coronal plane",
+  "answer_kind": "plane",
   "accept": [
    "frontal plane",
    "frontal"
@@ -4141,7 +4191,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4162,6 +4212,7 @@
    "ref": "apkg/lab-2 note 1768768713303 cloze 2"
   },
   "answer": "Sagittal plane",
+  "answer_kind": "plane",
   "accept": [
    "midsagittal",
    "mid-sagittal",
@@ -4205,7 +4256,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4226,6 +4277,7 @@
    "ref": "apkg/lab-2 note 1768768713303 cloze 3"
   },
   "answer": "Horizontal plane",
+  "answer_kind": "plane",
   "accept": [
    "horizontal",
    "axial",
@@ -4270,7 +4322,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4291,6 +4343,7 @@
    "ref": "apkg/lab-2 note 1768768896226 cloze 1"
   },
   "answer": "Choroid plexus",
+  "answer_kind": "structure",
   "accept": [
    "ChP"
   ],
@@ -4338,6 +4391,7 @@
    "ref": "apkg/lab-2 note 1768768912502 cloze 1"
   },
   "answer": "Cerebrospinal fluid (CSF)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-db693a37aad2a36fdd1bfd4485c1c41c28599093.webp",
@@ -4362,7 +4416,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4382,6 +4436,7 @@
    "ref": "apkg/lab-2 note 1768768924518 cloze 1"
   },
   "answer": "Lateral, 3rd and 4th",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-db693a37aad2a36fdd1bfd4485c1c41c28599093.webp",
@@ -4426,6 +4481,7 @@
    "ref": "apkg/lab-2 note 1768768977386 cloze 1"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -4502,6 +4558,7 @@
    "ref": "apkg/lab-2 note 1768768977386 cloze 2"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -4580,6 +4637,7 @@
    "ref": "apkg/lab-2 note 1768768977386 cloze 3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -4657,6 +4715,7 @@
    "ref": "apkg/lab-2 note 1768768977386 cloze 4"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -4734,6 +4793,7 @@
    "ref": "apkg/lab-2 note 1768768977386 cloze 5"
   },
   "answer": "Choroid plexus",
+  "answer_kind": "structure",
   "accept": [
    "ChP"
   ],
@@ -4809,6 +4869,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 1"
   },
   "answer": "Produced in choroid plexus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -4889,7 +4950,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4909,6 +4970,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 2"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -5013,6 +5075,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 3"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -5119,6 +5182,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 4"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -5224,6 +5288,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 5"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -5330,6 +5395,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 6"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -5435,6 +5501,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 7"
   },
   "answer": "Subarachnoid space",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -5536,6 +5603,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 8"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -5640,6 +5708,7 @@
    "ref": "apkg/lab-2 note 1768769257758 cloze 9"
   },
   "answer": "Dural venous sinuses",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-f0e6c93b50b3bae54677eb2ac275b1cc235154df.webp",
@@ -5740,6 +5809,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 1"
   },
   "answer": "Choroid plexus",
+  "answer_kind": "structure",
   "accept": [
    "ChP"
   ],
@@ -5850,6 +5920,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 2"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -5961,6 +6032,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 3"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -6074,6 +6146,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 4"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -6186,6 +6259,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 5"
   },
   "answer": "Through cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8339e721226df396b3e557b4459a541e0049b2e.webp",
@@ -6293,6 +6367,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 6"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -6405,6 +6480,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 7"
   },
   "answer": "Foramen of Magendie",
+  "answer_kind": "structure",
   "accept": [
    "median aperture",
    "medial aperture",
@@ -6517,6 +6593,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 8"
   },
   "answer": "Subarachnoid space",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8339e721226df396b3e557b4459a541e0049b2e.webp",
@@ -6625,6 +6702,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 9"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -6736,6 +6814,7 @@
    "ref": "apkg/lab-2 note 1768769539681 cloze 10"
   },
   "answer": "Venous blood",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-c8339e721226df396b3e557b4459a541e0049b2e.webp",
@@ -6823,7 +6902,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -6843,6 +6922,7 @@
    "ref": "apkg/lab-2 note 1768769898424 cloze 1"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -6891,6 +6971,7 @@
    "ref": "apkg/lab-2 note 1768769908485 cloze 1"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -6939,6 +7020,7 @@
    "ref": "apkg/lab-2 note 1768769918020 cloze 1"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -6987,6 +7069,7 @@
    "ref": "apkg/lab-2 note 1768769980503 cloze 1"
   },
   "answer": "Reabsorb",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
@@ -7039,7 +7122,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -7059,6 +7142,7 @@
    "ref": "apkg/lab-2 note 1768769980503 cloze 2"
   },
   "answer": "Subarachnoid space",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
@@ -7132,6 +7216,7 @@
    "ref": "apkg/lab-2 note 1768769980503 cloze 3"
   },
   "answer": "Superior sagittal sinus",
+  "answer_kind": "structure",
   "accept": [
    "SSS"
   ],
@@ -7208,6 +7293,7 @@
    "ref": "apkg/lab-2 note 1768769980503 cloze 4"
   },
   "answer": "Falx cerebri",
+  "answer_kind": "structure",
   "accept": [
    "falx"
   ],
@@ -7283,6 +7369,7 @@
    "ref": "apkg/lab-2 note 1768769980503 cloze 5"
   },
   "answer": "dural sinuses, t",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
@@ -7356,6 +7443,7 @@
    "ref": "apkg/lab-2 note 1768770026307 cloze 1"
   },
   "answer": "Superior sagittal sinus",
+  "answer_kind": "structure",
   "accept": [
    "SSS"
   ],
@@ -7404,6 +7492,7 @@
    "ref": "apkg/lab-2 note 1768770044482 cloze 1"
   },
   "answer": "Superior sagittal sinus",
+  "answer_kind": "structure",
   "accept": [
    "SSS"
   ],
@@ -7452,6 +7541,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 1"
   },
   "answer": "Superior sagittal sinus",
+  "answer_kind": "structure",
   "accept": [
    "SSS"
   ],
@@ -7542,6 +7632,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 2"
   },
   "answer": "Bregma",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp",
@@ -7629,6 +7720,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 3"
   },
   "answer": "Coronal suture",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp",
@@ -7717,6 +7809,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 4"
   },
   "answer": "Sagittal suture",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/3-s2.0-B9780323653770000027-f02-01-9780323653770.webp",
@@ -7805,6 +7898,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 5"
   },
   "answer": "Arachnoid granulations",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid villi",
    "arachnoid granulation"
@@ -7895,6 +7989,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 6"
   },
   "answer": "Middle meningeal veins",
+  "answer_kind": "structure",
   "accept": [
    "meningeal arteries",
    "middle meningeal artery",
@@ -7987,6 +8082,7 @@
    "ref": "apkg/lab-2 note 1768770086191 cloze 7"
   },
   "answer": "Superior sagittal sinus",
+  "answer_kind": "structure",
   "accept": [
    "SSS"
   ],
@@ -8077,6 +8173,7 @@
    "ref": "apkg/lab-2 note 1768771540931 cloze 1"
   },
   "answer": "basal ganglia and parts of the limbic system",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-e31ecc2262c1b0ed89d0c567946e5cd63c10c467.webp",
@@ -8145,6 +8242,7 @@
    "ref": "apkg/lab-2 note 1768771540931 cloze 2"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -8216,6 +8314,7 @@
    "ref": "apkg/lab-2 note 1768771540931 cloze 3"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-e31ecc2262c1b0ed89d0c567946e5cd63c10c467.webp",
@@ -8283,6 +8382,7 @@
    "ref": "apkg/lab-2 note 1768771540931 cloze 4"
   },
   "answer": "Cerebral cortex",
+  "answer_kind": "structure",
   "accept": [
    "neocortex",
    "cortical ribbon"
@@ -8351,6 +8451,7 @@
    "ref": "apkg/lab-2 note 1768771703577 cloze 1"
   },
   "answer": "Dorsal-anterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-4bfc0fc915bd335c40b8789d990d1ce1c5474248.webp",
@@ -8389,7 +8490,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8409,6 +8510,7 @@
    "ref": "apkg/lab-2 note 1768771703577 cloze 2"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -8471,6 +8573,7 @@
    "ref": "apkg/lab-2 note 1768771703577 cloze 3"
   },
   "answer": "Sagittal plane",
+  "answer_kind": "plane",
   "accept": [
    "midsagittal",
    "mid-sagittal",
@@ -8514,7 +8617,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8535,6 +8638,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -8691,6 +8795,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 2"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -8852,6 +8957,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 3"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -9008,6 +9114,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 4"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -9169,6 +9276,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 5"
   },
   "answer": "White Matter",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-34821bc1dab70b3d12ceb9b72e7edf74d42a0135.webp",
@@ -9316,7 +9424,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9336,6 +9444,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 6"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate"
   ],
@@ -9510,6 +9619,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 7"
   },
   "answer": "White Matter",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-34821bc1dab70b3d12ceb9b72e7edf74d42a0135.webp",
@@ -9657,7 +9767,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9677,6 +9787,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 8"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -9835,6 +9946,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 9"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-34821bc1dab70b3d12ceb9b72e7edf74d42a0135.webp",
@@ -9990,6 +10102,7 @@
    "ref": "apkg/lab-2 note 1768771796187 cloze 10"
   },
   "answer": "Basal Ganglia Nuclei",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-34821bc1dab70b3d12ceb9b72e7edf74d42a0135.webp",
@@ -10144,6 +10257,7 @@
    "ref": "apkg/lab-2 note 1768771865231 cloze 1"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-9f3914911b45b17222a38dc7333b13c13294edf1.webp",
@@ -10211,6 +10325,7 @@
    "ref": "apkg/lab-2 note 1768771865231 cloze 2"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -10284,6 +10399,7 @@
    "ref": "apkg/lab-2 note 1768771865231 cloze 3"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-9f3914911b45b17222a38dc7333b13c13294edf1.webp",
@@ -10351,6 +10467,7 @@
    "ref": "apkg/lab-2 note 1768771865231 cloze 4"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -10422,6 +10539,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 1"
   },
   "answer": "Body of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "corpus callosum body",
    "body of CC",
@@ -10534,6 +10652,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 2"
   },
   "answer": "Choroid plexus",
+  "answer_kind": "structure",
   "accept": [
    "ChP"
   ],
@@ -10644,6 +10763,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 3"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -10754,6 +10874,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 4"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/coronal-section-brain-thalamus-level_english__1_.webp",
@@ -10863,6 +10984,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 5"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -10975,6 +11097,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 6"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -11087,6 +11210,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 7"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -11202,6 +11326,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 8"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/coronal-section-brain-thalamus-level_english__1_.webp",
@@ -11311,6 +11436,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 9"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -11423,6 +11549,7 @@
    "ref": "apkg/lab-2 note 1768771921382 cloze 10"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -11535,6 +11662,7 @@
    "ref": "apkg/lab-2 note 1768771967375 cloze 1"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -11606,6 +11734,7 @@
    "ref": "apkg/lab-2 note 1768771967375 cloze 2"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-73f2055326ee0794073ba19553768105f4aef333.webp",
@@ -11673,6 +11802,7 @@
    "ref": "apkg/lab-2 note 1768771967375 cloze 3"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -11744,6 +11874,7 @@
    "ref": "apkg/lab-2 note 1768771967375 cloze 4"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-73f2055326ee0794073ba19553768105f4aef333.webp",
@@ -11811,6 +11942,7 @@
    "ref": "apkg/lab-2 note 1768772062676 cloze 1"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -11976,6 +12108,7 @@
    "ref": "apkg/lab-2 note 1768772062676 cloze 2"
   },
   "answer": "Anger, fear",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -12095,7 +12228,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -12115,6 +12248,7 @@
    "ref": "apkg/lab-2 note 1768772062676 cloze 3"
   },
   "answer": "inferior horn of lateral ventricle all the way to trigone",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -12277,6 +12411,7 @@
    "ref": "apkg/lab-2 note 1768772062676 cloze 4"
   },
   "answer": "Involved in learning, memory, and spatial localization",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -12443,6 +12578,7 @@
    "ref": "apkg/lab-2 note 1768772473815 cloze 1"
   },
   "answer": "Amygdala",
+  "answer_kind": "structure",
   "accept": [
    "amygdaloid nucleus",
    "amygdaloid body",
@@ -12500,6 +12636,7 @@
    "ref": "apkg/lab-2 note 1768772473815 cloze 2"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-e8e96c330627d30d041e5398c68b2e523feff3a7.webp",
@@ -12553,6 +12690,7 @@
    "ref": "apkg/lab-2 note 1768772516612 cloze 1"
   },
   "answer": "Gyrus Parahippocampal",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-db57bf7fdfdf59d393c03cf6e8bacf6c2010a606.webp",
@@ -12642,6 +12780,7 @@
    "ref": "apkg/lab-2 note 1768772547198 cloze 1"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -12703,6 +12842,7 @@
    "ref": "apkg/lab-2 note 1768772547198 cloze 2"
   },
   "answer": "Interthalamic adhesion",
+  "answer_kind": "structure",
   "accept": [
    "massa intermedia",
    "thalamic adhesion",
@@ -12766,6 +12906,7 @@
    "ref": "apkg/lab-2 note 1768772547198 cloze 3"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-21ca891a828db4515daac649a1bb5462619cd121.webp",
@@ -12825,6 +12966,7 @@
    "ref": "apkg/lab-2 note 1768772583138 cloze 1"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -12908,6 +13050,7 @@
    "ref": "apkg/lab-2 note 1768772583138 cloze 2"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -12990,6 +13133,7 @@
    "ref": "apkg/lab-2 note 1768772583138 cloze 3"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/Sagittal-plane.webp",
@@ -13070,6 +13214,7 @@
    "ref": "apkg/lab-2 note 1768772583138 cloze 4"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/Sagittal-plane.webp",
@@ -13150,6 +13295,7 @@
    "ref": "apkg/lab-2 note 1768772583138 cloze 5"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/Sagittal-plane.webp",
@@ -13231,6 +13377,7 @@
    "ref": "apkg/lab-2 note 1768772583138 cloze 6"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -13314,6 +13461,7 @@
    "ref": "apkg/lab-2 note 1768772690586 cloze 1"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp",
@@ -13359,7 +13507,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -13379,6 +13527,7 @@
    "ref": "apkg/lab-2 note 1768772690586 cloze 2"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -13449,6 +13598,7 @@
    "ref": "apkg/lab-2 note 1768772690586 cloze 3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -13519,6 +13669,7 @@
    "ref": "apkg/lab-2 note 1768772690586 cloze 4"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -13589,6 +13740,7 @@
    "ref": "apkg/lab-2 note 1768773407786 cloze 1"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -13682,6 +13834,7 @@
    "ref": "apkg/lab-2 note 1768773407786 cloze 2"
   },
   "answer": "Lamina terminalis",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-a028559d3ec6867576718334bc0c20674f623c4e.webp",
@@ -13773,6 +13926,7 @@
    "ref": "apkg/lab-2 note 1768773407786 cloze 3"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -13868,6 +14022,7 @@
    "ref": "apkg/lab-2 note 1768773407786 cloze 4"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -13964,6 +14119,7 @@
    "ref": "apkg/lab-2 note 1768773407786 cloze 5"
   },
   "answer": "Hypothalamic Sulcus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-a028559d3ec6867576718334bc0c20674f623c4e.webp",
@@ -14072,6 +14228,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 1"
   },
   "answer": "Temporal lobes",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14222,7 +14379,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -14242,6 +14399,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 2"
   },
   "answer": "Pain and olfaction (smell)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14392,7 +14550,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -14413,6 +14571,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14613,6 +14772,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 4"
   },
   "answer": "basal plates (alar sensory; basal motor) embryonic alar and",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14789,7 +14949,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Horizontal plane' (73); OCR text not recognised; long free-text label (not a structure name) [OCR 'basal plates (alar sensory; basal motor) embryonic alar and', conf 1.00]",
   "tags": [
@@ -14812,6 +14972,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 5"
   },
   "answer": "Acute stress",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -14962,7 +15123,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -14982,6 +15143,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 6"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15154,6 +15316,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 7"
   },
   "answer": "Fornix",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15326,6 +15489,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 8"
   },
   "answer": "of Cranial Nerve I",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15476,7 +15640,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"of Cranial Nerve I\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -15497,6 +15661,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 9"
   },
   "answer": "Visual inputs",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15647,7 +15812,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15668,6 +15833,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 10"
   },
   "answer": "Neural tube",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
@@ -15838,6 +16004,7 @@
    "ref": "apkg/lab-2 note 1768773534376 cloze 11"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -16013,6 +16180,7 @@
    "ref": "apkg/lab-2 note 1768774020771 cloze 1"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -16083,6 +16251,7 @@
    "ref": "apkg/lab-2 note 1768774020771 cloze 2"
   },
   "answer": "Hypothalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-78f350642b366804bbecd58873bce3eeca01517d.webp",
@@ -16149,6 +16318,7 @@
    "ref": "apkg/lab-2 note 1768774020771 cloze 3"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -16220,6 +16390,7 @@
    "ref": "apkg/lab-2 note 1768774020771 cloze 4"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-78f350642b366804bbecd58873bce3eeca01517d.webp",
@@ -16286,6 +16457,7 @@
    "ref": "apkg/lab-2 note 1768774051849 cloze 1"
   },
   "answer": "Frontal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/ventral-view-of-the-brain-cerebellum-medulla-pons-mid-brain.webp",
@@ -16345,7 +16517,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -16365,6 +16537,7 @@
    "ref": "apkg/lab-2 note 1768774051849 cloze 2"
   },
   "answer": "Optic chiasm",
+  "answer_kind": "structure",
   "accept": [
    "optic chiasma",
    "chiasm"
@@ -16449,6 +16622,7 @@
    "ref": "apkg/lab-2 note 1768774051849 cloze 3"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -16534,6 +16708,7 @@
    "ref": "apkg/lab-2 note 1768774051849 cloze 4"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/ventral-view-of-the-brain-cerebellum-medulla-pons-mid-brain.webp",
@@ -16614,6 +16789,7 @@
    "ref": "apkg/lab-2 note 1768774051849 cloze 5"
   },
   "answer": "Temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/ventral-view-of-the-brain-cerebellum-medulla-pons-mid-brain.webp",
@@ -16673,7 +16849,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -16693,6 +16869,7 @@
    "ref": "apkg/lab-2 note 1768774051849 cloze 6"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/ventral-view-of-the-brain-cerebellum-medulla-pons-mid-brain.webp",
@@ -16774,6 +16951,7 @@
    "ref": "apkg/lab-2 note 1768774114996 cloze 1"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -16857,6 +17035,7 @@
    "ref": "apkg/lab-2 note 1768774114996 cloze 2"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -16941,6 +17120,7 @@
    "ref": "apkg/lab-2 note 1768774114996 cloze 3"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -17023,6 +17203,7 @@
    "ref": "apkg/lab-2 note 1768774114996 cloze 4"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -17107,6 +17288,7 @@
    "ref": "apkg/lab-2 note 1768774114996 cloze 5"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/The-Basal-Ganglia-Coronal-Section-at-Thalamus1.webp",
@@ -17188,6 +17370,7 @@
    "ref": "apkg/lab-2 note 1768774114996 cloze 6"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate"
   ],
@@ -17270,6 +17453,7 @@
    "ref": "apkg/lab-2 note 1768774128054 cloze 1"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate"
   ],
@@ -17331,6 +17515,7 @@
    "ref": "apkg/lab-2 note 1768774128054 cloze 2"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/putamen2.webp",
@@ -17391,6 +17576,7 @@
    "ref": "apkg/lab-2 note 1768774128054 cloze 3"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -17454,6 +17640,7 @@
    "ref": "apkg/lab-2 note 1768774147568 cloze 1"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "caudate"
   ],
@@ -17522,6 +17709,7 @@
    "ref": "apkg/lab-2 note 1768774147568 cloze 2"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/Basal-Ganglia.webp",
@@ -17589,6 +17777,7 @@
    "ref": "apkg/lab-2 note 1768774147568 cloze 3"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -17657,6 +17846,7 @@
    "ref": "apkg/lab-2 note 1768774147568 cloze 4"
   },
   "answer": "Globus pallidus",
+  "answer_kind": "structure",
   "accept": [
    "pallidum",
    "GP"
@@ -17727,6 +17917,7 @@
    "ref": "apkg/lab-2 note 1768774557044 cloze 1"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -17788,6 +17979,7 @@
    "ref": "apkg/lab-2 note 1768774557044 cloze 2"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/1311_Brain_Stem.webp",
@@ -17847,6 +18039,7 @@
    "ref": "apkg/lab-2 note 1768774557044 cloze 3"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -17909,6 +18102,7 @@
    "ref": "apkg/lab-2 note 1768774575632 cloze 1"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -17984,6 +18178,7 @@
    "ref": "apkg/lab-2 note 1768774575632 cloze 2"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/Pons-Article-Image.webp",
@@ -18057,6 +18252,7 @@
    "ref": "apkg/lab-2 note 1768774575632 cloze 3"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -18133,6 +18329,7 @@
    "ref": "apkg/lab-2 note 1768774575632 cloze 4"
   },
   "answer": "Cerebral cortex",
+  "answer_kind": "structure",
   "accept": [
    "cerebrum",
    "cortex"
@@ -18208,6 +18405,7 @@
    "ref": "apkg/lab-2 note 1768774575632 cloze 5"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/Pons-Article-Image.webp",
@@ -18282,6 +18480,7 @@
    "ref": "apkg/lab-2 note 1768774622235 cloze 1"
   },
   "answer": "Mammillary bodies",
+  "answer_kind": "structure",
   "accept": [
    "mammillary body",
    "mamillary bodies",
@@ -18367,6 +18566,7 @@
    "ref": "apkg/lab-2 note 1768774622235 cloze 2"
   },
   "answer": "Pituitary gland",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/f0081-01-1.webp",
@@ -18446,6 +18646,7 @@
    "ref": "apkg/lab-2 note 1768774622235 cloze 3"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -18529,6 +18730,7 @@
    "ref": "apkg/lab-2 note 1768774622235 cloze 4"
   },
   "answer": "Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/f0081-01-1.webp",
@@ -18610,6 +18812,7 @@
    "ref": "apkg/lab-2 note 1768774622235 cloze 5"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -18692,6 +18895,7 @@
    "ref": "apkg/lab-2 note 1768774622235 cloze 6"
   },
   "answer": "Pons",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/f0081-01-1.webp",
@@ -18772,6 +18976,7 @@
    "ref": "apkg/lab-2 note 1768776886492 cloze 1"
   },
   "answer": "Sensory relay",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp",
@@ -18837,7 +19042,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -18858,6 +19063,7 @@
    "ref": "apkg/lab-2 note 1768776886492 cloze 2"
   },
   "answer": "homeostasis), (autonomic, endocrine",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp",
@@ -18979,6 +19185,7 @@
    "ref": "apkg/lab-2 note 1768777108242 cloze 1"
   },
   "answer": "True",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp",
@@ -19031,7 +19238,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -19051,6 +19258,7 @@
    "ref": "apkg/lab-2 note 1768777108242 cloze 2"
   },
   "answer": "Cerebrum - telencephalon; Cerebellum - metencephalon",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp",
@@ -19103,7 +19311,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "two-bullet text answer [OCR 'Cerebrum -telencephalon Cerebellum-metencephalon', conf 0.99]",
   "tags": [
@@ -19125,6 +19333,7 @@
    "ref": "apkg/lab-2 note 1768777108242 cloze 3"
   },
   "answer": "Anterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -19205,6 +19414,7 @@
    "ref": "apkg/lab-2 note 1768777108242 cloze 4"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -19285,6 +19495,7 @@
    "ref": "apkg/lab-2 note 1768777108242 cloze 5"
   },
   "answer": "Inferior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -19365,6 +19576,7 @@
    "ref": "apkg/lab-2 note 1768777402235 cloze 1"
   },
   "answer": "Oligodendrocytes",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
@@ -19417,7 +19629,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -19437,6 +19649,7 @@
    "ref": "apkg/lab-2 note 1768777402235 cloze 2"
   },
   "answer": "Basal ganglia",
+  "answer_kind": "region",
   "accept": [
    "basal nuclei"
   ],
@@ -19491,7 +19704,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -19513,6 +19726,7 @@
    "ref": "apkg/lab-2 note 1768777402235 cloze 3"
   },
   "answer": "Coronal plane or horizontal plane (between left and right hemispheres) but not in saaittal plane",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
@@ -19565,7 +19779,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Horizontal plane' (65); OCR text not recognised; long free-text label (not a structure name) [OCR 'Coronal plane or horizontal plane (between left and right hemispheres) but not in saaittal plane', conf 0.99]",
   "tags": [
@@ -19588,6 +19802,7 @@
    "ref": "apkg/lab-2 note 1768777402235 cloze 4"
   },
   "answer": "Formed by grey matter due to incomplete separation of left and right thalamus (i.e. False)",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
@@ -19640,7 +19855,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Pineal gland' (53); OCR text not recognised; long free-text label (not a structure name) [OCR 'Formed by grey matter due to incomplete separation of left and right thalamus (i.e. False)', conf 0.99]",
   "tags": [
@@ -19661,6 +19876,7 @@
    "ref": "apkg/lab-2 note 1768777402235 cloze 5"
   },
   "answer": "Anterior commissure, hypothalamic sulcus, mammillary body, optic chiasm, lamina terminalis",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
@@ -19713,7 +19929,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Anterior nucleus of thalamus' (42); OCR text not recognised; long free-text label (not a structure name) [OCR 'Anterior commissure, hypothalamic sulcus, mammillary body, optic chiasm, lamina terminalis', conf 1.00]",
   "tags": [
@@ -19736,6 +19952,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 1"
   },
   "answer": "Prosencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -19844,7 +20061,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -19864,6 +20081,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 2"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -19995,6 +20213,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 3"
   },
   "answer": "Rhombencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -20103,7 +20322,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -20123,6 +20342,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 4"
   },
   "answer": "Metencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -20231,7 +20451,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -20251,6 +20471,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 5"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -20383,6 +20604,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 6"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -20514,6 +20736,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 7"
   },
   "answer": "Diencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -20622,7 +20845,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -20642,6 +20865,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 8"
   },
   "answer": "Telencephalon",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -20750,7 +20974,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -20770,6 +20994,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 9"
   },
   "answer": "Cerebral cortex",
+  "answer_kind": "structure",
   "accept": [
    "cerebrum",
    "cortex"
@@ -20901,6 +21126,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 10"
   },
   "answer": "Eye cup Thalamus, hypothalamus, and epithalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -21029,6 +21255,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 11"
   },
   "answer": "Midbrain",
+  "answer_kind": "structure",
   "accept": [
    "mesencephalon"
   ],
@@ -21160,6 +21387,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 12"
   },
   "answer": "Pons Cerebellum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
@@ -21289,6 +21517,7 @@
    "ref": "apkg/lab-2 note 1768864857166 cloze 13"
   },
   "answer": "Medulla",
+  "answer_kind": "structure",
   "accept": [
    "medulla oblongata",
    "myelencephalon"
@@ -21421,6 +21650,7 @@
    "ref": "apkg/lab-2 note 1768912522050 cloze 1"
   },
   "answer": "Lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "LV",
    "lateral ventricles"
@@ -21497,6 +21727,7 @@
    "ref": "apkg/lab-2 note 1768912522050 cloze 2"
   },
   "answer": "Foramina of Monro",
+  "answer_kind": "structure",
   "accept": [
    "foramen of Monro",
    "interventricular foramen",
@@ -21575,6 +21806,7 @@
    "ref": "apkg/lab-2 note 1768912522050 cloze 3"
   },
   "answer": "Third ventricle",
+  "answer_kind": "structure",
   "accept": [
    "3rd ventricle",
    "ventricle III",
@@ -21652,6 +21884,7 @@
    "ref": "apkg/lab-2 note 1768912522050 cloze 4"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -21730,6 +21963,7 @@
    "ref": "apkg/lab-2 note 1768912522050 cloze 5"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",

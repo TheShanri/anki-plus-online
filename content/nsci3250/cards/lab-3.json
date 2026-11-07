@@ -11,6 +11,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 1"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -102,6 +103,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 2"
   },
   "answer": "Parietal Lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -168,7 +170,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -189,6 +191,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 3"
   },
   "answer": "Occipital lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -255,7 +258,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -276,6 +279,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 4"
   },
   "answer": "Temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -342,7 +346,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -363,6 +367,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 5"
   },
   "answer": "Frontal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -429,7 +434,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -450,6 +455,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 6"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -541,6 +547,7 @@
    "ref": "apkg/lab-3 note 1769003929439 cloze 7"
   },
   "answer": "Lateral view",
+  "answer_kind": "plane",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-0622ae77865386c307fce83f88a7ea9aff2411de.webp",
@@ -607,7 +614,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -628,6 +635,7 @@
    "ref": "apkg/lab-3 note 1769003972932 cloze 1"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -726,6 +734,7 @@
    "ref": "apkg/lab-3 note 1769003972932 cloze 2"
   },
   "answer": "Parietal Lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
@@ -800,7 +809,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -821,6 +830,7 @@
    "ref": "apkg/lab-3 note 1769003972932 cloze 3"
   },
   "answer": "Occipital lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
@@ -895,7 +905,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -916,6 +926,7 @@
    "ref": "apkg/lab-3 note 1769003972932 cloze 4"
   },
   "answer": "Frontal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
@@ -990,7 +1001,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1011,6 +1022,7 @@
    "ref": "apkg/lab-3 note 1769003972932 cloze 5"
   },
   "answer": "Medial view (midsagittal)",
+  "answer_kind": "plane",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
@@ -1107,7 +1119,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the plane.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1129,6 +1141,7 @@
    "ref": "apkg/lab-3 note 1769004045338 cloze 1"
   },
   "answer": "Cingulate gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-1d25d905f45c42c361a8caa1a1304d8341b12eed.webp",
@@ -1323,6 +1336,7 @@
    "ref": "apkg/lab-3 note 1769004045338 cloze 2"
   },
   "answer": "Superior frontal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "SFG"
   ],
@@ -1502,6 +1516,7 @@
    "ref": "apkg/lab-3 note 1769004045338 cloze 3"
   },
   "answer": "Middle frontal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "MFG"
   ],
@@ -1681,6 +1696,7 @@
    "ref": "apkg/lab-3 note 1769004045338 cloze 4"
   },
   "answer": "Inferior frontal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "IFG"
   ],
@@ -1860,6 +1876,7 @@
    "ref": "apkg/lab-3 note 1769004045338 cloze 5"
   },
   "answer": "Precentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-1d25d905f45c42c361a8caa1a1304d8341b12eed.webp",
@@ -2042,6 +2059,7 @@
    "ref": "apkg/lab-3 note 1769004346829 cloze 1"
   },
   "answer": "Primary motor cortex",
+  "answer_kind": "region",
   "accept": [
    "M1",
    "motor cortex",
@@ -2099,7 +2117,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2121,6 +2139,7 @@
    "ref": "apkg/lab-3 note 1769004346829 cloze 2"
   },
   "answer": "4",
+  "answer_kind": "region",
   "accept": [
    "BA 4",
    "area 4",
@@ -2200,6 +2219,7 @@
    "ref": "apkg/lab-3 note 1769004346829 cloze 3"
   },
   "answer": "Precentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-e1c0738bd6f3aa32725e7ad186030a90d9d56818.webp",
@@ -2274,6 +2294,7 @@
    "ref": "apkg/lab-3 note 1769004346829 cloze 4"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -2351,6 +2372,7 @@
    "ref": "apkg/lab-3 note 1769004346829 cloze 5"
   },
   "answer": "Motor execution; large pyramidal cells here project to the brainstem or spinal cord to control motor neurons",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-e1c0738bd6f3aa32725e7ad186030a90d9d56818.webp",
@@ -2403,7 +2425,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Motor decussation' (81); OCR text not recognised; long free-text label (not a structure name) [OCR 'Motor execution; large pyramidal cells here project to the brainstem or spinal cord to control motor neurons', conf 1.00]",
   "tags": [
@@ -2426,6 +2448,7 @@
    "ref": "apkg/lab-3 note 1769004445451 cloze 1"
   },
   "answer": "Motor homunculus",
+  "answer_kind": "term",
   "accept": [
    "orientation of motor homunculus",
    "motor map"
@@ -2474,7 +2497,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2496,6 +2519,7 @@
    "ref": "apkg/lab-3 note 1769004445451 cloze 2"
   },
   "answer": "Face",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-50b379a2d1497f439d9f4489dc40dc007061ffeb.webp",
@@ -2541,7 +2565,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2562,6 +2586,7 @@
    "ref": "apkg/lab-3 note 1769004445451 cloze 3"
   },
   "answer": "Arm",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-50b379a2d1497f439d9f4489dc40dc007061ffeb.webp",
@@ -2607,7 +2632,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2628,6 +2653,7 @@
    "ref": "apkg/lab-3 note 1769004445451 cloze 4"
   },
   "answer": "Knee",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-50b379a2d1497f439d9f4489dc40dc007061ffeb.webp",
@@ -2673,7 +2699,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2694,6 +2720,7 @@
    "ref": "apkg/lab-3 note 1769004632487 cloze 1"
   },
   "answer": "Premotor cortex",
+  "answer_kind": "region",
   "accept": [
    "premotor area",
    "supplementary motor area",
@@ -2782,7 +2809,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2804,6 +2831,7 @@
    "ref": "apkg/lab-3 note 1769004632487 cloze 2"
   },
   "answer": "Premotor cortex",
+  "answer_kind": "region",
   "accept": [
    "premotor area",
    "supplementary motor area",
@@ -2892,7 +2920,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2914,6 +2942,7 @@
    "ref": "apkg/lab-3 note 1769004632487 cloze 3"
   },
   "answer": "Frontal lo",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-92fd56b146efd118c1f996ef57e535627a2c9855.webp",
@@ -3017,6 +3046,7 @@
    "ref": "apkg/lab-3 note 1769004632487 cloze 4"
   },
   "answer": "supplemental motor area as part of the premotor cortex; involved in motor planning",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-92fd56b146efd118c1f996ef57e535627a2c9855.webp",
@@ -3099,7 +3129,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Premotor cortex' (62); OCR text not recognised; long free-text label (not a structure name) [OCR 'supplemental motor area as part of the premotor cortex; involved in motor planning', conf 0.99]",
   "tags": [
@@ -3122,6 +3152,7 @@
    "ref": "apkg/lab-3 note 1769004632487 cloze 5"
   },
   "answer": "Located in: frontal lobe, on posterior parts of the superior and middle frontal gyri",
+  "answer_kind": "term",
   "accept": [
    "premotor area",
    "supplementary motor area",
@@ -3240,7 +3271,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "descriptive slide text (premotor cortex, BA 6); consider a theory card [OCR 'frontal superior and middle', conf 1.00]",
   "tags": [
@@ -3263,6 +3294,7 @@
    "ref": "apkg/lab-3 note 1769004762304 cloze 1"
   },
   "answer": "Broca's area",
+  "answer_kind": "region",
   "accept": [
    "Broca area",
    "motor speech area",
@@ -3305,7 +3337,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3326,6 +3358,7 @@
    "ref": "apkg/lab-3 note 1769004762304 cloze 2"
   },
   "answer": "Planning the movements of speech",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-3373c9c1329fcb554a1aaca5c74352cbd536ed40.webp",
@@ -3385,6 +3418,7 @@
    "ref": "apkg/lab-3 note 1769004762304 cloze 3"
   },
   "answer": "Left",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-3373c9c1329fcb554a1aaca5c74352cbd536ed40.webp",
@@ -3423,7 +3457,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3444,6 +3478,7 @@
    "ref": "apkg/lab-3 note 1769004906774 cloze 1"
   },
   "answer": "Prefrontal Cortex",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-d165ccbd0f4b75e90d13bb01c35794745dc653fe.webp",
@@ -3475,7 +3510,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3496,6 +3531,7 @@
    "ref": "apkg/lab-3 note 1769004906774 cloze 2"
   },
   "answer": "Complex aspects of behavior; “planning for planning” for movement",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-d165ccbd0f4b75e90d13bb01c35794745dc653fe.webp",
@@ -3527,7 +3563,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; “planning for planning” for movement', conf 0.97]",
   "tags": [
@@ -3549,6 +3585,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 1"
   },
   "answer": "Anterior cingulate cortex",
+  "answer_kind": "region",
   "accept": [
    "anterior cingulate",
    "ACC"
@@ -3633,7 +3670,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3655,6 +3692,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 2"
   },
   "answer": "Motivation and goal setting",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-5deaea72cb9cde5d8264ec19ab6ac5c01d012f44.webp",
@@ -3736,7 +3774,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3757,6 +3795,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 3"
   },
   "answer": "Ventromedial prefrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "ventromedial prefrontal",
    "vmPFC"
@@ -3841,7 +3880,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3862,6 +3901,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 4"
   },
   "answer": "Self control, regulation of emotions",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-5deaea72cb9cde5d8264ec19ab6ac5c01d012f44.webp",
@@ -3943,7 +3983,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3964,6 +4004,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 5"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -4048,7 +4089,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4069,6 +4110,7 @@
    "ref": "apkg/lab-3 note 1769005221472 cloze 6"
   },
   "answer": "Social and emotional decision making",
+  "answer_kind": "term",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -4197,6 +4239,7 @@
    "ref": "apkg/lab-3 note 1769005423450 cloze 1"
   },
   "answer": "Dorsolateral prefrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "dorsolateral prefrontal",
    "DLPFC"
@@ -4245,7 +4288,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4266,6 +4309,7 @@
    "ref": "apkg/lab-3 note 1769005423450 cloze 2"
   },
   "answer": "Executive function, working memory",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-422c221be5606b2a2e81e285ca7f47b7755e3afe.webp",
@@ -4311,7 +4355,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4332,6 +4376,7 @@
    "ref": "apkg/lab-3 note 1769005423450 cloze 3"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -4380,7 +4425,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4401,6 +4446,7 @@
    "ref": "apkg/lab-3 note 1769005423450 cloze 4"
   },
   "answer": "Social and emotional decision making",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-422c221be5606b2a2e81e285ca7f47b7755e3afe.webp",
@@ -4446,7 +4492,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4467,6 +4513,7 @@
    "ref": "apkg/lab-3 note 1769005530766 cloze 1"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -4501,7 +4548,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4522,6 +4569,7 @@
    "ref": "apkg/lab-3 note 1769005530766 cloze 2"
   },
   "answer": "Social and emotional decision making",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-cb0ad22609d127586a2f18ca2988183085727b61.webp",
@@ -4553,7 +4601,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -4574,6 +4622,7 @@
    "ref": "apkg/lab-3 note 1769005584290 cloze 1"
   },
   "answer": "Intraparietal fissure",
+  "answer_kind": "structure",
   "accept": [
    "intraparietal sulcus"
   ],
@@ -4667,6 +4716,7 @@
    "ref": "apkg/lab-3 note 1769005584290 cloze 2"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -4762,6 +4812,7 @@
    "ref": "apkg/lab-3 note 1769005584290 cloze 3"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -4857,6 +4908,7 @@
    "ref": "apkg/lab-3 note 1769005584290 cloze 4"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -4951,6 +5003,7 @@
    "ref": "apkg/lab-3 note 1769005584290 cloze 5"
   },
   "answer": "Postcentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-1867b756ea36630d007bafdf9446cc5b73289beb.webp",
@@ -5061,6 +5114,7 @@
    "ref": "apkg/lab-3 note 1769005845374 cloze 1"
   },
   "answer": "Primary somatosensory cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -5126,7 +5180,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5148,6 +5202,7 @@
    "ref": "apkg/lab-3 note 1769005845374 cloze 2"
   },
   "answer": "3, 1, 2",
+  "answer_kind": "region",
   "accept": [
    "BA 3, 1, 2",
    "area 3, 1, 2",
@@ -5234,6 +5289,7 @@
    "ref": "apkg/lab-3 note 1769005845374 cloze 3"
   },
   "answer": "Postcentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-a141d9f2e2e97efc5f8405bdb2f3bcb923e2cc73.webp",
@@ -5315,6 +5371,7 @@
    "ref": "apkg/lab-3 note 1769005845374 cloze 4"
   },
   "answer": "Receiving somatosensory information from the entire body and passes it to surrounding areas",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-a141d9f2e2e97efc5f8405bdb2f3bcb923e2cc73.webp",
@@ -5374,7 +5431,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Somatosensory association cortex' (45); OCR text not recognised; long free-text label (not a structure name) [OCR 'Receiving somatosensory information from the entire body and passes it to surrounding areas', conf 1.00]",
   "tags": [
@@ -5397,6 +5454,7 @@
    "ref": "apkg/lab-3 note 1769005845374 cloze 5"
   },
   "answer": "Parietal lobe general association area",
+  "answer_kind": "region",
   "accept": [
    "multimodal area",
    "parietal association area",
@@ -5460,7 +5518,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5481,6 +5539,7 @@
    "ref": "apkg/lab-3 note 1769005845374 cloze 6"
   },
   "answer": "Consolidating our sense of internal and external space",
+  "answer_kind": "term",
   "accept": [
    "multimodal area",
    "parietal association area",
@@ -5566,6 +5625,7 @@
    "ref": "apkg/lab-3 note 1769005986917 cloze 1"
   },
   "answer": "Somatosensory homunculus",
+  "answer_kind": "term",
   "accept": [
    "orientation of somatosensory homunculus",
    "sensory homunculus"
@@ -5628,7 +5688,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5650,6 +5710,7 @@
    "ref": "apkg/lab-3 note 1769005986917 cloze 2"
   },
   "answer": "Head",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f189a58f279a47a9fe102eb89992cd4193927963.webp",
@@ -5709,7 +5770,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5730,6 +5791,7 @@
    "ref": "apkg/lab-3 note 1769005986917 cloze 3"
   },
   "answer": "Leg",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f189a58f279a47a9fe102eb89992cd4193927963.webp",
@@ -5789,7 +5851,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5810,6 +5872,7 @@
    "ref": "apkg/lab-3 note 1769005986917 cloze 4"
   },
   "answer": "Face",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f189a58f279a47a9fe102eb89992cd4193927963.webp",
@@ -5883,7 +5946,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5904,6 +5967,7 @@
    "ref": "apkg/lab-3 note 1769006230781 cloze 1"
   },
   "answer": "Somatosensory association cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory association area",
    "parietal association cortex",
@@ -5967,7 +6031,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5989,6 +6053,7 @@
    "ref": "apkg/lab-3 note 1769006230781 cloze 2"
   },
   "answer": "areas 5 7",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b0c0e9bb92dcb58acd959f31c47a8550f99a3efa.webp",
@@ -6048,7 +6113,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"areas 5 7\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -6070,6 +6135,7 @@
    "ref": "apkg/lab-3 note 1769006230781 cloze 3"
   },
   "answer": "Superior parietal lobule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b0c0e9bb92dcb58acd959f31c47a8550f99a3efa.webp",
@@ -6150,6 +6216,7 @@
    "ref": "apkg/lab-3 note 1769006230781 cloze 4"
   },
   "answer": "Primary somatosensory cortex",
+  "answer_kind": "region",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -6215,7 +6282,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -6237,6 +6304,7 @@
    "ref": "apkg/lab-3 note 1769006230781 cloze 5"
   },
   "answer": "Processing somatosensory information received from the body",
+  "answer_kind": "structure",
   "accept": [
    "somatosensory cortex",
    "primary sensory cortex",
@@ -6325,6 +6393,7 @@
    "ref": "apkg/lab-3 note 1769006230781 cloze 6"
   },
   "answer": "Intraparietal fissure",
+  "answer_kind": "structure",
   "accept": [
    "intraparietal sulcus"
   ],
@@ -6407,6 +6476,7 @@
    "ref": "apkg/lab-3 note 1769006637282 cloze 1"
   },
   "answer": "Occipital notch (hard to see)",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-982adb972b03e5f5a35d9b087f7cd8fbc684799c.webp",
@@ -6473,6 +6543,7 @@
    "ref": "apkg/lab-3 note 1769006637282 cloze 2"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -6543,6 +6614,7 @@
    "ref": "apkg/lab-3 note 1769006637282 cloze 3"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -6612,6 +6684,7 @@
    "ref": "apkg/lab-3 note 1769006637282 cloze 4"
   },
   "answer": "Calcarine fissure",
+  "answer_kind": "structure",
   "accept": [
    "calcarine sulcus"
   ],
@@ -6681,6 +6754,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 1"
   },
   "answer": "Primary visual cortex",
+  "answer_kind": "region",
   "accept": [
    "striate cortex",
    "visual cortex",
@@ -6826,7 +6900,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -6848,6 +6922,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 2"
   },
   "answer": "17",
+  "answer_kind": "region",
   "accept": [
    "BA 17",
    "area 17",
@@ -7015,6 +7090,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 3"
   },
   "answer": "Occipital lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -7155,7 +7231,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -7176,6 +7252,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 4"
   },
   "answer": "Calcarine fissure",
+  "answer_kind": "structure",
   "accept": [
    "calcarine sulcus"
   ],
@@ -7340,6 +7417,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 5"
   },
   "answer": "Receiving visual information",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -7502,6 +7580,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 6"
   },
   "answer": "e retinas t",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -7665,6 +7744,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 7"
   },
   "answer": "Lateral geniculate nucleus of the thalamus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -7857,6 +7937,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 8"
   },
   "answer": "Primary visual cortex",
+  "answer_kind": "region",
   "accept": [
    "striate cortex",
    "visual cortex",
@@ -8002,7 +8083,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8024,6 +8105,7 @@
    "ref": "apkg/lab-3 note 1769007064950 cloze 9"
   },
   "answer": "Optic radiations",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4188f45bd5cb4103a1d4ebbe7e3682382ce91055.webp",
@@ -8216,6 +8298,7 @@
    "ref": "apkg/lab-3 note 1769007127389 cloze 1"
   },
   "answer": "Visual association cortex",
+  "answer_kind": "region",
   "accept": [
    "visual association area",
    "extrastriate cortex",
@@ -8273,7 +8356,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8295,6 +8378,7 @@
    "ref": "apkg/lab-3 note 1769007127389 cloze 2"
   },
   "answer": "18, 19",
+  "answer_kind": "region",
   "accept": [
    "BA 18, 19",
    "area 18, 19",
@@ -8374,6 +8458,7 @@
    "ref": "apkg/lab-3 note 1769007127389 cloze 3"
   },
   "answer": "Primary visual",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f19946e51337506e1b3e59b8150f67d1faf4257a.webp",
@@ -8426,7 +8511,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8448,6 +8533,7 @@
    "ref": "apkg/lab-3 note 1769007127389 cloze 4"
   },
   "answer": "Occipital lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f19946e51337506e1b3e59b8150f67d1faf4257a.webp",
@@ -8500,7 +8586,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8521,6 +8607,7 @@
    "ref": "apkg/lab-3 note 1769007127389 cloze 5"
   },
   "answer": "Recognizing colors and shapes as well as depth perception",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-f19946e51337506e1b3e59b8150f67d1faf4257a.webp",
@@ -8595,6 +8682,7 @@
    "ref": "apkg/lab-3 note 1769007192364 cloze 1"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -8714,6 +8802,7 @@
    "ref": "apkg/lab-3 note 1769007192364 cloze 2"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -8833,6 +8922,7 @@
    "ref": "apkg/lab-3 note 1769007192364 cloze 3"
   },
   "answer": "Superior temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "STG"
   ],
@@ -8964,6 +9054,7 @@
    "ref": "apkg/lab-3 note 1769007192364 cloze 4"
   },
   "answer": "Middle temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "MTG"
   ],
@@ -9095,6 +9186,7 @@
    "ref": "apkg/lab-3 note 1769007192364 cloze 5"
   },
   "answer": "Inferior temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "ITG"
   ],
@@ -9226,6 +9318,7 @@
    "ref": "apkg/lab-3 note 1769007311201 cloze 1"
   },
   "answer": "Superior surface of temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b5db4a4d4701c7a347c53171bcd93098c8fa136b.webp",
@@ -9250,7 +9343,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9271,6 +9364,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 1"
   },
   "answer": "Primary auditory cortex",
+  "answer_kind": "region",
   "accept": [
    "auditory cortex",
    "A1",
@@ -9355,7 +9449,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9377,6 +9471,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 2"
   },
   "answer": "41, 42",
+  "answer_kind": "region",
   "accept": [
    "BA 41, 42",
    "area 41, 42",
@@ -9484,6 +9579,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 3"
   },
   "answer": "Temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -9564,7 +9660,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9585,6 +9681,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 4"
   },
   "answer": "Transverse temporal",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -9686,6 +9783,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 5"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -9791,6 +9889,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 6"
   },
   "answer": "Superior temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "STG"
   ],
@@ -9894,6 +9993,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 7"
   },
   "answer": "Sound information",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -9974,7 +10074,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9995,6 +10095,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 8"
   },
   "answer": "Cochlea",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-57ee1832d730d16134be2c821538bf2a29fb559b.webp",
@@ -10097,6 +10198,7 @@
    "ref": "apkg/lab-3 note 1769007615723 cloze 9"
   },
   "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
@@ -10204,6 +10306,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 1"
   },
   "answer": "Wernicke's area",
+  "answer_kind": "region",
   "accept": [
    "Wernicke area",
    "sensory speech area"
@@ -10287,7 +10390,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -10308,6 +10411,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 2"
   },
   "answer": "22",
+  "answer_kind": "region",
   "accept": [
    "BA 22",
    "area 22",
@@ -10415,6 +10519,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 3"
   },
   "answer": "e left h",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -10517,6 +10622,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 4"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -10618,6 +10724,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 5"
   },
   "answer": "Language comprehension; i.e. the sensory part of speech and language",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -10698,7 +10805,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Language comprehension; i.e. the sensory part of speech and language', conf 0.99]",
   "tags": [
@@ -10721,6 +10828,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 6"
   },
   "answer": "Broca's area",
+  "answer_kind": "region",
   "accept": [
    "Broca area",
    "motor speech area",
@@ -10805,7 +10913,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -10826,6 +10934,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 7"
   },
   "answer": "44, 45",
+  "answer_kind": "region",
   "accept": [
    "BA 44, 45",
    "area 44, 45",
@@ -10932,6 +11041,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 8"
   },
   "answer": "Left hemisphere",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -11012,7 +11122,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11033,6 +11143,7 @@
    "ref": "apkg/lab-3 note 1769008135190 cloze 9"
   },
   "answer": "language production; i.e. the motor part of speech",
+  "answer_kind": "term",
   "accept": [
    "Broca area",
    "motor speech area",
@@ -11117,7 +11228,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "descriptive slide text (Broca); consider a theory card [OCR 'language production; i.e. the motor part of speech', conf 0.99]",
   "tags": [
@@ -11140,6 +11251,7 @@
    "ref": "apkg/lab-3 note 1769008249551 cloze 1"
   },
   "answer": "Uncus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-600f5906aa8336a2ba113036d2244dc8e6ef4e7a.webp",
@@ -11186,6 +11298,7 @@
    "ref": "apkg/lab-3 note 1769008267183 cloze 1"
   },
   "answer": "Parahippocampal gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-bde801c5c460b61bf53919c53cb6bf5784ef5b2c.webp",
@@ -11232,6 +11345,7 @@
    "ref": "apkg/lab-3 note 1769008434584 cloze 1"
   },
   "answer": "The area that corresponds with motor to the mouth, lips, and tongue",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp",
@@ -11291,7 +11405,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Motor homunculus' (46); OCR text not recognised; long free-text label (not a structure name) [OCR 'The area that corresponds with motor to the mouth, lips, and tongue', conf 0.99]",
   "tags": [
@@ -11314,6 +11428,7 @@
    "ref": "apkg/lab-3 note 1769008434584 cloze 2"
   },
   "answer": "Hemineglect syndrome",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp",
@@ -11373,7 +11488,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11394,6 +11509,7 @@
    "ref": "apkg/lab-3 note 1769008434584 cloze 3"
   },
   "answer": "In the medial aspect of the occipital lobe (viewed from midsagittal section), superior and inferior to the calcarine sulcus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp",
@@ -11453,7 +11569,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Ventromedial prefrontal cortex' (56); OCR text not recognised; long free-text label (not a structure name) [OCR 'In the medial aspect of the occipital lobe (viewed from midsagittal section), superior and inferior to the calcarine sulcus', conf 1.00]",
   "tags": [
@@ -11477,6 +11593,7 @@
    "ref": "apkg/lab-3 note 1769008434584 cloze 4"
   },
   "answer": "Transverse temporal gyrus, which runs perpendicular to the superior temporal gyrus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp",
@@ -11536,7 +11653,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Transverse temporal gyrus' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'Transverse temporal gyrus, which runs perpendicular to the superior temporal gyrus', conf 1.00]",
   "tags": [
@@ -11558,6 +11675,7 @@
    "ref": "apkg/lab-3 note 1769008434584 cloze 5"
   },
   "answer": "False in both the sensory and motor homunculus, the face region is located laterally, near the lateral fissure, and the foot region is located most medially deep in the longitudinal fissure",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp",
@@ -11617,7 +11735,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (33); OCR text not recognised; long free-text label (not a structure name) [OCR 'False in both the sensory and motor homunculus, the face region is located laterally, near the lateral fissure, and the foot region is located most medially deep in the longitudinal fissure', conf 0.99]",
   "tags": [
@@ -11641,6 +11759,7 @@
    "ref": "apkg/lab-3 note 1769008434584 cloze 6"
   },
   "answer": "Damage to Wernicke's area, located at the posterior aspect of the temporal lobe, near the border of the occipital and parietal lobes, on the LEFT side (in most individuals). This is a language sensory processing deficit",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-c1347d4e94b42ef648c63808f691e9ac75b50edc.webp",
@@ -11700,7 +11819,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Principal sensory nucleus of trigeminal' (46); OCR text not recognised; long free-text label (not a structure name) [OCR 'Damage to Wernicke's area, located at the posterior aspect of the temporal lobe, near the border of the occipital and parietal lobes, on the LEFT side (in most individuals). This is a language sensory processing deficit', conf 0.99]",
   "tags": [
@@ -11723,6 +11842,7 @@
    "ref": "apkg/lab-3 note 1769008467150 cloze 1"
   },
   "answer": "Precentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-dc723d5e9ac798704765b4498c4778a24e3eeda7.webp",
@@ -11776,6 +11896,7 @@
    "ref": "apkg/lab-3 note 1769008467150 cloze 2"
   },
   "answer": "Postcentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-dc723d5e9ac798704765b4498c4778a24e3eeda7.webp",
@@ -11829,6 +11950,7 @@
    "ref": "apkg/lab-3 note 1769008505980 cloze 1"
   },
   "answer": "Anterior cingulate cortex",
+  "answer_kind": "region",
   "accept": [
    "anterior cingulate",
    "ACC"
@@ -11856,7 +11978,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11878,6 +12000,7 @@
    "ref": "apkg/lab-3 note 1769008580203 cloze 1"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -11905,7 +12028,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -11926,6 +12049,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 1"
   },
   "answer": "Dorsolateral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-7b50d678fb0e6d43e3bb8dbab9c31afe27640fc9.webp",
@@ -11992,7 +12116,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -12013,6 +12137,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 2"
   },
   "answer": "Ventrolateral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-7b50d678fb0e6d43e3bb8dbab9c31afe27640fc9.webp",
@@ -12079,7 +12204,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -12100,6 +12225,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 3"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -12169,7 +12295,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -12190,6 +12316,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 4"
   },
   "answer": "Premotor cortex",
+  "answer_kind": "region",
   "accept": [
    "premotor area",
    "supplementary motor area",
@@ -12262,7 +12389,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -12284,6 +12411,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 5"
   },
   "answer": "Primary motor cortex",
+  "answer_kind": "region",
   "accept": [
    "M1",
    "motor cortex",
@@ -12355,7 +12483,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -12377,6 +12505,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 6"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
@@ -12468,6 +12597,7 @@
    "ref": "apkg/lab-3 note 1769008761149 cloze 7"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -12559,6 +12689,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 1"
   },
   "answer": "Postcentral gyrus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -12647,6 +12778,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 2"
   },
   "answer": "Inferior parietal lobule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -12734,6 +12866,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 3"
   },
   "answer": "Superior parietal lobule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -12821,6 +12954,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 4"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -12911,6 +13045,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 5"
   },
   "answer": "Intraparietal fissure",
+  "answer_kind": "structure",
   "accept": [
    "intraparietal sulcus"
   ],
@@ -13000,6 +13135,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 6"
   },
   "answer": "Central sulcus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -13087,6 +13223,7 @@
    "ref": "apkg/lab-3 note 1769008833895 cloze 7"
   },
   "answer": "Postcentral sulcus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/3107b1c327b21ed0c1778ef9214282_big_gallery.webp",
@@ -13175,6 +13312,7 @@
    "ref": "apkg/lab-3 note 1769008887874 cloze 1"
   },
   "answer": "Occipital lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/09c08963d3b35ccfa0b7a45844ca97_big_gallery.webp",
@@ -13220,7 +13358,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -13241,6 +13379,7 @@
    "ref": "apkg/lab-3 note 1769008887874 cloze 2"
   },
   "answer": "Calcarine fissure",
+  "answer_kind": "structure",
   "accept": [
    "calcarine sulcus"
   ],
@@ -13310,6 +13449,7 @@
    "ref": "apkg/lab-3 note 1769008887874 cloze 3"
   },
   "answer": "Corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "callosum",
    "CC"
@@ -13379,6 +13519,7 @@
    "ref": "apkg/lab-3 note 1769008887874 cloze 4"
   },
   "answer": "Parieto-occipital fissure",
+  "answer_kind": "structure",
   "accept": [
    "parieto-occipital sulcus",
    "parietooccipital sulcus"
@@ -13448,6 +13589,7 @@
    "ref": "apkg/lab-3 note 1769009015748 cloze 1"
   },
   "answer": "Lateral fissure",
+  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
@@ -13732,6 +13874,7 @@
    "ref": "apkg/lab-3 note 1769009015748 cloze 2"
   },
   "answer": "Superior temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "STG"
   ],
@@ -14066,6 +14209,7 @@
    "ref": "apkg/lab-3 note 1769009015748 cloze 3"
   },
   "answer": "Middle temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "MTG"
   ],
@@ -14392,6 +14536,7 @@
    "ref": "apkg/lab-3 note 1769009015748 cloze 4"
   },
   "answer": "Inferior temporal gyrus",
+  "answer_kind": "structure",
   "accept": [
    "ITG"
   ],
@@ -14722,6 +14867,7 @@
    "ref": "apkg/lab-3 note 1769084443546 cloze 1"
   },
   "answer": "Auditory association area",
+  "answer_kind": "region",
   "accept": [
    "auditory association cortex",
    "BA 22"
@@ -14777,7 +14923,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -14799,6 +14945,7 @@
    "ref": "apkg/lab-3 note 1769084443546 cloze 2"
   },
   "answer": "22",
+  "answer_kind": "region",
   "accept": [
    "BA 22",
    "area 22",
@@ -14878,6 +15025,7 @@
    "ref": "apkg/lab-3 note 1769084443546 cloze 3"
   },
   "answer": "Temporal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b40526a6b0728615a294caa34d08915268499b37.webp",
@@ -14930,7 +15078,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -14951,6 +15099,7 @@
    "ref": "apkg/lab-3 note 1769084443546 cloze 4"
   },
   "answer": "Primary auditory",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b40526a6b0728615a294caa34d08915268499b37.webp",
@@ -15003,7 +15152,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15025,6 +15174,7 @@
    "ref": "apkg/lab-3 note 1769084443546 cloze 5"
   },
   "answer": "Processing auditory information and distinguishing different complex tones or speech",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b40526a6b0728615a294caa34d08915268499b37.webp",
@@ -15077,7 +15227,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Primary somatosensory cortex' (39); OCR text not recognised; long free-text label (not a structure name) [OCR 'Processing auditory information and distinguishing different complex tones or speech', conf 0.99]",
   "tags": [
@@ -15100,6 +15250,7 @@
    "ref": "apkg/lab-3 note 1769085669383 cloze 1"
   },
   "answer": "Orbitofrontal cortex",
+  "answer_kind": "region",
   "accept": [
    "orbitofrontal",
    "OFC"
@@ -15148,7 +15299,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15169,6 +15320,7 @@
    "ref": "apkg/lab-3 note 1769085669383 cloze 2"
   },
   "answer": "Dorsolateral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-00b990bdb082adc6d31b0f8d05565ada09d6ceaa.webp",
@@ -15214,7 +15366,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15235,6 +15387,7 @@
    "ref": "apkg/lab-3 note 1769085669383 cloze 3"
   },
   "answer": "Ventrolateral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-00b990bdb082adc6d31b0f8d05565ada09d6ceaa.webp",
@@ -15280,7 +15433,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15301,6 +15454,7 @@
    "ref": "apkg/lab-3 note 1769085669383 cloze 4"
   },
   "answer": "Ventromedial",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-00b990bdb082adc6d31b0f8d05565ada09d6ceaa.webp",
@@ -15346,7 +15500,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15367,6 +15521,7 @@
    "ref": "apkg/lab-3 note 1769086292778 cloze 1"
   },
   "answer": "Parietal lobe general association area",
+  "answer_kind": "region",
   "accept": [
    "multimodal area",
    "parietal association area",
@@ -15423,7 +15578,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15444,6 +15599,7 @@
    "ref": "apkg/lab-3 note 1769086292778 cloze 2"
   },
   "answer": "Inferior parietal lobule",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-e2e69ff182e80cf86896a707970d72cfbb3da953.webp",
@@ -15517,6 +15673,7 @@
    "ref": "apkg/lab-3 note 1769086292778 cloze 3"
   },
   "answer": "Primary somatosensory",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-e2e69ff182e80cf86896a707970d72cfbb3da953.webp",
@@ -15569,7 +15726,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15591,6 +15748,7 @@
    "ref": "apkg/lab-3 note 1769086292778 cloze 4"
   },
   "answer": "Intraparietal fissure",
+  "answer_kind": "structure",
   "accept": [
    "intraparietal sulcus"
   ],
@@ -15666,6 +15824,7 @@
    "ref": "apkg/lab-3 note 1769086292778 cloze 5"
   },
   "answer": "integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-e2e69ff182e80cf86896a707970d72cfbb3da953.webp",
@@ -15718,7 +15877,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area', conf 0.98]",
   "tags": [

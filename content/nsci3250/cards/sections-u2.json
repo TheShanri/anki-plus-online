@@ -11,6 +11,7 @@
    "ref": "lecture-11 page 25 text label"
   },
   "answer": "Paramedian pontine reticular formation",
+  "answer_kind": "structure",
   "accept": [
    "PPRF",
    "horizontal gaze center",
@@ -269,6 +270,7 @@
   "h": 528,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Rostral midbrain",
+  "answer_kind": "level",
   "accept": [
    "rostral midbrain",
    "superior colliculus level",
@@ -305,6 +307,7 @@
   "h": 492,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Caudal midbrain",
+  "answer_kind": "level",
   "accept": [
    "caudal midbrain",
    "inferior colliculus level",
@@ -341,6 +344,7 @@
   "h": 468,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Rostral pons",
+  "answer_kind": "level",
   "accept": [
    "rostral pons",
    "upper pons",
@@ -377,6 +381,7 @@
   "h": 532,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Caudal pons",
+  "answer_kind": "level",
   "accept": [
    "caudal pons",
    "lower pons",
@@ -412,6 +417,7 @@
   "h": 508,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Rostral medulla",
+  "answer_kind": "level",
   "accept": [
    "rostral medulla",
    "upper medulla",
@@ -447,6 +453,7 @@
   "h": 460,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Caudal medulla",
+  "answer_kind": "level",
   "accept": [
    "caudal medulla",
    "lower medulla",
@@ -482,6 +489,7 @@
   "h": 1600,
   "prompt": "Which brainstem / spinal level is this section?",
   "answer": "Brainstem to spinal cord transition (motor decussation)",
+  "answer_kind": "level",
   "accept": [
    "motor decussation",
    "pyramidal decussation",
@@ -515,6 +523,7 @@
   },
   "prompt": "Which brainstem level shows the facial colliculus?",
   "answer": "Caudal pons",
+  "answer_kind": "level",
   "accept": [
    "caudal pons",
    "lower pons"
@@ -543,6 +552,7 @@
   },
   "prompt": "Which brainstem level shows the motor and principal sensory nuclei of the trigeminal nerve?",
   "answer": "Rostral pons",
+  "answer_kind": "level",
   "accept": [
    "rostral pons",
    "upper pons"
@@ -573,6 +583,7 @@
   },
   "prompt": "Which brainstem level is called the level of the olive?",
   "answer": "Rostral medulla",
+  "answer_kind": "level",
   "accept": [
    "rostral medulla",
    "upper medulla"
@@ -601,6 +612,7 @@
   },
   "prompt": "Which brainstem level shows the cuneate and gracile tubercles and sensory decussation?",
   "answer": "Caudal medulla",
+  "answer_kind": "level",
   "accept": [
    "caudal medulla",
    "lower medulla"
@@ -630,6 +642,7 @@
   },
   "prompt": "At which brainstem level does the superior cerebellar peduncle decussate?",
   "answer": "Caudal midbrain (inferior colliculus level)",
+  "answer_kind": "level",
   "accept": [
    "caudal midbrain",
    "inferior colliculus level",
@@ -661,6 +674,7 @@
   },
   "prompt": "Which midbrain level shows the red nuclei and the substantia nigra?",
   "answer": "Rostral midbrain (superior colliculus level)",
+  "answer_kind": "level",
   "accept": [
    "rostral midbrain",
    "superior colliculus level",
@@ -692,6 +706,7 @@
   },
   "prompt": "At which level is the motor (pyramidal) decussation?",
   "answer": "Brainstem to spinal cord transition (caudal medulla)",
+  "answer_kind": "level",
   "accept": [
    "caudal medulla",
    "medulla spinal cord junction",

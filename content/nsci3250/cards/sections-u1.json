@@ -11,6 +11,7 @@
    "ref": "lab-04 page 3 text label"
   },
   "answer": "Vertebral arch",
+  "answer_kind": "structure",
   "accept": [
    "arch"
   ],
@@ -200,6 +201,7 @@
    "ref": "lab-04 page 10 text label"
   },
   "answer": "Dural sleeves",
+  "answer_kind": "structure",
   "accept": [
    "dural sleeve"
   ],
@@ -445,6 +447,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "dorsal horns",
    "posterior gray horn",
@@ -784,6 +787,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Lateral horn",
+  "answer_kind": "structure",
   "accept": [
    "IML",
    "intermediolateral cell column"
@@ -1121,6 +1125,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Dorsal rootlets",
+  "answer_kind": "structure",
   "accept": [
    "posterior rootlets"
   ],
@@ -1457,6 +1462,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior gray horn",
    "anterior horn of spinal cord",
@@ -1796,6 +1802,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Dorsal root",
+  "answer_kind": "structure",
   "accept": [
    "posterior root"
   ],
@@ -2133,6 +2140,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "DRG",
    "posterior root ganglion",
@@ -2472,6 +2480,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Dorsal ramus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal rami",
    "posterior ramus"
@@ -2809,6 +2818,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Ventral root",
+  "answer_kind": "structure",
   "accept": [
    "anterior root"
   ],
@@ -3145,6 +3155,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Ventral rootlets",
+  "answer_kind": "structure",
   "accept": [
    "anterior rootlets"
   ],
@@ -3481,6 +3492,7 @@
    "ref": "lab-04 page 12 text label"
   },
   "answer": "Ventral ramus",
+  "answer_kind": "structure",
   "accept": [
    "anterior ramus",
    "ventral rami"
@@ -3818,6 +3830,7 @@
    "ref": "lecture-04 page 30 text label"
   },
   "answer": "Dorsal columns",
+  "answer_kind": "structure",
   "accept": [
    "dorsal column",
    "dorsal funiculus",
@@ -4066,6 +4079,7 @@
    "ref": "lecture-04 page 30 text label"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "dorsal horns",
    "posterior gray horn",
@@ -4314,6 +4328,7 @@
    "ref": "lecture-04 page 30 text label"
   },
   "answer": "Intermediate zone",
+  "answer_kind": "structure",
   "accept": [
    "intermediate gray",
    "zona intermedia",
@@ -4561,6 +4576,7 @@
    "ref": "lecture-04 page 30 text label"
   },
   "answer": "Lateral funiculus",
+  "answer_kind": "structure",
   "accept": [
    "lateral column"
   ],
@@ -4806,6 +4822,7 @@
    "ref": "lecture-04 page 30 text label"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior gray horn",
    "anterior horn of spinal cord",
@@ -5054,6 +5071,7 @@
    "ref": "lecture-04 page 30 text label"
   },
   "answer": "Anterior funiculus",
+  "answer_kind": "structure",
   "accept": [
    "anterior column",
    "ventral column",
@@ -5302,6 +5320,7 @@
    "ref": "lecture-04 page 31 text label"
   },
   "answer": "Dorsal root entry zone",
+  "answer_kind": "structure",
   "accept": [
    "DREZ",
    "dorsal root entry zone (DREZ)"
@@ -5577,6 +5596,7 @@
    "ref": "lecture-04 page 31 text label"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "dorsal horns",
    "posterior gray horn",
@@ -5853,6 +5873,7 @@
    "ref": "lecture-04 page 31 text label"
   },
   "answer": "Intermediate zone",
+  "answer_kind": "structure",
   "accept": [
    "intermediate gray",
    "zona intermedia",
@@ -6128,6 +6149,7 @@
    "ref": "lecture-04 page 31 text label"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior gray horn",
    "anterior horn of spinal cord",
@@ -6404,6 +6426,7 @@
    "ref": "lab-01 page 14 text label"
   },
   "answer": "Temporal bone",
+  "answer_kind": "structure",
   "accept": [
    "temporal"
   ],
@@ -6719,6 +6742,7 @@
    "ref": "lab-01 page 14 text label"
   },
   "answer": "Pterion",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/lab-01/pages/014.webp",
@@ -7035,6 +7059,7 @@
   "h": 1600,
   "prompt": "Which spinal cord level is this section? (cervical, thoracic, lumbar or sacral)",
   "answer": "Cervical spinal cord",
+  "answer_kind": "level",
   "accept": [
    "cervical",
    "cervical cord",
@@ -7068,6 +7093,7 @@
   "h": 1600,
   "prompt": "Which spinal cord level is this section? (cervical, thoracic, lumbar or sacral)",
   "answer": "Cervical spinal cord",
+  "answer_kind": "level",
   "accept": [
    "cervical"
   ],
@@ -7100,6 +7126,7 @@
   "h": 1228,
   "prompt": "Which spinal cord level is this section? (cervical, thoracic, lumbar or sacral)",
   "answer": "Thoracic spinal cord",
+  "answer_kind": "level",
   "accept": [
    "thoracic"
   ],
@@ -7131,6 +7158,7 @@
   "h": 1273,
   "prompt": "Which spinal cord level is this section? (cervical, thoracic, lumbar or sacral)",
   "answer": "Lumbar spinal cord",
+  "answer_kind": "level",
   "accept": [
    "lumbar"
   ],
@@ -7162,6 +7190,7 @@
   "h": 1174,
   "prompt": "Which spinal cord level is this section? (cervical, thoracic, lumbar or sacral)",
   "answer": "Sacral spinal cord",
+  "answer_kind": "level",
   "accept": [
    "sacral"
   ],
@@ -7190,6 +7219,7 @@
   },
   "prompt": "At which spinal levels does the column of Clarke (nucleus dorsalis) exist?",
   "answer": "C8 to L2",
+  "answer_kind": "level",
   "accept": [
    "c8-l2",
    "c8 to l2"
@@ -7218,6 +7248,7 @@
   },
   "prompt": "At which spinal levels is the lateral horn present?",
   "answer": "T1 to L2 (sympathetic) and S2-S4 (parasympathetic)",
+  "answer_kind": "level",
   "accept": [
    "t1-l2",
    "t1 to l2"
@@ -7247,6 +7278,7 @@
   },
   "prompt": "Which spinal level has small ventral horns and a distinct lateral horn?",
   "answer": "Thoracic",
+  "answer_kind": "level",
   "accept": [
    "thoracic",
    "t1-l2"

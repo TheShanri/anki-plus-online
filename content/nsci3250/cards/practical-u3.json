@@ -11,6 +11,7 @@
    "ref": "practical-u3-2025 Q1"
   },
   "answer": "Genu of corpus callosum",
+  "answer_kind": "structure",
   "accept": [
    "genu of CC",
    "genu of the corpus callosum"
@@ -49,6 +50,7 @@
    "ref": "practical-u3-2025 Q2"
   },
   "answer": "Putamen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/003.webp",
@@ -118,6 +120,7 @@
    "ref": "practical-u3-2025 Q4"
   },
   "answer": "Anterior limb of internal capsule",
+  "answer_kind": "structure",
   "accept": [
    "anterior limb",
    "internal capsule anterior limb",
@@ -157,6 +160,7 @@
    "ref": "practical-u3-2025 Q5"
   },
   "answer": "Crus of fornix",
+  "answer_kind": "structure",
   "accept": [
    "Crura of fornix",
    "fornix crus",
@@ -197,6 +201,7 @@
    "ref": "practical-u3-2025 Q6"
   },
   "answer": "Posterior horn of lateral ventricle",
+  "answer_kind": "structure",
   "accept": [
    "Posterior horn of LV",
    "posterior horn",
@@ -239,6 +244,7 @@
    "ref": "practical-u3-2025 Q7"
   },
   "answer": "Interthalamic adhesion",
+  "answer_kind": "structure",
   "accept": [
    "Massa Intermedia",
    "thalamic adhesion",
@@ -278,6 +284,7 @@
    "ref": "practical-u3-2025 Q8"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th Ventricle",
    "ventricle IV",
@@ -317,6 +324,7 @@
    "ref": "practical-u3-2025 Q9"
   },
   "answer": "Vermis",
+  "answer_kind": "structure",
   "accept": [
    "cerebellar vermis"
   ],
@@ -387,6 +395,7 @@
    "ref": "practical-u3-2025 Q11"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "MCP (middle cerebellar peduncle)",
    "brachium pontis",
@@ -460,6 +469,7 @@
    "ref": "practical-u3-2025 Q13"
   },
   "answer": "Cerebellar tonsil",
+  "answer_kind": "structure",
   "accept": [
    "Tonsil",
    "tonsils"
@@ -532,6 +542,7 @@
    "ref": "practical-u3-2025 Q15"
   },
   "answer": "Hippocampus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/011.webp",
@@ -601,6 +612,7 @@
    "ref": "practical-u3-2025 Q17"
   },
   "answer": "Caudate nucleus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/012.webp",
@@ -670,6 +682,7 @@
    "ref": "practical-u3-2025 Q19"
   },
   "answer": "Anterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "AC"
   ],
@@ -711,7 +724,7 @@
    "ref": "practical-u3-2025 Q20"
   },
   "facet": "function",
-  "prompt": "True or false: This structure serves as one of the boundaries of the hypothalamus Magnified view",
+  "prompt": "True or false: This structure serves as one of the boundaries of the hypothalamus.",
   "answer": "True",
   "accept": [
    "true",
@@ -742,6 +755,7 @@
    "ref": "practical-u3-2025 Q21"
   },
   "answer": "Superior cerebellar artery",
+  "answer_kind": "structure",
   "accept": [
    "superior cerebellar a.",
    "SCA"
@@ -785,7 +799,7 @@
    "ref": "practical-u3-2025 Q22"
   },
   "facet": "supply",
-  "prompt": "Is this vessel part of the anterior or posterior circulation? Magnified view",
+  "prompt": "Is this vessel part of the anterior or posterior circulation?",
   "answer": "Posterior circulation",
   "accept": [],
   "keywords": null,
@@ -814,6 +828,7 @@
    "ref": "practical-u3-2025 Q23"
   },
   "answer": "PICA",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/015.webp",
@@ -911,6 +926,7 @@
    "ref": "practical-u3-2025 Q26"
   },
   "answer": "Callosomarginal artery",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "decks/practical-u3-2025/pages/017.webp",
@@ -1017,6 +1033,7 @@
    "ref": "practical-u3-2025 Q29"
   },
   "answer": "Thalamus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
@@ -1160,6 +1177,7 @@
    "ref": "practical-u3-2025 Q33"
   },
   "answer": "Anterior cerebral artery",
+  "answer_kind": "structure",
   "accept": [
    "ACA (anterior cerebral a.)",
    "ACA"
@@ -1231,7 +1249,7 @@
    "ref": "practical-u3-2025 Q35"
   },
   "facet": "supply",
-  "prompt": "Note: this question refers to tags on two separate brains. True or false: The vessel indicated by the orange pin (top images) corresponds to the infarcted area outlined in green (bottom image). Magnified view",
+  "prompt": "Note: this question refers to tags on two separate brains. True or false: The vessel indicated by the orange pin (top images) corresponds to the infarcted area outlined in green (bottom image).",
   "answer": "False",
   "accept": [],
   "keywords": null,
@@ -1406,7 +1424,7 @@
    "ref": "practical-u3-2025 Q40"
   },
   "facet": "lesion",
-  "prompt": "What pathology is indicated the white pin? Magnified view",
+  "prompt": "What pathology is indicated by the white pin?",
   "answer": "Aneurysm Bonus",
   "accept": [],
   "keywords": null,
@@ -1482,6 +1500,7 @@
    "ref": "practical-u3-2025 QB2"
   },
   "answer": "Posterior commissure",
+  "answer_kind": "structure",
   "accept": [
    "PC"
   ],

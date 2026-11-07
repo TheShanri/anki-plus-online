@@ -11,6 +11,7 @@
    "ref": "apkg/brainstem-overlay note 1771942152320 cloze 1"
   },
   "answer": "Rostral midbrain",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-f87273f916d1e0063e33d7a736232f9e9ce79fbd.webp",
@@ -35,7 +36,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -57,6 +58,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 1"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -213,6 +215,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 2"
   },
   "answer": "Superior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
@@ -367,6 +370,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 3"
   },
   "answer": "Edinger-Westphal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "visceral oculomotor nucleus",
    "EW"
@@ -522,6 +526,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 4"
   },
   "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
   "accept": [
    "periaqueductal grey",
    "periaqueductal grey matter",
@@ -678,6 +683,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 5"
   },
   "answer": "Oculomotor nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN III nucleus",
    "nucleus of CN III",
@@ -835,6 +841,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 6"
   },
   "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -994,6 +1001,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 7"
   },
   "answer": "Red nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus ruber"
   ],
@@ -1148,6 +1156,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 8"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -1302,6 +1311,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 9"
   },
   "answer": "Interpeduncular fossa",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-f87273f916d1e0063e33d7a736232f9e9ce79fbd.webp",
@@ -1453,6 +1463,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 10"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -1608,6 +1619,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 11"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-f87273f916d1e0063e33d7a736232f9e9ce79fbd.webp",
@@ -1774,6 +1786,7 @@
    "ref": "apkg/brainstem-overlay note 1771942216638 cloze 12"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -1947,6 +1960,7 @@
    "ref": "apkg/brainstem-overlay note 1771942254287 cloze 1"
   },
   "answer": "Caudal midbrain",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-8b3da05452245a508c7d6b9e7bf57522114dc2db.webp",
@@ -1971,7 +1985,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -1993,6 +2007,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 1"
   },
   "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -2130,6 +2145,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 2"
   },
   "answer": "Trochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -2270,6 +2286,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 3"
   },
   "answer": "Inferior colliculus",
+  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
@@ -2405,6 +2422,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 4"
   },
   "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
   "accept": [
    "periaqueductal grey",
    "periaqueductal grey matter",
@@ -2542,6 +2560,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 5"
   },
   "answer": "Trochlear nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN IV nucleus",
    "nucleus of CN IV",
@@ -2679,6 +2698,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 6"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -2819,6 +2839,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 7"
   },
   "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
@@ -2955,6 +2976,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 8"
   },
   "answer": "Substantia nigra",
+  "answer_kind": "structure",
   "accept": [
    "SN"
   ],
@@ -3090,6 +3112,7 @@
    "ref": "apkg/brainstem-overlay note 1771942315665 cloze 9"
   },
   "answer": "Decussation of the superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "SCP decussation",
    "decussation of superior cerebellar peduncle",
@@ -3258,6 +3281,7 @@
    "ref": "apkg/brainstem-overlay note 1771942366482 cloze 1"
   },
   "answer": "Rostral pons",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-ce425c70b47b0be3ff37d7d4f73e2a9a3ead2348.webp",
@@ -3282,7 +3306,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -3304,6 +3328,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 1"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -3480,6 +3505,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 2"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-ce425c70b47b0be3ff37d7d4f73e2a9a3ead2348.webp",
@@ -3653,6 +3679,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 3"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -3829,6 +3856,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 4"
   },
   "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve V",
    "cranial nerve 5",
@@ -4009,6 +4037,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 5"
   },
   "answer": "Principal sensory nucleus of trigeminal",
+  "answer_kind": "structure",
   "accept": [
    "principal trigeminal nucleus",
    "chief sensory nucleus",
@@ -4188,6 +4217,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 6"
   },
   "answer": "Motor trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "trigeminal motor nucleus",
    "motor nucleus of trigeminal",
@@ -4366,6 +4396,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 7"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "transverse pontine fibers",
    "transverse fibers of pons",
@@ -4542,6 +4573,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 8"
   },
   "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fibers of pons",
    "longitudinal pontine fibers"
@@ -4717,6 +4749,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 9"
   },
   "answer": "Pontine nuclei",
+  "answer_kind": "structure",
   "accept": [
    "pontine nucleus",
    "basilar pontine nuclei"
@@ -4892,6 +4925,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 10"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -5106,6 +5140,7 @@
    "ref": "apkg/brainstem-overlay note 1771942451317 cloze 11"
   },
   "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
    "SCP"
@@ -5304,6 +5339,7 @@
    "ref": "apkg/brainstem-overlay note 1771942514188 cloze 1"
   },
   "answer": "Caudal pons",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-d2e3ef5fe431aa14e496e9d2f1b689210c4fd312.webp",
@@ -5328,7 +5364,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -5350,6 +5386,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 1"
   },
   "answer": "Facial colliculus",
+  "answer_kind": "structure",
   "accept": [
    "facial colliculi"
   ],
@@ -5570,6 +5607,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 2"
   },
   "answer": "Abducens nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VI nucleus",
    "nucleus of CN VI",
@@ -5793,6 +5831,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 3"
   },
   "answer": "Facial nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN VII nucleus",
    "facial motor nucleus",
@@ -6015,6 +6054,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 4"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
@@ -6240,6 +6280,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 5"
   },
   "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "brachium pontis",
    "MCP"
@@ -6462,6 +6503,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 6"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -6684,6 +6726,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 7"
   },
   "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VIII",
    "cranial nerve 8",
@@ -6913,6 +6956,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 8"
   },
   "answer": "Facial nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VII",
    "cranial nerve 7",
@@ -7138,6 +7182,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 9"
   },
   "answer": "Abducens nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -7365,6 +7410,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 10"
   },
   "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "transverse pontine fibers",
    "transverse fibers of pons",
@@ -7587,6 +7633,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 11"
   },
   "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
   "accept": [
    "longitudinal fibers of pons",
    "longitudinal pontine fibers"
@@ -7808,6 +7855,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 12"
   },
   "answer": "Pontine nuclei",
+  "answer_kind": "structure",
   "accept": [
    "pontine nucleus",
    "basilar pontine nuclei"
@@ -8029,6 +8077,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 13"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -8285,6 +8334,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 14"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-d2e3ef5fe431aa14e496e9d2f1b689210c4fd312.webp",
@@ -8526,6 +8576,7 @@
    "ref": "apkg/brainstem-overlay note 1771942598900 cloze 15"
   },
   "answer": "Peduncle",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-d2e3ef5fe431aa14e496e9d2f1b689210c4fd312.webp",
@@ -8766,6 +8817,7 @@
    "ref": "apkg/brainstem-overlay note 1771942632791 cloze 1"
   },
   "answer": "Rostral Medulla (Level of the wormy bits) (the former statement is not widely accepted nomenclature)",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-b5719c79c0fa5207b71606cd14bb1c91d413a173.webp",
@@ -8790,7 +8842,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Stria medullaris thalami' (77); OCR text not recognised; long free-text label (not a structure name) [OCR 'Rostral Medulla (Level of the wormy bits) (the former statement is not widely accepted nomenclature)', conf 1.00]",
   "tags": [
@@ -8813,6 +8865,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 1"
   },
   "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
   "accept": [
    "restiform body",
    "ICP"
@@ -8954,6 +9007,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 2"
   },
   "answer": "Fourth ventricle",
+  "answer_kind": "structure",
   "accept": [
    "4th ventricle",
    "ventricle IV",
@@ -9095,6 +9149,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 3"
   },
   "answer": "Hypoglossal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "CN XII nucleus",
    "nucleus of CN XII",
@@ -9236,6 +9291,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 4"
   },
   "answer": "Dorsal motor nucleus of the vagus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal motor nucleus of vagus",
    "dorsal motor nucleus of X",
@@ -9381,6 +9437,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 5"
   },
   "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
   "accept": [
    "vestibulocochlear nuclei",
    "vestibular nuclei",
@@ -9525,6 +9582,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 6"
   },
   "answer": "Solitary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus solitarius",
    "nucleus of the solitary tract",
@@ -9667,6 +9725,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 7"
   },
   "answer": "Vagus nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve X",
    "cranial nerve 10",
@@ -9812,6 +9871,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 8"
   },
   "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve IX",
    "cranial nerve 9",
@@ -9956,6 +10016,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 9"
   },
   "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve XII",
    "cranial nerve 12",
@@ -10100,6 +10161,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 10"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -10242,6 +10304,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 11"
   },
   "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
   "accept": [
    "inferior olive",
    "olivary nucleus",
@@ -10383,6 +10446,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 12"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-b5719c79c0fa5207b71606cd14bb1c91d413a173.webp",
@@ -10521,6 +10585,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 13"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -10666,6 +10731,7 @@
    "ref": "apkg/brainstem-overlay note 1771942696290 cloze 14"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -10807,6 +10873,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 1"
   },
   "answer": "Gracile nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus gracilis",
    "gracilis nucleus"
@@ -10941,6 +11008,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 2"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -11074,6 +11142,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 3"
   },
   "answer": "Cuneate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus cuneatus",
    "cuneatus nucleus"
@@ -11208,6 +11277,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 4"
   },
   "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "spinal nucleus of trigeminal",
    "trigeminal spinal nucleus",
@@ -11343,6 +11413,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 5"
   },
   "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
@@ -11477,6 +11548,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 6"
   },
   "answer": "Pyramids",
+  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
@@ -11612,6 +11684,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 7"
   },
   "answer": "Medial lemniscus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp",
@@ -11743,6 +11816,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 8"
   },
   "answer": "Internal arcuate fibers",
+  "answer_kind": "structure",
   "accept": [
    "internal arcuate fibres"
   ],
@@ -11889,6 +11963,7 @@
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 9"
   },
   "answer": "Anterolateral",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp",
@@ -12033,6 +12108,7 @@
    "ref": "apkg/brainstem-overlay note 1771942841779 cloze 1"
   },
   "answer": "Caudal Medulla (Level of Tubercles)",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp",
@@ -12057,7 +12133,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -12079,6 +12155,7 @@
    "ref": "apkg/brainstem-overlay note 1771942886634 cloze 1"
   },
   "answer": "Very Caudal Medulla",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-7b39dc431d7674453c3aa482b164981ebf715d62.webp",
@@ -12103,7 +12180,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -12125,6 +12202,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 1"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -12224,6 +12302,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 2"
   },
   "answer": "Gracile nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus gracilis",
    "gracilis nucleus"
@@ -12323,6 +12402,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 3"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -12421,6 +12501,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 4"
   },
   "answer": "Cuneate nucleus",
+  "answer_kind": "structure",
   "accept": [
    "nucleus cuneatus",
    "cuneatus nucleus"
@@ -12520,6 +12601,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 5"
   },
   "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
   "accept": [
    "spinal nucleus of trigeminal",
    "trigeminal spinal nucleus",
@@ -12620,6 +12702,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 6"
   },
   "answer": "Tract Spinocerebellar Dorsal",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-7b39dc431d7674453c3aa482b164981ebf715d62.webp",
@@ -12716,6 +12799,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 7"
   },
   "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
   "accept": [
    "anterolateral tract",
    "anterolateral system",
@@ -12819,6 +12903,7 @@
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 8"
   },
   "answer": "Pyramids/Motor Decussation",
+  "answer_kind": "level",
   "accept": [
    "Pyramids",
    "Motor decussation"
@@ -12895,7 +12980,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -12918,6 +13003,7 @@
    "ref": "apkg/brainstem-overlay note 1771942952185 cloze 1"
   },
   "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
@@ -13029,6 +13115,7 @@
    "ref": "apkg/brainstem-overlay note 1771942952185 cloze 2"
   },
   "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
@@ -13139,6 +13226,7 @@
    "ref": "apkg/brainstem-overlay note 1771942952185 cloze 3"
   },
   "answer": "Dorsal",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-4ec3948ee4010f23650a987e07ad4740ad3e29af.webp",
@@ -13246,7 +13334,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -13268,6 +13356,7 @@
    "ref": "apkg/brainstem-overlay note 1771942952185 cloze 4"
   },
   "answer": "Anterolateral",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-4ec3948ee4010f23650a987e07ad4740ad3e29af.webp",

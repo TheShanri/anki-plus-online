@@ -11,6 +11,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 1"
   },
   "answer": "Posterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -77,7 +78,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -98,6 +99,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 2"
   },
   "answer": "Anterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -164,7 +166,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -185,6 +187,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 3"
   },
   "answer": "Body",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -272,6 +275,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 4"
   },
   "answer": "Vertebral foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -359,6 +363,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 5"
   },
   "answer": "Arch",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -446,6 +451,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 6"
   },
   "answer": "Spinous process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -533,6 +539,7 @@
    "ref": "apkg/lab-4 note 1769516030928 cloze 7"
   },
   "answer": "Transverse process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
@@ -620,6 +627,7 @@
    "ref": "apkg/lab-4 note 1769516053098 cloze 1"
   },
   "answer": "Anterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
@@ -672,7 +680,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -693,6 +701,7 @@
    "ref": "apkg/lab-4 note 1769516053098 cloze 2"
   },
   "answer": "Body",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
@@ -766,6 +775,7 @@
    "ref": "apkg/lab-4 note 1769516053098 cloze 3"
   },
   "answer": "Transverse process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
@@ -839,6 +849,7 @@
    "ref": "apkg/lab-4 note 1769516053098 cloze 4"
   },
   "answer": "Posterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
@@ -891,7 +902,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -912,6 +923,7 @@
    "ref": "apkg/lab-4 note 1769516053098 cloze 5"
   },
   "answer": "Spinous process",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
@@ -985,6 +997,7 @@
    "ref": "apkg/lab-4 note 1769516084656 cloze 1"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-0fa446754ed97ed8e90f120210aae9879ec046a5.webp",
@@ -1009,7 +1022,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1030,6 +1043,7 @@
    "ref": "apkg/lab-4 note 1769516094139 cloze 1"
   },
   "answer": "Thoracic",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f1a7dc649626d4caf4d9be8fe4ec8d79a0f7f0bf.webp",
@@ -1054,7 +1068,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1075,6 +1089,7 @@
    "ref": "apkg/lab-4 note 1769516104629 cloze 1"
   },
   "answer": "Lumbar",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-590e269ce802286fd817ac90b5a3362d5d79e8fd.webp",
@@ -1099,7 +1114,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1120,6 +1135,7 @@
    "ref": "apkg/lab-4 note 1769516126204 cloze 1"
   },
   "answer": "Lateral v",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp",
@@ -1194,6 +1210,7 @@
    "ref": "apkg/lab-4 note 1769516126204 cloze 2"
   },
   "answer": "Vertebral spine",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp",
@@ -1267,6 +1284,7 @@
    "ref": "apkg/lab-4 note 1769516126204 cloze 3"
   },
   "answer": "Intervertebral disc",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp",
@@ -1340,6 +1358,7 @@
    "ref": "apkg/lab-4 note 1769516126204 cloze 4"
   },
   "answer": "Intervertebral foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp",
@@ -1413,6 +1432,7 @@
    "ref": "apkg/lab-4 note 1769516126204 cloze 5"
   },
   "answer": "Vertebral body",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp",
@@ -1486,6 +1506,7 @@
    "ref": "apkg/lab-4 note 1769516287685 cloze 1"
   },
   "answer": "Neck region",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1568,7 +1589,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1589,6 +1610,7 @@
    "ref": "apkg/lab-4 note 1769516287685 cloze 2"
   },
   "answer": "cavity (thorax). chest",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1701,7 +1723,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"cavity (thorax). chest\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -1723,6 +1745,7 @@
    "ref": "apkg/lab-4 note 1769516287685 cloze 3"
   },
   "answer": "Ribs",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1826,6 +1849,7 @@
    "ref": "apkg/lab-4 note 1769516287685 cloze 4"
   },
   "answer": "Lower back",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1908,7 +1932,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -1929,6 +1953,7 @@
    "ref": "apkg/lab-4 note 1769516287685 cloze 5"
   },
   "answer": "Coccyx",
+  "answer_kind": "structure",
   "accept": [
    "tailbone"
   ],
@@ -2034,6 +2059,7 @@
    "ref": "apkg/lab-4 note 1769516313118 cloze 1"
   },
   "answer": "Cervical vertebrae",
+  "answer_kind": "region",
   "accept": [
    "cervical vertebra",
    "cervical spine"
@@ -2089,7 +2115,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2110,6 +2136,7 @@
    "ref": "apkg/lab-4 note 1769516313118 cloze 2"
   },
   "answer": "Thoracic vertebrae",
+  "answer_kind": "region",
   "accept": [
    "thoracic vertebra",
    "thoracic spine"
@@ -2165,7 +2192,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2186,6 +2213,7 @@
    "ref": "apkg/lab-4 note 1769516313118 cloze 3"
   },
   "answer": "Lumbar vertebrae",
+  "answer_kind": "region",
   "accept": [
    "lumbar vertebra",
    "lumbar spine"
@@ -2241,7 +2269,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2262,6 +2290,7 @@
    "ref": "apkg/lab-4 note 1769516313118 cloze 4"
   },
   "answer": "Sacral vertebrae",
+  "answer_kind": "region",
   "accept": [
    "sacrum",
    "sacral vertebra",
@@ -2318,7 +2347,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2339,6 +2368,7 @@
    "ref": "apkg/lab-4 note 1769516313118 cloze 5"
   },
   "answer": "Coccygeal (Co. 1-4, fused)",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d2d9c3aa86ee6c21cfff663889556fef01df6604.webp",
@@ -2391,7 +2421,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2412,6 +2442,7 @@
    "ref": "apkg/lab-4 note 1769516487990 cloze 1"
   },
   "answer": "C1-C7",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-9f31650e7ff64aa5e5adb6e0d6c6ac974f75e899.webp",
@@ -2464,7 +2495,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'C7)', conf 1.00]",
   "tags": [
@@ -2486,6 +2517,7 @@
    "ref": "apkg/lab-4 note 1769516487990 cloze 2"
   },
   "answer": "T1-T12",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-9f31650e7ff64aa5e5adb6e0d6c6ac974f75e899.webp",
@@ -2538,7 +2570,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'T12)', conf 1.00]",
   "tags": [
@@ -2560,6 +2592,7 @@
    "ref": "apkg/lab-4 note 1769516487990 cloze 3"
   },
   "answer": "L1-L5",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-9f31650e7ff64aa5e5adb6e0d6c6ac974f75e899.webp",
@@ -2612,7 +2645,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L5)', conf 1.00]",
   "tags": [
@@ -2634,6 +2667,7 @@
    "ref": "apkg/lab-4 note 1769516487990 cloze 4"
   },
   "answer": "S5, fused)",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-9f31650e7ff64aa5e5adb6e0d6c6ac974f75e899.webp",
@@ -2686,7 +2720,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"S5, fused)\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -2708,6 +2742,7 @@
    "ref": "apkg/lab-4 note 1769516487990 cloze 5"
   },
   "answer": "1-4, fused)",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-9f31650e7ff64aa5e5adb6e0d6c6ac974f75e899.webp",
@@ -2760,7 +2795,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"1-4, fused)\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -2782,6 +2817,7 @@
    "ref": "apkg/lab-4 note 1769516588424 cloze 1"
   },
   "answer": "Atlas",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
@@ -2841,6 +2877,7 @@
    "ref": "apkg/lab-4 note 1769516588424 cloze 2"
   },
   "answer": "Axis",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
@@ -2900,6 +2937,7 @@
    "ref": "apkg/lab-4 note 1769516588424 cloze 3"
   },
   "answer": "Vertebra prominens",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
@@ -2959,6 +2997,7 @@
    "ref": "apkg/lab-4 note 1769516781814 cloze 1"
   },
   "answer": "Foramen magnum",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-246428d47a1e6fd81e9632043b743eb7d801abe2.webp",
@@ -3004,6 +3043,7 @@
    "ref": "apkg/lab-4 note 1769516838904 cloze 1"
   },
   "answer": "magnum foramen",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp",
@@ -3124,6 +3164,7 @@
    "ref": "apkg/lab-4 note 1769516838904 cloze 2"
   },
   "answer": "L1/L2",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp",
@@ -3192,7 +3233,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L1/L2', conf 1.00]",
   "tags": [
@@ -3214,6 +3255,7 @@
    "ref": "apkg/lab-4 note 1769516838904 cloze 3"
   },
   "answer": "Rib cage",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp",
@@ -3282,7 +3324,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3303,6 +3345,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 1"
   },
   "answer": "Pia mater",
+  "answer_kind": "structure",
   "accept": [
    "pia"
   ],
@@ -3385,6 +3428,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 2"
   },
   "answer": "Ventral rootlets",
+  "answer_kind": "structure",
   "accept": [
    "anterior rootlets"
   ],
@@ -3467,6 +3511,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 3"
   },
   "answer": "Arachnoid mater",
+  "answer_kind": "structure",
   "accept": [
    "arachnoid"
   ],
@@ -3549,6 +3594,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 4"
   },
   "answer": "Dura mater",
+  "answer_kind": "structure",
   "accept": [
    "dura"
   ],
@@ -3631,6 +3677,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 5"
   },
   "answer": "Subdural space",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-399e2b390cde6814981b305755813ff1bc3a5d75.webp",
@@ -3711,6 +3758,7 @@
    "ref": "apkg/lab-4 note 1769516936642 cloze 6"
   },
   "answer": "Subarachnoid space",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-399e2b390cde6814981b305755813ff1bc3a5d75.webp",
@@ -3791,6 +3839,7 @@
    "ref": "apkg/lab-4 note 1769516970682 cloze 1"
   },
   "answer": "Dura mater",
+  "answer_kind": "structure",
   "accept": [
    "dura"
   ],
@@ -3852,6 +3901,7 @@
    "ref": "apkg/lab-4 note 1769516970682 cloze 2"
   },
   "answer": "Spinal nerves",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-1fec052440f8ec31458ea40fa37a28dda23f212a.webp",
@@ -3911,6 +3961,7 @@
    "ref": "apkg/lab-4 note 1769516970682 cloze 3"
   },
   "answer": "Rootlets",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-1fec052440f8ec31458ea40fa37a28dda23f212a.webp",
@@ -3970,6 +4021,7 @@
    "ref": "apkg/lab-4 note 1769517022400 cloze 1"
   },
   "answer": "Dorsal horn",
+  "answer_kind": "structure",
   "accept": [
    "posterior horn of spinal cord",
    "posterior gray horn",
@@ -4041,6 +4093,7 @@
    "ref": "apkg/lab-4 note 1769517022400 cloze 2"
   },
   "answer": "Ventral horn",
+  "answer_kind": "structure",
   "accept": [
    "anterior horn of spinal cord",
    "anterior gray horn",
@@ -4112,6 +4165,7 @@
    "ref": "apkg/lab-4 note 1769517022400 cloze 3"
   },
   "answer": "Dorsal root",
+  "answer_kind": "structure",
   "accept": [
    "posterior root"
   ],
@@ -4181,6 +4235,7 @@
    "ref": "apkg/lab-4 note 1769517022400 cloze 4"
   },
   "answer": "Ventral root",
+  "answer_kind": "structure",
   "accept": [
    "anterior root"
   ],
@@ -4249,6 +4304,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 1"
   },
   "answer": "Dorsal root",
+  "answer_kind": "structure",
   "accept": [
    "posterior root"
   ],
@@ -4346,6 +4402,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 2"
   },
   "answer": "Ventral root",
+  "answer_kind": "structure",
   "accept": [
    "anterior root"
   ],
@@ -4442,6 +4499,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 3"
   },
   "answer": "Ventral rootlets",
+  "answer_kind": "structure",
   "accept": [
    "anterior rootlets"
   ],
@@ -4538,6 +4596,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 4"
   },
   "answer": "Dorsal rootlets",
+  "answer_kind": "structure",
   "accept": [
    "posterior rootlets"
   ],
@@ -4634,6 +4693,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 5"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "spinal ganglion",
    "posterior root ganglion",
@@ -4733,6 +4793,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 6"
   },
   "answer": "Dorsal ramus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal rami",
    "posterior ramus"
@@ -4830,6 +4891,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 7"
   },
   "answer": "Ventral ramus",
+  "answer_kind": "structure",
   "accept": [
    "ventral rami",
    "anterior ramus"
@@ -4927,6 +4989,7 @@
    "ref": "apkg/lab-4 note 1769517071719 cloze 8"
   },
   "answer": "Spinal nerves",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d858b97cd334e183c5961184395239345b76efbf.webp",
@@ -5021,6 +5084,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 1"
   },
   "answer": "e sensory",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5156,6 +5220,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 2"
   },
   "answer": "Dural sleeve",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5319,6 +5384,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 3"
   },
   "answer": "Motor",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5431,7 +5497,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5453,6 +5519,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 4"
   },
   "answer": "Mixed",
+  "answer_kind": "term",
   "accept": [
    "mixed (motor and sensory)",
    "motor and sensory"
@@ -5598,7 +5665,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -5619,6 +5686,7 @@
    "ref": "apkg/lab-4 note 1769517202844 cloze 5"
   },
   "answer": "Olfactory nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve I",
    "cranial nerve 1",
@@ -5762,6 +5830,7 @@
    "ref": "apkg/lab-4 note 1769517263419 cloze 1"
   },
   "answer": "Dorsal ramus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal rami",
    "posterior ramus"
@@ -5817,6 +5886,7 @@
    "ref": "apkg/lab-4 note 1769517263419 cloze 2"
   },
   "answer": "Ventral ramus",
+  "answer_kind": "structure",
   "accept": [
    "ventral rami",
    "anterior ramus"
@@ -5872,6 +5942,7 @@
    "ref": "apkg/lab-4 note 1769517290986 cloze 1"
   },
   "answer": "Spinal nerves",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-76bdb23eca155501696f1512738e6d55a5042d8e.webp",
@@ -5952,6 +6023,7 @@
    "ref": "apkg/lab-4 note 1769517290986 cloze 2"
   },
   "answer": "Dorsal root ganglion",
+  "answer_kind": "structure",
   "accept": [
    "spinal ganglion",
    "posterior root ganglion",
@@ -6037,6 +6109,7 @@
    "ref": "apkg/lab-4 note 1769517290986 cloze 3"
   },
   "answer": "Dorsal root",
+  "answer_kind": "structure",
   "accept": [
    "posterior root"
   ],
@@ -6120,6 +6193,7 @@
    "ref": "apkg/lab-4 note 1769517290986 cloze 4"
   },
   "answer": "Ventral root",
+  "answer_kind": "structure",
   "accept": [
    "anterior root"
   ],
@@ -6202,6 +6276,7 @@
    "ref": "apkg/lab-4 note 1769517290986 cloze 5"
   },
   "answer": "Dorsal ramus",
+  "answer_kind": "structure",
   "accept": [
    "dorsal rami",
    "posterior ramus"
@@ -6285,6 +6360,7 @@
    "ref": "apkg/lab-4 note 1769517290986 cloze 6"
   },
   "answer": "Ventral ramus",
+  "answer_kind": "structure",
   "accept": [
    "ventral rami",
    "anterior ramus"
@@ -6368,6 +6444,7 @@
    "ref": "apkg/lab-4 note 1769517339614 cloze 1"
   },
   "answer": "Intervertebral disc",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-75f2c1c97a8d178b762a15ca16be7fb73774cf40.webp",
@@ -6434,6 +6511,7 @@
    "ref": "apkg/lab-4 note 1769517339614 cloze 2"
   },
   "answer": "Rootlets",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-75f2c1c97a8d178b762a15ca16be7fb73774cf40.webp",
@@ -6500,6 +6578,7 @@
    "ref": "apkg/lab-4 note 1769517339614 cloze 3"
   },
   "answer": "Spinal nerves",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-75f2c1c97a8d178b762a15ca16be7fb73774cf40.webp",
@@ -6566,6 +6645,7 @@
    "ref": "apkg/lab-4 note 1769517339614 cloze 4"
   },
   "answer": "e 31 p",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-75f2c1c97a8d178b762a15ca16be7fb73774cf40.webp",
@@ -6633,6 +6713,7 @@
    "ref": "apkg/lab-4 note 1769517443192 cloze 1"
   },
   "answer": "Conus medullaris",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3a8ba53a6c3e74b1dbb417af04378b488a69fd8c.webp",
@@ -6685,6 +6766,7 @@
    "ref": "apkg/lab-4 note 1769517443192 cloze 2"
   },
   "answer": "Cauda equina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3a8ba53a6c3e74b1dbb417af04378b488a69fd8c.webp",
@@ -6737,6 +6819,7 @@
    "ref": "apkg/lab-4 note 1769517472959 cloze 1"
   },
   "answer": "Conus medullaris",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-1667e238bef8836ca997c7a7a8f541d9982958c1.webp",
@@ -6796,6 +6879,7 @@
    "ref": "apkg/lab-4 note 1769517472959 cloze 2"
   },
   "answer": "Filum terminale",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-1667e238bef8836ca997c7a7a8f541d9982958c1.webp",
@@ -6855,6 +6939,7 @@
    "ref": "apkg/lab-4 note 1769517472959 cloze 3"
   },
   "answer": "Cauda equina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-1667e238bef8836ca997c7a7a8f541d9982958c1.webp",
@@ -6914,6 +6999,7 @@
    "ref": "apkg/lab-4 note 1769517649228 cloze 1"
   },
   "answer": "Dural sac",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-77b3bdf9378c4f360af489db4305bb554237925e.webp",
@@ -6966,6 +7052,7 @@
    "ref": "apkg/lab-4 note 1769517649228 cloze 2"
   },
   "answer": "Pia mater",
+  "answer_kind": "structure",
   "accept": [
    "pia"
   ],
@@ -7020,6 +7107,7 @@
    "ref": "apkg/lab-4 note 1769517744257 cloze 1"
   },
   "answer": "Rootlets",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-fa3270990f226a00a120fed95de78974c32cceab.webp",
@@ -7079,6 +7167,7 @@
    "ref": "apkg/lab-4 note 1769517744257 cloze 2"
   },
   "answer": "Roots",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-fa3270990f226a00a120fed95de78974c32cceab.webp",
@@ -7138,6 +7227,7 @@
    "ref": "apkg/lab-4 note 1769517744257 cloze 3"
   },
   "answer": "Spinal nerves",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-fa3270990f226a00a120fed95de78974c32cceab.webp",
@@ -7197,6 +7287,7 @@
    "ref": "apkg/lab-4 note 1769518426394 cloze 1"
   },
   "answer": "Brachial plexus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-37b4b050eed7716c78ccaa9b4f6edd3cad473bd4.webp",
@@ -7249,6 +7340,7 @@
    "ref": "apkg/lab-4 note 1769518426394 cloze 2"
   },
   "answer": "Lumbar plexus-Sacral plexus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-37b4b050eed7716c78ccaa9b4f6edd3cad473bd4.webp",
@@ -7302,6 +7394,7 @@
    "ref": "apkg/lab-4 note 1769518455122 cloze 1"
   },
   "answer": "Brachial plexus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e6245bff09ad6b395dc5d756ad7924bd0b0296f2.webp",
@@ -7347,6 +7440,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 1"
   },
   "answer": "Lumbosacral plexus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7441,6 +7535,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 2"
   },
   "answer": "L1-S5",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7514,7 +7609,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'L1-S5', conf 0.95]",
   "tags": [
@@ -7536,6 +7631,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 3"
   },
   "answer": "Brachial plexus",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7630,6 +7726,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 4"
   },
   "answer": "C5-T1",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7703,7 +7800,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "spinal-level text fragment from a slide; consider a theory card [OCR 'i C5-T1', conf 1.00]",
   "tags": [
@@ -7725,6 +7822,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 5"
   },
   "answer": "n ventral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7798,7 +7896,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"n ventral\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -7820,6 +7918,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 6"
   },
   "answer": "ventral r",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7893,7 +7992,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"ventral r\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -7915,6 +8014,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 7"
   },
   "answer": "Lower limbs and pelvis",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -7988,7 +8088,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8009,6 +8109,7 @@
    "ref": "apkg/lab-4 note 1769518577960 cloze 8"
   },
   "answer": "Upper limbs",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
@@ -8082,7 +8183,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8103,6 +8204,7 @@
    "ref": "apkg/lab-4 note 1769518631618 cloze 1"
   },
   "answer": "n higher",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8162,7 +8264,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"n higher\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -8184,6 +8286,7 @@
    "ref": "apkg/lab-4 note 1769518631618 cloze 2"
   },
   "answer": "Proximal",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8243,7 +8346,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8264,6 +8367,7 @@
    "ref": "apkg/lab-4 note 1769518631618 cloze 3"
   },
   "answer": "y higher",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8323,7 +8427,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"y higher\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -8345,6 +8449,7 @@
    "ref": "apkg/lab-4 note 1769518631618 cloze 4"
   },
   "answer": "e upper b",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8426,6 +8531,7 @@
    "ref": "apkg/lab-4 note 1769518631618 cloze 5"
   },
   "answer": "Distal",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8485,7 +8591,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8506,6 +8612,7 @@
    "ref": "apkg/lab-4 note 1769518631618 cloze 6"
   },
   "answer": "y lower",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8565,7 +8672,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"y lower\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -8587,6 +8694,7 @@
    "ref": "apkg/lab-4 note 1769545046761 cloze 1"
   },
   "answer": "Chest and back",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-54fcdcc22c44eb8cd123daa9e072dab7fa4fca9a.webp",
@@ -8648,7 +8756,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8669,6 +8777,7 @@
    "ref": "apkg/lab-4 note 1769545046761 cloze 2"
   },
   "answer": "Arms and hands",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-54fcdcc22c44eb8cd123daa9e072dab7fa4fca9a.webp",
@@ -8760,7 +8869,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8781,6 +8890,7 @@
    "ref": "apkg/lab-4 note 1769545552822 cloze 1"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-70a61bfd1d3ed15ee1745502fca1fb10883a628a.webp",
@@ -8833,7 +8943,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8854,6 +8964,7 @@
    "ref": "apkg/lab-4 note 1769545552822 cloze 2"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-70a61bfd1d3ed15ee1745502fca1fb10883a628a.webp",
@@ -8906,7 +9017,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -8927,6 +9038,7 @@
    "ref": "apkg/lab-4 note 1769545552822 cloze 3"
   },
   "answer": "Thoracic",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-70a61bfd1d3ed15ee1745502fca1fb10883a628a.webp",
@@ -8979,7 +9091,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9000,6 +9112,7 @@
    "ref": "apkg/lab-4 note 1769545552822 cloze 4"
   },
   "answer": "Lumbar",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-70a61bfd1d3ed15ee1745502fca1fb10883a628a.webp",
@@ -9052,7 +9165,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9073,6 +9186,7 @@
    "ref": "apkg/lab-4 note 1769545552822 cloze 5"
   },
   "answer": "Sacral",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-70a61bfd1d3ed15ee1745502fca1fb10883a628a.webp",
@@ -9125,7 +9239,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9146,6 +9260,7 @@
    "ref": "apkg/lab-4 note 1769545643842 cloze 1"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e6d71c84a0ce6311ab2b48c8e4b8c75833e44519.webp",
@@ -9170,7 +9285,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9191,6 +9306,7 @@
    "ref": "apkg/lab-4 note 1769545657708 cloze 1"
   },
   "answer": "Thoracic",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-b66b4d6040e0000380f31e45202fb96251f52a7d.webp",
@@ -9215,7 +9331,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9236,6 +9352,7 @@
    "ref": "apkg/lab-4 note 1769545669044 cloze 1"
   },
   "answer": "Lumbar",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-8fdc9576b4562fb256c642f0a801a690460367fa.webp",
@@ -9260,7 +9377,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9281,6 +9398,7 @@
    "ref": "apkg/lab-4 note 1769545680609 cloze 1"
   },
   "answer": "Sacral",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-ef5fdd9616b381772913aadec62e7fae2f9d5104.webp",
@@ -9305,7 +9423,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9326,6 +9444,7 @@
    "ref": "apkg/lab-4 note 1769546943789 cloze 1"
   },
   "answer": "Posterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d519c28d8346316e2c0d05aef870205039eeb33d.webp",
@@ -9357,7 +9476,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9378,6 +9497,7 @@
    "ref": "apkg/lab-4 note 1769546943789 cloze 2"
   },
   "answer": "Anterior",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d519c28d8346316e2c0d05aef870205039eeb33d.webp",
@@ -9409,7 +9529,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -9430,6 +9550,7 @@
    "ref": "apkg/lab-4 note 1769546996541 cloze 1"
   },
   "answer": "Safely below the spinal cord, which ends at L1/L2, so not at risk to damage spinal cord at this level. Cauda equina roots will float out of the way",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp",
@@ -9482,7 +9603,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (32); OCR text not recognised; long free-text label (not a structure name) [OCR 'Safely below the spinal cord, which ends at L1/L2, so not at risk to damage spinal cord at this level. Cauda equina roots will float out of the way', conf 0.99]",
   "tags": [
@@ -9504,6 +9625,7 @@
    "ref": "apkg/lab-4 note 1769546996541 cloze 2"
   },
   "answer": "Cauda equina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp",
@@ -9577,6 +9699,7 @@
    "ref": "apkg/lab-4 note 1769546996541 cloze 3"
   },
   "answer": "The spinal cord is present at the T12/L1 level, and there is a risk of piercing/ damaging the spinal cord if a needle is inserted at this level",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp",
@@ -9629,7 +9752,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (38); OCR text not recognised; long free-text label (not a structure name) [OCR 'The spinal cord is present at the T12/L1 level, and there is a risk of piercing/ damaging the spinal cord if a needle is inserted at this level', conf 0.99]",
   "tags": [
@@ -9651,6 +9774,7 @@
    "ref": "apkg/lab-4 note 1769546996541 cloze 4"
   },
   "answer": "There is no intervertebral disc in the sacrum, so it would be difficult to insert a needle in that region",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp",
@@ -9703,7 +9827,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'There is no intervertebral disc in the sacrum, so it would be difficult to insert a needle in that region', conf 0.99]",
   "tags": [
@@ -9725,6 +9849,7 @@
    "ref": "apkg/lab-4 note 1769546996541 cloze 5"
   },
   "answer": "Needle would pass through the dura and arachnoid mater to reach the subarachnoid space, which contains CSF",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp",
@@ -9777,7 +9902,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'Needle would pass through the dura and arachnoid mater to reach the subarachnoid space, which contains CSF', conf 1.00]",
   "tags": [
@@ -9799,6 +9924,7 @@
    "ref": "apkg/lab-4 note 1769547073953 cloze 1"
   },
   "answer": "larger nerves making up the lumbosacral plexus. medullaris, the downward angle of lumbar/sacral nerve roots, and the Appreciate the conus",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-08b088f80aa3e343cb7b5aa1508065bece7bef3b.webp",
@@ -9925,7 +10051,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'larger nerves making up the lumbosacral plexus. medullaris, the downward angle of lumbar/sacral nerve roots, and the Appreciate the conus', conf 1.00]",
   "tags": [
@@ -9947,6 +10073,7 @@
    "ref": "apkg/lab-4 note 1769547073953 cloze 2"
   },
   "answer": "fine motor control to muscles of thoracic wall. arms), whereas thoracic ventral rami are small because there isn't much bigger (lumbosacral plexus to legs is even bigger than brachial plexus to Ventral rami in the plexuses are",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-08b088f80aa3e343cb7b5aa1508065bece7bef3b.webp",
@@ -10073,7 +10200,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Temporal lobe general association area' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'fine motor control to muscles of thoracic wall. arms), whereas thoracic ventral rami are small because there isn't much bigger (lumbosacral plexus to legs is even bigger than brachial plexus to Ventral rami in the plexuses are', conf 1.00]",
   "tags": [
@@ -10096,6 +10223,7 @@
    "ref": "apkg/lab-4 note 1769547073953 cloze 3"
   },
   "answer": "ontrol compared to regions such as our thc ixons that innervate the arms and legs, whi he plexus region because they are respons hicker nerves contain more axons. Therefor",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-08b088f80aa3e343cb7b5aa1508065bece7bef3b.webp",
@@ -10222,7 +10350,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (35); OCR text not recognised; long free-text label (not a structure name) [OCR 'ontrol compared to regions such as our thc ixons that innervate the arms and legs, whi he plexus region because they are respons hicker nerves contain more axons. Therefor', conf 0.99]",
   "tags": [
@@ -10244,6 +10372,7 @@
    "ref": "apkg/lab-4 note 1769549959444 cloze 1"
   },
   "answer": "Vhite matter represents ascending and traveling between the brain and spinal hite matter at lower levels because not o travel to that level. Likewise, there is in cervical levels because all tracts need at level to reach the brain spinal cord",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f287fb4f3c2fe7617a4957af6a869c34a3a4979f.webp",
@@ -10382,7 +10511,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (30); OCR text not recognised; long free-text label (not a structure name) [OCR 'Vhite matter represents ascending and traveling between the brain and spinal hite matter at lower levels because not o travel to that level. Likewise, there is in cervical levels because all tracts need at level to reach the brain spinal cord', conf 0.99]",
   "tags": [
@@ -10404,6 +10533,7 @@
    "ref": "apkg/lab-4 note 1769549959444 cloze 2"
   },
   "answer": "Thel more grey matter in the levels that correspond to inn of the limbs. Brachial plexus (C5-T1) and lumbosacral (L1-S5). The medial aspect of the ventral horn represe innervation of postural muscles, which occurs at ever So, thoracic ventral horns would be small because th innervate a few muscles, all of which are postural tr muscles",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f287fb4f3c2fe7617a4957af6a869c34a3a4979f.webp",
@@ -10550,7 +10680,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'Thel more grey matter in the levels that correspond to inn of the limbs. Brachial plexus (C5-T1) and lumbosacral (L1-S5). The medial aspect of the ventral horn represe innervation of postural muscles, which occurs at ever So, thoracic ventral horns would be small because th innervate a few muscles, all of which are postural tr muscles', conf 1.00]",
   "tags": [
@@ -10573,6 +10703,7 @@
    "ref": "apkg/lab-4 note 1769549959444 cloze 3"
   },
   "answer": "is larger because it has more white matter. Similar to first answer cervical spine",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f287fb4f3c2fe7617a4957af6a869c34a3a4979f.webp",
@@ -10715,7 +10846,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'is larger because it has more white matter. Similar to first answer cervical spine', conf 0.99]",
   "tags": [
@@ -10737,6 +10868,7 @@
    "ref": "apkg/lab-4 note 1769559858078 cloze 1"
   },
   "answer": "Cervical",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp",
@@ -10775,7 +10907,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "caption": "I know... kind of a stretch",
   "tags": [
@@ -10797,6 +10929,7 @@
    "ref": "apkg/lab-4 note 1769559858078 cloze 2"
   },
   "answer": "Thoracic",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp",
@@ -10835,7 +10968,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "caption": "I know... kind of a stretch",
   "tags": [
@@ -10857,6 +10990,7 @@
    "ref": "apkg/lab-4 note 1769559858078 cloze 3"
   },
   "answer": "Lumbar",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-4dccaddf1ff4f214a96fa923a4921d1bba9f3f27.webp",
@@ -10895,7 +11029,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "caption": "I know... kind of a stretch",
   "tags": [
@@ -10917,6 +11051,7 @@
    "ref": "apkg/lab-4 note 1769560432382 cloze 1"
   },
   "answer": "Exit",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
@@ -10955,7 +11090,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -10976,6 +11111,7 @@
    "ref": "apkg/lab-4 note 1769560432382 cloze 2"
   },
   "answer": "above th",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
@@ -11014,7 +11150,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"above th\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -11036,6 +11172,7 @@
    "ref": "apkg/lab-4 note 1769560432382 cloze 3"
   },
   "answer": "below",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
@@ -11074,7 +11211,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "single word cut from a sentence [OCR 'below t', conf 0.87]",
   "tags": [

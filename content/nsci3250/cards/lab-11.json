@@ -11,6 +11,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410594506 cloze 1"
   },
   "answer": "Rostral midbrain",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-615fb0083ec64244df3d711547e6250aed6999e5.webp",
@@ -42,7 +43,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -63,6 +64,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410594506 cloze 2"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -117,6 +119,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410607197 cloze 1"
   },
   "answer": "Caudal midbrain",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-8f549dd637723da522915ed5fe2024fd7c0d511f.webp",
@@ -148,7 +151,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -169,6 +172,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410607197 cloze 2"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -223,6 +227,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410620064 cloze 1"
   },
   "answer": "Rostral pons",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-b205eb7a031ece9aa3f53f490d43f72961b5b34e.webp",
@@ -254,7 +259,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -275,6 +280,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410620064 cloze 2"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -329,6 +335,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410632095 cloze 1"
   },
   "answer": "Caudal pons",
+  "answer_kind": "level",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-c4d53d2e9ebf7f8092f23e996d78d2cc6927571a.webp",
@@ -360,7 +367,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the level.",
   "followups": [],
   "tags": [
    "unit:u2",
@@ -381,6 +388,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410632095 cloze 2"
   },
   "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
   "accept": [
    "MLF"
   ],
@@ -435,6 +443,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 1"
   },
   "answer": "Iris",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -537,6 +546,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 2"
   },
   "answer": "Cornea",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -639,6 +649,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 3"
   },
   "answer": "Aqueous Humor",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -740,6 +751,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 4"
   },
   "answer": "Lens",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -842,6 +854,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 5"
   },
   "answer": "Sclera",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -944,6 +957,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 6"
   },
   "answer": "Retina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -1046,6 +1060,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 7"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -1155,6 +1170,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 8"
   },
   "answer": "Vitreous Body",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -1256,6 +1272,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410662402 cloze 9"
   },
   "answer": "Choroid",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-e6abb1a5da8e4beaef4706152f609b69a67f01e2.webp",
@@ -1358,6 +1375,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 1"
   },
   "answer": "Lens",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp",
@@ -1446,6 +1464,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 2"
   },
   "answer": "Cornea",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp",
@@ -1534,6 +1553,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 3"
   },
   "answer": "Pupil",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp",
@@ -1622,6 +1642,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 4"
   },
   "answer": "Iris",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp",
@@ -1710,6 +1731,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 5"
   },
   "answer": "Retina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp",
@@ -1798,6 +1820,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 6"
   },
   "answer": "Optic nerve",
+  "answer_kind": "structure",
   "accept": [
    "cranial nerve II",
    "cranial nerve 2",
@@ -1893,6 +1916,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410683338 cloze 7"
   },
   "answer": "Sclera",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-83890b0bca74173a3d10281571a956a017ff3fd7.webp",
@@ -1981,6 +2005,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410705504 cloze 1"
   },
   "answer": "Choroid",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp",
@@ -2062,6 +2087,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410705504 cloze 2"
   },
   "answer": "Retina",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp",
@@ -2143,6 +2169,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410705504 cloze 3"
   },
   "answer": "Choroid",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp",
@@ -2224,6 +2251,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410705504 cloze 4"
   },
   "answer": "Iris",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp",
@@ -2305,6 +2333,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410705504 cloze 5"
   },
   "answer": "Pupil",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp",
@@ -2386,6 +2415,7 @@
    "ref": "apkg/visual-system-supplemental-material note 1772410705504 cloze 6"
   },
   "answer": "Lens",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/visual-system-supplemental-material/media/paste-2565f56d9be9f0e4e99175ad86857247f752c59a.webp",

@@ -133,8 +133,8 @@ add("pontine-nuclei","Pontine nuclei","regional",AHRA + ": basilar pons",["PnBa"
 add("pontine-protuberance","Pontine protuberance","exact",AHRA,["PnBa","PnTg"])
 add("transverse-fibers-of-the-pons","Transverse fibers of the pons","regional",AHRA + ": basilar pons",["PnBa"])
 # derived
-DSRC = "Derived: periaqueductal grey = midbrain-tegmentum voxels within 4 mm of the aqueduct (AHRA labels)"
-add("periaqueductal-gray","Periaqueductal gray","derived",DSRC,["PAG"])
+AAN = "Harvard Ascending Arousal Network Atlas v2.0 (CC0; Edlow & Kinney 2023, doi:10.5061/dryad.zw3r228d2)"
+add("periaqueductal-gray","Periaqueductal gray","exact",AAN,["PAG"])
 ICSRC = "Derived: white matter of forebrain between caudate/thalamus and lentiform nucleus (AHRA labels); genu at the anterior thalamic pole"
 add("internal-capsule","Internal capsule","derived",ICSRC,["ICa","ICg","ICp"])
 add("anterior-limb-of-internal-capsule","Anterior limb of internal capsule","derived",ICSRC,["ICa"])
@@ -149,6 +149,15 @@ add("projection-fibers","Projection fibers","exact",HCP + " + derived internal c
 add("commissural-fibers","Commissural fibers","exact",AHRA,["cc","ac"])
 add("longitudinal-fibers-of-the-pons","Longitudinal fibers of the pons","derived","Derived: HCP-842 corticospinal + corticopontine bundles inside the AHRA basilar pons",[],["PONSL"])
 
+# extra Harvard AAN nuclei: not curriculum structures (no structures.json entry), kept as optional exact labels; never offered as neighbours
+EXTRA = {}
+for slug, nm, key in [("locus-coeruleus","Locus coeruleus","LC"),("dorsal-raphe-nucleus","Dorsal raphe nucleus","DR"),("median-raphe-nucleus","Median raphe nucleus","MnR"),
+                      ("ventral-tegmental-area","Ventral tegmental area","VTA"),("laterodorsal-tegmental-nucleus","Laterodorsal tegmental nucleus","LDTg"),
+                      ("mesencephalic-reticular-formation","Mesencephalic reticular formation","mRt"),("parabrachial-complex","Parabrachial complex","PBC"),
+                      ("pontis-oralis-reticular-formation","Pontine reticular formation, oral part (pontis oralis)","PnO"),
+                      ("pedunculotegmental-nucleus","Pedunculotegmental nucleus","PTg")]:
+    add(slug, nm, "exact", AAN, [key]); EXTRA[slug] = key
+
 # neighbours are only offered for structures that are not enclosing groups
 GROUPS = {"cerebellum","brainstem","midbrain","pons","medulla","basal-ganglia","corpus-striatum","lentiform-nucleus","lateral-ventricle","caudate-nucleus","thalamus","hypothalamus",
           "amygdala","hippocampus","cerebellar-peduncles","epithalamus","internal-capsule","projection-fibers","association-fibers","commissural-fibers","olives","pontine-protuberance"}
@@ -161,12 +170,57 @@ for s in S.values():
 idx1 = {k: i + 1 for i, k in enumerate(leaf1)}
 leaf2 = ["ML", "MLF", "STT", "CST", "CPT", "AF", "IFOF", "ILF", "SLF", "UF", "CING", "PONSL"]
 THR = {"ML": 0.30, "MLF": 0.30, "STT": 0.30, "CST": 0.25, "CPT": 0.25, "AF": 0.20, "IFOF": 0.20, "ILF": 0.20, "SLF": 0.20, "UF": 0.20, "CING": 0.20}
+
+# ---- Harvard AAN (CC0) merged into the 0.5 mm label volume -------------------------------------------------
+def merge_aan(vol1):
+    """AAN v2.0 is MNI152 1 mm (FSL linear template). Checked against AHRA/ICBM2009b: PAG centroid is 1.1 mm (y) / 2 mm (z) from the AHRA aqueduct
+    centroid, LC/PnO/MnR/PBC lie 86-100 % inside AHRA pontine tegmentum, mRt 77 % in midbrain tegmentum -> no shift applied. Each node mask is
+    trilinearly resampled to 0.5 mm and thresholded at 0.5; it only replaces voxels that are unlabelled or the coarse AHRA tegmentum/PAG
+    labels (never aqueduct, 4th ventricle, colliculi, red nucleus...)."""
+    from scipy.ndimage import map_coordinates
+    aan_dir = os.path.join(RAW, "aan")
+    comb = nb.load(os.path.join(aan_dir, "AAN_Brainstem_MNI152_1mm_v2p0.nii")); C = np.asarray(comb.dataobj).astype(np.int32); CA = comb.affine
+    node = {1: "DR", 2: "MnR", 3: "PAG", 4: "VTA"}
+    names = {7201: "DR", 7202: "MnR", 7203: "PAG", 7204: "VTA", 7205: "LC", 7206: "LDTg", 7207: "mRt", 7208: "PBC", 7209: "PnO", 7210: "PTg"}
+    sides = {1: "LC", 2: "LDTg", 3: "mRt", 4: "PBC", 5: "PnO", 6: "PTg"}
+    key_of = {}
+    for v in np.unique(C[C > 0]):
+        key_of[v] = names.get(v) or sides.get(v % 100)
+    mtg_i, pntg_i = idx1.get("MTg"), idx1.get("PnTg")
+    old_pag = vol1 == idx1["PAG"]
+    vol1[old_pag] = mtg_i       # undo the provisional derived PAG (it was carved out of midbrain tegmentum)
+    allowed = (vol1 == 0) | (vol1 == mtg_i) | (vol1 == pntg_i)
+    box = (slice(int((-30 - AFF[0, 3]) / VOX), int((30 - AFF[0, 3]) / VOX)), slice(int((-62 - AFF[1, 3]) / VOX), int((2 - AFF[1, 3]) / VOX)),
+           slice(int((-62 - AFF[2, 3]) / VOX), int((12 - AFF[2, 3]) / VOX)))
+    ii = np.mgrid[box[0], box[1], box[2]].reshape(3, -1).T
+    mm = ii @ AFF[:3, :3].T + AFF[:3, 3]
+    ci = (mm - CA[:3, 3]) @ np.linalg.inv(CA[:3, :3]).T
+    best = np.zeros(len(ii), np.float32); lab = np.zeros(len(ii), np.uint8)
+    for k in sorted(set(key_of.values())):
+        m = np.isin(C, [v for v, kk in key_of.items() if kk == k]).astype(np.float32)
+        f = map_coordinates(m, ci.T, order=1, mode="constant")
+        up = (f >= 0.5) & (f > best); best[up] = f[up]; lab[up] = idx1[k]
+    sub = vol1[box]; al = allowed[box]
+    lab = lab.reshape(sub.shape)
+    put = (lab > 0) & al
+    sub[put] = lab[put]
+    print("AAN merged:", {k: int((sub == idx1[k]).sum()) for k in sorted(set(key_of.values()))}, "voxels at 0.5 mm")
+    return vol1
+
+
 LUT_ONLY = os.environ.get("LUT_ONLY") == "1"   # reuse vol1/vol2 from a previous run (skips the slow volume steps)
 if LUT_ONLY:
     vol1 = np.load(os.path.join(BUILD, "vol1.npy")); vol2 = np.load(os.path.join(BUILD, "vol2.npy"))
+    vol1 = merge_aan(vol1)
+    np.save(os.path.join(BUILD, "vol1.npy"), vol1)
+    # rewrite labels.nii.gz only, keeping the crop of the existing file
+    old = nb.load(os.path.join(OUT, "labels.nii.gz")); lo = np.rint(np.linalg.inv(AFF) @ np.r_[old.affine[:3, 3], 1])[:3].astype(int)
+    sl = tuple(slice(int(a), int(a) + n) for a, n in zip(lo, old.shape))
+    img = nb.Nifti1Image(vol1[sl].astype(np.uint8), old.affine); img.header.set_data_dtype(np.uint8); img.set_qform(old.affine, 1); img.set_sform(old.affine, 1)
+    nb.save(img, os.path.join(OUT, "labels.nii.gz")); print("labels.nii.gz", vol1[sl].shape, os.path.getsize(os.path.join(OUT, "labels.nii.gz")) // 1024, "KB")
 else:
     vol1 = np.zeros(A.shape, np.uint8)
-    DERIVED1 = {"PAG", "ICa", "ICg", "ICp"}
+    DERIVED1 = {"PAG", "ICa", "ICg", "ICp", "LC", "DR", "MnR", "VTA", "LDTg", "mRt", "PBC", "PnO", "PTg"}
     for k in leaf1:
         if k in DERIVED1: continue
         vol1[A == AC2ID[k]] = idx1[k]
@@ -176,7 +230,7 @@ else:
     aq = mask(["Aq"]); mtg = mask(["MTg"])
     d = ndi.distance_transform_edt(~aq, sampling=VOX)
     pag = mtg & (d <= 4.0)
-    vol1[pag] = idx1["PAG"]
+    vol1[pag] = idx1["PAG"]   # provisional; replaced by the Harvard AAN PAG in merge_aan()
     # internal capsule
     fwm = A == AC2ID.get("FWM", 10557)
     cth = mask(["CaH", "CaB", "CaT", "THM", "ANC", "LD", "MD", "Re", "LP", "Pul", "VA", "VL", "VPL", "VPM", "DLG", "MG", "CM", "Pf", "MiN", "HTH"])
@@ -194,6 +248,7 @@ else:
     vol1[ic_a] = idx1["ICa"]; vol1[ic_g] = idx1["ICg"]; vol1[ic_p] = idx1["ICp"]
     print("IC voxel mm3", ic.sum() * VOX ** 3, "anterior thal pole y", ythal)
 
+    vol1 = merge_aan(vol1)
     # ---- 2. tract volume (HCP-842 80-bundle atlas, streamlines -> smoothed track density, argmax) ---------
     TR = os.path.join(RAW, "hcp80/x/Atlas_80_Bundles/bundles")
     BUNDLES = {"ML": ["ML_L", "ML_R"], "MLF": ["MLF_L", "MLF_R"], "STT": ["STT_L", "STT_R"], "CST": ["CST_L", "CST_R"],
@@ -264,7 +319,7 @@ else:
 # ---- 4. LUT + neighbours -----------------------------------------------------------------------------
 vox1 = np.argwhere(np.ones((1, 1, 1)))  # unused
 leaf_names = {k: ID2NAME[AC2ID[k]] for k in leaf1 if k in AC2ID}
-leaf_names.update({"PAG": "Periaqueductal gray (derived)", "ICa": "Internal capsule, anterior limb (derived)", "ICg": "Internal capsule, genu (derived)", "ICp": "Internal capsule, posterior limb (derived)"})
+leaf_names.update({"PAG": "Periaqueductal gray (Harvard AAN)", **{v: dict(LC="Locus coeruleus",DR="Dorsal raphe",MnR="Median raphe",VTA="Ventral tegmental area",LDTg="Laterodorsal tegmental nucleus",mRt="Mesencephalic reticular formation",PBC="Parabrachial complex",PnO="Pontis oralis (pontine reticular formation)",PTg="Pedunculotegmental nucleus")[v] for v in EXTRA.values()}, "ICa": "Internal capsule, anterior limb (derived)", "ICg": "Internal capsule, genu (derived)", "ICp": "Internal capsule, posterior limb (derived)"})
 t_names = {"ML": "Medial lemniscus", "MLF": "Medial longitudinal fasciculus", "STT": "Spinothalamic tract", "CST": "Corticospinal tract", "CPT": "Corticopontine tracts",
            "AF": "Arcuate fasciculus", "IFOF": "Inferior fronto-occipital fasciculus", "ILF": "Inferior longitudinal fasciculus", "SLF": "Superior longitudinal fasciculus",
            "UF": "Uncinate fasciculus", "CING": "Cingulum", "PONSL": "Longitudinal fibers of the pons (derived)"}
@@ -293,7 +348,7 @@ for slug, s in S.items():
     s["centroid"] = [round(float(v), 1) for v in (xyz.mean(0) if not paired else right.mean(0))]
     s["bbox"] = [[round(float(v), 1) for v in xyz.min(0)], [round(float(v), 1) for v in xyz.max(0)]]
 print("masks done", flush=True)
-cand = [k for k, s_ in S.items() if not s_.get("empty") and k not in GROUPS]
+cand = [k for k, s_ in S.items() if not s_.get("empty") and k not in GROUPS and k not in EXTRA]
 M = {k: masks[k] for k in cand}
 sz = {k: int(M[k].sum()) for k in cand}
 mind = {}

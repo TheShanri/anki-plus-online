@@ -2015,7 +2015,7 @@
    "aqueduct-of-midbrain"
   ],
   "registered": true,
-  "slices": "derived",
+  "slices": "exact",
   "exactIn": [
    "3d",
    "slices"
@@ -2216,7 +2216,7 @@
    "aqueduct-of-midbrain"
   ],
   "registered": true,
-  "slices": "derived",
+  "slices": "exact",
   "exactIn": [
    "3d",
    "slices"

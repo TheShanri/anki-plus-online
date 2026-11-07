@@ -82,4 +82,11 @@ for slug in gaps:
     out.append(dict(slug=slug, id=f"mni-{slug}", name=s["name"], region=region_of(slug, s), bbox=[[round(float(v), 5) for v in bb[0]], [round(float(v), 5) for v in bb[1]]],
                     centroid=[round(float(v), 5) for v in mesh.vertices.mean(0)], faces=len(mesh.faces)))
     print(slug, len(mesh.faces), "faces")
-json.dump(out, open(os.path.join(B, "gap_entries.json"), "w"), indent=1)
+# merge into the existing file instead of overwriting: structures that already got a registered mesh are no longer "gaps"
+# on a re-run, and a plain overwrite would drop their entries (and so their meshes from the index).
+gp = os.path.join(B, "gap_entries.json")
+old = json.load(open(gp)) if os.path.exists(gp) else []
+new = {e["slug"]: e for e in out}
+merged = [new.pop(e["slug"], e) for e in old] + list(new.values())
+json.dump(merged, open(gp, "w"), indent=1)
+print("gap_entries.json:", len(merged), "entries")

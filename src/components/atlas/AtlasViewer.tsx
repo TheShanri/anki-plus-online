@@ -12,8 +12,8 @@ import { readCssColor } from "@/lib/atlas/theme";
 
 export type AtlasMode = "focus" | "context";
 
-type ViewName = "anterior" | "posterior" | "left" | "right" | "superior" | "inferior" | "midsagittal";
-const VIEWS: { id: ViewName; label: string; dir: [number, number, number] }[] = [
+export type ViewName = "anterior" | "posterior" | "left" | "right" | "superior" | "inferior" | "midsagittal" | "top";
+const VIEWS: { id: ViewName; label: string; dir: [number, number, number]; hidden?: boolean }[] = [
   { id: "anterior", label: "Anterior", dir: [0, 0, 1] },
   { id: "posterior", label: "Posterior", dir: [0, 0, -1] },
   { id: "left", label: "Lateral L", dir: [1, 0, 0] },
@@ -21,6 +21,8 @@ const VIEWS: { id: ViewName; label: string; dir: [number, number, number] }[] = 
   { id: "superior", label: "Superior", dir: [0, 1, 0.02] },
   { id: "inferior", label: "Inferior", dir: [0, -1, 0.02] },
   { id: "midsagittal", label: "Midsagittal", dir: [1, 0, 0] },
+  // from above with the front at the top of the screen (the MRI convention); only reachable through the `view` prop
+  { id: "top", label: "Top", dir: [0, 1, -0.02], hidden: true },
 ];
 const DEFAULT_CTX_CENTER = new THREE.Vector3(0, 1.605, -0.01);
 
@@ -45,7 +47,23 @@ export type AtlasViewerProps = {
   onHoverKey?: (key: string | null) => void;
   /** Quiz mode: no names (tooltip, labels), no legend linking, clicking does nothing. */
   quiz?: boolean;
+  /** Controlled cut plane (glTF metres along "x" left-right, "y" up, "z" anterior). Replaces the built-in cut controls. */
+  cut?: { axis: "x" | "y" | "z"; position: number; /** remove the low side instead of the high side */ flip?: boolean } | null;
+  /** Camera view; changing the value re-aims the camera (the view buttons still work in between). */
+  view?: ViewName;
+  /** No in-scene name labels and no Labels button (colour-coded modes with many structures). */
+  hideLabels?: boolean;
+  /** "mesh": hover highlights only the hovered mesh instead of every mesh of its overlay. */
+  pickMode?: "key" | "mesh";
+  /** Tooltip text for a hovered mesh (default: its atlas name). */
+  tipText?: (meshId: string, name: string) => string;
+  /** Translucent reference planes drawn in the scene (never clipped by the cut). */
+  guides?: AtlasGuide[];
+  /** Camera distance multiplier (below 1 comes closer); default 1. */
+  zoom?: number;
 };
+
+export type AtlasGuide = { axis: "x" | "y" | "z"; position: number; color: string };
 
 export type AtlasOverlay = { key: string; ids: string[]; color: string; opacity?: number };
 type LoadedOverlay = { key: string; color: string; opacity: number; groups: THREE.Group[]; ids: string[] };
@@ -125,7 +143,7 @@ class Pulse {
   }
 }
 
-function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: ViewName; nonce: number }) {
+function Rig({ box, view, nonce, zoom }: { box: THREE.Box3 | null; view: ViewName; nonce: number; zoom: number }) {
   const camera = useThree((s) => s.camera);
   const invalidate = useThree((s) => s.invalidate);
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
@@ -136,7 +154,7 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: ViewName; non
     const small = size < 0.03;
     const c = box && !box.isEmpty() ? box.getCenter(new THREE.Vector3()).lerp(DEFAULT_CTX_CENTER, small ? 0.1 : 0.35) : DEFAULT_CTX_CENTER.clone();
     // Frame the whole brain around the target so students keep their bearings; they can zoom in.
-    const dist = view === "midsagittal" ? 0.42 : small ? 0.22 : Math.min(0.6, Math.max(0.44, size * 2.6));
+    const dist = (view === "midsagittal" ? 0.42 : small ? 0.22 : Math.min(0.6, Math.max(0.44, size * 2.6))) * zoom;
     const v = VIEWS.find((x) => x.id === view) ?? VIEWS[2];
     const target = view === "midsagittal" ? DEFAULT_CTX_CENTER.clone().setX(0) : c;
     camera.position.copy(target).addScaledVector(new THREE.Vector3(...v.dir).normalize(), dist);
@@ -147,10 +165,36 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: ViewName; non
       controls.update();
     }
     invalidate();
-  }, [box, view, nonce, camera, controls, invalidate]);
+  }, [box, view, nonce, zoom, camera, controls, invalidate]);
   return null;
 }
 
+
+function GuidePlane({ g, centre }: { g: AtlasGuide; centre: THREE.Vector3 }) {
+  const invalidate = useThree((s) => s.invalidate);
+  const geo = useMemo(() => new THREE.PlaneGeometry(0.15, 0.15), []);
+  const edges = useMemo(() => new THREE.EdgesGeometry(geo), [geo]);
+  useEffect(
+    () => () => {
+      geo.dispose();
+      edges.dispose();
+    },
+    [geo, edges],
+  );
+  useEffect(() => invalidate(), [g, invalidate]);
+  const pos: [number, number, number] = [g.axis === "x" ? g.position : centre.x, g.axis === "y" ? g.position : centre.y, g.axis === "z" ? g.position : centre.z];
+  const rot: [number, number, number] = g.axis === "x" ? [0, Math.PI / 2, 0] : g.axis === "y" ? [Math.PI / 2, 0, 0] : [0, 0, 0];
+  return (
+    <group position={pos} rotation={rot} renderOrder={8}>
+      <mesh geometry={geo} raycast={() => undefined}>
+        <meshBasicMaterial color={g.color} transparent opacity={0.14} side={THREE.DoubleSide} depthWrite={false} />
+      </mesh>
+      <lineSegments geometry={edges} raycast={() => undefined}>
+        <lineBasicMaterial color={g.color} />
+      </lineSegments>
+    </group>
+  );
+}
 
 function readColors() {
   return { accent: readCssColor("--accent", "#ff2a6d"), dim: readCssColor("--text-dim", "#a996c9"), hover: readCssColor("--accent-2", "#22d3ee") };
@@ -575,6 +619,9 @@ function Scene({
   clipRange,
   hover,
   quiz,
+  perMesh,
+  guides,
+  centre,
   onHover,
   onMove,
   onPick,
@@ -594,6 +641,9 @@ function Scene({
   clipRange: [number, number];
   hover: Hover;
   quiz: boolean;
+  perMesh: boolean;
+  guides: AtlasGuide[];
+  centre: THREE.Vector3;
   onHover: (h: Hover, name: string | null) => void;
   onMove: (x: number, y: number) => void;
   onPick: (id: string) => void;
@@ -771,7 +821,7 @@ function Scene({
     let grossHover = false;
     if (hover?.key) {
       if (hover.key === "primary") eachMesh(targetRoot, (m) => list.push(m));
-      else eachMesh(ovlRoot, (m) => m.userData.key === hover.key && list.push(m));
+      else eachMesh(ovlRoot, (m) => m.userData.key === hover.key && (!perMesh || !hover.id || m.userData.sid === hover.id) && list.push(m));
     } else if (hover?.id) {
       const m = grossById.get(hover.id);
       if (m && m.visible) {
@@ -783,7 +833,7 @@ function Scene({
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, invalidate]);
+  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, perMesh, invalidate]);
 
   const [pulse] = useState(() => new Pulse());
   useEffect(() => {
@@ -805,6 +855,9 @@ function Scene({
       {gross && <primitive object={gross} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
+      {guides.map((g, i) => (
+        <GuidePlane key={i} g={g} centre={centre} />
+      ))}
       {!quiz && <Picker pickables={pickables} grossPlanes={grossPlanes} ownPlanes={ownPlanes} structures={structures} onHover={onHover} onMove={onMove} onPick={onPick} />}
     </>
   );
@@ -822,6 +875,13 @@ export default function AtlasViewer({
   hoverKey = null,
   onHoverKey,
   quiz = false,
+  cut = null,
+  view: viewProp,
+  hideLabels = false,
+  pickMode = "key",
+  tipText,
+  guides,
+  zoom = 1,
 }: AtlasViewerProps) {
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [indexError, setIndexError] = useState<string | null>(null);
@@ -836,8 +896,16 @@ export default function AtlasViewer({
   const tipRef = useRef<HTMLDivElement>(null);
   const tipPos = useRef("translate(0px,0px)");
   const lab = useRef<LabRefs>({ bottom: 40, solid: false, tags: [], lines: [], dots: [], w: [] });
-  const [view, setView] = useState<ViewName>("left");
+  const [view, setView] = useState<ViewName>(viewProp ?? "left");
   const [nonce, setNonce] = useState(0);
+  const [prevViewProp, setPrevViewProp] = useState(viewProp);
+  if (viewProp !== prevViewProp) {
+    setPrevViewProp(viewProp);
+    if (viewProp) {
+      setView(viewProp);
+      setNonce((n) => n + 1);
+    }
+  }
   const [clip, setClip] = useState<ClipState>({ axis: "off", t: 0.5, flip: false });
   const [colors, setColors] = useState(readColors);
 
@@ -881,7 +949,7 @@ export default function AtlasViewer({
 
   const ovlSig = (overlays ?? []).map((o) => `${o.key}:${o.ids.join("+")}:${o.color}:${o.opacity ?? ""}`).join("|");
   const ovlResolved = useMemo(
-    () => (index ? (overlays ?? []).map((o) => ({ ...o, ids: resolveStructureIds(index, o.ids, 40).filter((id) => !resolved.includes(id)) })) : []),
+    () => (index ? (overlays ?? []).map((o) => ({ ...o, ids: resolveStructureIds(index, o.ids, 240).filter((id) => !resolved.includes(id)) })) : []),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [index, ovlSig, resolved],
   );
@@ -952,7 +1020,7 @@ export default function AtlasViewer({
 
   // in-scene name labels (selected structure, added structures, neighbours)
   const labelItems = useMemo<LabelItem[]>(() => {
-    if (quiz || !index || !shown) return [];
+    if (quiz || hideLabels || !index || !shown) return [];
     const out: LabelItem[] = [];
     const accentHex = "#" + colors.accent.getHexString();
     const add = (k: string, color: string, g: THREE.Group, id: string, nameOverride?: string) => {
@@ -965,8 +1033,8 @@ export default function AtlasViewer({
     shown.targets.forEach((g, i) => add("primary", accentHex, g, shown.targetIds[i], label && shown.targets.length === 1 ? label : undefined));
     shown.ovl.forEach((o) => o.groups.forEach((g, j) => add(o.key, o.color, g, o.ids[j])));
     return out.slice(0, MAX_LABELS);
-  }, [quiz, index, shown, colors.accent, label]);
-  const labelsOn = showLabels && !quiz;
+  }, [quiz, hideLabels, index, shown, colors.accent, label]);
+  const labelsOn = showLabels && !quiz && !hideLabels;
   const barRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     labelItems.forEach((_, i) => {
@@ -978,14 +1046,16 @@ export default function AtlasViewer({
 
   const onHoverKeyRef = useRef(onHoverKey);
   const onPickRef = useRef(onPickMesh);
+  const tipTextRef = useRef(tipText);
   useEffect(() => {
     onHoverKeyRef.current = onHoverKey;
     onPickRef.current = onPickMesh;
+    tipTextRef.current = tipText;
   });
   const hoverStable = useMemo(
     () => (h: Hover, name: string | null) => {
       setHover(h);
-      setTip(name);
+      setTip(name !== null && h?.id && tipTextRef.current ? tipTextRef.current(h.id, name) : name);
     },
     [],
   );
@@ -1040,10 +1110,13 @@ export default function AtlasViewer({
             accent={colors.accent}
             dim={colors.dim}
             hoverColor={colors.hover}
-            clip={clip}
-            clipRange={clipRange}
+            clip={cut ? { axis: cut.axis, t: cut.position, flip: !!cut.flip } : clip}
+            clipRange={cut ? [0, 1] : clipRange}
             hover={active}
             quiz={quiz}
+            perMesh={pickMode === "mesh"}
+            guides={guides ?? []}
+            centre={centre}
             onHover={hoverStable}
             onMove={moveStable}
             onPick={pickStable}
@@ -1051,7 +1124,7 @@ export default function AtlasViewer({
         )}
         <LabelUpdater items={labelItems} lab={lab} enabled={labelsOn} centre={centre} solid={solid} />
         <OrbitControls makeDefault enableDamping dampingFactor={0.12} screenSpacePanning minDistance={0.05} maxDistance={1.2} touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }} />
-        <Rig box={box} view={view} nonce={nonce} />
+        <Rig box={box} view={view} nonce={nonce} zoom={zoom} />
       </Canvas>
 
       {labelsOn && labelItems.length > 0 && (
@@ -1115,7 +1188,7 @@ export default function AtlasViewer({
         </div>
       )}
 
-      <div className="absolute right-2 top-2 flex max-w-[60%] flex-wrap items-center justify-end gap-1.5">
+      {!cut && <div className="absolute right-2 top-2 flex max-w-[60%] flex-wrap items-center justify-end gap-1.5">
         {CLIP_AXES.map((a) => (
           <button key={a.id} type="button" onClick={() => pickAxis(a.id)} aria-pressed={clip.axis === a.id} className={btn(clip.axis === a.id)}>
             {a.label}
@@ -1137,10 +1210,10 @@ export default function AtlasViewer({
             </button>
           </div>
         )}
-      </div>
+      </div>}
 
       <div ref={barRef} className="absolute bottom-2 left-2 right-2 flex flex-wrap items-center gap-1.5">
-        {VIEWS.map((v) => (
+        {VIEWS.filter((v) => !v.hidden).map((v) => (
           <button
             key={v.id}
             type="button"
@@ -1165,7 +1238,7 @@ export default function AtlasViewer({
               {solid ? "See through" : "Solid"}
             </button>
           )}
-          {!quiz && (
+          {!quiz && !hideLabels && (
             <button type="button" onClick={() => setShowLabels((s) => !s)} aria-pressed={showLabels} className={btn(showLabels)}>
               Labels
             </button>

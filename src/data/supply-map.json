@@ -1,0 +1,1392 @@
+{
+ "version": 1,
+ "note": "Curated from content/nsci3250/structures.json info.facts.supply plus standard neuroanatomy. Mesh ids are Z-Anatomy / registered MNI atlas ids (public/atlas/index.json). The first artery of a unit is the one it is coloured by.",
+ "arteries": [
+  {
+   "id": "aca",
+   "name": "Anterior cerebral artery",
+   "short": "ACA",
+   "color": "#ef476f",
+   "territory": "Medial frontal and parietal lobes (leg motor/sensory areas), corpus callosum, cingulate, anterior basal ganglia via the recurrent artery of Heubner."
+  },
+  {
+   "id": "mca",
+   "name": "Middle cerebral artery",
+   "short": "MCA",
+   "color": "#ffa62b",
+   "territory": "Lateral convexity: face/arm motor and sensory cortex, language areas (Broca, Wernicke), insula, auditory cortex."
+  },
+  {
+   "id": "pca",
+   "name": "Posterior cerebral artery",
+   "short": "PCA",
+   "color": "#3a86ff",
+   "territory": "Occipital lobe (visual cortex), inferior and medial temporal lobe, hippocampus, thalamus (thalamogeniculate, posterior choroidal), midbrain."
+  },
+  {
+   "id": "achor",
+   "name": "Anterior choroidal artery",
+   "short": "AChA",
+   "color": "#06d6a0",
+   "territory": "From the internal carotid: optic tract, lateral geniculate, amygdala and hippocampal head, globus pallidus, genu and posterior limb of the internal capsule (textbook), choroid plexus of the temporal horn."
+  },
+  {
+   "id": "lenti",
+   "name": "Lenticulostriate arteries",
+   "short": "Lenticulostriates",
+   "color": "#b5179e",
+   "territory": "Penetrating branches of the MCA (M1): putamen, caudate, globus pallidus, internal capsule limbs."
+  },
+  {
+   "id": "pcomm",
+   "name": "Posterior communicating / thalamoperforating",
+   "short": "PComm / thalamoperf.",
+   "color": "#8338ec",
+   "territory": "Posterior communicating artery and the thalamoperforating branches from P1: anterior and paramedian thalamus, hypothalamus, mammillary bodies, subthalamic nucleus."
+  },
+  {
+   "id": "pontine",
+   "name": "Basilar pontine branches",
+   "short": "Pontine (basilar)",
+   "color": "#118ab2",
+   "territory": "Paramedian and short/long circumferential branches of the basilar artery: pons (corticospinal fibres, medial lemniscus, MLF, abducens nucleus)."
+  },
+  {
+   "id": "sca",
+   "name": "Superior cerebellar artery",
+   "short": "SCA",
+   "color": "#ffd166",
+   "territory": "Superior cerebellar surface and vermis, deep nuclei, superior cerebellar peduncle, inferior colliculus, rostral lateral pons."
+  },
+  {
+   "id": "aica",
+   "name": "Anterior inferior cerebellar artery",
+   "short": "AICA",
+   "color": "#8ecae6",
+   "territory": "Flocculus and anterior inferior cerebellum, middle cerebellar peduncle, facial and vestibulocochlear nuclei (labyrinthine artery)."
+  },
+  {
+   "id": "pica",
+   "name": "Posterior inferior cerebellar artery",
+   "short": "PICA",
+   "color": "#f4845f",
+   "territory": "Inferior vermis and tonsil, inferior cerebellar peduncle, lateral medulla (nucleus ambiguus, solitary and spinal trigeminal nuclei, olive)."
+  },
+  {
+   "id": "vert",
+   "name": "Vertebral artery",
+   "short": "Vertebral",
+   "color": "#a7c957",
+   "territory": "Joins to form the basilar artery; gives PICA, the anterior and posterior spinal arteries and medullary perforators (medulla)."
+  },
+  {
+   "id": "asa",
+   "name": "Anterior spinal artery",
+   "short": "Ant. spinal",
+   "color": "#e63946",
+   "territory": "Anterior two thirds of the spinal cord and the medial medulla: pyramids, hypoglossal nucleus, medial lemniscus."
+  },
+  {
+   "id": "psa",
+   "name": "Posterior spinal arteries",
+   "short": "Post. spinal",
+   "color": "#4cc9f0",
+   "territory": "Posterior third of the cord: dorsal columns, dorsal horn; gracile and cuneate nuclei."
+  },
+  {
+   "id": "ica",
+   "name": "Internal carotid artery",
+   "short": "ICA",
+   "color": "#adb5bd",
+   "territory": "Trunk of the anterior circulation: gives the ophthalmic, anterior choroidal and posterior communicating arteries, then the ACA and MCA."
+  }
+ ],
+ "vessels": {
+  "anterior-cerebral-artery": "aca",
+  "orbitofrontal-branches-of-anterior-cerebral-artery": "aca",
+  "pericallosal-artery": "aca",
+  "anterior-communicating-artery": "aca",
+  "middle-cerebral-artery-m1": "mca",
+  "middle-cerebral-artery-m3": "mca",
+  "insular-branches-of-middle-cerebral-artery-m2": "mca",
+  "parietal-branches-of-middle-cerebral-artery": "mca",
+  "temporal-branches-of-middle-cerebral-artery": "mca",
+  "posterior-cerebral-artery": "pca",
+  "posterior-communicating-artery": "pcomm",
+  "superior-cerebellar-artery": "sca",
+  "anterior-inferior-cerebellar-artery": "aica",
+  "posterior-inferior-cerebellar-artery": "pica",
+  "lateral-pontine-branches-of-basilar-artery": "pontine",
+  "medial-pontine-branches-of-basilar-artery": "pontine",
+  "basilar-artery": "pontine",
+  "vertebral-artery": "vert",
+  "internal-carotid-artery": "ica"
+ },
+ "units": [
+  {
+   "slug": "superior-frontal-gyrus",
+   "name": "Superior frontal gyrus",
+   "meshes": [
+    "superior-frontal-gyrus"
+   ],
+   "arteries": [
+    "aca",
+    "mca"
+   ],
+   "course": "Anterior cerebral artery."
+  },
+  {
+   "slug": "middle-frontal-gyrus",
+   "name": "Middle frontal gyrus",
+   "meshes": [
+    "middle-frontal-gyrus"
+   ],
+   "arteries": [
+    "mca"
+   ],
+   "course": "Middle cerebral artery."
+  },
+  {
+   "slug": "inferior-frontal-gyrus",
+   "name": "Inferior frontal gyrus",
+   "meshes": [
+    "opercular-part-of-inferior-frontal-gyrus",
+    "triangular-part-of-inferior-frontal-gyrus",
+    "orbital-part-of-inferior-frontal-gyrus"
+   ],
+   "arteries": [
+    "mca"
+   ],
+   "course": "Middle cerebral artery (superior division)."
+  },
+  {
+   "slug": "precentral-gyrus",
+   "name": "Precentral gyrus",
+   "meshes": [
+    "precentral-gyrus"
+   ],
+   "arteries": [
+    "mca",
+    "aca"
+   ],
+   "course": "ACA (leg), MCA (arm, face).",
+   "note": "Leg area on the medial surface is ACA; arm and face on the convexity are MCA."
+  },
+  {
+   "slug": "postcentral-gyrus",
+   "name": "Postcentral gyrus",
+   "meshes": [
+    "postcentral-gyrus"
+   ],
+   "arteries": [
+    "mca",
+    "aca"
+   ],
+   "course": "ACA (leg), MCA (arm, face).",
+   "note": "Leg area on the medial surface is ACA; arm and face on the convexity are MCA."
+  },
+  {
+   "slug": "orbitofrontal-cortex",
+   "name": "Orbitofrontal cortex",
+   "meshes": [
+    "orbital-gyri"
+   ],
+   "arteries": [
+    "aca",
+    "mca"
+   ],
+   "course": "Anterior cerebral artery and middle cerebral artery branches."
+  },
+  {
+   "slug": "insular-cortex",
+   "name": "Insular cortex",
+   "meshes": [
+    "insula-subcentral-gyrus-and-ant-and-post-sulci"
+   ],
+   "arteries": [
+    "mca"
+   ],
+   "course": "Middle cerebral artery (insular branches)."
+  },
+  {
+   "slug": "superior-parietal-lobule",
+   "name": "Superior parietal lobule",
+   "meshes": [
+    "superior-parietal-lobule"
+   ],
+   "arteries": [
+    "mca",
+    "aca"
+   ],
+   "course": "Middle cerebral artery."
+  },
+  {
+   "slug": "inferior-parietal-lobule",
+   "name": "Inferior parietal lobule",
+   "meshes": [
+    "supramarginal-gyrus",
+    "angular-gyrus"
+   ],
+   "arteries": [
+    "mca"
+   ],
+   "course": "Inferior division of the middle cerebral artery."
+  },
+  {
+   "slug": "superior-temporal-gyrus",
+   "name": "Superior temporal gyrus",
+   "meshes": [
+    "superior-temporal-gyrus-lateral-part",
+    "transverse-temporal-gyri"
+   ],
+   "arteries": [
+    "mca"
+   ],
+   "course": "Inferior division of the middle cerebral artery."
+  },
+  {
+   "slug": "middle-temporal-gyrus",
+   "name": "Middle temporal gyrus",
+   "meshes": [
+    "middle-temporal-gyrus"
+   ],
+   "arteries": [
+    "mca"
+   ],
+   "course": "Middle cerebral artery."
+  },
+  {
+   "slug": "inferior-temporal-gyrus",
+   "name": "Inferior temporal gyrus",
+   "meshes": [
+    "inferior-temporal-gyrus"
+   ],
+   "arteries": [
+    "pca",
+    "mca"
+   ],
+   "course": "Posterior cerebral and middle cerebral arteries."
+  },
+  {
+   "slug": "parahippocampal-gyrus",
+   "name": "Parahippocampal gyrus",
+   "meshes": [
+    "medial-occipitotemporal-gyrus-parahippocampal"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Posterior cerebral artery."
+  },
+  {
+   "slug": "cingulate-gyrus",
+   "name": "Cingulate gyrus",
+   "meshes": [
+    "cingulate-gyrus-and-sulcus-middle-anterior-part",
+    "cingulate-gyrus-and-sulcus-middle-posterior-part",
+    "cingulate-gyrus-and-sulcus-posterior-dorsal-part",
+    "cingulate-gyrus-posteroventral-part"
+   ],
+   "arteries": [
+    "aca"
+   ],
+   "course": "Pericallosal and callosomarginal arteries."
+  },
+  {
+   "slug": "calcarine-fissure",
+   "name": "Calcarine fissure",
+   "meshes": [
+    "calcarine-sulcus"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Calcarine branch of PCA.",
+   "note": "Primary visual cortex; the macular tip at the occipital pole is a PCA/MCA watershed."
+  },
+  {
+   "name": "Cuneus",
+   "meshes": [
+    "cuneus"
+   ],
+   "arteries": [
+    "pca"
+   ]
+  },
+  {
+   "name": "Lingual gyrus",
+   "meshes": [
+    "lingual-gyrus"
+   ],
+   "arteries": [
+    "pca"
+   ]
+  },
+  {
+   "name": "Precuneus",
+   "meshes": [
+    "precuneus"
+   ],
+   "arteries": [
+    "aca",
+    "pca"
+   ]
+  },
+  {
+   "name": "Paracentral gyrus and sulcus",
+   "meshes": [
+    "paracentral-gyrus-and-sulcus"
+   ],
+   "arteries": [
+    "aca"
+   ]
+  },
+  {
+   "name": "Straight gyrus (Gyrus rectus)",
+   "meshes": [
+    "straight-gyrus-gyrus-rectus"
+   ],
+   "arteries": [
+    "aca"
+   ]
+  },
+  {
+   "name": "Lateral occipital cortex and occipital pole",
+   "meshes": [
+    "lateral-occipital-gyrus-middle-occipital-gyrus",
+    "inferior-occipital-gyrus-and-sulcus",
+    "occipital-pole"
+   ],
+   "arteries": [
+    "pca",
+    "mca"
+   ],
+   "note": "MCA/PCA watershed zone."
+  },
+  {
+   "name": "Superior occipital gyri",
+   "meshes": [
+    "superior-occipital-gyri"
+   ],
+   "arteries": [
+    "mca",
+    "pca"
+   ]
+  },
+  {
+   "name": "Lateral occipitotemporal gyrus",
+   "meshes": [
+    "lateral-occipitotemporal-gyrus"
+   ],
+   "arteries": [
+    "pca"
+   ]
+  },
+  {
+   "name": "Temporal pole and plane",
+   "meshes": [
+    "temporal-pole",
+    "temporal-plane"
+   ],
+   "arteries": [
+    "mca"
+   ]
+  },
+  {
+   "slug": "corpus-callosum",
+   "name": "Corpus callosum",
+   "meshes": [
+    "corpus-callosum"
+   ],
+   "arteries": [
+    "aca",
+    "pca"
+   ],
+   "course": "Pericallosal and callosomarginal branches of the anterior cerebral artery; splenium also from posterior cerebral artery.",
+   "note": "The splenium also receives PCA (posterior pericallosal) branches."
+  },
+  {
+   "slug": "septum-pellucidum",
+   "name": "Septum pellucidum",
+   "meshes": [
+    "septum-pellucidum"
+   ],
+   "arteries": [
+    "aca"
+   ]
+  },
+  {
+   "name": "Septal nuclei",
+   "meshes": [
+    "septal-nuclei"
+   ],
+   "arteries": [
+    "aca"
+   ]
+  },
+  {
+   "slug": "anterior-commissure",
+   "name": "Anterior commissure",
+   "meshes": [
+    "anterior-commissure"
+   ],
+   "arteries": [
+    "aca"
+   ]
+  },
+  {
+   "name": "Hippocampal commissure",
+   "meshes": [
+    "hippocampal-commissure"
+   ],
+   "arteries": [
+    "pca"
+   ]
+  },
+  {
+   "slug": "fornix",
+   "name": "Fornix",
+   "meshes": [
+    "fornix"
+   ],
+   "arteries": [
+    "pca",
+    "achor"
+   ],
+   "course": "Posterior cerebral artery and anterior choroidal artery."
+  },
+  {
+   "slug": "hippocampus",
+   "name": "Hippocampus",
+   "meshes": [
+    "hippocampus"
+   ],
+   "arteries": [
+    "pca",
+    "achor"
+   ],
+   "course": "Posterior cerebral artery (and anterior choroidal artery)."
+  },
+  {
+   "slug": "amygdala",
+   "name": "Amygdala",
+   "meshes": [
+    "amygdaloid-body"
+   ],
+   "arteries": [
+    "achor",
+    "mca"
+   ],
+   "course": "Anterior choroidal and middle cerebral artery branches."
+  },
+  {
+   "slug": "caudate-nucleus",
+   "name": "Caudate nucleus",
+   "meshes": [
+    "caudate-nucleus"
+   ],
+   "arteries": [
+    "lenti",
+    "aca",
+    "achor"
+   ],
+   "course": "Lenticulostriate arteries, medial striate artery (Heubner) and anterior choroidal artery.",
+   "note": "Head: lenticulostriates and the recurrent artery of Heubner (ACA); tail: anterior choroidal."
+  },
+  {
+   "slug": "putamen",
+   "name": "Putamen",
+   "meshes": [
+    "putamen"
+   ],
+   "arteries": [
+    "lenti"
+   ],
+   "course": "Lenticulostriate arteries."
+  },
+  {
+   "slug": "globus-pallidus",
+   "name": "Globus pallidus",
+   "meshes": [
+    "globus-pallidus"
+   ],
+   "arteries": [
+    "lenti",
+    "achor"
+   ],
+   "course": "Lenticulostriate and anterior choroidal arteries."
+  },
+  {
+   "slug": "nucleus-accumbens",
+   "name": "Nucleus accumbens",
+   "meshes": [
+    "mni-nucleus-accumbens"
+   ],
+   "arteries": [
+    "lenti",
+    "aca"
+   ],
+   "course": "Lenticulostriate and Heubner arteries."
+  },
+  {
+   "slug": "anterior-limb-of-internal-capsule",
+   "name": "Anterior limb of internal capsule",
+   "meshes": [
+    "mni-anterior-limb-of-internal-capsule"
+   ],
+   "arteries": [
+    "lenti",
+    "aca"
+   ],
+   "course": "Lenticulostriate arteries (MCA) and recurrent artery of Heubner (ACA)."
+  },
+  {
+   "slug": "genu-of-internal-capsule",
+   "name": "Genu of internal capsule",
+   "meshes": [
+    "mni-genu-of-internal-capsule"
+   ],
+   "arteries": [
+    "achor"
+   ],
+   "course": "Branches of the internal carotid artery and anterior choroidal artery."
+  },
+  {
+   "slug": "posterior-limb-of-internal-capsule",
+   "name": "Posterior limb of internal capsule",
+   "meshes": [
+    "mni-posterior-limb-of-internal-capsule"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "As taught: lenticulostriate branches (MCA), PCA deep branches to the posterior limb; classically also the anterior choroidal artery.",
+   "note": "Open question in this course: Lab 16 teaches PCA deep branches; most textbooks give lenticulostriate (MCA) and anterior choroidal arteries. Both are shown; use the switch above the legend.",
+   "variants": [
+    {
+     "id": "lab16",
+     "label": "Lab 16 (as taught): PCA",
+     "arteries": [
+      "pca"
+     ]
+    },
+    {
+     "id": "textbook",
+     "label": "Textbooks: lenticulostriate + anterior choroidal",
+     "arteries": [
+      "lenti",
+      "achor"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Stria terminalis",
+   "meshes": [
+    "stria-terminalis"
+   ],
+   "arteries": [
+    "achor",
+    "pca"
+   ]
+  },
+  {
+   "slug": "choroid-plexus",
+   "name": "Choroid plexus",
+   "meshes": [
+    "choroid-plexus"
+   ],
+   "arteries": [
+    "achor",
+    "pca"
+   ],
+   "course": "Anterior and posterior choroidal arteries."
+  },
+  {
+   "slug": "thalamus",
+   "name": "Thalamus",
+   "meshes": [
+    "thalamus"
+   ],
+   "arteries": [
+    "pcomm",
+    "pca"
+   ],
+   "shell": true,
+   "course": "Thalamogeniculate and thalamoperforating branches of the posterior cerebral artery."
+  },
+  {
+   "slug": "lateral-geniculate-nucleus",
+   "name": "Lateral geniculate nucleus",
+   "meshes": [
+    "lateral-geniculate-body"
+   ],
+   "arteries": [
+    "achor",
+    "pca"
+   ],
+   "course": "Anterior choroidal artery (lateral) and posterior cerebral artery."
+  },
+  {
+   "slug": "medial-geniculate-nucleus",
+   "name": "Medial geniculate nucleus",
+   "meshes": [
+    "medial-geniculate-body"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Posterior cerebral artery (thalamogeniculate branches)."
+  },
+  {
+   "slug": "habenula",
+   "name": "Habenula",
+   "meshes": [
+    "habenula"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Posterior choroidal arteries."
+  },
+  {
+   "slug": "stria-medullaris-thalami",
+   "name": "Stria medullaris thalami",
+   "meshes": [
+    "stria-medullaris-thalami"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Posterior choroidal arteries."
+  },
+  {
+   "slug": "pineal-gland",
+   "name": "Pineal gland",
+   "meshes": [
+    "mni-pineal-gland"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Posterior choroidal arteries."
+  },
+  {
+   "slug": "posterior-commissure",
+   "name": "Posterior commissure",
+   "meshes": [
+    "posterior-commissure"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Posterior choroidal and quadrigeminal arteries."
+  },
+  {
+   "slug": "hypothalamus",
+   "name": "Hypothalamus",
+   "meshes": [
+    "hypothalamus"
+   ],
+   "arteries": [
+    "pcomm",
+    "aca"
+   ],
+   "course": "Anterior and posterior communicating artery branches."
+  },
+  {
+   "slug": "mammillary-bodies",
+   "name": "Mammillary bodies",
+   "meshes": [
+    "mamillary-body"
+   ],
+   "arteries": [
+    "pcomm",
+    "pca"
+   ],
+   "course": "Posterior communicating and posterior cerebral artery branches."
+  },
+  {
+   "slug": "optic-chiasm",
+   "name": "Optic chiasm",
+   "meshes": [
+    "optic-chiasm"
+   ],
+   "arteries": [
+    "ica",
+    "aca"
+   ],
+   "course": "Superior hypophyseal artery and circle of Willis branches."
+  },
+  {
+   "slug": "optic-tract",
+   "name": "Optic tract",
+   "meshes": [
+    "optic-tract"
+   ],
+   "arteries": [
+    "achor"
+   ],
+   "course": "Anterior choroidal artery."
+  },
+  {
+   "slug": "subthalamic-nucleus",
+   "name": "Subthalamic nucleus",
+   "meshes": [
+    "mni-subthalamic-nucleus"
+   ],
+   "arteries": [
+    "pcomm",
+    "pca"
+   ],
+   "course": "Posterior communicating and posterior cerebral arteries."
+  },
+  {
+   "slug": "substantia-nigra",
+   "name": "Substantia nigra",
+   "meshes": [
+    "mni-substantia-nigra"
+   ],
+   "arteries": [
+    "pca",
+    "pcomm"
+   ],
+   "course": "Posterior cerebral and posterior communicating arteries."
+  },
+  {
+   "slug": "midbrain",
+   "name": "Midbrain",
+   "meshes": [
+    "midbrain"
+   ],
+   "arteries": [
+    "pca",
+    "sca"
+   ],
+   "shell": true,
+   "course": "Posterior cerebral and superior cerebellar arteries and basilar tip penetrators."
+  },
+  {
+   "slug": "pons",
+   "name": "Pons",
+   "meshes": [
+    "pons"
+   ],
+   "arteries": [
+    "pontine"
+   ],
+   "shell": true,
+   "course": "Pontine arteries from the basilar artery."
+  },
+  {
+   "slug": "medulla",
+   "name": "Medulla",
+   "meshes": [
+    "medulla-oblongata"
+   ],
+   "arteries": [
+    "vert",
+    "asa",
+    "pica"
+   ],
+   "shell": true,
+   "course": "Vertebral arteries, anterior spinal and PICA branches."
+  },
+  {
+   "slug": "superior-colliculus",
+   "name": "Superior colliculus",
+   "meshes": [
+    "superior-colliculus"
+   ],
+   "arteries": [
+    "pca"
+   ],
+   "course": "Quadrigeminal and posterior cerebral arteries."
+  },
+  {
+   "slug": "inferior-colliculus",
+   "name": "Inferior colliculus",
+   "meshes": [
+    "inferior-colliculus"
+   ],
+   "arteries": [
+    "sca",
+    "pca"
+   ],
+   "course": "Quadrigeminal and superior cerebellar arteries."
+  },
+  {
+   "slug": "cerebral-peduncles",
+   "name": "Cerebral peduncles",
+   "meshes": [
+    "base-of-peduncle"
+   ],
+   "arteries": [
+    "pca",
+    "sca"
+   ],
+   "course": "Posterior cerebral and superior cerebellar arteries."
+  },
+  {
+   "slug": "red-nucleus",
+   "name": "Red nucleus",
+   "meshes": [
+    "red-nucleus"
+   ],
+   "arteries": [
+    "pca",
+    "sca"
+   ],
+   "course": "Posterior cerebral and superior cerebellar arteries (paramedian branches)."
+  },
+  {
+   "slug": "periaqueductal-gray",
+   "name": "Periaqueductal gray",
+   "meshes": [
+    "mni-periaqueductal-gray"
+   ],
+   "arteries": [
+    "pca",
+    "sca"
+   ],
+   "course": "Quadrigeminal and superior cerebellar arteries."
+  },
+  {
+   "slug": "oculomotor-nucleus",
+   "name": "Oculomotor nucleus",
+   "meshes": [
+    "nucleus-of-oculomotor-nerve"
+   ],
+   "arteries": [
+    "pca",
+    "pcomm"
+   ],
+   "course": "Basilar tip and posterior cerebral artery paramedian branches."
+  },
+  {
+   "slug": "edinger-westphal-nucleus",
+   "name": "Edinger-Westphal nucleus",
+   "meshes": [
+    "accessory-nucleus-of-oculomotor-nerve"
+   ],
+   "arteries": [
+    "pca",
+    "pontine"
+   ],
+   "course": "Posterior cerebral and basilar perforators."
+  },
+  {
+   "slug": "trochlear-nucleus",
+   "name": "Trochlear nucleus",
+   "meshes": [
+    "nucleus-of-trochlear-nerve"
+   ],
+   "arteries": [
+    "sca",
+    "pca"
+   ],
+   "course": "Superior cerebellar and posterior cerebral arteries."
+  },
+  {
+   "slug": "abducens-nucleus",
+   "name": "Abducens nucleus",
+   "meshes": [
+    "nucleus-of-abducens-nerve"
+   ],
+   "arteries": [
+    "pontine"
+   ],
+   "course": "Basilar perforators."
+  },
+  {
+   "slug": "facial-nucleus",
+   "name": "Facial nucleus",
+   "meshes": [
+    "motor-nucleus-of-facial-nerve"
+   ],
+   "arteries": [
+    "aica"
+   ],
+   "course": "AICA."
+  },
+  {
+   "slug": "vestibulocochlear-complex",
+   "name": "Vestibulocochlear complex",
+   "meshes": [
+    "vestibular-nuclei",
+    "anterior-cochlear-nucleus",
+    "posterior-cochlear-nucleus"
+   ],
+   "arteries": [
+    "aica"
+   ],
+   "course": "AICA and labyrinthine artery."
+  },
+  {
+   "slug": "hypoglossal-nucleus",
+   "name": "Hypoglossal nucleus",
+   "meshes": [
+    "nucleus-of-hypoglossal-nerve"
+   ],
+   "arteries": [
+    "asa",
+    "vert"
+   ],
+   "course": "Anterior spinal artery."
+  },
+  {
+   "slug": "dorsal-motor-nucleus-of-the-vagus",
+   "name": "Dorsal motor nucleus of the vagus",
+   "meshes": [
+    "posterior-nucleus-of-vagus-nerve"
+   ],
+   "arteries": [
+    "pica",
+    "vert"
+   ],
+   "course": "PICA and vertebral artery branches."
+  },
+  {
+   "slug": "nucleus-ambiguus",
+   "name": "Nucleus ambiguus",
+   "meshes": [
+    "nucleus-ambiguus"
+   ],
+   "arteries": [
+    "pica"
+   ],
+   "course": "PICA."
+  },
+  {
+   "slug": "olives",
+   "name": "Olives",
+   "meshes": [
+    "olive"
+   ],
+   "arteries": [
+    "pica",
+    "vert"
+   ],
+   "course": "PICA and vertebral artery branches."
+  },
+  {
+   "slug": "pyramids",
+   "name": "Pyramids",
+   "meshes": [
+    "pyramid-of-medulla-oblongata"
+   ],
+   "arteries": [
+    "asa"
+   ],
+   "course": "Anterior spinal artery."
+  },
+  {
+   "slug": "medial-lemniscus",
+   "name": "Medial lemniscus",
+   "meshes": [
+    "mni-medial-lemniscus"
+   ],
+   "arteries": [
+    "pontine",
+    "asa",
+    "pca"
+   ],
+   "course": "Anterior spinal (medulla), basilar paramedian and posterior cerebral (midbrain) arteries."
+  },
+  {
+   "slug": "medial-longitudinal-fasciculus",
+   "name": "Medial longitudinal fasciculus",
+   "meshes": [
+    "mni-medial-longitudinal-fasciculus"
+   ],
+   "arteries": [
+    "pontine"
+   ],
+   "course": "Basilar perforators."
+  },
+  {
+   "slug": "longitudinal-fibers-of-the-pons",
+   "name": "Longitudinal fibers of the pons",
+   "meshes": [
+    "mni-longitudinal-fibers-of-the-pons"
+   ],
+   "arteries": [
+    "pontine"
+   ],
+   "course": "Pontine perforators from the basilar artery."
+  },
+  {
+   "slug": "superior-cerebellar-peduncle",
+   "name": "Superior cerebellar peduncle",
+   "meshes": [
+    "superior-cerebellar-peduncle"
+   ],
+   "arteries": [
+    "sca"
+   ],
+   "course": "Superior cerebellar artery."
+  },
+  {
+   "slug": "middle-cerebellar-peduncle",
+   "name": "Middle cerebellar peduncle",
+   "meshes": [
+    "mni-middle-cerebellar-peduncle"
+   ],
+   "arteries": [
+    "aica",
+    "pontine"
+   ],
+   "course": "AICA and pontine perforators."
+  },
+  {
+   "slug": "inferior-cerebellar-peduncle",
+   "name": "Inferior cerebellar peduncle",
+   "meshes": [
+    "mni-inferior-cerebellar-peduncle"
+   ],
+   "arteries": [
+    "pica"
+   ],
+   "course": "PICA."
+  },
+  {
+   "slug": "cerebellar-tonsil",
+   "name": "Cerebellar tonsil",
+   "meshes": [
+    "tonsil-of-cerebellum"
+   ],
+   "arteries": [
+    "pica"
+   ],
+   "course": "PICA."
+  },
+  {
+   "slug": "flocculus",
+   "name": "Flocculus",
+   "meshes": [
+    "flocculus"
+   ],
+   "arteries": [
+    "aica",
+    "pica"
+   ],
+   "course": "PICA/AICA."
+  },
+  {
+   "name": "Peduncle of flocculus",
+   "meshes": [
+    "peduncle-of-flocculus"
+   ],
+   "arteries": [
+    "aica"
+   ]
+  },
+  {
+   "name": "Superior and posterior vermis",
+   "meshes": [
+    "lingula-of-cerebellum",
+    "central-lobule",
+    "wing-of-central-lobule",
+    "culmen",
+    "declive",
+    "folium-of-vermis",
+    "tuber-of-vermis"
+   ],
+   "arteries": [
+    "sca",
+    "pica"
+   ],
+   "note": "Superior vermis is SCA; the posterior part is shared with PICA."
+  },
+  {
+   "name": "Inferior vermis (pyramis, uvula, nodule)",
+   "meshes": [
+    "pyramis-of-vermis",
+    "uvula-of-vermis",
+    "nodule-of-vermis"
+   ],
+   "arteries": [
+    "pica"
+   ]
+  },
+  {
+   "name": "Superior cerebellar hemisphere",
+   "meshes": [
+    "anterior-quadrangular-lobule",
+    "posterior-quadrangular-lobule",
+    "superior-semilunar-lobule"
+   ],
+   "arteries": [
+    "sca"
+   ]
+  },
+  {
+   "name": "Inferior cerebellar hemisphere",
+   "meshes": [
+    "inferior-semilunar-lobule",
+    "gracile-lobule",
+    "biventral-lobule"
+   ],
+   "arteries": [
+    "pica"
+   ]
+  },
+  {
+   "slug": "anterior-corticospinal-tract",
+   "name": "Anterior corticospinal tract",
+   "meshes": [
+    "anterior-corticospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ],
+   "course": "Anterior spinal artery."
+  },
+  {
+   "slug": "ventral-horn",
+   "name": "Ventral horn",
+   "meshes": [
+    "anterior-horn-of-spinal-cord"
+   ],
+   "arteries": [
+    "asa"
+   ],
+   "course": "Anterior spinal artery."
+  },
+  {
+   "name": "Anterior spinothalamic tract",
+   "meshes": [
+    "anterior-spinothalamic-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Anterior spinocerebellar tract",
+   "meshes": [
+    "anterior-spinocerebellar-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Anterior fasciculus proprius",
+   "meshes": [
+    "anterior-fasciculus-proprius"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Lateral spinothalamic tract",
+   "meshes": [
+    "lateral-spinothalamic-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Intermediolateral nucleus",
+   "meshes": [
+    "intermediolateral-nucleus"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Intermediomedial nucleus",
+   "meshes": [
+    "intermediomedial-nucleus"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Lateral intermediate substance",
+   "meshes": [
+    "lateral-intermediate-substance"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "slug": "lateral-corticospinal-tract",
+   "name": "Lateral corticospinal tract",
+   "meshes": [
+    "lateral-corticospinal-tract"
+   ],
+   "arteries": [
+    "asa",
+    "psa"
+   ],
+   "course": "Anterior spinal artery and posterior spinal arteries.",
+   "note": "Anterior spinal artery with a contribution from the posterior spinal arteries."
+  },
+  {
+   "name": "Rubrospinal tract",
+   "meshes": [
+    "rubrospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Lateral reticulospinal tract",
+   "meshes": [
+    "lateral-reticulospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Medial reticulospinal tract",
+   "meshes": [
+    "medial-reticulospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Lateral vestibulospinal tract",
+   "meshes": [
+    "lateral-vestibulospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Medial vestibulospinal tract",
+   "meshes": [
+    "medial-vestibulospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Tectospinal tract",
+   "meshes": [
+    "tectospinal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Spinotectal tract",
+   "meshes": [
+    "spinotectal-tract"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Lateral fasciculus proprius",
+   "meshes": [
+    "lateral-fasciculus-proprius"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "name": "Nucleus of accessory nerve",
+   "meshes": [
+    "nucleus-of-accessory-nerve"
+   ],
+   "arteries": [
+    "asa"
+   ]
+  },
+  {
+   "slug": "fasciculus-cuneatus",
+   "name": "Fasciculus cuneatus",
+   "meshes": [
+    "cuneate-fasciculus"
+   ],
+   "arteries": [
+    "psa"
+   ],
+   "course": "Posterior spinal arteries."
+  },
+  {
+   "slug": "fasciculus-gracilis",
+   "name": "Fasciculus gracilis",
+   "meshes": [
+    "gracile-fasciculus"
+   ],
+   "arteries": [
+    "psa"
+   ],
+   "course": "Posterior spinal arteries."
+  },
+  {
+   "slug": "dorsal-horn",
+   "name": "Dorsal horn",
+   "meshes": [
+    "posterior-horn-of-spinal-cord"
+   ],
+   "arteries": [
+    "psa"
+   ]
+  },
+  {
+   "slug": "dorsal-spinocerebellar-tract",
+   "name": "Dorsal spinocerebellar tract",
+   "meshes": [
+    "posterior-spinocerebellar-tract"
+   ],
+   "arteries": [
+    "psa"
+   ],
+   "course": "Posterior spinal artery and anterior spinal artery branches."
+  },
+  {
+   "name": "Posterolateral tract",
+   "meshes": [
+    "posterolateral-tract"
+   ],
+   "arteries": [
+    "psa"
+   ]
+  },
+  {
+   "name": "Posterior fasciculus proprius",
+   "meshes": [
+    "posterior-fasciculus-proprius"
+   ],
+   "arteries": [
+    "psa"
+   ]
+  },
+  {
+   "slug": "nucleus-proprius",
+   "name": "Nucleus proprius",
+   "meshes": [
+    "nucleus-proprius"
+   ],
+   "arteries": [
+    "psa"
+   ]
+  }
+ ],
+ "decisions": [
+  {
+   "slug": "posterior-limb-of-internal-capsule",
+   "title": "Posterior limb of the internal capsule",
+   "text": "The course (Lab 16) teaches PCA deep branches for the posterior limb; most textbooks give lenticulostriate (MCA) and anterior choroidal arteries. Both are shown, labelled; confirm with the instructor which to learn for exams."
+  }
+ ]
+}

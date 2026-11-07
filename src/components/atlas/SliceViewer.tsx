@@ -27,6 +27,10 @@ type Props = {
   onPick?: (slug: string) => void;
   height?: number;
   backColor?: [number, number, number, number];
+  /** Move the crosshair (and so the shown slice) to this MNI position whenever it changes. */
+  atMm?: number[] | null;
+  /** Blind mode: no crosshair, no coordinates or names, the mouse wheel does not scroll the slice. */
+  blind?: boolean;
 };
 
 function hexRgb(h: string): [number, number, number] {
@@ -62,7 +66,7 @@ function lutFor(leaves: { id: number; name: string }[], colors: Map<number, stri
   return { R, G, B, A, I, labels };
 }
 
-export default function SliceViewer({ atlas, primary, primaryColor, overlays, view, jumpTo, onPick, height = 560, backColor }: Props) {
+export default function SliceViewer({ atlas, primary, primaryColor, overlays, view, jumpTo, onPick, height = 560, backColor, atMm = null, blind = false }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nvRef = useRef<Niivue | null>(null);
   const [ready, setReady] = useState(false);
@@ -164,9 +168,31 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
     nv.updateGLVolume();
   }, [ready, atlas, jumpTo, view]);
 
+  // controlled slice position
+  const atKey = atMm ? atMm.join(",") : "";
+  useEffect(() => {
+    const nv = nvRef.current;
+    if (!ready || !nv || !atKey) return;
+    const m2f = (nv as unknown as { mm2frac: (mm: number[]) => Niivue["scene"]["crosshairPos"] }).mm2frac.bind(nv);
+    nv.scene.crosshairPos = m2f(atKey.split(",").map(Number));
+    nv.updateGLVolume();
+  }, [ready, atKey, view]);
+
+  // blind mode hides the crosshair
+  useEffect(() => {
+    const nv = nvRef.current;
+    if (!ready || !nv) return;
+    nv.setCrosshairWidth(blind ? 0 : 0.6);
+    nv.updateGLVolume();
+  }, [ready, blind]);
+
   const top = probe?.slugs[0];
   return (
-    <div className="relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2" style={{ height }}>
+    <div
+      className="relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2"
+      style={{ height }}
+      onWheelCapture={blind ? (e) => e.stopPropagation() : undefined}
+    >
       <canvas ref={canvasRef} className="block h-full w-full" aria-label="MRI slice viewer" />
       {!ready && !error && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-text-dim" role="status">
@@ -178,7 +204,7 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
           The MRI slice viewer could not be started ({error}).
         </div>
       )}
-      <div className="pointer-events-none absolute bottom-2 left-2 right-2 flex flex-wrap items-center gap-2 font-mono text-[11px] text-text-dim">
+      {!blind && <div className="pointer-events-none absolute bottom-2 left-2 right-2 flex flex-wrap items-center gap-2 font-mono text-[11px] text-text-dim">
         <span className="rounded-sm border border-panel-border bg-panel px-2 py-1 backdrop-blur">
           {probe ? `x ${probe.mm.map((v) => Math.round(v)).join("  y ")}`.replace(/^x (-?\d+) {2}y (-?\d+) {2}y (-?\d+)$/, "x $1  y $2  z $3") + " mm" : "Click a voxel to name it"}
         </span>
@@ -198,7 +224,7 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
             )}
           </span>
         )}
-      </div>
+      </div>}
     </div>
   );
 }

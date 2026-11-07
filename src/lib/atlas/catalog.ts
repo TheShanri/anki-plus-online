@@ -34,7 +34,8 @@ function slugForMesh(): Map<string, string> {
   for (const [slug, l] of Object.entries(LINKS)) {
     if (!l.slices || l.approximate) continue;
     for (const id of l.meshIds) {
-      const sc = l.meshIds.length === 1 ? 0 : l.meshIds.length;
+      // the curriculum entry named like the mesh wins (precentral-gyrus, not primary-motor-cortex)
+      const sc = slug === id ? -1 : l.meshIds.length === 1 ? 0 : l.meshIds.length;
       if (!m.has(id) || sc < (score.get(id) ?? 99)) {
         m.set(id, slug);
         score.set(id, sc);

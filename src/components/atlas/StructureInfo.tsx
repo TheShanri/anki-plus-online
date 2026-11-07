@@ -102,7 +102,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
       <div className="grid gap-4 md:grid-cols-2">
         <div className="grid content-start gap-2 text-sm">
           <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent-2">
-            On the syllabus <span className="chip">course material</span>
+            On the syllabus <span className="text-text-faint normal-case tracking-normal">from the course materials</span>
           </h3>
           {d.unit && <p>{d.unit.title}</p>}
           {d.lists.length > 0 && (
@@ -133,9 +133,8 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
         </div>
 
         <div className="grid content-start gap-2 text-sm">
-          <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-hard">
-            Supplementary <span className="chip">written for this app, not from the course materials</span>
-          </h3>
+          <h3 className="font-mono text-[11px] uppercase tracking-widest text-hard">Supplementary</h3>
+          <p className="-mt-1 text-xs text-text-faint">Background written for this app, not from the course materials. Check your lecture notes for what is examined.</p>
           {d.supplementary.explanation && <p>{d.supplementary.explanation}</p>}
           {facts.length > 0 && (
             <dl className="grid grid-cols-[max-content_1fr] gap-x-3 gap-y-1">

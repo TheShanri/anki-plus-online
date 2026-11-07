@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ComponentType } from "react";
 import { buildKnownNames, gradeTyped } from "@/lib/study/grade";
 import { emit } from "@/lib/feedback/events";
+import "@/components/study/study.css"; // help-line, kbd, choice and verdict styles
 
 // The 3D viewer, with names hidden: label="" (no title) and quiz (no hover names or labels).
 const AtlasViewer = dynamic(() => import("./AtlasViewer"), {

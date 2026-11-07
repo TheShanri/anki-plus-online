@@ -42,21 +42,29 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) return bad("Bad request");
   const b = parsed.data;
 
-  const { learner } = await loadSettings(sb, userId);
   const nowMs = Date.now();
   // trust the client's clock only within a few minutes (answers can be queued offline briefly)
   const at = b.clientTs && Math.abs(b.clientTs - nowMs) < 6 * 3_600_000 && b.clientTs <= nowMs + 60_000 ? new Date(b.clientTs) : new Date(nowMs);
 
-  const [stateR, ladderR] = await Promise.all([
+  // One round trip for everything the log needs. The session row must exist before the log references it
+  // (engine_heartbeat is SECURITY INVOKER), so it runs here too.
+  const course = b.courseId ? { id: b.courseId } : await resolveCourse(sb, userId, null);
+  // trap-letter rows load alongside (they are only needed once the log is stored)
+  const trapsP = b.traps
+    ? Promise.all([
+        sb.from("cards").select("id, slug, kind, topic_id, structure_id, position, content").eq("id", b.cardId).maybeSingle(),
+        sb.from("card_traps").select("*").eq("user_id", userId).eq("card_id", b.cardId),
+        sb.from("user_trap_patterns").select("pattern, kind, misses, hits, streak, last_miss, last_hit, retired").eq("user_id", userId),
+      ])
+    : null;
+  const [{ learner }, stateR, ladderR] = await Promise.all([
+    loadSettings(sb, userId),
     sb.from("card_states").select("*").eq("user_id", userId).eq("card_id", b.cardId).maybeSingle(),
     sb.from("card_ladder").select("step, clean_streak").eq("user_id", userId).eq("card_id", b.cardId).maybeSingle(),
+    sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 0 }),
   ]);
   const prev: CardStateRow = (stateR.data as CardStateRow | null) ?? newCardState(userId, b.cardId, at);
   const { next } = scheduleReview(prev, b.rating as 1 | 2 | 3 | 4, at, { retention: b.retention ?? learner.study.retention });
-
-  // the session row must exist before the log references it (engine_heartbeat is SECURITY INVOKER)
-  const course = b.courseId ? { id: b.courseId } : await resolveCourse(sb, userId, null);
-  await sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 0 });
 
   // the review log first (its id is the idempotency key): a retry that finds it already stored changes nothing
   const { data: logged, error: logErr } = await sb
@@ -84,9 +92,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ignored: true, state: prev, ladder: ladderR.data ?? null });
   }
 
-  await sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 1 });
-
-  const writes: PromiseLike<unknown>[] = [sb.from("card_states").upsert(next, { onConflict: "user_id,card_id" })];
+  const writes: PromiseLike<unknown>[] = [
+    sb.from("card_states").upsert(next, { onConflict: "user_id,card_id" }),
+    sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 1 }),
+  ];
 
   let ladderRow: { step: number; clean_streak: number } | null = null;
   if (b.ladder) {
@@ -111,12 +120,8 @@ export async function POST(req: NextRequest) {
 
   // trap letters
   let spots: ReturnType<typeof activeSpots> = [];
-  if (b.traps && learner.scaffold.traps) {
-    const [cardR, trapR, patR] = await Promise.all([
-      sb.from("cards").select("id, slug, kind, topic_id, structure_id, position, content").eq("id", b.cardId).maybeSingle(),
-      sb.from("card_traps").select("*").eq("user_id", userId).eq("card_id", b.cardId),
-      sb.from("user_trap_patterns").select("pattern, kind, misses, hits, streak, last_miss, last_hit, retired").eq("user_id", userId),
-    ]);
+  if (b.traps && learner.scaffold.traps && trapsP) {
+    const [cardR, trapR, patR] = await trapsP;
     const card = cardR.data ? toStudyCard(cardR.data as CardRow) : null;
     if (card && card.answer) {
       const rows = (trapR.data ?? []) as TrapRow[];

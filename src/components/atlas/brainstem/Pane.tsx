@@ -112,7 +112,7 @@ export function Pane({ level, style, index, onIndex, courseSlug, mode, hoverSlug
             <p className="text-xs text-accent-2">Showing {extra.length} extra labels from the open image. Not in your slides. Click away to lock.</p>
           ) : (
             <button type="button" onClick={gate.request} className="inline-flex items-center gap-1.5 rounded-sm border border-dashed border-panel-border px-2 py-1 text-xs text-text-faint opacity-80 hover:border-panel-border-hi hover:text-text-dim" title="Beyond your syllabus and slides: click to peek">
-              <Lock size={12} aria-hidden /> {extra.length} extra labels · supplementary
+              <Lock size={12} aria-hidden /> {extra.length} extra labels Â· supplementary
             </button>
           )}
         </div>

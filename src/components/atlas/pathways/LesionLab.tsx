@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Crosshair, Focus, Stethoscope } from "lucide-react";
 import type * as THREE from "three";
 import { loadAtlasIndex } from "@/lib/atlas";
 import {
@@ -15,7 +15,6 @@ import {
   physSide,
   predictLesion,
   siteLabel,
-  sideName,
   type CaseDef,
   type ClinicalCard,
   type CordLevel,
@@ -28,6 +27,9 @@ import {
 import { PathwayViewer } from "./PathwayViewer";
 import { VIEWS, type SceneColors, type SceneLayer, type SceneMark, type SceneTube, type View } from "./PathwayScene";
 import { useSceneColors } from "./sceneTheme";
+import { BodyIcon, IconButton, Segmented } from "./controls";
+import { LesionFindings } from "./LesionFindings";
+import { trackAtlas } from "@/lib/atlas/progress";
 
 /* the white-matter envelope hides the tracts inside it, so it is listed but not pickable in 3D */
 const NOT_PICKABLE = new Set(["white-matter-of-spinal-cord", "central-structures-of-spinal-cord"]);
@@ -248,6 +250,7 @@ export function LesionLab({
     const sideOk = !want.sided || !item.def.side ? true : side === item.def.side;
     const close = !siteOk && site.zones.some((z) => want.zones.includes(z));
     setRevealed({ site: siteOk, side: sideOk, close });
+    trackAtlas({ type: "lesion_case", caseId: item.key, correct: siteOk && sideOk });
     setScore((s) => ({ right: s.right + (siteOk && sideOk ? 1 : 0), total: s.total + 1 }));
     setFocusPath(null);
     setFrameNonce((n) => n + 1);
@@ -312,8 +315,6 @@ export function LesionLab({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, revealed, siteId, side, site, item]);
 
-  const groups = showing ? groupHits(showing.hits) : [];
-  const bySide = (s: Side) => (showing ? showing.hits.filter((h) => h.bodySides.includes(s)) : []);
   const gradeText = revealed
     ? revealed.site && revealed.side
       ? "Correct."
@@ -331,14 +332,20 @@ export function LesionLab({
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1.5fr)_minmax(340px,1fr)]">
       <div className="grid min-w-0 content-start gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <div role="group" aria-label="Mode" className="flex gap-1">
-            <button type="button" aria-pressed={mode === "lab"} className={`btn ${mode === "lab" ? "btn-primary" : ""}`} onClick={() => { setMode("lab"); setRevealed(null); setFocusPath(null); setFrameNonce((n) => n + 1); }}>
-              Place a lesion
-            </button>
-            <button type="button" aria-pressed={mode === "case"} className={`btn ${mode === "case" ? "btn-primary" : ""}`} onClick={() => { setMode("case"); setFocusPath(null); setFrameNonce((n) => n + 1); }}>
-              Case: find the lesion
-            </button>
-          </div>
+          <Segmented
+            label="Mode"
+            value={mode}
+            onChange={(m) => {
+              setMode(m);
+              setRevealed(null);
+              setFocusPath(null);
+              setFrameNonce((n) => n + 1);
+            }}
+            options={[
+              { id: "lab", label: "Place a lesion", tip: "Place a lesion and see what is lost", icon: <Crosshair size={15} /> },
+              { id: "case", label: "Case: find it", tip: "Read a case, then find the lesion", icon: <Stethoscope size={15} /> },
+            ]}
+          />
           {mode === "case" && (
             <span className="text-sm text-text-dim">
               Score {score.right} of {score.total}
@@ -355,6 +362,7 @@ export function LesionLab({
             view={view}
             frameNonce={frameNonce}
             colors={colors}
+            tags
             hoverId={hoverId}
             onHover={setHoverId}
             onPick={onPick}
@@ -365,15 +373,9 @@ export function LesionLab({
             <span className="rounded-sm bg-panel-solid/85 px-2 py-1" style={{ color: colors.bad }}>■ Cut / lesion</span>
             <span className="rounded-sm bg-panel-solid/85 px-2 py-1 text-text-dim">{hoverName ? `${hoverName} (click to place)` : "Hover a structure, click to place the lesion"}</span>
           </div>
-          <div className="absolute right-2 top-2 flex flex-wrap justify-end gap-1">
-            {VIEWS.map((v) => (
-              <button key={v.id} type="button" aria-pressed={view === v.id} onClick={() => setView(v.id)} className={`btn ${view === v.id ? "btn-primary" : ""}`} style={{ padding: "2px 8px", fontSize: 12 }}>
-                {v.label}
-              </button>
-            ))}
-            <button type="button" className="btn" style={{ padding: "2px 8px", fontSize: 12 }} onClick={() => setFrameNonce((x) => x + 1)}>
-              Frame
-            </button>
+          <div className="absolute right-2 top-2 flex items-center gap-1.5">
+            <Segmented label="View" value={view} onChange={setView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
+            <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
           </div>
         </div>
 
@@ -404,26 +406,22 @@ export function LesionLab({
                   (e.target as HTMLInputElement).blur();
                 }
               }}
-              placeholder="Type a site: medial lemniscus, dorsal column, internal capsule…  ( / )"
+              placeholder="Search sites: medial lemniscus, dorsal column…  ( / )"
               className="min-w-0 flex-1 rounded-sm border border-panel-border bg-panel-solid px-2 py-1.5 text-sm text-text"
               autoComplete="off"
               spellCheck={false}
             />
-            <div role="group" aria-label="Side of the lesion" className="flex items-center gap-1">
-              {(["L", "R"] as Side[]).map((s) => (
-                <button key={s} type="button" aria-pressed={side === s} disabled={!site.sided} onClick={() => setSide(s)} className={`btn ${side === s && site.sided ? "btn-primary" : ""}`} style={{ minWidth: 38 }}>
-                  {s}
-                </button>
-              ))}
-            </div>
+            <Segmented
+              label="Side of the lesion"
+              value={site.sided ? side : "L"}
+              onChange={(v) => site.sided && setSide(v)}
+              options={[
+                { id: "L", label: "Left", tip: "Lesion on the left", keys: "L", icon: <BodyIcon fill="L" size={16} />, color: site.sided ? colors.left : undefined },
+                { id: "R", label: "Right", tip: "Lesion on the right", keys: "R", icon: <BodyIcon fill="R" size={16} />, color: site.sided ? colors.right : undefined },
+              ]}
+            />
             {site.cord && (
-              <div role="group" aria-label="Spinal level" className="flex items-center gap-1">
-                {site.cord.map((c) => (
-                  <button key={c} type="button" aria-pressed={effCord === c} onClick={() => setCord(c)} className={`btn ${effCord === c ? "btn-primary" : ""}`} style={{ minWidth: 44 }}>
-                    {CORD[c].label}
-                  </button>
-                ))}
-              </div>
+              <Segmented label="Spinal level" value={effCord ?? site.cord[0]} onChange={(c) => setCord(c)} options={site.cord.map((c) => ({ id: c, label: CORD[c].label, tip: `Spinal level ${CORD[c].label}` }))} />
             )}
           </div>
           <div className="max-h-44 overflow-auto rounded-sm border border-panel-border" role="listbox" aria-label="Lesion sites">
@@ -495,97 +493,11 @@ export function LesionLab({
           </div>
         )}
 
-        {showing && (
-          <div className="grid gap-3">
-            {mode === "lab" && (
-              <div>
-                <p className="eyebrow">Lesion</p>
-                <h2 className="font-display text-xl">{siteLabel(showing.site, showing.side, showing.cord)}</h2>
-              </div>
-            )}
-            {mode === "case" && <p className="label">Explanation</p>}
-            <div className="grid gap-2 sm:grid-cols-2">
-              {(["L", "R"] as Side[]).map((s) => (
-                <div key={s} className="rounded-sm border border-panel-border p-2">
-                  <p className="label" style={{ color: s === "L" ? colors.left : colors.right }}>
-                    {sideName(s)} side
-                  </p>
-                  {bySide(s).length === 0 && showing.effects.every((e) => !e.sides.includes(s)) ? (
-                    <p className="text-sm text-text-dim">Nothing lost.</p>
-                  ) : (
-                    <ul className="grid gap-1 text-sm">
-                      {groupHits(bySide(s)).map((g) => (
-                        <li key={g.pathway}>
-                          <button type="button" className="text-left underline-offset-2 hover:underline" onClick={() => setFocusPath(focusPath === g.pathway ? null : g.pathway)}>
-                            <span className="text-text-dim">{shortName(g.name)}:</span> loss of {g.hits[0].loss.replace(/\s*\([^)]*\)/, "")}
-                          </button>
-                          <span className="block text-xs text-text-faint">{g.hits[0].region}</span>
-                        </li>
-                      ))}
-                      {showing.effects.filter((e) => e.sides.includes(s)).map((e, i) => (
-                        <li key={`e${i}`} className="text-text-dim">
-                          {e.text}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-            {showing.cord && <p className="text-xs text-text-dim">Spinal level {CORD[showing.cord].label}: deficits are below this level, except where noted.</p>}
-
-            <div className="grid gap-2">
-              <p className="label">Why (click a pathway to see it in 3D)</p>
-              {groups.length === 0 && <p className="text-sm text-text-dim">This lesion does not cut a traced pathway (see the findings above).</p>}
-              {groups.map((g) => {
-                const open = focusPath === g.pathway;
-                const cp = courseMap.get(g.pathway);
-                const h = g.hits[0];
-                return (
-                  <div key={g.pathway} className="rounded-sm border px-3 py-2 text-sm" style={{ borderColor: open ? colors.bad : "var(--panel-border)" }}>
-                    <button type="button" className="w-full text-left font-semibold" aria-expanded={open} onClick={() => setFocusPath(open ? null : g.pathway)}>
-                      {g.name}
-                    </button>
-                    <p className="mt-1">
-                      <span className="text-text-dim">Cut:</span> {h.stretch.label}
-                      {g.hits.length > 1 ? ` (+${g.hits.length - 1} more segment${g.hits.length > 2 ? "s" : ""})` : ""}
-                    </p>
-                    <p className="text-text-dim">{h.why}</p>
-                    {h.lag && <p className="text-xs text-text-faint">Pain and temperature loss begins one or two segments below the lesion (the fibres cross before they ascend).</p>}
-                    {h.note && <p className="text-xs text-text-faint">{h.note}</p>}
-                    {open && cp && (
-                      <p className="mt-1 text-xs text-text-dim">
-                        Course rule: below the crossing, {cp.lesion.below_decussation}; above, {cp.lesion.above}. Crossing: {cp.decussation}.
-                      </p>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            <details className="text-sm">
-              <summary className="cursor-pointer text-text-dim">Spared: pathways this lesion does not touch</summary>
-              <p className="mt-1 text-text-dim">{showing.spared.join("; ")}</p>
-            </details>
-            <div className="flex flex-wrap gap-2">
-              <button type="button" className="btn" aria-pressed={zoom === "wide"} onClick={() => setZoom(zoom === "wide" ? "near" : "wide")}>
-                {zoom === "wide" ? "Frame the lesion" : "Frame all cut pathways"}
-              </button>
-              {focusPath && (
-                <Link className="btn no-underline" href={`/atlas/pathways?p=${focusPath}&side=${showing.hits.find((x) => x.pathway === focusPath)?.bodySides[0] ?? "R"}`}>
-                  Trace this pathway
-                </Link>
-              )}
-            </div>
-          </div>
-        )}
+        {showing && <LesionFindings showing={showing} mode={mode} colors={colors} courseMap={courseMap} focusPath={focusPath} setFocusPath={setFocusPath} zoom={zoom} setZoom={setZoom} />}
         {mode === "case" && !revealed && <p className="text-sm text-text-dim">The explanation appears after you check the lesion.</p>}
       </aside>
     </div>
   );
-}
-
-function shortName(n: string) {
-  return n.replace(/\s*\(.*\)/, "");
 }
 
 /** After a case is checked: show the student's own guess next to the truth. */

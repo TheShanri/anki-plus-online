@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, CircleHelp, Focus, Pause, Play, Route, Shuffle } from "lucide-react";
 import {
   ORDINAL,
   PATHWAY_MAP,
@@ -16,35 +17,48 @@ import {
   type MapPathway,
   type PathwayCard,
   type Side,
-  type WP,
 } from "@/lib/atlas/pathways";
+import { trackAtlas } from "@/lib/atlas/progress";
 import { PathwayViewer } from "./PathwayViewer";
-import { VIEWS, type SceneColors, type SceneLayer, type SceneMark, type SceneTube, type View } from "./PathwayScene";
+import { VIEWS, type View } from "./PathwayScene";
 import { useSceneColors } from "./sceneTheme";
+import { BodyIcon, Collapsible, IconButton, Segmented } from "./controls";
+import { PathwayPicker, type PickerGroup, type PickerHandle } from "./PathwayPicker";
+import { DeficitIcons, DeficitLegend } from "./deficits";
+import { CalcarineDiagram, FieldDiagram, fieldPalette } from "./visualField";
+import { ORIGINS, ZONE_NAMES, buildPathwayScene, primaryOf, type LimbChoice, type SideMode } from "./buildPathwayScene";
+import { ReceptorLens } from "./ReceptorLens";
+import { shade } from "./visualField";
+
+/* The pathway tracer: pick a pathway, see both sides in separate lanes (left solid, right dashed), step through the
+ * 1st, 2nd and 3rd-order neurons or play an impulse along the whole route, with the body part (or the eyes) where the signal starts. */
 
 const GROUPS: { title: string; slugs: string[] }[] = [
-  { title: "Sensory", slugs: ["dcml", "alst", "dsct", "trigeminal-discriminative", "trigeminal-pain"] },
-  { title: "Motor", slugs: ["lcst", "acst", "corticobulbar", "rubrospinal", "tectospinal", "reticulospinal", "vestibulospinal", "umn-lmn"] },
+  { title: "Ascending (sensory)", slugs: ["dcml", "alst", "dsct", "trigeminal-discriminative", "trigeminal-pain"] },
+  { title: "Descending (motor)", slugs: ["lcst", "acst", "corticobulbar", "rubrospinal", "tectospinal", "reticulospinal", "vestibulospinal", "umn-lmn"] },
+  { title: "Special senses and reflexes", slugs: ["visual", "pupillary", "corneal", "gaze", "jaw-jerk", "olfactory"] },
   { title: "Cerebellum and basal ganglia", slugs: ["corticopontocerebellar", "cerebellar", "basal-ganglia"] },
-  { title: "Eye and reflexes", slugs: ["visual", "pupillary", "corneal", "gaze", "jaw-jerk"] },
-  { title: "Autonomic, smell and limbic", slugs: ["sympathetic", "parasympathetic", "olfactory", "limbic-fornix", "limbic-amygdala", "limbic-septal", "reward"] },
+  { title: "Autonomic and limbic", slugs: ["sympathetic", "parasympathetic", "limbic-fornix", "limbic-amygdala", "limbic-septal", "reward"] },
 ];
-const SIDE_WORD: Record<string, string> = {
-  visual: "visual field",
-  pupillary: "eye lit",
-  cerebellar: "cerebellar side",
-  corticopontocerebellar: "cerebellar side",
-  "basal-ganglia": "body side affected",
-  lcst: "limb moved",
-  acst: "limb moved",
-  corticobulbar: "face side",
-  rubrospinal: "limb moved",
-  tectospinal: "limb moved",
-  "umn-lmn": "limb moved",
-  vestibulospinal: "limb moved",
-  reticulospinal: "limb moved",
+/** What "left / right" means for each pathway (the segmented control reads "Left <noun>"). */
+const SIDE_NOUN: Record<string, string> = {
+  visual: "field",
+  pupillary: "eye",
+  cerebellar: "cerebellum",
+  corticopontocerebellar: "cerebellum",
+  "basal-ganglia": "body",
+  lcst: "limb",
+  acst: "limb",
+  corticobulbar: "face",
+  rubrospinal: "limb",
+  tectospinal: "limb",
+  "umn-lmn": "limb",
+  vestibulospinal: "limb",
+  reticulospinal: "limb",
+  "trigeminal-discriminative": "face",
+  "trigeminal-pain": "face",
 };
-const sideWord = (slug: string) => SIDE_WORD[slug] ?? "body side stimulated";
+const sideNoun = (slug: string) => SIDE_NOUN[slug] ?? "body";
 
 function hash(s: string) {
   let h = 2166136261;
@@ -85,45 +99,19 @@ function buildQuestion(slug: string, step: number, courses: CoursePathway[]): Qu
   return { prompt, answer, keys, options };
 }
 
+const cap1 = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-function buildScene(o: { mp: MapPathway; slug: string; body: Side; cur: number; lastShown: number; summary: boolean; follow: boolean; colors: SceneColors; effFocus: string }) {
-  const { mp, slug, body, cur, lastShown, summary, follow, colors, effFocus } = o;
-
-    const layers: SceneLayer[] = [];
-    const tubes: SceneTube[] = [];
-    const marks: SceneMark[] = [];
-    const fit: { wp: WP; body: Side }[] = [];
-    const relColor = (rel: string) => (rel === "i" ? (body === "L" ? colors.left : colors.right) : rel === "c" ? (body === "L" ? colors.right : colors.left) : colors.hi);
-    mp.neurons.forEach((nr, ni) => {
-      const visible = ni <= lastShown;
-      const active = ni === cur || summary;
-      const inFit = follow && !summary ? ni === cur : true;
-      for (const st of nr.stretches) {
-        if (inFit && (effFocus === "all" || ni !== cur || st.k === effFocus || !follow)) {
-          st.path?.forEach((w) => fit.push({ wp: w, body }));
-          st.marks?.forEach((m) => fit.push({ wp: m.p, body }));
-        }
-        if (!visible) continue;
-        const ps = physSide(st.phys, body);
-        if (st.ids?.length) {
-          layers.push({
-            key: `${ni}:${st.k}`,
-            ids: st.ids,
-            side: ps ?? "both",
-            color: ps === "L" ? colors.left : ps === "R" ? colors.right : colors.hi,
-            opacity: active ? 0.9 : 0.5,
-          });
-        }
-        if (st.path && st.path.length > 1) {
-          tubes.push({ key: `${slug}:${body}:${ni}:${st.k}`, pts: st.path, body, opacity: active ? 1 : 0.55, reveal: 1, pulse: ni === cur && !summary, width: active ? 1 : 0.75 });
-        }
-        st.marks?.forEach((m, mi) => {
-          if (m.kind !== "dec" && !(ni === cur || summary)) return;
-          marks.push({ key: `${slug}:${body}:${ni}:${st.k}:${mi}`, p: m.p, body, kind: m.kind, text: m.text, color: m.kind === "dec" ? colors.hi : relColor(String(m.p[1])) });
-        });
-      }
-    });
-    return { layers, tubes, marks, fit };
+/** One plain line for a step, built from the course's own neuron data (cell body, synapse, crossing). */
+function stepCaption(slug: string, ni: number, cp: CoursePathway): string {
+  if (slug === "visual") {
+    if (ni === 0) return "Light falls on the retina: each retina has a nasal and a temporal half, and the left half of the field falls on the right half of each retina.";
+    if (ni === 1) return "Retinal ganglion cells leave in the optic nerve. At the chiasm the nasal fibres cross and the temporal fibres stay, so each optic tract carries the opposite visual field of both eyes.";
+    return "The LGN sends the optic radiations to V1. Meyer's loop (temporal lobe) carries the upper field, the parietal route the lower field; the calcarine fissure splits V1 into two banks.";
+  }
+  const n = cp.neurons[ni];
+  if (!n) return "";
+  const cross = n.decussates ? "crosses the midline here" : "stays on the same side";
+  return `${cap1(n.cell_body)} → ${n.synapse}; ${cross}.`;
 }
 
 type Answered = Record<string, "right" | "wrong">;
@@ -138,79 +126,159 @@ export function PathwayTracer({
   initial: { p?: string; side?: string; step?: string };
 }) {
   const bySlug = useMemo(() => new Map(courses.map((c) => [c.slug, c])), [courses]);
-  const ordered = useMemo(() => GROUPS.map((g) => ({ ...g, slugs: g.slugs.filter((s) => bySlug.has(s) && PATHWAY_MAP[s]) })), [bySlug]);
+  const groups = useMemo<PickerGroup[]>(
+    () =>
+      GROUPS.map((g) => ({
+        title: g.title,
+        items: g.slugs.filter((s) => bySlug.has(s) && PATHWAY_MAP[s]).map((s) => ({ slug: s, name: bySlug.get(s)!.name, hint: PATHWAY_MAP[s].quality === "partial" ? "approximate" : undefined })),
+      })).filter((g) => g.items.length),
+    [bySlug],
+  );
   const [slug, setSlug] = useState(initial.p && bySlug.has(initial.p) && PATHWAY_MAP[initial.p] ? initial.p : "dcml");
-  const [body, setBody] = useState<Side>(initial.side === "L" ? "L" : "R");
+  const [sideMode, setSideMode] = useState<SideMode>(initial.side === "L" ? "L" : initial.side === "R" ? "R" : "both");
   const [step, setStep] = useState(Math.max(0, Number(initial.step) || 0));
+  const [limbPart, setLimbPart] = useState<LimbChoice>("hand");
   const [quiz, setQuiz] = useState(false);
   const [answered, setAnswered] = useState<Answered>({});
   const [picked, setPicked] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
   const [feedback, setFeedback] = useState<{ ok: boolean; q: Question } | null>(null);
   const [playing, setPlaying] = useState(false);
-  const [view, setView] = useState<View>("anterior");
+  const [playNonce, setPlayNonce] = useState(0);
+  const [userView, setUserView] = useState<View | null>(null);
   const [follow, setFollow] = useState(true);
+  const [zoomCross, setZoomCross] = useState(false);
   const [frameNonce, setFrameNonce] = useState(0);
-  const [focus, setFocus] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
+  const [load, setLoad] = useState({ done: 0, total: 0 });
+  const [reduced, setReduced] = useState(false);
   const colors = useSceneColors();
   const inputRef = useRef<HTMLInputElement>(null);
+  const pickerRef = useRef<PickerHandle>(null);
+  const visited = useRef(new Set<number>());
+  const completed = useRef(new Set<string>());
 
   const cp = bySlug.get(slug)!;
-  const mp = PATHWAY_MAP[slug];
+  const mp: MapPathway = PATHWAY_MAP[slug];
   const n = mp.neurons.length;
   const cur = Math.min(step, n); // n = whole pathway
   const summary = cur >= n;
   const qKey = `${slug}:${cur}`;
   const question = useMemo(() => (quiz && !summary ? buildQuestion(slug, cur, courses) : null), [quiz, summary, slug, cur, courses]);
   const gated = !!question && !answered[qKey];
-  const lastShown = summary ? n - 1 : gated ? cur - 1 : cur;
+  const lastShown = summary || playing ? n - 1 : gated ? cur - 1 : cur;
+  const noun = sideNoun(slug);
+  const cfg = ORIGINS[slug];
+  const isVisual = !!mp.visual;
 
-  const go = useCallback(
-    (d: number) => {
-      setStep((s) => Math.max(0, Math.min(n, s + d)));
-      setFocus(null);
-      setPicked(null);
-      setTyped("");
-      setFeedback(null);
-    },
-    [n],
-  );
-  const choose = useCallback((s: string) => {
-    setSlug(s);
-    setStep(0);
-    setFocus(null);
-    setPlaying(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const upd = () => setReduced(mq.matches || document.documentElement.dataset.effects === "off");
+    upd();
+    mq.addEventListener("change", upd);
+    const mo = new MutationObserver(upd);
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-effects"] });
+    return () => {
+      mq.removeEventListener("change", upd);
+      mo.disconnect();
+    };
+  }, []);
+
+  const resetStepUi = useCallback(() => {
     setPicked(null);
     setTyped("");
     setFeedback(null);
-    setReady(false);
   }, []);
+  const go = useCallback(
+    (d: number) => {
+      setStep((s) => Math.max(0, Math.min(n, s + d)));
+      setZoomCross(false);
+      resetStepUi();
+    },
+    [n, resetStepUi],
+  );
+  const goTo = useCallback(
+    (i: number) => {
+      setStep(i);
+      setZoomCross(false);
+      resetStepUi();
+    },
+    [resetStepUi],
+  );
+  const choose = useCallback(
+    (s: string) => {
+      setSlug(s);
+      setStep(0);
+      setZoomCross(false);
+      setPlaying(false);
+      setUserView(null);
+      resetStepUi();
+      setReady(false);
+      visited.current = new Set();
+    },
+    [resetStepUi],
+  );
 
   // url state
   useEffect(() => {
     const u = new URL(window.location.href);
     u.searchParams.set("p", slug);
-    u.searchParams.set("side", body);
+    u.searchParams.set("side", sideMode);
     u.searchParams.set("step", String(cur));
     window.history.replaceState(null, "", u);
-  }, [slug, body, cur]);
+  }, [slug, sideMode, cur]);
 
-  // play
+  /* ----- progress: a pathway counts as done when every step was seen (stepped or played) and the whole is reached ----- */
   useEffect(() => {
-    if (!playing || quiz) return;
+    if (cur < n) visited.current.add(cur);
+    else if (visited.current.size >= n && !completed.current.has(slug)) {
+      completed.current.add(slug);
+      const mine = Object.entries(answered).filter(([k]) => k.startsWith(slug + ":"));
+      trackAtlas({
+        type: "pathway_completed",
+        pathway: slug,
+        ...(mine.length ? { quizCorrect: mine.filter(([, v]) => v === "right").length, quizTotal: mine.length } : {}),
+      });
+    }
+  }, [cur, n, slug, answered]);
+
+  /* ----- play ----- */
+  const startPlay = useCallback(() => {
+    setStep(0);
+    resetStepUi();
+    setPlayNonce((x) => x + 1);
+    setPlaying(true);
+  }, [resetStepUi]);
+  const togglePlay = useCallback(() => {
+    if (quiz) return;
+    if (playing) setPlaying(false);
+    else startPlay();
+  }, [quiz, playing, startPlay]);
+  // with reduced motion there is no travelling impulse: the steps advance on a timer instead
+  useEffect(() => {
+    if (!playing || !reduced) return;
     const t = setInterval(() => {
       setStep((s) => {
-        if (s >= n) {
+        if (s >= n - 1) {
           setPlaying(false);
-          return s;
+          return n;
         }
         return s + 1;
       });
-      setFocus(null);
-    }, 4600);
+    }, 3200);
     return () => clearInterval(t);
-  }, [playing, quiz, n]);
+  }, [playing, reduced, n]);
+  const onPlayProgress = useCallback(
+    (neuron: number, done: boolean) => {
+      if (done) {
+        setPlaying(false);
+        setStep(n);
+      } else setStep(Math.min(neuron, n - 1));
+    },
+    [n],
+  );
+  const bodies = useMemo<Side[]>(() => (sideMode === "both" ? ["L", "R"] : [sideMode]), [sideMode]);
+  const play = useMemo(() => (playing && !reduced ? { running: true, nonce: playNonce, bodies } : undefined), [playing, reduced, playNonce, bodies]);
 
   const submit = useCallback(
     (text: string, viaOption: boolean) => {
@@ -221,6 +289,9 @@ export function PathwayTracer({
     },
     [question, answered, qKey],
   );
+
+  const cycleSide = useCallback(() => setSideMode((m) => (m === "L" ? "R" : m === "R" ? "both" : "L")), []);
+  const effView: View = userView ?? (isVisual && cur >= 1 && !summary ? "top" : isVisual && summary ? "top" : "anterior");
 
   // keyboard
   useEffect(() => {
@@ -237,12 +308,15 @@ export function PathwayTracer({
         go(-1);
       } else if (e.key === " " && !quiz) {
         e.preventDefault();
-        setPlaying((p) => !p);
+        togglePlay();
       } else if (e.key === "q" || e.key === "Q") setQuiz((v) => !v);
-      else if (e.key === "v" || e.key === "V") setView((v) => VIEWS[(VIEWS.findIndex((x) => x.id === v) + 1) % VIEWS.length].id);
+      else if (e.key === "v" || e.key === "V") setUserView(VIEWS[(VIEWS.findIndex((x) => x.id === effView) + 1) % VIEWS.length].id);
       else if (e.key === "f" || e.key === "F") setFrameNonce((x) => x + 1);
-      else if (e.key === "s" || e.key === "S") setBody((b) => opp(b));
-      else if (gated && /^[1-4]$/.test(e.key) && question) {
+      else if (e.key === "s" || e.key === "S") cycleSide();
+      else if (e.key === "p" || e.key === "P") {
+        e.preventDefault();
+        pickerRef.current?.open();
+      } else if (gated && /^[1-4]$/.test(e.key) && question) {
         const o = question.options[Number(e.key) - 1];
         if (o) {
           setPicked(o);
@@ -255,14 +329,27 @@ export function PathwayTracer({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go, gated, quiz, question, submit]);
+  }, [go, gated, quiz, question, submit, togglePlay, cycleSide, effView]);
 
   const stepStretches = !summary ? mp.neurons[cur].stretches.filter((x) => x.path && x.path.length > 1) : [];
-  // a step with a decussation opens zoomed on the crossing
-  const effFocus = summary ? "all" : (focus ?? stepStretches.find((x) => x.phys === "cross")?.k ?? "all");
+  const crossK = stepStretches.find((x) => x.phys === "cross")?.k;
+  const focusStretch = zoomCross && crossK ? crossK : "all";
 
   /* ---------- the 3D scene for this step ---------- */
-  const scene = buildScene({ mp, slug, body, cur, lastShown, summary, follow, colors, effFocus });
+  const scene = useMemo(
+    () => buildPathwayScene({ mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch }),
+    [mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch],
+  );
+  const pal = useMemo(() => fieldPalette(colors.left, colors.right), [colors.left, colors.right]);
+  const zoneColors = useMemo(() => [shade(colors.hi, 0.1), shade(colors.hi, -0.15), shade(colors.hi, -0.4)], [colors.hi]);
+
+  const onLimbPick = useCallback(
+    (s: Side) => {
+      setSideMode(s);
+      startPlay();
+    },
+    [startPlay],
+  );
 
   /* ---------- panel data ---------- */
   const neuron = !summary ? cp.neurons[cur] : null;
@@ -274,144 +361,138 @@ export function PathwayTracer({
     const zones = new Set(mp.neurons.flatMap((x) => x.stretches.filter((s) => !s.noLesion).flatMap((s) => s.zones ?? [])));
     return SITES.filter((s) => s.zones.some((z) => zones.has(z))).slice(0, 6);
   }, [mp]);
-
+  const primary = primaryOf(sideMode);
   const sideLines = (mapN?.stretches ?? []).map((s) => {
-    const ps = physSide(s.phys, body);
-    const txt = s.phys === "cross" ? `Crosses the midline: ${sideName(body)} to ${sideName(opp(body))}` : `${sideName(ps!)} side (${s.phys === "i" ? "ipsilateral" : "contralateral"})`;
+    const ps = physSide(s.phys, primary);
+    const txt = s.phys === "cross" ? `crosses the midline, ${sideName(primary)} to ${sideName(opp(primary))}` : `${sideName(ps!)} side (${s.phys === "i" ? "same side as the " : "opposite the "}${noun})`;
     return { label: s.label, txt, color: s.phys === "cross" ? colors.hi : ps === "L" ? colors.left : colors.right };
   });
-
+  const lossStretch = mapN?.stretches.find((s) => s.loss) ?? null;
+  const loss = lossStretch?.loss ?? mp.loss;
   const topic = stepCards[0] ? (cards.find((c) => c.pathway === slug && c.topic)?.topic ?? null) : null;
+  const caption = summary ? `The whole route, ${cp.neurons.length} neurons. ${cp.decussation ? `Crossing: ${cp.decussation}.` : ""}` : stepCaption(slug, cur, cp);
+  const cardList = summary ? stepCards.filter((c) => neuronForCard(c, cp) === 0) : cardsFor(cur + 1);
+  const stepOptions = [
+    ...mp.neurons.map((_, i) => ({ id: String(i), label: `${ORDINAL[i + 1]}${answered[`${slug}:${i}`] === "right" ? " ✓" : ""}`, tip: `${ORDINAL[i + 1]}-order neuron: ${cp.neurons[i]?.cell_body ?? ""}` })),
+    { id: "all", label: "All", tip: "The whole pathway" },
+  ];
+  const sideWord = (s: Side) => `${s === "L" ? "Left" : "Right"} ${noun}`;
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.55fr)_minmax(320px,1fr)]">
-      <div className="grid min-w-0 content-start gap-3">
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.6fr)_minmax(320px,1fr)]">
+      <div className="grid min-w-0 content-start gap-2.5">
         <div className="flex flex-wrap items-center gap-2">
-          <label className="sr-only" htmlFor="pw-select">Pathway</label>
-          <select
-            id="pw-select"
-            value={slug}
-            onChange={(e) => choose(e.target.value)}
-            className="min-w-0 max-w-full flex-1 rounded-sm border border-panel-border bg-panel-solid px-2 py-1.5 text-sm text-text"
-          >
-            {ordered.map((g) => (
-              <optgroup key={g.title} label={g.title}>
-                {g.slugs.map((s) => (
-                  <option key={s} value={s}>
-                    {bySlug.get(s)!.name}
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-          <div role="group" aria-label={`Side of the ${sideWord(slug)}`} className="flex items-center gap-1">
-            <span className="text-xs text-text-dim">{sideWord(slug)}:</span>
-            {(["L", "R"] as Side[]).map((s) => (
-              <button key={s} type="button" aria-pressed={body === s} onClick={() => setBody(s)} className={`btn ${body === s ? "btn-primary" : ""}`} style={{ minWidth: 38 }}>
-                {s}
-              </button>
-            ))}
-          </div>
+          <PathwayPicker ref={pickerRef} groups={groups} value={slug} onChange={choose} />
+          <Segmented
+            big
+            label={`Which side of the ${noun}`}
+            value={sideMode}
+            onChange={setSideMode}
+            options={[
+              { id: "L", label: sideWord("L"), tip: `${sideWord("L")}: the other side dims`, keys: "S", icon: <BodyIcon fill="L" />, color: colors.left },
+              { id: "both", label: "Both", tip: "Both sides", keys: "S", icon: <BodyIcon fill="both" /> },
+              { id: "R", label: sideWord("R"), tip: `${sideWord("R")}: the other side dims`, keys: "S", icon: <BodyIcon fill="R" />, color: colors.right },
+            ]}
+          />
         </div>
+        {cfg?.parts && cfg.parts.length > 1 && (
+          <div className="flex items-center gap-2 text-xs text-text-dim">
+            <span>Signal starts in the</span>
+            <Segmented
+              label="Body part"
+              value={limbPart}
+              onChange={setLimbPart}
+              options={[
+                { id: "hand", label: "Hand (arm)", tip: "Arm: fasciculus cuneatus" },
+                { id: "foot", label: "Foot (leg)", tip: "Leg: fasciculus gracilis" },
+              ]}
+            />
+          </div>
+        )}
 
-        <div className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2" style={{ height: "min(64vh, 640px)", minHeight: 360 }}>
+        <div className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2" style={{ height: "min(62vh, 620px)", minHeight: 360 }}>
           <PathwayViewer
             layers={scene.layers}
             tubes={scene.tubes}
             marks={scene.marks}
             fit={scene.fit}
-            view={view}
+            limbs={scene.limbs}
+            eyes={scene.eyes}
+            zoneColors={zoneColors}
+            play={play}
+            onPlayProgress={onPlayProgress}
+            onLimbPick={onLimbPick}
+            tags
+            view={effView}
             frameNonce={frameNonce}
             colors={colors}
             onReady={setReady}
+            onLoad={(done, total) => setLoad({ done, total })}
           />
-          {!ready && <div className="pointer-events-none absolute left-3 top-3 rounded-sm bg-panel-solid/80 px-2 py-1 text-xs text-text-dim">Placing the pathway…</div>}
-          <div className="pointer-events-none absolute bottom-2 left-2 flex flex-wrap gap-2 text-xs">
-            <span className="rounded-sm bg-panel-solid/85 px-2 py-1" style={{ color: colors.left }}>■ Left side</span>
-            <span className="rounded-sm bg-panel-solid/85 px-2 py-1" style={{ color: colors.right }}>■ Right side</span>
-            <span className="rounded-sm bg-panel-solid/85 px-2 py-1" style={{ color: colors.hi }}>◆ Decussation</span>
-          </div>
-          <div className="absolute right-2 top-2 flex flex-wrap justify-end gap-1">
-            {VIEWS.map((v) => (
-              <button key={v.id} type="button" aria-pressed={view === v.id} onClick={() => setView(v.id)} className={`btn ${view === v.id ? "btn-primary" : ""}`} style={{ padding: "2px 8px", fontSize: 12 }}>
-                {v.label}
-              </button>
-            ))}
-            <button type="button" className="btn" style={{ padding: "2px 8px", fontSize: 12 }} onClick={() => setFrameNonce((x) => x + 1)} title="Re-frame (F)">
-              Frame
-            </button>
+          {!ready && (
+            <div className="pointer-events-none absolute left-3 top-3 w-56 rounded-sm bg-panel-solid/90 px-3 py-2 text-xs text-text-dim" role="status">
+              <p>Placing the pathway: {load.done} of {load.total || "…"} structures</p>
+              <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-bg-3">
+                <div className="h-full rounded-full bg-accent transition-[width]" style={{ width: `${load.total ? Math.round((load.done / load.total) * 100) : 4}%` }} />
+              </div>
+            </div>
+          )}
+          <Legend colors={colors} visual={isVisual} />
+          <div className="absolute right-2 top-2 flex items-center gap-1.5">
+            <Segmented
+              label="View"
+              value={effView}
+              onChange={setUserView}
+              options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))}
+            />
+            <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Steps">
-          {mp.neurons.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-selected={cur === i}
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-1">
+            <IconButton label="Previous step" keys="←" icon={<ChevronLeft size={18} />} onClick={() => go(-1)} disabled={cur === 0 || playing} />
+            <IconButton
+              label={playing ? "Pause" : isVisual ? "Play: an impulse from the retina to V1" : "Play: an impulse along the pathway"}
+              keys="Space"
+              icon={playing ? <Pause size={17} /> : <Play size={17} />}
+              onClick={togglePlay}
+              disabled={quiz}
+              pressed={playing}
+              tone="primary"
+            />
+            <IconButton label="Next step" keys="→" icon={<ChevronRight size={18} />} onClick={() => go(1)} disabled={summary || gated || playing} />
+          </div>
+          <Segmented label="Step" value={summary ? "all" : String(cur)} onChange={(v) => goTo(v === "all" ? n : Number(v))} options={stepOptions} />
+          <div className="ml-auto flex items-center gap-1">
+            {crossK && follow && (
+              <IconButton label={zoomCross ? "Show the whole step" : "Zoom on the crossing"} icon={<Shuffle size={16} />} pressed={zoomCross} onClick={() => setZoomCross((z) => !z)} />
+            )}
+            <IconButton label="Camera follows the step" icon={<Route size={16} />} pressed={follow} onClick={() => setFollow((f) => !f)} />
+            <IconButton
+              label="Quiz: what comes next?"
+              keys="Q"
+              icon={<CircleHelp size={16} />}
+              pressed={quiz}
               onClick={() => {
-                setStep(i);
-                setFocus(null);
-                setPicked(null);
-                setTyped("");
-                setFeedback(null);
-              }}
-              className={`btn ${cur === i ? "btn-primary" : ""}`}
-              style={{ minWidth: 44 }}
-            >
-              {ORDINAL[i + 1]}
-              {answered[`${slug}:${i}`] === "right" ? " ✓" : ""}
-            </button>
-          ))}
-          <button type="button" role="tab" aria-selected={summary} onClick={() => { setStep(n); setFocus(null); }} className={`btn ${summary ? "btn-primary" : ""}`}>
-            Whole
-          </button>
-          <span className="mx-1 h-5 w-px bg-panel-border" />
-          <button type="button" className="btn" onClick={() => go(-1)} disabled={cur === 0} aria-label="Previous step">
-            ←
-          </button>
-          <button type="button" className="btn" onClick={() => go(1)} disabled={summary || gated} aria-label="Next step">
-            →
-          </button>
-          <button type="button" className="btn" onClick={() => setPlaying((p) => !p)} disabled={quiz} aria-pressed={playing}>
-            {playing ? "Pause" : "Play"}
-          </button>
-          <label className="ml-auto flex items-center gap-1.5 text-sm">
-            <input type="checkbox" checked={follow} onChange={(e) => setFollow(e.target.checked)} /> Follow step
-          </label>
-          <label className="flex items-center gap-1.5 text-sm">
-            <input
-              type="checkbox"
-              checked={quiz}
-              onChange={(e) => {
-                setQuiz(e.target.checked);
+                setQuiz((v) => !v);
                 setPlaying(false);
               }}
-            />{" "}
-            What comes next?
-          </label>
-        </div>
-        {stepStretches.length > 1 && follow && (
-          <div className="flex flex-wrap items-center gap-1.5 text-xs">
-            <span className="text-text-dim">Look at:</span>
-            {stepStretches.map((x) => (
-              <button key={x.k} type="button" aria-pressed={effFocus === x.k} className={`chip ${effFocus === x.k ? "follow" : ""}`} onClick={() => setFocus(x.k)}>
-                {x.phys === "cross" ? "The crossing" : x.label.split(/[(:,]/)[0].trim().slice(0, 30)}
-              </button>
-            ))}
-            <button type="button" aria-pressed={effFocus === "all"} className={`chip ${effFocus === "all" ? "follow" : ""}`} onClick={() => setFocus("all")}>
-              All of it
-            </button>
+            />
           </div>
-        )}
+        </div>
+        <p className="rounded-sm border border-panel-border bg-panel-solid/60 px-3 py-2 text-sm leading-snug" aria-live="polite">
+          <span className="mr-2 font-mono text-[11px] uppercase tracking-wider text-text-faint">{summary ? "Whole" : `Step ${cur + 1} of ${n}`}</span>
+          {caption}
+        </p>
         <p className="help-line">
           <span><span className="kbd">←</span> <span className="kbd">→</span> step</span>
           <span><span className="kbd">Space</span> play</span>
-          <span><span className="kbd">S</span> flip side</span>
+          <span><span className="kbd">S</span> side</span>
+          <span><span className="kbd">P</span> pathways</span>
           <span><span className="kbd">V</span> view</span>
           <span><span className="kbd">Q</span> quiz</span>
-          <span>drag to rotate, scroll to zoom</span>
+          {scene.limbs.length > 0 && <span>click a {limbPartName(scene.limbs[0].part)} to trace that side</span>}
         </p>
       </div>
 
@@ -485,7 +566,7 @@ export function PathwayTracer({
                   <div><dt className="label">Synapse</dt><dd>{neuron.synapse}</dd></div>
                 </dl>
                 <div>
-                  <p className="label">Which side, where</p>
+                  <p className="label">Which side, where{sideMode === "both" ? ` (${sideName(primary).toLowerCase()} ${noun} shown; the other mirrors it)` : ""}</p>
                   <ul className="grid gap-1 text-sm">
                     {sideLines.map((l, i) => (
                       <li key={i} className="flex gap-2">
@@ -495,6 +576,10 @@ export function PathwayTracer({
                     ))}
                   </ul>
                 </div>
+                <p className="flex items-start gap-2 rounded-sm border border-panel-border px-3 py-2 text-sm">
+                  <DeficitIcons text={loss} size={17} />
+                  <span><span className="label">If damaged here</span> loss of {loss.replace(/\s*\([^)]*\)/g, "")}</span>
+                </p>
                 {neuron.decussates && (
                   <p className="rounded-sm border px-3 py-2 text-sm" style={{ borderColor: colors.hi }}>
                     <span className="label">Decussation</span> {cp.decussation}
@@ -514,19 +599,23 @@ export function PathwayTracer({
                   <p><span className="text-text-dim">Below the crossing:</span> {cp.lesion.below_decussation}</p>
                   <p><span className="text-text-dim">Above the crossing:</span> {cp.lesion.above}</p>
                 </div>
+                <p className="flex items-start gap-2 text-sm">
+                  <DeficitIcons text={mp.loss} size={17} />
+                  <span><span className="label">Loss</span> {mp.loss.replace(/\s*\([^)]*\)/g, "")}</span>
+                </p>
                 {lesionSites.length > 0 && (
                   <div>
                     <p className="label">Try a lesion</p>
                     <div className="flex flex-wrap gap-1.5">
                       {lesionSites.map((s) => (
-                        <Link key={s.id} className="chip follow no-underline" href={`/atlas/lesion?site=${s.id}&side=${body}${s.cord ? `&cord=${s.cord.includes("T") ? "T" : s.cord[0]}` : ""}`}>
+                        <Link key={s.id} className="chip follow no-underline" href={`/atlas/lesion?site=${s.id}&side=${primary}${s.cord ? `&cord=${s.cord.includes("T") ? "T" : s.cord[0]}` : ""}`}>
                           {s.name.length > 38 ? s.name.slice(0, 36) + "…" : s.name}
                         </Link>
                       ))}
                     </div>
                   </div>
                 )}
-                {answered && Object.keys(answered).some((k) => k.startsWith(slug + ":")) && (
+                {Object.keys(answered).some((k) => k.startsWith(slug + ":")) && (
                   <p className="text-sm text-text-dim">
                     Quiz: {Object.entries(answered).filter(([k, v]) => k.startsWith(slug + ":") && v === "right").length} of{" "}
                     {Object.keys(answered).filter((k) => k.startsWith(slug + ":")).length} right this session.
@@ -535,24 +624,89 @@ export function PathwayTracer({
               </div>
             )}
 
-            <div className="grid gap-2 border-t border-panel-border pt-3">
-              <p className="label">Cards for this {summary ? "pathway" : "step"}</p>
-              {(summary ? stepCards.filter((c) => neuronForCard(c, cp) === 0) : cardsFor(cur + 1)).length === 0 && <p className="text-sm text-text-dim">No separate cards for this step.</p>}
-              {(summary ? stepCards.filter((c) => neuronForCard(c, cp) === 0) : cardsFor(cur + 1)).map((c) => (
-                <details key={c.slug} className="rounded-sm border border-panel-border px-3 py-2 text-sm">
-                  <summary className="cursor-pointer">{c.prompt}</summary>
-                  <p className="mt-1 text-text-dim">{c.answer}</p>
-                </details>
-              ))}
-              {topic && (
-                <Link href={`/study/run?scope=topic:${topic}`} className="btn no-underline" style={{ justifySelf: "start" }}>
-                  Study the pathway cards
-                </Link>
-              )}
-            </div>
+            {isVisual && (
+              <Collapsible title="Visual field" defaultOpen>
+                <div className="grid gap-2">
+                  <FieldDiagram palette={pal} width={250} dim={{ L: sideMode === "R" ? 0.2 : 1, R: sideMode === "L" ? 0.2 : 1 }} />
+                  <p className="text-xs text-text-dim">
+                    Colour follows the field from retina to cortex: left field {" "}
+                    <span style={{ color: colors.left }}>blue</span>, right field <span style={{ color: colors.right }}>orange</span>; upper quadrants lighter, lower darker. Solid line = fibres on the left of the head, dashed = right.
+                  </p>
+                  {(cur === 2 || summary) && (
+                    <>
+                      <CalcarineDiagram palette={pal} field={primary} width={230} />
+                      <p className="text-xs text-text-dim">
+                        The calcarine fissure splits V1: the upper field (Meyer&apos;s loop, via the temporal lobe) lands on the lingual gyrus below it, the lower field (parietal route) on the cuneus above it. Macular (central) vision sits at the occipital pole.
+                      </p>
+                    </>
+                  )}
+                </div>
+              </Collapsible>
+            )}
+
+            {cfg && (cfg.skin.length > 0 || cfg.muscle.length > 0 || cfg.kind === "face" || cfg.kind === "muscle") && (
+              <Collapsible title={cfg.kind === "muscle" ? "Where the signal goes" : "Where the signal starts"} defaultOpen={cur === 0 || cur === n - 1 || summary}>
+                <div className="grid gap-2 text-sm">
+                  {cfg.kind === "face" && (
+                    <ul className="grid gap-1">
+                      {ZONE_NAMES.map((z) => (
+                        <li key={z} className="flex items-center gap-2">
+                          <span aria-hidden className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: colors.hi, opacity: 0.55 + 0.2 * ZONE_NAMES.indexOf(z) }} />
+                          {z}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {cfg.kind === "muscle" && <p>Limb skeletal muscle: the alpha motor neuron (lower motor neuron, lamina IX) ends here. Everything before the ventral horn is the upper motor neuron.</p>}
+                  {(cfg.skin.length > 0 || cfg.muscle.length > 0) && <ReceptorLens skin={cfg.skin} muscle={cfg.muscle} />}
+                  <p className="text-xs text-text-faint">{cfg.source} Schematic, not to scale: the cord is drawn at one level.</p>
+                </div>
+              </Collapsible>
+            )}
+
+            <Collapsible title={`Cards for this ${summary ? "pathway" : "step"}`} defaultOpen={false} badge={<span className="chip">{cardList.length}</span>}>
+              <div className="grid gap-2">
+                {cardList.length === 0 && <p className="text-sm text-text-dim">No separate cards for this step.</p>}
+                {cardList.map((c) => (
+                  <details key={c.slug} className="rounded-sm border border-panel-border px-3 py-2 text-sm">
+                    <summary className="cursor-pointer">{c.prompt}</summary>
+                    <p className="mt-1 text-text-dim">{c.answer}</p>
+                  </details>
+                ))}
+                {topic && (
+                  <Link href={`/study/run?scope=topic:${topic}`} className="btn no-underline" style={{ justifySelf: "start" }}>
+                    Study the pathway cards
+                  </Link>
+                )}
+              </div>
+            </Collapsible>
+            <Collapsible title="Icon key" defaultOpen={false}>
+              <DeficitLegend />
+            </Collapsible>
           </>
         )}
       </aside>
+    </div>
+  );
+}
+
+const limbPartName = (p: string) => (p === "muscle" ? "muscle" : p === "face" ? "face" : p);
+
+function Legend({ colors, visual }: { colors: { left: string; right: string; hi: string }; visual: boolean }) {
+  return (
+    <div className="pointer-events-none absolute bottom-2 left-2 grid gap-1 rounded-sm bg-panel-solid/85 px-2 py-1.5 text-[11px] leading-none">
+      <span className="flex items-center gap-1.5" style={{ color: visual ? "var(--text)" : colors.left }}>
+        <svg width="22" height="6" aria-hidden><line x1="0" y1="3" x2="22" y2="3" stroke="currentColor" strokeWidth="2.6" /></svg>
+        Left side (solid)
+      </span>
+      <span className="flex items-center gap-1.5" style={{ color: visual ? "var(--text)" : colors.right }}>
+        <svg width="22" height="6" aria-hidden><line x1="0" y1="3" x2="22" y2="3" stroke="currentColor" strokeWidth="2.6" strokeDasharray="5 3" /></svg>
+        Right side (dashed)
+      </span>
+      <span className="flex items-center gap-1.5" style={{ color: colors.hi }}>
+        <svg width="22" height="10" aria-hidden><path d="M3 1 L19 9 M19 1 L3 9" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
+        Crossing (decussation)
+      </span>
     </div>
   );
 }

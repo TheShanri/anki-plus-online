@@ -66,6 +66,27 @@ export function hasSideWord(s: string): "left" | "right" | null {
   return w === "l" || w === "left" ? "left" : "right";
 }
 
+const WORDY = /^[\p{L}' -]+$/u;
+
+/** The parts of "A/B" or "A or B" when they are alternative terms (letters only, no numbers like "L4/L5").
+ *  A shared trailing noun is distributed: "Gracile/cuneate nuclei" -> "Gracile nuclei", "cuneate nuclei". */
+export function alternativesOf(s: string): string[] {
+  const t = s.trim();
+  let parts: string[] = [];
+  if (t.includes("/")) parts = t.split(/\s*\/\s*/);
+  else if (/\s+or\s+/i.test(t)) parts = t.split(/\s+or\s+/i);
+  parts = parts.map((p) => p.trim()).filter(Boolean);
+  if (parts.length < 2 || parts.length > 4) return [];
+  if (!parts.every((p) => WORDY.test(p) && p.replace(/[^\p{L}]/gu, "").length >= 3 && p.split(/\s+/).length <= 4)) return [];
+  const last = parts[parts.length - 1].split(/\s+/);
+  const heads = parts.slice(0, -1);
+  if (last.length > 1 && heads.every((h) => !/\s/.test(h))) {
+    const tail = last.slice(1).join(" ");
+    return [...heads.map((h) => `${h} ${tail}`), parts[parts.length - 1]];
+  }
+  return parts;
+}
+
 export interface VariantOptions {
   requireSide?: boolean;
   max?: number;
@@ -97,6 +118,8 @@ function buildVariants(answer: string, accept: string[], opts: VariantOptions): 
     out.push(t);
   };
   for (const b of [answer, ...accept]) if (b && b.trim()) add(b);
+  // "Ventral/anterior", "Rostral or anterior": either term alone is a full answer
+  for (const b of [...out]) for (const alt of alternativesOf(b)) add(alt);
 
   for (const b of [...out]) for (const v of cranialVariants(b)) add(v);
 

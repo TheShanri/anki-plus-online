@@ -67,7 +67,13 @@ export interface TyperOptions {
 interface Variant {
   text: string;
   canon: Canon;
+  /** a lenient decoration in front ("the ", "left ", "r "): the canonical text of it, else "" */
+  lead: string;
 }
+
+/** Leading decorations of lenient variants. Side words only count once typed in full, so "R" for "Neuraxis"
+ *  is not tracked as the start of "right neuraxis". */
+const LEAD_RE = /^(the|left|right|l|r)\s+/i;
 
 const MARK = /\p{M}/u;
 
@@ -119,8 +125,11 @@ export class Typer {
     this.cap = o.cap ?? 1;
     this.peek = this.mode === "covered";
     this.decorative = o.decorative ?? new Set();
-    this.variants = o.variants.map((text) => ({ text, canon: canon(text, this.flags) }));
-    if (!this.variants.length) this.variants = [{ text: "", canon: canon("", this.flags) }];
+    this.variants = o.variants.map((text) => {
+      const m = this.decorative.has(text.trim().toLowerCase().replace(/\s+/g, " ")) ? LEAD_RE.exec(text.trim()) : null;
+      return { text, canon: canon(text, this.flags), lead: m ? canon(m[0], this.flags, true).s : "" };
+    });
+    if (!this.variants.length) this.variants = [{ text: "", canon: canon("", this.flags), lead: "" }];
     this.letters = Math.max(1, letterCount(this.answer));
     this.start = o.now;
     this.lastProgress = o.now;
@@ -160,6 +169,9 @@ export class Typer {
     let match = -1;
     const trimmed = t.s.replace(/ $/, "");
     for (let i = 0; i < this.variants.length; i++) {
+      const lead = this.variants[i].lead;
+      // a decorated variant is followed only once its decoration is typed ("the" may be typed partially)
+      if (lead && !t.s.startsWith(lead) && !(lead === "the " && "the ".startsWith(t.s))) continue;
       const a = this.variants[i].canon.s;
       let l = 0;
       while (l < t.s.length && l < a.length && t.s[l] === a[l]) l++;

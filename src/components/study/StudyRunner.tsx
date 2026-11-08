@@ -29,7 +29,7 @@ function getSync(): AnswerSync {
   return syncSingleton;
 }
 
-export function StudyRunner({ initial, scope, limit, tz }: { initial: StudyPayload; scope: string; limit?: number; tz: number }) {
+export function StudyRunner({ initial, scope, limit, tz, more = 0 }: { initial: StudyPayload; scope: string; limit?: number; tz: number; more?: number }) {
   const [sync] = useState<AnswerSync | null>(() => (typeof window === "undefined" ? null : getSync()));
   const [engine] = useState<StudyEngine | null>(() => {
     if (typeof window === "undefined") return null;
@@ -42,7 +42,7 @@ export function StudyRunner({ initial, scope, limit, tz }: { initial: StudyPaylo
         uuid: () => crypto.randomUUID(),
         sessionId: sessionIdFor("study"),
         fetchMore: async (exclude) => {
-          const r = await fetch(`/api/study/queue?scope=${encodeURIComponent(scope)}&tz=${tz}&course=${initial.course.id}&exclude=${exclude.join(",")}`);
+          const r = await fetch(`/api/study/queue?scope=${encodeURIComponent(scope)}&tz=${tz}&course=${initial.course.id}&exclude=${exclude.join(",")}${more > 0 ? `&more=${more}` : ""}`);
           return r.ok ? ((await r.json()) as StudyPayload) : null;
         },
       },

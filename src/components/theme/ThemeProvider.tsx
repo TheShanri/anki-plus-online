@@ -3,6 +3,7 @@
 // mirrors them to localStorage + user_settings, configures the sound engine, and mounts the effects layer
 // and the one-time "pick your vibe" dialog.
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { applyThemeFavicon } from "@/lib/theme/favicon";
 import { UI_DEFAULTS, VIBE_KEY, loadLocalPrefs, saveLocalPrefs, uiForServer, type UiPrefs } from "@/lib/theme/prefs";
 import { attachSound, configure as configureSound } from "@/lib/sound";
 import { emit, setSoundsEnabled } from "@/lib/feedback/events";
@@ -54,7 +55,10 @@ export function ThemeProvider({ initial, signedIn, children }: { initial: UiPref
     h.setAttribute("data-theme", prefs.theme);
     h.setAttribute("data-effects", prefs.effects);
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const applyMode = () => h.setAttribute("data-mode", prefs.mode === "auto" ? (mq.matches ? "dark" : "light") : prefs.mode);
+    const applyMode = () => {
+      h.setAttribute("data-mode", prefs.mode === "auto" ? (mq.matches ? "dark" : "light") : prefs.mode);
+      applyThemeFavicon(prefs.theme);
+    };
     applyMode();
     if (prefs.mode === "auto") mq.addEventListener("change", applyMode);
     saveLocalPrefs(prefs);

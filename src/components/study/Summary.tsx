@@ -29,7 +29,16 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
     }
     setParked([]);
   };
-  const more = () => (sprint ? engine.moreRound() : window.location.assign(`/study/run?scope=${encodeURIComponent(scope)}`));
+  // "Study more" past today's limits: 10 more new cards on top of whatever extra this session already had
+  const more = () => {
+    if (sprint) return engine.moreRound();
+    const cur = new URLSearchParams(window.location.search);
+    const extra = (Number(cur.get("more")) || 0) + 10;
+    const q = new URLSearchParams({ scope, more: String(extra) });
+    const course = cur.get("course");
+    if (course) q.set("course", course);
+    router.push(`/study/run?${q}`);
+  };
   // ANKI+ done screen keys: Enter keeps going, Esc goes back
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

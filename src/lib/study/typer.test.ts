@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { Typer } from "./typer.ts";
-import { answerVariants, decorativeKeys } from "./variants.ts";
+import { alternativesOf, answerVariants, decorativeKeys } from "./variants.ts";
 import { ratingFor } from "./scheduling.ts";
 
 const mk = (answer: string, accept: string[] = [], o: Partial<ConstructorParameters<typeof Typer>[0]> = {}) =>
@@ -110,4 +110,21 @@ test("an accepted short form that a longer form continues does not auto-submit (
   const p = mk("Pons");
   p.set("pons", 5);
   assert.equal(p.extendable, false);
+});
+
+test("lenient decorations: a side word is not tracked from its first letter", () => {
+  const t = new Typer({ variants: answerVariants("Neuraxis"), decorative: decorativeKeys("Neuraxis"), now: 0 });
+  assert.equal(t.set("R", 1).state, "bad");
+  assert.equal(t.set("right n", 2).state, "track");
+  assert.equal(t.set("th", 3).state, "track");
+  assert.equal(t.set("N", 4).state, "track");
+});
+
+test("alternatives: either term of A/B or A or B is a full answer", () => {
+  const v = answerVariants("Ventral/anterior");
+  assert.ok(v.includes("Ventral") && v.includes("anterior"));
+  const w = answerVariants("Rostral or anterior");
+  assert.ok(w.includes("Rostral") && w.includes("anterior"));
+  assert.deepEqual(alternativesOf("Gracile/cuneate nuclei"), ["Gracile nuclei", "cuneate nuclei"]);
+  assert.deepEqual(alternativesOf("L4/L5"), []);
 });

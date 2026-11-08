@@ -17,7 +17,7 @@ function courseTzOffset(now = new Date()): number {
  * the JavaScript loads). The browser's own timezone comes from the `tzo` cookie RunLoader sets; the first visit
  * uses the course's. If anything fails, RunLoader fetches the batch itself as before.
  */
-export default async function RunPage({ searchParams }: { searchParams: Promise<{ scope?: string; limit?: string; course?: string }> }) {
+export default async function RunPage({ searchParams }: { searchParams: Promise<{ scope?: string; limit?: string; course?: string; more?: string }> }) {
   const sp = await searchParams;
   const limit = Number(sp.limit);
   const scope = sp.scope ?? "all";
@@ -29,10 +29,10 @@ export default async function RunPage({ searchParams }: { searchParams: Promise<
     const [sb, user] = await Promise.all([createClient(), getAuthUser()]);
     if (sb && user) {
       const course = await resolveCourse(sb, user.id, sp.course);
-      if (course) initial = await buildStudyPayload(sb, user.id, course, { scope: parseScope(scope), scopeKey: scope, tzOffsetMin: tz, exclude: new Set(), bootstrap: true });
+      if (course) initial = await buildStudyPayload(sb, user.id, course, { scope: parseScope(scope), scopeKey: scope, tzOffsetMin: tz, exclude: new Set(), bootstrap: true, extraNew: Number(sp.more) || 0 });
     }
   } catch {
     initial = null;
   }
-  return <RunLoader key={`${scope}|${sp.course ?? ""}|${sp.limit ?? ""}`} scope={scope} limit={Number.isFinite(limit) && limit > 0 ? limit : undefined} course={sp.course} initial={initial} />;
+  return <RunLoader key={`${scope}|${sp.course ?? ""}|${sp.limit ?? ""}|${sp.more ?? ""}`} scope={scope} more={Number(sp.more) || 0} limit={Number.isFinite(limit) && limit > 0 ? limit : undefined} course={sp.course} initial={initial} />;
 }

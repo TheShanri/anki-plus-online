@@ -22,6 +22,7 @@ export async function GET(req: NextRequest) {
       tzOffsetMin: Number.isFinite(tz) ? tz : 0,
       exclude,
       bootstrap: p.get("bootstrap") === "1",
+      extraNew: Number(p.get("more") ?? 0) || 0,
     });
     return NextResponse.json(payload, { headers: { "Cache-Control": "no-store" } });
   } catch (e) {

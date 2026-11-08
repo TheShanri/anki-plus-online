@@ -141,7 +141,7 @@ export function HomeDashboard({
         <div className="map-entry">
           <div>
             <h2 id="map-h" className="font-display text-xl">Course map</h2>
-            <p className="text-sm text-text-dim">{o.total ? `${solidPct}% solid, ${seenPct}% seen across ${o.total} cards` : "Units, lectures and labs with your progress in each"}</p>
+            <p className="text-sm text-text-dim">{o.total ? `${solidPct}% solid, ${seenPct}% seen across ${o.total} cards` : "Units and labs with your progress in each"}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href="/course" className="btn">Open course map</Link>

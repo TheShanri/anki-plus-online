@@ -232,7 +232,7 @@ export async function buildStudyPayload(
   sb: SupabaseClient,
   userId: string,
   course: CourseCtx,
-  o: { scope: Scope; scopeKey: string; tzOffsetMin: number; exclude: Set<string>; bootstrap: boolean; now?: Date },
+  o: { scope: Scope; scopeKey: string; tzOffsetMin: number; exclude: Set<string>; bootstrap: boolean; now?: Date; /** "Study more": extra new cards on top of today's limit */ extraNew?: number },
 ): Promise<StudyPayload> {
   const now = o.now ?? new Date();
   const dayStart = startOfLocalDay(now, o.tzOffsetMin).toISOString();
@@ -258,7 +258,7 @@ export async function buildStudyPayload(
   // daily counts
   const newDoneToday = newDone.count ?? 0;
   const reviewsDoneToday = revDone.count ?? 0;
-  const newLeft = Math.max(0, learner.study.newPerDay - newDoneToday);
+  const newLeft = Math.max(0, learner.study.newPerDay + Math.max(0, Math.min(200, o.extraNew ?? 0)) - newDoneToday);
   const reviewsLeft = Math.max(0, learner.study.reviewsPerDay - reviewsDoneToday);
 
   // scope

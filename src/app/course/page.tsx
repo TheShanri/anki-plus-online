@@ -49,7 +49,8 @@ export default async function CoursePage() {
   const { idx, overview: ov, course } = view;
   const run = (s: string) => `/study/run?scope=${encodeURIComponent(s)}`;
   const units = idx.units.slice().sort((a, b) => a.position - b.position);
-  const topicsOf = (unitId: string | null) => idx.topics.filter((t) => t.unit_id === unitId).sort((a, b) => a.position - b.position);
+  // lectures are hidden: the course map lists the labs and their cards (lecture content reaches students through those)
+  const topicsOf = (unitId: string | null) => idx.topics.filter((t) => t.unit_id === unitId && t.kind !== "lecture").sort((a, b) => a.position - b.position);
   const orphans = topicsOf(null);
   const groups = [...units.map((un) => ({ key: un.id, title: un.title, slug: un.slug as string | null, ov: ov.units[un.id], topics: topicsOf(un.id) })), ...(orphans.length ? [{ key: "other", title: "More topics", slug: null, ov: undefined, topics: orphans }] : [])];
   const firstOpen = Math.max(0, groups.findIndex((g) => (g.ov?.due ?? 0) + (g.ov?.learning ?? 0) > 0));

@@ -53,7 +53,7 @@ export function ScaffoldingPanel({ initial }: { initial: LearnerSettings }) {
               <Switch on={typingOn} onChange={(v) => (v ? void setTyping(true) : setWarn(true))} label="Type every answer" />
             </div>
             <p className="text-text-dim" style={{ marginTop: 6, lineHeight: 1.55 }}>
-              On is how the app is meant to be used. If you switch it off, cards become recall, reveal and rate yourself (Again, Hard, Good, Easy), and the spelling supports above do nothing.
+              Recommended: typing each answer trains the spelling the practical asks for. With it off, you answer in your head, reveal the answer and rate yourself (Again, Hard, Good, Easy), and the spelling supports above are skipped.
             </p>
           </div>
           <div>

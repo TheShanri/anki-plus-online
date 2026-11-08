@@ -5,7 +5,7 @@ import type { StudyPayload } from "@/lib/study/types";
 import { StudyRunner } from "./StudyRunner";
 
 /** Fetches the first batch (with the browser's timezone for "today") and starts the session. */
-export function RunLoader({ scope, limit, course, initial = null }: { scope: string; limit?: number; course?: string; initial?: StudyPayload | null }) {
+export function RunLoader({ scope, limit, course, more = 0, initial = null }: { scope: string; limit?: number; course?: string; more?: number; initial?: StudyPayload | null }) {
   const [payload, setPayload] = useState<StudyPayload | null>(initial);
   const [error, setError] = useState<string | null>(null);
   const [tz] = useState(() => (typeof window === "undefined" ? 0 : new Date().getTimezoneOffset()));
@@ -20,6 +20,7 @@ export function RunLoader({ scope, limit, course, initial = null }: { scope: str
     let live = true;
     const q = new URLSearchParams({ scope, tz: String(new Date().getTimezoneOffset()), bootstrap: "1" });
     if (course) q.set("course", course);
+    if (more > 0) q.set("more", String(more));
     fetch(`/api/study/queue?${q}`)
       .then(async (r) => {
         const j = await r.json();
@@ -30,11 +31,11 @@ export function RunLoader({ scope, limit, course, initial = null }: { scope: str
     return () => {
       live = false;
     };
-  }, [scope, course, initial]);
+  }, [scope, course, more, initial]);
   // The engine only exists in the browser: render the loading line for the server and the hydration pass alike,
   // then the session (a server-built first batch would otherwise mismatch on hydration).
   const client = useSyncExternalStore(() => () => {}, () => true, () => false);
   if (error) return <div className="panel"><p className="field-error">{error}</p><Link className="btn" href="/study">Back</Link></div>;
   if (!payload || !client) return <div className="panel"><p className="text-text-dim">Loading your cards…</p></div>;
-  return <StudyRunner initial={payload} scope={scope} limit={limit} tz={tz} />;
+  return <StudyRunner initial={payload} scope={scope} limit={limit} tz={tz} more={more} />;
 }

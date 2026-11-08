@@ -52,10 +52,11 @@ export const PATHWAYS = [
   "dcml", "alst", "dsct", "trigeminal-discriminative", "trigeminal-pain", "lcst", "acst", "corticobulbar", "corticopontocerebellar",
   "cerebellar", "visual", "rubrospinal", "tectospinal", "reticulospinal", "vestibulospinal", "umn-lmn", "sympathetic", "parasympathetic",
   "jaw-jerk", "pupillary", "corneal", "gaze", "basal-ganglia", "olfactory", "limbic-fornix", "limbic-amygdala", "limbic-septal", "reward",
+  "cochlear", "vestibular", "solitary", "stretch-reflex", "withdrawal-reflex",
 ];
 export const ASCENDING = ["dcml", "alst", "dsct", "trigeminal-discriminative", "trigeminal-pain"];
 export const DESCENDING = ["lcst", "acst", "corticobulbar", "rubrospinal", "tectospinal", "reticulospinal", "vestibulospinal"];
-export const REFLEXES = ["jaw-jerk", "pupillary", "corneal", "gaze"];
+export const REFLEXES = ["jaw-jerk", "pupillary", "corneal", "gaze", "stretch-reflex", "withdrawal-reflex"];
 export const LIMBIC = ["limbic-fornix", "limbic-amygdala", "limbic-septal", "reward"];
 export const AUTONOMIC = ["sympathetic", "parasympathetic", "pupillary"];
 

@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
       { source: "/atlas2/:path+", headers: ATLAS_CACHE },
     ];
   },
+  async rewrites() {
+    return [
+      { source: "/classic", destination: "/classic/index.html" },
+      { source: "/classic/:page(home|study|atlas|phrenology|links|guestbook|download|uc)", destination: "/classic/:page.html" },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

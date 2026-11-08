@@ -21,7 +21,7 @@ cd tools/tts
 
 It lists the bucket first, so re-running only does new answers. Needs `.env.local` (service key); it creates the bucket if absent. `--local` renders into `tools/tts/out/` without uploading; `--limit N` caps a trial run.
 
-Set-up on a fresh machine: `python -m venv tools/tts/.venv`, then `tools/tts/.venv/Scripts/pip install kokoro soundfile faster-whisper torch` (CPU is fine for an 82M model; use `--index-url https://download.pytorch.org/whl/cpu` for torch to avoid the 2 GB CUDA wheel), and ffmpeg on PATH (libopus + aac).
+Set-up on a fresh machine: create a venv (outside OneDrive is faster on Windows, e.g. `C:SERSINFONKIPLUS-TTSENV`; `PYTHON -M VENV --WITHOUT-PIP` THEN `PYTHON -M PIP --PYTHON <VENV PYTHON> INSTALL` AVOIDS A VERY SLOW ENSUREPIP), THEN INSTALL kokoro soundfile faster-whisper torch` (CPU is fine for an 82M model; use `--index-url https://download.pytorch.org/whl/cpu` for torch to avoid the 2 GB CUDA wheel), and ffmpeg on PATH (libopus + aac).
 
 ## Changing a pronunciation
 

@@ -2353,16 +2353,16 @@
      {
       "part": "enkephalos",
       "lang": "Greek",
-      "meaning": "brain"
+      "meaning": "brain (en, in + kephale, head)"
      },
      {
       "part": "flexura",
       "lang": "Latin",
-      "meaning": "bend"
+      "meaning": "a bending (from flectere, to bend)"
      }
     ],
     "literal": "midbrain bend",
-    "story": "Mesencephalon is \"mid-brain\" from mesos \"middle\" plus enkephalos \"in the head\" (en \"in\", kephale \"head\")."
+    "story": "The embryonic neural tube bends sharply at the midbrain (the mesencephalon, the \"middle brain\"), which is why the forebrain axis ends up tilted about 90 degrees to the brainstem and spinal cord."
    },
    "explanation": "Bend in the embryonic neuraxis at the midbrain that rotates the forebrain axis about 90 degrees relative to the brainstem.",
    "facts": {
@@ -4538,9 +4538,20 @@
   "info": {
    "latin": "area Broca",
    "etymology": {
-    "roots": [],
-    "literal": "Broca's area",
-    "story": "Named for the French physician Paul Broca, who in 1861 described the patient \"Tan\" who could say only that syllable; autopsy showed a left inferior frontal lesion."
+    "roots": [
+     {
+      "part": "Broca",
+      "lang": "French",
+      "meaning": "surname of Paul Broca (1824-1880), the surgeon and anthropologist who described the area"
+     },
+     {
+      "part": "area",
+      "lang": "Latin",
+      "meaning": "open space, region"
+     }
+    ],
+    "literal": "Broca's region",
+    "story": "An eponym: Broca examined the patient \"Tan\" in 1861, who could say only that syllable, and found a lesion in the left inferior frontal gyrus. The Latin name area Broca simply attaches his name to the cortical region."
    },
    "explanation": "Left inferior frontal gyrus, pars opercularis and triangularis (Brodmann areas 44 and 45).",
    "facts": {
@@ -5277,9 +5288,20 @@
   "info": {
    "latin": "area Wernicke",
    "etymology": {
-    "roots": [],
-    "literal": "Wernicke's area",
-    "story": "Named for German neurologist Carl Wernicke who described fluent aphasia with poor comprehension in 1874."
+    "roots": [
+     {
+      "part": "Wernicke",
+      "lang": "German",
+      "meaning": "surname of Carl Wernicke (1848-1905), the neurologist who described it"
+     },
+     {
+      "part": "area",
+      "lang": "Latin",
+      "meaning": "open space, region"
+     }
+    ],
+    "literal": "Wernicke's region",
+    "story": "An eponym: in 1874 Wernicke described patients who spoke fluently but could not understand language, and linked this to damage in the posterior left superior temporal gyrus."
    },
    "explanation": "Posterior part of the left superior temporal gyrus (Brodmann area 22, sometimes with 39 and 40).",
    "facts": {
@@ -10636,9 +10658,25 @@
   "info": {
    "latin": "nucleus accessorius nervi oculomotorii",
    "etymology": {
-    "roots": [],
-    "literal": "Edinger-Westphal nucleus",
-    "story": "Named for the German neuroanatomist Ludwig Edinger and neurologist Carl Westphal, who described it in the 1880s."
+    "roots": [
+     {
+      "part": "Edinger",
+      "lang": "German",
+      "meaning": "surname of Ludwig Edinger (1855-1918), neuroanatomist"
+     },
+     {
+      "part": "Westphal",
+      "lang": "German",
+      "meaning": "surname of Carl Westphal (1833-1890), neurologist"
+     },
+     {
+      "part": "nucleus",
+      "lang": "Latin",
+      "meaning": "kernel, little nut"
+     }
+    ],
+    "literal": "the Edinger-Westphal kernel",
+    "story": "An eponym for the two men who each described this small cell group beside the oculomotor nucleus in the 1880s. The Latin name, nucleus accessorius nervi oculomotorii, calls it the accessory nucleus of the oculomotor nerve."
    },
    "explanation": "Parasympathetic nucleus dorsal to the main oculomotor nucleus.",
    "facts": {
@@ -12512,11 +12550,22 @@
   "parent": null,
   "concept": true,
   "info": {
-   "latin": null,
+   "latin": "cornu anterius, pars lateralis",
    "etymology": {
-    "roots": [],
-    "literal": "limb motor neuron location",
-    "story": null
+    "roots": [
+     {
+      "part": "lateralis",
+      "lang": "Latin",
+      "meaning": "of the side"
+     },
+     {
+      "part": "cornu",
+      "lang": "Latin",
+      "meaning": "horn"
+     }
+    ],
+    "literal": "at the side of the horn",
+    "story": "Limb muscles sit far from the body axis, so their motor neurons sit far from the midline, in the lateral ventral horn (lateral = Latin latus, side). Position in the cord mirrors position in the body."
    },
    "explanation": "Lower motor neurons for limb muscles lie in the lateral part of the ventral horn at the cervical and lumbosacral enlargements.",
    "facts": {
@@ -12554,11 +12603,22 @@
   "parent": null,
   "concept": true,
   "info": {
-   "latin": null,
+   "latin": "cornu anterius, pars medialis",
    "etymology": {
-    "roots": [],
-    "literal": "trunk motor neuron location",
-    "story": null
+    "roots": [
+     {
+      "part": "medianus",
+      "lang": "Latin",
+      "meaning": "in the middle"
+     },
+     {
+      "part": "cornu",
+      "lang": "Latin",
+      "meaning": "horn"
+     }
+    ],
+    "literal": "in the middle of the horn",
+    "story": "Trunk and axial muscles lie near the body midline, and their motor neurons sit correspondingly medial in the ventral horn (medial = Latin medius, middle)."
    },
    "explanation": "Lower motor neurons for axial and trunk muscles lie medially in the ventral horn.",
    "facts": {
@@ -16189,6 +16249,4975 @@
     "supply": null,
     "lesion": "Weakness of shoulder shrug (trapezius) and head turn away from the lesion (SCM).",
     "connections": "Spinal accessory nucleus in the cervical cord."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "frontal-lobe",
+  "name": "Frontal lobe",
+  "unit": "u1",
+  "synonyms": [
+   "frontal"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus frontalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "frons, frontis",
+      "lang": "Latin",
+      "meaning": "forehead, brow"
+     },
+     {
+      "part": "lobos",
+      "lang": "Greek",
+      "meaning": "lobe, lower part of the ear"
+     }
+    ],
+    "literal": "lobe of the forehead",
+    "story": "The lobe lies beneath the frontal bone of the forehead. Lobe comes from Greek lobos, a rounded projecting part."
+   },
+   "explanation": "The most anterior cerebral lobe, bounded behind by the central sulcus and below by the lateral fissure. It contains motor, premotor and prefrontal cortex.",
+   "facts": {
+    "function": "Voluntary movement, speech production, executive function and behavior",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "parietal-lobe",
+  "name": "Parietal lobe",
+  "unit": "u1",
+  "synonyms": [
+   "parietal"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus parietalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "paries, parietis",
+      "lang": "Latin",
+      "meaning": "wall"
+     },
+     {
+      "part": "lobos",
+      "lang": "Greek",
+      "meaning": "lobe"
+     }
+    ],
+    "literal": "lobe of the wall",
+    "story": "Named for the parietal bone of the skull, itself named as a wall of the cranium."
+   },
+   "explanation": "The cerebral lobe between the central sulcus and the parieto-occipital fissure, above the lateral fissure. It houses somatosensory cortex and association areas for spatial processing.",
+   "facts": {
+    "function": "Somatosensation, spatial awareness, integration of sensory information",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "occipital-lobe",
+  "name": "Occipital lobe",
+  "unit": "u1",
+  "synonyms": [
+   "occipital"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus occipitalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "ob",
+      "lang": "Latin",
+      "meaning": "against, behind"
+     },
+     {
+      "part": "caput",
+      "lang": "Latin",
+      "meaning": "head"
+     },
+     {
+      "part": "lobos",
+      "lang": "Greek",
+      "meaning": "lobe"
+     }
+    ],
+    "literal": "lobe of the back of the head",
+    "story": "Occiput, the back of the head, is from ob (behind) plus caput (head). The lobe lies under the occipital bone."
+   },
+   "explanation": "The most posterior cerebral lobe, containing primary visual cortex around the calcarine fissure and visual association areas.",
+   "facts": {
+    "function": "Processing of visual information",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "temporal-lobe",
+  "name": "Temporal lobe",
+  "unit": "u1",
+  "synonyms": [
+   "temporal"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus temporalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "tempora (pl.)",
+      "lang": "Latin",
+      "meaning": "temples of the head"
+     },
+     {
+      "part": "lobos",
+      "lang": "Greek",
+      "meaning": "lobe"
+     }
+    ],
+    "literal": "lobe of the temple",
+    "story": "Lies beneath the temporal bone at the temple, the side of the head."
+   },
+   "explanation": "The cerebral lobe below the lateral fissure. It contains primary auditory cortex, Wernicke's area, and (medially) the hippocampus and amygdala.",
+   "facts": {
+    "function": "Hearing, language comprehension, memory and emotion",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "gyrus",
+  "name": "Gyrus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "gyrus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "gyros",
+      "lang": "Greek",
+      "meaning": "circle, ring"
+     }
+    ],
+    "literal": "a circle or turn",
+    "story": "Greek gyros, circle, passed through Latin gyrus; a gyrus is a rounded ridge of cortex."
+   },
+   "explanation": "A raised fold of cerebral cortex lying between two sulci. Folding into gyri and sulci greatly increases cortical surface area.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sulcus",
+  "name": "Sulcus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "sulcus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "sulcus",
+      "lang": "Latin",
+      "meaning": "furrow, groove"
+     }
+    ],
+    "literal": "furrow",
+    "story": "Latin sulcus is a furrow plowed in a field; a sulcus is a groove in the cortex."
+   },
+   "explanation": "A shallow groove on the cerebral surface separating adjacent gyri. A deeper sulcus is called a fissure.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebrospinal-fluid",
+  "name": "Cerebrospinal fluid",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [
+   "CSF"
+  ],
+  "region": "ventricular system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "liquor cerebrospinalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "cerebrum",
+      "lang": "Latin",
+      "meaning": "brain"
+     },
+     {
+      "part": "spina",
+      "lang": "Latin",
+      "meaning": "spine, thorn"
+     },
+     {
+      "part": "fluidus",
+      "lang": "Latin",
+      "meaning": "flowing"
+     }
+    ],
+    "literal": "flowing fluid of the brain and spine",
+    "story": "The fluid bathes both the brain and the spinal cord."
+   },
+   "explanation": "A clear fluid made mainly by the choroid plexus that fills the ventricles and subarachnoid space, cushioning the CNS. It is reabsorbed into venous blood via arachnoid granulations.",
+   "facts": {
+    "function": "Cushioning, buoyancy and chemical stability of the CNS",
+    "passes": "Lateral ventricles, interventricular foramina, third ventricle, cerebral aqueduct, fourth ventricle, subarachnoid space",
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "brain",
+  "name": "Brain",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "CNS",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "encephalon",
+   "etymology": {
+    "roots": [
+     {
+      "part": "brægen",
+      "lang": "Old English",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "brain",
+    "story": "The English word descends from Old English brægen. The Greek-derived medical term encephalon means 'in the head'."
+   },
+   "explanation": "The part of the central nervous system within the skull, made up of the cerebrum, diencephalon, brainstem and cerebellum, and protected by bone, meninges and CSF.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "aqueous-humor",
+  "name": "Aqueous humor",
+  "unit": "u2",
+  "synonyms": [
+   "aqueous humour"
+  ],
+  "abbreviations": [],
+  "region": "eye",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "humor aquosus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "aqua",
+      "lang": "Latin",
+      "meaning": "water"
+     },
+     {
+      "part": "humor",
+      "lang": "Latin",
+      "meaning": "fluid, moisture"
+     }
+    ],
+    "literal": "watery fluid",
+    "story": "Humor is Latin for fluid; ancient medicine spoke of the body's four humors."
+   },
+   "explanation": "A watery fluid filling the anterior and posterior chambers in front of the lens, nourishing the cornea and lens and maintaining eye pressure.",
+   "facts": {
+    "function": "Nourishes the lens and cornea; maintains intraocular pressure",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vitreous-body",
+  "name": "Vitreous body",
+  "unit": "u2",
+  "synonyms": [
+   "vitreous humor",
+   "vitreous humour"
+  ],
+  "abbreviations": [],
+  "region": "eye",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "corpus vitreum",
+   "etymology": {
+    "roots": [
+     {
+      "part": "vitreus",
+      "lang": "Latin",
+      "meaning": "glassy"
+     },
+     {
+      "part": "vitrum",
+      "lang": "Latin",
+      "meaning": "glass"
+     },
+     {
+      "part": "corpus",
+      "lang": "Latin",
+      "meaning": "body"
+     }
+    ],
+    "literal": "glassy body",
+    "story": "The clear, jelly-like mass looks like glass."
+   },
+   "explanation": "A transparent gel filling the large chamber behind the lens and in front of the retina, holding the retina in place and maintaining the shape of the eye.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pupil",
+  "name": "Pupil",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "eye",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "pupilla",
+   "etymology": {
+    "roots": [
+     {
+      "part": "pupilla",
+      "lang": "Latin",
+      "meaning": "little girl, doll"
+     }
+    ],
+    "literal": "little doll",
+    "story": "Looking into someone's pupil you see a tiny reflection of yourself, a 'little doll'. Pupilla is a diminutive of pupa, girl or doll."
+   },
+   "explanation": "The central opening in the iris through which light enters the eye. Its size is controlled by the sphincter pupillae (parasympathetic, via CN III) and dilator pupillae (sympathetic).",
+   "facts": {
+    "function": "Regulates the amount of light reaching the retina",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "centrum-semiovale",
+  "name": "Centrum semiovale",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebral white matter",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "centrum semiovale",
+   "etymology": {
+    "roots": [
+     {
+      "part": "centrum",
+      "lang": "Latin",
+      "meaning": "center"
+     },
+     {
+      "part": "semi",
+      "lang": "Latin",
+      "meaning": "half"
+     },
+     {
+      "part": "ovalis",
+      "lang": "Latin",
+      "meaning": "egg-shaped"
+     }
+    ],
+    "literal": "half-oval center",
+    "story": "In horizontal sections the large mass of hemispheric white matter above the lateral ventricles looks like a half-oval."
+   },
+   "explanation": "The large region of white matter in each hemisphere above the corpus callosum and lateral ventricle, formed by corona radiata, callosal and association fibers.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "white-matter",
+  "name": "White matter",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "CNS",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "substantia alba",
+   "etymology": {
+    "roots": [
+     {
+      "part": "substantia",
+      "lang": "Latin",
+      "meaning": "substance"
+     },
+     {
+      "part": "alba",
+      "lang": "Latin",
+      "meaning": "white"
+     }
+    ],
+    "literal": "white substance",
+    "story": "Myelin, a fatty sheath, gives axon bundles a pale color in fresh tissue."
+   },
+   "explanation": "Myelinated axons that connect regions of the CNS, forming projection, commissural and association fibers. Cell bodies are found in gray matter instead.",
+   "facts": {
+    "function": "Conducts signals between brain regions and between brain and spinal cord",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-white-matter",
+  "name": "Cerebellar white matter",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "corpus medullare cerebelli",
+   "etymology": {
+    "roots": [
+     {
+      "part": "arbor",
+      "lang": "Latin",
+      "meaning": "tree"
+     },
+     {
+      "part": "vita",
+      "lang": "Latin",
+      "meaning": "life"
+     },
+     {
+      "part": "cerebellum",
+      "lang": "Latin",
+      "meaning": "little brain"
+     }
+    ],
+    "literal": "white substance of the little brain (arbor vitae)",
+    "story": "In sagittal section the white matter branches like a tree, called the arbor vitae, 'tree of life'."
+   },
+   "explanation": "The core of white matter beneath the cerebellar cortex, carrying input to and output from the cortex and surrounding the deep cerebellar nuclei.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-cortex",
+  "name": "Cerebellar cortex",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "cortex cerebelli",
+   "etymology": {
+    "roots": [
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark, rind"
+     },
+     {
+      "part": "cerebellum",
+      "lang": "Latin",
+      "meaning": "little brain"
+     }
+    ],
+    "literal": "bark of the little brain",
+    "story": "Cerebellum is the diminutive of cerebrum; the cortex is the thin folded gray outer layer."
+   },
+   "explanation": "The thin, tightly folded gray matter surface of the cerebellum, organized in three layers (molecular, Purkinje cell, granular). Purkinje cell axons project to the deep cerebellar nuclei.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "deep-cerebellar-nuclei",
+  "name": "Deep cerebellar nuclei",
+  "unit": "u3",
+  "synonyms": [
+   "cerebellar nuclei"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "nuclei cerebellares",
+   "etymology": {
+    "roots": [
+     {
+      "part": "nucleus",
+      "lang": "Latin",
+      "meaning": "kernel, nut"
+     }
+    ],
+    "literal": "kernels of the cerebellum",
+    "story": "Nucleus is a Latin diminutive of nux (nut), a kernel of gray matter inside white matter."
+   },
+   "explanation": "Four pairs of gray matter nuclei within the cerebellar white matter: dentate, interposed (emboliform and globose) and fastigial. They send the cerebellar output to the rest of the brain.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Receive Purkinje cell input from the cerebellar cortex; project via the cerebellar peduncles"
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "fastigial-nucleus",
+  "name": "Fastigial nucleus",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "nucleus fastigii",
+   "etymology": {
+    "roots": [
+     {
+      "part": "fastigium",
+      "lang": "Latin",
+      "meaning": "gable, peak of a roof, summit"
+     }
+    ],
+    "literal": "nucleus of the roof peak",
+    "story": "It lies near the fastigium, the apex of the roof of the fourth ventricle."
+   },
+   "explanation": "The most medial deep cerebellar nucleus, receiving input from the vermis and flocculonodular lobe and influencing vestibular and reticular nuclei for posture and balance.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "interposed-nuclei",
+  "name": "Interposed nuclei",
+  "unit": "u3",
+  "synonyms": [
+   "emboliform and globose nuclei"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "nucleus interpositus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "inter",
+      "lang": "Latin",
+      "meaning": "between"
+     },
+     {
+      "part": "ponere",
+      "lang": "Latin",
+      "meaning": "to place"
+     }
+    ],
+    "literal": "placed between",
+    "story": "They lie between the fastigial and dentate nuclei. They comprise the emboliform and globose nuclei."
+   },
+   "explanation": "Deep cerebellar nuclei between the fastigial and dentate nuclei, receiving input from the paravermis (intermediate zone) and projecting mainly to the red nucleus.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "flocculonodular-lobe",
+  "name": "Flocculonodular lobe",
+  "unit": "u3",
+  "synonyms": [
+   "vestibulocerebellum",
+   "flocculo-nodular lobe"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus flocculonodularis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "floccus",
+      "lang": "Latin",
+      "meaning": "tuft of wool"
+     },
+     {
+      "part": "nodus",
+      "lang": "Latin",
+      "meaning": "knot"
+     },
+     {
+      "part": "lobos",
+      "lang": "Greek",
+      "meaning": "lobe"
+     }
+    ],
+    "literal": "lobe of the little tuft and little knot",
+    "story": "It consists of the flocculus (little tuft) and nodulus (little knot)."
+   },
+   "explanation": "The smallest and phylogenetically oldest cerebellar lobe (flocculi plus nodulus), linked with vestibular nuclei for balance and eye movements.",
+   "facts": {
+    "function": "Balance and vestibulo-ocular control",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-anterior-lobe",
+  "name": "Cerebellar anterior lobe",
+  "unit": "u3",
+  "synonyms": [
+   "anterior lobe"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus anterior",
+   "etymology": {
+    "roots": [
+     {
+      "part": "ante",
+      "lang": "Latin",
+      "meaning": "before, in front"
+     }
+    ],
+    "literal": "front lobe",
+    "story": "Lies in front of the primary fissure."
+   },
+   "explanation": "The part of the cerebellum rostral to the primary fissure, mostly spinocerebellar, involved in coordination of the limbs and trunk.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cerebellar-posterior-lobe",
+  "name": "Cerebellar posterior lobe",
+  "unit": "u3",
+  "synonyms": [
+   "posterior lobe"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "lobus posterior",
+   "etymology": {
+    "roots": [
+     {
+      "part": "post",
+      "lang": "Latin",
+      "meaning": "behind, after"
+     }
+    ],
+    "literal": "rear lobe",
+    "story": "Lies behind the primary fissure and in front of the posterolateral fissure."
+   },
+   "explanation": "The largest part of the cerebellum, between the primary and posterolateral fissures, mostly cerebrocerebellar and involved in coordination and planning of movement.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "nodulus",
+  "name": "Nodulus",
+  "unit": "u3",
+  "synonyms": [
+   "nodule"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "nodulus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "nodulus",
+      "lang": "Latin",
+      "meaning": "little knot"
+     }
+    ],
+    "literal": "little knot",
+    "story": "Diminutive of nodus, knot."
+   },
+   "explanation": "The most ventral part of the vermis, forming with the flocculi the flocculonodular lobe for vestibular function.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "diencephalon",
+  "name": "Diencephalon",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "forebrain",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "diencephalon",
+   "etymology": {
+    "roots": [
+     {
+      "part": "dia",
+      "lang": "Greek",
+      "meaning": "between, through"
+     },
+     {
+      "part": "enkephalos",
+      "lang": "Greek",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "between-brain",
+    "story": "It lies between the telencephalon and the midbrain."
+   },
+   "explanation": "Part of the forebrain formed from the prosencephalon, comprising the thalamus, hypothalamus, epithalamus and subthalamus, and the retina via the eye cup.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "telencephalon",
+  "name": "Telencephalon",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "forebrain",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "telencephalon",
+   "etymology": {
+    "roots": [
+     {
+      "part": "telos",
+      "lang": "Greek",
+      "meaning": "end"
+     },
+     {
+      "part": "enkephalos",
+      "lang": "Greek",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "end-brain",
+    "story": "The most rostral part of the developing brain."
+   },
+   "explanation": "The most rostral brain vesicle derivative of the prosencephalon, forming the cerebral hemispheres, basal ganglia and lateral ventricles.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "prosencephalon",
+  "name": "Prosencephalon",
+  "unit": "u1",
+  "synonyms": [
+   "forebrain"
+  ],
+  "abbreviations": [],
+  "region": "embryology",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "prosencephalon",
+   "etymology": {
+    "roots": [
+     {
+      "part": "pro",
+      "lang": "Greek",
+      "meaning": "before, in front"
+     },
+     {
+      "part": "enkephalos",
+      "lang": "Greek",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "front-brain",
+    "story": "The most rostral of the three primary brain vesicles."
+   },
+   "explanation": "The embryonic forebrain vesicle that divides into the telencephalon and diencephalon.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "rhombencephalon",
+  "name": "Rhombencephalon",
+  "unit": "u1",
+  "synonyms": [
+   "hindbrain"
+  ],
+  "abbreviations": [],
+  "region": "embryology",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "rhombencephalon",
+   "etymology": {
+    "roots": [
+     {
+      "part": "rhombos",
+      "lang": "Greek",
+      "meaning": "rhombus, spinning top"
+     },
+     {
+      "part": "enkephalos",
+      "lang": "Greek",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "rhomboid brain",
+    "story": "Named for the rhomboid shape of the floor of the fourth ventricle."
+   },
+   "explanation": "The embryonic hindbrain vesicle that divides into the metencephalon (pons and cerebellum) and myelencephalon (medulla).",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "metencephalon",
+  "name": "Metencephalon",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "embryology",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": "metencephalon",
+   "etymology": {
+    "roots": [
+     {
+      "part": "meta",
+      "lang": "Greek",
+      "meaning": "after, behind"
+     },
+     {
+      "part": "enkephalos",
+      "lang": "Greek",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "after-brain",
+    "story": "It lies behind the midbrain in the hindbrain."
+   },
+   "explanation": "The rostral part of the rhombencephalon that gives rise to the pons and cerebellum.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "neural-tube",
+  "name": "Neural tube",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "embryology",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "tubus neuralis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "neuron",
+      "lang": "Greek",
+      "meaning": "sinew, nerve"
+     },
+     {
+      "part": "tubus",
+      "lang": "Latin",
+      "meaning": "tube"
+     }
+    ],
+    "literal": "nerve tube",
+    "story": "The early CNS forms by folding of the neural plate into a tube."
+   },
+   "explanation": "The embryonic precursor of the CNS. Its rostral end forms the brain vesicles and the rest the spinal cord, while its lumen becomes the ventricular system and central canal.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventricular-system",
+  "name": "Ventricular system",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "CNS",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "systema ventriculare",
+   "etymology": {
+    "roots": [
+     {
+      "part": "ventriculus",
+      "lang": "Latin",
+      "meaning": "little belly"
+     },
+     {
+      "part": "systema",
+      "lang": "Greek",
+      "meaning": "organized whole"
+     }
+    ],
+    "literal": "system of little bellies",
+    "story": "Ventriculus is a diminutive of venter, belly: a small cavity."
+   },
+   "explanation": "The connected CSF-filled cavities of the brain: two lateral ventricles, the third ventricle, the cerebral aqueduct and the fourth ventricle, leading to the subarachnoid space and central canal.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dural-venous-sinuses",
+  "name": "Dural venous sinuses",
+  "unit": "u1",
+  "synonyms": [
+   "venous sinuses"
+  ],
+  "abbreviations": [],
+  "region": "meninges",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "sinus durae matris",
+   "etymology": {
+    "roots": [
+     {
+      "part": "dura",
+      "lang": "Latin",
+      "meaning": "hard"
+     },
+     {
+      "part": "vena",
+      "lang": "Latin",
+      "meaning": "vein"
+     },
+     {
+      "part": "sinus",
+      "lang": "Latin",
+      "meaning": "curve, hollow"
+     }
+    ],
+    "literal": "hollows for blood within the hard (mother)",
+    "story": "They are channels between layers of the dura mater."
+   },
+   "explanation": "Endothelium-lined venous channels within the dura that collect blood from the brain and reabsorbed CSF and drain mainly to the internal jugular veins.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hypothalamic-sulcus",
+  "name": "Hypothalamic sulcus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "sulcus hypothalamicus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "hypo",
+      "lang": "Greek",
+      "meaning": "under"
+     },
+     {
+      "part": "thalamos",
+      "lang": "Greek",
+      "meaning": "inner chamber"
+     },
+     {
+      "part": "sulcus",
+      "lang": "Latin",
+      "meaning": "furrow"
+     }
+    ],
+    "literal": "groove beneath the thalamus",
+    "story": "Thalamos was the inner room of a Greek house."
+   },
+   "explanation": "A shallow groove on the wall of the third ventricle separating the thalamus above from the hypothalamus below.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pituitary-gland",
+  "name": "Pituitary gland",
+  "unit": "u1",
+  "synonyms": [
+   "hypophysis"
+  ],
+  "abbreviations": [],
+  "region": "diencephalon",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "hypophysis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "pituita",
+      "lang": "Latin",
+      "meaning": "phlegm, mucus"
+     },
+     {
+      "part": "hypo",
+      "lang": "Greek",
+      "meaning": "under"
+     },
+     {
+      "part": "physis",
+      "lang": "Greek",
+      "meaning": "growth"
+     }
+    ],
+    "literal": "mucus gland; growth underneath",
+    "story": "It was once thought to drain brain phlegm into the nose. Hypophysis means an undergrowth, as it hangs below the brain."
+   },
+   "explanation": "The master endocrine gland hanging from the hypothalamus by the pituitary stalk, with an anterior (adenohypophysis) and posterior (neurohypophysis) lobe.",
+   "facts": {
+    "function": "Secretes hormones that control other endocrine glands",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "oligodendrocyte",
+  "name": "Oligodendrocyte",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "CNS glia",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "oligos",
+      "lang": "Greek",
+      "meaning": "few"
+     },
+     {
+      "part": "dendron",
+      "lang": "Greek",
+      "meaning": "tree"
+     },
+     {
+      "part": "kytos",
+      "lang": "Greek",
+      "meaning": "hollow, cell"
+     }
+    ],
+    "literal": "cell with few branches",
+    "story": "Early stains showed this glial cell with few short processes."
+   },
+   "explanation": "The glial cell that myelinates CNS axons, with one cell wrapping segments of several axons. (Schwann cells myelinate in the PNS.)",
+   "facts": {
+    "function": "CNS myelin formation",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "prefrontal-cortex",
+  "name": "Prefrontal cortex",
+  "unit": "u1",
+  "synonyms": [
+   "PFC"
+  ],
+  "abbreviations": [],
+  "region": "frontal lobe",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "pre",
+      "lang": "Latin",
+      "meaning": "before"
+     },
+     {
+      "part": "frons, frontis",
+      "lang": "Latin",
+      "meaning": "forehead"
+     },
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark"
+     }
+    ],
+    "literal": "cortex in front of the frontal (motor) areas",
+    "story": "It lies rostral to the premotor and motor cortex."
+   },
+   "explanation": "Cortex at the front of the frontal lobe, including dorsolateral, orbitofrontal and ventromedial parts, supporting executive function, planning and social behavior.",
+   "facts": {
+    "function": "Executive function, planning, decision making, emotional regulation",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "occipital-notch",
+  "name": "Occipital notch",
+  "unit": "u1",
+  "synonyms": [
+   "preoccipital notch"
+  ],
+  "abbreviations": [],
+  "region": "cerebrum",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "incisura preoccipitalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "occiput",
+      "lang": "Latin",
+      "meaning": "back of the head"
+     }
+    ],
+    "literal": "notch near the occipital pole",
+    "story": "Occiput is from ob (behind) plus caput (head)."
+   },
+   "explanation": "A small indentation on the inferolateral surface of the hemisphere near the occipital pole, used as a landmark to mark the border between the temporal and occipital lobes.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cochlea",
+  "name": "Cochlea",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "inner ear",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "cochlea",
+   "etymology": {
+    "roots": [
+     {
+      "part": "kochlias",
+      "lang": "Greek",
+      "meaning": "snail with a spiral shell"
+     }
+    ],
+    "literal": "snail shell",
+    "story": "The bony spiral cavity resembles a snail shell."
+   },
+   "explanation": "The coiled, fluid-filled inner ear structure whose hair cells transduce sound into neural signals carried by the cochlear division of CN VIII toward primary auditory cortex.",
+   "facts": {
+    "function": "Auditory transduction",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hemineglect-syndrome",
+  "name": "Hemineglect syndrome",
+  "unit": "u1",
+  "synonyms": [
+   "spatial neglect",
+   "hemispatial neglect"
+  ],
+  "abbreviations": [],
+  "region": "parietal lobe",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "hemi",
+      "lang": "Greek",
+      "meaning": "half"
+     },
+     {
+      "part": "neglegere",
+      "lang": "Latin",
+      "meaning": "to disregard (nec, not + legere, to pick up)"
+     }
+    ],
+    "literal": "neglect of half",
+    "story": "Patients ignore half of space or their own body."
+   },
+   "explanation": "A syndrome in which a patient fails to attend to one side of space, classically the left after a right parietal lesion.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Typically right parietal lobe damage producing left-sided neglect",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "postcentral-sulcus",
+  "name": "Postcentral sulcus",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "parietal lobe",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "sulcus postcentralis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "post",
+      "lang": "Latin",
+      "meaning": "behind"
+     },
+     {
+      "part": "centrum",
+      "lang": "Latin",
+      "meaning": "center"
+     },
+     {
+      "part": "sulcus",
+      "lang": "Latin",
+      "meaning": "furrow"
+     }
+    ],
+    "literal": "groove behind the central one",
+    "story": "Lies behind the postcentral gyrus."
+   },
+   "explanation": "The sulcus forming the posterior border of the postcentral gyrus (primary somatosensory cortex), separating it from the superior parietal lobule.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "coccyx",
+  "name": "Coccyx",
+  "unit": "u1",
+  "synonyms": [
+   "tailbone"
+  ],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "os coccygis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "kokkyx",
+      "lang": "Greek",
+      "meaning": "cuckoo"
+     }
+    ],
+    "literal": "cuckoo",
+    "story": "Named for its supposed resemblance to a cuckoo's beak."
+   },
+   "explanation": "The coccyx is the small fused terminal part of the vertebral column below the sacrum, made of about four rudimentary vertebrae (Co1-Co4).",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "atlas",
+  "name": "Atlas (C1)",
+  "unit": "u1",
+  "synonyms": [
+   "C1"
+  ],
+  "abbreviations": [
+   "C1"
+  ],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "atlas",
+   "etymology": {
+    "roots": [
+     {
+      "part": "Atlas",
+      "lang": "Greek",
+      "meaning": "the Titan condemned to hold up the sky"
+     }
+    ],
+    "literal": "the bearer of the heavens",
+    "story": "The first cervical vertebra holds up the skull like Atlas holding up the heavens."
+   },
+   "explanation": "The atlas is the C1 vertebra. It has no vertebral body and carries the skull at the atlanto-occipital joint (nodding).",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "axis",
+  "name": "Axis (C2)",
+  "unit": "u1",
+  "synonyms": [
+   "C2"
+  ],
+  "abbreviations": [
+   "C2"
+  ],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "axis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "axis",
+      "lang": "Latin",
+      "meaning": "axle, pivot"
+     }
+    ],
+    "literal": "axle",
+    "story": "The atlas turns about the dens of C2 as on an axle."
+   },
+   "explanation": "The axis is the C2 vertebra. Its dens (odontoid process) is the pivot around which the atlas and skull rotate.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vertebra-prominens",
+  "name": "Vertebra prominens (C7)",
+  "unit": "u1",
+  "synonyms": [
+   "C7"
+  ],
+  "abbreviations": [
+   "C7"
+  ],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "midline",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "vertebra prominens",
+   "etymology": {
+    "roots": [
+     {
+      "part": "vertebra",
+      "lang": "Latin",
+      "meaning": "joint, turning-place of the spine"
+     },
+     {
+      "part": "prominens",
+      "lang": "Latin",
+      "meaning": "jutting out"
+     }
+    ],
+    "literal": "the prominent vertebra",
+    "story": "C7 has a long spinous process that can be felt as a bump at the base of the neck."
+   },
+   "explanation": "The vertebra prominens is C7, identified by its long, easily palpated spinous process; it is a surface landmark for counting vertebral levels.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ribs",
+  "name": "Ribs",
+  "unit": "u1",
+  "synonyms": [
+   "rib cage",
+   "thoracic cage"
+  ],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "costae",
+   "etymology": {
+    "roots": [
+     {
+      "part": "costa",
+      "lang": "Latin",
+      "meaning": "rib"
+     },
+     {
+      "part": "rib",
+      "lang": "Old English",
+      "meaning": "rib"
+     }
+    ],
+    "literal": "rib",
+    "story": "Latin costa gives English words such as costal."
+   },
+   "explanation": "The ribs are the 12 pairs of curved bones that articulate with the thoracic vertebrae and, with the sternum, form the rib cage protecting the thoracic organs.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spinal-rootlets",
+  "name": "Spinal rootlets",
+  "unit": "u1",
+  "synonyms": [
+   "rootlets"
+  ],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "root",
+      "lang": "Old Norse",
+      "meaning": "root (rot)"
+     },
+     {
+      "part": "-let",
+      "lang": "French",
+      "meaning": "diminutive suffix"
+     }
+    ],
+    "literal": "little root",
+    "story": "A rootlet is a small filament; several rootlets merge to form a root."
+   },
+   "explanation": "Rootlets are the small filaments that emerge from the spinal cord (dorsal and ventral) and converge to form the dorsal and ventral roots of a spinal nerve.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spinal-roots",
+  "name": "Spinal roots",
+  "unit": "u1",
+  "synonyms": [
+   "roots",
+   "nerve roots"
+  ],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "radix",
+   "etymology": {
+    "roots": [
+     {
+      "part": "radix",
+      "lang": "Latin",
+      "meaning": "root"
+     }
+    ],
+    "literal": "root",
+    "story": "Spinal nerves 'root' in the cord like a plant in soil."
+   },
+   "explanation": "Each spinal nerve forms from a dorsal (sensory) root and a ventral (motor) root, each made of converging rootlets; the roots unite in the intervertebral foramen.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dural-sac",
+  "name": "Dural sac",
+  "unit": "u1",
+  "synonyms": [
+   "thecal sac"
+  ],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "dura",
+      "lang": "Latin",
+      "meaning": "hard"
+     },
+     {
+      "part": "saccus",
+      "lang": "Latin",
+      "meaning": "bag, sack"
+     }
+    ],
+    "literal": "hard bag",
+    "story": "The dura mater (tough mother) forms a tube-like bag around the cord and CSF."
+   },
+   "explanation": "The dural sac is the dura-lined sac containing the spinal cord, cauda equina and CSF; it ends around S2 below the conus medullaris.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "proximal",
+  "name": "Proximal",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "anatomical-terms",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "proximus",
+      "lang": "Latin",
+      "meaning": "nearest"
+     }
+    ],
+    "literal": "nearest",
+    "story": "From Latin proximus, superlative of prope 'near'."
+   },
+   "explanation": "Proximal describes a position closer to the trunk or point of attachment, for example the shoulder is proximal to the elbow.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "distal",
+  "name": "Distal",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "anatomical-terms",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "distare",
+      "lang": "Latin",
+      "meaning": "to stand apart, be distant"
+     }
+    ],
+    "literal": "standing apart",
+    "story": "Related to English distant."
+   },
+   "explanation": "Distal describes a position farther from the trunk or point of attachment, for example the hand is distal to the elbow.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "muscle-spindle",
+  "name": "Muscle spindle",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "fusus neuromuscularis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "musculus",
+      "lang": "Latin",
+      "meaning": "little mouse"
+     },
+     {
+      "part": "spindle",
+      "lang": "Old English",
+      "meaning": "spinel, a tool for spinning thread"
+     }
+    ],
+    "literal": "little-mouse spindle",
+    "story": "Muscle was named for a rippling muscle that looked like a mouse under the skin; the receptor is spindle-shaped."
+   },
+   "explanation": "Muscle spindles are stretch receptors within muscle that signal muscle length and its rate of change (proprioception, Ia and II afferents).",
+   "facts": {
+    "function": "proprioception of muscle length",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "golgi-tendon-organ",
+  "name": "Golgi tendon organ",
+  "unit": "u1",
+  "synonyms": [
+   "GTO"
+  ],
+  "abbreviations": [
+   "GTO"
+  ],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "organum tendineum",
+   "etymology": {
+    "roots": [
+     {
+      "part": "Golgi",
+      "lang": "Italian",
+      "meaning": "surname of Camillo Golgi, who described it"
+     },
+     {
+      "part": "tendo",
+      "lang": "Latin",
+      "meaning": "tendon, from tendere to stretch"
+     },
+     {
+      "part": "organon",
+      "lang": "Greek",
+      "meaning": "tool, instrument"
+     }
+    ],
+    "literal": "Golgi's stretch-tendon instrument",
+    "story": "Named for Camillo Golgi, who described it in tendons."
+   },
+   "explanation": "The Golgi tendon organ sits at the muscle-tendon junction and signals muscle tension (Ib afferents), giving proprioceptive feedback and protecting against excess force.",
+   "facts": {
+    "function": "proprioception of muscle tension",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pseudounipolar-neuron",
+  "name": "Pseudounipolar neuron",
+  "unit": "u1",
+  "synonyms": [
+   "unipolar-like sensory neuron"
+  ],
+  "abbreviations": [],
+  "region": "spinal-cord",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "pseudes",
+      "lang": "Greek",
+      "meaning": "false"
+     },
+     {
+      "part": "unus",
+      "lang": "Latin",
+      "meaning": "one"
+     },
+     {
+      "part": "polos",
+      "lang": "Greek",
+      "meaning": "pivot, axis (pole)"
+     }
+    ],
+    "literal": "falsely one-poled",
+    "story": "It looks as if it has one process, but that process splits in two."
+   },
+   "explanation": "Primary sensory neurons in the dorsal root ganglion are pseudounipolar: a single process leaves the soma and divides into a peripheral and a central branch.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ipsilateral",
+  "name": "Ipsilateral",
+  "unit": "u1",
+  "synonyms": [
+   "same side"
+  ],
+  "abbreviations": [],
+  "region": "anatomical-terms",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ipse",
+      "lang": "Latin",
+      "meaning": "self, same"
+     },
+     {
+      "part": "latus",
+      "lang": "Latin",
+      "meaning": "side"
+     }
+    ],
+    "literal": "same side",
+    "story": "From ipse plus lateral."
+   },
+   "explanation": "Ipsilateral means on the same side of the body or midline; for example dorsal column fibers ascend ipsilaterally until they decussate in the medulla.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "posterior-inferior-cerebellar-artery",
+  "name": "Posterior inferior cerebellar artery",
+  "unit": "u3",
+  "synonyms": [
+   "PICA"
+  ],
+  "abbreviations": [
+   "PICA"
+  ],
+  "region": "vessels",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "arteria inferior posterior cerebelli",
+   "etymology": {
+    "roots": [
+     {
+      "part": "posterior",
+      "lang": "Latin",
+      "meaning": "coming after, behind"
+     },
+     {
+      "part": "inferior",
+      "lang": "Latin",
+      "meaning": "lower"
+     },
+     {
+      "part": "cerebellum",
+      "lang": "Latin",
+      "meaning": "little brain"
+     },
+     {
+      "part": "arteria",
+      "lang": "Greek",
+      "meaning": "windpipe, artery"
+     }
+    ],
+    "literal": "rear lower little-brain artery",
+    "story": "Greek arteria first meant windpipe; the ancients thought arteries carried air."
+   },
+   "explanation": "The PICA arises from the vertebral artery and supplies the inferior cerebellum and the lateral medulla.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": "inferior cerebellum and lateral medulla",
+    "lesion": "lateral medullary (Wallenberg) syndrome",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "aneurysm",
+  "name": "Aneurysm",
+  "unit": "u3",
+  "synonyms": [
+   "berry aneurysm",
+   "saccular aneurysm"
+  ],
+  "abbreviations": [],
+  "region": "Cerebral arteries (often at branch points of the circle of Willis)",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ana-",
+      "lang": "Greek",
+      "meaning": "up, throughout"
+     },
+     {
+      "part": "eurys",
+      "lang": "Greek",
+      "meaning": "wide"
+     }
+    ],
+    "literal": "a widening out",
+    "story": "From Greek aneurysma, a widening, from aneurynein, to dilate. A berry aneurysm is a small sac that bulges like a berry from an artery wall."
+   },
+   "explanation": "An aneurysm is a weakened, ballooned arterial wall. A ruptured berry aneurysm bleeds into the subarachnoid space (subarachnoid hemorrhage), and treatment includes surgical clipping or endovascular platinum coils.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Rupture causes subarachnoid hemorrhage, with a sudden severe headache.",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-posterolateral-nucleus",
+  "name": "Ventral posterolateral nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "VPL",
+   "VPL nucleus"
+  ],
+  "abbreviations": [
+   "VPL"
+  ],
+  "region": "Thalamus",
+  "lists": [],
+  "laterality": "paired",
+  "parent": "thalamus",
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ventral",
+      "lang": "Latin",
+      "meaning": "from venter, belly"
+     },
+     {
+      "part": "posterior",
+      "lang": "Latin",
+      "meaning": "behind"
+     },
+     {
+      "part": "lateral",
+      "lang": "Latin",
+      "meaning": "from latus, side"
+     }
+    ],
+    "literal": "the lower, back, outer nucleus",
+    "story": "The name gives the position of the nucleus within the thalamus: ventral, posterior and lateral."
+   },
+   "explanation": "The VPL relays body somatosensation from the medial lemniscus and the anterolateral system to the primary somatosensory cortex. Second-order neurons of the medial lemniscus synapse here, and the third-order neurons have their cell bodies here.",
+   "facts": {
+    "function": "Body touch, vibration, proprioception, pain and temperature relay to cortex.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Input: medial lemniscus, anterolateral system. Output: postcentral gyrus."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "rubrospinal-tract",
+  "name": "Rubrospinal tract",
+  "unit": "u2",
+  "synonyms": [
+   "rubrospinal"
+  ],
+  "abbreviations": [],
+  "region": "Brainstem and spinal cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ruber",
+      "lang": "Latin",
+      "meaning": "red"
+     },
+     {
+      "part": "spina",
+      "lang": "Latin",
+      "meaning": "spine"
+     }
+    ],
+    "literal": "red-to-spine tract",
+    "story": "It arises in the red nucleus (nucleus ruber) of the midbrain, named for its pinkish colour in fresh tissue, and runs to the spinal cord."
+   },
+   "explanation": "The rubrospinal tract arises from the red nucleus, crosses in the ventral tegmental decussation and descends in the lateral funiculus. It facilitates flexor muscles of the upper limb. It does not travel through the cerebral peduncles because it starts in the midbrain tegmentum.",
+   "facts": {
+    "function": "Flexion of upper limb.",
+    "passes": "Tegmentum of midbrain, pons and medulla, then lateral funiculus.",
+    "supply": null,
+    "lesion": "Damage below the red nucleus leaves extensor drive unopposed (decerebrate posturing).",
+    "connections": "Red nucleus to spinal LMNs."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "tectospinal-tract",
+  "name": "Tectospinal tract",
+  "unit": "u2",
+  "synonyms": [
+   "tectospinal"
+  ],
+  "abbreviations": [],
+  "region": "Brainstem and spinal cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "tectum",
+      "lang": "Latin",
+      "meaning": "roof"
+     },
+     {
+      "part": "spina",
+      "lang": "Latin",
+      "meaning": "spine"
+     }
+    ],
+    "literal": "roof-to-spine tract",
+    "story": "It starts in the tectum (roof) of the midbrain, the superior and inferior colliculi."
+   },
+   "explanation": "The tectospinal tract arises from the colliculi, crosses in the dorsal tegmental decussation and descends to cervical cord levels. It produces reflexive head turns toward visual and auditory stimuli.",
+   "facts": {
+    "function": "Reflex orientation of head and neck toward visual and auditory stimuli.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Superior and inferior colliculi to cervical spinal LMNs."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vestibulospinal-tract",
+  "name": "Vestibulospinal tract",
+  "unit": "u2",
+  "synonyms": [
+   "vestibulospinal"
+  ],
+  "abbreviations": [],
+  "region": "Brainstem and spinal cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "vestibulum",
+      "lang": "Latin",
+      "meaning": "entrance hall"
+     },
+     {
+      "part": "spina",
+      "lang": "Latin",
+      "meaning": "spine"
+     }
+    ],
+    "literal": "vestibule-to-spine tract",
+    "story": "Vestibulum is Latin for entrance hall, applied to the inner ear chamber that senses head position."
+   },
+   "explanation": "The vestibulospinal tract arises from the vestibular nuclei and descends ipsilaterally to facilitate extensor muscles of the trunk and limbs. It maintains posture and balance.",
+   "facts": {
+    "function": "Posture and balance via extensor tone.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Vestibular nuclei to spinal LMNs (ipsilateral)."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "reticulospinal-tract",
+  "name": "Reticulospinal tract",
+  "unit": "u2",
+  "synonyms": [
+   "reticulospinal"
+  ],
+  "abbreviations": [],
+  "region": "Brainstem and spinal cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "reticulum",
+      "lang": "Latin",
+      "meaning": "little net"
+     },
+     {
+      "part": "spina",
+      "lang": "Latin",
+      "meaning": "spine"
+     }
+    ],
+    "literal": "net-to-spine tract",
+    "story": "The reticular formation is a netlike mix of cells and fibres in the brainstem core."
+   },
+   "explanation": "The reticulospinal tracts arise from the pontine and medullary reticular formation and modulate posture, muscle tone and locomotion, including rhythmic stepping. Regulation of voluntary fine movement belongs to the corticospinal system.",
+   "facts": {
+    "function": "Posture, tone, walking and gait, autonomic modulation.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Reticular formation to spinal interneurons and LMNs."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "corticobulbar-tract",
+  "name": "Corticobulbar tract",
+  "unit": "u2",
+  "synonyms": [
+   "corticobulbar",
+   "corticonuclear tract"
+  ],
+  "abbreviations": [],
+  "region": "Brainstem and spinal cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark, rind"
+     },
+     {
+      "part": "bulbus",
+      "lang": "Latin",
+      "meaning": "bulb (old term for brainstem)"
+     }
+    ],
+    "literal": "cortex-to-bulb tract",
+    "story": "Bulb was an old term for the brainstem, so the tract runs from the cortex to the brainstem."
+   },
+   "explanation": "The corticobulbar tract is made of upper motor neuron axons that end on cranial nerve motor nuclei in the brainstem. This distinguishes it from the corticospinal tract, which ends in the spinal cord.",
+   "facts": {
+    "function": "Voluntary control of face, jaw, tongue and pharynx muscles.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Motor cortex via genu of internal capsule to cranial motor nuclei."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "corticopontine-tract",
+  "name": "Corticopontine tract",
+  "unit": "u2",
+  "synonyms": [
+   "corticopontine fibers",
+   "corticopontine pathway"
+  ],
+  "abbreviations": [],
+  "region": "Brainstem and spinal cord",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark, rind"
+     },
+     {
+      "part": "pons",
+      "lang": "Latin",
+      "meaning": "bridge"
+     }
+    ],
+    "literal": "cortex-to-bridge tract",
+    "story": "It links the cortex to the pontine nuclei in the basis pontis."
+   },
+   "explanation": "Corticopontine fibers carry copies of cortical motor plans to the pontine nuclei, which relay them across the middle cerebellar peduncle to the contralateral cerebellum. Their neurons are cortical neurons projecting to brainstem targets, so they count as upper motor neurons.",
+   "facts": {
+    "function": "Relay of motor plans to the cerebellum.",
+    "passes": "Cerebral peduncle, basis pontis, middle cerebellar peduncle.",
+    "supply": null,
+    "lesion": null,
+    "connections": "Cortex to pontine nuclei to contralateral cerebellum."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "archicortex",
+  "name": "Archicortex",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "Cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "archi-",
+      "lang": "Greek",
+      "meaning": "first, primitive, chief"
+     },
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark, rind"
+     }
+    ],
+    "literal": "primitive cortex",
+    "story": "Greek arkhi- means first or chief; this is the oldest cortex phylogenetically."
+   },
+   "explanation": "The archicortex is the hippocampal cortex, a three-layered allocortex with fewer layers than the six-layered neocortex.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "allocortex",
+  "name": "Allocortex",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "Cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "allo-",
+      "lang": "Greek",
+      "meaning": "other, different"
+     },
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark, rind"
+     }
+    ],
+    "literal": "other cortex",
+    "story": "Greek allos means other; it differs from the six-layered neocortex."
+   },
+   "explanation": "Allocortex is cortex with three to five layers (fewer than six), and includes archicortex (hippocampus) and paleocortex (olfactory cortex).",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "paleocortex",
+  "name": "Paleocortex",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "Cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "palaios",
+      "lang": "Greek",
+      "meaning": "ancient"
+     },
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark, rind"
+     }
+    ],
+    "literal": "ancient cortex",
+    "story": "Greek palaios means old; it is evolutionarily older than neocortex."
+   },
+   "explanation": "Paleocortex includes the olfactory cortex (piriform cortex) and has fewer than six layers, a type of allocortex.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "hydrocephalus",
+  "name": "Hydrocephalus",
+  "unit": "u3",
+  "synonyms": [
+   "hydrocephaly"
+  ],
+  "abbreviations": [],
+  "region": "Ventricular system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "hydor",
+      "lang": "Greek",
+      "meaning": "water"
+     },
+     {
+      "part": "kephale",
+      "lang": "Greek",
+      "meaning": "head"
+     }
+    ],
+    "literal": "water head",
+    "story": "Greek hydrokephalon meant water in the head, long before CSF was understood."
+   },
+   "explanation": "Hydrocephalus is excess CSF in the ventricles, from blocked flow or poor absorption, and it enlarges the ventricles. It differs from disorders of neuronal migration, which are developmental malformations of the cortex.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Raised intracranial pressure, enlarged head in infants.",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "saccule",
+  "name": "Saccule",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "Inner ear, vestibular labyrinth",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Sacculus",
+   "etymology": {
+    "roots": [
+     {
+      "part": "sacculus",
+      "lang": "Latin",
+      "meaning": "little bag, diminutive of saccus"
+     }
+    ],
+    "literal": "little bag",
+    "story": "It is a small sac in the membranous labyrinth."
+   },
+   "explanation": "The saccule and utricle are the otolith organs that detect linear acceleration and head tilt relative to gravity. The saccule is most sensitive to vertical linear acceleration, while the semicircular canals detect angular acceleration.",
+   "facts": {
+    "function": "Detects linear (vertical) acceleration.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "purkinje-cell",
+  "name": "Purkinje cell",
+  "unit": "u3",
+  "synonyms": [
+   "Purkinje neuron"
+  ],
+  "abbreviations": [],
+  "region": "Cerebellar cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "Purkinje",
+      "lang": "Czech",
+      "meaning": "surname of Jan Evangelista Purkyne, who described these cells in 1837"
+     }
+    ],
+    "literal": "cell of Purkinje",
+    "story": "Purkyne, a Czech anatomist and physiologist, first described them."
+   },
+   "explanation": "Purkinje cells are the only output neurons of the cerebellar cortex. They are GABAergic and inhibit the deep cerebellar nuclei, which is how the cerebellar cortex modulates cerebellar output.",
+   "facts": {
+    "function": "Inhibitory output of cerebellar cortex.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Purkinje cells to deep cerebellar nuclei."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "bradykinesia",
+  "name": "Bradykinesia",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "Basal ganglia disorders",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "bradys",
+      "lang": "Greek",
+      "meaning": "slow"
+     },
+     {
+      "part": "kinesis",
+      "lang": "Greek",
+      "meaning": "movement"
+     }
+    ],
+    "literal": "slow movement",
+    "story": "The two Greek roots combine directly, with kinesis from kinein, to move."
+   },
+   "explanation": "Bradykinesia is the slowness of movement that is a cardinal sign of Parkinson disease, due to loss of dopaminergic neurons of the substantia nigra, which reduces drive through the direct pathway.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Parkinson disease, with rigidity and resting tremor.",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "diffusion-spectrum-imaging",
+  "name": "Diffusion spectrum imaging",
+  "unit": "u3",
+  "synonyms": [
+   "DSI",
+   "diffusion MRI",
+   "tractography"
+  ],
+  "abbreviations": [
+   "DSI"
+  ],
+  "region": "Imaging",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "diffusion",
+      "lang": "Latin",
+      "meaning": "from diffundere, to spread out"
+     },
+     {
+      "part": "spectrum",
+      "lang": "Latin",
+      "meaning": "appearance, image"
+     }
+    ],
+    "literal": "image of the spread of water",
+    "story": "It measures how water diffuses in tissue along many directions."
+   },
+   "explanation": "DSI is a type of diffusion MRI that measures water diffusion in many directions and can resolve crossing fibre pathways, so it is suited to tracing complex axon tract crossings.",
+   "facts": {
+    "function": "Maps white matter tracts and fibre crossings.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "positron-emission-tomography",
+  "name": "Positron emission tomography",
+  "unit": "u3",
+  "synonyms": [
+   "PET",
+   "PET scan"
+  ],
+  "abbreviations": [
+   "PET"
+  ],
+  "region": "Imaging",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "positron",
+      "lang": "English",
+      "meaning": "positive electron"
+     },
+     {
+      "part": "tomos",
+      "lang": "Greek",
+      "meaning": "slice"
+     },
+     {
+      "part": "graphia",
+      "lang": "Greek",
+      "meaning": "writing, recording"
+     }
+    ],
+    "literal": "recording of slices by positive electron emission",
+    "story": "A radiotracer emits positrons whose annihilation produces photons detected by the scanner."
+   },
+   "explanation": "PET uses radiolabeled tracers (for example FDG for metabolism, or labeled tau or amyloid) to image function and molecular targets. It is used for metabolic activity and for detecting tau aggregates in Alzheimer disease.",
+   "facts": {
+    "function": "Metabolic and molecular imaging.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "upper-motor-neuron-lesion",
+  "name": "Upper motor neuron lesion",
+  "unit": "u1",
+  "synonyms": [
+   "UMN lesion",
+   "spastic paralysis"
+  ],
+  "abbreviations": [],
+  "region": "clinical",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "motor",
+      "lang": "Latin",
+      "meaning": "mover"
+     },
+     {
+      "part": "neuron",
+      "lang": "Greek",
+      "meaning": "sinew, nerve"
+     },
+     {
+      "part": "lesion",
+      "lang": "Latin",
+      "meaning": "injury (laesio)"
+     }
+    ],
+    "literal": "injury of the upper movers' nerve cells",
+    "story": "Upper motor neurons are the cortical and brainstem cells that command the lower motor neurons, so damage is upstream of the final pathway."
+   },
+   "explanation": "Damage to cortical or descending motor neurons (corticospinal, corticobulbar) causes spastic paralysis: weakness with increased tone, brisk reflexes and an upgoing toe (Babinski sign). The lower motor neurons are intact, so there is no major atrophy.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Spastic paralysis, hyperreflexia, Babinski sign, little atrophy",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "lower-motor-neuron-lesion",
+  "name": "Lower motor neuron lesion",
+  "unit": "u1",
+  "synonyms": [
+   "LMN lesion",
+   "flaccid paralysis"
+  ],
+  "abbreviations": [],
+  "region": "clinical",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "motor",
+      "lang": "Latin",
+      "meaning": "mover"
+     },
+     {
+      "part": "neuron",
+      "lang": "Greek",
+      "meaning": "sinew, nerve"
+     },
+     {
+      "part": "lesion",
+      "lang": "Latin",
+      "meaning": "injury (laesio)"
+     }
+    ],
+    "literal": "injury of the lower movers' nerve cells",
+    "story": "Lower motor neurons (ventral horn and cranial motor nuclei) are the final common path to muscle."
+   },
+   "explanation": "Damage to ventral horn cells, ventral roots or peripheral nerves causes flaccid paralysis with low tone, absent reflexes, fasciculations and muscle atrophy, because muscle loses its direct neural drive.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Flaccid paralysis, areflexia, fasciculations, atrophy",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dermatome",
+  "name": "Dermatome",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "clinical",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "derma",
+      "lang": "Greek",
+      "meaning": "skin"
+     },
+     {
+      "part": "-tomos",
+      "lang": "Greek",
+      "meaning": "cutting, slice"
+     }
+    ],
+    "literal": "a slice of skin",
+    "story": "Each dermatome is the strip of skin supplied by one spinal nerve root."
+   },
+   "explanation": "A dermatome is the area of skin innervated by the sensory fibers of a single dorsal root (spinal level). Lesions of a dorsal root or ganglion cause numbness in the matching strip, which helps localize the level.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": "Numbness in a strip of skin matching the damaged root",
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "macular-sparing",
+  "name": "Macular sparing",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "clinical",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "macula",
+      "lang": "Latin",
+      "meaning": "spot"
+     },
+     {
+      "part": "sparing",
+      "lang": "Old English",
+      "meaning": "refraining from harm (sparian)"
+     }
+    ],
+    "literal": "the spot is spared",
+    "story": "The macula is the small central retinal spot of sharpest vision; in some cortical strokes it survives."
+   },
+   "explanation": "In a posterior cerebral artery stroke with homonymous hemianopia, central (macular) vision is often preserved, commonly attributed to dual supply of the occipital pole from the MCA as well as the PCA.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": "Occipital pole may have collateral MCA supply in addition to PCA",
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-posteromedial-nucleus",
+  "name": "Ventral posteromedial nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "VPM nucleus",
+   "VPM"
+  ],
+  "abbreviations": [
+   "VPM"
+  ],
+  "region": "thalamus",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Nucleus ventralis posteromedialis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "ventral",
+      "lang": "Latin",
+      "meaning": "venter, belly (front/lower side)"
+     },
+     {
+      "part": "postero-",
+      "lang": "Latin",
+      "meaning": "posterior, behind"
+     },
+     {
+      "part": "medial",
+      "lang": "Latin",
+      "meaning": "medius, middle"
+     }
+    ],
+    "literal": "the nucleus in the belly-side, behind and toward the middle",
+    "story": "Named for its position in the ventral tier of the thalamus, behind and medial to VPL."
+   },
+   "explanation": "The thalamic relay for somatosensation from the face: it receives the trigeminal lemniscus and trigeminothalamic tract and projects to the face area of primary somatosensory cortex.",
+   "facts": {
+    "function": "Relays facial touch, pain and temperature to the cortex.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": "Input: trigeminal pathways. Output: primary somatosensory cortex (face area)."
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "free-nerve-endings",
+  "name": "Free nerve endings",
+  "unit": "u1",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "peripheral nervous system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "free",
+      "lang": "English",
+      "meaning": "unattached, without a specialised capsule"
+     },
+     {
+      "part": "nerve",
+      "lang": "Latin",
+      "meaning": "nervus, sinew, nerve"
+     },
+     {
+      "part": "ending",
+      "lang": "English",
+      "meaning": "terminal part"
+     }
+    ],
+    "literal": "nerve terminals without an encapsulated receptor",
+    "story": "They are bare axon terminals, in contrast to encapsulated receptors such as Pacinian corpuscles."
+   },
+   "explanation": "Unencapsulated terminals of A-delta and C fibers that detect painful, thermal and itch stimuli and feed the anterolateral system.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sympathetic-nervous-system",
+  "name": "Sympathetic nervous system",
+  "unit": "u1",
+  "synonyms": [
+   "sympathetic division",
+   "thoracolumbar outflow"
+  ],
+  "abbreviations": [],
+  "region": "autonomic nervous system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "syn-",
+      "lang": "Greek",
+      "meaning": "with, together"
+     },
+     {
+      "part": "pathos",
+      "lang": "Greek",
+      "meaning": "feeling, suffering"
+     }
+    ],
+    "literal": "feeling together",
+    "story": "Greek sympatheia 'feeling with'; early anatomists thought this system linked the organs so they 'felt with' each other."
+   },
+   "explanation": "The thoracolumbar division of the autonomic system (preganglionic cell bodies in the lateral horn, T1-L2) with short preganglionic and long postganglionic fibers; it mobilises the body for fight or flight.",
+   "facts": {
+    "function": "Fight or flight responses.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "parasympathetic-nervous-system",
+  "name": "Parasympathetic nervous system",
+  "unit": "u1",
+  "synonyms": [
+   "parasympathetic division",
+   "craniosacral outflow"
+  ],
+  "abbreviations": [],
+  "region": "autonomic nervous system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "para-",
+      "lang": "Greek",
+      "meaning": "beside, alongside"
+     },
+     {
+      "part": "sympathetic",
+      "lang": "Greek",
+      "meaning": "sympatheia, feeling with"
+     }
+    ],
+    "literal": "beside the sympathetic system",
+    "story": "Named for lying alongside and opposing the sympathetic division."
+   },
+   "explanation": "The craniosacral division of the autonomic system (CN III, VII, IX, X and sacral S2-S4) with long preganglionic and short postganglionic fibers whose ganglia lie near or in the target organ; it supports rest and digest functions.",
+   "facts": {
+    "function": "Rest and digest functions.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "sympathetic-ganglia",
+  "name": "Sympathetic ganglia",
+  "unit": "u1",
+  "synonyms": [
+   "paravertebral ganglia",
+   "prevertebral ganglia",
+   "sympathetic chain"
+  ],
+  "abbreviations": [],
+  "region": "autonomic nervous system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ganglion",
+      "lang": "Greek",
+      "meaning": "gagglion, knot, swelling"
+     },
+     {
+      "part": "para-",
+      "lang": "Greek",
+      "meaning": "beside"
+     },
+     {
+      "part": "vertebral",
+      "lang": "Latin",
+      "meaning": "vertebra, joint, from vertere, to turn"
+     },
+     {
+      "part": "pre-",
+      "lang": "Latin",
+      "meaning": "before"
+     }
+    ],
+    "literal": "knots beside or in front of the vertebrae",
+    "story": "Chain (paravertebral) ganglia lie beside the vertebral column and prevertebral ganglia lie in front of it."
+   },
+   "explanation": "Sympathetic preganglionic axons synapse in the paravertebral chain ganglia or in prevertebral ganglia, where postganglionic neurons begin the long fibers to the target.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "adrenal-medulla",
+  "name": "Adrenal medulla",
+  "unit": "u1",
+  "synonyms": [
+   "adrenal gland medulla"
+  ],
+  "abbreviations": [],
+  "region": "autonomic nervous system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Medulla glandulae suprarenalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "ad-",
+      "lang": "Latin",
+      "meaning": "near"
+     },
+     {
+      "part": "ren",
+      "lang": "Latin",
+      "meaning": "kidney"
+     },
+     {
+      "part": "medulla",
+      "lang": "Latin",
+      "meaning": "marrow, inner part"
+     }
+    ],
+    "literal": "inner part of the gland near the kidney",
+    "story": "The adrenal gland sits on top of the kidney; its core is the medulla."
+   },
+   "explanation": "A modified sympathetic ganglion: its chromaffin cells are innervated directly by cholinergic preganglionic neurons and release epinephrine into the blood.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spastic-paralysis",
+  "name": "Spastic paralysis",
+  "unit": "u1",
+  "synonyms": [
+   "upper motor neuron signs"
+  ],
+  "abbreviations": [],
+  "region": "motor system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "spastic",
+      "lang": "Greek",
+      "meaning": "spastikos, drawing in, from spaein, to pull"
+     },
+     {
+      "part": "paralysis",
+      "lang": "Greek",
+      "meaning": "paralysis, loosening, disabling"
+     }
+    ],
+    "literal": "pulling paralysis",
+    "story": "Greek spasmos meant a pulling or convulsion; paralysis comes from 'loosening' at the side."
+   },
+   "explanation": "The paralysis of upper motor neuron damage: increased tone, hyperreflexia and a Babinski sign without marked atrophy, because lower motor neurons remain intact and lose descending inhibition.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "flaccid-paralysis",
+  "name": "Flaccid paralysis",
+  "unit": "u1",
+  "synonyms": [
+   "lower motor neuron signs"
+  ],
+  "abbreviations": [],
+  "region": "motor system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "flaccid",
+      "lang": "Latin",
+      "meaning": "flaccidus, flabby, limp"
+     },
+     {
+      "part": "paralysis",
+      "lang": "Greek",
+      "meaning": "paralysis, loosening"
+     }
+    ],
+    "literal": "limp paralysis",
+    "story": "Latin flaccus, hanging loose, describes the limp muscle."
+   },
+   "explanation": "The paralysis of lower motor neuron damage: reduced tone, absent reflexes and muscle atrophy, because the muscle has lost its direct motor innervation.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "trigeminal-ganglion",
+  "name": "Trigeminal ganglion",
+  "unit": "u2",
+  "synonyms": [
+   "Gasserian ganglion",
+   "semilunar ganglion"
+  ],
+  "abbreviations": [],
+  "region": "cranial nerves",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Ganglion trigeminale",
+   "etymology": {
+    "roots": [
+     {
+      "part": "tri-",
+      "lang": "Latin",
+      "meaning": "three"
+     },
+     {
+      "part": "geminus",
+      "lang": "Latin",
+      "meaning": "twin, born together"
+     },
+     {
+      "part": "ganglion",
+      "lang": "Greek",
+      "meaning": "gagglion, knot, swelling"
+     }
+    ],
+    "literal": "knot of the three-born nerve",
+    "story": "Trigeminus, 'triplet', names the nerve for its three divisions (V1, V2, V3)."
+   },
+   "explanation": "Its pseudounipolar neurons are the first-order cell bodies for facial touch, pain and temperature; it lies in the middle cranial fossa (Meckel's cave).",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "trigeminothalamic-tract",
+  "name": "Trigeminothalamic tract",
+  "unit": "u2",
+  "synonyms": [
+   "ventral trigeminothalamic tract"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "trigeminal",
+      "lang": "Latin",
+      "meaning": "tri-, three + geminus, twin"
+     },
+     {
+      "part": "thalamus",
+      "lang": "Greek",
+      "meaning": "thalamos, inner chamber"
+     }
+    ],
+    "literal": "tract from the trigeminal nuclei to the thalamus",
+    "story": "Named by origin and destination, like spinothalamic."
+   },
+   "explanation": "Carries second-order facial pain and temperature fibers from the spinal trigeminal nucleus, crossing to the contralateral side and ending in VPM, alongside the anterolateral system.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "mesencephalic-trigeminal-nucleus",
+  "name": "Mesencephalic nucleus of the trigeminal nerve",
+  "unit": "u2",
+  "synonyms": [
+   "mesencephalic nucleus of V",
+   "mesencephalic V"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "mes-",
+      "lang": "Greek",
+      "meaning": "mesos, middle"
+     },
+     {
+      "part": "encephalon",
+      "lang": "Greek",
+      "meaning": "enkephalos, brain"
+     },
+     {
+      "part": "trigeminal",
+      "lang": "Latin",
+      "meaning": "tri-, three + geminus, twin"
+     }
+    ],
+    "literal": "trigeminal nucleus of the midbrain",
+    "story": "Mesencephalon, 'midbrain', is where this column lies."
+   },
+   "explanation": "It contains first-order proprioceptive neurons from the muscles of mastication whose cell bodies sit inside the CNS rather than in a ganglion; their axons synapse on the motor trigeminal nucleus for the jaw jerk reflex.",
+   "facts": {
+    "function": "Proprioception from chewing muscles; jaw reflex.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "decorticate-posture",
+  "name": "Decorticate posture",
+  "unit": "u2",
+  "synonyms": [
+   "flexor posturing"
+  ],
+  "abbreviations": [],
+  "region": "motor system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "de-",
+      "lang": "Latin",
+      "meaning": "off, away"
+     },
+     {
+      "part": "cortex",
+      "lang": "Latin",
+      "meaning": "bark"
+     }
+    ],
+    "literal": "with the bark removed",
+    "story": "Named as if the cortex were removed, though the lesion is above the red nucleus rather than the cortex alone."
+   },
+   "explanation": "Flexed arms and extended legs after a lesion above the red nucleus: the rubrospinal tract is intact and drives upper limb flexion, while the lateral corticospinal tract is lost.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "decerebrate-posture",
+  "name": "Decerebrate posture",
+  "unit": "u2",
+  "synonyms": [
+   "extensor posturing"
+  ],
+  "abbreviations": [],
+  "region": "motor system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "de-",
+      "lang": "Latin",
+      "meaning": "off, away"
+     },
+     {
+      "part": "cerebrum",
+      "lang": "Latin",
+      "meaning": "brain"
+     }
+    ],
+    "literal": "with the brain removed",
+    "story": "Named from animal experiments in which the cerebrum was removed."
+   },
+   "explanation": "Extended arms and legs after a lesion below the red nucleus: the rubrospinal tract is lost and pontine reticulospinal and vestibulospinal extensor drive is unopposed.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "extrapyramidal-system",
+  "name": "Extrapyramidal system",
+  "unit": "u2",
+  "synonyms": [
+   "extrapyramidal tracts"
+  ],
+  "abbreviations": [],
+  "region": "motor system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "extra",
+      "lang": "Latin",
+      "meaning": "outside"
+     },
+     {
+      "part": "pyramid",
+      "lang": "Greek",
+      "meaning": "pyramis, pyramid"
+     }
+    ],
+    "literal": "outside the pyramids",
+    "story": "Defined in relation to the medullary pyramids, which carry the corticospinal tract."
+   },
+   "explanation": "Descending motor pathways other than the corticospinal tract (rubrospinal, reticulospinal, vestibulospinal, tectospinal), which arise in the brainstem.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "photoreceptors",
+  "name": "Photoreceptors (rods and cones)",
+  "unit": "u2",
+  "synonyms": [
+   "rods and cones",
+   "rods",
+   "cones"
+  ],
+  "abbreviations": [],
+  "region": "eye",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "photo-",
+      "lang": "Greek",
+      "meaning": "phos, light"
+     },
+     {
+      "part": "receptor",
+      "lang": "Latin",
+      "meaning": "receptor, one who receives"
+     },
+     {
+      "part": "cone",
+      "lang": "Greek",
+      "meaning": "konos, cone"
+     }
+    ],
+    "literal": "light receivers",
+    "story": "Rods and cones are named for the shapes of their outer segments."
+   },
+   "explanation": "The retinal cells that transduce light. Rods work in dim light; cones give colour and acuity in bright light. They synapse on bipolar cells, which synapse on ganglion cells.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-visual-stream",
+  "name": "Ventral visual stream",
+  "unit": "u2",
+  "synonyms": [
+   "what pathway"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ventral",
+      "lang": "Latin",
+      "meaning": "venter, belly (lower side)"
+     },
+     {
+      "part": "stream",
+      "lang": "English",
+      "meaning": "flow"
+     }
+    ],
+    "literal": "lower flow",
+    "story": "Called the 'what' pathway because it identifies objects."
+   },
+   "explanation": "The cortical visual route from primary visual cortex into the inferior temporal lobe that handles object and face recognition.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "dorsal-visual-stream",
+  "name": "Dorsal visual stream",
+  "unit": "u2",
+  "synonyms": [
+   "where pathway"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "dorsal",
+      "lang": "Latin",
+      "meaning": "dorsum, back (upper side)"
+     },
+     {
+      "part": "stream",
+      "lang": "English",
+      "meaning": "flow"
+     }
+    ],
+    "literal": "upper flow",
+    "story": "Called the 'where' pathway because it processes spatial position and motion."
+   },
+   "explanation": "The cortical visual route from primary visual cortex into the parietal lobe that handles spatial vision and visually guided movement.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "pretectal-nucleus",
+  "name": "Pretectal nucleus",
+  "unit": "u2",
+  "synonyms": [
+   "pretectal area"
+  ],
+  "abbreviations": [],
+  "region": "midbrain",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "pre-",
+      "lang": "Latin",
+      "meaning": "before"
+     },
+     {
+      "part": "tectum",
+      "lang": "Latin",
+      "meaning": "roof"
+     }
+    ],
+    "literal": "nucleus in front of the roof",
+    "story": "It lies rostral to the superior colliculus (tectum)."
+   },
+   "explanation": "Receives retinal input and projects bilaterally to the Edinger-Westphal nuclei, forming the central link of the pupillary light reflex.",
+   "facts": {
+    "function": "Pupillary light reflex.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "frontal-eye-field",
+  "name": "Frontal eye field",
+  "unit": "u2",
+  "synonyms": [
+   "BA 8"
+  ],
+  "abbreviations": [
+   "FEF"
+  ],
+  "region": "cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "frontal",
+      "lang": "Latin",
+      "meaning": "frons, forehead"
+     }
+    ],
+    "literal": "eye area of the forehead (frontal) lobe",
+    "story": "Frontal comes from the Latin for forehead."
+   },
+   "explanation": "Cortex at Brodmann area 8 that drives voluntary contralateral saccades by way of the superior colliculus and the paramedian pontine reticular formation.",
+   "facts": {
+    "function": "Voluntary saccades.",
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "spiral-ganglion",
+  "name": "Spiral ganglion",
+  "unit": "u2",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "cochlea",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Ganglion spirale cochleae",
+   "etymology": {
+    "roots": [
+     {
+      "part": "spiral",
+      "lang": "Latin",
+      "meaning": "spira, coil, from Greek speira"
+     },
+     {
+      "part": "ganglion",
+      "lang": "Greek",
+      "meaning": "gagglion, knot"
+     }
+    ],
+    "literal": "coiled knot",
+    "story": "It winds in the modiolus of the coiled cochlea."
+   },
+   "explanation": "Its bipolar neurons are the first-order cells of the cochlear nerve; peripheral processes contact hair cells and central axons enter the cochlear nuclei.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "vestibular-nuclei",
+  "name": "Vestibular nuclei",
+  "unit": "u2",
+  "synonyms": [
+   "vestibular nucleus"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "vestibulum",
+      "lang": "Latin",
+      "meaning": "entrance hall"
+     },
+     {
+      "part": "nucleus",
+      "lang": "Latin",
+      "meaning": "kernel, little nut"
+     }
+    ],
+    "literal": "kernels of the entrance hall",
+    "story": "The vestibule of the inner ear gave the system its name."
+   },
+   "explanation": "Medullary and pontine nuclei that receive the vestibular nerve and project to the cerebellum, the MLF (eye movements) and the vestibulospinal tract.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "granule-cell",
+  "name": "Granule cell",
+  "unit": "u3",
+  "synonyms": [
+   "cerebellar granule cell"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "granulum",
+      "lang": "Latin",
+      "meaning": "small grain"
+     }
+    ],
+    "literal": "little grain cell",
+    "story": "Named for the dense, grain-like appearance of the small cell bodies in the granular layer."
+   },
+   "explanation": "Cerebellar granule cells receive mossy fibers and send parallel fibers that excite Purkinje cells.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "interposed-nucleus",
+  "name": "Interposed nucleus",
+  "unit": "u3",
+  "synonyms": [
+   "emboliform and globose nuclei"
+  ],
+  "abbreviations": [],
+  "region": "cerebellum",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "inter-",
+      "lang": "Latin",
+      "meaning": "between"
+     },
+     {
+      "part": "positus",
+      "lang": "Latin",
+      "meaning": "placed, from ponere, to place"
+     }
+    ],
+    "literal": "nucleus placed between",
+    "story": "It lies between the fastigial and dentate nuclei."
+   },
+   "explanation": "Comprises the emboliform and globose nuclei, receives the paravermis and projects through the superior cerebellar peduncle to the red nucleus and thalamus for distal limb control.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "va-vl-nuclei",
+  "name": "Ventral anterior and ventral lateral nuclei",
+  "unit": "u3",
+  "synonyms": [
+   "VA/VL",
+   "VA/VL thalamus",
+   "motor thalamus"
+  ],
+  "abbreviations": [
+   "VA",
+   "VL"
+  ],
+  "region": "thalamus",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ventral",
+      "lang": "Latin",
+      "meaning": "venter, belly"
+     },
+     {
+      "part": "anterior",
+      "lang": "Latin",
+      "meaning": "ante, before"
+     },
+     {
+      "part": "lateral",
+      "lang": "Latin",
+      "meaning": "latus, side"
+     }
+    ],
+    "literal": "nuclei in the front and side of the ventral tier",
+    "story": "Named by position within the ventral nuclear group."
+   },
+   "explanation": "The motor thalamic relays: VA receives basal ganglia (GPi) output and VL receives cerebellar output, and both project to motor cortical areas.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "direct-pathway",
+  "name": "Direct pathway of the basal ganglia",
+  "unit": "u3",
+  "synonyms": [
+   "go pathway"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "direct",
+      "lang": "Latin",
+      "meaning": "directus, straight"
+     }
+    ],
+    "literal": "the straight pathway",
+    "story": "Called direct because the striatum inhibits GPi in a single step, with no intervening nucleus."
+   },
+   "explanation": "D1-bearing striatal neurons inhibit GPi, which disinhibits the thalamus and excites motor cortex, promoting movement ('go').",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "indirect-pathway",
+  "name": "Indirect pathway of the basal ganglia",
+  "unit": "u3",
+  "synonyms": [
+   "no-go pathway"
+  ],
+  "abbreviations": [],
+  "region": "basal ganglia",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": true,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "indirect",
+      "lang": "Latin",
+      "meaning": "in- (not) + directus, straight"
+     }
+    ],
+    "literal": "the not-straight pathway",
+    "story": "Called indirect because the route passes through GPe and the subthalamic nucleus before reaching GPi."
+   },
+   "explanation": "D2-bearing striatal neurons inhibit GPe, which disinhibits STN; STN excites GPi, which inhibits the thalamus and suppresses movement ('no-go').",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "olfactory-epithelium",
+  "name": "Olfactory epithelium",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "nasal cavity",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "olfactory",
+      "lang": "Latin",
+      "meaning": "olfacere, to smell (olere, to emit smell + facere, to make)"
+     },
+     {
+      "part": "epithelium",
+      "lang": "Greek",
+      "meaning": "epi, upon + thele, nipple"
+     }
+    ],
+    "literal": "smelling covering tissue",
+    "story": "Epithelium was coined for tissue covering the nipple, later any covering tissue."
+   },
+   "explanation": "The roof of the nasal cavity where bipolar olfactory receptor neurons, the first-order cells of smell, are renewed throughout life and send axons through the cribriform plate.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "cribriform-plate",
+  "name": "Cribriform plate",
+  "unit": "u3",
+  "synonyms": [
+   "cribriform plate of the ethmoid"
+  ],
+  "abbreviations": [],
+  "region": "skull",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Lamina cribrosa",
+   "etymology": {
+    "roots": [
+     {
+      "part": "cribrum",
+      "lang": "Latin",
+      "meaning": "sieve"
+     },
+     {
+      "part": "forma",
+      "lang": "Latin",
+      "meaning": "shape"
+     }
+    ],
+    "literal": "sieve-shaped plate",
+    "story": "The plate is perforated like a sieve by olfactory axon bundles."
+   },
+   "explanation": "The part of the ethmoid bone forming the floor of the anterior cranial fossa through which olfactory nerve filaments pass; fracture can cause anosmia.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "olfactory-bulb",
+  "name": "Olfactory bulb",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "forebrain",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Bulbus olfactorius",
+   "etymology": {
+    "roots": [
+     {
+      "part": "olfactory",
+      "lang": "Latin",
+      "meaning": "olfacere, to smell"
+     },
+     {
+      "part": "bulbus",
+      "lang": "Latin",
+      "meaning": "onion, bulb"
+     }
+    ],
+    "literal": "onion of smell",
+    "story": "Its swollen, rounded shape resembles a bulb."
+   },
+   "explanation": "Where olfactory axons synapse on mitral cells, the second-order neurons whose axons form the olfactory tract.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "olfactory-tract",
+  "name": "Olfactory tract",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "forebrain",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Tractus olfactorius",
+   "etymology": {
+    "roots": [
+     {
+      "part": "olfactory",
+      "lang": "Latin",
+      "meaning": "olfacere, to smell"
+     },
+     {
+      "part": "tractus",
+      "lang": "Latin",
+      "meaning": "a drawing out, track"
+     }
+    ],
+    "literal": "track of smell",
+    "story": "Tract means a bundle of fibers running a common course."
+   },
+   "explanation": "Carries mitral cell axons from the olfactory bulb to the primary olfactory cortex (olfactory tubercle, piriform cortex, amygdala) without a thalamic relay.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "piriform-cortex",
+  "name": "Piriform cortex",
+  "unit": "u3",
+  "synonyms": [
+   "prepiriform cortex",
+   "pyriform cortex"
+  ],
+  "abbreviations": [],
+  "region": "cerebral cortex",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "pirum",
+      "lang": "Latin",
+      "meaning": "pear"
+     },
+     {
+      "part": "forma",
+      "lang": "Latin",
+      "meaning": "shape"
+     }
+    ],
+    "literal": "pear-shaped cortex",
+    "story": "Named for the pear-like shape of the region at the temporal pole."
+   },
+   "explanation": "The principal primary olfactory cortex, receiving the olfactory tract directly; it is also called prepiriform cortex.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "mediodorsal-nucleus",
+  "name": "Mediodorsal nucleus of thalamus",
+  "unit": "u3",
+  "synonyms": [
+   "MD nucleus",
+   "dorsomedial nucleus"
+  ],
+  "abbreviations": [
+   "MD"
+  ],
+  "region": "thalamus",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Nucleus medialis dorsalis",
+   "etymology": {
+    "roots": [
+     {
+      "part": "medius",
+      "lang": "Latin",
+      "meaning": "middle"
+     },
+     {
+      "part": "dorsum",
+      "lang": "Latin",
+      "meaning": "back"
+     }
+    ],
+    "literal": "nucleus of the middle and back",
+    "story": "Named for its medial and dorsal position in the thalamus."
+   },
+   "explanation": "Reciprocally connected with the prefrontal cortex; in smell it relays olfactory cortex to orbitofrontal cortex for conscious odor perception.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "stria-terminalis",
+  "name": "Stria terminalis",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [],
+  "region": "limbic system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "stria",
+      "lang": "Latin",
+      "meaning": "furrow, groove"
+     },
+     {
+      "part": "terminalis",
+      "lang": "Latin",
+      "meaning": "of the boundary or end"
+     }
+    ],
+    "literal": "terminal groove",
+    "story": "It runs along the groove between the caudate and thalamus, forming the boundary of the lateral ventricle floor."
+   },
+   "explanation": "The main efferent bundle of the amygdala, curving along the caudate to the hypothalamus and the bed nucleus of the stria terminalis.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "bed-nucleus-of-the-stria-terminalis",
+  "name": "Bed nucleus of the stria terminalis",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "BNST"
+  ],
+  "region": "limbic system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "stria terminalis",
+      "lang": "Latin",
+      "meaning": "terminal groove"
+     },
+     {
+      "part": "nucleus",
+      "lang": "Latin",
+      "meaning": "kernel"
+     }
+    ],
+    "literal": "nucleus lying along the stria terminalis",
+    "story": "The nucleus is a 'bed' of cells along the stria."
+   },
+   "explanation": "A basal forebrain nucleus within the extended amygdala that receives amygdala output via the stria terminalis and relays to hypothalamus and brainstem, linked to anxiety and stress.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "ventral-tegmental-area",
+  "name": "Ventral tegmental area",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "VTA"
+  ],
+  "region": "midbrain",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "ventral",
+      "lang": "Latin",
+      "meaning": "venter, belly"
+     },
+     {
+      "part": "tegmentum",
+      "lang": "Latin",
+      "meaning": "covering, from tegere, to cover"
+     }
+    ],
+    "literal": "belly side of the covering",
+    "story": "The tegmentum is the 'covering' of the midbrain beneath the tectum."
+   },
+   "explanation": "Midbrain source of the mesolimbic dopamine projection to nucleus accumbens, central to reward and motivation.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
+  "slug": "medial-forebrain-bundle",
+  "name": "Medial forebrain bundle",
+  "unit": "u3",
+  "synonyms": [],
+  "abbreviations": [
+   "MFB"
+  ],
+  "region": "limbic system",
+  "lists": [],
+  "laterality": "n/a",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": null,
+   "etymology": {
+    "roots": [
+     {
+      "part": "medial",
+      "lang": "Latin",
+      "meaning": "medius, middle"
+     },
+     {
+      "part": "forebrain",
+      "lang": "English",
+      "meaning": "front brain"
+     },
+     {
+      "part": "bundle",
+      "lang": "English",
+      "meaning": "tied group"
+     }
+    ],
+    "literal": "middle bundle of the forebrain",
+    "story": "Named for its medial position through the lateral hypothalamus into the forebrain."
+   },
+   "explanation": "Connects the brainstem and ventral tegmental area with the hypothalamus and basal forebrain, carrying dopaminergic, serotonergic and noradrenergic fibers of the reward system.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
    }
   },
   "atlas": {

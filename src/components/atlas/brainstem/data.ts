@@ -1,6 +1,7 @@
 import type { Shape } from "@/lib/study/types";
 import levelsData from "@/data/brainstem-levels.json";
 import courseData from "@/data/brainstem-course.json";
+import deckData from "@/data/brainstem-decks.json";
 import openData from "@/data/brainstem-open.json";
 
 export type StyleId = "course" | "histology" | "gross" | "cartoon" | "mri";
@@ -30,6 +31,7 @@ export interface BsImage {
   labels: BsLabel[];
   /** open images: the credit line and licence */
   credit?: string;
+  short?: string;
   license?: string;
   url?: string;
   labelsBaked?: boolean;
@@ -60,7 +62,7 @@ export interface BsStructure {
 
 export const LEVELS = (levelsData as unknown as { levels: BsLevel[] }).levels;
 export const STRUCTURES = (levelsData as unknown as { structures: Record<string, BsStructure> }).structures;
-export const IMAGES: BsImage[] = [...(courseData as unknown as BsImage[]), ...(openData as unknown as BsImage[])];
+export const IMAGES: BsImage[] = [...(courseData as unknown as BsImage[]), ...(deckData as unknown as BsImage[]), ...(openData as unknown as BsImage[])];
 
 export const GROUPS: { id: GroupId; label: string }[] = [
   { id: "cn-nuclei", label: "Cranial-nerve nuclei" },

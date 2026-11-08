@@ -171,8 +171,8 @@ export function BrainstemAtlas({ courseSlug }: { courseSlug: string }) {
 
   const paneProps = { level, courseSlug, mode, hoverSlug: hover, onHover: setHover, results, onResult };
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-[272px_minmax(0,1fr)] 2xl:grid-cols-[272px_minmax(0,1fr)_minmax(0,340px)]">
-      <div className="min-w-0 md:row-span-2 2xl:row-span-1">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-[272px_minmax(0,1fr)]">
+      <div className="min-w-0 md:row-span-2">
         <LevelNav level={levelSlug} onPick={goLevel} progress={progress} />
         <div className="mt-3 hidden text-xs text-text-dim md:block">
           <div className="mb-1 flex justify-between">
@@ -257,7 +257,7 @@ export function BrainstemAtlas({ courseSlug }: { courseSlug: string }) {
         </p>
       </div>
 
-      <div className="min-w-0 md:col-start-2 2xl:col-start-3">
+      <div className="min-w-0 md:col-start-2">
         <LevelPanel level={level} hoverSlug={hover} onHover={setHover} selected={selected} onSelect={select} />
         {selected && <StructureInfo key={selected} slug={selected} name={selName} />}
       </div>

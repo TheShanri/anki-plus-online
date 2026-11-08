@@ -64,6 +64,22 @@
     {
      "slug": "medial-geniculate-nucleus",
      "source": "course"
+    },
+    {
+     "slug": "brachium-of-the-inferior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "pineal-gland",
+     "source": "course"
+    },
+    {
+     "slug": "midbrain",
+     "source": "course"
+    },
+    {
+     "slug": "pulvinar",
+     "source": "course"
     }
    ]
   },
@@ -118,7 +134,23 @@
     },
     {
      "slug": "medial-lemniscus",
-     "source": "standard"
+     "source": "course"
+    },
+    {
+     "slug": "brachium-of-the-inferior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "trigeminal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "pontine-nuclei",
+     "source": "course"
+    },
+    {
+     "slug": "middle-cerebellar-peduncle",
+     "source": "course"
     },
     {
      "slug": "lateral-lemniscus",
@@ -417,8 +449,12 @@
      "source": "course"
     },
     {
+     "slug": "choroid-plexus",
+     "source": "course"
+    },
+    {
      "slug": "spinal-trigeminal-nucleus",
-     "source": "standard"
+     "source": "course"
     }
    ]
   },
@@ -486,6 +522,18 @@
     {
      "slug": "inferior-olivary-nucleus",
      "source": "course"
+    },
+    {
+     "slug": "fasciculus-gracilis",
+     "source": "course"
+    },
+    {
+     "slug": "hypoglossal-nucleus",
+     "source": "course"
+    },
+    {
+     "slug": "nucleus-ambiguus",
+     "source": "course"
     }
    ]
   },
@@ -523,12 +571,28 @@
      "source": "course"
     },
     {
-     "slug": "motor-decussation",
-     "source": "standard"
+     "slug": "lateral-corticospinal-tract",
+     "source": "course"
     },
     {
-     "slug": "lateral-corticospinal-tract",
-     "source": "standard"
+     "slug": "motor-decussation",
+     "source": "course"
+    },
+    {
+     "slug": "dorsal-spinocerebellar-tract",
+     "source": "course"
+    },
+    {
+     "slug": "medial-longitudinal-fasciculus",
+     "source": "course"
+    },
+    {
+     "slug": "trigeminal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "accessory-nerve",
+     "source": "course"
     },
     {
      "slug": "pyramids",
@@ -686,6 +750,30 @@
     {
      "slug": "inferior-olivary-nucleus",
      "source": "course"
+    },
+    {
+     "slug": "lateral-ventricle",
+     "source": "course"
+    },
+    {
+     "slug": "head-of-caudate-nucleus",
+     "source": "course"
+    },
+    {
+     "slug": "putamen",
+     "source": "course"
+    },
+    {
+     "slug": "anterior-commissure",
+     "source": "course"
+    },
+    {
+     "slug": "motor-decussation",
+     "source": "course"
+    },
+    {
+     "slug": "corpus-callosum",
+     "source": "course"
     }
    ]
   },
@@ -768,6 +856,78 @@
     {
      "slug": "cerebellar-peduncles",
      "source": "course"
+    },
+    {
+     "slug": "lateral-ventricle",
+     "source": "course"
+    },
+    {
+     "slug": "body-of-fornix",
+     "source": "course"
+    },
+    {
+     "slug": "putamen",
+     "source": "course"
+    },
+    {
+     "slug": "thalamus",
+     "source": "course"
+    },
+    {
+     "slug": "interthalamic-adhesion",
+     "source": "course"
+    },
+    {
+     "slug": "oculomotor-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "trigeminal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "vestibulocochlear-complex",
+     "source": "course"
+    },
+    {
+     "slug": "abducens-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "hypoglossal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "accessory-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "corpus-callosum",
+     "source": "course"
+    },
+    {
+     "slug": "septum-pellucidum",
+     "source": "course"
+    },
+    {
+     "slug": "caudate-nucleus",
+     "source": "course"
+    },
+    {
+     "slug": "stria-medullaris-thalami",
+     "source": "course"
+    },
+    {
+     "slug": "third-ventricle",
+     "source": "course"
+    },
+    {
+     "slug": "fasciculus-gracilis",
+     "source": "course"
+    },
+    {
+     "slug": "fasciculus-cuneatus",
+     "source": "course"
     }
    ]
   },
@@ -844,12 +1004,20 @@
    "color": "#9c3ee0",
    "inAtlas": false
   },
+  "anterior-commissure": {
+   "name": "Anterior commissure",
+   "slug": "anterior-commissure",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#e0cb3e",
+   "inAtlas": true
+  },
   "anterolateral-spinothalamic-tract": {
    "name": "Anterolateral spinothalamic tract",
    "slug": "anterolateral-spinothalamic-tract",
    "onList": true,
    "group": "ascending",
-   "color": "#e0cb3e",
+   "color": "#3ec5e0",
    "inAtlas": true
   },
   "area-postrema": {
@@ -857,15 +1025,23 @@
    "slug": "area-postrema",
    "onList": true,
    "group": "landmarks",
-   "color": "#3ec5e0",
+   "color": "#e03e95",
    "inAtlas": true
+  },
+  "body-of-fornix": {
+   "name": "Body of fornix",
+   "slug": "body-of-fornix",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#66e03e",
+   "inAtlas": false
   },
   "brachium-of-the-inferior-colliculus": {
    "name": "Brachium of the inferior colliculus",
    "slug": "brachium-of-the-inferior-colliculus",
    "onList": true,
    "group": "bundles",
-   "color": "#e03e95",
+   "color": "#453ee0",
    "inAtlas": false
   },
   "brainstem": {
@@ -873,7 +1049,15 @@
    "slug": "brainstem",
    "onList": true,
    "group": "landmarks",
-   "color": "#66e03e",
+   "color": "#e0743e",
+   "inAtlas": true
+  },
+  "caudate-nucleus": {
+   "name": "Caudate nucleus",
+   "slug": "caudate-nucleus",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#3ee0a3",
    "inAtlas": true
   },
   "cerebellar-peduncles": {
@@ -881,7 +1065,7 @@
    "slug": "cerebellar-peduncles",
    "onList": true,
    "group": "bundles",
-   "color": "#453ee0",
+   "color": "#d23ee0",
    "inAtlas": true
   },
   "cerebellum": {
@@ -889,7 +1073,7 @@
    "slug": "cerebellum",
    "onList": true,
    "group": "nuclei",
-   "color": "#e0743e",
+   "color": "#bee03e",
    "inAtlas": true
   },
   "cerebral-aqueduct": {
@@ -897,7 +1081,7 @@
    "slug": "cerebral-aqueduct",
    "onList": true,
    "group": "landmarks",
-   "color": "#3ee0a3",
+   "color": "#3e8fe0",
    "inAtlas": true
   },
   "cerebral-peduncles": {
@@ -905,7 +1089,23 @@
    "slug": "cerebral-peduncles",
    "onList": true,
    "group": "descending",
-   "color": "#d23ee0",
+   "color": "#e03e5f",
+   "inAtlas": true
+  },
+  "choroid-plexus": {
+   "name": "Choroid plexus",
+   "slug": "choroid-plexus",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#3ee04c",
+   "inAtlas": false
+  },
+  "corpus-callosum": {
+   "name": "Corpus callosum",
+   "slug": "corpus-callosum",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#7b3ee0",
    "inAtlas": true
   },
   "cuneate-nucleus": {
@@ -913,7 +1113,7 @@
    "slug": "cuneate-nucleus",
    "onList": true,
    "group": "nuclei",
-   "color": "#bee03e",
+   "color": "#e0aa3e",
    "inAtlas": true
   },
   "cuneate-tubercle": {
@@ -921,7 +1121,7 @@
    "slug": "cuneate-tubercle",
    "onList": true,
    "group": "landmarks",
-   "color": "#3e8fe0",
+   "color": "#3ee0d9",
    "inAtlas": true
   },
   "decussation-of-the-superior-cerebellar-peduncle": {
@@ -929,7 +1129,7 @@
    "slug": "decussation-of-the-superior-cerebellar-peduncle",
    "onList": true,
    "group": "bundles",
-   "color": "#e03e5f",
+   "color": "#e03eb7",
    "inAtlas": false
   },
   "dorsal-motor-nucleus-of-the-vagus": {
@@ -937,7 +1137,7 @@
    "slug": "dorsal-motor-nucleus-of-the-vagus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#3ee04c",
+   "color": "#88e03e",
    "inAtlas": true
   },
   "dorsal-spinocerebellar-tract": {
@@ -945,7 +1145,7 @@
    "slug": "dorsal-spinocerebellar-tract",
    "onList": true,
    "group": "ascending",
-   "color": "#7b3ee0",
+   "color": "#3e59e0",
    "inAtlas": false
   },
   "edinger-westphal-nucleus": {
@@ -953,7 +1153,7 @@
    "slug": "edinger-westphal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#e0aa3e",
+   "color": "#e0533e",
    "inAtlas": true
   },
   "facial-colliculus": {
@@ -961,7 +1161,7 @@
    "slug": "facial-colliculus",
    "onList": true,
    "group": "landmarks",
-   "color": "#3ee0d9",
+   "color": "#3ee082",
    "inAtlas": true
   },
   "facial-nerve": {
@@ -969,7 +1169,7 @@
    "slug": "facial-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#e03eb7",
+   "color": "#b13ee0",
    "inAtlas": false
   },
   "facial-nucleus": {
@@ -977,7 +1177,7 @@
    "slug": "facial-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#88e03e",
+   "color": "#dfe03e",
    "inAtlas": true
   },
   "fasciculus-cuneatus": {
@@ -985,7 +1185,7 @@
    "slug": "fasciculus-cuneatus",
    "onList": true,
    "group": "ascending",
-   "color": "#3e59e0",
+   "color": "#3eb0e0",
    "inAtlas": false
   },
   "fasciculus-gracilis": {
@@ -993,7 +1193,7 @@
    "slug": "fasciculus-gracilis",
    "onList": true,
    "group": "ascending",
-   "color": "#e0533e",
+   "color": "#e03e81",
    "inAtlas": false
   },
   "fourth-ventricle": {
@@ -1001,7 +1201,7 @@
    "slug": "fourth-ventricle",
    "onList": true,
    "group": "landmarks",
-   "color": "#3ee082",
+   "color": "#52e03e",
    "inAtlas": true
   },
   "glossopharyngeal-nerve": {
@@ -1009,7 +1209,7 @@
    "slug": "glossopharyngeal-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#b13ee0",
+   "color": "#5a3ee0",
    "inAtlas": false
   },
   "gracile-nucleus": {
@@ -1017,7 +1217,7 @@
    "slug": "gracile-nucleus",
    "onList": true,
    "group": "nuclei",
-   "color": "#dfe03e",
+   "color": "#e0893e",
    "inAtlas": true
   },
   "gracile-tubercle": {
@@ -1025,7 +1225,15 @@
    "slug": "gracile-tubercle",
    "onList": true,
    "group": "landmarks",
-   "color": "#3eb0e0",
+   "color": "#3ee0b8",
+   "inAtlas": true
+  },
+  "head-of-caudate-nucleus": {
+   "name": "Head of caudate nucleus",
+   "slug": "head-of-caudate-nucleus",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#e03ed8",
    "inAtlas": true
   },
   "hypoglossal-nerve": {
@@ -1033,7 +1241,7 @@
    "slug": "hypoglossal-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#e03e81",
+   "color": "#a9e03e",
    "inAtlas": false
   },
   "hypoglossal-nucleus": {
@@ -1041,7 +1249,7 @@
    "slug": "hypoglossal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#52e03e",
+   "color": "#3e7ae0",
    "inAtlas": true
   },
   "hypothalamus": {
@@ -1049,7 +1257,7 @@
    "slug": "hypothalamus",
    "onList": true,
    "group": "nuclei",
-   "color": "#5a3ee0",
+   "color": "#e03e4b",
    "inAtlas": true
   },
   "inferior-cerebellar-peduncle": {
@@ -1057,7 +1265,7 @@
    "slug": "inferior-cerebellar-peduncle",
    "onList": true,
    "group": "bundles",
-   "color": "#e0893e",
+   "color": "#3ee060",
    "inAtlas": true
   },
   "inferior-colliculus": {
@@ -1065,7 +1273,7 @@
    "slug": "inferior-colliculus",
    "onList": true,
    "group": "nuclei",
-   "color": "#3ee0b8",
+   "color": "#903ee0",
    "inAtlas": true
   },
   "inferior-olivary-nucleus": {
@@ -1073,7 +1281,7 @@
    "slug": "inferior-olivary-nucleus",
    "onList": true,
    "group": "nuclei",
-   "color": "#e03ed8",
+   "color": "#e0bf3e",
    "inAtlas": true
   },
   "internal-arcuate-fibers": {
@@ -1081,7 +1289,7 @@
    "slug": "internal-arcuate-fibers",
    "onList": true,
    "group": "ascending",
-   "color": "#a9e03e",
+   "color": "#3ed1e0",
    "inAtlas": true
   },
   "interpeduncular-cistern": {
@@ -1089,7 +1297,7 @@
    "slug": "interpeduncular-cistern",
    "onList": true,
    "group": "landmarks",
-   "color": "#3e7ae0",
+   "color": "#e03ea2",
    "inAtlas": false
   },
   "interpeduncular-fossa": {
@@ -1097,7 +1305,15 @@
    "slug": "interpeduncular-fossa",
    "onList": true,
    "group": "landmarks",
-   "color": "#e03e4b",
+   "color": "#73e03e",
+   "inAtlas": false
+  },
+  "interthalamic-adhesion": {
+   "name": "Interthalamic adhesion",
+   "slug": "interthalamic-adhesion",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#3e44e0",
    "inAtlas": false
   },
   "lateral-corticospinal-tract": {
@@ -1105,7 +1321,7 @@
    "slug": "lateral-corticospinal-tract",
    "onList": true,
    "group": "descending",
-   "color": "#3ee060",
+   "color": "#e0673e",
    "inAtlas": false
   },
   "lateral-geniculate-nucleus": {
@@ -1113,7 +1329,7 @@
    "slug": "lateral-geniculate-nucleus",
    "onList": true,
    "group": "nuclei",
-   "color": "#903ee0",
+   "color": "#3ee096",
    "inAtlas": true
   },
   "lateral-lemniscus": {
@@ -1121,15 +1337,23 @@
    "slug": null,
    "onList": false,
    "group": "ascending",
-   "color": "#e0bf3e",
+   "color": "#c63ee0",
    "inAtlas": false
+  },
+  "lateral-ventricle": {
+   "name": "Lateral ventricle",
+   "slug": "lateral-ventricle",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#cae03e",
+   "inAtlas": true
   },
   "locus-coeruleus": {
    "name": "Locus coeruleus",
    "slug": null,
    "onList": false,
    "group": "nuclei",
-   "color": "#3ed1e0",
+   "color": "#3e9be0",
    "inAtlas": true
   },
   "longitudinal-fibers-of-the-pons": {
@@ -1137,7 +1361,7 @@
    "slug": "longitudinal-fibers-of-the-pons",
    "onList": true,
    "group": "descending",
-   "color": "#e03ea2",
+   "color": "#e03e6c",
    "inAtlas": true
   },
   "mammillary-bodies": {
@@ -1145,7 +1369,7 @@
    "slug": "mammillary-bodies",
    "onList": true,
    "group": "landmarks",
-   "color": "#73e03e",
+   "color": "#3ee03f",
    "inAtlas": true
   },
   "medial-geniculate-nucleus": {
@@ -1153,7 +1377,7 @@
    "slug": "medial-geniculate-nucleus",
    "onList": true,
    "group": "nuclei",
-   "color": "#3e44e0",
+   "color": "#6e3ee0",
    "inAtlas": true
   },
   "medial-lemniscus": {
@@ -1161,7 +1385,7 @@
    "slug": "medial-lemniscus",
    "onList": true,
    "group": "ascending",
-   "color": "#e0673e",
+   "color": "#e09d3e",
    "inAtlas": true
   },
   "medial-longitudinal-fasciculus": {
@@ -1169,7 +1393,7 @@
    "slug": "medial-longitudinal-fasciculus",
    "onList": true,
    "group": "bundles",
-   "color": "#3ee096",
+   "color": "#3ee0cc",
    "inAtlas": true
   },
   "medulla": {
@@ -1177,7 +1401,7 @@
    "slug": "medulla",
    "onList": true,
    "group": "landmarks",
-   "color": "#c63ee0",
+   "color": "#e03ec4",
    "inAtlas": true
   },
   "midbrain": {
@@ -1185,7 +1409,7 @@
    "slug": "midbrain",
    "onList": true,
    "group": "landmarks",
-   "color": "#cae03e",
+   "color": "#94e03e",
    "inAtlas": true
   },
   "middle-cerebellar-peduncle": {
@@ -1193,7 +1417,7 @@
    "slug": "middle-cerebellar-peduncle",
    "onList": true,
    "group": "bundles",
-   "color": "#3e9be0",
+   "color": "#3e65e0",
    "inAtlas": true
   },
   "motor-decussation": {
@@ -1201,7 +1425,7 @@
    "slug": "motor-decussation",
    "onList": true,
    "group": "descending",
-   "color": "#e03e6c",
+   "color": "#e0463e",
    "inAtlas": false
   },
   "motor-trigeminal-nucleus": {
@@ -1209,7 +1433,7 @@
    "slug": "motor-trigeminal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#3ee03f",
+   "color": "#3ee075",
    "inAtlas": true
   },
   "nucleus-ambiguus": {
@@ -1217,7 +1441,7 @@
    "slug": "nucleus-ambiguus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#6e3ee0",
+   "color": "#a43ee0",
    "inAtlas": true
   },
   "obex": {
@@ -1225,7 +1449,7 @@
    "slug": "obex",
    "onList": true,
    "group": "landmarks",
-   "color": "#e09d3e",
+   "color": "#e0d33e",
    "inAtlas": true
   },
   "oculomotor-nerve": {
@@ -1233,7 +1457,7 @@
    "slug": "oculomotor-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#3ee0cc",
+   "color": "#3ebde0",
    "inAtlas": false
   },
   "oculomotor-nucleus": {
@@ -1241,7 +1465,7 @@
    "slug": "oculomotor-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#e03ec4",
+   "color": "#e03e8e",
    "inAtlas": true
   },
   "olfactory-nerve": {
@@ -1249,7 +1473,7 @@
    "slug": "olfactory-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#94e03e",
+   "color": "#5ee03e",
    "inAtlas": false
   },
   "olives": {
@@ -1257,7 +1481,7 @@
    "slug": "olives",
    "onList": true,
    "group": "landmarks",
-   "color": "#3e65e0",
+   "color": "#4d3ee0",
    "inAtlas": true
   },
   "optic-chiasm": {
@@ -1265,7 +1489,7 @@
    "slug": "optic-chiasm",
    "onList": true,
    "group": "landmarks",
-   "color": "#e0463e",
+   "color": "#e07c3e",
    "inAtlas": false
   },
   "optic-nerve": {
@@ -1273,7 +1497,7 @@
    "slug": "optic-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#3ee075",
+   "color": "#3ee0ab",
    "inAtlas": false
   },
   "optic-tract": {
@@ -1281,7 +1505,7 @@
    "slug": "optic-tract",
    "onList": true,
    "group": "landmarks",
-   "color": "#a43ee0",
+   "color": "#da3ee0",
    "inAtlas": true
   },
   "periaqueductal-gray": {
@@ -1289,7 +1513,7 @@
    "slug": "periaqueductal-gray",
    "onList": true,
    "group": "nuclei",
-   "color": "#e0d33e",
+   "color": "#b6e03e",
    "inAtlas": true
   },
   "pineal-gland": {
@@ -1297,7 +1521,7 @@
    "slug": "pineal-gland",
    "onList": true,
    "group": "nuclei",
-   "color": "#3ebde0",
+   "color": "#3e87e0",
    "inAtlas": true
   },
   "pituitary-stalk": {
@@ -1305,7 +1529,7 @@
    "slug": "pituitary-stalk",
    "onList": true,
    "group": "landmarks",
-   "color": "#e03e8e",
+   "color": "#e03e57",
    "inAtlas": false
   },
   "pons": {
@@ -1313,7 +1537,7 @@
    "slug": "pons",
    "onList": true,
    "group": "landmarks",
-   "color": "#5ee03e",
+   "color": "#3ee054",
    "inAtlas": true
   },
   "pontine-nuclei": {
@@ -1321,7 +1545,7 @@
    "slug": "pontine-nuclei",
    "onList": true,
    "group": "nuclei",
-   "color": "#4d3ee0",
+   "color": "#833ee0",
    "inAtlas": true
   },
   "principal-sensory-nucleus-of-trigeminal": {
@@ -1329,7 +1553,7 @@
    "slug": "principal-sensory-nucleus-of-trigeminal",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#e07c3e",
+   "color": "#e0b23e",
    "inAtlas": true
   },
   "pulvinar": {
@@ -1337,7 +1561,15 @@
    "slug": "pulvinar",
    "onList": true,
    "group": "nuclei",
-   "color": "#3ee0ab",
+   "color": "#3edee0",
+   "inAtlas": true
+  },
+  "putamen": {
+   "name": "Putamen",
+   "slug": "putamen",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#e03eaf",
    "inAtlas": true
   },
   "pyramids": {
@@ -1345,7 +1577,7 @@
    "slug": "pyramids",
    "onList": true,
    "group": "descending",
-   "color": "#da3ee0",
+   "color": "#80e03e",
    "inAtlas": true
   },
   "red-nucleus": {
@@ -1353,15 +1585,23 @@
    "slug": "red-nucleus",
    "onList": true,
    "group": "nuclei",
-   "color": "#b6e03e",
+   "color": "#3e51e0",
    "inAtlas": true
+  },
+  "septum-pellucidum": {
+   "name": "Septum pellucidum",
+   "slug": "septum-pellucidum",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#e05b3e",
+   "inAtlas": false
   },
   "solitary-nucleus": {
    "name": "Solitary nucleus",
    "slug": "solitary-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#3e87e0",
+   "color": "#3ee08a",
    "inAtlas": true
   },
   "spinal-trigeminal-nucleus": {
@@ -1369,15 +1609,23 @@
    "slug": "spinal-trigeminal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#e03e57",
+   "color": "#b93ee0",
    "inAtlas": true
+  },
+  "stria-medullaris-thalami": {
+   "name": "Stria medullaris thalami",
+   "slug": "stria-medullaris-thalami",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#d7e03e",
+   "inAtlas": false
   },
   "subarachnoid-space": {
    "name": "Subarachnoid space",
    "slug": "subarachnoid-space",
    "onList": true,
    "group": "landmarks",
-   "color": "#3ee054",
+   "color": "#3ea8e0",
    "inAtlas": false
   },
   "substantia-nigra": {
@@ -1385,7 +1633,7 @@
    "slug": "substantia-nigra",
    "onList": true,
    "group": "nuclei",
-   "color": "#833ee0",
+   "color": "#e03e79",
    "inAtlas": true
   },
   "superior-cerebellar-peduncle": {
@@ -1393,7 +1641,7 @@
    "slug": "superior-cerebellar-peduncle",
    "onList": true,
    "group": "bundles",
-   "color": "#e0b23e",
+   "color": "#4ae03e",
    "inAtlas": true
   },
   "superior-colliculus": {
@@ -1401,7 +1649,7 @@
    "slug": "superior-colliculus",
    "onList": true,
    "group": "nuclei",
-   "color": "#3edee0",
+   "color": "#613ee0",
    "inAtlas": true
   },
   "thalamus": {
@@ -1409,7 +1657,15 @@
    "slug": "thalamus",
    "onList": true,
    "group": "nuclei",
-   "color": "#e03eaf",
+   "color": "#e0913e",
+   "inAtlas": true
+  },
+  "third-ventricle": {
+   "name": "Third ventricle",
+   "slug": "third-ventricle",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#3ee0c0",
    "inAtlas": true
   },
   "transverse-fibers-of-the-pons": {
@@ -1417,7 +1673,7 @@
    "slug": "transverse-fibers-of-the-pons",
    "onList": true,
    "group": "bundles",
-   "color": "#80e03e",
+   "color": "#e03ed0",
    "inAtlas": true
   },
   "trigeminal-nerve": {
@@ -1425,7 +1681,7 @@
    "slug": "trigeminal-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#3e51e0",
+   "color": "#a1e03e",
    "inAtlas": false
   },
   "trochlear-nerve": {
@@ -1433,7 +1689,7 @@
    "slug": "trochlear-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#e05b3e",
+   "color": "#3e72e0",
    "inAtlas": false
   },
   "trochlear-nucleus": {
@@ -1441,7 +1697,7 @@
    "slug": "trochlear-nucleus",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#3ee08a",
+   "color": "#e03e43",
    "inAtlas": true
   },
   "vagus-nerve": {
@@ -1449,7 +1705,7 @@
    "slug": "vagus-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#b93ee0",
+   "color": "#3ee068",
    "inAtlas": false
   },
   "vestibulocochlear-complex": {
@@ -1457,7 +1713,7 @@
    "slug": "vestibulocochlear-complex",
    "onList": true,
    "group": "cn-nuclei",
-   "color": "#d7e03e",
+   "color": "#973ee0",
    "inAtlas": true
   },
   "vestibulocochlear-nerve": {
@@ -1465,7 +1721,7 @@
    "slug": "vestibulocochlear-nerve",
    "onList": true,
    "group": "nerves",
-   "color": "#3ea8e0",
+   "color": "#e0c73e",
    "inAtlas": false
   }
  }

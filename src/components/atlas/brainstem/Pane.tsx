@@ -101,7 +101,7 @@ export function Pane({ level, style, index, onIndex, courseSlug, mode, hoverSlug
       <SectionViewer image={shownImage} courseSlug={courseSlug} mode={mode} hoverSlug={hoverSlug} onHover={onHover} results={res} active={active} onActivate={(i) => setActive(i)} />
       <div className="mt-1.5 text-xs text-text-dim">
         <span className="text-text">{image.title}</span>
-        {image.source === "course" ? " · course material" : image.credit ? ` · ${image.credit}` : ""}
+        {image.source === "course" ? " · course material" : image.credit ? ` · ${image.short ?? image.credit}` : ""}
         {image.license && image.source === "open" && <span> · {image.license}</span>}
       </div>
       {extra.length > 0 && mode !== "clean" && (

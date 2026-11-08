@@ -6,10 +6,24 @@ import { useEffect, useMemo, useState } from "react";
 import { loadAtlas2, type Atlas2 } from "@/lib/atlas/slices";
 import { STRUCTURES, type BsLevel } from "./data";
 
+// the loader pulls in three.js helpers, so it loads only here, with NiiVue
+const AtlasLoader = dynamic(() => import("@/components/atlas/ui/AtlasLoader").then((m) => m.AtlasLoader), { ssr: false });
 const SliceViewer = dynamic(() => import("@/components/atlas/SliceViewer"), {
   ssr: false,
-  loading: () => <div className="flex h-full items-center justify-center text-sm text-text-dim">Loading MRI viewer...</div>,
+  loading: () => <MriLoading indexDone />,
 });
+
+function MriLoading({ indexDone }: { indexDone: boolean }) {
+  const stages = [
+    { id: "index", label: "Reading the structure index", state: indexDone ? ("done" as const) : ("active" as const) },
+    { id: "viewer", label: "Starting the MRI viewer and loading the slices", state: indexDone ? ("active" as const) : ("todo" as const) },
+  ];
+  return (
+    <div className="flex h-full items-center justify-center overflow-auto">
+      <AtlasLoader stages={stages} label="Loading the MRI atlas" />
+    </div>
+  );
+}
 
 export function MriPane({ level, hoverSlug, onHover }: { level: BsLevel; hoverSlug: string | null; onHover: (s: string | null) => void }) {
   const [atlas, setAtlas] = useState<Atlas2 | null>(null);
@@ -43,6 +57,7 @@ export function MriPane({ level, hoverSlug, onHover }: { level: BsLevel; hoverSl
   return (
     <div>
       <div className="overflow-hidden rounded-card" style={{ height: h }}>
+        {!atlas && <MriLoading indexDone={false} />}
         {atlas && <SliceViewer atlas={atlas} primary={null} primaryColor="#ff2a6d" overlays={overlays} view="axial" jumpTo={null} atMm={atMm} height={h} />}
       </div>
       <p className="mt-2 text-xs text-text-dim">

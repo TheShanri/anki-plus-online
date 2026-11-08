@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const course = JSON.parse(readFileSync(join(root, "src/data/brainstem-course.json"), "utf8"));
+const course = [...JSON.parse(readFileSync(join(root, "src/data/brainstem-course.json"), "utf8")), ...JSON.parse(readFileSync(join(root, "src/data/brainstem-decks.json"), "utf8"))];
 const structs = new Map(JSON.parse(readFileSync(join(root, "content/nsci3250/structures.json"), "utf8")).map((s) => [s.slug, s]));
 const atlas = JSON.parse(readFileSync(join(root, "public/atlas2/atlas2.json"), "utf8")).structures;
 

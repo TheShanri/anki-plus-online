@@ -1,0 +1,222 @@
+{
+ "3N": [
+  "Oculomotor nucleus",
+  "oculomotor-nucleus"
+ ],
+ "3n": [
+  "Oculomotor nerve",
+  "oculomotor-nerve"
+ ],
+ "4N": [
+  "Trochlear nucleus",
+  "trochlear-nucleus"
+ ],
+ "4n": [
+  "Trochlear nerve",
+  "trochlear-nerve"
+ ],
+ "Aq": [
+  "Cerebral aqueduct",
+  "cerebral-aqueduct"
+ ],
+ "ipf": [
+  "Interpeduncular fossa",
+  "interpeduncular-fossa"
+ ],
+ "MG": [
+  "Medial geniculate nucleus",
+  "medial-geniculate-nucleus"
+ ],
+ "R": [
+  "Red nucleus",
+  "red-nucleus"
+ ],
+ "SC": [
+  "Superior colliculus",
+  "superior-colliculus"
+ ],
+ "IC": [
+  "Inferior colliculus",
+  "inferior-colliculus"
+ ],
+ "cp": [
+  "Cerebral peduncles",
+  "cerebral-peduncles"
+ ],
+ "PAG": [
+  "Periaqueductal gray",
+  "periaqueductal-gray"
+ ],
+ "SNC": [
+  "Substantia nigra",
+  "substantia-nigra"
+ ],
+ "SNR": [
+  "Substantia nigra",
+  "substantia-nigra"
+ ],
+ "ml": [
+  "Medial lemniscus",
+  "medial-lemniscus"
+ ],
+ "mlf": [
+  "Medial longitudinal fasciculus",
+  "medial-longitudinal-fasciculus"
+ ],
+ "scp": [
+  "Superior cerebellar peduncle",
+  "superior-cerebellar-peduncle"
+ ],
+ "mcp": [
+  "Middle cerebellar peduncle",
+  "middle-cerebellar-peduncle"
+ ],
+ "icp": [
+  "Inferior cerebellar peduncle",
+  "inferior-cerebellar-peduncle"
+ ],
+ "xscp": [
+  "Decussation of the superior cerebellar peduncle",
+  "decussation-of-the-superior-cerebellar-peduncle"
+ ],
+ "5N": [
+  "Motor trigeminal nucleus",
+  "motor-trigeminal-nucleus"
+ ],
+ "Pr5": [
+  "Principal sensory nucleus of trigeminal",
+  "principal-sensory-nucleus-of-trigeminal"
+ ],
+ "6N": [
+  "Abducens nucleus",
+  "abducens-nucleus"
+ ],
+ "6n": [
+  "Abducens nerve",
+  "abducens-nerve"
+ ],
+ "7N": [
+  "Facial nucleus",
+  "facial-nucleus"
+ ],
+ "7n": [
+  "Facial nerve",
+  "facial-nerve"
+ ],
+ "Sp5": [
+  "Spinal trigeminal nucleus",
+  "spinal-trigeminal-nucleus"
+ ],
+ "sp5": [
+  "Spinal trigeminal nucleus",
+  "spinal-trigeminal-nucleus"
+ ],
+ "Sol": [
+  "Solitary nucleus",
+  "solitary-nucleus"
+ ],
+ "sol": [
+  "Solitary nucleus",
+  "solitary-nucleus"
+ ],
+ "10N": [
+  "Dorsal motor nucleus of the vagus",
+  "dorsal-motor-nucleus-of-the-vagus"
+ ],
+ "12N": [
+  "Hypoglossal nucleus",
+  "hypoglossal-nucleus"
+ ],
+ "Amb": [
+  "Nucleus ambiguus",
+  "nucleus-ambiguus"
+ ],
+ "IOPr": [
+  "Inferior olivary nucleus",
+  "inferior-olivary-nucleus"
+ ],
+ "IOD": [
+  "Inferior olivary nucleus",
+  "inferior-olivary-nucleus"
+ ],
+ "IOM": [
+  "Inferior olivary nucleus",
+  "inferior-olivary-nucleus"
+ ],
+ "Gr": [
+  "Gracile nucleus",
+  "gracile-nucleus"
+ ],
+ "gr": [
+  "Fasciculus gracilis",
+  "fasciculus-gracilis"
+ ],
+ "Cu": [
+  "Cuneate nucleus",
+  "cuneate-nucleus"
+ ],
+ "cu": [
+  "Fasciculus cuneatus",
+  "fasciculus-cuneatus"
+ ],
+ "py": [
+  "Pyramids",
+  "pyramids"
+ ],
+ "pys": [
+  "Motor decussation",
+  "motor-decussation"
+ ],
+ "ia": [
+  "Internal arcuate fibers",
+  "internal-arcuate-fibers"
+ ],
+ "lcs": [
+  "Lateral corticospinal tract",
+  "lateral-corticospinal-tract"
+ ],
+ "dsc": [
+  "Dorsal spinocerebellar tract",
+  "dorsal-spinocerebellar-tract"
+ ],
+ "4V": [
+  "Fourth ventricle",
+  "fourth-ventricle"
+ ],
+ "tfp": [
+  "Transverse fibers of the pons",
+  "transverse-fibers-of-the-pons"
+ ],
+ "Pn": [
+  "Pontine nuclei",
+  "pontine-nuclei"
+ ],
+ "LC": [
+  "Locus coeruleus",
+  null
+ ],
+ "ll": [
+  "Lateral lemniscus",
+  null
+ ],
+ "DR": [
+  "Dorsal raphe nucleus",
+  null
+ ],
+ "Mc5": [
+  "Mesencephalic trigeminal nucleus",
+  null
+ ],
+ "vsc": [
+  "Ventral spinocerebellar tract",
+  null
+ ],
+ "CC": [
+  "Central canal",
+  null
+ ],
+ "ECu": [
+  "External cuneate nucleus",
+  null
+ ]
+}

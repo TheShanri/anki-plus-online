@@ -18,9 +18,9 @@ foreach ($p in Get-ChildItem -LiteralPath $Dir -Filter *.png) {
     $r = Await ($engine.RecognizeAsync($b)) ([Windows.Media.Ocr.OcrResult])
     $lines = @()
     foreach ($l in $r.Lines) {
-      $x0 = 1e9; $y0 = 1e9; $x1 = 0; $y1 = 0
-      foreach ($w in $l.Words) { $q = $w.BoundingRect; $x0 = [Math]::Min($x0, $q.X); $y0 = [Math]::Min($y0, $q.Y); $x1 = [Math]::Max($x1, $q.X + $q.Width); $y1 = [Math]::Max($y1, $q.Y + $q.Height) }
-      $lines += @{ text = $l.Text; x = $x0; y = $y0; w = $x1 - $x0; h = $y1 - $y0 }
+      $x0 = 1e9; $y0 = 1e9; $x1 = 0; $y1 = 0; $ws = @()
+      foreach ($w in $l.Words) { $q = $w.BoundingRect; $ws += @{ text = $w.Text; x = $q.X; y = $q.Y; w = $q.Width; h = $q.Height }; $x0 = [Math]::Min($x0, $q.X); $y0 = [Math]::Min($y0, $q.Y); $x1 = [Math]::Max($x1, $q.X + $q.Width); $y1 = [Math]::Max($y1, $q.Y + $q.Height) }
+      $lines += @{ text = $l.Text; x = $x0; y = $y0; w = $x1 - $x0; h = $y1 - $y0; words = $ws }
     }
     $all[$p.BaseName] = @{ w = $b.PixelWidth; h = $b.PixelHeight; lines = $lines }
   } catch { Write-Error "$($p.Name): $_" }

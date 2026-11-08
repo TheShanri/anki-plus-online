@@ -58,9 +58,12 @@ for (const m of manifest) {
   const img = sharp(abs, { failOn: "none" }).rotate().resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true });
   const { data, info } = await img.clone().webp({ quality: 80 }).toBuffer({ resolveWithObject: true });
   writeFileSync(join(outDir, `${id}.webp`), data);
-  if (ocr && m.labels_baked_in) await img.clone().png().toFile(join(tmp, `${id}.png`));
-  const author = m.author ?? m.attribution ?? "";
-  const credit = [m.title ? m.title.replace(/\.[a-z]+$/i, "") : base, author && `by ${String(author).replace(/<[^>]+>/g, "")}`, m.attribution && m.attribution !== author ? m.attribution : null].filter(Boolean).join(", ");
+  if (ocr && m.labels_baked_in) await sharp(abs, { failOn: "none" }).rotate().resize({ width: 2600, height: 2600, fit: "inside" }).png().toFile(join(tmp, `${id}.png`));
+  const clean = (t) => String(t ?? "").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+  const author = clean(m.author);
+  const credit = clean(m.attribution) || [m.title, author && `by ${author}`, lic].filter(Boolean).join(", ");
+  const first = author.split(/,| and /)[0].trim();
+  const short = `${first.length > 28 ? first.slice(0, 26) + "..." : first}${/,| and /.test(author) ? " et al." : ""}, ${lic}`;
   for (const level of levels)
     out.push({
       id: levels.length > 1 ? `${id}-${level}` : id,
@@ -72,6 +75,7 @@ for (const m of manifest) {
       style,
       title: m.display_title ?? m.title?.replace(/\.[a-z]+$/i, "").replace(/[_]+/g, " ") ?? base,
       credit,
+      short,
       license: lic,
       url: m.source_page_url ?? m.url ?? "",
       labelsBaked: !!m.labels_baked_in,
@@ -88,17 +92,37 @@ if (ocr) {
   for (const [id, r] of Object.entries(res)) {
     stored[id] = (r.lines ?? [])
       .filter((l) => /[A-Za-z]{3}/.test(l.text) && l.h > 6 && l.h < r.h * 0.08)
-      .map((l) => ({ text: l.text.trim(), x: l.x / r.w, y: l.y / r.h, w: l.w / r.w, h: l.h / r.h }));
+      .map((l) => ({ text: l.text.trim(), x: l.x / r.w, y: l.y / r.h, w: l.w / r.w, h: l.h / r.h, words: (l.words ?? []).map((q) => ({ t: String(q.text).trim(), x: q.x / r.w, y: q.y / r.h, w: q.w / r.w, h: q.h / r.h })) }));
   }
   writeFileSync(labelsPath, JSON.stringify(stored, null, 1));
 }
+const abbr = JSON.parse(readFileSync(join(here, "coulombe-abbr.json"), "utf8"));
+const rect = (b, pad) => ({ shape: "rect", x: Math.max(0, b.x - pad), y: Math.max(0, b.y - pad), w: b.w + 2 * pad, h: b.h + 2 * pad });
 for (const o of out) {
   const boxes = stored[o._fid] ?? [];
-  const pad = 0.004;
-  o.labels = boxes.map((b) => {
-    const st = bySyn.get(norm(b.text));
-    return { slug: st?.slug ?? null, name: st?.name ?? b.text, kind: "ocr", shape: { shape: "rect", x: Math.max(0, b.x - pad), y: Math.max(0, b.y - pad), w: b.w + 2 * pad, h: b.h + 2 * pad } };
-  });
+  if (o._fid.includes("fnana")) {
+    // Coulombe plates print abbreviations: match each printed word to the key (case matters: Gr nucleus, gr fasciculus)
+    const seen = new Set();
+    o.labels = [];
+    for (const b of boxes) for (const wd of b.words ?? []) {
+      if (b.text.includes(":") || wd.y > 0.74) continue; // the printed key below the plate lists the same abbreviations
+      const t = wd.t.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "");
+      const a = abbr[t];
+      if (!a || wd.h > 0.04) continue;
+      const sig = `${t}${Math.round(wd.x * 60)},${Math.round(wd.y * 60)}`;
+      if (seen.has(sig)) continue;
+      seen.add(sig);
+      o.labels.push({ slug: a[1], name: a[0], accept: [t], kind: "abbr", shape: rect(wd, 0.003) });
+    }
+  } else {
+    // other plates: keep only printed labels that match a course structure (OCR of leader-line text is otherwise noisy)
+    o.labels = boxes
+      .filter((b) => bySyn.has(norm(b.text)))
+      .map((b) => {
+        const st = bySyn.get(norm(b.text));
+        return { slug: st.slug, name: st.name, kind: "ocr", shape: rect(b, 0.004) };
+      });
+  }
   delete o._fid;
 }
 writeFileSync(join(root, "src/data/brainstem-open.json"), JSON.stringify(out));

@@ -1,0 +1,51 @@
+/* Brainstem atlas. Semantic tokens only; transform/opacity animations; calm under reduced motion / effects off. */
+.bs-frame { position: relative; width: 100%; margin: 0 auto; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--bg-2); touch-action: pan-y; cursor: zoom-in; user-select: none; }
+.bs-frame.bs-zoomed { cursor: grab; touch-action: none; }
+.bs-stage { position: absolute; inset: 0; transform-origin: 0 0; will-change: transform; }
+.bs-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.2s var(--ease-out); pointer-events: none; }
+.bs-img.bs-loaded { opacity: 1; }
+.bs-skel { position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg-2), var(--bg-3), var(--bg-2)); background-size: 200% 100%; animation: bs-shimmer 1.4s linear infinite; }
+@keyframes bs-shimmer { to { background-position: -200% 0; } }
+.bs-box { position: absolute; box-sizing: border-box; border: 1.5px solid var(--bs-c, var(--accent)); background: color-mix(in srgb, var(--bs-c, var(--accent)) 12%, transparent); border-radius: 2px; transition: opacity 0.15s; }
+.bs-box.bs-hot { background: color-mix(in srgb, var(--bs-c, var(--accent)) 38%, transparent); box-shadow: 0 0 0 2px var(--bs-c, var(--accent)); z-index: 3; }
+.bs-box.bs-dim { opacity: 0.35; }
+.bs-mask { position: absolute; box-sizing: border-box; background: color-mix(in srgb, var(--bg) 90%, var(--accent)); border: 1px solid var(--panel-border-hi); cursor: pointer; padding: 0; }
+.bs-mask:hover { border-color: var(--accent); }
+.bs-mask.bs-active { border: 2px solid var(--accent); z-index: 3; }
+.bs-mask.bs-right { background: color-mix(in srgb, var(--good) 35%, var(--bg)); border-color: var(--good); }
+.bs-mask.bs-wrong { background: color-mix(in srgb, var(--again) 35%, var(--bg)); border-color: var(--again); }
+.bs-tip { position: absolute; z-index: 5; transform: translate(-50%, -105%); white-space: nowrap; pointer-events: none; padding: 2px 7px; border-radius: var(--radius-sm); font-size: 12px; background: var(--panel-solid); color: var(--text); border: 1px solid var(--panel-border-hi); }
+.bs-tools { position: absolute; top: 6px; right: 6px; z-index: 6; display: flex; gap: 4px; }
+.bs-ib { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--panel-solid); color: var(--text-dim); cursor: pointer; flex: none; }
+.bs-ib:hover:not(:disabled) { color: var(--text); border-color: var(--panel-border-hi); }
+.bs-ib[aria-pressed="true"], .bs-ib.bs-on { color: var(--accent); border-color: var(--accent); }
+.bs-ib:disabled { opacity: 0.35; cursor: default; }
+.bs-ib:focus-visible, .bs-seg button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.bs-seg { display: inline-flex; border: 1px solid var(--panel-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--panel-solid); }
+.bs-seg button { display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 9px; font-size: 13px; color: var(--text-dim); background: transparent; border: 0; border-right: 1px solid var(--panel-border); cursor: pointer; }
+.bs-seg button:last-child { border-right: 0; }
+.bs-seg button:hover:not(:disabled) { color: var(--text); }
+.bs-seg button[aria-selected="true"], .bs-seg button[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent-fill); }
+.bs-seg button:disabled { opacity: 0.35; cursor: default; }
+.bs-seg.bs-icons button { width: 32px; height: 32px; padding: 0; justify-content: center; }
+.bs-thumb { flex: none; width: 64px; height: 48px; border-radius: var(--radius-sm); border: 2px solid var(--panel-border); overflow: hidden; padding: 0; background: var(--bg-2); cursor: pointer; }
+.bs-thumb[aria-current="true"] { border-color: var(--accent); }
+.bs-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bs-fade-in { animation: bs-in 0.26s var(--ease-out) both; }
+.bs-fade-out { animation: bs-out 0.26s var(--ease-out) both; pointer-events: none; }
+@keyframes bs-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bs-out { from { opacity: 1; } to { opacity: 0; } }
+.bs-nav-line { transition: opacity 0.15s, transform 0.2s var(--ease-out); transform-origin: 0 50%; }
+.bs-row { display: flex; align-items: center; gap: 8px; width: 100%; padding: 4px 6px; border: 0; background: transparent; color: var(--text); text-align: left; font-size: 13.5px; border-radius: var(--radius-sm); cursor: pointer; }
+.bs-row:hover, .bs-row.bs-hot { background: var(--bg-3); }
+.bs-row[aria-current="true"] { outline: 1px solid var(--accent); }
+.bs-row:disabled { cursor: default; color: var(--text-dim); }
+.bs-sw { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+@media (prefers-reduced-motion: reduce) {
+  .bs-fade-in, .bs-fade-out, .bs-skel { animation: none; }
+  .bs-fade-out { display: none; }
+  .bs-img, .bs-box, .bs-nav-line { transition: none; }
+}
+html[data-effects="off"] .bs-fade-in, html[data-effects="off"] .bs-skel { animation: none; }
+html[data-effects="off"] .bs-fade-out { display: none; }
+html[data-effects="off"] .bs-img, html[data-effects="off"] .bs-box, html[data-effects="off"] .bs-nav-line { transition: none; }

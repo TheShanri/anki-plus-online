@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { AtlasAttribution } from "@/components/atlas/AtlasAttribution";
+import { BrainstemCredits } from "@/components/atlas/brainstem/BrainstemCredits";
 
 export const metadata: Metadata = { title: "About, credits and privacy · ANKI PLUS Online" };
 
@@ -39,6 +40,7 @@ export default function AboutPage() {
       <Section id="credits" title="Credits and licences">
         <p>The 3D atlas is built on openly licensed anatomy models. Attribution is required by their licences, and it is gladly given.</p>
         <AtlasAttribution />
+        <BrainstemCredits />
         <p>
           Course images and slides belong to the course instructors and are shown only to signed-in members of the course. The spaced
           repetition scheduler is <a href="https://github.com/open-spaced-repetition/ts-fsrs" target="_blank" rel="noopener noreferrer">ts-fsrs</a> (FSRS).

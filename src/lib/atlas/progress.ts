@@ -7,12 +7,12 @@ export type AtlasEvent =
   | { type: "view_changed"; view: string }
   | { type: "multiview_opened" }
   | { type: "cut_used"; plane: string }
-  | { type: "quiz_answer"; slug: string; correct: boolean; streak: number; pool: string }
+  | { type: "quiz_answer"; slug: string; correct: boolean; streak: number; pool: string; mode?: "type" | "choice" }
   | { type: "quiz_finished"; correct: number; total: number; pool: string }
   | { type: "pathway_completed"; pathway: string; quizCorrect?: number; quizTotal?: number }
   | { type: "lesion_case"; caseId: string; correct: boolean }
   | { type: "slice_match_round"; errorMm: number }
-  | { type: "supply_answer"; slug: string; correct: boolean }
+  | { type: "supply_answer"; slug: string; correct: boolean; artery?: string }
   | { type: "brainstem_level_viewed"; level: string; style: string }
   | { type: "brainstem_label"; level: string; slug: string; correct: boolean }
   | { type: "memory_map_opened" };

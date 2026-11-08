@@ -1,0 +1,89 @@
+/* Achievements: tier colours come from the theme's semantic tokens, so all three themes (and light/dark) just work.
+   Animations use transform and opacity only, and are off for prefers-reduced-motion and html[data-effects="off"]. */
+.ach {
+  --t-bronze: var(--hard);
+  --t-silver: var(--purple);
+  --t-gold: var(--highlight);
+  --t-platinum: var(--easy);
+}
+.ach [data-tier="bronze"], .ach[data-tier="bronze"] { --tc: var(--t-bronze); }
+.ach [data-tier="silver"], .ach[data-tier="silver"] { --tc: var(--t-silver); }
+.ach [data-tier="gold"], .ach[data-tier="gold"] { --tc: var(--t-gold); }
+.ach [data-tier="platinum"], .ach[data-tier="platinum"] { --tc: var(--t-platinum); }
+
+.ach-medal {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 2.5rem; height: 2.5rem; border-radius: 9999px;
+  border: 2px solid var(--tc, var(--panel-border));
+  background: color-mix(in srgb, var(--tc, var(--panel-border)) 18%, var(--panel-solid));
+  color: var(--text);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tc, transparent) 14%, transparent);
+}
+.ach-medal[data-locked="1"] {
+  border-color: var(--panel-border); background: var(--bg-2); color: var(--text-faint);
+  box-shadow: none; filter: grayscale(1);
+}
+.ach-card[data-locked="1"] { opacity: 0.85; }
+.ach-card[data-tier] { border-color: color-mix(in srgb, var(--tc) 55%, var(--panel-border)); }
+
+.ach-bar { height: 6px; border-radius: 9999px; background: var(--bg-3); overflow: hidden; }
+.ach-bar > i { display: block; height: 100%; width: 100%; transform-origin: left center; background: var(--tc, var(--accent-fill)); }
+
+.ach-pips { display: inline-flex; gap: 3px; }
+.ach-pips > i { width: 8px; height: 8px; border-radius: 9999px; border: 1.5px solid var(--panel-border-hi); }
+.ach-pips > i[data-on="1"] { background: var(--tc); border-color: var(--tc); }
+
+/* collection tiles */
+.col-tile { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--panel-border); background: var(--bg-3); }
+.col-tile[data-s="1"] { background: color-mix(in srgb, var(--accent-2) 55%, var(--bg-3)); border-color: var(--accent-2); }
+.col-tile[data-s="2"] { background: color-mix(in srgb, var(--highlight) 70%, var(--bg-3)); border-color: var(--highlight); }
+.col-tile[data-s="3"] { background: var(--good); border-color: var(--good); }
+
+/* unlock toast */
+.ach-toasts { position: fixed; z-index: 60; top: 4.25rem; right: 0.75rem; display: grid; gap: 0.5rem; width: min(22rem, calc(100vw - 1.5rem)); pointer-events: none; }
+.ach-toast {
+  position: relative; pointer-events: auto; display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.65rem 0.8rem; border-radius: var(--radius); background: var(--panel-solid);
+  border: 1.5px solid var(--tc, var(--accent)); box-shadow: var(--shadow-pop);
+  animation: ach-in 420ms var(--ease-out) both;
+}
+.ach-toast[data-out="1"] { animation: ach-out 260ms ease-in both; }
+.ach-toast .ach-medal { animation: ach-pop 600ms var(--ease-out) 120ms both; }
+.ach-burst { position: absolute; left: 1.55rem; top: 50%; width: 0; height: 0; pointer-events: none; }
+.ach-burst > i {
+  position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 9999px;
+  background: var(--tc, var(--accent)); opacity: 0;
+  animation: ach-spark 750ms var(--ease-out) 120ms both;
+  --d: 34px;
+}
+.ach-burst > i:nth-child(odd) { --d: 46px; background: var(--highlight); }
+@keyframes ach-in { from { opacity: 0; transform: translateX(26px) scale(0.96); } to { opacity: 1; transform: none; } }
+@keyframes ach-out { to { opacity: 0; transform: translateX(26px); } }
+@keyframes ach-pop { 0% { transform: scale(0.4); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }
+@keyframes ach-spark {
+  0% { opacity: 1; transform: rotate(var(--a)) translateY(0) scale(1); }
+  100% { opacity: 0; transform: rotate(var(--a)) translateY(calc(var(--d) * -1)) scale(0.2); }
+}
+
+/* the streak flame breathes a little */
+.ach-flame { display: inline-block; transform-origin: 50% 90%; animation: ach-flicker 1.6s ease-in-out infinite; }
+@keyframes ach-flicker { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+/* XP chip */
+.xp-chip {
+  position: fixed; z-index: 35; right: 0.75rem; bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.35rem 0.7rem 0.35rem 0.45rem; border-radius: 9999px; background: var(--panel-solid);
+  border: 1px solid var(--panel-border-hi); color: var(--text); text-decoration: none; box-shadow: var(--shadow-card);
+  transition: transform var(--dur-fast, 120ms) var(--ease-out);
+}
+.xp-chip:hover { transform: translateY(-2px); border-color: var(--accent); }
+.xp-chip[data-bump="1"] { animation: ach-pop 500ms var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ach-toast, .ach-toast[data-out="1"], .ach-toast .ach-medal, .ach-burst > i, .ach-flame, .xp-chip[data-bump="1"] { animation: none !important; }
+  .ach-burst { display: none; }
+}
+html[data-effects="off"] .ach-toast, html[data-effects="off"] .ach-toast .ach-medal, html[data-effects="off"] .ach-flame, html[data-effects="off"] .xp-chip { animation: none !important; transition: none; }
+html[data-effects="off"] .ach-burst { display: none; }
+html[data-effects="subtle"] .ach-flame { animation: none; }
+html[data-effects="subtle"] .ach-burst { display: none; }

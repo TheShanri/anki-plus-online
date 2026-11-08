@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { ActivityMount } from "@/components/study/ActivityMount";
+import { AtlasProgressMount } from "@/components/achievements/AtlasProgressMount";
 import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 import { Backdrop } from "@/components/theme/Backdrop";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
@@ -42,6 +43,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <Link href="/about" className="underline-offset-2 hover:underline">About, credits and privacy</Link>
           </footer>
           <FeedbackWidget />
+          <AtlasProgressMount />
         </ThemeProvider>
       </body>
     </html>

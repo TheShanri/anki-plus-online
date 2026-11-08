@@ -3,6 +3,7 @@
 import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { AtlasOverlay } from "../AtlasViewer";
+import { trackAtlas } from "@/lib/atlas/progress";
 import { LazyAtlasViewer } from "./lazy";
 import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, TERRITORY_ARTERIES, artShort, unitArteries, type SupplyUnit } from "./supply-data";
 
@@ -294,6 +295,7 @@ function SupplyQuiz({ onExit }: { onExit: () => void }) {
       setQ({ ...q, picked: id });
       setDone((d) => d + 1);
       if (q.unit.arteries.includes(id)) setRight((r) => r + 1);
+      trackAtlas({ type: "supply_answer", slug: q.unit.slug ?? "", correct: q.unit.arteries.includes(id), artery: id });
     },
     [q],
   );

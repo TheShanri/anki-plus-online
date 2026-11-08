@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { AtlasOverlay } from "../AtlasViewer";
 import { LazyAtlasViewer } from "../supply/lazy";
 import { atlasTargetForSlug } from "@/lib/atlas/catalog";
+import { trackAtlas } from "@/lib/atlas/progress";
 import { readCssColor } from "@/lib/atlas/theme";
 
 type Row = {
@@ -46,6 +47,10 @@ export function MemoryMap() {
   const [data, setData] = useState<Payload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [sel, setSel] = useState<string | null>(null); // slug
+
+  useEffect(() => {
+    trackAtlas({ type: "memory_map_opened" });
+  }, []);
 
   useEffect(() => {
     let alive = true;

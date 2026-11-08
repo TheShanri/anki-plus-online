@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 
 import SliceViewer, { type SliceOverlay } from "../SliceViewer";
 import { LazyAtlasViewer } from "../supply/lazy";
 import { loadAtlas2, type Atlas2 } from "@/lib/atlas/slices";
+import { trackAtlas } from "@/lib/atlas/progress";
 import { overlayPalette } from "@/lib/atlas/palette";
 import { readCssColor } from "@/lib/atlas/theme";
 import { PLANE, PLANES, SLIDER_RANGE, TARGET_RANGE, mmPoint, mmToWorld, pointsFor, type Plane } from "./coords";
@@ -122,6 +123,7 @@ export function SliceMatch() {
     const same = plane === target.plane;
     const dist = same ? Math.abs(mm - target.mm) : null;
     const points = pointsFor(same, dist ?? 0);
+    if (dist !== null) trackAtlas({ type: "slice_match_round", errorMm: dist });
     setResults((r) => [...r, { target, plane, mm, points, dist }]);
     setRevealed(true);
   }, [revealed, plane, mm, target]);

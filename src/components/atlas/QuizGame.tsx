@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ComponentType } from "react";
 import { buildKnownNames, gradeTyped } from "@/lib/study/grade";
 import { emit } from "@/lib/feedback/events";
+import { trackAtlas } from "@/lib/atlas/progress";
 import "@/components/study/study.css"; // help-line, kbd, choice and verdict styles
 
 // The 3D viewer, with names hidden: label="" (no title) and quiz (no hover names or labels).
@@ -101,9 +102,11 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
       setStreak(s);
       setBestStreak((b) => Math.max(b, s));
       emit(result === "right" ? "correct" : "near_miss", { combo: s });
+      trackAtlas({ type: "quiz_answer", slug: cur.slug, correct: true, streak: s, pool: pool === "units" ? `units:${pickedUnits.join("+")}` : pool, mode });
     } else {
       setStreak(0);
       emit("wrong", {});
+      trackAtlas({ type: "quiz_answer", slug: cur.slug, correct: false, streak: 0, pool: pool === "units" ? `units:${pickedUnits.join("+")}` : pool, mode });
     }
   };
 
@@ -130,6 +133,7 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
       setBest(b);
       setPhase("done");
       emit("session_done", { cards: round.length });
+      trackAtlas({ type: "quiz_finished", correct: score, total: round.length, pool: pool === "units" ? `units:${pickedUnits.join("+")}` : pool });
       return;
     }
     const n = i + 1;

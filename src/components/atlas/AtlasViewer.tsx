@@ -1,14 +1,23 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three/examples/jsm/controls/OrbitControls.js";
 import { loadAtlasIndex, resolveStructureIds, unionBox } from "@/lib/atlas";
 import type { AtlasEntry, AtlasIndex } from "@/lib/atlas";
-import { loadAtlasModel, releaseAtlasCache, retainAtlasCache } from "@/lib/atlas/loader";
+import { loadAtlasModel } from "./ui/modelCache";
+import type { Prog } from "./ui/modelCache";
+import { AtlasLoader, mbText, stagesFrom } from "./ui/AtlasLoader";
 import { readCssColor } from "@/lib/atlas/theme";
+import { trackAtlas } from "@/lib/atlas/progress";
+import {
+  Brain, ChevronDown, ChevronUp, FlipHorizontal2, LayoutGrid, Lock, Maximize2, Minimize2, Orbit, Palette, ScanLine, Tag,
+} from "lucide-react";
+import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
+import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
+import { fitDistance, frameBox } from "./ui/framing";
 
 export type AtlasMode = "focus" | "context";
 
@@ -39,8 +48,8 @@ export type AtlasViewerProps = {
   height?: number | string;
   /** Other structures shown at the same time, each in its own colour (extras and neighbours). */
   overlays?: AtlasOverlay[];
-  /** A structure was clicked in 3D (not dragged). Gets the mesh id. */
-  onPickMesh?: (meshId: string) => void;
+  /** A structure was clicked in 3D (not dragged). Gets the mesh id and the hemisphere that was hit. */
+  onPickMesh?: (meshId: string, side?: "L" | "R") => void;
   /** Overlay key ("primary" or an overlay's key) hovered elsewhere (legend chips): highlighted in 3D. */
   hoverKey?: string | null;
   /** Overlay key hovered in 3D (or on an in-scene label): lets the legend highlight its chip. */
@@ -61,27 +70,48 @@ export type AtlasViewerProps = {
   guides?: AtlasGuide[];
   /** Camera distance multiplier (below 1 comes closer); default 1. */
   zoom?: number;
+  /** Keyboard shortcuts while the viewer has focus (views 1-7, cuts, looks, labels...). Off by default: other pages own their keys. */
+  shortcuts?: boolean;
+  /** Offer the 2x2 multi-view (anterior, lateral, superior, free orbit). */
+  multiview?: boolean;
+  /** Neighbour toggle in the toolbar (shown when the handler is given). */
+  neighbors?: boolean;
+  onToggleNeighbors?: () => void;
+  /** Mesh ids on the student's syllabus. Every other gross mesh is drawn greyed and "locked". Unset: no locking. */
+  syllabus?: ReadonlySet<string> | null;
+  /** A locked mesh the student chose to look at anyway (drawn in normal colour). */
+  unlocked?: string | null;
+  /** Pick a better view / look by itself when the selection is hidden from the current one. */
+  autoReveal?: boolean;
+  onUserView?: (view: ViewName) => void;
+  /** A click (not a drag) landed on empty space. */
+  onPickNothing?: () => void;
+  /** Overlay content (legend, cards) placed over the canvas; wrappers should set their own pointer-events. */
+  overlay?: React.ReactNode;
+  /** Extra buttons appended to the toolbar. */
+  toolbarExtra?: React.ReactNode;
 };
 
 export type AtlasGuide = { axis: "x" | "y" | "z"; position: number; color: string };
 
-export type AtlasOverlay = { key: string; ids: string[]; color: string; opacity?: number };
-type LoadedOverlay = { key: string; color: string; opacity: number; groups: THREE.Group[]; ids: string[] };
+export type AtlasOverlay = { key: string; ids: string[]; color: string; opacity?: number; /** Only this hemisphere of a paired mesh (left = +x). */ side?: "L" | "R" };
+type LoadedOverlay = { key: string; color: string; opacity: number; groups: THREE.Group[]; ids: string[]; side?: "L" | "R" };
 type Look = "brain" | "regions" | "xray";
-const LOOKS: { id: Look; label: string }[] = [
-  { id: "brain", label: "Brain" },
-  { id: "regions", label: "Regions" },
-  { id: "xray", label: "X-ray" },
+const LOOKS: { id: Look; label: string; key: string }[] = [
+  { id: "brain", label: "Brain", key: "B" },
+  { id: "regions", label: "Regions", key: "R" },
+  { id: "xray", label: "X-ray", key: "X" },
 ];
+const VIEW_KEYS: Record<ViewName, string> = { anterior: "1", posterior: "2", left: "3", right: "4", superior: "5", inferior: "6", midsagittal: "7", top: "" };
 type Hover = { key?: string; id?: string } | null;
 type LabelItem = { key: string; sid: string; text: string; color: string; anchor: THREE.Vector3 };
 type ClipAxis = "off" | "x" | "y" | "z";
 type ClipState = { axis: ClipAxis; t: number; flip: boolean };
-const CLIP_AXES: { id: ClipAxis; label: string }[] = [
-  { id: "off", label: "No cut" },
-  { id: "z", label: "Coronal cut" },
-  { id: "x", label: "Sagittal cut" },
-  { id: "y", label: "Transverse cut" },
+const CLIP_AXES: { id: ClipAxis; label: string; key: string; plane: string }[] = [
+  { id: "off", label: "No cut", key: "N", plane: "" },
+  { id: "z", label: "Coronal cut", key: "C", plane: "coronal" },
+  { id: "x", label: "Sagittal cut", key: "S", plane: "sagittal" },
+  { id: "y", label: "Transverse cut", key: "T", plane: "transverse" },
 ];
 
 type Loaded = { key: string; targets: THREE.Group[]; targetIds: string[]; ctx: THREE.Group | null; ovl: LoadedOverlay[]; error?: string };
@@ -143,29 +173,129 @@ class Pulse {
   }
 }
 
-function Rig({ box, view, nonce, zoom }: { box: THREE.Box3 | null; view: ViewName; nonce: number; zoom: number }) {
-  const camera = useThree((s) => s.camera);
+type Pane = { el: HTMLElement | null; cam: THREE.PerspectiveCamera | null; view?: ViewName };
+const FIXED_PANES: { id: string; view: ViewName; label: string }[] = [
+  { id: "anterior", view: "anterior", label: "Anterior" },
+  { id: "left", view: "left", label: "Lateral" },
+  { id: "superior", view: "top", label: "Superior" },
+];
+const FREE_DIR = new THREE.Vector3(0.8, 0.5, 0.75).normalize();
+const DEFAULT_BRAIN = new THREE.Box3(new THREE.Vector3(-0.07, 1.58, -0.1), new THREE.Vector3(0.07, 1.7, 0.085));
+type Dims = { w: number; h: number };
+function setFlag(ref: { current: boolean }, v: boolean) {
+  ref.current = v;
+}
+function setAspect(cam: THREE.PerspectiveCamera, a: number) {
+  cam.aspect = a;
+  cam.updateProjectionMatrix();
+}
+
+/** Frames the camera(s): fits the target plus some context to each pane's own aspect (exact per-corner fit). */
+function Rig({
+  box, brain, view, nonce, zoom, multi, dims, fixed, fixedDims, moved, sizeKey,
+}: {
+  box: THREE.Box3 | null; brain: THREE.Box3 | null; view: ViewName; nonce: number; zoom: number; multi: boolean;
+  dims: React.RefObject<Dims>; fixed: THREE.PerspectiveCamera[]; fixedDims: React.RefObject<Dims[]>; moved: React.RefObject<boolean>; sizeKey: string;
+}) {
+  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const invalidate = useThree((s) => s.invalidate);
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
-  useEffect(() => {
-    // frame between the target and the whole brain so the surroundings stay in view
-    const size = box && !box.isEmpty() ? box.getSize(new THREE.Vector3()).length() : 0.3;
-    // tiny targets (cranial nerve nuclei, geniculates, habenula...) would be specks at brain scale: come closer
-    const small = size < 0.03;
-    const c = box && !box.isEmpty() ? box.getCenter(new THREE.Vector3()).lerp(DEFAULT_CTX_CENTER, small ? 0.1 : 0.35) : DEFAULT_CTX_CENTER.clone();
-    // Frame the whole brain around the target so students keep their bearings; they can zoom in.
-    const dist = (view === "midsagittal" ? 0.42 : small ? 0.22 : Math.min(0.6, Math.max(0.44, size * 2.6))) * zoom;
-    const v = VIEWS.find((x) => x.id === view) ?? VIEWS[2];
-    const target = view === "midsagittal" ? DEFAULT_CTX_CENTER.clone().setX(0) : c;
-    camera.position.copy(target).addScaledVector(new THREE.Vector3(...v.dir).normalize(), dist);
+  const fit = () => {
+    const b = brain ?? DEFAULT_BRAIN;
+    const mid = view === "midsagittal" && !multi;
+    const fb = mid ? b.clone() : frameBox(b, box);
+    const c = fb.getCenter(new THREE.Vector3());
+    if (mid) c.x = 0;
+    const d = dims.current;
+    const aspect = d.w > 4 && d.h > 4 ? d.w / d.h : camera.aspect || 1.5;
+    const dir = multi ? FREE_DIR : new THREE.Vector3(...(VIEWS.find((x) => x.id === view) ?? VIEWS[2]).dir).normalize();
+    const dist = fitDistance(fb, dir, camera.fov, aspect) * zoom;
+    camera.position.copy(c).addScaledVector(dir, dist);
     camera.up.set(0, 1, 0);
-    camera.lookAt(target);
+    camera.lookAt(c);
     if (controls) {
-      controls.target.copy(target);
+      controls.target.copy(c);
       controls.update();
     }
+    if (multi) {
+      FIXED_PANES.forEach((p, i) => {
+        const cam = fixed[i];
+        const fd = fixedDims.current[i];
+        const fa = fd && fd.w > 4 && fd.h > 4 ? fd.w / fd.h : aspect;
+        const fdir = new THREE.Vector3(...(VIEWS.find((x) => x.id === p.view) ?? VIEWS[2]).dir).normalize();
+        cam.fov = camera.fov;
+        cam.aspect = fa;
+        cam.near = camera.near;
+        cam.far = camera.far;
+        cam.position.copy(c).addScaledVector(fdir, fitDistance(fb, fdir, camera.fov, fa) * zoom);
+        cam.up.set(0, 1, 0);
+        cam.lookAt(c);
+        cam.updateProjectionMatrix();
+        cam.updateMatrixWorld();
+      });
+    }
+    setFlag(moved, false);
     invalidate();
-  }, [box, view, nonce, zoom, camera, controls, invalidate]);
+  };
+  const fitRef = useRef(fit);
+  useEffect(() => {
+    fitRef.current = fit;
+  });
+  useEffect(() => {
+    fitRef.current();
+  }, [box, brain, view, nonce, zoom, multi, camera, controls, invalidate]);
+  useEffect(() => {
+    if (!moved.current) fitRef.current();
+  }, [sizeKey, moved]);
+  useEffect(() => {
+    if (!controls) return;
+    const c = controls as unknown as { addEventListener: (t: string, f: () => void) => void; removeEventListener: (t: string, f: () => void) => void };
+    const f = () => {
+      moved.current = true;
+    };
+    c.addEventListener("start", f);
+    return () => c.removeEventListener("start", f);
+  }, [controls, moved]);
+  return null;
+}
+
+/** Multi-view: one WebGL context, one scene, one scissored render per pane (runs only when mounted; frameloop stays on demand). */
+function MultiRender({ panes }: { panes: React.RefObject<Pane[]> }) {
+  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+  const size = useThree((s) => s.size);
+  const invalidate = useThree((s) => s.invalidate);
+  useFrame(({ gl, scene, camera: cam0, size: sz }) => {
+    const root = gl.domElement.getBoundingClientRect();
+    const auto = gl.autoClear;
+    gl.autoClear = false;
+    gl.setScissorTest(true);
+    for (const p of panes.current) {
+      if (!p.el) continue;
+      const r = p.el.getBoundingClientRect();
+      const w = Math.floor(r.width);
+      const h = Math.floor(r.height);
+      if (w < 4 || h < 4) continue;
+      const x = Math.floor(r.left - root.left);
+      const y = Math.floor(root.bottom - r.bottom);
+      const cam = p.cam ?? (cam0 as THREE.PerspectiveCamera);
+      if (!p.cam) setAspect(cam, w / h);
+      gl.setViewport(x, y, w, h);
+      gl.setScissor(x, y, w, h);
+      gl.clear();
+      gl.render(scene, cam);
+    }
+    gl.setScissorTest(false);
+    gl.setViewport(0, 0, sz.width, sz.height);
+    gl.autoClear = auto;
+  }, 1);
+  useEffect(
+    () => () => {
+      camera.aspect = size.width / Math.max(1, size.height);
+      camera.updateProjectionMatrix();
+      invalidate();
+    },
+    [camera, size, invalidate],
+  );
   return null;
 }
 
@@ -235,6 +365,8 @@ function buildGrossMats(look: Look): Record<string, THREE.MeshStandardMaterial> 
     const color = look === "regions" ? LOBE_TINT[g] : (BRAIN_TINT[g] ?? CORTEX_TINT);
     out[g] = new THREE.MeshStandardMaterial({ color, vertexColors: true, roughness: 0.62, metalness: 0 });
   }
+  // meshes that are not on the syllabus: grey and flat, so they read as "locked"
+  out.locked = new THREE.MeshStandardMaterial({ color: "#a4a5aa", vertexColors: true, roughness: 0.9, metalness: 0 });
   return out;
 }
 
@@ -271,7 +403,7 @@ function configureGross(
   solid: boolean,
   planes: THREE.Plane[],
 ) {
-  for (const k of GROUPS) {
+  for (const k of [...GROUPS, "locked"]) {
     const m = mats[k];
     m.transparent = !solid;
     m.opacity = solid ? 1 : 0.2;
@@ -285,8 +417,8 @@ function configureGross(
   hull.needsUpdate = true;
 }
 
-function applyGrossMats(meshes: Map<string, THREE.Mesh>, mats: Record<string, THREE.MeshStandardMaterial>) {
-  for (const m of meshes.values()) m.material = mats[m.userData.g as string] ?? mats["frontal-lobe"];
+function applyGrossMats(meshes: Map<string, THREE.Mesh>, mats: Record<string, THREE.MeshStandardMaterial>, locked: ReadonlySet<string>) {
+  for (const [id, m] of meshes) m.material = locked.has(id) ? mats.locked : (mats[m.userData.g as string] ?? mats["frontal-lobe"]);
 }
 
 function addHulls(root: THREE.Object3D, mat: THREE.Material): THREE.Mesh[] {
@@ -312,6 +444,34 @@ function tagGross(root: THREE.Object3D, structures: Record<string, AtlasEntry>):
     byId.set(n.name, m);
   });
   return byId;
+}
+
+const stalkCache = new WeakMap<THREE.BufferGeometry, THREE.BufferGeometry>();
+/** The context cerebrum has a stalk running down the midline (brainstem): drop those triangles so only the hemispheres back the gross meshes. */
+function withoutStalk(src: THREE.BufferGeometry): THREE.BufferGeometry {
+  const hit = stalkCache.get(src);
+  if (hit) return hit;
+  const pos = src.getAttribute("position");
+  const idx = src.getIndex();
+  if (!pos || !idx) return src;
+  const keep: number[] = [];
+  const a = new THREE.Vector3();
+  const b = new THREE.Vector3();
+  const c = new THREE.Vector3();
+  for (let i = 0; i < idx.count; i += 3) {
+    a.fromBufferAttribute(pos, idx.getX(i));
+    b.fromBufferAttribute(pos, idx.getX(i + 1));
+    c.fromBufferAttribute(pos, idx.getX(i + 2));
+    const cx = (a.x + b.x + c.x) / 3;
+    const cy = (a.y + b.y + c.y) / 3;
+    if (cy < 1.607 && Math.abs(cx) < 0.034) continue;
+    keep.push(idx.getX(i), idx.getX(i + 1), idx.getX(i + 2));
+  }
+  const g = new THREE.BufferGeometry();
+  for (const k of Object.keys(src.attributes)) g.setAttribute(k, src.getAttribute(k));
+  g.setIndex(keep);
+  stalkCache.set(src, g);
+  return g;
 }
 
 function tagMeshes(root: THREE.Object3D, props: Record<string, unknown>) {
@@ -467,25 +627,23 @@ function layoutLabels(items: LabelItem[], lab: LabRefs, camera: THREE.Camera, W:
     _q.copy(items[i].anchor).sub(centre);
     const hidden = lab.solid && _q.dot(_r.copy(camera.position).sub(centre)) < 0;
     const w = lab.w[i] || 100;
-    tag.style.opacity = hidden ? "0.45" : "1";
-    line.style.opacity = hidden ? "0.35" : "1";
-    dot.style.opacity = hidden ? "0.35" : "1";
+    const show = vis && !hidden; // never point a label at a surface where the structure is not visible
     tag.style.transform = `translate(${bxA[i].toFixed(1)}px,${byA[i].toFixed(1)}px)`;
-    tag.style.visibility = vis ? "visible" : "hidden";
+    tag.style.visibility = show ? "visible" : "hidden";
     const x2 = Math.min(Math.max(sx[i], bxA[i]), bxA[i] + w);
     const y2 = Math.min(Math.max(sy[i], byA[i]), byA[i] + LH);
     line.setAttribute("x1", sx[i].toFixed(1));
     line.setAttribute("y1", sy[i].toFixed(1));
     line.setAttribute("x2", x2.toFixed(1));
     line.setAttribute("y2", y2.toFixed(1));
-    line.style.visibility = vis ? "visible" : "hidden";
+    line.style.visibility = show ? "visible" : "hidden";
     dot.setAttribute("cx", sx[i].toFixed(1));
     dot.setAttribute("cy", sy[i].toFixed(1));
-    dot.style.visibility = vis ? "visible" : "hidden";
+    dot.style.visibility = show ? "visible" : "hidden";
   }
 }
 
-function LabelUpdater({ items, lab, enabled, centre, solid }: { items: LabelItem[]; lab: React.RefObject<LabRefs>; enabled: boolean; centre: THREE.Vector3; solid: boolean }) {
+function LabelUpdater({ items, lab, enabled, centre, solid, dims }: { items: LabelItem[]; lab: React.RefObject<LabRefs>; enabled: boolean; centre: THREE.Vector3; solid: boolean; dims: React.RefObject<Dims> }) {
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
   const invalidate = useThree((s) => s.invalidate);
@@ -493,7 +651,8 @@ function LabelUpdater({ items, lab, enabled, centre, solid }: { items: LabelItem
     invalidate();
   }, [items, enabled, size, solid, invalidate]);
   useFrame(() => {
-    if (enabled && items.length) layoutLabels(items, lab.current, camera, size.width, size.height, centre);
+    const d = dims.current;
+    if (enabled && items.length) layoutLabels(items, lab.current, camera, d.w > 4 ? d.w : size.width, d.h > 4 ? d.h : size.height, centre);
   });
   return null;
 }
@@ -502,6 +661,8 @@ function LabelUpdater({ items, lab, enabled, centre, solid }: { items: LabelItem
 type PickInfo = { hover: NonNullable<Hover>; name: string };
 
 function Picker({
+  el,
+  getPanes,
   pickables,
   grossPlanes,
   ownPlanes,
@@ -509,19 +670,22 @@ function Picker({
   onHover,
   onMove,
   onPick,
+  onMiss,
 }: {
+  onMiss?: () => void;
+  el: HTMLElement | null;
+  getPanes: () => Pane[];
   pickables: React.RefObject<THREE.Mesh[]>;
   grossPlanes: React.RefObject<THREE.Plane[]>;
   ownPlanes: React.RefObject<THREE.Plane[]>;
   structures: Record<string, AtlasEntry>;
   onHover: (h: Hover, name: string | null) => void;
   onMove: (x: number, y: number) => void;
-  onPick: (id: string) => void;
+  onPick: (id: string, side?: "L" | "R") => void;
 }) {
-  const gl = useThree((s) => s.gl);
   const camera = useThree((s) => s.camera);
   useEffect(() => {
-    const el = gl.domElement;
+    if (!el) return;
     const ray = new THREE.Raycaster();
     const ndc = new THREE.Vector2();
     let raf = 0;
@@ -530,19 +694,35 @@ function Picker({
     let lastSig = "";
     let down: { x: number; y: number; t: number } | null = null;
 
-    const pick = (cx: number, cy: number): PickInfo | null => {
-      const r = el.getBoundingClientRect();
+    const pick = (cx: number, cy: number): (PickInfo & { side?: "L" | "R" }) | null => {
+      let pane: Pane | null = null;
+      let r: DOMRect | null = null;
+      for (const p of getPanes()) {
+        if (!p.el) continue;
+        const rr = p.el.getBoundingClientRect();
+        if (cx >= rr.left && cx <= rr.right && cy >= rr.top && cy <= rr.bottom) {
+          pane = p;
+          r = rr;
+          break;
+        }
+      }
+      if (!pane || !r) return null;
+      const cam = pane.cam ?? camera;
+      cam.updateMatrixWorld();
       ndc.set(((cx - r.left) / r.width) * 2 - 1, -((cy - r.top) / r.height) * 2 + 1);
-      ray.setFromCamera(ndc, camera);
+      ray.setFromCamera(ndc, cam);
       const hits = ray.intersectObjects(pickables.current, false);
       for (const h of hits) {
         const m = h.object as THREE.Mesh;
         _hit.copy(h.point);
         const gross = m.userData.gid !== undefined;
         if (clippedBy(gross ? grossPlanes.current : ownPlanes.current, _hit)) continue;
+        const ms = m.userData.side as "L" | "R" | undefined;
+        if (ms && (ms === "L") !== _hit.x > 0) continue; // the clipped-away hemisphere of a one-sided overlay
         const id = (gross ? m.userData.gid : m.userData.sid) as string;
         const name = structures[id]?.name ?? id;
-        return { hover: gross ? { id } : { key: m.userData.key as string, id }, name };
+        const side = _hit.x > 0.002 ? "L" : _hit.x < -0.002 ? "R" : undefined;
+        return { hover: gross ? { id } : { key: m.userData.key as string, id }, name, side };
       }
       return null;
     };
@@ -585,7 +765,8 @@ function Picker({
       down = null;
       if (!d || Math.hypot(e.clientX - d.x, e.clientY - d.y) > 5 || performance.now() - d.t > 600) return;
       const p = pick(e.clientX, e.clientY);
-      if (p?.hover.id) onPick(p.hover.id);
+      if (p?.hover.id) onPick(p.hover.id, p.side);
+      else onMiss?.();
     };
     el.addEventListener("pointermove", move);
     el.addEventListener("pointerleave", leave);
@@ -599,7 +780,7 @@ function Picker({
       el.removeEventListener("pointerdown", dn);
       el.removeEventListener("pointerup", up);
     };
-  }, [gl, camera, pickables, grossPlanes, ownPlanes, structures, onHover, onMove, onPick]);
+  }, [el, getPanes, camera, pickables, grossPlanes, ownPlanes, structures, onHover, onMove, onPick, onMiss]);
   return null;
 }
 
@@ -622,10 +803,22 @@ function Scene({
   perMesh,
   guides,
   centre,
+  lockedSet,
+  onWarm,
+  probeRef,
+  pickEl,
+  getPanes,
   onHover,
   onMove,
   onPick,
+  onMiss,
 }: {
+  onMiss?: () => void;
+  lockedSet: ReadonlySet<string>;
+  onWarm: () => void;
+  probeRef: React.MutableRefObject<((dir: THREE.Vector3, mid: boolean) => number) | null>;
+  pickEl: HTMLElement | null;
+  getPanes: () => Pane[];
   loaded: Loaded;
   gross: THREE.Group | null;
   structures: Record<string, AtlasEntry>;
@@ -646,10 +839,11 @@ function Scene({
   centre: THREE.Vector3;
   onHover: (h: Hover, name: string | null) => void;
   onMove: (x: number, y: number) => void;
-  onPick: (id: string) => void;
+  onPick: (id: string, side?: "L" | "R") => void;
 }) {
   const invalidate = useThree((s) => s.invalidate);
   const gl = useThree((s) => s.gl);
+  const sidePlanes = useMemo(() => ({ L: new THREE.Plane(new THREE.Vector3(1, 0, 0), 0), R: new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0) }), []);
   const clipPlane = useMemo(() => new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0), []);
   const cutP = useMemo(() => new THREE.Plane(), []);
   const grossPlanes = useRef<THREE.Plane[]>([]);
@@ -714,16 +908,57 @@ function Scene({
     return () => hulls.forEach((h) => h.removeFromParent());
   }, [gross, grossHull]);
   useEffect(() => {
-    applyGrossMats(grossById, grossMats);
+    applyGrossMats(grossById, grossMats, lockedSet);
     invalidate();
-  }, [grossById, grossMats, invalidate]);
+  }, [grossById, grossMats, lockedSet, invalidate]);
+
+  // compile the shaders for the first frame now (idle), so the first interaction does not hitch
+  const sceneObj = useThree((s) => s.scene);
+  const cam0 = useThree((s) => s.camera);
+  useEffect(() => {
+    if (!gross && look !== "xray") return;
+    const t = window.setTimeout(() => {
+      try {
+        gl.compile(sceneObj, cam0);
+      } catch {
+        /* a failed warm-up only costs the first frame */
+      }
+      onWarm();
+      invalidate();
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [gross, look, gl, sceneObj, cam0, onWarm, invalidate]);
+
+  // fills the holes between the gross meshes: a dark cortex-coloured shell behind them (solid brain only)
+  const backMat = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({ color: look === "regions" ? "#3d3a48" : "#5e4640", roughness: 1, metalness: 0, polygonOffset: true, polygonOffsetFactor: 4, polygonOffsetUnits: 4 }),
+    [look],
+  );
+  useEffect(() => () => backMat.dispose(), [backMat]);
+  const backer = useMemo(() => {
+    if (!loaded.ctx) return null;
+    const g = loaded.ctx.clone(true);
+    const drop: THREE.Object3D[] = [];
+    g.traverse((o) => {
+      if (/cord|brainstem/i.test(o.name)) drop.push(o);
+      const m = o as THREE.Mesh;
+      if (m.isMesh) {
+        m.geometry = withoutStalk(m.geometry);
+        m.material = backMat;
+        m.raycast = () => undefined;
+      }
+    });
+    drop.forEach((o) => o.removeFromParent());
+    return g;
+  }, [loaded.ctx, backMat]);
 
   const ovlRoot = useMemo(() => {
     const root = new THREE.Group();
     loaded.ovl.forEach((o, k) =>
       o.groups.forEach((g, j) => {
         const c = g.clone(true);
-        tagMeshes(c, { key: o.key, sid: o.ids[j], k });
+        tagMeshes(c, { key: o.key, sid: o.ids[j], k, side: o.side });
         root.add(c);
       }),
     );
@@ -786,10 +1021,14 @@ function Scene({
     const own = cutting ? [cutP] : [];
     ownPlanes.current = own;
     setPlanes(hiMat, own, true);
-    ovlMats.forEach((m) => setPlanes(m, own, true));
+    ovlMats.forEach((m, k) => {
+      const sd = loaded.ovl[k]?.side;
+      setPlanes(m, sd ? [...own, sidePlanes[sd]] : own, true);
+    });
+    setPlanes(backMat, gp);
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, sidePlanes, loaded.ovl, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
@@ -835,6 +1074,42 @@ function Scene({
     return () => setHoverMeshes(pool, [], hoverMat);
   }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, perMesh, invalidate]);
 
+  // how much of the target can be seen from a direction (rays from the camera to sample points, blocked by the solid brain)
+  useEffect(() => {
+    const ray = new THREE.Raycaster();
+    probeRef.current = (dir, mid) => {
+      const shell = pickables.current.filter((m) => m.userData.gid !== undefined && m.visible);
+      if (!shell.length || !solid || !grossOn) return 1;
+      targetRoot.updateMatrixWorld(true);
+      const pts: THREE.Vector3[] = [];
+      eachMesh(targetRoot, (m) => {
+        const pos = m.geometry.getAttribute("position");
+        if (!pos) return;
+        const step = Math.max(1, Math.floor(pos.count / 40));
+        for (let i = 0; i < pos.count; i += step) pts.push(new THREE.Vector3().fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld));
+      });
+      const use = mid ? pts.filter((p) => p.x <= 0) : pts;
+      if (!use.length) return mid ? 0 : 1;
+      const planes = mid ? [clipPlane, ...(clip.axis === "off" ? [] : [cutP])] : grossPlanes.current;
+      const eye = centre.clone().addScaledVector(dir.clone().normalize(), 0.5);
+      let seen = 0;
+      const dirv = new THREE.Vector3();
+      for (const p of use) {
+        dirv.copy(p).sub(eye);
+        const dist = dirv.length();
+        ray.set(eye, dirv.normalize());
+        ray.far = dist - 0.002;
+        const hits = ray.intersectObjects(shell, false);
+        if (!hits.some((h) => !clippedBy(planes, h.point))) seen++;
+      }
+      return seen / use.length;
+    };
+    const ref = probeRef;
+    return () => {
+      ref.current = null;
+    };
+  });
+
   const [pulse] = useState(() => new Pulse());
   useEffect(() => {
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -852,16 +1127,19 @@ function Scene({
       <directionalLight position={[1, 2, 2]} intensity={1.5} />
       <directionalLight position={[-2, -1, -1.5]} intensity={0.55} />
       {loaded.ctx && showCtx && look === "xray" && <primitive object={loaded.ctx} />}
+      {backer && solid && grossOn && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
       {guides.map((g, i) => (
         <GuidePlane key={i} g={g} centre={centre} />
       ))}
-      {!quiz && <Picker pickables={pickables} grossPlanes={grossPlanes} ownPlanes={ownPlanes} structures={structures} onHover={onHover} onMove={onMove} onPick={onPick} />}
+      {!quiz && <Picker el={pickEl} getPanes={getPanes} pickables={pickables} grossPlanes={grossPlanes} ownPlanes={ownPlanes} structures={structures} onHover={onHover} onMove={onMove} onPick={onPick} onMiss={onMiss} />}
     </>
   );
 }
+
+const VIEW_SHORT: Record<ViewName, string> = { anterior: "Anterior", posterior: "Posterior", left: "Lateral L", right: "Lateral R", superior: "Superior", inferior: "Inferior", midsagittal: "Midsagittal", top: "Top" };
 
 export default function AtlasViewer({
   structureIds,
@@ -879,23 +1157,45 @@ export default function AtlasViewer({
   view: viewProp,
   hideLabels = false,
   pickMode = "key",
-  tipText,
+  tipText: tipTextProp,
   guides,
   zoom = 1,
+  shortcuts = false,
+  multiview = false,
+  neighbors = false,
+  onToggleNeighbors,
+  syllabus = null,
+  unlocked = null,
+  autoReveal = false,
+  onUserView,
+  onPickNothing,
+  overlay,
+  toolbarExtra,
 }: AtlasViewerProps) {
+  const tipText = tipTextProp;
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [indexError, setIndexError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   const [gross, setGross] = useState<THREE.Group | null>(null);
   const [showCtx, setShowCtx] = useState(true);
+  const [grossProg, setGrossProg] = useState<Prog>({ loaded: 0, total: 0 });
+  const [warmed, setWarmed] = useState(false);
+  const onWarm = useCallback(() => setWarmed(true), []);
+  // dev/perf aid: ms from this viewer mounting to the first fully ready frame (see window.__atlasReady)
+  const mountedAt = useRef(0);
+  const readyLogged = useRef(false);
+  useEffect(() => {
+    mountedAt.current = performance.now();
+  }, []);
   const [look, setLook] = useState<Look>("brain");
   const [solidPref, setSolidPref] = useState<boolean | null>(null);
   const [showLabels, setShowLabels] = useState(true);
   const [hover, setHover] = useState<Hover>(null);
   const [tip, setTip] = useState<string | null>(null);
+  const [tipLocked, setTipLocked] = useState(false);
   const tipRef = useRef<HTMLDivElement>(null);
   const tipPos = useRef("translate(0px,0px)");
-  const lab = useRef<LabRefs>({ bottom: 40, solid: false, tags: [], lines: [], dots: [], w: [] });
+  const lab = useRef<LabRefs>({ bottom: 56, solid: false, tags: [], lines: [], dots: [], w: [] });
   const [view, setView] = useState<ViewName>(viewProp ?? "left");
   const [nonce, setNonce] = useState(0);
   const [prevViewProp, setPrevViewProp] = useState(viewProp);
@@ -908,17 +1208,70 @@ export default function AtlasViewer({
   }
   const [clip, setClip] = useState<ClipState>({ axis: "off", t: 0.5, flip: false });
   const [colors, setColors] = useState(readColors);
+  const [multi, setMulti] = useState(false);
+  const [barOpen, setBarOpen] = useState(() => (typeof window === "undefined" ? true : window.innerWidth >= 640));
+  const [notice, setNotice] = useState<string | null>(null);
+  const [fs, setFs] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [layerEl, setLayerEl] = useState<HTMLDivElement | null>(null);
+  const [mainEl, setMainEl] = useState<HTMLDivElement | null>(null);
+  const cellRefs = useRef<(HTMLDivElement | null)[]>([null, null, null]);
+  const dims = useRef<Dims>({ w: 0, h: 0 });
+  const fixedDims = useRef<Dims[]>([
+    { w: 0, h: 0 },
+    { w: 0, h: 0 },
+    { w: 0, h: 0 },
+  ]);
+  const [sizeKey, setSizeKey] = useState("");
+  const moved = useRef(false);
+  const fixedCams = useMemo(() => FIXED_PANES.map(() => new THREE.PerspectiveCamera(35, 1.3, 0.01, 6)), []);
+  const panes = useRef<Pane[]>([]);
+  const probeRef = useRef<((dir: THREE.Vector3, mid: boolean) => number) | null>(null);
+  const getPanes = useCallback(() => panes.current, []);
+
+  useLayoutEffect(() => {
+    panes.current = multi
+      ? [...FIXED_PANES.map((p, i) => ({ el: cellRefs.current[i], cam: fixedCams[i], view: p.view })), { el: mainEl, cam: null }]
+      : [{ el: mainEl, cam: null }];
+  }, [multi, mainEl, fixedCams]);
+
+  // pane sizes (aspect for the framing, size for the labels)
+  useEffect(() => {
+    if (!mainEl || typeof ResizeObserver === "undefined") return;
+    const measure = () => {
+      dims.current = { w: mainEl.clientWidth, h: mainEl.clientHeight };
+      FIXED_PANES.forEach((_, i) => {
+        const c = cellRefs.current[i];
+        fixedDims.current[i] = c ? { w: c.clientWidth, h: c.clientHeight } : { w: 0, h: 0 };
+      });
+      setSizeKey(`${dims.current.w}x${dims.current.h}|${multi ? 1 : 0}`);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(mainEl);
+    if (multi) cellRefs.current.forEach((c) => c && ro.observe(c));
+    return () => ro.disconnect();
+  }, [mainEl, multi]);
+
+  useEffect(() => {
+    const f = () => setFs(document.fullscreenElement === rootRef.current);
+    document.addEventListener("fullscreenchange", f);
+    return () => document.removeEventListener("fullscreenchange", f);
+  }, []);
+
+  const flashT = useRef(0);
+  const flash = useCallback((m: string) => {
+    setNotice(m);
+    window.clearTimeout(flashT.current);
+    flashT.current = window.setTimeout(() => setNotice(null), 4500);
+  }, []);
+  useEffect(() => () => window.clearTimeout(flashT.current), []);
 
   // theme colours: read at mount (state initialiser), refresh when data-theme changes
   useEffect(() => {
     const mo = new MutationObserver(() => setColors(readColors()));
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "data-mode", "class"] });
     return () => mo.disconnect();
-  }, []);
-
-  useEffect(() => {
-    retainAtlasCache();
-    return () => releaseAtlasCache();
   }, []);
 
   useEffect(() => {
@@ -935,7 +1288,7 @@ export default function AtlasViewer({
   useEffect(() => {
     if (look === "xray" || gross) return;
     let alive = true;
-    loadAtlasModel("gross.glb")
+    loadAtlasModel("gross.glb", (p) => alive && setGrossProg(p))
       .then((g) => alive && setGross(g))
       .catch(() => undefined);
     return () => {
@@ -947,7 +1300,7 @@ export default function AtlasViewer({
   const key = resolved.join(",") + "|" + mode;
   const entries = useMemo(() => (index ? resolved.map((id) => index.structures[id]) : []), [index, resolved]);
 
-  const ovlSig = (overlays ?? []).map((o) => `${o.key}:${o.ids.join("+")}:${o.color}:${o.opacity ?? ""}`).join("|");
+  const ovlSig = (overlays ?? []).map((o) => `${o.key}:${o.ids.join("+")}:${o.color}:${o.opacity ?? ""}:${o.side ?? ""}`).join("|");
   const ovlResolved = useMemo(
     () => (index ? (overlays ?? []).map((o) => ({ ...o, ids: resolveStructureIds(index, o.ids, 240).filter((id) => !resolved.includes(id)) })) : []),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -968,6 +1321,7 @@ export default function AtlasViewer({
           color: o.color,
           opacity: o.opacity ?? 0.95,
           ids: o.ids,
+          side: o.side,
           groups: await Promise.all(o.ids.map((id) => loadAtlasModel(index.structures[id].file!))),
         })),
       ),
@@ -980,6 +1334,12 @@ export default function AtlasViewer({
   }, [index, resolved, ovlResolved, fullKey]);
 
   const current = loaded && loaded.key === fullKey ? loaded : null;
+  useEffect(() => {
+    if (readyLogged.current || !current || !warmed || !(gross || look === "xray")) return;
+    readyLogged.current = true;
+    const w = window as unknown as { __atlasReady?: number[] };
+    (w.__atlasReady ??= []).push(Math.round(performance.now() - mountedAt.current));
+  }, [current, warmed, gross, look]);
   // Keep the previous scene on screen while the next structure loads (no blank flash between picks).
   const shown = current ?? (loaded && !loaded.error ? loaded : null);
   const currentCtx = shown?.ctx ?? null;
@@ -1004,6 +1364,20 @@ export default function AtlasViewer({
     const hi = ctxBox ? ctxBox.max[axis] : axis === "x" ? 0.08 : axis === "y" ? 1.68 : 0.1;
     const c = box ? box.getCenter(new THREE.Vector3())[axis] : (lo + hi) / 2;
     setClip({ axis, t: Math.min(1, Math.max(0, (c - lo) / (hi - lo))), flip: false });
+    trackAtlas({ type: "cut_used", plane: CLIP_AXES.find((a) => a.id === axis)?.plane ?? axis });
+  }
+  const toggleAxis = (axis: ClipAxis) => (clip.axis === axis ? pickAxis("off") : pickAxis(axis));
+
+  function setViewUser(v: ViewName) {
+    setView(v);
+    setNonce((n) => n + 1);
+    onUserView?.(v);
+    trackAtlas({ type: "view_changed", view: v });
+  }
+  function toggleMulti() {
+    if (!multi) trackAtlas({ type: "multiview_opened" });
+    setMulti(!multi);
+    setView((v) => (v === "midsagittal" ? "left" : v));
   }
 
   // Solid brain unless the selection is deep (then the cortex turns see-through so it can be found).
@@ -1018,20 +1392,27 @@ export default function AtlasViewer({
     !!shown && (shown.targetIds.length + shown.ovl.length === 0 || [...shown.targetIds, ...shown.ovl.flatMap((o) => o.ids)].every((id) => grossIds.has(id)));
   const solid = look === "xray" ? false : (solidPref ?? allSurface);
 
+  const lockedSet = useMemo(() => {
+    const s = new Set<string>();
+    if (syllabus) for (const id of grossIds) if (!syllabus.has(id) && id !== unlocked) s.add(id);
+    return s;
+  }, [syllabus, grossIds, unlocked]);
+
   // in-scene name labels (selected structure, added structures, neighbours)
   const labelItems = useMemo<LabelItem[]>(() => {
     if (quiz || hideLabels || !index || !shown) return [];
     const out: LabelItem[] = [];
     const accentHex = "#" + colors.accent.getHexString();
-    const add = (k: string, color: string, g: THREE.Group, id: string, nameOverride?: string) => {
+    const add = (k: string, color: string, g: THREE.Group, id: string, nameOverride?: string, only?: "L" | "R") => {
       const e = index.structures[id];
       if (!e) return;
       for (const a of anchorsFor(g, e.side === "lr")) {
-        out.push({ key: k, sid: id, text: `${nameOverride ?? e.name}${a.side ? " (" + a.side + ")" : ""}`, color, anchor: a.p });
+        if (only && a.side && a.side !== only) continue;
+        out.push({ key: k, sid: id, text: `${nameOverride ?? e.name}${a.side ? " (" + a.side + ")" : only ? " (" + only + ")" : ""}`, color, anchor: a.p });
       }
     };
     shown.targets.forEach((g, i) => add("primary", accentHex, g, shown.targetIds[i], label && shown.targets.length === 1 ? label : undefined));
-    shown.ovl.forEach((o) => o.groups.forEach((g, j) => add(o.key, o.color, g, o.ids[j])));
+    shown.ovl.forEach((o) => o.groups.forEach((g, j) => add(o.key, o.color, g, o.ids[j], undefined, o.side)));
     return out.slice(0, MAX_LABELS);
   }, [quiz, hideLabels, index, shown, colors.accent, label]);
   const labelsOn = showLabels && !quiz && !hideLabels;
@@ -1040,22 +1421,61 @@ export default function AtlasViewer({
     labelItems.forEach((_, i) => {
       lab.current.w[i] = lab.current.tags[i]?.offsetWidth ?? 100;
     });
-    lab.current.bottom = (barRef.current?.offsetHeight ?? 32) + 12;
+    lab.current.bottom = (barRef.current?.offsetHeight ?? 36) + 14;
     lab.current.solid = solid;
-  }, [labelItems, labelsOn, solid, look, showLabels]);
+  }, [labelItems, labelsOn, solid, look, showLabels, barOpen]);
+
+  // When the selection is hidden from the current view, pick a view (or the see-through look) that shows it.
+  const revealed = useRef("");
+  const nameForNotice = label ?? entries[0]?.name ?? "This structure";
+  useEffect(() => {
+    if (!autoReveal || quiz || viewProp !== undefined || !current || !gross || mode === "context" || !resolved.length) return;
+    if (revealed.current === fullKey) return;
+    const t = window.setTimeout(() => {
+      const probe = probeRef.current;
+      if (!probe) return;
+      revealed.current = fullKey;
+      if (!solid || multi) return;
+      const dirOf = (v: ViewName) => new THREE.Vector3(...(VIEWS.find((x) => x.id === v) ?? VIEWS[2]).dir);
+      if (probe(dirOf(view), view === "midsagittal") >= 0.3) return;
+      let best: ViewName | null = null;
+      let bf = 0;
+      for (const v of ["midsagittal", "left", "right", "anterior", "posterior", "superior", "inferior"] as ViewName[]) {
+        const f = probe(dirOf(v), v === "midsagittal");
+        if (f > bf + 0.05) {
+          bf = f;
+          best = v;
+        }
+      }
+      if (best && bf >= 0.35) {
+        setView(best);
+        setNonce((n) => n + 1);
+        onUserView?.(best);
+        flash(`${nameForNotice} is hidden from that side, so the view turned to ${VIEW_SHORT[best].toLowerCase()}.`);
+      } else {
+        setSolidPref(false);
+        flash(`${nameForNotice} sits inside the brain, so the cortex is see-through.`);
+      }
+    }, 300);
+    return () => window.clearTimeout(t);
+  }, [autoReveal, quiz, viewProp, current, gross, mode, resolved, fullKey, solid, view, multi, flash, nameForNotice, onUserView]);
 
   const onHoverKeyRef = useRef(onHoverKey);
   const onPickRef = useRef(onPickMesh);
   const tipTextRef = useRef(tipText);
+  const syllabusRef = useRef({ syllabus, unlocked });
   useEffect(() => {
     onHoverKeyRef.current = onHoverKey;
     onPickRef.current = onPickMesh;
     tipTextRef.current = tipText;
+    syllabusRef.current = { syllabus, unlocked };
   });
   const hoverStable = useMemo(
     () => (h: Hover, name: string | null) => {
       setHover(h);
       setTip(name !== null && h?.id && tipTextRef.current ? tipTextRef.current(h.id, name) : name);
+      const sy = syllabusRef.current;
+      setTipLocked(!!(h?.id && !h.key && sy.syllabus && !sy.syllabus.has(h.id) && h.id !== sy.unlocked));
     },
     [],
   );
@@ -1069,7 +1489,12 @@ export default function AtlasViewer({
   useLayoutEffect(() => {
     if (tipRef.current) tipRef.current.style.transform = tipPos.current;
   }, [tip]);
-  const pickStable = useMemo(() => (id: string) => onPickRef.current?.(id), []);
+  const pickStable = useMemo(() => (id: string, side?: "L" | "R") => onPickRef.current?.(id, side), []);
+  const onMissRef = useRef(onPickNothing);
+  useEffect(() => {
+    onMissRef.current = onPickNothing;
+  });
+  const missStable = useMemo(() => () => onMissRef.current?.(), []);
   const hoverKeyOut = hover?.key ?? null;
   useEffect(() => {
     onHoverKeyRef.current?.(hoverKeyOut);
@@ -1086,11 +1511,52 @@ export default function AtlasViewer({
         : `${entries[0].name} + ${entries.length - 1} more`);
   const latin = !label && entries.length === 1 ? entries[0].latin : null;
   const missing = index && structureIds.length > 0 && resolved.length === 0;
-  const btn = (on: boolean) =>
-    `rounded-sm border px-2 py-1 font-mono text-[11px] uppercase tracking-wider backdrop-blur bg-panel ${on ? "border-accent-2 text-accent-2" : "border-panel-border text-text-dim hover:border-panel-border-hi"}`;
+
+  const canFs = typeof document !== "undefined" && !!document.fullscreenEnabled;
+  function toggleFs() {
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void rootRef.current?.requestFullscreen?.().catch(() => undefined);
+  }
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (!shortcuts || e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target as HTMLElement;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable) return;
+    const k = e.key.toLowerCase();
+    const vk = (Object.keys(VIEW_KEYS) as ViewName[]).find((v) => VIEW_KEYS[v] === k && k !== "");
+    let used = true;
+    if (vk && !multi) setViewUser(vk);
+    else if (k === "n" && !cut) pickAxis("off");
+    else if (k === "c" && !cut) toggleAxis("z");
+    else if (k === "s" && !cut) toggleAxis("x");
+    else if (k === "t" && !cut) toggleAxis("y");
+    else if (k === "b") setLook("brain");
+    else if (k === "r") setLook("regions");
+    else if (k === "x") setLook("xray");
+    else if (k === "v" && look !== "xray") setSolidPref(!solid);
+    else if (k === "l" && !quiz && !hideLabels) setShowLabels((x) => !x);
+    else if (k === "h") setShowCtx((x) => !x);
+    else if (k === "g" && onToggleNeighbors) onToggleNeighbors();
+    else if (k === "m" && multiview && !cut) toggleMulti();
+    else if (k === "f" && canFs) toggleFs();
+    else used = false;
+    if (used) e.preventDefault();
+  };
+
+  const clipEff = cut ? { axis: cut.axis, t: cut.position, flip: !!cut.flip } : clip;
 
   return (
-    <div className={`relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2 ${className ?? ""}`} style={{ height }}>
+    <div
+      ref={rootRef}
+      tabIndex={-1}
+      onKeyDown={onKeyDown}
+      onPointerEnter={(e) => {
+        const a = document.activeElement as HTMLElement | null;
+        if (shortcuts && e.pointerType === "mouse" && !(a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) rootRef.current?.focus({ preventScroll: true });
+      }}
+      className={`relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2 outline-none ${className ?? ""}`}
+      style={{ height }}
+    >
       <Canvas
         frameloop="demand"
         dpr={[1, 1.5]}
@@ -1106,79 +1572,133 @@ export default function AtlasViewer({
             solid={solid}
             mode={mode}
             showCtx={showCtx}
-            midsagittal={view === "midsagittal"}
+            midsagittal={view === "midsagittal" && !multi}
             accent={colors.accent}
             dim={colors.dim}
             hoverColor={colors.hover}
-            clip={cut ? { axis: cut.axis, t: cut.position, flip: !!cut.flip } : clip}
+            clip={clipEff}
             clipRange={cut ? [0, 1] : clipRange}
             hover={active}
             quiz={quiz}
             perMesh={pickMode === "mesh"}
             guides={guides ?? []}
             centre={centre}
+            lockedSet={lockedSet}
+            onWarm={onWarm}
+            probeRef={probeRef}
+            pickEl={layerEl}
+            getPanes={getPanes}
             onHover={hoverStable}
             onMove={moveStable}
             onPick={pickStable}
+            onMiss={missStable}
           />
         )}
-        <LabelUpdater items={labelItems} lab={lab} enabled={labelsOn} centre={centre} solid={solid} />
-        <OrbitControls makeDefault enableDamping dampingFactor={0.12} screenSpacePanning minDistance={0.05} maxDistance={1.2} touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }} />
-        <Rig box={box} view={view} nonce={nonce} zoom={zoom} />
+        <LabelUpdater items={labelItems} lab={lab} enabled={labelsOn} centre={centre} solid={solid} dims={dims} />
+        <OrbitControls
+          makeDefault
+          domElement={mainEl ?? undefined}
+          enableDamping
+          dampingFactor={0.12}
+          screenSpacePanning
+          minDistance={0.05}
+          maxDistance={1.2}
+          touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}
+        />
+        <Rig box={box} brain={ctxBox} view={view} nonce={nonce} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} />
+        {multi && <MultiRender panes={panes} />}
       </Canvas>
 
-      {labelsOn && labelItems.length > 0 && (
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
-            {labelItems.map((it, i) => (
-              <g key={i} stroke={it.color} fill={it.color}>
-                <line ref={(el) => void (lab.current.lines[i] = el)} strokeWidth="1.5" strokeOpacity="0.9" />
-                <circle ref={(el) => void (lab.current.dots[i] = el)} r="3" stroke="#000" strokeOpacity="0.5" strokeWidth="1" />
-              </g>
-            ))}
-          </svg>
-          {labelItems.map((it, i) => (
-            <div
-              key={i}
-              ref={(el) => void (lab.current.tags[i] = el)}
-              onPointerEnter={() => setHover({ key: it.key })}
-              onPointerLeave={() => setHover(null)}
-              onClick={() => onPickMesh?.(it.sid)}
-              className={`pointer-events-auto absolute left-0 top-0 cursor-pointer whitespace-nowrap rounded-sm border bg-panel px-1.5 text-[11px] leading-[20px] text-text backdrop-blur ${active?.key === it.key ? "brightness-125" : ""}`}
-              style={{ borderColor: it.color, borderLeftWidth: 4, height: 22, transform: "translate(-999px,-999px)" }}
-            >
-              {it.text}
+      {/* interaction layer: one cell, or the 2x2 multi-view grid (anterior, lateral, superior, free orbit) */}
+      <div ref={setLayerEl} className={`absolute inset-0 ${multi ? "grid grid-cols-2 grid-rows-2 gap-px" : ""}`}>
+        {multi &&
+          FIXED_PANES.map((p, i) => (
+            <div key={p.id} ref={(el) => void (cellRefs.current[i] = el)} className="atl-multi-cell">
+              <button
+                type="button"
+                className="atl-ptitle"
+                onClick={() => {
+                  setMulti(false);
+                  setViewUser(p.view);
+                }}
+                aria-label={`${p.label} view, click to enlarge`}
+                title="Click to enlarge"
+              >
+                {p.label}
+              </button>
             </div>
           ))}
+        <div ref={setMainEl} className={multi ? "atl-multi-cell" : "absolute inset-0"} style={{ touchAction: "none" }}>
+          {multi && <span className="atl-ptitle pointer-events-none">Free orbit</span>}
+          {labelsOn && labelItems.length > 0 && (
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+              <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
+                {labelItems.map((it, i) => (
+                  <g key={i} stroke={it.color} fill={it.color}>
+                    <line ref={(el) => void (lab.current.lines[i] = el)} strokeWidth="1.5" strokeOpacity="0.9" />
+                    <circle ref={(el) => void (lab.current.dots[i] = el)} r="3" stroke="#000" strokeOpacity="0.5" strokeWidth="1" />
+                  </g>
+                ))}
+              </svg>
+              {labelItems.map((it, i) => (
+                <div
+                  key={i}
+                  ref={(el) => void (lab.current.tags[i] = el)}
+                  onPointerEnter={() => setHover({ key: it.key })}
+                  onPointerLeave={() => setHover(null)}
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onPointerUp={(e) => e.stopPropagation()}
+                  onClick={() => onPickMesh?.(it.sid)}
+                  className={`pointer-events-auto absolute left-0 top-0 cursor-pointer whitespace-nowrap rounded-sm border bg-panel px-1.5 text-[11px] leading-[20px] text-text backdrop-blur ${active?.key === it.key ? "brightness-125" : ""}`}
+                  style={{ borderColor: it.color, borderLeftWidth: 4, height: 22, transform: "translate(-999px,-999px)" }}
+                >
+                  {it.text}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
-
-      {!quiz && tip && !hoverKey && (
-        <div ref={tipRef} className="pointer-events-none absolute left-0 top-0 z-10 whitespace-nowrap rounded-sm border border-panel-border bg-panel-solid px-2 py-1 text-xs text-text shadow-pop">
-          {tip}
-        </div>
-      )}
-
-      <div className="pointer-events-none absolute left-3 top-3 flex max-w-[70%] flex-col gap-1">
-        {title && (
-          <div className="rounded-sm border border-panel-border bg-panel px-2.5 py-1.5 text-sm backdrop-blur">
-            <span className="font-display tracking-wide text-accent">{title}</span>
-            {latin && <span className="ml-2 text-xs italic text-text-dim">{latin}</span>}
-          </div>
-        )}
-        {approximate && (
-          <div className="w-fit rounded-sm border border-hard px-2 py-0.5 font-mono text-[11px] uppercase tracking-widest text-hard">
-            Approximate location
-          </div>
-        )}
       </div>
 
-      {!shown && !indexError ? (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-text-dim" role="status">
-          Loading 3D model...
+      {!quiz && tip && !hoverKey && (
+        <div ref={tipRef} className="pointer-events-none absolute left-0 top-0 z-10 flex items-center gap-1.5 whitespace-nowrap rounded-sm border border-panel-border bg-panel-solid px-2 py-1 text-xs text-text shadow-pop">
+          {tipLocked && <Lock className="h-3 w-3 text-text-faint" aria-hidden="true" />}
+          <span className={tipLocked ? "text-text-dim" : ""}>{tip}</span>
+          {tipLocked && <span className="text-text-faint">not on your syllabus</span>}
         </div>
+      )}
+
+      <div className="pointer-events-none absolute left-2 top-2 flex max-w-[60%] flex-col gap-1">
+        {title && !multi && (
+          <div className="atl-chip">
+            <span className="font-display tracking-wide text-accent">{title}</span>
+            {latin && <span className="hidden text-xs italic text-text-dim sm:inline">{latin}</span>}
+          </div>
+        )}
+        {approximate && <div className="atl-chip w-fit border-hard font-mono text-[10px] uppercase tracking-widest text-hard">Approximate location</div>}
+      </div>
+
+      {notice && (
+        <div className="atl-card-in pointer-events-none absolute left-1/2 top-12 z-20 max-w-[90%] -translate-x-1/2 sm:top-2" role="status">
+          <div className="atl-chip text-text-dim">{notice}</div>
+        </div>
+      )}
+
+      {overlay}
+
+      {!indexError && !(shown && warmed && (gross || look === "xray")) ? (
+        <AtlasLoader
+          label="Loading the 3D atlas"
+          stages={stagesFrom([
+            ["index", "Reading the structure index", !!index],
+            ["model", "Fetching the brain model", !!gross || look === "xray", grossProg.total ? mbText(grossProg.loaded, grossProg.total) : undefined],
+            ["meshes", "Building meshes", !!shown && !!gross, gross ? `${grossIds.size} gyri and nuclei` : undefined],
+            ["shaders", "Compiling shaders", warmed],
+            ["labels", "Placing labels", !!current && warmed],
+          ])}
+        />
       ) : !current && !indexError ? (
-        <div className="pointer-events-none absolute bottom-12 left-1/2 -translate-x-1/2 rounded-sm border border-panel-border bg-panel px-2 py-1 font-mono text-[11px] uppercase tracking-wider text-text-dim backdrop-blur" role="status">
+        <div className="atl-chip pointer-events-none absolute bottom-16 left-1/2 -translate-x-1/2 font-mono text-[11px] uppercase tracking-wider text-text-dim" role="status">
           Loading...
         </div>
       ) : null}
@@ -1188,14 +1708,9 @@ export default function AtlasViewer({
         </div>
       )}
 
-      {!cut && <div className="absolute right-2 top-2 flex max-w-[60%] flex-wrap items-center justify-end gap-1.5">
-        {CLIP_AXES.map((a) => (
-          <button key={a.id} type="button" onClick={() => pickAxis(a.id)} aria-pressed={clip.axis === a.id} className={btn(clip.axis === a.id)}>
-            {a.label}
-          </button>
-        ))}
-        {clip.axis !== "off" && (
-          <div className="flex w-full items-center justify-end gap-2 rounded-sm border border-panel-border bg-panel px-2 py-1 backdrop-blur">
+      <div className="pointer-events-none absolute inset-x-2 bottom-2 z-10 flex flex-col items-center gap-1.5">
+        {clipEff.axis !== "off" && !cut && (
+          <div className="atl-bar pointer-events-auto items-center gap-2 px-2">
             <input
               type="range"
               min={0}
@@ -1203,50 +1718,82 @@ export default function AtlasViewer({
               value={Math.round(clip.t * 1000)}
               onChange={(e) => setClip((c) => ({ ...c, t: Number(e.target.value) / 1000 }))}
               aria-label="Cut position"
-              className="w-40 accent-accent"
+              className="w-40 sm:w-56"
             />
-            <button type="button" onClick={() => setClip((c) => ({ ...c, flip: !c.flip }))} className="font-mono text-[11px] uppercase tracking-wider text-text-dim hover:text-text">
-              Flip side
-            </button>
+            <IconBtn label="Flip the cut side" icon={<FlipHorizontal2 />} onClick={() => setClip((c) => ({ ...c, flip: !c.flip }))} />
           </div>
         )}
-      </div>}
-
-      <div ref={barRef} className="absolute bottom-2 left-2 right-2 flex flex-wrap items-center gap-1.5">
-        {VIEWS.filter((v) => !v.hidden).map((v) => (
-          <button
-            key={v.id}
-            type="button"
-            onClick={() => {
-              setView(v.id);
-              setNonce((n) => n + 1);
-            }}
-            aria-pressed={view === v.id}
-            className={btn(view === v.id)}
-          >
-            {v.label}
-          </button>
-        ))}
-        <span className="ml-auto flex flex-wrap items-center gap-1.5">
-          {LOOKS.map((l) => (
-            <button key={l.id} type="button" onClick={() => setLook(l.id)} aria-pressed={look === l.id} className={btn(look === l.id)}>
-              {l.label}
-            </button>
-          ))}
-          {look !== "xray" && (
-            <button type="button" onClick={() => setSolidPref(!solid)} aria-pressed={solid} title="Solid cortex, or see-through to find deep structures" className={btn(false)}>
-              {solid ? "See through" : "Solid"}
-            </button>
+        <div ref={barRef} className="atl-bar pointer-events-auto" role="toolbar" aria-label="3D view controls">
+          <IconBtn label={barOpen ? "Hide controls" : "Show controls"} icon={barOpen ? <ChevronDown /> : <ChevronUp />} onClick={() => setBarOpen((o) => !o)} />
+          {barOpen && (
+            <>
+              <Divider />
+              {!multi && (
+                <Group label="View">
+                  <Popover trigger={({ open, toggle }) => <IconBtn label="Camera view" keys="1-7" icon={<Orbit />} text={VIEW_SHORT[view]} on={open} onClick={toggle} />}>
+                    {(close) =>
+                      VIEWS.filter((v) => !v.hidden).map((v) => (
+                        <MenuItem
+                          key={v.id}
+                          label={v.label}
+                          keys={VIEW_KEYS[v.id]}
+                          on={view === v.id}
+                          onClick={() => {
+                            setViewUser(v.id);
+                            close();
+                          }}
+                        />
+                      ))
+                    }
+                  </Popover>
+                </Group>
+              )}
+              {!cut && (
+                <>
+                  {!multi && <Divider />}
+                  <Group label="Cut">
+                    {CLIP_AXES.map((a) => (
+                      <IconBtn
+                        key={a.id}
+                        radio
+                        label={a.label}
+                        keys={a.key}
+                        on={clip.axis === a.id}
+                        onClick={() => pickAxis(a.id)}
+                        icon={a.id === "off" ? <CutNoneIcon /> : a.id === "z" ? <CutCoronalIcon /> : a.id === "x" ? <CutSagittalIcon /> : <CutTransverseIcon />}
+                      />
+                    ))}
+                  </Group>
+                </>
+              )}
+              <Divider />
+              <Group label="Look">
+                {LOOKS.map((l) => (
+                  <IconBtn key={l.id} radio label={l.label} keys={l.key} on={look === l.id} onClick={() => setLook(l.id)} icon={l.id === "brain" ? <Brain /> : l.id === "regions" ? <Palette /> : <ScanLine />} />
+                ))}
+                {look !== "xray" && (
+                  <>
+                    <span className="atl-div" aria-hidden="true" />
+                    <IconBtn radio label="Solid cortex" keys="V" on={solid} onClick={() => setSolidPref(true)} icon={<SolidIcon />} />
+                    <IconBtn radio label="See-through (find deep structures)" keys="V" on={!solid} onClick={() => setSolidPref(false)} icon={<SeeThroughIcon />} />
+                  </>
+                )}
+              </Group>
+              <Divider />
+              <Group label="Toggles">
+                {!quiz && !hideLabels && <IconBtn label={showLabels ? "Hide labels" : "Show labels"} keys="L" on={showLabels} onClick={() => setShowLabels((s) => !s)} icon={<Tag />} />}
+                <IconBtn label={showCtx ? "Hide shell" : "Show shell"} keys="H" on={showCtx} onClick={() => setShowCtx((s) => !s)} icon={<ShellIcon />} />
+                {onToggleNeighbors && <IconBtn label="Highlight neighbours" keys="G" on={neighbors} onClick={onToggleNeighbors} icon={<NeighborIcon />} />}
+              </Group>
+              {(multiview && !cut) || canFs || toolbarExtra ? <Divider /> : null}
+              <Group label="Layout">
+                {multiview && !cut && <IconBtn label="Multi-view (anterior, lateral, superior, free)" keys="M" on={multi} onClick={toggleMulti} icon={<LayoutGrid />} />}
+                {canFs && <IconBtn label={fs ? "Exit full screen" : "Full screen"} keys="F" on={fs} onClick={toggleFs} icon={fs ? <Minimize2 /> : <Maximize2 />} />}
+                {toolbarExtra}
+              </Group>
+            </>
           )}
-          {!quiz && !hideLabels && (
-            <button type="button" onClick={() => setShowLabels((s) => !s)} aria-pressed={showLabels} className={btn(showLabels)}>
-              Labels
-            </button>
-          )}
-          <button type="button" onClick={() => setShowCtx((s) => !s)} aria-pressed={showCtx} className={btn(false)}>
-            {showCtx ? "Hide shell" : "Show shell"}
-          </button>
-        </span>
+        </div>
       </div>
     </div>
   );

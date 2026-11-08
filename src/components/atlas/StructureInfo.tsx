@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { resolveMediaSrc } from "@/components/cards/media";
+import { Supplementary } from "@/components/supplementary/Supplementary";
 import { MnemonicPanel } from "@/components/study/MnemonicPanel";
-import "@/components/study/study.css"; // chips
 import { SpeakButton } from "@/components/tts/SpeakButton";
+import "@/components/study/study.css"; // chips
 
 type CardInfo = {
   id: string;
@@ -65,10 +66,10 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
     };
   }, [slug]);
 
-  if (data === null) return <section className="panel mt-3 text-sm text-text-dim">Loading course notes for {name ?? "this structure"}…</section>;
+  if (data === null) return <section className="panel !p-3 text-sm text-text-dim">Loading course notes for {name ?? "this structure"}…</section>;
   if (data === "signed-out")
     return (
-      <section className="panel mt-3 text-sm text-text-dim">
+      <section className="panel !p-3 text-sm text-text-dim">
         <Link href="/login?next=/atlas" className="text-accent-2">Log in</Link> to see the course notes, cards and past exam questions for {name ?? "this structure"}.
       </section>
     );
@@ -84,11 +85,11 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
   const shown = all ? listed : listed.slice(0, 6);
 
   return (
-    <section className="panel struct-info mt-3 grid gap-4" aria-label={`${d.name}: course notes`}>
+    <section className="panel struct-info grid gap-4 !p-3" aria-label={`${d.name}: course notes`}>
       <header className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h2 className="font-display text-xl tracking-wide">{d.name}</h2>
-        {d.latin && <span className="text-sm italic text-text-dim">{d.latin}</span>}
         <SpeakButton text={d.name} />
+        {d.latin && <span className="text-sm italic text-text-dim">{d.latin}</span>}
         <span className="ml-auto flex flex-wrap items-center gap-2 text-sm text-text-dim">
           {d.cards.length > 0 && (
             <>
@@ -103,7 +104,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
         </span>
       </header>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4">
         <div className="grid content-start gap-2 text-sm">
           <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent-2">
             On the syllabus <span className="text-text-faint normal-case tracking-normal">from the course materials</span>
@@ -136,31 +137,36 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
           {!d.lists.length && !d.topics.length && <p className="text-text-dim">Not on a structure list in this course.</p>}
         </div>
 
-        <div className="grid content-start gap-2 text-sm">
-          <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-hard">
-            Supplementary
-            <Link href="/about#supplementary" className="normal-case tracking-normal text-text-faint underline-offset-2 hover:underline" title="Background written for this app, not from the course materials">
-              what is this?
-            </Link>
-          </h3>
-          {d.supplementary.explanation && <p>{d.supplementary.explanation}</p>}
-          {facts.length > 0 && (
-            <dl className="grid grid-cols-[max-content_1fr] gap-x-3 gap-y-1">
-              {facts.map(([k, v]) => (
-                <div key={k} className="contents">
-                  <dt className="text-text-faint">{FACT_NAMES[k] ?? k}</dt>
-                  <dd>{v}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-          {ety && (ety.roots?.length || ety.literal) && (
-            <p className="text-text-dim">
-              {ety.roots?.map((r) => `${r.part} (${r.lang ? r.lang + ": " : ""}${r.meaning})`).join(" + ")}
-              {ety.literal ? `: “${ety.literal}”` : ""}
-            </p>
-          )}
-        </div>
+        {(d.supplementary.explanation || facts.length > 0 || (ety && (ety.roots?.length || ety.literal))) && (
+          <Supplementary section="atlas-info" title="Background, facts and word origins">
+          <div className="grid content-start gap-2 text-sm">
+            <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-hard">
+              Supplementary
+              <Link href="/about#supplementary" className="normal-case tracking-normal text-text-faint underline-offset-2 hover:underline" title="Background written for this app, not from the course materials">
+                what is this?
+              </Link>
+            </h3>
+            {d.supplementary.explanation && <p>{d.supplementary.explanation}</p>}
+            {facts.length > 0 && (
+              <dl className="grid grid-cols-[max-content_1fr] gap-x-3 gap-y-1">
+                {facts.map(([k, v]) => (
+                  <div key={k} className="contents">
+                    <dt className="text-text-faint">{FACT_NAMES[k] ?? k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            {ety && (ety.roots?.length || ety.literal) && (
+              <p className="text-text-dim">
+                {ety.roots?.map((r) => `${r.part} (${r.lang ? r.lang + ": " : ""}${r.meaning})`).join(" + ")}
+                {ety.literal ? `: “${ety.literal}”` : ""}
+              </p>
+            )}
+          </div>
+
+          </Supplementary>
+        )}
       </div>
 
       <div className="struct-mnemo">

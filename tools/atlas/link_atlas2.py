@@ -52,30 +52,12 @@ for k, e in S.items():
         print("bbox fixed:", k)
         e["bbox"] = [[round(float(x), 5) for x in lo], [round(float(x) , 5) for x in hi]]
 
-# 2. 3D neighbours (bbox gap), among curriculum meshes
-cur = set(i for v in amap.values() for i in v["meshIds"]) | set(added.values())
-def box(e): return np.array(e["bbox"][0]), np.array(e["bbox"][1])
-def gap(a, b):
-    (a0, a1), (b0, b1) = box(a), box(b)
-    d = np.maximum(0, np.maximum(a0 - b1, b0 - a1)); return float(np.linalg.norm(d))
-def vol(a): (a0, a1) = box(a); return float(np.prod(a1 - a0))
-def inside(c, a):
-    a0, a1 = box(a); return bool(np.all(c >= a0) and np.all(c <= a1))
-def contains(a, b):
-    # a encloses b: b's centroid lies in a's box and a is the bigger one (registered meshes may poke out a few mm)
-    return inside(np.array(b["centroid"]), a) and vol(a) > vol(b) * 1.5
-cands = [k for k in cur if k in S and S[k].get("file") and np.linalg.norm(box(S[k])[1] - box(S[k])[0]) < 0.13
-         and not re.search(r"sulcus|fis|fissure|^lat_|ramus|nerve|artery|sinus|root", S[k]["name"], re.I)]
-for k, e in S.items():
-    e.pop("neighbors", None)
-    if not e.get("file") or k not in cur: continue
-    rows = []
-    for o in cands:
-        if o == k: continue
-        if contains(S[o], e) or contains(e, S[o]): continue
-        rows.append((gap(e, S[o]), float(np.linalg.norm(np.array(e["centroid"]) - np.array(S[o]["centroid"]))), o))
-    rows.sort()
-    e["neighbors"] = [o for _, _, o in rows[:6]]
+# 2. 3D neighbours: per hemisphere, from real mesh geometry (tools/atlas/neighbors3d.py). The old bbox/centroid version
+# gave paired meshes (one bbox spanning both hemispheres) midline neighbours, e.g. middle temporal gyrus -> pons.
+cur = set(i for v in amap.values() for i in v["meshIds"]) | set(added.values()) | set(k for k in S if k.startswith("mni-"))
+import sys; sys.path.insert(0, os.path.dirname(__file__))
+import neighbors3d
+neighbors3d.apply(S, neighbors3d.compute(S, cur))
 idx["registration"] = dict(rms_mm=round(reg["rms_mm"], 2), loo_rms_mm=round(reg["loo_rms_mm"], 2), max_mm=round(reg["max_mm"], 1), n=reg["n"])
 json.dump(idx, open(idx_path, "w", encoding="utf8"), separators=(",", ":"), ensure_ascii=False)
 

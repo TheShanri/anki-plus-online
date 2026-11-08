@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { Niivue } from "@niivue/niivue";
 import { ATLAS2_BASE, structuresAtLabel } from "@/lib/atlas/slices";
+import { AtlasLoader, mbText, stagesFrom } from "./ui/AtlasLoader";
+import { prefetchWithProgress } from "./ui/modelCache";
+import type { Prog } from "./ui/modelCache";
 import type { Atlas2 } from "@/lib/atlas/slices";
 
 export type SliceView = "axial" | "coronal" | "sagittal" | "multi" | "render";
@@ -25,7 +28,7 @@ type Props = {
   /** Jump the crosshair to this structure's centroid whenever it changes. */
   jumpTo: string | null;
   onPick?: (slug: string) => void;
-  height?: number;
+  height?: number | string;
   backColor?: [number, number, number, number];
   /** Move the crosshair (and so the shown slice) to this MNI position whenever it changes. */
   atMm?: number[] | null;
@@ -70,6 +73,8 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nvRef = useRef<Niivue | null>(null);
   const [ready, setReady] = useState(false);
+  const [phase, setPhase] = useState(0); // 0 starting NiiVue, 1 fetching volumes, 2 building slices
+  const [vol, setVol] = useState<Prog>({ loaded: 0, total: 0 });
   const [error, setError] = useState<string | null>(null);
   const [probe, setProbe] = useState<{ mm: number[]; slugs: string[] } | null>(null);
   const atlasRef = useRef(atlas);
@@ -85,6 +90,10 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
       try {
         const { Niivue } = await import("@niivue/niivue");
         if (dead || !canvas) return;
+        setPhase(1);
+        await prefetchWithProgress(["template.nii.gz", "labels.nii.gz", "tracts.nii.gz"].map((f) => `${ATLAS2_BASE}/${f}`), (p) => !dead && setVol(p)).catch(() => undefined);
+        if (dead) return;
+        setPhase(2);
         const nv = new Niivue({
           backColor: backColor ?? [0.03, 0.03, 0.06, 1],
           crosshairColor: [1, 1, 1, 0.55],
@@ -195,9 +204,14 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
     >
       <canvas ref={canvasRef} className="block h-full w-full" aria-label="MRI slice viewer" />
       {!ready && !error && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-text-dim" role="status">
-          Loading MRI slices...
-        </div>
+        <AtlasLoader
+          label="Loading the MRI atlas"
+          stages={stagesFrom([
+            ["viewer", "Starting the slice viewer", phase >= 1],
+            ["volumes", "Fetching the MRI volumes", phase >= 2, vol.total > 1 ? mbText(vol.loaded, vol.total) : undefined],
+            ["slices", "Building slices and labels", ready],
+          ])}
+        />
       )}
       {error && (
         <div className="absolute inset-0 flex items-center justify-center p-6 text-center text-sm text-text-dim" role="alert">

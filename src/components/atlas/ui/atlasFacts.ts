@@ -1,0 +1,23 @@
+/** Short, standard neuroanatomy facts for the loading screens (all textbook-level, in the spirit of NSCI 3250). */
+export const ATLAS_FACTS: string[] = [
+  "The cerebral cortex is folded into gyri (ridges) and sulci (grooves), which packs about two-thirds of its surface out of sight.",
+  "The central sulcus separates the precentral gyrus (primary motor cortex) from the postcentral gyrus (primary somatosensory cortex).",
+  "Broca's area sits in the left inferior frontal gyrus; Wernicke's area in the posterior superior temporal gyrus.",
+  "The corpus callosum, about 200 million axons, is the brain's largest white matter bridge between the hemispheres.",
+  "The brainstem, from top to bottom: midbrain, pons, medulla. Ten of the twelve cranial nerves leave from it.",
+  "The thalamus relays almost all sensory information to the cortex on its way up. Smell is the exception.",
+  "The hippocampus is named for the sea horse. It is essential for turning short-term experiences into long-term memory.",
+  "The cerebellum holds roughly half of the brain's neurons while taking up about a tenth of its volume.",
+  "Cerebrospinal fluid is made by the choroid plexus in the ventricles and renewed several times a day.",
+  "The basal ganglia (caudate, putamen, globus pallidus) help select and start movements. Their loss causes Parkinson and Huntington disease.",
+  "Blood reaches the brain through two internal carotid arteries and two vertebral arteries, joined at the circle of Willis.",
+  "The primary visual cortex lies on the medial surface of the occipital lobe, around the calcarine sulcus.",
+  "The motor homunculus is upside down: the foot is represented at the top, near the midline, and the face near the lateral fissure.",
+  "Left side of the brain, right side of the body: the corticospinal tract crosses at the pyramidal decussation in the medulla.",
+  "The amygdala, in the temporal lobe, tags experiences with emotional significance, fear above all.",
+  "The hypothalamus is smaller than an almond yet steers hunger, thirst, temperature, sleep and the pituitary gland.",
+  "The insula is hidden inside the lateral sulcus, under the frontal, parietal and temporal opercula.",
+  "The cerebral aqueduct connects the third and fourth ventricles through the midbrain; blocking it causes hydrocephalus.",
+  "The dorsal columns carry fine touch and proprioception up the spinal cord and cross only in the medulla.",
+  "The internal capsule squeezes motor and sensory fibres between the thalamus and the lentiform nucleus. A small stroke there can paralyse half the body.",
+];

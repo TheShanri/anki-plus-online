@@ -15,7 +15,7 @@ export default function AtlasPeek({ slug, name, onClose }: { slug: string | null
   useEffect(() => {
     const d = ref.current;
     if (d && !d.open) d.showModal();
-    const fit = () => setH(Math.max(300, Math.min(560, window.innerHeight - 260)));
+    const fit = () => setH(Math.max(320, Math.min(760, window.innerHeight - 150)));
     fit();
     window.addEventListener("resize", fit);
     return () => window.removeEventListener("resize", fit);

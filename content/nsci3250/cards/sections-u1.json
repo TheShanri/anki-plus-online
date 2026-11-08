@@ -7218,12 +7218,15 @@
    "ref": "lab-8, lab-10, lecture-6"
   },
   "prompt": "At which spinal levels does the column of Clarke (nucleus dorsalis) exist?",
-  "answer": "C8 to L2",
+  "answer": "C8 to L3",
   "answer_kind": "level",
   "accept": [
+   "c8-l3",
+   "c8 to l3",
    "c8-l2",
    "c8 to l2"
   ],
+  "explain": "Clarke's column (nucleus dorsalis) spans C8 to L3 (Lab 5 key; StatPearls, Neuroscience Online). Lecture 5 gives C8 to L2.",
   "require_side": false,
   "format": "type",
   "tags": [

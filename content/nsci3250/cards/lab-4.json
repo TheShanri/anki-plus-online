@@ -1134,8 +1134,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516126204 cloze 1"
   },
-  "answer": "Lateral v",
-  "answer_kind": "structure",
+  "answer": "Lateral",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-29df52dabb2d0bd00161f1c126fe3acd9a7dcb16.webp",
@@ -1188,7 +1188,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"Lateral v\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -1609,8 +1609,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516287685 cloze 2"
   },
-  "answer": "cavity (thorax). chest",
-  "answer_kind": "region",
+  "answer": "12 thoracic vertebrae enclosing the chest cavity (thorax). Ribs attach to the",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
@@ -1723,7 +1723,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the region.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"cavity (thorax). chest\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -3042,9 +3042,11 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769516838904 cloze 1"
   },
-  "answer": "magnum foramen",
+  "answer": "foramen magnum",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "from the foramen magnum"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp",
   "w": 1668,
@@ -5083,8 +5085,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517202844 cloze 1"
   },
-  "answer": "e sensory",
-  "answer_kind": "structure",
+  "answer": "sensory",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5197,7 +5199,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"e sensory\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -5678,24 +5680,19 @@
   "slug": "lab-4-io-1769517202844-c5",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": "olfactory-nerve",
+  "structure": null,
   "status": "live",
   "position": 1704,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517202844 cloze 5"
   },
-  "answer": "Olfactory nerve",
-  "answer_kind": "structure",
+  "answer": "mixed motor + sensory",
+  "answer_kind": "function",
   "accept": [
-   "cranial nerve I",
-   "cranial nerve 1",
-   "1st cranial nerve",
-   "I",
-   "olfactory",
-   "olfactory tract",
-   "olfactory bulb",
-   "CN I"
+   "mixed",
+   "mixed motor and sensory",
+   "mixed motor sensory"
   ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
@@ -5808,7 +5805,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "What fiber types do the dorsal and ventral rami carry?",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -6644,8 +6641,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769517339614 cloze 4"
   },
-  "answer": "e 31 p",
-  "answer_kind": "structure",
+  "answer": "31",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-75f2c1c97a8d178b762a15ca16be7fb73774cf40.webp",
@@ -6691,7 +6688,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "rotated text, unreadable [OCR 'e 31 p', conf 0.92]",
   "tags": [
@@ -7821,7 +7818,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518577960 cloze 5"
   },
-  "answer": "n ventral",
+  "answer": "ventral",
   "answer_kind": "direction",
   "accept": [],
   "require_side": false,
@@ -7917,7 +7914,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518577960 cloze 6"
   },
-  "answer": "ventral r",
+  "answer": "ventral",
   "answer_kind": "direction",
   "accept": [],
   "require_side": false,
@@ -8203,8 +8200,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518631618 cloze 1"
   },
-  "answer": "n higher",
-  "answer_kind": "direction",
+  "answer": "higher",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8264,7 +8261,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"n higher\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -8366,8 +8363,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518631618 cloze 3"
   },
-  "answer": "y higher",
-  "answer_kind": "direction",
+  "answer": "higher",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8427,7 +8424,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"y higher\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -8448,7 +8445,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518631618 cloze 4"
   },
-  "answer": "e upper b",
+  "answer": "upper",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -8611,8 +8608,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769518631618 cloze 6"
   },
-  "answer": "y lower",
-  "answer_kind": "direction",
+  "answer": "lower",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
@@ -8672,7 +8669,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"y lower\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -9923,7 +9920,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769547073953 cloze 1"
   },
-  "answer": "larger nerves making up the lumbosacral plexus. medullaris, the downward angle of lumbar/sacral nerve roots, and the Appreciate the conus",
+  "answer": "Appreciate the conus medullaris, the downward angle of lumbar/sacral nerve roots, and the larger nerves making up the lumbosacral plexus.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10051,7 +10048,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "How can you determine rostral from caudal ends?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (36); OCR text not recognised; long free-text label (not a structure name) [OCR 'larger nerves making up the lumbosacral plexus. medullaris, the downward angle of lumbar/sacral nerve roots, and the Appreciate the conus', conf 1.00]",
   "tags": [
@@ -10072,7 +10069,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769547073953 cloze 2"
   },
-  "answer": "fine motor control to muscles of thoracic wall. arms), whereas thoracic ventral rami are small because there isn't much bigger (lumbosacral plexus to legs is even bigger than brachial plexus to Ventral rami in the plexuses are",
+  "answer": "Ventral rami in the plexuses are bigger (lumbosacral plexus to legs is even bigger than brachial plexus to arms), whereas thoracic ventral rami are small because there isn't much fine motor control to muscles of thoracic wall.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10200,7 +10197,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Which are thicker, the ventral rami in the brachial and lumbosacral plexuses or the thoracic ventral rami?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Temporal lobe general association area' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'fine motor control to muscles of thoracic wall. arms), whereas thoracic ventral rami are small because there isn't much bigger (lumbosacral plexus to legs is even bigger than brachial plexus to Ventral rami in the plexuses are', conf 1.00]",
   "tags": [
@@ -10222,7 +10219,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769547073953 cloze 3"
   },
-  "answer": "ontrol compared to regions such as our thc ixons that innervate the arms and legs, whi he plexus region because they are respons hicker nerves contain more axons. Therefor",
+  "answer": "Typically, thicker nerves contain more axons. Therefore, ventral rami are thicker in the plexus region because they are responsible for carrying all of the axons that innervate the arms and legs, which have extensive motor control compared to regions such as our thorax.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10350,7 +10347,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Why are ventral rami thicker in the plexus regions?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (35); OCR text not recognised; long free-text label (not a structure name) [OCR 'ontrol compared to regions such as our thc ixons that innervate the arms and legs, whi he plexus region because they are respons hicker nerves contain more axons. Therefor', conf 0.99]",
   "tags": [
@@ -10371,7 +10368,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769549959444 cloze 1"
   },
-  "answer": "Vhite matter represents ascending and traveling between the brain and spinal hite matter at lower levels because not o travel to that level. Likewise, there is in cervical levels because all tracts need at level to reach the brain spinal cord",
+  "answer": "White matter represents ascending and descending tracts traveling between the brain and spinal cord. There is less white matter at lower levels because not everything needs to travel to that level. Likewise, there is more white matter in cervical levels because all tracts need to pass through that level to reach the brain / spinal cord.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10511,7 +10508,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Why does the total amount of white matter decrease from rostral to caudal?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (30); OCR text not recognised; long free-text label (not a structure name) [OCR 'Vhite matter represents ascending and traveling between the brain and spinal hite matter at lower levels because not o travel to that level. Likewise, there is in cervical levels because all tracts need at level to reach the brain spinal cord', conf 0.99]",
   "tags": [
@@ -10532,7 +10529,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769549959444 cloze 2"
   },
-  "answer": "Thel more grey matter in the levels that correspond to inn of the limbs. Brachial plexus (C5-T1) and lumbosacral (L1-S5). The medial aspect of the ventral horn represe innervation of postural muscles, which occurs at ever So, thoracic ventral horns would be small because th innervate a few muscles, all of which are postural tr muscles",
+  "answer": "There is more grey matter in the levels that correspond to innervation of the limbs. Brachial plexus (C5-T1) and lumbosacral plexus (L1-S5). The medial aspect of the ventral horn represents innervation of postural muscles, which occurs at every level. So, thoracic ventral horns would be small because they only innervate a few muscles, all of which are postural / trunk muscles.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10680,7 +10677,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Why is the grey matter relatively bigger in the cervical and lumbar regions, but small in the thoracic region?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'Thel more grey matter in the levels that correspond to inn of the limbs. Brachial plexus (C5-T1) and lumbosacral (L1-S5). The medial aspect of the ventral horn represe innervation of postural muscles, which occurs at ever So, thoracic ventral horns would be small because th innervate a few muscles, all of which are postural tr muscles', conf 1.00]",
   "tags": [
@@ -10702,7 +10699,7 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769549959444 cloze 3"
   },
-  "answer": "is larger because it has more white matter. Similar to first answer cervical spine",
+  "answer": "Similar to first answer - cervical spine is larger because it has more white matter.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10846,7 +10843,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Why is the cervical spinal cord larger in circumference than the sacral spinal cord?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'is larger because it has more white matter. Similar to first answer cervical spine', conf 0.99]",
   "tags": [
@@ -11110,8 +11107,8 @@
    "type": "apkg",
    "ref": "apkg/lab-4 note 1769560432382 cloze 2"
   },
-  "answer": "above th",
-  "answer_kind": "direction",
+  "answer": "above",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
@@ -11150,7 +11147,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"above th\") and cannot be typed; fix from the source slide",
   "tags": [

@@ -1099,7 +1099,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685123609 cloze 1"
   },
-  "answer": "ne ventral v",
+  "answer": "ventral",
   "answer_kind": "direction",
   "accept": [],
   "require_side": false,
@@ -1153,7 +1153,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685123609 cloze 2"
   },
-  "answer": "dorsal v",
+  "answer": "dorsal",
   "answer_kind": "direction",
   "accept": [],
   "require_side": false,
@@ -1207,17 +1207,13 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685184914 cloze 1"
   },
-  "answer": "Olfactory nerve",
+  "answer": "Olfactory bulb",
   "answer_kind": "structure",
   "accept": [
+   "olfactory nerve",
    "cranial nerve I",
-   "cranial nerve 1",
-   "1st cranial nerve",
-   "I",
-   "olfactory",
-   "olfactory tract",
-   "olfactory bulb",
-   "CN I"
+   "CN I",
+   "olfactory"
   ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-8acd0dba6b3b71e60bf0ab9870d86961740a46f4.webp",
@@ -10033,7 +10029,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685694563 cloze 5"
   },
-  "answer": "and for auditory reflexes. Carrying sound information up the brainstem Relay nucleus for the auditory system",
+  "answer": "Function: Relay nucleus for the auditory system, carrying sound information up the brainstem and for auditory reflexes.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -10369,7 +10365,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685753237 cloze 1"
   },
-  "answer": "cerebellum re",
+  "answer": "cerebellum",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -10762,8 +10758,8 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685753237 cloze 5"
   },
-  "answer": "auditory cortex, layer IV Relays information to the prim",
-  "answer_kind": "structure",
+  "answer": "Function: Relays information to the primary auditory cortex, layer IV",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
@@ -10860,7 +10856,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Paramedian pontine reticular formation' (50); OCR text not recognised; long free-text label (not a structure name) [OCR 'auditory cortex, layer IV Relays information to the prim', conf 1.00]",
   "tags": [
@@ -11401,8 +11397,8 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685863805 cloze 2"
   },
-  "answer": "midline ir",
-  "answer_kind": "direction",
+  "answer": "midline",
+  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
@@ -11506,7 +11502,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"midline ir\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -11653,7 +11649,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685863805 cloze 4"
   },
-  "answer": "Retinal axons s",
+  "answer": "Retinal axons",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -14427,9 +14423,14 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770686037214 cloze 8"
   },
-  "answer": "区 Ventricle",
+  "answer": "Fourth ventricle",
   "answer_kind": "space",
-  "accept": [],
+  "accept": [
+   "IV ventricle",
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-2da081a9f485db60d348e7cd5dd4f5e7f2456aaf.webp",
   "w": 1874,
@@ -14963,9 +14964,11 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770686076690 cloze 1"
   },
-  "answer": "he3rd Ventricle is",
+  "answer": "3rd Ventricle",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "third ventricle"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-b20d5a6973bcccab5a8791df5d0c47a7dd41ba84.webp",
   "w": 1877,
@@ -19155,7 +19158,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770727975215 cloze 1"
   },
-  "answer": "ns going TO",
+  "answer": "going TO",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -19209,7 +19212,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770727975215 cloze 2"
   },
-  "answer": "s LEAVING",
+  "answer": "LEAVING",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -19598,7 +19601,7 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770744857169 cloze 1"
   },
-  "answer": "longitudinal fi",
+  "answer": "longitudinal",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,

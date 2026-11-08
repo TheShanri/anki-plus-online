@@ -13683,7 +13683,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769696795188 cloze 1"
   },
-  "answer": "nsation, proprioception 'Touch, vibration, pressure",
+  "answer": "Touch, vibration, pressure, mechanosensation, proprioception",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -13817,7 +13817,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "What modality (sensation) does this pathway carry?",
   "followups": [],
   "review_note": "free-text answer [OCR 'nsation, proprioception 'Touch, vibration, pressure', conf 0.99]",
   "tags": [
@@ -13839,7 +13839,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769696795188 cloze 2"
   },
-  "answer": "contralateral VPL of the thalamus. medulla), and second-order neurons synapse in order neurons synapse in nucleus cuneatus (brainstem First",
+  "answer": "First-order neurons synapse in nucleus cuneatus (brainstem medulla), and second-order neurons synapse in contralateral VPL of the thalamus.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -13973,7 +13973,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Where do 1st-order and 2nd-order cells synapse?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Brainstem' (75); OCR text not recognised; long free-text label (not a structure name) [OCR 'contralateral VPL of the thalamus. medulla), and second-order neurons synapse in order neurons synapse in nucleus cuneatus (brainstem First', conf 1.00]",
   "tags": [
@@ -15200,7 +15200,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769700348409 cloze 2"
   },
-  "answer": "Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus",
+  "answer": "Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) A-delta fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -15336,7 +15336,7 @@
   },
   "prompt": "Name the term.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]",
+  "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) A\u03b4 fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]",
   "tags": [
    "unit:u1",
    "kind:pin",
@@ -15667,7 +15667,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769700348409 cloze 5"
   },
-  "answer": "anterolateral spinothalamic tract. ventral commissure to contralateral spinal cord and ascends in Crosses the",
+  "answer": "Crosses the ventral commissure to contralateral spinal cord and ascends in anterolateral spinothalamic tract.",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -15823,7 +15823,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Where does the axon of the marginal nucleus cell go?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Anterolateral spinothalamic tract' (49); OCR text not recognised; long free-text label (not a structure name) [OCR 'anterolateral spinothalamic tract. ventral commissure to contralateral spinal cord and ascends in Crosses the', conf 1.00]",
   "tags": [
@@ -16023,7 +16023,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769700348409 cloze 7"
   },
-  "answer": "First-order neurons synaps substantia gelatinosa nucleus proprius, and sec cross to ascend on the contralateral side",
+  "answer": "First-order neurons synapse in the ipsilateral substantia gelatinosa / nucleus proprius, and second order neurons will cross to ascend on the contralateral side",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -16179,7 +16179,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Same or opposite side?",
   "followups": [],
   "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (40); OCR text not recognised; long free-text label (not a structure name) [OCR 'First-order neurons synaps substantia gelatinosa nucleus proprius, and sec cross to ascend on the contralateral side', conf 1.00]",
   "tags": [
@@ -17268,7 +17268,7 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769734912436 cloze 10"
   },
-  "answer": "Thalamus Synapse (VPL NucÍeus)",
+  "answer": "Thalamus Synapse (VPL Nucleus)",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -17366,7 +17366,7 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "pathway flow-chart label [OCR 'Thalamus Synapse (VPL NucÍeus)', conf 1.00]",
+  "review_note": "pathway flow-chart label [OCR 'Thalamus Synapse (VPL Nuc\u00cdeus)', conf 1.00]",
   "tags": [
    "unit:u1",
    "kind:pin",

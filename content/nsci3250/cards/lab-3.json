@@ -3530,7 +3530,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769004906774 cloze 2"
   },
-  "answer": "Complex aspects of behavior; “planning for planning” for movement",
+  "answer": "Complex aspects of behavior; \"planning for planning\" for movement",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -6052,9 +6052,15 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769006230781 cloze 2"
   },
-  "answer": "areas 5 7",
-  "answer_kind": "region",
-  "accept": [],
+  "answer": "areas 5 & 7",
+  "answer_kind": "structure",
+  "accept": [
+   "5 and 7",
+   "5 & 7",
+   "areas 5 and 7",
+   "BA 5 and 7",
+   "5, 7"
+  ],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b0c0e9bb92dcb58acd959f31c47a8550f99a3efa.webp",
   "w": 1726,
@@ -6113,7 +6119,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the region.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"areas 5 7\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -7579,7 +7585,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769007064950 cloze 6"
   },
-  "answer": "e retinas t",
+  "answer": "retinas",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -10518,8 +10524,8 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769008135190 cloze 3"
   },
-  "answer": "e left h",
-  "answer_kind": "structure",
+  "answer": "left",
+  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-6889f2d47117374e8e28db0c7a6043bd06ba4391.webp",
@@ -10600,7 +10606,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the directional term.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"e left h\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -15823,7 +15829,7 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769086292778 cloze 5"
   },
-  "answer": "integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area",
+  "answer": "integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the \"multimodal\" area",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,

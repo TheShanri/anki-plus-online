@@ -7368,7 +7368,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768769980503 cloze 5"
   },
-  "answer": "dural sinuses, t",
+  "answer": "dural sinuses",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -12247,8 +12247,8 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768772062676 cloze 3"
   },
-  "answer": "inferior horn of lateral ventricle all the way to trigone",
-  "answer_kind": "space",
+  "answer": "wall of inferior horn of lateral ventricle all the way to trigone",
+  "answer_kind": "term",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
@@ -12390,7 +12390,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the space.",
+  "prompt": "Name the term.",
   "followups": [],
   "review_note": "weak fuzzy match to 'Inferior horn of lateral ventricle' (78); OCR text not recognised; long free-text label (not a structure name) [OCR 'inferior horn of lateral ventricle all the way to trigone', conf 0.99]",
   "tags": [
@@ -14771,7 +14771,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 4"
   },
-  "answer": "basal plates (alar sensory; basal motor) embryonic alar and",
+  "answer": "separation between embryonic alar and basal plates (alar = sensory; basal = motor)",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,
@@ -15488,9 +15488,12 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 8"
   },
-  "answer": "of Cranial Nerve I",
-  "answer_kind": "term",
-  "accept": [],
+  "answer": "Cranial Nerve I",
+  "answer_kind": "structure",
+  "accept": [
+   "olfactory nerve",
+   "CN I"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
   "w": 1912,
@@ -15640,7 +15643,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"of Cranial Nerve I\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -19062,9 +19065,11 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768776886492 cloze 2"
   },
-  "answer": "homeostasis), (autonomic, endocrine",
+  "answer": "hypothalamus (autonomic, endocrine, homeostasis)",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "hypothalamus"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp",
   "w": 1111,
@@ -19725,7 +19730,7 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768777402235 cloze 3"
   },
-  "answer": "Coronal plane or horizontal plane (between left and right hemispheres) but not in saaittal plane",
+  "answer": "Coronal plane or horizontal plane (between left and right hemispheres) but not in sagittal plane",
   "answer_kind": "term",
   "accept": [],
   "require_side": false,

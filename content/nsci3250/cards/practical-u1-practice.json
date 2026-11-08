@@ -64,9 +64,15 @@
    "type": "apkg",
    "ref": "apkg/unit-1-practice-practicals note 1770157768261 cloze 2"
   },
-  "answer": "Parietal x2, Occipital",
+  "answer": "Two parietal bones and the occipital bone",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "parietal x2, occipital",
+   "parietal, parietal, occipital",
+   "2 parietal and occipital",
+   "parietals and occipital",
+   "parietal and occipital"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b91e729deabd1a93f6d2105bde66bb672a78c24c.webp",
   "w": 1564,
@@ -97,7 +103,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "What three bones fuse to form this landmark?",
   "followups": [],
   "tags": [
    "practice-practical",
@@ -1815,9 +1821,18 @@
    "type": "apkg",
    "ref": "apkg/unit-1-practice-practicals note 1770158096931 cloze 1"
   },
-  "answer": "GTO, Spindles, M M R P",
+  "answer": "Muscle spindle",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "GTO",
+   "Golgi tendon organ",
+   "spindles",
+   "Meissner",
+   "Merkel",
+   "Ruffini",
+   "Pacinian",
+   "MMRP"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-6fa0f294568248ae6b9ab9d217924dddbb3d9914.webp",
   "w": 1528,
@@ -1848,7 +1863,8 @@
    "unit:u1",
    "kind:pin",
    "source:practice-practical"
-  ]
+  ],
+  "explain": "Any one receptor type counts. The key reads \"GTO, Spindles, MMRP\": Golgi tendon organ, muscle spindles, and the cutaneous mechanoreceptors Meissner, Merkel, Ruffini, Pacinian."
  },
  {
   "slug": "unit-1-practice-practicals-io-1770158108985-c1",
@@ -1959,9 +1975,16 @@
    "type": "apkg",
    "ref": "apkg/unit-1-practice-practicals note 1770158132979 cloze 1"
   },
-  "answer": "Aa or AB",
-  "answer_kind": "term",
-  "accept": [],
+  "answer": "A-alpha or A-beta",
+  "answer_kind": "structure",
+  "accept": [
+   "Aa",
+   "AB",
+   "A alpha",
+   "A beta",
+   "A-alpha",
+   "A-beta"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-26449316db6d28fa2aeffed22a409052d7dad4a6.webp",
   "w": 1568,
@@ -1985,7 +2008,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "review_note": "answer text from a practice question [OCR 'Aa or AB', conf 0.99]",
   "tags": [

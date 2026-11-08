@@ -1133,9 +1133,11 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054691725 cloze 9"
   },
-  "answer": "f SCP",
+  "answer": "SCP",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "superior cerebellar peduncle"
+  ],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-c2d43712c2ddcab8f0cd6169bf690db0a56766d8.webp",
   "w": 1284,
@@ -1610,12 +1612,10 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054817967 cloze 1"
   },
-  "answer": "Paravermis",
+  "answer": "Vermis",
   "answer_kind": "structure",
   "accept": [
-   "paravermal zone",
-   "intermediate zone of cerebellum",
-   "paravermal"
+   "cerebellar vermis"
   ],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-7f6f15a5a7e5af479c258628aca74050b3d5c5c3.webp",
@@ -1732,7 +1732,7 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "stacked-letter vertical label read by eye as PARAVERMIS; verify which side [OCR '加sh克am', conf 0.38]",
+  "review_note": "stacked-letter vertical label read by eye as PARAVERMIS; verify which side [OCR '\u52a0sh\u514bam', conf 0.38]",
   "tags": [
    "unit:u3",
    "kind:pin",
@@ -1753,7 +1753,7 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054817967 cloze 2"
   },
-  "answer": "Paravermis Paravermis",
+  "answer": "Paravermis",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -1907,7 +1907,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the structure (the label appears twice).",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -1928,9 +1928,12 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054817967 cloze 3"
   },
-  "answer": "Lateral Lateral Sphere Sphere",
+  "answer": "Lateral hemisphere",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "cerebellar lateral hemisphere",
+   "lateral cerebellar hemisphere"
+  ],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-7f6f15a5a7e5af479c258628aca74050b3d5c5c3.webp",
   "w": 672,
@@ -2082,7 +2085,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the structure (the label appears twice).",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -2239,7 +2242,7 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054886593 cloze 2"
   },
-  "answer": "Paravermis Paravermis",
+  "answer": "Paravermis",
   "answer_kind": "structure",
   "accept": [],
   "require_side": false,
@@ -2389,7 +2392,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the structure (the label appears twice).",
   "followups": [],
   "tags": [
    "unit:u3",
@@ -2410,9 +2413,12 @@
    "type": "apkg",
    "ref": "apkg/lab-15 note 1775054886593 cloze 3"
   },
-  "answer": "Lateral Hemisphere Lateral Hemisphere",
+  "answer": "Lateral hemisphere",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "cerebellar lateral hemisphere",
+   "lateral cerebellar hemisphere"
+  ],
   "require_side": false,
   "image": "apkg/lab-15/media/paste-fbda37a29f44a21bba50fdca240268e74175e6bd.webp",
   "w": 929,
@@ -2556,7 +2562,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the structure (the label appears twice).",
   "followups": [],
   "tags": [
    "unit:u3",

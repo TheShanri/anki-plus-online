@@ -143,13 +143,14 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the term for the line drawn through the body that this label points to.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
  },
  {
   "slug": "lab-1-io-1768349533294-c3",
@@ -1290,13 +1291,14 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the term for the line drawn through the body that this label points to.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
  },
  {
   "slug": "lab-1-io-1768349595886-c9",
@@ -2214,7 +2216,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349694303 cloze 5"
   },
-  "answer": "Lateral Lateral",
+  "answer": "Lateral",
   "answer_kind": "direction",
   "accept": [],
   "require_side": false,
@@ -2365,7 +2367,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the directional term (the label appears twice).",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2384,7 +2386,7 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349694303 cloze 6"
   },
-  "answer": "Medial Medial",
+  "answer": "Medial",
   "answer_kind": "direction",
   "accept": [],
   "require_side": false,
@@ -2535,7 +2537,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the directional term (the label appears twice).",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -2901,13 +2903,14 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the term for the line drawn through the body that this label points to.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
  },
  {
   "slug": "lab-1-io-1768349784018-c4",
@@ -3555,11 +3558,9 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349833591 cloze 1"
   },
-  "answer": "Rostral",
+  "answer": "Cephalic",
   "answer_kind": "direction",
-  "accept": [
-   "cephalic"
-  ],
+  "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-2ab8ed43dafadad6d6a15bc14246fcea8b9539a6.webp",
   "w": 1205,
@@ -4361,13 +4362,14 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Name the term for the line drawn through the body that this label points to.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
  },
  {
   "slug": "lab-1-io-1768349833591-c8",
@@ -6675,13 +6677,14 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350003725 cloze 1"
   },
-  "answer": "Sagittal plane",
+  "answer": "Midsagittal plane",
   "answer_kind": "plane",
   "accept": [
    "midsagittal",
    "mid-sagittal",
-   "parasagittal",
-   "median plane"
+   "median plane",
+   "sagittal plane",
+   "sagittal"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-a4076f7581e63b0b64a0cdb033ff6b00e7305048.webp",
@@ -6733,13 +6736,12 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350003725 cloze 2"
   },
-  "answer": "Sagittal plane",
+  "answer": "Parasagittal plane",
   "answer_kind": "plane",
   "accept": [
-   "midsagittal",
-   "mid-sagittal",
    "parasagittal",
-   "median plane"
+   "sagittal plane",
+   "sagittal"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-a4076f7581e63b0b64a0cdb033ff6b00e7305048.webp",
@@ -9028,8 +9030,8 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350385936 cloze 2"
   },
-  "answer": "frontal lobes re",
-  "answer_kind": "structure",
+  "answer": "frontal lobes",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-cf222cf98440db6bbfa2bb0b9799dc8b0ffea853.webp",
@@ -9105,7 +9107,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"frontal lobes re\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -9125,8 +9127,8 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350385936 cloze 3"
   },
-  "answer": "temporal lobes re",
-  "answer_kind": "structure",
+  "answer": "temporal lobes",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-cf222cf98440db6bbfa2bb0b9799dc8b0ffea853.webp",
@@ -9202,7 +9204,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "review_note": "auto-audit: answer is an OCR fragment (\"temporal lobes re\") and cannot be typed; fix from the source slide",
   "tags": [
@@ -9222,9 +9224,11 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350385936 cloze 4"
   },
-  "answer": "The brainstem, cerebellum and occipital lobes reside in the posterior cranial fossa",
-  "answer_kind": "term",
-  "accept": [],
+  "answer": "brainstem, cerebellum and occipital lobes",
+  "answer_kind": "region",
+  "accept": [
+   "The brainstem, cerebellum and occipital lobes"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-cf222cf98440db6bbfa2bb0b9799dc8b0ffea853.webp",
   "w": 733,
@@ -9329,7 +9333,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the term.",
+  "prompt": "Which structures reside in the posterior cranial fossa?",
   "followups": [],
   "review_note": "free-text slide sentence; consider a theory card [OCR 'occipital lobes brainstem, cerebe', conf 1.00]",
   "tags": [

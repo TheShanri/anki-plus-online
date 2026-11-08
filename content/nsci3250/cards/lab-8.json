@@ -10622,7 +10622,7 @@
   "prompt": "Name the structure.",
   "followups": [],
   "caption": "Rostral Pons",
-  "review_note": "mask covers two labels (motor trigeminal nucleus / principal sensory trigeminal nucleus) [OCR 'hucievs tngeminal prinupal sensory', conf 0.92]",
+  "review_note": "Target box covers two handwritten labels (motor trigeminal nucleus and principal sensory trigeminal nucleus); the answer cannot be one term. Split into two cards with separate targets.",
   "tags": [
    "unit:u2",
    "kind:pin",

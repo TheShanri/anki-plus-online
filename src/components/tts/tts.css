@@ -1,0 +1,5 @@
+.speak-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin-left: 8px; padding: 0; border-radius: 999px; border: 1px solid var(--panel-border); background: transparent; color: var(--text-dim); cursor: pointer; vertical-align: middle; transition: color .15s, border-color .15s; }
+.speak-btn:hover, .speak-btn:focus-visible, .speak-btn[data-state="playing"] { color: var(--accent); border-color: var(--accent); }
+.speak-btn[data-state="loading"] svg { animation: speak-spin 0.9s linear infinite; }
+@keyframes speak-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .speak-btn[data-state="loading"] svg { animation: none; } }

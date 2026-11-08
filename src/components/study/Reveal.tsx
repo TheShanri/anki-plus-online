@@ -7,6 +7,7 @@ import type { Grade } from "@/lib/fsrs";
 import { RUNGS } from "@/lib/study/ladder";
 import { TypeBox } from "./TypeBox";
 import { MnemonicPanel } from "./MnemonicPanel";
+import { SpeakButton } from "@/components/tts/SpeakButton";
 
 // the atlas opens in a modal over the card (loaded on first use), so the session is never left
 const AtlasPeek = dynamic(() => import("@/components/atlas/AtlasPeek"), { ssr: false });
@@ -118,6 +119,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
         {c.surprise && <span className="v-surprise">Surprise! You were sure.</span>}
         <span className={`v-word ${intro ? "intro" : wordClass}`}>{c.headline}</span>
         {intro ? <span className="v-notes">not scored{c.why ? ` · ${c.why}` : ""}</span> : notes && <span className="v-notes">{notes}</span>}
+        <SpeakButton text={c.card.answer} />
       </div>
       {c.mode !== "self" && <Diff c={c} />}
       {!c.diff && c.card.answer && <p className="answer-line" style={c.right || c.mode === "self" ? undefined : { color: "var(--good)" }}>{c.card.answer}</p>}

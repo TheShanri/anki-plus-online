@@ -174,3 +174,14 @@ test("follow-ups: explicit followup_cards first, rotate facets, none without a s
   assert.deepEqual(f.map((e) => e.card.id), ["stem-1", "t2"]); // explicit first, then the never-seen facet
   assert.equal(pickFollowups(card("lone", "pin", null), [t1, t2], seen, new Map(), now, new Set(), 2).length, 0);
 });
+
+test("SessionQueue.peek: look ahead without changing the queue", () => {
+  const e = (id: string) => ({ card: card(id, "pin", null), state: null, ladder: null, source: "new" as const });
+  const q = new SessionQueue([e("a"), e("b"), e("c")]);
+  const t = now.getTime();
+  q.learning.push({ entry: e("L"), due: t - 1 }, { entry: e("later"), due: t + 60_000 });
+  assert.deepEqual(q.peek(t, 3).map((x) => x.card.id), ["L", "a", "b"]);
+  assert.deepEqual(q.peek(t, 10).map((x) => x.card.id), ["L", "a", "b", "c"]);
+  assert.equal(q.size, 5);
+  assert.equal(q.pending.length, 3);
+});

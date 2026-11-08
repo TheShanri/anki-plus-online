@@ -176,6 +176,21 @@ export class SessionQueue {
     return entry;
   }
 
+  /** The next `n` entries that will probably come up (due learning cards, then pending), without changing the queue. */
+  peek(nowMs: number, n: number): Entry[] {
+    const out: Entry[] = [];
+    const seen = new Set<string>();
+    const add = (e: Entry) => {
+      if (out.length < n && !seen.has(e.card.id)) {
+        seen.add(e.card.id);
+        out.push(e);
+      }
+    };
+    this.learning.filter((l) => l.due <= nowMs).sort((a, b) => a.due - b.due).forEach((l) => add(l.entry));
+    this.pending.forEach(add);
+    return out;
+  }
+
   /** Remove the entry from wherever it waits (called when it is put on screen). */
   take(entry: Entry): void {
     const li = this.learning.findIndex((l) => l.entry.card.id === entry.card.id);

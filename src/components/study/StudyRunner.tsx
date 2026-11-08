@@ -10,6 +10,7 @@ import { AnswerSync } from "@/lib/study/sync";
 import { sessionIdFor } from "@/lib/study/activity";
 import type { StudyPayload } from "@/lib/study/types";
 import { typingReminderDue } from "@/lib/study/settings";
+import { prefetch as prefetchTts, speak as speakTts } from "@/lib/tts/player";
 import { setSoundsEnabled, initFallbackBeepFromStorage, emit } from "@/lib/feedback/events";
 import { CardFace } from "@/components/cards/CardFace";
 import { PinImage } from "@/components/cards/PinImage";
@@ -93,6 +94,18 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       img.src = resolveMediaSrc(initial.course.slug, k);
     }
   });
+
+  // Answer audio: keep a small rolling window of the next clips warm (low priority, skipped on slow links), and
+  // read the answer aloud on reveal when the learner turned that on (it follows the Sounds toggle).
+  const curId = engine.cur?.card.id;
+  useEffect(() => {
+    prefetchTts([...(engine.cur ? [engine.cur.card.answer] : []), ...engine.queue.peek(Date.now(), 5).map((e) => e.card.answer)]);
+  }, [engine, curId]);
+  const revealed = engine.phase === "reveal" ? curId : undefined;
+  useEffect(() => {
+    const sc = engine.settings.scaffold;
+    if (revealed && sc.speak && sc.sounds && engine.cur?.card.answer) void speakTts(engine.cur.card.answer);
+  }, [engine, revealed]);
 
   useEffect(() => {
     (window as unknown as { __ankiEngine?: StudyEngine }).__ankiEngine = engine; // debug / UI-test hook
@@ -218,6 +231,11 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
           e.preventDefault();
           engine.submit(false);
         }
+        return;
+      }
+      if ((e.key === "p" || e.key === "P") && engine.phase === "reveal" && cc?.card.answer && target?.tagName !== "INPUT" && target?.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        void speakTts(cc.card.answer);
         return;
       }
       if (engine.phase === "reveal" && cc) {

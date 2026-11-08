@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { resolveMediaSrc } from "@/components/cards/media";
 import { MnemonicPanel } from "@/components/study/MnemonicPanel";
 import "@/components/study/study.css"; // chips
+import { SpeakButton } from "@/components/tts/SpeakButton";
 
 type CardInfo = {
   id: string;
@@ -87,6 +88,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
       <header className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h2 className="font-display text-xl tracking-wide">{d.name}</h2>
         {d.latin && <span className="text-sm italic text-text-dim">{d.latin}</span>}
+        <SpeakButton text={d.name} />
         <span className="ml-auto flex flex-wrap items-center gap-2 text-sm text-text-dim">
           {d.cards.length > 0 && (
             <>

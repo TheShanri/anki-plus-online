@@ -1,0 +1,9 @@
+{
+  "voice": "af_heart",
+  "lexicon": 1,
+  "bucket": "tts",
+  "formats": [
+    { "ext": "webm", "mime": "audio/webm; codecs=opus" },
+    { "ext": "m4a", "mime": "audio/mp4; codecs=mp4a.40.2" }
+  ]
+}

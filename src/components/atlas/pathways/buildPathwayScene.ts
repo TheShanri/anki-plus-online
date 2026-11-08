@@ -16,6 +16,8 @@ export interface OriginCfg {
   skin: ReceptorId[];
   /** Muscle endings (course: Unit 1 written exam, lab 5, the spinocerebellar pathway card). */
   muscle: ReceptorId[];
+  /** The motor neuron also ends on a muscle (reflex arcs). */
+  motor?: boolean;
   /** One line on where in the course these come from, shown under the origin list. */
   source: string;
 }
@@ -41,6 +43,8 @@ export const ORIGINS: Record<string, OriginCfg> = {
     muscle: ["spindle", "gto"],
     source: "Course pathway card: A-alpha (Ia / Ib) fibres from muscle spindles and Golgi tendon organs.",
   },
+  "stretch-reflex": { kind: "limb", parts: ["foot"], skin: [], muscle: ["spindle"], motor: true, source: "Course: the muscle spindle (Ia) afferent synapses directly on the alpha motor neuron, no interneuron (knee jerk, L3/L4)." },
+  "withdrawal-reflex": { kind: "limb", parts: ["hand"], skin: [], muscle: [], motor: true, source: "Course: a skin stimulus withdraws the limb through spinal interneurons (polysynaptic)." },
   "trigeminal-discriminative": { kind: "face", skin: [], muscle: [], source: "Course: the three divisions of the trigeminal nerve (V1, V2, V3)." },
   "trigeminal-pain": { kind: "face", skin: [], muscle: [], source: "Course: the three divisions of the trigeminal nerve (V1, V2, V3)." },
   lcst: { kind: "muscle", skin: [], muscle: [], source: "Course pathway card: the alpha motor neuron ends on limb skeletal muscle." },
@@ -107,7 +111,7 @@ function buildGeneral(o: BuildOpts): BuiltScene {
 
   const part: LimbChoice = cfg?.parts ? (cfg.parts.includes(limbPart) ? limbPart : cfg.parts[0]) : "hand";
   const sensoryOrigin = !!cfg && cfg.kind !== "muscle";
-  const motorTarget = cfg?.kind === "muscle";
+  const motorTarget = cfg?.kind === "muscle" || !!cfg?.motor;
 
   for (const b of SIDES) {
     const al = alphaOf(sideMode, b);
@@ -260,6 +264,15 @@ function buildVisual(o: BuildOpts): BuiltScene {
         const w = isCur ? 1 : 0.8;
         const base = { body: f, reveal: 1, width: w, neuron: ni, pulse: ni === cur && !summary && foc && !playing && ni > 0 } as const;
         if (st.k === "retina" || st.k === "v1") continue;
+        if (st.k === "sc" || st.k === "scn") {
+          // branches: drawn in the field colour, not part of the travelling impulse
+          if (st.path) tubes.push({ ...base, key: `${slug}:${f}:${ni}:${st.k}`, pts: st.path, color: fc, opacity: op * 0.8, pulse: false });
+          if (foc && isCur && f === primaryOf(sideMode)) {
+            const last = st.path![st.path!.length - 1];
+            marks.push({ key: `${slug}:${f}:${st.k}`, p: last, body: f, kind: "recept", text: st.k === "sc" ? "Superior colliculus" : "Suprachiasmatic nucleus", color: fc, prio: 1 });
+          }
+          continue;
+        }
         if (st.k === "rad") {
           // Meyer's loop (upper field, through the temporal lobe to the lingual gyrus) and the parietal route (lower field, to the cuneus)
           const lgn: WP = ["lateral-geniculate-body", "c", 0.5, 0.01, 0.002, -0.014] as WP;

@@ -674,7 +674,7 @@ export default function PathwayScene(p: SceneProps) {
           />
         ))}
         {eyes.map((e) => (
-          <EyeBall key={e.side} at={e.at} spec={p.eyes!.spec} dimColor={p.colors.dim} />
+          <EyeBall key={e.side} at={e.at} side={e.side} spec={p.eyes!.spec} dimColor={p.colors.dim} />
         ))}
         {tubes.map((t) => (
           <TubeMesh key={t.key} pts={t.v} color={t.color} colors={p.colors} opacity={t.opacity} reveal={t.reveal} radius={radius * (t.width ?? 1)} pulse={t.pulse} />

@@ -6,6 +6,7 @@ import { useThree } from "@react-three/fiber";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import type { Side } from "@/lib/atlas/pathways";
 import { receptorGeometry } from "./receptors";
+import { PartModel, usePart } from "./PartModels";
 import { PATCH_H, PATCH_W, RECEPTORS, muscleSpot, patchLocal, type ReceptorId } from "./receptorInfo";
 
 /* Where the signal comes from / goes to: stylised, low-poly body parts built from primitives (no assets).
@@ -142,7 +143,77 @@ function useDispose(...g: (THREE.BufferGeometry | THREE.Material)[]) {
 
 export const EYE_R = 0.0122;
 
-export function EyeBall({ at, spec, dimColor }: { at: THREE.Vector3; spec: EyeSpec; dimColor: string }) {
+function tintRetina(geo: THREE.BufferGeometry, side: Side, spec: EyeSpec, dimColor: string) {
+  const pos = geo.getAttribute("position");
+  const col = new Float32Array(pos.count * 3);
+  const dim = new THREE.Color(dimColor);
+  const c = new THREE.Color();
+  const k = EYE_R;
+  for (let i = 0; i < pos.count; i++) {
+    const x = side === "R" ? -pos.getX(i) : pos.getX(i);
+    const y = pos.getY(i);
+    const f: Side = x < 0 ? "L" : "R"; // the patient's right half of the retina sees the LEFT field
+    const [up, low] = spec.fieldColors[f];
+    c.set(y > 0 ? low : up).lerp(dim, 1 - spec.alpha[f]);
+    // thin dark dividing lines along the nasal / temporal and upper / lower axes
+    const edge = Math.min(Math.abs(x), Math.abs(y)) / (0.07 * k);
+    if (edge < 1) c.lerp(new THREE.Color("#0b0d12"), 1 - edge);
+    col[i * 3] = c.r;
+    col[i * 3 + 1] = c.g;
+    col[i * 3 + 2] = c.b;
+  }
+  geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+}
+
+/** The Z-Anatomy eyeball (sclera, cornea, iris, lens, retina) with the retina tinted by the field quadrant it sees. */
+function AnatomicalEye({ at, side, spec, dimColor, part }: { at: THREE.Vector3; side: Side; spec: EyeSpec; dimColor: string; part: THREE.Group }) {
+  const invalidate = useThree((s) => s.invalidate);
+  const built = useMemo(() => {
+    const root = new THREE.Group();
+    const mats: THREE.Material[] = [];
+    const geos: THREE.BufferGeometry[] = [];
+    part.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      const nm = `${m.name}|${m.parent?.name ?? ""}`.toLowerCase();
+      const g = m.geometry.clone();
+      if (side === "R") g.scale(-1, 1, 1);
+      geos.push(g);
+      let mat: THREE.Material;
+      if (nm.includes("retina")) {
+        tintRetina(g, side, spec, dimColor);
+        mat = new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide, toneMapped: false });
+      } else if (nm.includes("iris")) mat = new THREE.MeshStandardMaterial({ color: "#4a7aa8", roughness: 0.5, side: THREE.DoubleSide, transparent: true, opacity: 0.8, depthWrite: false });
+      else if (nm.includes("sclera")) mat = new THREE.MeshStandardMaterial({ color: "#efe9df", roughness: 0.6, side: THREE.DoubleSide, transparent: true, opacity: 0.2, depthWrite: false });
+      else mat = new THREE.MeshStandardMaterial({ color: "#dfe9f2", roughness: 0.2, side: THREE.DoubleSide, transparent: true, opacity: 0.16, depthWrite: false });
+      mats.push(mat);
+      const mesh = new THREE.Mesh(g, mat);
+      mesh.renderOrder = nm.includes("retina") ? 12 : 11;
+      root.add(mesh);
+    });
+    return { root, mats, geos };
+  }, [part, side, spec, dimColor]);
+  useEffect(() => {
+    invalidate();
+    return () => {
+      built.mats.forEach((m) => m.dispose());
+      built.geos.forEach((g) => g.dispose());
+    };
+  }, [built, invalidate]);
+  return (
+    <group position={at}>
+      <primitive object={built.root} />
+    </group>
+  );
+}
+
+export function EyeBall({ at, side, spec, dimColor }: { at: THREE.Vector3; side: Side; spec: EyeSpec; dimColor: string }) {
+  const part = usePart("eye");
+  if (part) return <AnatomicalEye at={at} side={side} spec={spec} dimColor={dimColor} part={part} />;
+  return <ProceduralEye at={at} spec={spec} dimColor={dimColor} />;
+}
+
+function ProceduralEye({ at, spec, dimColor }: { at: THREE.Vector3; spec: EyeSpec; dimColor: string }) {
   const invalidate = useThree((s) => s.invalidate);
   const geo = useMemo(() => {
     const dim = new THREE.Color(dimColor);
@@ -233,6 +304,7 @@ export function SkinPatch({ center, sgn, ids, alpha, hot }: { center: THREE.Vect
 }
 
 export function MuscleInset({ center, sgn, ids, alpha, motor }: { center: THREE.Vector3; sgn: number; ids: ReceptorId[]; alpha: number; motor?: boolean }) {
+  const mpart = usePart("muscle");
   const geo = useMemo(() => muscleGeometry(0.15, 0.026), []);
   const mat = useMemo(() => new THREE.MeshStandardMaterial({ color: "#b8434a", roughness: 0.7, flatShading: true, transparent: true }), []);
   const tendon = useMemo(() => new THREE.MeshStandardMaterial({ color: "#e8e2d2", roughness: 0.6, transparent: true }), []);
@@ -247,10 +319,18 @@ export function MuscleInset({ center, sgn, ids, alpha, motor }: { center: THREE.
   });
   return (
     <group renderOrder={10}>
-      <mesh geometry={geo} material={mat} position={center} />
-      <mesh material={tendon} position={[center.x + sgn * 0.09, center.y, center.z]}>
-        <boxGeometry args={[0.04, 0.012, 0.012]} />
-      </mesh>
+      {mpart ? (
+        <group position={center}>
+          <PartModel part={mpart} flip={sgn < 0} alpha={alpha} fitSize={0.17} rotation={[0, 0, Math.PI / 2]} />
+        </group>
+      ) : (
+        <>
+          <mesh geometry={geo} material={mat} position={center} />
+          <mesh material={tendon} position={[center.x + sgn * 0.09, center.y, center.z]}>
+            <boxGeometry args={[0.04, 0.012, 0.012]} />
+          </mesh>
+        </>
+      )}
       {motor && <MotorTerminals center={center} alpha={alpha} />}
       {spots.map((s) => (
         <ReceptorInstances key={s.id} id={s.id} items={[s.p]} alpha={alpha} />
@@ -335,7 +415,9 @@ export function Limb({ spec, at, colors, onPick, onHover, zoneColors }: { spec: 
     setOp(rim, 0.9 * spec.alpha);
   }, [mat, rim, spec.alpha]);
   useDispose(...([hand, foot].filter(Boolean) as THREE.BufferGeometry[]));
-  const geo = hand ?? foot;
+  const handPart = usePart(spec.part === "hand" ? "hand" : null);
+  const footPart = usePart(spec.part === "foot" ? "foot" : null);
+  const geo = handPart || footPart ? null : hand ?? foot;
   const pickProps = {
     onClick: onPick ? (e: { stopPropagation: () => void; delta: number }) => { if (e.delta > 6) return; e.stopPropagation(); onPick(spec.body); } : undefined,
     onPointerOver: (e: { stopPropagation: () => void }) => { e.stopPropagation(); onHover?.(true); },
@@ -350,6 +432,18 @@ export function Limb({ spec, at, colors, onPick, onHover, zoneColors }: { spec: 
           <mesh geometry={geo} material={mat} />
           {/* a thin rim in the side's colour so the part reads as the left or the right one */}
           <mesh geometry={geo} material={rim} scale={1.07} />
+        </group>
+      )}
+      {(handPart || footPart) && (
+        <group position={at}>
+          <PartModel
+            part={(handPart ?? footPart)!}
+            flip={spec.body === "R"}
+            alpha={spec.alpha}
+            rotation={footPart ? [Math.PI / 2, 0, 0] : undefined}
+            onPick={onPick ? () => onPick(spec.body) : undefined}
+            onHover={onHover}
+          />
         </group>
       )}
       {spec.part === "face" && (

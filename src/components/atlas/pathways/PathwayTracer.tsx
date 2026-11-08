@@ -25,6 +25,7 @@ import { useSceneColors } from "./sceneTheme";
 import { BodyIcon, Collapsible, IconButton, Segmented } from "./controls";
 import { PathwayPicker, type PickerGroup, type PickerHandle } from "./PathwayPicker";
 import { DeficitIcons, DeficitLegend } from "./deficits";
+import { Supplementary } from "@/components/supplementary/Supplementary";
 import { CalcarineDiagram, FieldDiagram, fieldPalette } from "./visualField";
 import { ORIGINS, ZONE_NAMES, buildPathwayScene, primaryOf, type LimbChoice, type SideMode } from "./buildPathwayScene";
 import { ReceptorLens } from "./ReceptorLens";
@@ -36,12 +37,17 @@ import { shade } from "./visualField";
 const GROUPS: { title: string; slugs: string[] }[] = [
   { title: "Ascending (sensory)", slugs: ["dcml", "alst", "dsct", "trigeminal-discriminative", "trigeminal-pain"] },
   { title: "Descending (motor)", slugs: ["lcst", "acst", "corticobulbar", "rubrospinal", "tectospinal", "reticulospinal", "vestibulospinal", "umn-lmn"] },
-  { title: "Special senses and reflexes", slugs: ["visual", "pupillary", "corneal", "gaze", "jaw-jerk", "olfactory"] },
+  { title: "Special senses", slugs: ["visual", "cochlear", "vestibular", "solitary", "olfactory"] },
+  { title: "Reflexes", slugs: ["stretch-reflex", "withdrawal-reflex", "jaw-jerk", "pupillary", "corneal", "gaze"] },
   { title: "Cerebellum and basal ganglia", slugs: ["corticopontocerebellar", "cerebellar", "basal-ganglia"] },
   { title: "Autonomic and limbic", slugs: ["sympathetic", "parasympathetic", "limbic-fornix", "limbic-amygdala", "limbic-septal", "reward"] },
 ];
 /** What "left / right" means for each pathway (the segmented control reads "Left <noun>"). */
 const SIDE_NOUN: Record<string, string> = {
+  cochlear: "ear",
+  vestibular: "ear",
+  "stretch-reflex": "limb",
+  "withdrawal-reflex": "limb",
   visual: "field",
   pupillary: "eye",
   cerebellar: "cerebellum",
@@ -97,6 +103,21 @@ function buildQuestion(slug: string, step: number, courses: CoursePathway[]): Qu
   const bad = [...new Set(pool.filter((x) => x && x !== answer && !checkTyped(x, keys)))].sort((a, b) => hash(slug + step + a) - hash(slug + step + b)).slice(0, 3);
   const options = [answer, ...bad].sort((a, b) => hash(step + slug + a) - hash(step + slug + b));
   return { prompt, answer, keys, options };
+}
+
+/** The course says just "internal capsule"; "posterior limb" is the textbook detail, so it sits behind the Supplementary gate. */
+function withGate(label: string) {
+  const i = label.indexOf(", posterior limb");
+  if (i < 0) return label;
+  return (
+    <>
+      {label.slice(0, i)}
+      <Supplementary section="pathways" title="Textbook detail" inline>
+        , posterior limb
+      </Supplementary>
+      {label.slice(i + ", posterior limb".length)}
+    </>
+  );
 }
 
 const cap1 = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -571,7 +592,7 @@ export function PathwayTracer({
                     {sideLines.map((l, i) => (
                       <li key={i} className="flex gap-2">
                         <span aria-hidden style={{ color: l.color }}>■</span>
-                        <span><span className="text-text-dim">{l.label}:</span> {l.txt}</span>
+                        <span><span className="text-text-dim">{withGate(l.label)}:</span> {l.txt}</span>
                       </li>
                     ))}
                   </ul>

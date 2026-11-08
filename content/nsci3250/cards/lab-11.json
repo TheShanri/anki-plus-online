@@ -641,7 +641,7 @@
   "slug": "visual-system-supplemental-material-io-1772410662402-c3",
   "kind": "pin",
   "topic": "lab-11",
-  "structure": null,
+  "structure": "aqueous-humor",
   "status": "live",
   "position": 502,
   "source": {
@@ -1162,7 +1162,7 @@
   "slug": "visual-system-supplemental-material-io-1772410662402-c8",
   "kind": "pin",
   "topic": "lab-11",
-  "structure": null,
+  "structure": "vitreous-body",
   "status": "live",
   "position": 507,
   "source": {
@@ -1545,7 +1545,7 @@
   "slug": "visual-system-supplemental-material-io-1772410683338-c3",
   "kind": "pin",
   "topic": "lab-11",
-  "structure": null,
+  "structure": "pupil",
   "status": "live",
   "position": 602,
   "source": {
@@ -2325,7 +2325,7 @@
   "slug": "visual-system-supplemental-material-io-1772410705504-c5",
   "kind": "pin",
   "topic": "lab-11",
-  "structure": null,
+  "structure": "pupil",
   "status": "live",
   "position": 704,
   "source": {

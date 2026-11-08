@@ -41,7 +41,8 @@
   "structures": [
    "dorsal-columns",
    "fasciculus-gracilis"
-  ]
+  ],
+  "structure": "fasciculus-gracilis"
  },
  {
   "slug": "clinical-u1-cord-alst-lesion",
@@ -82,7 +83,8 @@
   ],
   "structures": [
    "anterolateral-spinothalamic-tract"
-  ]
+  ],
+  "structure": "anterolateral-spinothalamic-tract"
  },
  {
   "slug": "clinical-u1-cord-dsct-lesion",
@@ -161,7 +163,8 @@
    "modality:motor",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "structure": "upper-motor-neuron-lesion"
  },
  {
   "slug": "clinical-u1-cord-lmn",
@@ -197,7 +200,8 @@
    "modality:motor",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "structure": "lower-motor-neuron-lesion"
  },
  {
   "slug": "clinical-u1-cord-brown-sequard",
@@ -287,7 +291,8 @@
   "structures": [
    "anterior-spinal-artery",
    "posterior-spinal-arteries"
-  ]
+  ],
+  "structure": "anterior-spinal-artery"
  },
  {
   "slug": "clinical-u1-cord-posterior-spinal",
@@ -322,7 +327,8 @@
   ],
   "structures": [
    "posterior-spinal-arteries"
-  ]
+  ],
+  "structure": "posterior-spinal-arteries"
  },
  {
   "slug": "clinical-u1-cord-lateral-horn",
@@ -396,7 +402,8 @@
   ],
   "structures": [
    "cauda-equina"
-  ]
+  ],
+  "structure": "cauda-equina"
  },
  {
   "slug": "clinical-u1-cord-lumbar-tap",
@@ -472,7 +479,8 @@
   ],
   "structures": [
    "spinal-nerves"
-  ]
+  ],
+  "structure": "dermatome"
  },
  {
   "slug": "clinical-u1-cord-referred-pain",
@@ -513,7 +521,8 @@
    "modality:sensory",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Visceral and somatic afferents converge on the same dorsal horn neurons, and the brain interprets the input as coming from the skin. Heart pain maps to T1-T4 dermatomes (left arm). The diaphragm is supplied by C3-C5 through the phrenic nerve, so its irritation is felt at the shoulder tip."
  },
  {
   "slug": "clinical-u1-cord-fp-neuropathy",
@@ -557,7 +566,8 @@
   "structures": [
    "olfactory-nerve",
    "anterior-cranial-fossa"
-  ]
+  ],
+  "structure": "olfactory-nerve"
  },
  {
   "slug": "clinical-u1-cortex-broca",
@@ -597,7 +607,8 @@
   ],
   "structures": [
    "broca-s-area"
-  ]
+  ],
+  "structure": "broca-s-area"
  },
  {
   "slug": "clinical-u1-cortex-wernicke",
@@ -637,7 +648,8 @@
   ],
   "structures": [
    "wernicke-s-area"
-  ]
+  ],
+  "structure": "wernicke-s-area"
  },
  {
   "slug": "clinical-u1-cortex-hemineglect",
@@ -672,7 +684,8 @@
   "structures": [
    "parietal-lobe-general-association-area",
    "somatosensory-association-cortex"
-  ]
+  ],
+  "explain": "Hemineglect follows damage to the right (non-dominant) inferior parietal cortex, which directs attention to both sides of space. The intact left parietal lobe attends mainly to the right, so the left side is ignored. It is an attention deficit, not blindness or weakness."
  },
  {
   "slug": "clinical-u1-cortex-auditory",
@@ -710,7 +723,8 @@
   "structures": [
    "transverse-temporal-gyrus",
    "primary-auditory-cortex"
-  ]
+  ],
+  "structure": "primary-auditory-cortex"
  },
  {
   "slug": "clinical-u1-cortex-motor-homunculus",
@@ -750,7 +764,8 @@
   "structures": [
    "primary-motor-cortex",
    "motor-homunculus"
-  ]
+  ],
+  "structure": "motor-homunculus"
  },
  {
   "slug": "clinical-u1-cortex-calcarine",
@@ -791,7 +806,8 @@
   "structures": [
    "primary-visual-cortex",
    "calcarine-fissure"
-  ]
+  ],
+  "structure": "primary-visual-cortex"
  },
  {
   "slug": "clinical-u1-cortex-insula",
@@ -826,7 +842,8 @@
   ],
   "structures": [
    "insular-cortex"
-  ]
+  ],
+  "structure": "insular-cortex"
  },
  {
   "slug": "clinical-u1-cortex-apathy",
@@ -862,7 +879,8 @@
   ],
   "structures": [
    "anterior-cingulate-cortex"
-  ]
+  ],
+  "structure": "anterior-cingulate-cortex"
  },
  {
   "slug": "clinical-u1-ventricles-hydrocephalus-monro",
@@ -963,6 +981,7 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Folate is needed for DNA synthesis during neurulation. The neural tube closes in the first month of pregnancy, so deficiency risks failed closure, giving spina bifida (caudal) or anencephaly (rostral). Supplementation before conception lowers the risk."
  }
 ]

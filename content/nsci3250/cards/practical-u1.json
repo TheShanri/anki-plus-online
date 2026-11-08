@@ -267,7 +267,7 @@
   "slug": "practical-u1-2024-q08",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "ventral",
   "status": "live",
   "position": 8,
   "source": {
@@ -825,7 +825,7 @@
   "slug": "practical-u1-2024-q23",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "hemineglect-syndrome",
   "status": "live",
   "position": 23,
   "source": {
@@ -838,9 +838,9 @@
   "accept": [],
   "keywords": null,
   "choices": [
-   "Broca’s aphasia",
+   "Broca\u2019s aphasia",
    "Hemineglect syndrome",
-   "Wernicke’s aphasia",
+   "Wernicke\u2019s aphasia",
    "Prosopagnosia",
    "Cortical blindness"
   ],
@@ -1226,7 +1226,8 @@
    "kind:theory",
    "source:practical",
    "theory:level"
-  ]
+  ],
+  "explain": "Thoracic cord sections are recognised by small, slender dorsal and ventral horns plus a distinct lateral horn (T1 to L2), which holds the sympathetic preganglionic neurons. Cervical sections are larger and oval with big horns, and lumbar sections are round with very large horns."
  },
  {
   "slug": "practical-u1-2024-q34",
@@ -1569,7 +1570,7 @@
    "type": "existing",
    "color": "star sticker"
   },
-  "prompt": "Name the landmark indicated by the star- shaped sticker ★",
+  "prompt": "Name the landmark indicated by the star- shaped sticker \u2605",
   "followups": [
    "lambda:function"
   ],
@@ -1735,7 +1736,7 @@
   "slug": "practical-u1-2025-q06",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "horizontal-plane",
   "status": "live",
   "position": 47,
   "source": {
@@ -2213,7 +2214,7 @@
   "slug": "practical-u1-2025-q19",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "primary-visual-cortex",
   "status": "live",
   "position": 60,
   "source": {
@@ -2221,7 +2222,7 @@
    "ref": "practical-u1-2025 Q19"
   },
   "facet": "brodmann",
-  "prompt": "What is the Brodmann’s number of the structure indicated by the red pins?",
+  "prompt": "What is the Brodmann\u2019s number of the structure indicated by the red pins?",
   "answer": "BA 17",
   "accept": [],
   "keywords": null,
@@ -2332,13 +2333,13 @@
   },
   "facet": "lesion",
   "prompt": "What symptoms would be caused by damage to the structure indicated by the pins?",
-  "answer": "Broca’s aphasia",
+  "answer": "Broca\u2019s aphasia",
   "accept": [],
   "keywords": null,
   "choices": [
-   "Broca’s aphasia",
+   "Broca\u2019s aphasia",
    "Hemineglect syndrome",
-   "Wernicke’s aphasia",
+   "Wernicke\u2019s aphasia",
    "Prosopagnosia",
    "Cortical Blindness"
   ],
@@ -2638,7 +2639,7 @@
    "type": "existing",
    "color": "star sticker"
   },
-  "prompt": "(Refer to ★ stickers) What is the name of the hole through which this nerve exits the vertebral column?",
+  "prompt": "(Refer to \u2605 stickers) What is the name of the hole through which this nerve exits the vertebral column?",
   "followups": [],
   "followup_cards": [],
   "tags": [
@@ -2681,7 +2682,8 @@
    "kind:theory",
    "source:practical",
    "theory:level"
-  ]
+  ],
+  "explain": "Cervical vertebrae (C1 to C7) are the smallest of the mobile vertebrae and are identified by transverse foramina in the transverse processes (for the vertebral artery) and a large, triangular vertebral foramen. Cervical comes from Latin cervix, neck."
  },
  {
   "slug": "practical-u1-2025-q32",
@@ -2752,7 +2754,8 @@
    "kind:theory",
    "source:practical",
    "theory:level"
-  ]
+  ],
+  "explain": "Cervical spinal cord sections are large and oval, with a big ventral horn (limb motor neurons for the arm), a lot of white matter, and fasciculus cuneatus beside fasciculus gracilis in the dorsal columns. No lateral horn is present at this level."
  },
  {
   "slug": "practical-u1-2025-q34",
@@ -3008,7 +3011,7 @@
   "slug": "practical-u1-2025-qB1",
   "kind": "pin",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "corpus-callosum",
   "status": "live",
   "position": 82,
   "source": {
@@ -3156,7 +3159,7 @@
   "slug": "practice-practical-lab3-q04",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 86,
   "source": {
@@ -3189,7 +3192,7 @@
   "slug": "practice-practical-lab3-q05",
   "kind": "pin",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "mammillary-bodies",
   "status": "live",
   "position": 87,
   "source": {
@@ -3608,7 +3611,7 @@
   "slug": "practice-practical-lab3-q16",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "arachnoid-granulations",
   "status": "live",
   "position": 98,
   "source": {
@@ -3646,7 +3649,7 @@
   "slug": "practice-practical-lab3-q17",
   "kind": "theory",
   "topic": "practical-u1",
-  "structure": null,
+  "structure": "choroid-plexus",
   "status": "live",
   "position": 99,
   "source": {

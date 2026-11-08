@@ -302,7 +302,7 @@
   "slug": "lab-14-io-1773943047508-c3",
   "kind": "pin",
   "topic": "lab-14",
-  "structure": null,
+  "structure": "white-matter",
   "status": "live",
   "position": 302,
   "source": {
@@ -575,7 +575,7 @@
   "slug": "lab-14-io-1773943065204-c4",
   "kind": "pin",
   "topic": "lab-14",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 403,
   "source": {
@@ -1501,7 +1501,7 @@
   "slug": "lab-14-io-1773943123079-c4",
   "kind": "pin",
   "topic": "lab-14",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 603,
   "source": {

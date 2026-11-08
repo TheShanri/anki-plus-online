@@ -36,7 +36,8 @@
   ],
   "structures": [
    "olfactory-nerve"
-  ]
+  ],
+  "structure": "olfactory-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn2-light",
@@ -76,7 +77,8 @@
   ],
   "structures": [
    "optic-nerve"
-  ]
+  ],
+  "structure": "optic-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn3-pupil",
@@ -116,7 +118,8 @@
   ],
   "structures": [
    "oculomotor-nerve"
-  ]
+  ],
+  "structure": "oculomotor-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn4",
@@ -156,7 +159,8 @@
   ],
   "structures": [
    "trochlear-nerve"
-  ]
+  ],
+  "structure": "trochlear-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn6",
@@ -198,7 +202,8 @@
   "structures": [
    "abducens-nerve",
    "abducens-nucleus"
-  ]
+  ],
+  "structure": "abducens-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn5-motor",
@@ -282,7 +287,8 @@
   ],
   "structures": [
    "trigeminal-nerve"
-  ]
+  ],
+  "structure": "trigeminal-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn7-lmn",
@@ -327,7 +333,8 @@
   "structures": [
    "facial-nerve",
    "facial-nucleus"
-  ]
+  ],
+  "structure": "facial-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn7-umn",
@@ -413,7 +420,8 @@
   ],
   "structures": [
    "vestibulocochlear-nerve"
-  ]
+  ],
+  "structure": "vestibulocochlear-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn8-romberg",
@@ -456,7 +464,8 @@
    "modality:sensory",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Balance depends on three inputs: vestibular (CN VIII), proprioception (dorsal columns and spinocerebellar tracts) and vision. Closing the eyes removes vision, so a patient who sways has a deficit in one of the other two inputs. Romberg is a surname (Moritz Romberg, who described the sign)."
  },
  {
   "slug": "clinical-u2-cn-cn9-10",
@@ -492,7 +501,8 @@
   "structures": [
    "nucleus-ambiguus",
    "vagus-nerve"
-  ]
+  ],
+  "structure": "nucleus-ambiguus"
  },
  {
   "slug": "clinical-u2-cn-cn11",
@@ -528,7 +538,8 @@
   ],
   "structures": [
    "accessory-nerve"
-  ]
+  ],
+  "structure": "accessory-nerve"
  },
  {
   "slug": "clinical-u2-cn-cn12",
@@ -611,7 +622,8 @@
   ],
   "structures": [
    "trigeminal-nerve"
-  ]
+  ],
+  "structure": "trigeminal-nerve"
  },
  {
   "slug": "clinical-u2-cn-corneal-efferent",
@@ -650,7 +662,8 @@
   ],
   "structures": [
    "facial-nerve"
-  ]
+  ],
+  "structure": "facial-nerve"
  },
  {
   "slug": "clinical-u2-visual-optic-chiasm",
@@ -688,7 +701,8 @@
   ],
   "structures": [
    "optic-chiasm"
-  ]
+  ],
+  "structure": "optic-chiasm"
  },
  {
   "slug": "clinical-u2-visual-optic-tract",
@@ -808,7 +822,8 @@
   ],
   "structures": [
    "primary-visual-cortex"
-  ]
+  ],
+  "structure": "macular-sparing"
  },
  {
   "slug": "clinical-u2-visual-blindsight",
@@ -846,7 +861,8 @@
   ],
   "structures": [
    "superior-colliculus"
-  ]
+  ],
+  "explain": "Cortical blindness destroys primary visual cortex, but some retinal fibers still reach the superior colliculus and pulvinar. These pathways support orienting to bright light without conscious seeing, called blindsight."
  },
  {
   "slug": "clinical-u2-visual-prosopagnosia",
@@ -886,7 +902,8 @@
   ],
   "structures": [
    "inferior-temporal-gyrus"
-  ]
+  ],
+  "explain": "Face recognition depends on the ventral ('what') visual stream in the inferior temporal lobe, including the fusiform region. A PCA stroke there impairs face identity while primary visual cortex still allows normal seeing. Prosopagnosia: Greek prosopon (face) + a- (without) + gnosis (knowledge)."
  },
  {
   "slug": "clinical-u2-visual-mlf",
@@ -926,7 +943,8 @@
   ],
   "structures": [
    "medial-longitudinal-fasciculus"
-  ]
+  ],
+  "structure": "medial-longitudinal-fasciculus"
  },
  {
   "slug": "clinical-u2-visual-gaze-palsy",
@@ -1000,7 +1018,8 @@
   ],
   "structures": [
    "internal-capsule"
-  ]
+  ],
+  "structure": "internal-capsule"
  },
  {
   "slug": "clinical-u2-motor-pyramid-below",
@@ -1149,7 +1168,8 @@
   ],
   "structures": [
    "cerebellar-lateral-hemisphere"
-  ]
+  ],
+  "explain": "Each cerebellar hemisphere controls the same side of the body. Cerebellar output crosses in the decussation of the superior cerebellar peduncle, and the crossed corticospinal tract recrosses at the pyramids, so the double crossing gives ipsilateral signs: intention tremor, dysmetria and a wide-based gait."
  },
  {
   "slug": "clinical-u2-brainstem-medial-medullary",

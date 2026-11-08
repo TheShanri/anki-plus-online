@@ -67,7 +67,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "trigeminal-ganglion"
  },
  {
   "slug": "pathways-u2-trigeminal-discriminative-ganglion-location",
@@ -99,7 +100,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "middle-cranial-fossa"
  },
  {
   "slug": "pathways-u2-trigeminal-discriminative-second-order",
@@ -133,7 +135,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "principal-sensory-nucleus-of-trigeminal"
  },
  {
   "slug": "pathways-u2-trigeminal-discriminative-level",
@@ -235,7 +238,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "ventral-posteromedial-nucleus"
  },
  {
   "slug": "pathways-u2-trigeminal-discriminative-vs-body",
@@ -270,7 +274,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "explain": "Somatotopy in the thalamus: the ventral posterolateral nucleus (VPL) receives the medial lemniscus from the body, while the ventral posteromedial nucleus (VPM) receives trigeminal input from the face."
  },
  {
   "slug": "pathways-u2-trigeminal-discriminative-cortex",
@@ -388,7 +393,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "explain": "Besides V, the facial (VII), glossopharyngeal (IX) and vagus (X) nerves carry somatic sensation from the ear and pharynx; their pain and temperature fibers also descend into the spinal trigeminal tract and end in the spinal trigeminal nucleus."
  },
  {
   "slug": "pathways-u2-trigeminal-pain-second-order",
@@ -420,7 +426,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "spinal-trigeminal-nucleus"
  },
  {
   "slug": "pathways-u2-trigeminal-pain-extent",
@@ -486,7 +493,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "trigeminothalamic-tract"
  },
  {
   "slug": "pathways-u2-trigeminal-pain-third-order",
@@ -521,7 +529,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "ventral-posteromedial-nucleus"
  },
  {
   "slug": "pathways-u2-trigeminal-pain-vs-spinal",
@@ -554,7 +563,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "anterolateral-spinothalamic-tract"
  },
  {
   "slug": "pathways-u2-trigeminal-pain-ipsi-contra",
@@ -588,7 +598,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "explain": "First-order pain fibers descend ipsilaterally in the spinal trigeminal tract and synapse in the ipsilateral spinal trigeminal nucleus; second-order axons cross afterward. A lesion of the nucleus/tract in the lateral medulla (as in lateral medullary syndrome) therefore causes ipsilateral facial pain and temperature loss."
  },
  {
   "slug": "pathways-u2-trigeminal-pain-lesion-above",
@@ -622,7 +633,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "explain": "After the second-order axons cross, the trigeminothalamic tract carries information from the opposite face, so a right-sided lesion there causes left facial pain and temperature loss."
  },
  {
   "slug": "pathways-u2-jaw-jerk-cell-body",
@@ -657,7 +669,8 @@
    "region:brainstem",
    "modality:sensory",
    "modality:motor"
-  ]
+  ],
+  "structure": "mesencephalic-trigeminal-nucleus"
  },
  {
   "slug": "pathways-u2-jaw-jerk-target",
@@ -690,7 +703,8 @@
    "region:brainstem",
    "modality:sensory",
    "modality:motor"
-  ]
+  ],
+  "structure": "motor-trigeminal-nucleus"
  },
  {
   "slug": "pathways-u2-jaw-jerk-purpose",
@@ -806,13 +820,14 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "Corticospinal axons descend through the corona radiata, posterior limb of the internal capsule, cerebral peduncle (crus cerebri), longitudinal fibers of the pons and medullary pyramid, then cross at the motor decussation into the lateral corticospinal tract."
  },
  {
   "slug": "pathways-u2-lcst-capsule",
   "kind": "pathway",
   "topic": "pathways-u2",
-  "status": "draft",
+  "status": "live",
   "position": 24,
   "source": {
    "type": "pathways",
@@ -821,8 +836,12 @@
   "pathway": "lcst",
   "step": "capsule",
   "prompt": "Through which part of the internal capsule do cortical efferents (corticospinal/corticobulbar) descend?",
-  "answer": "Anterior limb and genu (per lecture 10)",
-  "accept": [],
+  "answer": "Posterior limb (corticospinal) and genu (corticobulbar)",
+  "accept": [
+   "posterior limb and genu",
+   "genu and posterior limb",
+   "posterior limb"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -842,7 +861,8 @@
    "region:spinal-cord",
    "modality:motor"
   ],
-  "review_note": "Lecture 10 says anterior limb and genu; many texts say genu and posterior limb. Owner to settle which to credit."
+  "review_note": null,
+  "explain": "Corticobulbar fibres run in the genu and corticospinal fibres in the posterior limb (StatPearls; DTI places the CST in the posterior part of the posterior limb). Lecture 10 slide 12's 'anterior limb and genu' is being corrected."
  },
  {
   "slug": "pathways-u2-lcst-midbrain",
@@ -876,7 +896,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "structure": "cerebral-peduncles"
  },
  {
   "slug": "pathways-u2-lcst-pons",
@@ -908,7 +929,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "structure": "longitudinal-fibers-of-the-pons"
  },
  {
   "slug": "pathways-u2-lcst-medulla",
@@ -940,7 +962,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "structure": "pyramids"
  },
  {
   "slug": "pathways-u2-lcst-decussation",
@@ -1148,7 +1171,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "The lateral corticospinal tract crosses in the medulla (motor decussation), so a cord lesion below that level affects the muscles on the same side as the lesion."
  },
  {
   "slug": "pathways-u2-lcst-lesion-capsule",
@@ -1182,7 +1206,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "The corticospinal tract is still uncrossed in the internal capsule and crosses lower in the medulla, so a right capsule stroke causes left-sided weakness."
  },
  {
   "slug": "pathways-u2-lcst-lesion-pyramid",
@@ -1216,7 +1241,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "The pyramid carries uncrossed fibers above the motor decussation, so a left pyramid lesion causes right-sided weakness."
  },
  {
   "slug": "pathways-u2-lcst-umn-signs",
@@ -1496,7 +1522,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "motor-trigeminal-nucleus"
  },
  {
   "slug": "pathways-u2-corticobulbar-fiber-bundle",
@@ -1560,7 +1587,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "explain": "The spinal accessory nucleus (CN XI) lies in the upper cervical spinal cord, not the brainstem, so it is reached by corticospinal fibers rather than corticobulbar fibers."
  },
  {
   "slug": "pathways-u2-corticobulbar-midline",
@@ -1594,7 +1622,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "explain": "Corticobulbar axons descend uncrossed to the level of the target motor nucleus and then cross just above it, so the nucleus receives input from the opposite cortex (and, for most nuclei, also the same side)."
  },
  {
   "slug": "pathways-u2-corticobulbar-ambiguus",
@@ -1626,7 +1655,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "nucleus-ambiguus"
  },
  {
   "slug": "pathways-u2-corticobulbar-hypoglossal",
@@ -1660,7 +1690,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "hypoglossal-nucleus"
  },
  {
   "slug": "pathways-u2-corticobulbar-lmn-lesion-vii",
@@ -1767,7 +1798,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "middle-cerebellar-peduncle"
  },
  {
   "slug": "pathways-u2-corticopontocerebellar-side",
@@ -1800,7 +1832,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "explain": "Corticopontine fibers synapse in the ipsilateral pontine nuclei, whose axons cross in the transverse pontine fibers into the middle cerebellar peduncle, so each cerebellar hemisphere receives plan information from the opposite cerebral cortex."
  },
  {
   "slug": "pathways-u2-corticopontocerebellar-percent",
@@ -2003,7 +2036,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "decorticate-posture"
  },
  {
   "slug": "pathways-u2-rubrospinal-decerebrate",
@@ -2035,7 +2069,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "decerebrate-posture"
  },
  {
   "slug": "pathways-u2-tectospinal-origin",
@@ -2104,7 +2139,8 @@
    "region:brainstem",
    "modality:motor",
    "modality:visual"
-  ]
+  ],
+  "structure": "tectospinal-tract"
  },
  {
   "slug": "pathways-u2-tectospinal-level",
@@ -2204,7 +2240,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "reticulospinal-tract"
  },
  {
   "slug": "pathways-u2-reticulospinal-medullary",
@@ -2236,7 +2273,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "structure": "reticulospinal-tract"
  },
  {
   "slug": "pathways-u2-vestibulospinal-origin",
@@ -2377,7 +2415,8 @@
    "kind:pathway",
    "source:lecture",
    "plane:horizontal"
-  ]
+  ],
+  "explain": "The medial (anterior funiculus) brainstem tracts, vestibulospinal, reticulospinal and tectospinal, terminate on medial motor pools and so control axial and proximal muscles for posture and head position."
  },
  {
   "slug": "pathways-u2-extrapyramidal-lateral-tracts",
@@ -2410,7 +2449,8 @@
    "unit:u2",
    "kind:pathway",
    "source:lecture"
-  ]
+  ],
+  "explain": "The lateral funiculus tracts, the lateral corticospinal and rubrospinal, end on lateral motor pools in the ventral horn and so control distal limb muscles."
  },
  {
   "slug": "pathways-u2-extrapyramidal-only-cortical",
@@ -2443,7 +2483,8 @@
    "unit:u2",
    "kind:pathway",
    "source:lecture"
-  ]
+  ],
+  "explain": "Only the corticospinal and corticobulbar tracts originate in the cerebral cortex; the rubrospinal, reticulospinal, vestibulospinal and tectospinal tracts arise in brainstem nuclei, though they are influenced by cortex."
  },
  {
   "slug": "pathways-u2-extrapyramidal-what-is",
@@ -2477,7 +2518,8 @@
    "unit:u2",
    "kind:pathway",
    "source:lecture"
-  ]
+  ],
+  "structure": "extrapyramidal-system"
  },
  {
   "slug": "pathways-u2-visual-receptor",
@@ -2512,7 +2554,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "structure": "photoreceptors"
  },
  {
   "slug": "pathways-u2-visual-first-order",
@@ -2582,7 +2625,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "structure": "optic-nerve"
  },
  {
   "slug": "pathways-u2-visual-decussation",
@@ -2697,7 +2741,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "explain": "The path is optic nerve, optic chiasm (nasal fibers cross), optic tract, lateral geniculate nucleus of the thalamus, optic radiations (via the internal capsule) and primary visual cortex around the calcarine fissure."
  },
  {
   "slug": "pathways-u2-visual-thalamic",
@@ -2730,7 +2775,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "structure": "lateral-geniculate-nucleus"
  },
  {
   "slug": "pathways-u2-visual-cortex",
@@ -2766,7 +2812,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "structure": "primary-visual-cortex"
  },
  {
   "slug": "pathways-u2-visual-superior-field",
@@ -2800,7 +2847,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "explain": "The visual image is inverted on the retina, so the upper visual field falls on the lower retina and is represented in the inferior bank of the calcarine fissure (the lingual gyrus), below the sulcus. The lower field is represented above."
  },
  {
   "slug": "pathways-u2-visual-other-targets",
@@ -2843,7 +2891,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "explain": "Retinal ganglion cells also project to the suprachiasmatic nucleus (circadian rhythms), the superior colliculus (reflexive eye and head movements) and the pretectal nucleus (pupillary light reflex), in addition to the LGN for conscious vision."
  },
  {
   "slug": "pathways-u2-visual-scn",
@@ -3023,7 +3072,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "explain": "The lower bank of the calcarine fissure receives the upper visual field of the opposite side, so damage there causes a contralateral upper quadrantanopia (left lesion, right upper quadrant)."
  },
  {
   "slug": "pathways-u2-visual-lesion-cortex",
@@ -3094,7 +3144,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "structure": "ventral-visual-stream"
  },
  {
   "slug": "pathways-u2-visual-where",
@@ -3129,7 +3180,8 @@
    "source:lecture",
    "region:visual",
    "modality:visual"
-  ]
+  ],
+  "structure": "dorsal-visual-stream"
  },
  {
   "slug": "pathways-u2-pupillary-afferent",
@@ -3164,7 +3216,8 @@
    "region:brainstem",
    "modality:visual",
    "modality:autonomic"
-  ]
+  ],
+  "structure": "optic-nerve"
  },
  {
   "slug": "pathways-u2-pupillary-efferent",
@@ -3236,7 +3289,8 @@
    "region:brainstem",
    "modality:visual",
    "modality:autonomic"
-  ]
+  ],
+  "explain": "The pretectal nucleus projects to both Edinger-Westphal nuclei, so light in one eye constricts both pupils: the same-side pupil is the direct response, the opposite one the consensual response."
  },
  {
   "slug": "pathways-u2-pupillary-pretectal",
@@ -3270,7 +3324,8 @@
    "region:brainstem",
    "modality:visual",
    "modality:autonomic"
-  ]
+  ],
+  "structure": "pretectal-nucleus"
  },
  {
   "slug": "pathways-u2-corneal-afferent",
@@ -3304,7 +3359,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "structure": "trigeminal-nerve"
  },
  {
   "slug": "pathways-u2-corneal-efferent",
@@ -3370,7 +3426,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "explain": "Trigeminal input reaches both facial nuclei through the reticular formation, so the blink is bilateral: the stimulated eye closes (direct) and the opposite eye also closes (consensual)."
  },
  {
   "slug": "pathways-u2-corneal-nuclei",
@@ -3406,7 +3463,8 @@
    "source:lecture",
    "region:brainstem",
    "modality:sensory"
-  ]
+  ],
+  "explain": "The afferent limb is the trigeminal nerve (V1) to the spinal trigeminal nucleus, interneurons connect to both facial nuclei, and the efferent limb is the facial nerve to orbicularis oculi."
  },
  {
   "slug": "pathways-u2-gaze-fef",
@@ -3441,7 +3499,8 @@
    "region:brainstem",
    "modality:motor",
    "modality:visual"
-  ]
+  ],
+  "structure": "frontal-eye-field"
  },
  {
   "slug": "pathways-u2-gaze-pprf",
@@ -3551,7 +3610,8 @@
    "region:brainstem",
    "modality:motor",
    "modality:visual"
-  ]
+  ],
+  "structure": "medial-longitudinal-fasciculus"
  },
  {
   "slug": "pathways-u2-gaze-mlf-lesion",
@@ -3622,7 +3682,8 @@
    "region:brainstem",
    "modality:motor",
    "modality:visual"
-  ]
+  ],
+  "explain": "The vestibulo-ocular reflex moves the eyes equal and opposite to head rotation so the image stays stable on the retina; a head turn to the right drives the eyes left."
  },
  {
   "slug": "pathways-u2-gaze-sc",
@@ -3655,7 +3716,8 @@
    "region:brainstem",
    "modality:motor",
    "modality:visual"
-  ]
+  ],
+  "structure": "superior-colliculus"
  },
  {
   "slug": "pathways-u2-cochlear-path",
@@ -3697,7 +3759,8 @@
    "unit:u2",
    "kind:pathway",
    "source:lecture"
-  ]
+  ],
+  "explain": "Cochlear nerve fibers synapse in the cochlear nuclei (rostral medulla), then the pathway is mostly bilateral through the superior olive and lateral lemniscus to the inferior colliculus, medial geniculate nucleus and primary auditory cortex."
  },
  {
   "slug": "pathways-u2-cochlear-first-order",
@@ -3727,7 +3790,8 @@
    "unit:u2",
    "kind:pathway",
    "source:lecture"
-  ]
+  ],
+  "structure": "spiral-ganglion"
  },
  {
   "slug": "pathways-u2-cochlear-vestibular",
@@ -3759,7 +3823,8 @@
    "unit:u2",
    "kind:pathway",
    "source:lecture"
-  ]
+  ],
+  "structure": "vestibular-nuclei"
  },
  {
   "slug": "pathways-u2-cochlear-ic",

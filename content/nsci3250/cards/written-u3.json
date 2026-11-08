@@ -28,7 +28,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Archicortex"
+  "answer": "Archicortex",
+  "structure": "archicortex"
  },
  {
   "slug": "written-u3-practice-exam-u3-q02",
@@ -60,7 +61,8 @@
    "source:practice-exam",
    "modality:limbic"
   ],
-  "answer": "Allocortex"
+  "answer": "Allocortex",
+  "structure": "allocortex"
  },
  {
   "slug": "written-u3-practice-exam-u3-q03",
@@ -92,7 +94,8 @@
    "source:practice-exam",
    "modality:olfactory"
   ],
-  "answer": "Paleocortex"
+  "answer": "Paleocortex",
+  "structure": "paleocortex"
  },
  {
   "slug": "written-u3-practice-exam-u3-q04",
@@ -124,7 +127,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Glutamate"
+  "answer": "Glutamate",
+  "explain": "Pyramidal cells are the principal excitatory projection neurons of the cortex, and their primary neurotransmitter is glutamate. Inhibitory cortical interneurons mostly use GABA. Pyramidal refers to the triangular shape of the cell body, from Greek pyramis."
  },
  {
   "slug": "written-u3-practice-exam-u3-q05",
@@ -187,7 +191,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Hydrocephaly"
+  "answer": "Hydrocephaly",
+  "structure": "hydrocephalus"
  },
  {
   "slug": "written-u3-practice-exam-u3-q07",
@@ -219,7 +224,8 @@
    "source:practice-exam",
    "modality:vestibular"
   ],
-  "answer": "Saccule"
+  "answer": "Saccule",
+  "structure": "saccule"
  },
  {
   "slug": "written-u3-practice-exam-u3-q08",
@@ -296,7 +302,7 @@
    "ref": "practice-exam-u3 Q10 (Practice exam 3 (= SI session 8 test))"
   },
   "facet": "written",
-  "prompt": "What term describes the slowed movement that may be observed in disorders like Parkinson’s disease?",
+  "prompt": "What term describes the slowed movement that may be observed in disorders like Parkinson\u2019s disease?",
   "format": "choice",
   "choices": [
    "Chorea",
@@ -314,7 +320,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Bradykinesia"
+  "answer": "Bradykinesia",
+  "structure": "bradykinesia"
  },
  {
   "slug": "written-u3-practice-exam-u3-q11",
@@ -345,7 +352,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Reptilian brain"
+  "answer": "Reptilian brain",
+  "explain": "The triune brain model (proposed by Paul MacLean) divides the brain into reptilian, limbic (paleomammalian) and neocortical (neomammalian) parts. The reptilian brain, roughly the brainstem and basal ganglia, is credited with instinctual behaviour such as aggression, dominance and territoriality. The model is a simplification and is not accepted as literal evolutionary anatomy."
  },
  {
   "slug": "written-u3-practice-exam-u3-q12",
@@ -409,7 +417,8 @@
    "source:practice-exam",
    "modality:olfactory"
   ],
-  "answer": "Olfactory receptor cells are a type of glial cell"
+  "answer": "Olfactory receptor cells are a type of glial cell",
+  "explain": "Olfactory receptor cells are bipolar sensory neurons, not glia. They have a dendrite reaching the nasal epithelium and an unmyelinated axon that passes through the cribriform plate to synapse in the olfactory bulb, and they are replaced throughout life."
  },
  {
   "slug": "written-u3-practice-exam-u3-q14",
@@ -441,7 +450,8 @@
    "source:practice-exam",
    "modality:limbic"
   ],
-  "answer": "Amygdala"
+  "answer": "Amygdala",
+  "structure": "amygdala"
  },
  {
   "slug": "written-u3-practice-exam-u3-q15",
@@ -473,7 +483,8 @@
    "source:practice-exam",
    "modality:limbic"
   ],
-  "answer": "Hippocampus"
+  "answer": "Hippocampus",
+  "structure": "hippocampus"
  },
  {
   "slug": "written-u3-practice-exam-u3-q16",
@@ -505,7 +516,8 @@
    "source:practice-exam",
    "plane:sagittal"
   ],
-  "answer": "Superior sagittal sinus"
+  "answer": "Superior sagittal sinus",
+  "structure": "superior-sagittal-sinus"
  },
  {
   "slug": "written-u3-practice-exam-u3-q17",
@@ -536,7 +548,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Schwann cells"
+  "answer": "Schwann cells",
+  "explain": "The blood brain barrier is formed by capillary endothelial cells joined by tight junctions, with a basement membrane, pericytes and astrocyte end feet. Schwann cells myelinate peripheral axons and are not part of the barrier."
  },
  {
   "slug": "written-u3-practice-exam-u3-q18",
@@ -567,7 +580,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Pons"
+  "answer": "Pons",
+  "structure": "pons"
  },
  {
   "slug": "written-u3-practice-exam-u3-q19",
@@ -631,7 +645,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Cerebellum"
+  "answer": "Cerebellum",
+  "structure": "cerebellum"
  },
  {
   "slug": "written-u3-practice-exam-u3-q21",
@@ -693,7 +708,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "DSI"
+  "answer": "DSI",
+  "structure": "diffusion-spectrum-imaging"
  },
  {
   "slug": "written-u3-practice-exam-u3-q23",
@@ -706,7 +722,7 @@
    "ref": "practice-exam-u3 Q23 (Practice exam 3 (= SI session 8 test))"
   },
   "facet": "written",
-  "prompt": "CT imaging could be used for measuring all things listed except…",
+  "prompt": "CT imaging could be used for measuring all things listed except\u2026",
   "format": "choice",
   "choices": [
    "Bone",
@@ -755,7 +771,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Positron emission tomography (PET)"
+  "answer": "Positron emission tomography (PET)",
+  "structure": "positron-emission-tomography"
  },
  {
   "slug": "written-u3-practice-exam-u3-q25",
@@ -880,7 +897,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Cerebellar artery thrombosis"
+  "answer": "Cerebellar artery thrombosis",
+  "explain": "Dangerously high intracranial pressure shows up as headache, vomiting, papilledema, altered consciousness, the Cushing response (hypertension, bradycardia, irregular breathing) and herniation. A cerebellar artery thrombosis is an ischemic stroke, a separate vascular event, not a typical finding of raised pressure."
  },
  {
   "slug": "written-u3-practice-exam-u3-q29",

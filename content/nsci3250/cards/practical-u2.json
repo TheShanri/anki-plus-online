@@ -1271,7 +1271,7 @@
   "slug": "practical-u2-2025-q13",
   "kind": "theory",
   "topic": "practical-u2",
-  "structure": null,
+  "structure": "cerebral-aqueduct",
   "status": "live",
   "position": 36,
   "source": {
@@ -2355,7 +2355,7 @@
   "slug": "practical-u2-2025-qB2",
   "kind": "pin",
   "topic": "practical-u2",
-  "structure": null,
+  "structure": "lateral-corticospinal-tract",
   "status": "live",
   "position": 65,
   "source": {

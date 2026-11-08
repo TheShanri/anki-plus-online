@@ -11955,7 +11955,7 @@
   "slug": "brainstem-overlay-io-1771942818794-c9",
   "kind": "pin",
   "topic": "brainstem-overlay",
-  "structure": null,
+  "structure": "anterolateral-spinothalamic-tract",
   "status": "live",
   "position": 1108,
   "source": {
@@ -12694,7 +12694,7 @@
   "slug": "brainstem-overlay-io-1771942916028-c6",
   "kind": "pin",
   "topic": "brainstem-overlay",
-  "structure": null,
+  "structure": "dorsal-spinocerebellar-tract",
   "status": "live",
   "position": 1405,
   "source": {
@@ -12895,7 +12895,7 @@
   "slug": "brainstem-overlay-io-1771942916028-c8",
   "kind": "pin",
   "topic": "brainstem-overlay",
-  "structure": null,
+  "structure": "motor-decussation",
   "status": "live",
   "position": 1407,
   "source": {
@@ -13348,7 +13348,7 @@
   "slug": "brainstem-overlay-io-1771942952185-c4",
   "kind": "pin",
   "topic": "brainstem-overlay",
-  "structure": null,
+  "structure": "anterolateral-spinothalamic-tract",
   "status": "live",
   "position": 1503,
   "source": {

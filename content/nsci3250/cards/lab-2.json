@@ -290,7 +290,7 @@
   "slug": "lab-2-io-1768765076136-c3",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 102,
   "source": {
@@ -739,7 +739,7 @@
   "slug": "lab-2-io-1768765127010-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "lateral-ventricle",
   "status": "live",
   "position": 200,
   "source": {
@@ -844,7 +844,7 @@
   "slug": "lab-2-io-1768765147495-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "commissural-fibers",
   "status": "live",
   "position": 300,
   "source": {
@@ -1114,7 +1114,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "Vital structures are those whose damage threatens life or major function, such as the brain, brainstem and spinal cord. This is why they are enclosed in bone, three meningeal layers and cerebrospinal fluid."
  },
  {
   "slug": "lab-2-io-1768765591990-c1",
@@ -1497,7 +1498,7 @@
   "slug": "lab-2-io-1768765599337-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 700,
   "source": {
@@ -3680,7 +3681,7 @@
   "slug": "lab-2-io-1768767646795-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "telencephalon",
   "status": "live",
   "position": 1500,
   "source": {
@@ -3784,7 +3785,7 @@
   "slug": "lab-2-io-1768767646795-c2",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 1501,
   "source": {
@@ -4383,7 +4384,7 @@
   "slug": "lab-2-io-1768768912502-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "cerebrospinal-fluid",
   "status": "live",
   "position": 1800,
   "source": {
@@ -4861,7 +4862,7 @@
   "slug": "lab-2-io-1768769257758-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "choroid-plexus",
   "status": "live",
   "position": 2100,
   "source": {
@@ -5700,7 +5701,7 @@
   "slug": "lab-2-io-1768769257758-c9",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "dural-venous-sinuses",
   "status": "live",
   "position": 2108,
   "source": {
@@ -6251,7 +6252,7 @@
   "slug": "lab-2-io-1768769539681-c5",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "cerebral-aqueduct",
   "status": "live",
   "position": 2204,
   "source": {
@@ -6908,7 +6909,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "Cerebrospinal fluid is reabsorbed into venous blood: it passes through arachnoid granulations into the dural venous sinuses (for example the superior sagittal sinus). Venous comes from Latin vena, vein."
  },
  {
   "slug": "lab-2-io-1768769898424-c1",
@@ -8374,7 +8376,7 @@
   "slug": "lab-2-io-1768771540931-c4",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "cerebral-cortex",
   "status": "live",
   "position": 3003,
   "source": {
@@ -9268,7 +9270,7 @@
   "slug": "lab-2-io-1768771796187-c5",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "white-matter",
   "status": "live",
   "position": 3204,
   "source": {
@@ -9611,7 +9613,7 @@
   "slug": "lab-2-io-1768771796187-c7",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "white-matter",
   "status": "live",
   "position": 3206,
   "source": {
@@ -10094,7 +10096,7 @@
   "slug": "lab-2-io-1768771796187-c10",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "basal-ganglia",
   "status": "live",
   "position": 3209,
   "source": {
@@ -11934,7 +11936,7 @@
   "slug": "lab-2-io-1768772062676-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "inferior-horn-of-lateral-ventricle",
   "status": "live",
   "position": 3600,
   "source": {
@@ -12682,7 +12684,7 @@
   "slug": "lab-2-io-1768772516612-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "parahippocampal-gyrus",
   "status": "live",
   "position": 3800,
   "source": {
@@ -13453,7 +13455,7 @@
   "slug": "lab-2-io-1768772690586-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 4100,
   "source": {
@@ -14111,7 +14113,7 @@
   "slug": "lab-2-io-1768773407786-c5",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "hypothalamic-sulcus",
   "status": "live",
   "position": 4204,
   "source": {
@@ -14220,7 +14222,7 @@
   "slug": "lab-2-io-1768773534376-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 4300,
   "source": {
@@ -14563,7 +14565,7 @@
   "slug": "lab-2-io-1768773534376-c3",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "third-ventricle",
   "status": "live",
   "position": 4302,
   "source": {
@@ -15828,7 +15830,7 @@
   "slug": "lab-2-io-1768773534376-c10",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "neural-tube",
   "status": "live",
   "position": 4309,
   "source": {
@@ -16452,7 +16454,7 @@
   "slug": "lab-2-io-1768774051849-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "frontal-lobe",
   "status": "live",
   "position": 4500,
   "source": {
@@ -16784,7 +16786,7 @@
   "slug": "lab-2-io-1768774051849-c5",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 4504,
   "source": {
@@ -18561,7 +18563,7 @@
   "slug": "lab-2-io-1768774622235-c2",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "pituitary-gland",
   "status": "live",
   "position": 5101,
   "source": {
@@ -19573,7 +19575,7 @@
   "slug": "lab-2-io-1768777402235-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "oligodendrocyte",
   "status": "live",
   "position": 5400,
   "source": {
@@ -19949,7 +19951,7 @@
   "slug": "lab-2-io-1768864857166-c1",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "prosencephalon",
   "status": "live",
   "position": 5500,
   "source": {
@@ -20210,7 +20212,7 @@
   "slug": "lab-2-io-1768864857166-c3",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "rhombencephalon",
   "status": "live",
   "position": 5502,
   "source": {
@@ -20339,7 +20341,7 @@
   "slug": "lab-2-io-1768864857166-c4",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "metencephalon",
   "status": "live",
   "position": 5503,
   "source": {
@@ -20733,7 +20735,7 @@
   "slug": "lab-2-io-1768864857166-c7",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 5506,
   "source": {
@@ -20862,7 +20864,7 @@
   "slug": "lab-2-io-1768864857166-c8",
   "kind": "pin",
   "topic": "lab-2",
-  "structure": null,
+  "structure": "telencephalon",
   "status": "live",
   "position": 5507,
   "source": {

@@ -193,7 +193,7 @@
   "slug": "practical-u3-2025-q06",
   "kind": "pin",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "posterior-horn-of-lateral-ventricle",
   "status": "live",
   "position": 6,
   "source": {
@@ -820,7 +820,7 @@
   "slug": "practical-u3-2025-q23",
   "kind": "pin",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "posterior-inferior-cerebellar-artery",
   "status": "live",
   "position": 23,
   "source": {
@@ -857,7 +857,7 @@
   "slug": "practical-u3-2025-q24",
   "kind": "theory",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "cerebellum",
   "status": "live",
   "position": 24,
   "source": {
@@ -885,7 +885,7 @@
   "slug": "practical-u3-2025-q25",
   "kind": "theory",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "vertebral-artery",
   "status": "live",
   "position": 25,
   "source": {
@@ -1063,7 +1063,7 @@
   "slug": "practical-u3-2025-q30",
   "kind": "theory",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "amygdala",
   "status": "live",
   "position": 30,
   "source": {
@@ -1208,7 +1208,7 @@
   "slug": "practical-u3-2025-q34",
   "kind": "theory",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "subarachnoid-space",
   "status": "live",
   "position": 34,
   "source": {
@@ -1416,7 +1416,7 @@
   "slug": "practical-u3-2025-q40",
   "kind": "theory",
   "topic": "practical-u3",
-  "structure": null,
+  "structure": "aneurysm",
   "status": "live",
   "position": 40,
   "source": {
@@ -1425,7 +1425,7 @@
   },
   "facet": "lesion",
   "prompt": "What pathology is indicated by the white pin?",
-  "answer": "Aneurysm Bonus",
+  "answer": "Aneurysm",
   "accept": [],
   "keywords": null,
   "choices": null,
@@ -1457,7 +1457,7 @@
    "ref": "practical-u3-2025 QB1"
   },
   "facet": "brodmann",
-  "prompt": "What Brodman’s area(s) are damaged in this ischemic stroke?",
+  "prompt": "What Brodman\u2019s area(s) are damaged in this ischemic stroke?",
   "answer": "17, 18, 19",
   "accept": [],
   "keywords": [

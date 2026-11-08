@@ -2237,7 +2237,8 @@
    "kind:pin",
    "source:anki-deck",
    "plane:horizontal"
-  ]
+  ],
+  "explain": "Crus is Latin for leg and names a leg-like column or limb of a structure, as in the crus of the fornix or the crus cerebri (cerebral peduncle)."
  },
  {
   "slug": "lab-13-io-1773766588139-c3",
@@ -2652,7 +2653,7 @@
   "slug": "lab-13-io-1773766623205-c2",
   "kind": "pin",
   "topic": "lab-13",
-  "structure": null,
+  "structure": "centrum-semiovale",
   "status": "live",
   "position": 801,
   "source": {
@@ -5859,7 +5860,8 @@
    "kind:pin",
    "source:anki-deck",
    "plane:horizontal"
-  ]
+  ],
+  "explain": "Genu is Latin for knee and names a sharp bend in a structure, as in the genu of the corpus callosum (anterior bend) or the genu of the internal capsule."
  },
  {
   "slug": "lab-13-io-1773940278598-c14",

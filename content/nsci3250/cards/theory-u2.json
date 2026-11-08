@@ -555,7 +555,7 @@
   "facet": "order",
   "prompt": "Optic tract axons come from which retinal cell type?",
   "format": "keywords",
-  "answer": "Retinal ganglion cells (third-order neurons of the visual pathway)",
+  "answer": "Retinal ganglion cells (second-order neurons in the course's scheme)",
   "accept": [],
   "keywords": [
    [
@@ -571,7 +571,8 @@
    "region:visual",
    "modality:visual",
    "theory:order"
-  ]
+  ],
+  "explain": "Lecture 11 counts bipolar cells as first-order and ganglion cells as second-order; some textbooks start counting at the photoreceptors."
  },
  {
   "slug": "theory-superior-colliculus-function",
@@ -4762,8 +4763,14 @@
   "facet": "connections",
   "prompt": "What percentage of corticospinal fibres cross at the motor decussation?",
   "format": "keywords",
-  "answer": "About 90%",
-  "accept": [],
+  "answer": "About 80%",
+  "accept": [
+   "80%",
+   "about 80%",
+   "75-90%",
+   "85%",
+   "90%"
+  ],
   "keywords": [
    [
     "90",
@@ -4780,7 +4787,8 @@
    "region:spinal-cord",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "explain": "The course teaches about 80% (Lecture 10 slide 15); textbooks give 75\u201390%."
  },
  {
   "slug": "theory-lateral-corticospinal-tract-function",

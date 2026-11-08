@@ -179,7 +179,7 @@
   "slug": "lab-4-io-1769516030928-c3",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "vertebral-body",
   "status": "live",
   "position": 102,
   "source": {
@@ -355,7 +355,7 @@
   "slug": "lab-4-io-1769516030928-c5",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "vertebral-arch",
   "status": "live",
   "position": 104,
   "source": {
@@ -693,7 +693,7 @@
   "slug": "lab-4-io-1769516053098-c2",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "vertebral-body",
   "status": "live",
   "position": 201,
   "source": {
@@ -989,7 +989,7 @@
   "slug": "lab-4-io-1769516084656-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "cervical-vertebrae",
   "status": "live",
   "position": 300,
   "source": {
@@ -1035,7 +1035,7 @@
   "slug": "lab-4-io-1769516094139-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "thoracic-vertebrae",
   "status": "live",
   "position": 400,
   "source": {
@@ -1081,7 +1081,7 @@
   "slug": "lab-4-io-1769516104629-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "lumbar-vertebrae",
   "status": "live",
   "position": 500,
   "source": {
@@ -1498,7 +1498,7 @@
   "slug": "lab-4-io-1769516287685-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "cervical-vertebrae",
   "status": "live",
   "position": 700,
   "source": {
@@ -1737,7 +1737,7 @@
   "slug": "lab-4-io-1769516287685-c3",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "ribs",
   "status": "live",
   "position": 702,
   "source": {
@@ -1841,7 +1841,7 @@
   "slug": "lab-4-io-1769516287685-c4",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "lumbar-vertebrae",
   "status": "live",
   "position": 703,
   "source": {
@@ -1945,7 +1945,7 @@
   "slug": "lab-4-io-1769516287685-c5",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "coccyx",
   "status": "live",
   "position": 704,
   "source": {
@@ -2360,7 +2360,7 @@
   "slug": "lab-4-io-1769516313118-c5",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "coccyx",
   "status": "live",
   "position": 804,
   "source": {
@@ -2809,7 +2809,7 @@
   "slug": "lab-4-io-1769516588424-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "atlas",
   "status": "live",
   "position": 1000,
   "source": {
@@ -2869,7 +2869,7 @@
   "slug": "lab-4-io-1769516588424-c2",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "axis",
   "status": "live",
   "position": 1001,
   "source": {
@@ -2929,7 +2929,7 @@
   "slug": "lab-4-io-1769516588424-c3",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "vertebra-prominens",
   "status": "live",
   "position": 1002,
   "source": {
@@ -3249,7 +3249,7 @@
   "slug": "lab-4-io-1769516838904-c3",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "ribs",
   "status": "live",
   "position": 1202,
   "source": {
@@ -3955,7 +3955,7 @@
   "slug": "lab-4-io-1769516970682-c3",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "spinal-rootlets",
   "status": "live",
   "position": 1402,
   "source": {
@@ -5214,7 +5214,7 @@
   "slug": "lab-4-io-1769517202844-c2",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "dural-sleeves",
   "status": "live",
   "position": 1701,
   "source": {
@@ -5507,7 +5507,8 @@
    "source:anki-deck",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "Motor means efferent: these axons carry commands from the spinal cord out to skeletal muscle, and they leave through the ventral root. (Latin motor, 'mover', from movere 'to move'.)"
  },
  {
   "slug": "lab-4-io-1769517202844-c4",
@@ -5674,7 +5675,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
-  ]
+  ],
+  "explain": "A spinal nerve is mixed because the sensory dorsal root and the motor ventral root join just outside the intervertebral foramen, so it carries both sensory and motor axons."
  },
  {
   "slug": "lab-4-io-1769517202844-c5",
@@ -6500,7 +6502,7 @@
   "slug": "lab-4-io-1769517339614-c2",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "spinal-rootlets",
   "status": "live",
   "position": 2001,
   "source": {
@@ -6988,7 +6990,7 @@
   "slug": "lab-4-io-1769517649228-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "dural-sac",
   "status": "live",
   "position": 2300,
   "source": {
@@ -7096,7 +7098,7 @@
   "slug": "lab-4-io-1769517744257-c1",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "spinal-rootlets",
   "status": "live",
   "position": 2400,
   "source": {
@@ -7156,7 +7158,7 @@
   "slug": "lab-4-io-1769517744257-c2",
   "kind": "pin",
   "topic": "lab-4",
-  "structure": null,
+  "structure": "spinal-roots",
   "status": "live",
   "position": 2401,
   "source": {
@@ -8092,7 +8094,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
-  ]
+  ],
+  "explain": "The lumbar and sacral cord segments (lumbosacral enlargement) supply the lower limbs and pelvis."
  },
  {
   "slug": "lab-4-io-1769518577960-c8",
@@ -8187,7 +8190,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
-  ]
+  ],
+  "explain": "The cervical enlargement (about C5 to T1) supplies the upper limbs, so arm and hand muscles are innervated from this region."
  },
  {
   "slug": "lab-4-io-1769518631618-c1",
@@ -8873,7 +8877,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
-  ]
+  ],
+  "explain": "The cervical enlargement (about C5 to T1) supplies the upper limbs, so arm and hand muscles are innervated from this region."
  },
  {
   "slug": "lab-4-io-1769545552822-c1",

@@ -11216,7 +11216,7 @@
   "slug": "lab-5-io-1769696394309-c4",
   "kind": "pin",
   "topic": "lab-5",
-  "structure": null,
+  "structure": "ventral-horn",
   "status": "live",
   "position": 403,
   "source": {
@@ -14733,7 +14733,7 @@
   "slug": "lab-5-io-1769696917835-c2",
   "kind": "pin",
   "topic": "lab-5",
-  "structure": null,
+  "structure": "muscle-spindle",
   "status": "live",
   "position": 701,
   "source": {
@@ -14807,7 +14807,7 @@
   "slug": "lab-5-io-1769696917835-c3",
   "kind": "pin",
   "topic": "lab-5",
-  "structure": null,
+  "structure": "golgi-tendon-organ",
   "status": "live",
   "position": 702,
   "source": {

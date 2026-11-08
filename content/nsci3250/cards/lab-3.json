@@ -95,7 +95,7 @@
   "slug": "lab-3-io-1769003929439-c2",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "parietal-lobe",
   "status": "live",
   "position": 101,
   "source": {
@@ -183,7 +183,7 @@
   "slug": "lab-3-io-1769003929439-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "occipital-lobe",
   "status": "live",
   "position": 102,
   "source": {
@@ -271,7 +271,7 @@
   "slug": "lab-3-io-1769003929439-c4",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 103,
   "source": {
@@ -359,7 +359,7 @@
   "slug": "lab-3-io-1769003929439-c5",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "frontal-lobe",
   "status": "live",
   "position": 104,
   "source": {
@@ -621,7 +621,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "A lateral view looks at the brain from the side, showing the lateral surface of the hemisphere with the frontal, parietal, temporal and occipital lobes and the lateral fissure. Lateral is Latin for side."
  },
  {
   "slug": "lab-3-io-1769003972932-c1",
@@ -726,7 +727,7 @@
   "slug": "lab-3-io-1769003972932-c2",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "parietal-lobe",
   "status": "live",
   "position": 201,
   "source": {
@@ -822,7 +823,7 @@
   "slug": "lab-3-io-1769003972932-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "occipital-lobe",
   "status": "live",
   "position": 202,
   "source": {
@@ -918,7 +919,7 @@
   "slug": "lab-3-io-1769003972932-c4",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "frontal-lobe",
   "status": "live",
   "position": 203,
   "source": {
@@ -2572,7 +2573,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Body parts are mapped in an orderly way onto the cortex along the pre- and postcentral gyri (the homunculus): the leg and foot lie medially near the midline, the trunk and arm more laterally, and the hand, face and head most lateral and inferior."
  },
  {
   "slug": "lab-3-io-1769004445451-c3",
@@ -2639,7 +2641,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Body parts are mapped in an orderly way onto the cortex along the pre- and postcentral gyri (the homunculus): the leg and foot lie medially near the midline, the trunk and arm more laterally, and the hand, face and head most lateral and inferior."
  },
  {
   "slug": "lab-3-io-1769004445451-c4",
@@ -2706,7 +2709,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Body parts are mapped in an orderly way onto the cortex along the pre- and postcentral gyri (the homunculus): the leg and foot lie medially near the midline, the trunk and arm more laterally, and the hand, face and head most lateral and inferior."
  },
  {
   "slug": "lab-3-io-1769004632487-c1",
@@ -2934,7 +2938,7 @@
   "slug": "lab-3-io-1769004632487-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "frontal-lobe",
   "status": "live",
   "position": 602,
   "source": {
@@ -3464,13 +3468,14 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "In most people, language functions, including Broca's area for speech production, are lateralized to the left hemisphere (the dominant hemisphere for language)."
  },
  {
   "slug": "lab-3-io-1769004906774-c1",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "prefrontal-cortex",
   "status": "live",
   "position": 800,
   "source": {
@@ -3565,7 +3570,7 @@
   },
   "prompt": "Name the term.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; “planning for planning” for movement', conf 0.97]",
+  "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; \u201cplanning for planning\u201d for movement', conf 0.97]",
   "tags": [
    "unit:u1",
    "kind:pin",
@@ -5777,7 +5782,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Body parts are mapped in an orderly way onto the cortex along the pre- and postcentral gyri (the homunculus): the leg and foot lie medially near the midline, the trunk and arm more laterally, and the hand, face and head most lateral and inferior."
  },
  {
   "slug": "lab-3-io-1769005986917-c3",
@@ -5858,7 +5864,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Body parts are mapped in an orderly way onto the cortex along the pre- and postcentral gyri (the homunculus): the leg and foot lie medially near the midline, the trunk and arm more laterally, and the hand, face and head most lateral and inferior."
  },
  {
   "slug": "lab-3-io-1769005986917-c4",
@@ -5953,7 +5960,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Body parts are mapped in an orderly way onto the cortex along the pre- and postcentral gyri (the homunculus): the leg and foot lie medially near the midline, the trunk and arm more laterally, and the hand, face and head most lateral and inferior."
  },
  {
   "slug": "lab-3-io-1769006230781-c1",
@@ -6474,7 +6482,7 @@
   "slug": "lab-3-io-1769006637282-c1",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "occipital-notch",
   "status": "live",
   "position": 1600,
   "source": {
@@ -7088,7 +7096,7 @@
   "slug": "lab-3-io-1769007064950-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "occipital-lobe",
   "status": "live",
   "position": 1702,
   "source": {
@@ -7742,7 +7750,7 @@
   "slug": "lab-3-io-1769007064950-c7",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "lateral-geniculate-nucleus",
   "status": "live",
   "position": 1706,
   "source": {
@@ -8103,7 +8111,7 @@
   "slug": "lab-3-io-1769007064950-c9",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "optic-radiations",
   "status": "live",
   "position": 1708,
   "source": {
@@ -8456,7 +8464,7 @@
   "slug": "lab-3-io-1769007127389-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "primary-visual-cortex",
   "status": "live",
   "position": 1802,
   "source": {
@@ -8531,7 +8539,7 @@
   "slug": "lab-3-io-1769007127389-c4",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "occipital-lobe",
   "status": "live",
   "position": 1803,
   "source": {
@@ -9577,7 +9585,7 @@
   "slug": "lab-3-io-1769007615723-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 2102,
   "source": {
@@ -9679,7 +9687,7 @@
   "slug": "lab-3-io-1769007615723-c4",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "transverse-temporal-gyrus",
   "status": "live",
   "position": 2103,
   "source": {
@@ -10093,7 +10101,7 @@
   "slug": "lab-3-io-1769007615723-c8",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "cochlea",
   "status": "live",
   "position": 2107,
   "source": {
@@ -10620,7 +10628,7 @@
   "slug": "lab-3-io-1769008135190-c4",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "lateral-fissure",
   "status": "live",
   "position": 2203,
   "source": {
@@ -11426,7 +11434,7 @@
   "slug": "lab-3-io-1769008434584-c2",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "hemineglect-syndrome",
   "status": "live",
   "position": 2501,
   "source": {
@@ -12129,7 +12137,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Compound directional terms combine two axes: dorsal is toward the back or top, ventral toward the belly or bottom, medial toward the midline and lateral toward the side, so for example dorsolateral means toward the top and side."
  },
  {
   "slug": "lab-3-io-1769008761149-c2",
@@ -12217,7 +12226,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Compound directional terms combine two axes: dorsal is toward the back or top, ventral toward the belly or bottom, medial toward the midline and lateral toward the side, so for example dorsolateral means toward the top and side."
  },
  {
   "slug": "lab-3-io-1769008761149-c3",
@@ -12687,7 +12697,7 @@
   "slug": "lab-3-io-1769008833895-c1",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "postcentral-gyrus",
   "status": "live",
   "position": 3000,
   "source": {
@@ -13133,7 +13143,7 @@
   "slug": "lab-3-io-1769008833895-c6",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "central-sulcus",
   "status": "live",
   "position": 3005,
   "source": {
@@ -13221,7 +13231,7 @@
   "slug": "lab-3-io-1769008833895-c7",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "postcentral-sulcus",
   "status": "live",
   "position": 3006,
   "source": {
@@ -13310,7 +13320,7 @@
   "slug": "lab-3-io-1769008887874-c1",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "occipital-lobe",
   "status": "live",
   "position": 3100,
   "source": {
@@ -15023,7 +15033,7 @@
   "slug": "lab-3-io-1769084443546-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 3302,
   "source": {
@@ -15097,7 +15107,7 @@
   "slug": "lab-3-io-1769084443546-c4",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "primary-auditory-cortex",
   "status": "live",
   "position": 3303,
   "source": {
@@ -15379,7 +15389,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Compound directional terms combine two axes: dorsal is toward the back or top, ventral toward the belly or bottom, medial toward the midline and lateral toward the side, so for example dorsolateral means toward the top and side."
  },
  {
   "slug": "lab-3-io-1769085669383-c3",
@@ -15446,7 +15457,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Compound directional terms combine two axes: dorsal is toward the back or top, ventral toward the belly or bottom, medial toward the midline and lateral toward the side, so for example dorsolateral means toward the top and side."
  },
  {
   "slug": "lab-3-io-1769085669383-c4",
@@ -15513,7 +15525,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "explain": "Compound directional terms combine two axes: dorsal is toward the back or top, ventral toward the belly or bottom, medial toward the midline and lateral toward the side, so for example dorsolateral means toward the top and side."
  },
  {
   "slug": "lab-3-io-1769086292778-c1",
@@ -15671,7 +15684,7 @@
   "slug": "lab-3-io-1769086292778-c3",
   "kind": "pin",
   "topic": "lab-3",
-  "structure": null,
+  "structure": "primary-somatosensory-cortex",
   "status": "live",
   "position": 3502,
   "source": {
@@ -15885,7 +15898,7 @@
   },
   "prompt": "Name the term.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area', conf 0.98]",
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the \u201cmultimodal\" area', conf 0.98]",
   "tags": [
    "unit:u1",
    "kind:pin",

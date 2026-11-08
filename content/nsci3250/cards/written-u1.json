@@ -45,7 +45,7 @@
   "prompt": "In the developing spinal cord, the sulcus limitans is best described as:",
   "format": "choice",
   "choices": [
-   "A groove on the embryo’s surface that becomes the central canal",
+   "A groove on the embryo\u2019s surface that becomes the central canal",
    "A dividing line between the developing cerebral hemispheres",
    "A longitudinal groove in the neural tube that separates dorsal (alar) and ventral (basal) plates",
    "The future site of the primary fissure of the cerebellum",
@@ -239,11 +239,11 @@
   "prompt": "Which pairing of embryonic brain vesicle to its corresponding adult ventricular space is correct?",
   "format": "choice",
   "choices": [
-   "Diencephalon – Posterior horn of lateral ventricles",
-   "Telencephalon – Anterior horn of lateral ventricles",
-   "Metencephalon – Central canal",
-   "Myelencephalon – Foramen of Monro",
-   "Mesencephalon – Inferior horn of lateral ventricles"
+   "Diencephalon \u2013 Posterior horn of lateral ventricles",
+   "Telencephalon \u2013 Anterior horn of lateral ventricles",
+   "Metencephalon \u2013 Central canal",
+   "Myelencephalon \u2013 Foramen of Monro",
+   "Mesencephalon \u2013 Inferior horn of lateral ventricles"
   ],
   "accept": [],
   "require_side": false,
@@ -255,7 +255,7 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Telencephalon – Anterior horn of lateral ventricles",
+  "answer": "Telencephalon \u2013 Anterior horn of lateral ventricles",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
  },
  {
@@ -372,7 +372,7 @@
   "choices": [
    "Planning a complex movement sequence",
    "Feeling the sensation of your heartbeat and an upset stomach",
-   "Recognizing a friend’s face in a crowd",
+   "Recognizing a friend\u2019s face in a crowd",
    "Solving a complex math problem",
    "Coordinating balance and posture while running"
   ],
@@ -405,7 +405,7 @@
    "Vision (e.g. cortical blindness)",
    "Hearing (e.g. difficulty perceiving sounds)",
    "Motor coordination (e.g. ataxia)",
-   "Speech production (e.g. Broca’s aphasia)",
+   "Speech production (e.g. Broca\u2019s aphasia)",
    "Executive function (e.g. planning, decision-making impairments)"
   ],
   "accept": [],
@@ -469,7 +469,7 @@
   "format": "choice",
   "choices": [
    "Primary visual cortex",
-   "Wernicke’s area",
+   "Wernicke\u2019s area",
    "Primary auditory cortex",
    "Cingulate cortex",
    "Somatosensory association cortex"
@@ -533,11 +533,11 @@
   "prompt": "Which cortical layer pairing is INCORRECT?",
   "format": "choice",
   "choices": [
-   "Layer 5 – major subcortical outputs",
-   "Layer 4 – afferents from the thalamus",
-   "Layer 2/3 – association & commissural connections",
-   "Layer 6 – corticothalamic projections",
-   "Layer 1 – principal output to spinal cord"
+   "Layer 5 \u2013 major subcortical outputs",
+   "Layer 4 \u2013 afferents from the thalamus",
+   "Layer 2/3 \u2013 association & commissural connections",
+   "Layer 6 \u2013 corticothalamic projections",
+   "Layer 1 \u2013 principal output to spinal cord"
   ],
   "accept": [],
   "require_side": false,
@@ -548,7 +548,7 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Layer 1 – principal output to spinal cord",
+  "answer": "Layer 1 \u2013 principal output to spinal cord",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
  },
  {
@@ -626,7 +626,7 @@
    "ref": "practice-exam-u1 Q20 (Practice exam 1)"
   },
   "facet": "written",
-  "prompt": "Loss of the dorsal column – medial lemniscus function would most impair a person’s ability to:",
+  "prompt": "Loss of the dorsal column \u2013 medial lemniscus function would most impair a person\u2019s ability to:",
   "format": "choice",
   "choices": [
    "Feel pain from a pinprick on the skin",
@@ -663,7 +663,7 @@
   "format": "choice",
   "choices": [
    "Parasympathetic preganglionic neurons occur in brainstem and sacral cord",
-   "Sympathetic outflow originates from T1–L2 spinal levels",
+   "Sympathetic outflow originates from T1\u2013L2 spinal levels",
    "Preganglionic neurons release acetylcholine",
    "Sympathetic postganglionic neurons are often in chain or prevertebral ganglia",
    "Both pre- and post-ganglionic sympathetic neurons secrete norepinephrine"
@@ -692,14 +692,14 @@
    "ref": "practice-exam-u1 Q22 (Practice exam 1)"
   },
   "facet": "written",
-  "prompt": "Which receptor–modality match is INCORRECT?",
+  "prompt": "Which receptor\u2013modality match is INCORRECT?",
   "format": "choice",
   "choices": [
-   "Merkel cells – sustained touch/texture",
-   "Ruffini endings – skin stretch/movement across skin",
-   "Golgi tendon organs – muscle length/stretch",
-   "Free nerve endings – pain/temperature/itch",
-   "Pacinian corpuscles – vibration/rapid pressure changes 2"
+   "Merkel cells \u2013 sustained touch/texture",
+   "Ruffini endings \u2013 skin stretch/movement across skin",
+   "Golgi tendon organs \u2013 muscle length/stretch",
+   "Free nerve endings \u2013 pain/temperature/itch",
+   "Pacinian corpuscles \u2013 vibration/rapid pressure changes 2"
   ],
   "accept": [],
   "require_side": false,
@@ -710,7 +710,7 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Golgi tendon organs – muscle length/stretch",
+  "answer": "Golgi tendon organs \u2013 muscle length/stretch",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
  },
  {
@@ -724,7 +724,7 @@
    "ref": "practice-exam-u1 Q23 (Practice exam 1)"
   },
   "facet": "written",
-  "prompt": "Which term describes a neuron with its cell body in the spinal cord’s anterior horn and an axon that exits to stimulate a muscle spindle fiber?",
+  "prompt": "Which term describes a neuron with its cell body in the spinal cord\u2019s anterior horn and an axon that exits to stimulate a muscle spindle fiber?",
   "format": "choice",
   "choices": [
    "Alpha motor neuron",
@@ -793,10 +793,10 @@
   "prompt": "The marginal zone nucleus (lamina I) at the tip of the dorsal horn mainly receives input from:",
   "format": "choice",
   "choices": [
-   "Aα (Type 1a)",
-   "Aα (Type 1b)",
-   "Aβ (Type 2)",
-   "Aδ (Type 3)",
+   "A\u03b1 (Type 1a)",
+   "A\u03b1 (Type 1b)",
+   "A\u03b2 (Type 2)",
+   "A\u03b4 (Type 3)",
    "C fibers (Type 4)"
   ],
   "accept": [],
@@ -809,7 +809,7 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Aδ (Type 3)",
+  "answer": "A\u03b4 (Type 3)",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
  },
  {
@@ -923,11 +923,11 @@
   "prompt": "The substantia gelatinosa is a distinctive cell column in the dorsal horn. What is its Rexed laminar designation and role?",
   "format": "choice",
   "choices": [
-   "Lamina I – contains motor neurons for axial muscles",
-   "Lamina III – houses sympathetic preganglionic neurons",
-   "Lamina II – involved in pain modulation via interneurons",
-   "Lamina VII – Clarke’s column for proprioception",
-   "Lamina X – contains large touch relay neurons"
+   "Lamina I \u2013 contains motor neurons for axial muscles",
+   "Lamina III \u2013 houses sympathetic preganglionic neurons",
+   "Lamina II \u2013 involved in pain modulation via interneurons",
+   "Lamina VII \u2013 Clarke\u2019s column for proprioception",
+   "Lamina X \u2013 contains large touch relay neurons"
   ],
   "accept": [],
   "require_side": false,
@@ -939,7 +939,7 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Lamina II – involved in pain modulation via interneurons",
+  "answer": "Lamina II \u2013 involved in pain modulation via interneurons",
   "review_note": "Unit 1 practice-exam key file is blank in the source; answer chosen from standard neuroanatomy. TA owner to confirm."
  },
  {
@@ -1037,7 +1037,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Superior cerebellar peduncle"
+  "answer": "Superior cerebellar peduncle",
+  "structure": "superior-cerebellar-peduncle"
  },
  {
   "slug": "written-u1-si-session-4-q03",
@@ -1131,7 +1132,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "CN IV"
+  "answer": "CN IV",
+  "structure": "trochlear-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q06",
@@ -1386,7 +1388,8 @@
    "modality:visual",
    "modality:autonomic"
   ],
-  "answer": "Edinger-Westphal nucleus"
+  "answer": "Edinger-Westphal nucleus",
+  "structure": "edinger-westphal-nucleus"
  },
  {
   "slug": "written-u1-si-session-4-q14",
@@ -1418,7 +1421,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "CN VII (Facial)"
+  "answer": "CN VII (Facial)",
+  "structure": "facial-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q15",
@@ -1450,7 +1454,8 @@
    "source:practice-exam",
    "modality:visual"
   ],
-  "answer": "CN IV (Trochlear)"
+  "answer": "CN IV (Trochlear)",
+  "structure": "trochlear-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q16",
@@ -1514,7 +1519,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "CN XI (Accessory)"
+  "answer": "CN XI (Accessory)",
+  "structure": "accessory-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q18",
@@ -1545,7 +1551,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Solitary nucleus"
+  "answer": "Solitary nucleus",
+  "structure": "solitary-nucleus"
  },
  {
   "slug": "written-u1-si-session-4-q19",
@@ -1576,7 +1583,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "CN IX (Glossopharyngeal)"
+  "answer": "CN IX (Glossopharyngeal)",
+  "structure": "glossopharyngeal-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q20",
@@ -1589,7 +1597,7 @@
    "ref": "si-session-4 Q20 (SI session 4 test)"
   },
   "facet": "written",
-  "prompt": "Which cranial nerve is most affected by a cerebellopontine angle tumor?",
+  "prompt": "Which of these cranial nerves is most affected by a cerebellopontine angle tumor?",
   "format": "choice",
   "choices": [
    "CN III (Oculomotor)",
@@ -1608,7 +1616,9 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "CN VII (Facial)"
+  "answer": "CN VII (Facial)",
+  "explain": "CN VIII is the nerve most often affected (vestibular schwannoma) but is not among the options; CN VII runs with it through the internal acoustic meatus.",
+  "structure": "facial-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q21",
@@ -1671,7 +1681,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Inferior olivary nucleus"
+  "answer": "Inferior olivary nucleus",
+  "structure": "inferior-olivary-nucleus"
  },
  {
   "slug": "written-u1-si-session-4-q23",
@@ -1703,7 +1714,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "CN XI (Accessory)"
+  "answer": "CN XI (Accessory)",
+  "structure": "accessory-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q24",
@@ -1767,7 +1779,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "CN V (Trigeminal)"
+  "answer": "CN V (Trigeminal)",
+  "structure": "trigeminal-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q26",
@@ -1799,7 +1812,8 @@
    "source:practice-exam",
    "modality:visual"
   ],
-  "answer": "CN III (Oculomotor)"
+  "answer": "CN III (Oculomotor)",
+  "structure": "oculomotor-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q27",
@@ -1830,7 +1844,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "CN XI (Accessory)"
+  "answer": "CN XI (Accessory)",
+  "structure": "accessory-nerve"
  },
  {
   "slug": "written-u1-si-session-4-q28",
@@ -1863,7 +1878,8 @@
    "modality:autonomic",
    "modality:motor"
   ],
-  "answer": "Dorsal motor nucleus of vagus"
+  "answer": "Dorsal motor nucleus of vagus",
+  "structure": "dorsal-motor-nucleus-of-the-vagus"
  },
  {
   "slug": "written-u1-si-session-4-q29",
@@ -1927,6 +1943,7 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Pyramid"
+  "answer": "Pyramid",
+  "structure": "pyramids"
  }
 ]

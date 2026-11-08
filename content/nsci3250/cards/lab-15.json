@@ -146,7 +146,7 @@
   "slug": "lab-15-io-1775054616193-c3",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "flocculonodular-lobe",
   "status": "live",
   "position": 102,
   "source": {
@@ -289,7 +289,7 @@
   "slug": "lab-15-io-1775054691725-c1",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-cortex",
   "status": "live",
   "position": 200,
   "source": {
@@ -607,7 +607,7 @@
   "slug": "lab-15-io-1775054691725-c4",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "deep-cerebellar-nuclei",
   "status": "live",
   "position": 203,
   "source": {
@@ -710,7 +710,7 @@
   "slug": "lab-15-io-1775054691725-c5",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "fastigial-nucleus",
   "status": "live",
   "position": 204,
   "source": {
@@ -813,7 +813,7 @@
   "slug": "lab-15-io-1775054691725-c6",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "interposed-nuclei",
   "status": "live",
   "position": 205,
   "source": {
@@ -1023,7 +1023,7 @@
   "slug": "lab-15-io-1775054691725-c8",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "white-matter",
   "status": "live",
   "position": 207,
   "source": {
@@ -1232,7 +1232,7 @@
   "slug": "lab-15-io-1775054708727-c1",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-cortex",
   "status": "live",
   "position": 300,
   "source": {
@@ -1294,7 +1294,7 @@
   "slug": "lab-15-io-1775054708727-c2",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-white-matter",
   "status": "live",
   "position": 301,
   "source": {
@@ -1421,7 +1421,7 @@
   "slug": "lab-15-io-1775054738817-c1",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-anterior-lobe",
   "status": "live",
   "position": 400,
   "source": {
@@ -1482,7 +1482,7 @@
   "slug": "lab-15-io-1775054738817-c2",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-posterior-lobe",
   "status": "live",
   "position": 401,
   "source": {
@@ -1543,7 +1543,7 @@
   "slug": "lab-15-io-1775054738817-c3",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "flocculonodular-lobe",
   "status": "live",
   "position": 402,
   "source": {
@@ -1746,7 +1746,7 @@
   "slug": "lab-15-io-1775054817967-c2",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "paravermis",
   "status": "live",
   "position": 501,
   "source": {
@@ -1921,7 +1921,7 @@
   "slug": "lab-15-io-1775054817967-c3",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-lateral-hemisphere",
   "status": "live",
   "position": 502,
   "source": {
@@ -2235,7 +2235,7 @@
   "slug": "lab-15-io-1775054886593-c2",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "paravermis",
   "status": "live",
   "position": 601,
   "source": {
@@ -2406,7 +2406,7 @@
   "slug": "lab-15-io-1775054886593-c3",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "cerebellar-lateral-hemisphere",
   "status": "live",
   "position": 602,
   "source": {
@@ -2760,7 +2760,7 @@
   "slug": "lab-15-io-1775054912050-c3",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "nodulus",
   "status": "live",
   "position": 702,
   "source": {
@@ -2849,7 +2849,7 @@
   "slug": "lab-15-io-1775054912050-c4",
   "kind": "pin",
   "topic": "lab-15",
-  "structure": null,
+  "structure": "flocculonodular-lobe",
   "status": "live",
   "position": 703,
   "source": {

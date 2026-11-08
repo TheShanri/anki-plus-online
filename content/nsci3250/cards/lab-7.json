@@ -3,7 +3,7 @@
   "slug": "lab-7-io-1770685081823-c1",
   "kind": "pin",
   "topic": "lab-7",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 100,
   "source": {
@@ -7088,7 +7088,7 @@
   "slug": "lab-7-io-1770685384096-c1",
   "kind": "pin",
   "topic": "lab-7",
-  "structure": null,
+  "structure": "thalamus",
   "status": "live",
   "position": 700,
   "source": {
@@ -8231,7 +8231,7 @@
   "slug": "lab-7-io-1770685604391-c1",
   "kind": "pin",
   "topic": "lab-7",
-  "structure": null,
+  "structure": "thalamus",
   "status": "live",
   "position": 1100,
   "source": {
@@ -9881,7 +9881,7 @@
   "slug": "lab-7-io-1770685694563-c4",
   "kind": "pin",
   "topic": "lab-7",
-  "structure": null,
+  "structure": "brachium-of-the-inferior-colliculus",
   "status": "live",
   "position": 1303,
   "source": {
@@ -10547,7 +10547,8 @@
    "source:anki-deck",
    "region:brainstem",
    "modality:auditory"
-  ]
+  ],
+  "explain": "The brachium of the inferior colliculus carries auditory information from the inferior colliculus to the medial geniculate nucleus of the thalamus, which relays it to the primary auditory cortex."
  },
  {
   "slug": "lab-7-io-1770685753237-c3",
@@ -11264,7 +11265,7 @@
   "slug": "lab-7-io-1770685863805-c1",
   "kind": "pin",
   "topic": "lab-7",
-  "structure": null,
+  "structure": "retina",
   "status": "live",
   "position": 1700,
   "source": {
@@ -11636,7 +11637,8 @@
    "source:anki-deck",
    "region:brainstem",
    "modality:visual"
-  ]
+  ],
+  "explain": "Retinal axons leave in the optic tract and mainly synapse in the lateral geniculate nucleus of the thalamus (for conscious vision) and in the superior colliculus (for visual reflexes and orienting eye movements)."
  },
  {
   "slug": "lab-7-io-1770685863805-c4",
@@ -15317,7 +15319,7 @@
   "slug": "lab-7-io-1770686112984-c3",
   "kind": "pin",
   "topic": "lab-7",
-  "structure": null,
+  "structure": "oculomotor-nerve",
   "status": "live",
   "position": 2502,
   "source": {
@@ -19709,7 +19711,8 @@
    "kind:pin",
    "source:anki-deck",
    "region:brainstem"
-  ]
+  ],
+  "explain": "Cortical efferents are axons that leave the cerebral cortex, such as corticospinal and corticobulbar fibers, which descend through the internal capsule and cerebral peduncle. (Efferent: Latin efferre, 'to carry out'.)"
  },
  {
   "slug": "lab-7-io-1770744857169-c3",

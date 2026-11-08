@@ -36,7 +36,8 @@
   ],
   "structures": [
    "middle-cerebral-artery"
-  ]
+  ],
+  "structure": "middle-cerebral-artery"
  },
  {
   "slug": "clinical-u3-stroke-mca-right",
@@ -75,7 +76,8 @@
   ],
   "structures": [
    "middle-cerebral-artery"
-  ]
+  ],
+  "structure": "middle-cerebral-artery"
  },
  {
   "slug": "clinical-u3-stroke-aca",
@@ -111,7 +113,8 @@
   ],
   "structures": [
    "anterior-cerebral-artery"
-  ]
+  ],
+  "structure": "anterior-cerebral-artery"
  },
  {
   "slug": "clinical-u3-stroke-pca",
@@ -149,7 +152,8 @@
   ],
   "structures": [
    "posterior-cerebral-artery"
-  ]
+  ],
+  "structure": "posterior-cerebral-artery"
  },
  {
   "slug": "clinical-u3-stroke-lenticulostriate",
@@ -190,7 +194,8 @@
   "structures": [
    "lenticulostriate-arteries",
    "internal-capsule"
-  ]
+  ],
+  "structure": "lenticulostriate-arteries"
  },
  {
   "slug": "clinical-u3-stroke-watershed",
@@ -222,7 +227,8 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Border zones between the MCA and ACA or PCA territories are the last to receive blood when perfusion falls globally, as in cardiac arrest. Shoulder and upper arm cortex lies in the ACA-MCA watershed, so both proximal arms weaken while hands and legs are spared ('man in a barrel')."
  },
  {
   "slug": "clinical-u3-stroke-ischemic-types",
@@ -257,7 +263,8 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Ischemic stroke is loss of blood supply to brain tissue. It results either from thrombosis (a clot forming in place on an atherosclerotic vessel) or embolism (a clot travelling from elsewhere, such as the heart in atrial fibrillation). Embolus: Greek embolos, plug or wedge."
  },
  {
   "slug": "clinical-u3-stroke-tpa",
@@ -290,7 +297,8 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "tPA (tissue plasminogen activator) dissolves clots, so it helps ischemic stroke but would worsen bleeding. CT is done first because it shows acute blood as bright white, ruling out hemorrhage before treatment."
  },
  {
   "slug": "clinical-u3-bleed-epidural",
@@ -559,7 +567,8 @@
   "structures": [
    "uncus",
    "tentorium-cerebelli"
-  ]
+  ],
+  "structure": "uncus"
  },
  {
   "slug": "clinical-u3-herniation-tonsillar",
@@ -600,7 +609,8 @@
   "structures": [
    "cerebellar-tonsil",
    "foramen-magnum"
-  ]
+  ],
+  "structure": "cerebellar-tonsil"
  },
  {
   "slug": "clinical-u3-herniation-midline",
@@ -632,7 +642,8 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "A space-occupying lesion such as a bleed adds volume inside the rigid skull and pushes the brain away from the lesion, shifting midline structures (septum pellucidum, third ventricle) toward the opposite side. This is mass effect and signals raised intracranial pressure."
  },
  {
   "slug": "clinical-u3-bg-parkinson",
@@ -672,7 +683,8 @@
   ],
   "structures": [
    "substantia-nigra"
-  ]
+  ],
+  "structure": "substantia-nigra"
  },
  {
   "slug": "clinical-u3-bg-huntington",
@@ -710,7 +722,8 @@
   "structures": [
    "caudate-nucleus",
    "putamen"
-  ]
+  ],
+  "structure": "corpus-striatum"
  },
  {
   "slug": "clinical-u3-bg-ballismus",
@@ -751,7 +764,8 @@
   ],
   "structures": [
    "subthalamic-nucleus"
-  ]
+  ],
+  "structure": "subthalamic-nucleus"
  },
  {
   "slug": "clinical-u3-limbic-hippocampus",
@@ -791,7 +805,8 @@
   "structures": [
    "hippocampus",
    "fornix"
-  ]
+  ],
+  "structure": "hippocampus"
  },
  {
   "slug": "clinical-u3-limbic-basalis",
@@ -827,7 +842,8 @@
   ],
   "structures": [
    "basal-forebrain-nuclei"
-  ]
+  ],
+  "structure": "basal-forebrain-nuclei"
  },
  {
   "slug": "clinical-u3-limbic-amygdala",
@@ -862,7 +878,8 @@
   ],
   "structures": [
    "amygdala"
-  ]
+  ],
+  "structure": "amygdala"
  },
  {
   "slug": "clinical-u3-tumor-gbm",
@@ -897,7 +914,8 @@
   ],
   "structures": [
    "corpus-callosum"
-  ]
+  ],
+  "explain": "Glioblastoma multiforme is an aggressive astrocyte-derived tumor that spreads along white matter tracts. Crossing the corpus callosum to the other hemisphere gives the 'butterfly' appearance on imaging. Multiforme: Latin 'many shapes', for its varied appearance."
  },
  {
   "slug": "clinical-u3-tumor-cerebellar",
@@ -932,7 +950,8 @@
   ],
   "structures": [
    "cerebellum"
-  ]
+  ],
+  "structure": "cerebellum"
  },
  {
   "slug": "clinical-u3-tumor-temporal",
@@ -964,7 +983,8 @@
    "modality:auditory",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "The temporal lobe contains auditory cortex, hippocampus and amygdala. A lesion there causes focal seizures, memory loss and auditory hallucinations, matching these functions."
  },
  {
   "slug": "clinical-u3-tumor-metastasis",
@@ -1001,7 +1021,8 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Lung, breast and melanoma are the most common primary cancers to spread to the brain by the blood, usually seen as multiple lesions at the gray-white junction. Kidney and colon cancers are also common sources."
  },
  {
   "slug": "clinical-u3-tumor-callosum",
@@ -1035,7 +1056,8 @@
   ],
   "structures": [
    "corpus-callosum"
-  ]
+  ],
+  "structure": "corpus-callosum"
  },
  {
   "slug": "clinical-u3-imaging-ct-ischemia",

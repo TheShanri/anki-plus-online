@@ -3,7 +3,7 @@
   "slug": "lab-1-io-1768349533294-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "rostral",
   "status": "live",
   "position": 100,
   "source": {
@@ -302,7 +302,7 @@
   "slug": "lab-1-io-1768349533294-c5",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "caudal",
   "status": "live",
   "position": 104,
   "source": {
@@ -2209,7 +2209,7 @@
   "slug": "lab-1-io-1768349694303-c5",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "lateral",
   "status": "live",
   "position": 304,
   "source": {
@@ -2379,7 +2379,7 @@
   "slug": "lab-1-io-1768349694303-c6",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "medial",
   "status": "live",
   "position": 305,
   "source": {
@@ -3405,7 +3405,7 @@
   "slug": "lab-1-io-1768349784018-c8",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "mesencephalic-flexure",
   "status": "live",
   "position": 407,
   "source": {
@@ -4375,7 +4375,7 @@
   "slug": "lab-1-io-1768349833591-c8",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "mesencephalic-flexure",
   "status": "live",
   "position": 507,
   "source": {
@@ -6887,7 +6887,7 @@
   "slug": "lab-1-io-1768350114332-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "superficial",
   "status": "live",
   "position": 1400,
   "source": {
@@ -6939,7 +6939,7 @@
   "slug": "lab-1-io-1768350114332-c2",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "deep",
   "status": "live",
   "position": 1401,
   "source": {
@@ -6991,7 +6991,7 @@
   "slug": "lab-1-io-1768350188659-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "parietal-bone",
   "status": "live",
   "position": 1500,
   "source": {
@@ -7064,7 +7064,7 @@
   "slug": "lab-1-io-1768350188659-c2",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "temporal-bone",
   "status": "live",
   "position": 1501,
   "source": {
@@ -7290,7 +7290,7 @@
   "slug": "lab-1-io-1768350188659-c5",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "occipital-bone",
   "status": "live",
   "position": 1504,
   "source": {
@@ -9017,7 +9017,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "The floor of the skull is divided into three cranial fossae (anterior, middle, posterior) that cradle the frontal lobes, temporal lobes and cerebellum/brainstem respectively. Fossa is Latin for ditch or hollow."
  },
  {
   "slug": "lab-1-io-1768350385936-c2",
@@ -9347,7 +9348,7 @@
   "slug": "lab-1-io-1768350425033-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "occipital-lobe",
   "status": "live",
   "position": 2000,
   "source": {
@@ -9570,7 +9571,7 @@
   "slug": "lab-1-io-1768350425033-c4",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "temporal-lobe",
   "status": "live",
   "position": 2003,
   "source": {
@@ -9643,7 +9644,7 @@
   "slug": "lab-1-io-1768350425033-c5",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "frontal-lobe",
   "status": "live",
   "position": 2004,
   "source": {
@@ -10013,7 +10014,7 @@
   "slug": "lab-1-io-1768350557977-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "meningeal-blood-vessels",
   "status": "live",
   "position": 2300,
   "source": {
@@ -10073,7 +10074,7 @@
   "slug": "lab-1-io-1768350557977-c2",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "meningeal-blood-vessels",
   "status": "live",
   "position": 2301,
   "source": {
@@ -10197,7 +10198,7 @@
   "slug": "lab-1-io-1768350575753-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "cerebral-cortex",
   "status": "live",
   "position": 2400,
   "source": {
@@ -10381,7 +10382,7 @@
   "slug": "lab-1-io-1768350626824-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "gyrus",
   "status": "live",
   "position": 2500,
   "source": {
@@ -10447,7 +10448,7 @@
   "slug": "lab-1-io-1768350626824-c2",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "sulcus",
   "status": "live",
   "position": 2501,
   "source": {
@@ -11088,7 +11089,7 @@
   "slug": "lab-1-io-1768350782186-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "epidural-space",
   "status": "live",
   "position": 2900,
   "source": {
@@ -11154,7 +11155,7 @@
   "slug": "lab-1-io-1768350782186-c2",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "subdural-space",
   "status": "live",
   "position": 2901,
   "source": {
@@ -11220,7 +11221,7 @@
   "slug": "lab-1-io-1768350782186-c3",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "subarachnoid-space",
   "status": "live",
   "position": 2902,
   "source": {
@@ -11286,7 +11287,7 @@
   "slug": "lab-1-io-1768350782186-c4",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "cerebrospinal-fluid",
   "status": "live",
   "position": 2903,
   "source": {
@@ -11352,7 +11353,7 @@
   "slug": "lab-1-io-1768350839527-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": null,
+  "structure": "brain",
   "status": "live",
   "position": 3000,
   "source": {
@@ -11754,7 +11755,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "explain": "Skull bone (cranium) is the outermost protective layer of the brain, lying external to the dura mater, arachnoid and pia. The bones are named for the lobes they overlie: frontal, parietal, temporal and occipital."
  },
  {
   "slug": "lab-1-io-1768350850597-c3",

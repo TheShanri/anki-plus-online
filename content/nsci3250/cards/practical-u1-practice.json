@@ -657,7 +657,7 @@
   "slug": "unit-1-practice-practicals-io-1770157862259-c2",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "diencephalon",
   "status": "live",
   "position": 801,
   "source": {
@@ -1376,7 +1376,7 @@
   "slug": "unit-1-practice-practicals-io-1770158001764-c2",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "pseudounipolar-neuron",
   "status": "live",
   "position": 2001,
   "source": {
@@ -1762,7 +1762,8 @@
    "unit:u1",
    "kind:pin",
    "source:practice-practical"
-  ]
+  ],
+  "explain": "In an ascending sensory pathway the first-order neuron is the dorsal root ganglion cell. The second-order neuron receives its synapse and sends its axon, usually crossing, toward the thalamus."
  },
  {
   "slug": "unit-1-practice-practicals-io-1770158087530-c1",
@@ -2022,7 +2023,7 @@
   "slug": "unit-1-practice-practicals-io-1770158143256-c1",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "corpus-callosum",
   "status": "live",
   "position": 3200,
   "source": {
@@ -2375,7 +2376,7 @@
   "slug": "unit-1-practice-practicals-io-1770158222061-c2",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "sagittal-plane",
   "status": "live",
   "position": 3701,
   "source": {
@@ -2844,7 +2845,7 @@
   "slug": "unit-1-practice-practicals-io-1770158301495-c2",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "metencephalon",
   "status": "live",
   "position": 4401,
   "source": {
@@ -3102,7 +3103,7 @@
   "slug": "unit-1-practice-practicals-io-1770158348436-c2",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "primary-visual-cortex",
   "status": "live",
   "position": 4801,
   "source": {
@@ -3156,7 +3157,7 @@
   "slug": "unit-1-practice-practicals-io-1770158358057-c1",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "hemineglect-syndrome",
   "status": "live",
   "position": 4900,
   "source": {
@@ -3515,7 +3516,7 @@
   "slug": "unit-1-practice-practicals-io-1770158420602-c2",
   "kind": "pin",
   "topic": "practical-u1-practice",
-  "structure": null,
+  "structure": "pseudounipolar-neuron",
   "status": "live",
   "position": 5401,
   "source": {
@@ -4041,7 +4042,8 @@
    "unit:u1",
    "kind:pin",
    "source:practice-practical"
-  ]
+  ],
+  "explain": "Pain and temperature are carried by thin fibers: unmyelinated C fibers (slow, dull pain) and thinly myelinated A-delta fibers (fast, sharp pain). They enter the dorsal horn and synapse there."
  },
  {
   "slug": "unit-1-practice-practicals-io-1770159070154-c1",

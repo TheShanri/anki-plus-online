@@ -24,3 +24,10 @@ Both parts required (not alternatives): `lab-4-io-1769516838904-c2` "L1/L2" (ver
 - Free-text sentence cards (lab-3, lab-4, lab-5, lab-7) cannot be typed exactly; consider rating them self-graded.
 - `practical-u2-2024-q*` cards have empty answers and are already drafts.
 - Target boxes on the two-Paravermis cards also cover the Vermis label; not fixable with one rect.
+
+## Structure links and explains (hand-off from the info agent)
+- Applied 232 exact, 28 synonym and 110 reviewed judgement links; skipped 268 judgement links (slash directions, brainstem level cards, function/location answers, generic pins such as Peduncle, spinal-cord-segment cards linked to vertebrae, imaging/clinical generic ones).
+- Applied 109 of 111 proposed explains (2 replaced by coordinator-supplied fact explains); 9 more explains come from the fact-fix list.
+- Fact fixes: motor decussation 80%, LCST internal-capsule card (now live), Clarke C8-L3, optic tract order, V1/V3 numerals in written-u2-q11 (answer and choices), practical-u3-2025-q40, written-u1-si-4-q20 prompt, two explains.
+- Searched for "red nucleus in dorsal midbrain": no cards. Vestibular input via MCP: `pathways-u3-cerebellar-input-vest` corrected to the inferior cerebellar peduncle (juxtarestiform body).
+- Still C8 to L2: `sections-u1-clarke` (its accept list lacks L3).

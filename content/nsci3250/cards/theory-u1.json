@@ -6097,8 +6097,12 @@
   "facet": "level",
   "prompt": "At which spinal levels is Clarke's column found?",
   "format": "keywords",
-  "answer": "T1 to L2 (L3)",
-  "accept": [],
+  "answer": "C8 to L3",
+  "accept": [
+   "C8-L3",
+   "C8 to L2",
+   "C8-L2"
+  ],
   "keywords": [
    [
     "T1"
@@ -6116,7 +6120,8 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:level"
-  ]
+  ],
+  "explain": "Clarke's column (nucleus dorsalis) spans C8\u2013L3 (Lab 5 key; StatPearls, Neuroscience Online). Lecture 5 says C8\u2013L2."
  },
  {
   "slug": "theory-column-of-clarke-connections",

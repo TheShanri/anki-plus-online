@@ -30,7 +30,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "middle-cerebellar-peduncle"
  },
  {
   "slug": "pathways-u3-cerebellar-reality",
@@ -63,7 +64,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "inferior-cerebellar-peduncle"
  },
  {
   "slug": "pathways-u3-cerebellar-output",
@@ -96,7 +98,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "superior-cerebellar-peduncle"
  },
  {
   "slug": "pathways-u3-cerebellar-input-olive",
@@ -132,7 +135,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "inferior-olivary-nucleus"
  },
  {
   "slug": "pathways-u3-cerebellar-input-dsct",
@@ -183,7 +187,7 @@
   "pathway": "cerebellar",
   "step": "input-vest",
   "prompt": "Vestibular input reaches the cerebellum from which side and through which peduncles?",
-  "answer": "Ipsilateral, via ICP and MCP",
+  "answer": "Ipsilateral, via the inferior cerebellar peduncle (juxtarestiform body)",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -194,8 +198,7 @@
    [
     "inferior",
     "icp",
-    "middle",
-    "mcp"
+    "juxtarestiform"
    ]
   ],
   "tags": [
@@ -206,7 +209,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "explain": "Vestibular input reaches the cerebellum ipsilaterally through the inferior cerebellar peduncle (juxtarestiform body), ending mainly in the flocculonodular lobe; the middle cerebellar peduncle carries pontine (corticopontocerebellar) input, not vestibular."
  },
  {
   "slug": "pathways-u3-cerebellar-mossy",
@@ -238,7 +242,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "granule-cell"
  },
  {
   "slug": "pathways-u3-cerebellar-climbing",
@@ -270,7 +275,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "purkinje-cell"
  },
  {
   "slug": "pathways-u3-cerebellar-purkinje-output",
@@ -334,7 +340,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "explain": "Deep cerebellar nuclei neurons are excitatory (glutamatergic). They are inhibited by Purkinje cells, and they excite targets such as the red nucleus and thalamus."
  },
  {
   "slug": "pathways-u3-cerebellar-decussation",
@@ -368,7 +375,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "decussation-of-the-superior-cerebellar-peduncle"
  },
  {
   "slug": "pathways-u3-cerebellar-targets",
@@ -437,7 +445,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "dentate-nucleus"
  },
  {
   "slug": "pathways-u3-cerebellar-fastigial",
@@ -469,7 +478,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "fastigial-nucleus"
  },
  {
   "slug": "pathways-u3-cerebellar-interposed",
@@ -503,7 +513,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "interposed-nucleus"
  },
  {
   "slug": "pathways-u3-cerebellar-flocculonodular",
@@ -535,7 +546,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "structure": "flocculonodular-lobe"
  },
  {
   "slug": "pathways-u3-cerebellar-lesion-side",
@@ -569,7 +581,8 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "explain": "Cerebellar output crosses (superior cerebellar peduncle decussation) and then the corticospinal tract crosses again, so each cerebellar hemisphere controls the ipsilateral body. A right hemisphere lesion causes ipsilateral ataxia."
  },
  {
   "slug": "pathways-u3-basal-ganglia-input",
@@ -777,7 +790,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "explain": "GPi neurons are GABAergic and tonically inhibit the VA/VL thalamus; movement happens when this inhibition is reduced (disinhibition)."
  },
  {
   "slug": "pathways-u3-basal-ganglia-thalamus",
@@ -812,7 +826,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "structure": "va-vl-nuclei"
  },
  {
   "slug": "pathways-u3-basal-ganglia-direct",
@@ -850,7 +865,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "structure": "direct-pathway"
  },
  {
   "slug": "pathways-u3-basal-ganglia-indirect",
@@ -887,7 +903,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "structure": "indirect-pathway"
  },
  {
   "slug": "pathways-u3-basal-ganglia-stn",
@@ -926,7 +943,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "structure": "subthalamic-nucleus"
  },
  {
   "slug": "pathways-u3-basal-ganglia-da-d1",
@@ -1026,7 +1044,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "structure": "substantia-nigra"
  },
  {
   "slug": "pathways-u3-basal-ganglia-parkinson",
@@ -1136,7 +1155,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "structure": "subthalamic-nucleus"
  },
  {
   "slug": "pathways-u3-olfactory-first-order",
@@ -1172,7 +1192,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "structure": "olfactory-epithelium"
  },
  {
   "slug": "pathways-u3-olfactory-bone",
@@ -1204,7 +1225,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "structure": "cribriform-plate"
  },
  {
   "slug": "pathways-u3-olfactory-second-order",
@@ -1237,7 +1259,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "structure": "olfactory-bulb"
  },
  {
   "slug": "pathways-u3-olfactory-tract",
@@ -1269,7 +1292,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "structure": "olfactory-tract"
  },
  {
   "slug": "pathways-u3-olfactory-cortex",
@@ -1336,7 +1360,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "explain": "Olfaction is the one sensory system whose primary cortical projection bypasses the thalamus: the olfactory tract goes straight to the olfactory cortex. The thalamus (mediodorsal nucleus) only relays secondarily to orbitofrontal cortex."
  },
  {
   "slug": "pathways-u3-olfactory-orbitofrontal",
@@ -1370,7 +1395,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "structure": "mediodorsal-nucleus"
  },
  {
   "slug": "pathways-u3-olfactory-special",
@@ -1408,7 +1434,8 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "explain": "Olfactory receptor cells are bipolar neurons exposed to the environment, so they are damaged and replaced continually from basal stem cells (turnover about every 60 days), unlike most neurons."
  },
  {
   "slug": "pathways-u3-olfactory-lesion",
@@ -1474,7 +1501,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "fornix"
  },
  {
   "slug": "pathways-u3-limbic-fornix-parts",
@@ -1512,7 +1540,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "fornix"
  },
  {
   "slug": "pathways-u3-limbic-fornix-mammillary",
@@ -1544,7 +1573,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "mammillary-bodies"
  },
  {
   "slug": "pathways-u3-limbic-fornix-function",
@@ -1610,7 +1640,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "fornix"
  },
  {
   "slug": "pathways-u3-limbic-amygdala-tract",
@@ -1642,7 +1673,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "stria-terminalis"
  },
  {
   "slug": "pathways-u3-limbic-amygdala-bnst",
@@ -1674,7 +1706,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "bed-nucleus-of-the-stria-terminalis"
  },
  {
   "slug": "pathways-u3-limbic-amygdala-targets",
@@ -1777,7 +1810,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "epithalamus"
  },
  {
   "slug": "pathways-u3-reward-origin",
@@ -1811,7 +1845,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "ventral-tegmental-area"
  },
  {
   "slug": "pathways-u3-reward-target",
@@ -1843,7 +1878,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "structure": "nucleus-accumbens"
  },
  {
   "slug": "pathways-u3-reward-bundle",
@@ -1877,7 +1913,8 @@
    "region:limbic",
    "modality:limbic"
   ],
-  "explain": "Lecture 15 writes 'median forebrain bundle' (the same tract)."
+  "explain": "Lecture 15 writes 'median forebrain bundle' (the same tract).",
+  "structure": "medial-forebrain-bundle"
  },
  {
   "slug": "pathways-u3-olfactory-limbic",

@@ -29,7 +29,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Cerebral peduncles"
+  "answer": "Cerebral peduncles",
+  "structure": "cerebral-peduncles"
  },
  {
   "slug": "written-u2-practice-exam-u2-q02",
@@ -61,7 +62,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Substantia nigra"
+  "answer": "Substantia nigra",
+  "structure": "substantia-nigra"
  },
  {
   "slug": "written-u2-practice-exam-u2-q03",
@@ -92,7 +94,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Area postrema"
+  "answer": "Area postrema",
+  "structure": "area-postrema"
  },
  {
   "slug": "written-u2-practice-exam-u2-q04",
@@ -124,7 +127,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Ventral; lateral"
+  "answer": "Ventral; lateral",
+  "explain": "In the embryonic neural tube, motor columns lie ventrally in the basal plate and sensory columns dorsally in the alar plate, separated by the sulcus limitans. When the tube opens out at the fourth ventricle, the walls rotate laterally, so visceral motor nuclei end up lateral to the somatic motor nuclei, and sensory nuclei lie lateral to both."
  },
  {
   "slug": "written-u2-practice-exam-u2-q05",
@@ -156,7 +160,8 @@
    "source:practice-exam",
    "modality:autonomic"
   ],
-  "answer": "Post-ganglionic parasympathetic nuclei"
+  "answer": "Post-ganglionic parasympathetic nuclei",
+  "explain": "Brainstem nuclei contain the preganglionic parasympathetic neurons (for example Edinger-Westphal and the dorsal motor nucleus of the vagus). The postganglionic parasympathetic neurons sit in peripheral ganglia (such as the ciliary or pterygopalatine ganglion) or in the walls of target organs, outside the brainstem. Post- is Latin for after, and ganglion is Greek for knot or swelling."
  },
  {
   "slug": "written-u2-practice-exam-u2-q06",
@@ -187,7 +192,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "III"
+  "answer": "III",
+  "structure": "oculomotor-nerve"
  },
  {
   "slug": "written-u2-practice-exam-u2-q07",
@@ -219,7 +225,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Principal sensory nucleus of trigeminal"
+  "answer": "Principal sensory nucleus of trigeminal",
+  "structure": "principal-sensory-nucleus-of-trigeminal"
  },
  {
   "slug": "written-u2-practice-exam-u2-q08",
@@ -251,7 +258,8 @@
    "source:practice-exam",
    "modality:autonomic"
   ],
-  "answer": "VII"
+  "answer": "VII",
+  "structure": "facial-nerve"
  },
  {
   "slug": "written-u2-practice-exam-u2-q09",
@@ -264,7 +272,7 @@
    "ref": "practice-exam-u2 Q9 (Practice exam 2)"
   },
   "facet": "written",
-  "prompt": "A patient develops acute onset unilateral facial paralysis involving both the upper and lower face. The condition is diagnosed as Bell’s palsy and is most commonly due to inflammation of which cranial nerve?",
+  "prompt": "A patient develops acute onset unilateral facial paralysis involving both the upper and lower face. The condition is diagnosed as Bell\u2019s palsy and is most commonly due to inflammation of which cranial nerve?",
   "format": "choice",
   "choices": [
    "III",
@@ -281,7 +289,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "VII"
+  "answer": "VII",
+  "structure": "facial-nerve"
  },
  {
   "slug": "written-u2-practice-exam-u2-q10",
@@ -312,7 +321,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Solitary nucleus"
+  "answer": "Solitary nucleus",
+  "structure": "solitary-nucleus"
  },
  {
   "slug": "written-u2-practice-exam-u2-q11",
@@ -329,9 +339,9 @@
   "format": "choice",
   "choices": [
    "Maxillary division of trigeminal (V2)",
-   "Ophthalmic division of trigeminal (V3)",
+   "Ophthalmic division of trigeminal (V1)",
    "Vestibulocochlear nerve",
-   "Mandibular division of trigeminal (V1)",
+   "Mandibular division of trigeminal (V3)",
    "Vagus nerve"
   ],
   "accept": [],
@@ -344,7 +354,7 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Ophthalmic division of trigeminal (V3)"
+  "answer": "Ophthalmic division of trigeminal (V1)"
  },
  {
   "slug": "written-u2-practice-exam-u2-q12",
@@ -376,7 +386,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Spinal nucleus of trigeminal"
+  "answer": "Spinal nucleus of trigeminal",
+  "structure": "spinal-trigeminal-nucleus"
  },
  {
   "slug": "written-u2-practice-exam-u2-q13",
@@ -405,7 +416,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "False"
+  "answer": "False",
+  "explain": "False. The fine-touch fibers (internal arcuate fibers) cross in the caudal medulla, below the decussation of the superior cerebellar peduncles, which crosses in the midbrain at the level of the inferior colliculus. The SCP decussation is therefore superior to the arcuate decussation."
  },
  {
   "slug": "written-u2-practice-exam-u2-q14",
@@ -418,7 +430,7 @@
    "ref": "practice-exam-u2 Q14 (Practice exam 2)"
   },
   "facet": "written",
-  "prompt": "Because visceral afferent fibers from the heart enter the spinal cord at T1– T4, where is cardiac ischemic pain commonly referred?",
+  "prompt": "Because visceral afferent fibers from the heart enter the spinal cord at T1\u2013 T4, where is cardiac ischemic pain commonly referred?",
   "format": "choice",
   "choices": [
    "Right lower quadrant",
@@ -436,7 +448,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Left arm and chest"
+  "answer": "Left arm and chest",
+  "explain": "Visceral afferents from the heart enter the cord at T1 to T4, the same segments that receive somatic sensation from the chest wall and medial left arm. The brain misattributes the visceral signal to the somatic dermatomes that share those dorsal horn neurons, so cardiac ischemia is felt in the left arm and chest. This is called referred pain."
  },
  {
   "slug": "written-u2-practice-exam-u2-q15",
@@ -468,7 +481,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "VPL"
+  "answer": "VPL",
+  "structure": "ventral-posterolateral-nucleus"
  },
  {
   "slug": "written-u2-practice-exam-u2-q16",
@@ -565,7 +579,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Rubrospinal tract"
+  "answer": "Rubrospinal tract",
+  "structure": "rubrospinal-tract"
  },
  {
   "slug": "written-u2-practice-exam-u2-q19",
@@ -629,7 +644,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Red nucleus"
+  "answer": "Red nucleus",
+  "structure": "red-nucleus"
  },
  {
   "slug": "written-u2-practice-exam-u2-q21",
@@ -661,7 +677,8 @@
    "source:practice-exam",
    "modality:visual"
   ],
-  "answer": "All of the above"
+  "answer": "All of the above",
+  "explain": "Retinal ganglion cell axons form the optic nerve and project to several targets: the lateral geniculate nucleus (conscious vision), the superior colliculus (orienting eye movements), the pretectum (pupillary light reflex) and the suprachiasmatic nucleus (circadian rhythms). Each of the options is therefore a direct target."
  },
  {
   "slug": "written-u2-practice-exam-u2-q22",
@@ -692,7 +709,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "There are three types of cones, each maximally sensitive to different wavelengths of light."
+  "answer": "There are three types of cones, each maximally sensitive to different wavelengths of light.",
+  "explain": "Humans have three cone types (S, M and L, loosely blue, green and red sensitive), each tuned to a different range of wavelengths, which is the basis of colour vision. Cones work in bright light and are concentrated in the fovea, unlike rods. Cone is named for its shape, from Greek konos."
  },
  {
   "slug": "written-u2-practice-exam-u2-q23",
@@ -755,7 +773,8 @@
    "source:practice-exam",
    "modality:visual"
   ],
-  "answer": "Optic chiasm"
+  "answer": "Optic chiasm",
+  "structure": "optic-chiasm"
  },
  {
   "slug": "written-u2-practice-exam-u2-q25",
@@ -787,7 +806,8 @@
    "source:practice-exam",
    "modality:visual"
   ],
-  "answer": "Medial longitudinal fasciculus"
+  "answer": "Medial longitudinal fasciculus",
+  "structure": "medial-longitudinal-fasciculus"
  },
  {
   "slug": "written-u2-practice-exam-u2-q26",
@@ -800,7 +820,7 @@
    "ref": "practice-exam-u2 Q26 (Practice exam 2)"
   },
   "facet": "written",
-  "prompt": "During a routine neurological exam, a physician lightly touches each of a patient’s corneas with a small piece of cotton. When either cornea is stimulated, the patient’s right eye blinks normally, but the left eye never blinks. Facial sensation is intact bilaterally. Which nerve is most likely damaged?",
+  "prompt": "During a routine neurological exam, a physician lightly touches each of a patient\u2019s corneas with a small piece of cotton. When either cornea is stimulated, the patient\u2019s right eye blinks normally, but the left eye never blinks. Facial sensation is intact bilaterally. Which nerve is most likely damaged?",
   "format": "choice",
   "choices": [
    "Right oculomotor nerve",
@@ -818,7 +838,8 @@
    "kind:theory",
    "source:practice-exam"
   ],
-  "answer": "Left facial nerve"
+  "answer": "Left facial nerve",
+  "structure": "facial-nerve"
  },
  {
   "slug": "written-u2-si-session-5-q01",
@@ -850,7 +871,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Pseudounipolar"
+  "answer": "Pseudounipolar",
+  "explain": "Trigeminal sensory neurons are pseudounipolar: one process leaves the cell body and splits into a peripheral branch to the face and a central branch to the brainstem. Pseudounipolar means falsely one-poled, from Greek pseudes, false, and Latin unus, one. Their cell bodies lie in the trigeminal ganglion."
  },
  {
   "slug": "written-u2-si-session-5-q02",
@@ -882,7 +904,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Principal sensory nucleus of trigeminal"
+  "answer": "Principal sensory nucleus of trigeminal",
+  "structure": "principal-sensory-nucleus-of-trigeminal"
  },
  {
   "slug": "written-u2-si-session-5-q03",
@@ -978,7 +1001,9 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Ventroposterolateral (VPL) nucleus of the thalamus"
+  "answer": "Ventroposterolateral (VPL) nucleus of the thalamus",
+  "explain": "Second-order cell bodies are in the gracile and cuneate nuclei; their axons (the medial lemniscus) synapse on third-order neurons in VPL.",
+  "structure": "ventral-posterolateral-nucleus"
  },
  {
   "slug": "written-u2-si-session-5-q06",
@@ -1043,7 +1068,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "The trigeminal ganglion"
+  "answer": "The trigeminal ganglion",
+  "explain": "The first-order afferents of the trigeminal system have their pseudounipolar cell bodies in the trigeminal ganglion (also called the semilunar ganglion for its crescent shape). Their central processes enter the pons and synapse in the principal sensory nucleus (fine touch) or the spinal trigeminal nucleus."
  },
  {
   "slug": "written-u2-si-session-5-q08",
@@ -1076,7 +1102,8 @@
    "modality:motor",
    "modality:sensory"
   ],
-  "answer": "Dorsal spinocerebellar tract"
+  "answer": "Dorsal spinocerebellar tract",
+  "structure": "dorsal-spinocerebellar-tract"
  },
  {
   "slug": "written-u2-si-session-5-q09",
@@ -1139,7 +1166,8 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "Dorsal root ganglion (DRG)"
+  "answer": "Dorsal root ganglion (DRG)",
+  "structure": "dorsal-root-ganglion"
  },
  {
   "slug": "written-u2-si-session-5-q11",
@@ -1171,7 +1199,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "A neuron that originates in the CNS and synapses onto a lower motor neuron"
+  "answer": "A neuron that originates in the CNS and synapses onto a lower motor neuron",
+  "explain": "An upper motor neuron has its cell body in the cortex or brainstem and its axon stays entirely within the CNS, where it synapses on a lower motor neuron (or an interneuron) in the brainstem or spinal cord. Lower motor neurons are the ones that leave the CNS to innervate skeletal muscle."
  },
  {
   "slug": "written-u2-si-session-5-q12",
@@ -1267,7 +1296,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Anterior corticospinal tract"
+  "answer": "Anterior corticospinal tract",
+  "structure": "anterior-corticospinal-tract"
  },
  {
   "slug": "written-u2-si-session-5-q15",
@@ -1363,7 +1393,8 @@
    "source:practice-exam",
    "modality:vestibular"
   ],
-  "answer": "Vestibulospinal tract"
+  "answer": "Vestibulospinal tract",
+  "structure": "vestibulospinal-tract"
  },
  {
   "slug": "written-u2-si-session-5-q18",
@@ -1428,7 +1459,8 @@
    "modality:visual",
    "modality:motor"
   ],
-  "answer": "Oculomotor, trochlear, and abducens nuclei"
+  "answer": "Oculomotor, trochlear, and abducens nuclei",
+  "explain": "The extraocular muscles are moved by lower motor neurons in three brainstem nuclei: the oculomotor (CN III, midbrain), trochlear (CN IV, caudal midbrain) and abducens (CN VI, pons) nuclei. Together they allow all eye movements."
  },
  {
   "slug": "written-u2-si-session-5-q20",
@@ -1525,7 +1557,8 @@
    "plane:horizontal",
    "modality:motor"
   ],
-  "answer": "Anterior corticospinal tract"
+  "answer": "Anterior corticospinal tract",
+  "structure": "anterior-corticospinal-tract"
  },
  {
   "slug": "written-u2-si-session-5-q23",
@@ -1557,7 +1590,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Hypoglossal nucleus"
+  "answer": "Hypoglossal nucleus",
+  "structure": "hypoglossal-nucleus"
  },
  {
   "slug": "written-u2-si-session-5-q24",
@@ -1589,7 +1623,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Decerebrate rigidity"
+  "answer": "Decerebrate rigidity",
+  "explain": "Lecture 10 slide 20: damage below the red nucleus (interrupting the rubrospinal tract) gives decerebrate posture (arms extended); damage above it gives decorticate posture."
  },
  {
   "slug": "written-u2-si-session-5-q25",
@@ -1685,7 +1720,8 @@
    "source:practice-exam",
    "modality:motor"
   ],
-  "answer": "Reticulospinal tract"
+  "answer": "Reticulospinal tract",
+  "structure": "reticulospinal-tract"
  },
  {
   "slug": "written-u2-si-session-5-q28",
@@ -1750,7 +1786,8 @@
    "modality:visual",
    "modality:motor"
   ],
-  "answer": "Tectospinal tract"
+  "answer": "Tectospinal tract",
+  "structure": "tectospinal-tract"
  },
  {
   "slug": "written-u2-si-session-5-q30",

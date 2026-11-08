@@ -397,7 +397,7 @@
   "slug": "lab-8-diagrams-io-1770937472729-c2",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "superior-cerebellar-peduncle",
   "status": "live",
   "position": 101,
   "source": {
@@ -5168,7 +5168,7 @@
   "slug": "lab-8-diagrams-io-1770937561484-c1",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "vestibulocochlear-complex",
   "status": "live",
   "position": 200,
   "source": {
@@ -12023,7 +12023,7 @@
   "slug": "lab-8-diagrams-io-1770937686697-c8",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "transverse-fibers-of-the-pons",
   "status": "live",
   "position": 407,
   "source": {
@@ -12906,7 +12906,7 @@
   "slug": "lab-8-diagrams-io-1770937764507-c3",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "inferior-colliculus",
   "status": "live",
   "position": 502,
   "source": {
@@ -17740,7 +17740,7 @@
   "slug": "lab-8-diagrams-io-1770937860931-c10",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "edinger-westphal-nucleus",
   "status": "live",
   "position": 609,
   "source": {
@@ -20212,7 +20212,7 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c12",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "vagus-nerve",
   "status": "live",
   "position": 111,
   "source": {
@@ -20401,7 +20401,7 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771337956349-c13",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "hypoglossal-nerve",
   "status": "live",
   "position": 112,
   "source": {
@@ -25534,7 +25534,7 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771338097848-c4",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "trochlear-nerve",
   "status": "live",
   "position": 603,
   "source": {
@@ -29021,7 +29021,7 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c3",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "hypoglossal-nucleus",
   "status": "live",
   "position": 1202,
   "source": {

@@ -998,9 +998,7 @@
   "format": "keywords",
   "keywords": [
    [
-    "80",
-    "85",
-    "90"
+    "80"
    ]
   ],
   "tags": [
@@ -1233,7 +1231,7 @@
   "pathway": "lcst",
   "step": "umn-signs",
   "prompt": "Name signs of an upper motor neuron lesion in the corticospinal tract.",
-  "answer": "Spasticity, hyperreflexia, Babinski sign, no atrophy",
+  "answer": "Spastic paralysis (rigidity), Babinski sign, no atrophy",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2931,7 +2929,7 @@
   "pathway": "visual",
   "step": "lesion-chiasm",
   "prompt": "A lesion of the optic chiasm (e.g. pituitary tumor) causes what field defect?",
-  "answer": "Bitemporal hemianopia (loss of peripheral vision in both eyes)",
+  "answer": "Tunnel vision: loss of peripheral (temporal) vision in each eye (bitemporal hemianopia)",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -3762,5 +3760,587 @@
    "kind:pathway",
    "source:lecture"
   ]
+ },
+ {
+  "slug": "pathways-u2-cochlear-ic",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 109,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/6, lecture-8/19"
+  },
+  "pathway": "cochlear",
+  "step": "ic",
+  "prompt": "Which midbrain structure receives auditory information on its way to the thalamus and mediates reflex turning toward a noise?",
+  "answer": "Inferior colliculus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "inferior colliculus",
+    "inferior colliculi"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cochlear",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-cochlear-mgn",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 110,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5/20, lecture-8/19, lab-3/21"
+  },
+  "pathway": "cochlear",
+  "step": "mgn",
+  "prompt": "Which thalamic nucleus relays hearing, and where does it project?",
+  "answer": "Medial geniculate nucleus, to the primary auditory cortex (BA 41, 42)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "medial geniculate",
+    "mgn"
+   ],
+   [
+    "auditory cortex",
+    "primary auditory",
+    "41",
+    "temporal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cochlear",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-cochlear-nuclei-level",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 111,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-8/19"
+  },
+  "pathway": "cochlear",
+  "step": "nuclei-level",
+  "prompt": "At which brainstem level are the cochlear nuclei?",
+  "answer": "Rostral medulla",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "rostral medulla",
+    "medulla"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cochlear",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Lecture 8 slide 19 says rostral medulla; the cranial nerve chart says pontomedullary junction (shown in rostral medulla). Confirm."
+ },
+ {
+  "slug": "pathways-u2-vestibular-ascending",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 112,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14/10"
+  },
+  "pathway": "vestibular",
+  "step": "ascending",
+  "prompt": "What do ascending projections from the vestibular nuclei through the thalamus to the cortex provide?",
+  "answer": "Conscious perception of movement",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "perception",
+    "conscious",
+    "awareness"
+   ],
+   [
+    "movement",
+    "motion"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "vestibular",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:vestibular"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-vestibular-descending-mlf",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 113,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14/10"
+  },
+  "pathway": "vestibular",
+  "step": "descending-mlf",
+  "prompt": "Where does the descending MLF project and what does it direct?",
+  "answer": "To the cervical spinal cord, directing head and neck movements involved in gaze",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cervical"
+   ],
+   [
+    "head",
+    "neck"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "vestibular",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:vestibular"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-vestibular-canals-otoliths",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 114,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14/7"
+  },
+  "pathway": "vestibular",
+  "step": "canals-otoliths",
+  "prompt": "Which vestibular organs detect rotation and which detect gravity and linear acceleration?",
+  "answer": "Semicircular canals: rotation (angular acceleration); utricle and saccule (otolith organs): gravity and linear acceleration",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "semicircular",
+    "canal"
+   ],
+   [
+    "utricle",
+    "saccule",
+    "otolith"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "vestibular",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:vestibular"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-solitary-rostral",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 115,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/22, lecture-7/23, lecture-8/22"
+  },
+  "pathway": "solitary",
+  "step": "rostral",
+  "prompt": "What does the rostral solitary nucleus receive, and from which cranial nerves?",
+  "answer": "Taste, from CN VII, IX and X",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "taste",
+    "gustat"
+   ],
+   [
+    "vii",
+    "ix",
+    "x",
+    "7",
+    "9",
+    "10",
+    "facial"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "solitary",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-solitary-rostral-output",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 116,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/23"
+  },
+  "pathway": "solitary",
+  "step": "rostral-output",
+  "prompt": "Which brainstem nuclei carry the outputs of the taste-driven reflexes of the rostral solitary nucleus?",
+  "answer": "Superior salivatory nucleus (VII) and inferior salivatory nucleus (IX) for salivation; dorsal motor nucleus of the vagus for early digestion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "salivatory"
+   ],
+   [
+    "dorsal motor",
+    "dmx",
+    "dmv",
+    "vagus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "solitary",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-solitary-caudal",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 117,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/24, lecture-8/22"
+  },
+  "pathway": "solitary",
+  "step": "caudal",
+  "prompt": "What does the caudal solitary nucleus receive?",
+  "answer": "Baroreceptor and chemoreceptor input (CN IX, X) and GI stretch receptors (CN X): cardiovascular, respiratory and digestive feedback",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "baroreceptor",
+    "chemoreceptor",
+    "visceral",
+    "cardiovascular",
+    "gi",
+    "digestive",
+    "respirat"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "solitary",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-solitary-caudal-output",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 118,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/24"
+  },
+  "pathway": "solitary",
+  "step": "caudal-output",
+  "prompt": "Which outputs does the caudal solitary nucleus use to answer visceral sensations?",
+  "answer": "Parasympathetic: dorsal motor nucleus of the vagus and nucleus ambiguus; sympathetic: lateral horn T1-L2",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal motor",
+    "dmx",
+    "ambiguus",
+    "vagus"
+   ],
+   [
+    "lateral horn",
+    "sympathetic",
+    "t1"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "solitary",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:autonomic"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-respiratory-diaphragm",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 119,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/25"
+  },
+  "pathway": "respiratory",
+  "step": "diaphragm",
+  "prompt": "Motor neurons of which spinal levels control the diaphragm, and what follows a cord injury above them?",
+  "answer": "C3-C5 (C3-4-5 keeps the diaphragm alive); the brainstem can no longer regulate breathing",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "c3"
+   ],
+   [
+    "c5",
+    "c3-c5",
+    "c3-5",
+    "c3, 4, 5"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "respiratory",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-neuromodulatory-raphe-lc",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 120,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/21"
+  },
+  "pathway": "neuromodulatory",
+  "step": "raphe-lc",
+  "prompt": "Which brainstem nuclei release serotonin and norepinephrine diffusely to the forebrain, and what are they linked to?",
+  "answer": "Raphe nuclei: serotonin (mood, anxiety, pain modulation, sleep-wake); locus coeruleus: norepinephrine (arousal, attention, stress)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "raphe"
+   ],
+   [
+    "locus coeruleus",
+    "locus ceruleus",
+    "coeruleus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "neuromodulatory",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-neuromodulatory-aras",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 121,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-7/27"
+  },
+  "pathway": "neuromodulatory",
+  "step": "aras",
+  "prompt": "Which system underlies arousal and wakefulness, and what does damage to it cause?",
+  "answer": "Ascending reticular activating system (ARAS); damage leads to coma",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "reticular activating",
+    "aras"
+   ],
+   [
+    "coma"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "neuromodulatory",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-lcst-pyramid-damage",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 122,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14/5 (slide notes)"
+  },
+  "pathway": "lcst",
+  "step": "pyramid-damage",
+  "prompt": "If the pyramids are damaged, which movements are lost and which are preserved?",
+  "answer": "Fine distal movements (e.g. fingers) are lost; gross body movements are preserved through brainstem upper motor neurons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "distal",
+    "finger",
+    "fine"
+   ],
+   [
+    "gross",
+    "preserved",
+    "spared",
+    "brainstem"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "lcst",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u2-corticobulbar-levels",
+  "kind": "pathway",
+  "topic": "pathways-u2",
+  "status": "draft",
+  "position": 123,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10/13, lecture-10/14"
+  },
+  "pathway": "corticobulbar",
+  "step": "levels",
+  "prompt": "Give one example of where corticobulbar fibres terminate in each of the midbrain, pons and medulla.",
+  "answer": "Midbrain: red nucleus / reticular formation; pons: facial nucleus / reticular formation; medulla: hypoglossal nucleus, nucleus ambiguus / reticular formation",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "red nucleus",
+    "reticular"
+   ],
+   [
+    "facial",
+    "trigeminal"
+   ],
+   [
+    "hypoglossal",
+    "ambiguus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "corticobulbar",
+   "unit:u2",
+   "kind:pathway",
+   "source:lecture",
+   "region:brainstem",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
  }
 ]

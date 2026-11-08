@@ -567,7 +567,7 @@
   "pathway": "dcml",
   "step": "capsule",
   "prompt": "Third-order DCML axons travel from thalamus to cortex through which white-matter structure?",
-  "answer": "Internal capsule (posterior limb)",
+  "answer": "Internal capsule",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1135,7 +1135,7 @@
   "pathway": "alst",
   "step": "lesion-level",
   "prompt": "A lesion of the right anterolateral tract in the cervical cord causes loss of pain/temperature on which side?",
-  "answer": "Left (contralateral), beginning 1-2 segments below the lesion",
+  "answer": "Left (contralateral)",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1383,7 +1383,8 @@
     "c8"
    ],
    [
-    "l2"
+    "l2",
+    "l3"
    ]
   ],
   "tags": [
@@ -1394,7 +1395,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "explain": "Lecture 5 gives C8-L2; the Lab 5 answer key says C8-L3 (both accepted)."
  },
  {
   "slug": "pathways-u1-dsct-funiculus",
@@ -2074,7 +2076,7 @@
   "pathway": "umn-lmn",
   "step": "umn-lesion",
   "prompt": "Damage to upper motor neurons produces which kind of paralysis?",
-  "answer": "Spastic paralysis (hyperreflexia, rigidity)",
+  "answer": "Spastic paralysis (rigidity: agonist and antagonist muscles contract together)",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2204,5 +2206,349 @@
    "region:spinal-cord",
    "modality:motor"
   ]
+ },
+ {
+  "slug": "pathways-u1-stretch-reflex-arc",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 64,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10/9, lecture-6/6"
+  },
+  "pathway": "stretch-reflex",
+  "step": "arc",
+  "prompt": "In the monosynaptic stretch reflex (e.g. the knee jerk, L3/L4), where does the sensory neuron synapse?",
+  "answer": "Directly on the alpha motor neuron in the ventral horn: no interneuron",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "alpha motor",
+    "motor neuron",
+    "ventral horn",
+    "anterior horn"
+   ],
+   [
+    "directly",
+    "no interneuron",
+    "monosynaptic",
+    "without interneuron"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "stretch-reflex",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u1-stretch-reflex-receptor",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 65,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5/7, lecture-5/9"
+  },
+  "pathway": "stretch-reflex",
+  "step": "receptor",
+  "prompt": "Which receptor and fibre type start the stretch reflex?",
+  "answer": "Muscle spindle: Ia (A-alpha) afferent, cell body in the dorsal root ganglion",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "spindle"
+   ],
+   [
+    "ia",
+    "1a",
+    "alpha",
+    "aα"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "stretch-reflex",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u1-stretch-reflex-polysynaptic",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 66,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10/9, lecture-6/6"
+  },
+  "pathway": "stretch-reflex",
+  "step": "polysynaptic",
+  "prompt": "What distinguishes a polysynaptic reflex from a monosynaptic reflex?",
+  "answer": "One or more interneurons (dorsal or ventral horn) between the sensory neuron and the motor neuron",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "interneuron"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "stretch-reflex",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u1-stretch-reflex-arc-parts",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 67,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10/9"
+  },
+  "pathway": "stretch-reflex",
+  "step": "arc-parts",
+  "prompt": "Name the four basic components of a reflex arc.",
+  "answer": "Sensory receptor, sensory neuron (DRG cell), CNS integration (dorsal or ventral horn interneurons), motor neuron",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "receptor"
+   ],
+   [
+    "sensory neuron",
+    "drg",
+    "dorsal root"
+   ],
+   [
+    "integration",
+    "interneuron",
+    "cns"
+   ],
+   [
+    "motor neuron"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "stretch-reflex",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u1-withdrawal-reflex-type",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 68,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-10/9, lecture-5/8"
+  },
+  "pathway": "withdrawal-reflex",
+  "step": "type",
+  "prompt": "Is the withdrawal reflex (pulling the hand from something hot) monosynaptic or polysynaptic, and what links sensory and motor neuron?",
+  "answer": "Polysynaptic: a skin sensory neuron drives alpha motor neurons through spinal interneurons",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "polysynaptic"
+   ],
+   [
+    "interneuron"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "withdrawal-reflex",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Slides name the withdrawal reflex (lecture 10 objectives, lecture 5 slide 8) and draw a polysynaptic skin reflex (lecture 10 slide 9); the classification is read from that diagram. Confirm."
+ },
+ {
+  "slug": "pathways-u1-withdrawal-reflex-modulation",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 69,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6/6"
+  },
+  "pathway": "withdrawal-reflex",
+  "step": "modulation",
+  "prompt": "Why are polysynaptic reflexes easier to regulate from the brain than monosynaptic ones?",
+  "answer": "Their interneurons can be modulated by descending input from the brain or brainstem",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "interneuron",
+    "descending"
+   ],
+   [
+    "modulat",
+    "regulat",
+    "brain",
+    "brainstem"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "withdrawal-reflex",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u1-umn-lmn-cpg",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 70,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-6/7, lecture-14/3"
+  },
+  "pathway": "umn-lmn",
+  "step": "cpg",
+  "prompt": "What is a central pattern generator?",
+  "answer": "A network of interneurons with intrinsic rhythmic activity in the brainstem or spinal cord that drives patterned movement (walking, breathing)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "interneuron",
+    "network",
+    "circuit"
+   ],
+   [
+    "rhythm",
+    "pattern"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "umn-lmn",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u1-dcml-ml-topography",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 71,
+  "source": {
+   "type": "pathways",
+   "ref": "lab-9/15, lab-9/9, lecture-9/17"
+  },
+  "pathway": "dcml",
+  "step": "ml-topography",
+  "prompt": "By the caudal midbrain, where are the foot fibres within the medial lemniscus compared with the cervical and head fibres?",
+  "answer": "More dorsal (the tract has almost flipped upside down: cervical and head fibres are ventral)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "dorsal"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "dcml",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
+  ],
+  "review_note": "Lab 9 gives the topography at three levels (rostral medulla: feet ventral; caudal pons: lower body lateral; caudal midbrain: foot dorsal). One card tests the midbrain flip."
+ },
+ {
+  "slug": "pathways-u1-alst-brainstem-limbic",
+  "kind": "pathway",
+  "topic": "pathways-u1",
+  "status": "draft",
+  "position": 72,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-5/24"
+  },
+  "pathway": "alst",
+  "step": "brainstem-limbic",
+  "prompt": "Which cortical areas give pain its emotional component after brainstem pain centres relay it to limbic centres?",
+  "answer": "Insula and anterior cingulate cortex",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "insula"
+   ],
+   [
+    "cingulate"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "alst",
+   "unit:u1",
+   "kind:pathway",
+   "source:lecture",
+   "region:spinal-cord",
+   "modality:sensory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
  }
 ]

@@ -1,0 +1,335 @@
+[
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "dcml",
+    "path_or_field": "pathways.dcml.neurons[2].stretches[k=plic].label",
+    "current": "Internal capsule, posterior limb (thalamocortical fibres)",
+    "proposed": "Internal capsule (thalamocortical fibres)",
+    "slide_ref": "lecture-5/17; lecture-5/21; lecture-9/12",
+    "reason": "The slides name only the internal capsule for third-order axons ('Internal capsule!'). 'Posterior limb' is beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "alst",
+    "path_or_field": "pathways.alst.neurons[2].stretches[k=plic].label",
+    "current": "Internal capsule, posterior limb (thalamocortical fibres)",
+    "proposed": "Internal capsule (thalamocortical fibres)",
+    "slide_ref": "lecture-5/17; lecture-5/21; lecture-9/12",
+    "reason": "The slides name only the internal capsule for third-order axons ('Internal capsule!'). 'Posterior limb' is beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "trigeminal-discriminative",
+    "path_or_field": "pathways.trigeminal-discriminative.neurons[2].stretches[k=plic].label",
+    "current": "Internal capsule, posterior limb (thalamocortical fibres)",
+    "proposed": "Internal capsule (thalamocortical fibres)",
+    "slide_ref": "lecture-5/17; lecture-5/21; lecture-9/12",
+    "reason": "The slides name only the internal capsule for third-order axons ('Internal capsule!'). 'Posterior limb' is beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "trigeminal-pain",
+    "path_or_field": "pathways.trigeminal-pain.neurons[2].stretches[k=plic].label",
+    "current": "Internal capsule, posterior limb (thalamocortical fibres)",
+    "proposed": "Internal capsule (thalamocortical fibres)",
+    "slide_ref": "lecture-5/17; lecture-5/21; lecture-9/12",
+    "reason": "The slides name only the internal capsule for third-order axons ('Internal capsule!'). 'Posterior limb' is beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "lcst",
+    "path_or_field": "pathways.lcst.neurons[0].stretches[k=cap].label",
+    "current": "Corona radiata and internal capsule (posterior limb)",
+    "proposed": "Corona radiata and internal capsule (anterior limb and genu, per lecture 10)",
+    "slide_ref": "lecture-10/12; lecture-14/4",
+    "reason": "Lecture 10 says the cortical efferents run in the anterior limb and genu, which contradicts the app. Owner question OQ2: many textbooks say genu and posterior limb; lecture 18 slide 26 puts the posterior limb with the PCA and lecture 16 slide 25 puts the anterior limb with the lenticulostriate (MCA) supply. Apply only after the owner decides; at minimum drop the unsupported word 'posterior'."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "lcst",
+    "path_or_field": "pathways.lcst.neurons[0].stretches[k=dec].region",
+    "current": "both arms (crossing arm fibres), a rare 'cruciate' pattern",
+    "proposed": "(remove) or: the lesion catches fibres as they cross; both sides involved",
+    "slide_ref": "lecture-10/14; lab-10/19",
+    "reason": "The 'cruciate' paralysis pattern is not in the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "alst",
+    "path_or_field": "pathways.alst.neurons[0].stretches[k=root].region",
+    "current": "one or two segments at the level of the lesion, on the same side (a dermatomal band)",
+    "proposed": "the segments at the level of the lesion, on the same side (a dermatomal band)",
+    "slide_ref": "lecture-5/21; lecture-5/22",
+    "reason": "The slides say the second-order axons cross by the ventral white commissure; they give no segment count."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "alst",
+    "path_or_field": "pathways.alst.neurons[1].stretches[k=tract].region.T",
+    "current": "the contralateral trunk and leg, starting one or two segments below the lesion",
+    "proposed": "the contralateral trunk and leg, below the lesion",
+    "slide_ref": "lecture-5/21",
+    "reason": "'One or two segments below' is not in the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "corticobulbar",
+    "path_or_field": "pathways.corticobulbar.loss",
+    "current": "voluntary movement of the lower face and tongue (upper face is spared)",
+    "proposed": "voluntary movement of the face, jaw, tongue and throat on the side opposite a lesion above the nuclei",
+    "slide_ref": "lab-10/2; lecture-10/11",
+    "reason": "Upper-face sparing from bilateral corticobulbar input is not taught in the slides (practice exam u2 Q9 tests only the LMN facial palsy). Owner question OQ6."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "corticobulbar",
+    "path_or_field": "pathways.corticobulbar.neurons[0].stretches[k=m1].region and [k=genu].region",
+    "current": "the lower face of the opposite side (the forehead is spared) / the lower face and tongue of the opposite side (the forehead is spared: bilateral input)",
+    "proposed": "the face and tongue of the opposite side",
+    "slide_ref": "lab-10/2; lecture-10/12",
+    "reason": "Same reason: forehead sparing is beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "corticobulbar",
+    "path_or_field": "pathways.corticobulbar.neurons[0].stretches[k=ped].label",
+    "current": "Cerebral peduncle (medial part)",
+    "proposed": "Cerebral peduncle",
+    "slide_ref": "lecture-10/13",
+    "reason": "'Medial part' is not in the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "rubrospinal",
+    "path_or_field": "pathways.rubrospinal.neurons[0].stretches[k=rn].label and marks[kind=dec].text",
+    "current": "Red nucleus, ventral tegmental decussation / DECUSSATION: ventral tegmental decussation (midbrain)",
+    "proposed": "Red nucleus; axons cross to the contralateral side / Crosses (contralateral upper limb)",
+    "slide_ref": "lecture-10/19; lecture-14/19",
+    "reason": "The slides say the tract projects to the contralateral upper limb; they never name a ventral tegmental decussation."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "tectospinal",
+    "path_or_field": "pathways.tectospinal.neurons[0].stretches[k=tec].label and marks[kind=dec].text",
+    "current": "Tectum, dorsal tegmental decussation / DECUSSATION: dorsal tegmental decussation (midbrain)",
+    "proposed": "Tectum (superior and inferior colliculi) / remove the decussation mark (slides silent on crossing)",
+    "slide_ref": "lecture-10/21",
+    "reason": "No decussation is named or implied for the tectospinal tract in the slides. The stretch phys would change from 'cross'; the map owner decides how to show 'not stated'."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "reticulospinal",
+    "path_or_field": "pathways.reticulospinal.neurons[0].stretches[k=rf].label",
+    "current": "Reticular formation (mostly ipsilateral)",
+    "proposed": "Reticular formation (pontine and medullary)",
+    "slide_ref": "lecture-10/22",
+    "reason": "'Mostly ipsilateral' is not in the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "vestibulospinal",
+    "path_or_field": "pathways.vestibulospinal.neurons[0].stretches[k=vn].label",
+    "current": "Vestibular nuclei, then vestibulospinal tracts (mostly ipsilateral)",
+    "proposed": "Vestibular nuclei (medulla), then the vestibulospinal tract",
+    "slide_ref": "lecture-10/23",
+    "reason": "'Mostly ipsilateral' is not in the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "pupillary",
+    "path_or_field": "pathways.pupillary.neurons[0].stretches[k=plr].marks[kind=dec].text",
+    "current": "DECUSSATION: posterior commissure (to both Edinger-Westphal nuclei)",
+    "proposed": "Bilateral input to both Edinger-Westphal nuclei (consensual reflex)",
+    "slide_ref": "lecture-11/7; lecture-12/10",
+    "reason": "The slides say the pretectal nucleus triggers constriction of both pupils; the posterior commissure is not named."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "pupillary",
+    "path_or_field": "pathways.pupillary.neurons[0].stretches[k=plr].label",
+    "current": "Optic nerve, pretectal nucleus, both Edinger-Westphal nuclei, CN III",
+    "proposed": "Optic nerve, pretectal nucleus, both Edinger-Westphal nuclei, CN III to the ciliary ganglion and sphincter pupillae",
+    "slide_ref": "lecture-7/18; lab-11/11",
+    "reason": "Add the ciliary ganglion and sphincter pupillae that the slides name (depth the app lacks)."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "olfactory",
+    "path_or_field": "pathways.olfactory.neurons[1].syn",
+    "current": "Olfactory tubercle, prepiriform cortex, amygdala",
+    "proposed": "Olfactory tubercle and prepiriform cortex; MD thalamus to orbitofrontal cortex; hypothalamus and limbic areas via entorhinal cortex and hippocampus",
+    "slide_ref": "lecture-15/15",
+    "reason": "The slides list olfactory tubercle and prepiriform cortex, MD thalamus, then entorhinal cortex, hippocampus and hypothalamus. The amygdala is not an olfactory target on lecture 15 slide 15."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "olfactory",
+    "path_or_field": "pathways.olfactory.neurons[1].stretches[k=tr].label and marks[kind=syn].text",
+    "current": "Olfactory tract to the olfactory cortex and amygdala (bypasses the thalamus) / Amygdala, piriform cortex",
+    "proposed": "Olfactory tract to the olfactory tubercle and prepiriform cortex (bypasses the thalamus for the first relay) / Prepiriform cortex, olfactory tubercle",
+    "slide_ref": "lecture-15/15",
+    "reason": "Same reason (amygdala). The 3D mark is anchored on 'amygdaloid-body'; re-anchor it on the piriform cortex / uncus region."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "basal-ganglia",
+    "path_or_field": "pathways.basal-ganglia (neurons[1].stretches[k=sp].label and the pathway as a whole)",
+    "current": "Striatum to GPi (direct) or via GPe and STN (indirect)",
+    "proposed": "Add stretches: direct 'go' (striatum inhibits GPi, disinhibits VA/VL thalamus, excites cortex); indirect 'no-go' (striatum inhibits GPe, which disinhibits STN; STN excites GPi); substantia nigra pars compacta to striatum (D1 excites direct, D2 inhibits indirect)",
+    "slide_ref": "lecture-14/23-29",
+    "reason": "Too shallow: the slides teach direct, indirect, STN and SNc dopamine (D1/D2) as the core of this pathway; the map shows only cortex, striatum, GPi, thalamus."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "basal-ganglia",
+    "path_or_field": "pathways.basal-ganglia.region",
+    "current": "the opposite side of the body",
+    "proposed": "(remove, or 'movement')",
+    "slide_ref": "lecture-14/26; lecture-14/31",
+    "reason": "The slides never say which side is affected."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "visual",
+    "path_or_field": "pathways.visual.neurons[0].short and stretches[k=retina].label",
+    "current": "Photoreceptors and bipolar cells (retina) / Retina: photoreceptor, bipolar cell, retinal ganglion cell",
+    "proposed": "Bipolar cell (first-order; rods and cones are the receptors) / Retina: photoreceptor, bipolar cell (1st order), retinal ganglion cell (2nd order)",
+    "slide_ref": "lecture-11/8",
+    "reason": "Lecture 11 slide 8 labels bipolar cells first-order and ganglion cells second-order. Owner question OQ7 (convention)."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=cord-hemi].name and effects",
+    "current": "Hemisection (Brown-Sequard) / At the level of the lesion: a band of all-modality sensory loss and flaccid weakness...",
+    "proposed": "Spinal cord hemisection (rename; drop the eponym, or mark 'beyond the course')",
+    "slide_ref": "lecture-4; lecture-5/17-23; lecture-10/14",
+    "reason": "No slide, lab or exam teaches Brown-Sequard. The deficit pattern follows from the tracts (dorsal column and LCST ipsilateral, anterolateral contralateral) and is fine as an inference."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=cord-central].name and effects",
+    "current": "Central cord lesion (syrinx): anterior white commissure / Dissociated sensory loss ... cape-like band",
+    "proposed": "mark as beyond the slides (syringomyelia and 'cape-like' are not taught); the anterior white commissure crossing is taught",
+    "slide_ref": "lecture-5/21-22",
+    "reason": "Beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=med-lateral].name and effects",
+    "current": "Lateral medullary lesion (Wallenberg, PICA) / Nucleus ambiguus ... Horner syndrome ... Vestibular nuclei: vertigo, nystagmus",
+    "proposed": "mark as beyond the slides: the slides teach the structures (spinal trigeminal nucleus/tract, anterolateral tract, nucleus ambiguus, ICP) but no named syndrome, no PICA territory and no Horner syndrome",
+    "slide_ref": "lecture-16/11; lecture-18-strokes/27",
+    "reason": "Lecture 18 slide 27 only says brainstem strokes give predictable deficits from the affected nuclei and tracts."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=med-medial].name and effects",
+    "current": "Medial medullary lesion (pyramid, medial lemniscus, hypoglossal) / tongue deviates toward the lesion; the face is spared",
+    "proposed": "mark as beyond the slides (named syndrome)",
+    "slide_ref": "lecture-18-strokes/27",
+    "reason": "The deficit pattern is derivable from the tracts; the syndrome name is not taught. Tongue deviation toward the lesion is not on a slide."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=mid-ped].effects",
+    "current": "Weber syndrome: dilated pupil, eye turned down and out, ptosis on the lesion side",
+    "proposed": "mark as beyond the slides (Weber is not taught)",
+    "slide_ref": "lecture-10/13; lab-10/8",
+    "reason": "Oculomotor fascicle effects are in the cranial nerve slides; the syndrome name is not."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=pons-basis-bi].name and effects",
+    "current": "Bilateral basis pontis (locked-in syndrome) / Awake and aware, but quadriplegic ... vertical eye movements and blinking preserved",
+    "proposed": "mark as beyond the slides (locked-in is not taught)",
+    "slide_ref": "lecture-10/12-13",
+    "reason": "Beyond the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=vis-v1].effects",
+    "current": "Macular (central) sparing is typical of a posterior cerebral artery stroke (dual blood supply of the occipital pole).",
+    "proposed": "Macular sparing may or may not accompany a hemianopia from V1 damage.",
+    "slide_ref": "lecture-11/20",
+    "reason": "The slides say 'with or without macular sparing'; the dual-supply explanation is beyond them."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=cb-hemi].effects",
+    "current": "Ipsilateral intention tremor, dysmetria, dysdiadochokinesia and a wide-based gait: the cerebellum acts on the same side because its output crosses once and the descending tract crosses back.",
+    "proposed": "Ipsilateral ataxia (lack of coordination): each cerebellar hemisphere influences the ipsilateral body because of double crossing.",
+    "slide_ref": "lecture-14/11; lecture-14/6; lab-10/9",
+    "reason": "Intention tremor, dysmetria, dysdiadochokinesia and wide-based gait are not named in the slides (only 'ataxia' and 'lack of coordination')."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=bg-sn].effects",
+    "current": "Parkinsonism: resting tremor, rigidity, bradykinesia, shuffling gait ... Usually bilateral, asymmetric.",
+    "proposed": "Hypokinesia and bradykinesia (too little, slow movement; trouble starting or stopping movement and starting gait); a resting tremor is a component but is not easily explained by the basal ganglia circuits (dopamine from the substantia nigra is lost, so the direct pathway is under-driven).",
+    "slide_ref": "lecture-14/28; lecture-14/31",
+    "reason": "'Rigidity', 'shuffling gait' and 'usually bilateral, asymmetric' are not in the slides."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=bg-stn].effects",
+    "current": "Hemiballismus: sudden, violent flinging movements of the opposite arm and leg (loss of the indirect pathway's drive on GPi).",
+    "proposed": "Ballismus: involuntary, violent arm movements (loss of the STN's dampening of the basic circuit; hyperkinesia).",
+    "slide_ref": "lecture-14/26",
+    "reason": "The slides give ballismus, involuntary violent arm movements; 'hemi', 'opposite' and 'arm and leg' are beyond them."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=bg-str].effects",
+    "current": "Huntington disease: chorea and dementia (loss of striatal output neurons, GABAergic, so the indirect pathway is lost).",
+    "proposed": "Huntington disease: chorea and dementia (striatal degeneration, early loss of indirect 'no-go' neurons, so the direct 'go' pathway is over-active).",
+    "slide_ref": "lecture-14/30",
+    "reason": "'GABAergic' is not on the slide."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "(sites)",
+    "path_or_field": "sites[id=ic-plic], sites[id=ic-genu], sites[id=ic-whole] (names and zones)",
+    "current": "Posterior limb of the internal capsule / Genu of the internal capsule / Internal capsule (genu and posterior limb), e.g. a capsular stroke",
+    "proposed": "Add an 'anterior limb' site (where lecture 10 puts corticospinal and corticobulbar fibres); decide the posterior-limb wording with the owner",
+    "slide_ref": "lecture-10/12; lecture-16/25; lecture-18-strokes/26",
+    "reason": "Owner question OQ2."
+  },
+  {
+    "file": "src/data/pathway-map.json",
+    "pathway": "cases",
+    "path_or_field": "cases{} for clinical-u1-cord-brown-sequard, clinical-u2-brainstem-medial-medullary, -lateral-medullary, -weber, -locked-in, clinical-u2-cn-cn7-umn, clinical-u2-visual-gaze-palsy",
+    "current": "these cases are mapped to sites in the lesion lab (the cards themselves are 'draft')",
+    "proposed": "keep the cases only while the sites are labelled 'beyond the course'",
+    "slide_ref": "lecture-18-strokes/27",
+    "reason": "The draft clinical cards for these syndromes are not served in study, but the lesion lab would show them. Make the two consistent."
+  },
+  {
+    "file": "src/lib/atlas/pathways.ts",
+    "pathway": "(engine)",
+    "path_or_field": "why() and generatedFindings() read pathways.json 'decussation'",
+    "current": "uses the pathways.json 'decussation' text inside 'By this level the pathway has already crossed (...)'",
+    "proposed": "No code change. pathways.json now reads 'Not stated in the slides' for tectospinal, reticulospinal and vestibulospinal, and a neutral line for rubrospinal and pupillary; check that the sentence still reads well.",
+    "slide_ref": "n/a",
+    "reason": "Side effect of the pathways.json edits made in the audit."
+  },
+  {
+    "file": "src/components/atlas/pathways/LesionLab.tsx",
+    "pathway": "(all)",
+    "path_or_field": "whole file",
+    "current": "no deficit wording of its own: all text comes from pathway-map.json and src/lib/atlas/pathways.ts",
+    "proposed": "no change",
+    "slide_ref": "n/a",
+    "reason": "The lesion logic (ipsilateral until the decussation named in each pathway, contralateral after; crossing stretches only hit by midline lesions) is consistent with the slides. The slide-vs-app issues are in the data above."
+  }
+]

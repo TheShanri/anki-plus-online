@@ -8,7 +8,7 @@
    {
     "order": 1,
     "cell_body": "dorsal root ganglion (pseudounipolar)",
-    "tract": "fasciculus gracilis (legs, below T6) / fasciculus cuneatus (arms, above T6), dorsal funiculus",
+    "tract": "fasciculus gracilis (legs, below T6; sacral fibres most medial) / fasciculus cuneatus (arms, above T6; cervical fibres lateral), dorsal funiculus; enter by the medial DREZ",
     "synapse": "gracile / cuneate nucleus, ipsilateral",
     "level": "cord to caudal medulla",
     "decussates": false
@@ -16,7 +16,7 @@
    {
     "order": 2,
     "cell_body": "gracile / cuneate nucleus",
-    "tract": "internal arcuate fibers then medial lemniscus",
+    "tract": "internal arcuate fibers then medial lemniscus (topography kept; trigeminal lemniscus joins it from the face)",
     "synapse": "contralateral VPL thalamus",
     "level": "caudal medulla",
     "decussates": true
@@ -24,7 +24,7 @@
    {
     "order": 3,
     "cell_body": "VPL nucleus of thalamus",
-    "tract": "internal capsule (posterior limb)",
+    "tract": "internal capsule",
     "synapse": "primary somatosensory cortex BA 3,1,2",
     "level": "thalamus",
     "decussates": false
@@ -59,7 +59,7 @@
    {
     "order": 2,
     "cell_body": "marginal zone nucleus (sharp pain) or nucleus proprius (dull pain)",
-    "tract": "anterior white commissure then contralateral anterolateral tract",
+    "tract": "anterior (ventral) white commissure then contralateral anterolateral tract in the anterior/lateral funiculi; collaterals to brainstem pain centres (reticular formation, periaqueductal grey)",
     "synapse": "contralateral VPL thalamus",
     "level": "spinal cord, near entry level",
     "decussates": true
@@ -75,7 +75,7 @@
   ],
   "decussation": "Spinal cord (anterior white commissure), near the level of entry",
   "lesion": {
-   "below_decussation": "ipsilateral loss only 1-2 segments at the lesion",
+   "below_decussation": "ipsilateral loss limited to the level of the lesion (fibres not yet crossed)",
    "above": "contralateral loss below the lesion"
   },
   "sources": [
@@ -94,7 +94,7 @@
    {
     "order": 1,
     "cell_body": "dorsal root ganglion",
-    "tract": "A-alpha (Ia/Ib) from muscle spindles and Golgi tendon organs",
+    "tract": "A-alpha (Ia/Ib) from muscle spindles and Golgi tendon organs, medial DREZ",
     "synapse": "Clarke's nucleus (C8-L2), ipsilateral",
     "level": "level of entry",
     "decussates": false
@@ -159,7 +159,7 @@
   "neurons": [
    {
     "order": 1,
-    "cell_body": "nuclei of CN III, VII, IX, X or lateral horn S2-S4",
+    "cell_body": "brainstem nuclei (Edinger-Westphal for CN III, superior salivatory for VII, inferior salivatory for IX, dorsal motor nucleus of X) or lateral horn S2-S4",
     "tract": "long preganglionic (ACh)",
     "synapse": "ganglion near or in the target organ",
     "level": "brainstem; S2-S4",
@@ -261,11 +261,11 @@
   "slug": "trigeminal-pain",
   "name": "Trigeminal pain and temperature (face)",
   "unit": "u2",
-  "modality": "Pain, temperature, itch, crude touch from the face (CN V, VII, IX, X)",
+  "modality": "Pain, temperature, itch, crude touch from the head: CN V (face, eye, nasal cavity, oral cavity, meninges), VII (small area near the ear), IX (oropharynx, middle ear), X (laryngopharynx, esophagus below the epiglottis)",
   "neurons": [
    {
     "order": 1,
-    "cell_body": "trigeminal ganglion (and geniculate/glossopharyngeal/vagal ganglia)",
+    "cell_body": "trigeminal ganglion (CN V); CN VII, IX and X afferents also end in the spinal trigeminal nucleus",
     "tract": "spinal trigeminal tract",
     "synapse": "spinal trigeminal nucleus, ipsilateral",
     "level": "pons to caudal medulla",
@@ -375,7 +375,7 @@
     "cell_body": "alpha motor neuron, medial ventral horn",
     "tract": "ventral root",
     "synapse": "axial muscle",
-    "level": "cervical / upper thoracic",
+    "level": "medial ventral horn, both sides (axial / trunk)",
     "decussates": false
    }
   ],
@@ -399,7 +399,7 @@
     "order": 1,
     "cell_body": "layer V neurons, lateral motor cortex",
     "tract": "corona radiata, internal capsule genu, cerebral peduncle",
-    "synapse": "cranial motor nuclei (V, VII, ambiguus, XII)",
+    "synapse": "cranial motor nuclei (V, VII, ambiguus, XII); some fibres end in the red nucleus and reticular formation",
     "level": "axons cross just above each nucleus",
     "decussates": true
    },
@@ -465,13 +465,13 @@
    {
     "order": 1,
     "cell_body": "red nucleus (rostral midbrain)",
-    "tract": "rubrospinal",
-    "synapse": "lower motor neurons in the ventral horn",
+    "tract": "rubrospinal: brainstem tegmentum, then lateral funiculus beside the lateral corticospinal tract",
+    "synapse": "lower motor neurons of the contralateral upper limb (flexion)",
     "level": "brainstem to spinal cord",
     "decussates": true
    }
   ],
-  "decussation": "ventral tegmental decussation (crosses in midbrain)",
+  "decussation": "Crosses to the contralateral side (projects to the contralateral upper limb); the level of crossing is not named in the slides",
   "lesion": {
    "below_decussation": "UMN effects",
    "above": "decorticate/decerebrate posturing"
@@ -490,13 +490,13 @@
    {
     "order": 1,
     "cell_body": "superior and inferior colliculi (tectum)",
-    "tract": "tectospinal",
-    "synapse": "lower motor neurons in the ventral horn",
+    "tract": "tectospinal: brainstem tegmentum, anterior (ventral) funiculus",
+    "synapse": "lower motor neurons at cervical and upper thoracic levels (neck and upper trunk muscles)",
     "level": "brainstem to spinal cord",
     "decussates": true
    }
   ],
-  "decussation": "dorsal tegmental decussation (crosses in midbrain)",
+  "decussation": "Not stated in the slides",
   "lesion": {
    "below_decussation": "UMN effects",
    "above": "decorticate/decerebrate posturing"
@@ -515,13 +515,13 @@
    {
     "order": 1,
     "cell_body": "pontine and medullary reticular formation",
-    "tract": "reticulospinal",
+    "tract": "reticulospinal (pontine and medullary tracts), anterior (ventral) funiculus",
     "synapse": "lower motor neurons in the ventral horn",
     "level": "brainstem to spinal cord",
     "decussates": false
    }
   ],
-  "decussation": "mostly ipsilateral",
+  "decussation": "Not stated in the slides",
   "lesion": {
    "below_decussation": "UMN effects",
    "above": "decorticate/decerebrate posturing"
@@ -540,13 +540,13 @@
    {
     "order": 1,
     "cell_body": "vestibular nuclei (medulla)",
-    "tract": "vestibulospinal",
-    "synapse": "lower motor neurons in the ventral horn",
+    "tract": "vestibulospinal, anterior (ventral) funiculus",
+    "synapse": "lower motor neurons in the ventral horn for axial muscles",
     "level": "brainstem to spinal cord",
     "decussates": false
    }
   ],
-  "decussation": "mostly ipsilateral",
+  "decussation": "Not stated in the slides",
   "lesion": {
    "below_decussation": "UMN effects",
    "above": "decorticate/decerebrate posturing"
@@ -564,7 +564,7 @@
   "neurons": [
    {
     "order": 1,
-    "cell_body": "photoreceptors to bipolar cells (retina)",
+    "cell_body": "bipolar cell (first-order); rods and cones are the receptors",
     "tract": "retina",
     "synapse": "retinal ganglion cells",
     "level": "retina",
@@ -573,7 +573,7 @@
    {
     "order": 2,
     "cell_body": "retinal ganglion cell",
-    "tract": "optic nerve, optic chiasm (nasal fibers cross), optic tract",
+    "tract": "optic nerve, optic chiasm (nasal fibers cross), optic tract; branches also reach the suprachiasmatic nucleus (circadian rhythm) and the superior colliculus / pretectal nucleus (visual reflexes)",
     "synapse": "lateral geniculate nucleus",
     "level": "optic chiasm",
     "decussates": true
@@ -583,14 +583,14 @@
     "cell_body": "lateral geniculate nucleus",
     "tract": "optic radiations",
     "synapse": "primary visual cortex (calcarine, BA 17)",
-    "level": "occipital lobe",
+    "level": "occipital lobe; retinotopic map kept (upper field in inferior V1, lower field in superior V1)",
     "decussates": false
    }
   ],
   "decussation": "Optic chiasm (nasal hemiretina fibers cross)",
   "lesion": {
-   "below_decussation": "monocular blindness (optic nerve)",
-   "above": "contralateral homonymous field loss"
+   "below_decussation": "optic nerve: loss of sight in that eye; optic chiasm: tunnel vision (loss of peripheral vision in each eye)",
+   "above": "optic tract onward: loss of the opposite visual field in both eyes (homonymous); primary visual cortex: hemianopia or quadrantopia, with or without macular sparing"
   },
   "sources": [
    "lecture-11",
@@ -606,13 +606,13 @@
    {
     "order": 1,
     "cell_body": "retinal ganglion cell",
-    "tract": "CN II to pretectal nucleus, bilateral to Edinger-Westphal nuclei",
-    "synapse": "CN III parasympathetic, ciliary ganglion, sphincter pupillae",
+    "tract": "CN II to the pretectal nucleus (near the superior colliculus), then to both Edinger-Westphal nuclei",
+    "synapse": "CN III parasympathetics to the ciliary ganglion, then sphincter pupillae (the same pathway constricts the pupil in accommodation)",
     "level": "midbrain",
     "decussates": true
    }
   ],
-  "decussation": "Posterior commissure",
+  "decussation": "Light in one eye reaches both Edinger-Westphal nuclei (consensual reflex); no named commissure in the slides",
   "lesion": {
    "below_decussation": "afferent defect",
    "above": "efferent defect"
@@ -663,8 +663,8 @@
   ],
   "decussation": "FEF fibers cross to the contralateral PPRF",
   "lesion": {
-   "below_decussation": "MLF lesion: internuclear ophthalmoplegia",
-   "above": "FEF lesion: eyes deviate to the lesion side"
+   "below_decussation": "MLF lesion: disconjugate gaze (the eye on the lesion side cannot adduct on lateral gaze; convergence is intact)",
+   "above": "FEF lesion: eyes deviate to the lesion side (derived from: right FEF drives the eyes left)"
   },
   "sources": [
    "lecture-11",
@@ -697,7 +697,7 @@
     "order": 3,
     "cell_body": "deep cerebellar nuclei (excitatory)",
     "tract": "superior cerebellar peduncle",
-    "synapse": "contralateral red nucleus and VA/VL thalamus",
+    "synapse": "contralateral red nucleus and VA/VL thalamus (then motor cortex); also brainstem UMN groups (vestibular nucleus, reticular formation)",
     "level": "caudal midbrain",
     "decussates": true
    }
@@ -729,7 +729,7 @@
    {
     "order": 2,
     "cell_body": "striatum",
-    "tract": "striatopallidal (direct to GPi; indirect via GPe and STN)",
+    "tract": "striatopallidal: direct 'go' (striatum inhibits GPi, which disinhibits the thalamus) and indirect 'no-go' (striatum inhibits GPe, which disinhibits the STN; STN drives GPi); substantia nigra pars compacta dopamine: D1 excites direct, D2 inhibits indirect",
     "synapse": "GPi",
     "level": "forebrain",
     "decussates": false
@@ -746,7 +746,7 @@
   "decussation": "None",
   "lesion": {
    "below_decussation": "n/a",
-   "above": "hyperkinesia (STN/striatum loss) or hypokinesia (nigral loss)"
+   "above": "hyperkinesia (STN lesion: ballismus; striatal degeneration: Huntington chorea) or hypokinesia (loss of nigral dopamine: Parkinson, bradykinesia)"
   },
   "sources": [
    "lecture-14"
@@ -769,8 +769,8 @@
    {
     "order": 2,
     "cell_body": "mitral cell, olfactory bulb",
-    "tract": "olfactory tract",
-    "synapse": "olfactory tubercle, prepiriform cortex, amygdala; MD thalamus to orbitofrontal cortex",
+    "tract": "olfactory tract (bypasses the thalamus for the first relay)",
+    "synapse": "olfactory tubercle and prepiriform cortex (awareness of smell); MD thalamus to orbitofrontal cortex (discrimination); hypothalamus and limbic areas via entorhinal cortex and hippocampus",
     "level": "base of frontal lobe",
     "decussates": false
    }
@@ -878,6 +878,202 @@
   },
   "sources": [
    "lecture-15"
+  ]
+ },
+ {
+  "slug": "cochlear",
+  "name": "Auditory (cochlear) pathway",
+  "unit": "u2",
+  "modality": "Hearing",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "spiral ganglion (CN VIII, cochlear nerve)",
+    "tract": "cochlear nerve",
+    "synapse": "cochlear nuclei, rostral medulla",
+    "level": "pontomedullary junction / rostral medulla",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "cochlear nuclei",
+    "tract": "relays up the brainstem",
+    "synapse": "inferior colliculus (auditory reflexes: turning to a noise)",
+    "level": "rostral medulla to midbrain",
+    "decussates": false
+   },
+   {
+    "order": 3,
+    "cell_body": "inferior colliculus",
+    "tract": "relays up the brainstem to the thalamus",
+    "synapse": "medial geniculate nucleus of the thalamus",
+    "level": "caudal midbrain",
+    "decussates": false
+   },
+   {
+    "order": 4,
+    "cell_body": "medial geniculate nucleus",
+    "tract": "internal capsule",
+    "synapse": "primary auditory cortex (BA 41, 42, transverse temporal gyrus)",
+    "level": "thalamus",
+    "decussates": false
+   }
+  ],
+  "decussation": "Not taught in the slides (lecture 8: be familiar with the structures, do not memorize the whole pathway)",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-8/19",
+   "lecture-7/6",
+   "lecture-5/20",
+   "lab-3/21"
+  ]
+ },
+ {
+  "slug": "vestibular",
+  "name": "Vestibular pathways",
+  "unit": "u2",
+  "modality": "Head position and acceleration (semicircular canals: rotation; utricle and saccule: gravity, linear acceleration)",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "vestibular ganglion (CN VIII, vestibular nerve)",
+    "tract": "vestibular nerve",
+    "synapse": "vestibular nuclei (and directly the cerebellum)",
+    "level": "caudal pons / rostral medulla",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "vestibular nuclei",
+    "tract": "ascending to thalamus and cortex; ascending MLF to CN III, IV, VI nuclei; descending MLF to the cervical cord; vestibulospinal tract",
+    "synapse": "thalamus (conscious perception of movement); eye-movement nuclei (vestibulo-ocular reflex, eyes move opposite to the head); cervical cord; ventral horn trunk muscles (righting)",
+    "level": "brainstem",
+    "decussates": false
+   }
+  ],
+  "decussation": "Not stated in the slides",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-14/10",
+   "lecture-8/19",
+   "lecture-11/28"
+  ]
+ },
+ {
+  "slug": "stretch-reflex",
+  "name": "Stretch reflex (monosynaptic)",
+  "unit": "u1",
+  "modality": "Muscle length: spindle (Ia) afferent drives the alpha motor neuron, no interneuron (knee jerk, L3/L4)",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "dorsal root ganglion (pseudounipolar, muscle spindle Ia afferent)",
+    "tract": "dorsal root (medial DREZ)",
+    "synapse": "alpha motor neuron in the ventral horn, directly",
+    "level": "spinal segment of entry (knee jerk: L3/L4)",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "alpha motor neuron (ventral horn)",
+    "tract": "ventral root, spinal nerve",
+    "synapse": "skeletal muscle (neuromuscular junction)",
+    "level": "spinal cord",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-10/9",
+   "lecture-6/6",
+   "lecture-5/9"
+  ]
+ },
+ {
+  "slug": "withdrawal-reflex",
+  "name": "Withdrawal reflex (polysynaptic)",
+  "unit": "u1",
+  "modality": "Skin stimulus (e.g. touching something hot) withdraws the limb through spinal interneurons",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "dorsal root ganglion (pseudounipolar, skin receptor)",
+    "tract": "dorsal root",
+    "synapse": "interneuron(s) in the dorsal / ventral horn",
+    "level": "spinal segment of entry",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "interneuron(s)",
+    "tract": "local spinal circuit (open to descending modulation)",
+    "synapse": "alpha motor neuron in the ventral horn",
+    "level": "spinal cord",
+    "decussates": false
+   },
+   {
+    "order": 3,
+    "cell_body": "alpha motor neuron (ventral horn)",
+    "tract": "ventral root, spinal nerve",
+    "synapse": "skeletal muscle",
+    "level": "spinal cord",
+    "decussates": false
+   }
+  ],
+  "decussation": "None",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-10/9",
+   "lecture-6/6",
+   "lecture-5/8"
+  ]
+ },
+ {
+  "slug": "solitary",
+  "name": "Solitary nucleus: taste and visceral reflexes",
+  "unit": "u2",
+  "modality": "Taste (special sensory) and visceral sensation (baroreceptors, chemoreceptors, GI stretch) from CN VII, IX, X",
+  "neurons": [
+   {
+    "order": 1,
+    "cell_body": "peripheral ganglion of CN VII, IX or X (cell bodies outside the brainstem)",
+    "tract": "cranial nerve to the solitary tract",
+    "synapse": "solitary nucleus: rostral part for taste, caudal part for cardiovascular, respiratory and GI input",
+    "level": "rostral medulla",
+    "decussates": false
+   },
+   {
+    "order": 2,
+    "cell_body": "solitary nucleus",
+    "tract": "brainstem-to-brainstem connections",
+    "synapse": "superior and inferior salivatory nuclei, dorsal motor nucleus of the vagus, nucleus ambiguus, lateral horn T1-L2",
+    "level": "medulla",
+    "decussates": false
+   }
+  ],
+  "decussation": "Not stated in the slides",
+  "lesion": {
+   "below_decussation": "n/a",
+   "above": "n/a"
+  },
+  "sources": [
+   "lecture-7/22",
+   "lecture-7/23",
+   "lecture-7/24",
+   "lecture-8/22"
   ]
  }
 ]

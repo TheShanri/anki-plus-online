@@ -1284,7 +1284,7 @@
   "pathway": "olfactory",
   "step": "cortex",
   "prompt": "Name the primary olfactory cortical targets.",
-  "answer": "Olfactory tubercle, prepiriform (piriform) cortex, amygdala",
+  "answer": "Olfactory tubercle and prepiriform (piriform) cortex",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1292,8 +1292,7 @@
    [
     "tubercle",
     "piriform",
-    "prepiriform",
-    "amygdala"
+    "prepiriform"
    ]
   ],
   "tags": [
@@ -1800,7 +1799,8 @@
   "keywords": [
    [
     "ventral tegmental",
-    "vta"
+    "vta",
+    "vtn"
    ]
   ],
   "tags": [
@@ -1864,7 +1864,8 @@
   "format": "keywords",
   "keywords": [
    [
-    "medial forebrain"
+    "medial forebrain",
+    "median forebrain"
    ]
   ],
   "tags": [
@@ -1875,6 +1876,194 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "explain": "Lecture 15 writes 'median forebrain bundle' (the same tract)."
+ },
+ {
+  "slug": "pathways-u3-olfactory-limbic",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "draft",
+  "position": 56,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15/15"
+  },
+  "pathway": "olfactory",
+  "step": "limbic",
+  "prompt": "Through which cortex and structure does olfactory input reach the hypothalamus and limbic areas?",
+  "answer": "Entorhinal cortex and hippocampus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "entorhinal"
+   ],
+   [
+    "hippocampus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "olfactory",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:olfactory"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u3-cerebellar-brainstem-targets",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "draft",
+  "position": 57,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14/13, lecture-10/17"
+  },
+  "pathway": "cerebellar",
+  "step": "brainstem-targets",
+  "prompt": "Besides the red nucleus and thalamus, which brainstem upper motor neuron groups does the cerebellum influence?",
+  "answer": "Vestibular nucleus and reticular formation (vestibulospinal and reticulospinal pathways)",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "vestibular"
+   ],
+   [
+    "reticular"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u3-cerebellar-olive-drive",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "draft",
+  "position": 58,
+  "source": {
+   "type": "pathways",
+   "ref": "lab-10/15"
+  },
+  "pathway": "cerebellar",
+  "step": "olive-drive",
+  "prompt": "Which two structures drive the inferior olivary nucleus?",
+  "answer": "Cortex and red nucleus",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "cortex",
+    "cortical"
+   ],
+   [
+    "red nucleus"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
+ },
+ {
+  "slug": "pathways-u3-cerebellar-double-cross",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "draft",
+  "position": 59,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-14/11, lab-10/9"
+  },
+  "pathway": "cerebellar",
+  "step": "double-cross",
+  "prompt": "Why does each cerebellar hemisphere ultimately influence the ipsilateral body?",
+  "answer": "Double crossing: the cerebellar output crosses at the SCP decussation, and the corticospinal tract crosses again at the pyramids",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "double",
+    "cross",
+    "twice",
+    "decussat"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "cerebellar",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:cerebellum",
+   "modality:motor"
+  ],
+  "review_note": "Lecture 14 slide 11 says 'double-crossing'; the second crossing (pyramidal decussation) is the standard reading and is not spelled out on the slide."
+ },
+ {
+  "slug": "pathways-u3-limbic-fornix-tracts-list",
+  "kind": "pathway",
+  "topic": "pathways-u3",
+  "status": "draft",
+  "position": 60,
+  "source": {
+   "type": "pathways",
+   "ref": "lecture-15/6"
+  },
+  "pathway": "limbic-fornix",
+  "step": "tracts-list",
+  "prompt": "Name four white-matter tracts that interconnect limbic structures.",
+  "answer": "Fornix, stria terminalis, stria medullaris thalami, cingulum",
+  "accept": [],
+  "require_side": false,
+  "format": "keywords",
+  "keywords": [
+   [
+    "fornix"
+   ],
+   [
+    "stria terminalis"
+   ],
+   [
+    "stria medullaris"
+   ],
+   [
+    "cingulum"
+   ]
+  ],
+  "tags": [
+   "pathway",
+   "limbic-fornix",
+   "unit:u3",
+   "kind:pathway",
+   "source:lecture",
+   "region:limbic",
+   "modality:limbic"
+  ],
+  "review_note": "Added by the pathway audit: the slides cited in source.ref teach this and the app had no card. Draft until the owner confirms."
  }
 ]

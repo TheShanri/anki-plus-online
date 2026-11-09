@@ -1750,7 +1750,7 @@ export default function AtlasViewer({
     for (const l of skull.labels) pts.push(new THREE.Vector3(l[0], l[1], l[2]));
     for (const t of skull.tubes) for (const p of t) pts.push(new THREE.Vector3(p[0], p[1], p[2]));
     if (!pts.length) return null;
-    return new THREE.Box3().setFromPoints(pts).expandByScalar(Math.max(skull.radius, 0.012) + 0.012);
+    return new THREE.Box3().setFromPoints(pts).expandByScalar(Math.max(skull.radius, 0.03) + 0.035);
   }, [skull]);
 
   function pickAxis(axis: ClipAxis) {
@@ -2008,8 +2008,20 @@ export default function AtlasViewer({
     camCb.current?.({ view, multi, cut: cutAxisNow ? { axis: cutAxisNow, position: cutPosNow } : null });
   }, [view, multi, cutAxisNow, cutPosNow]);
 
+  // meningeal spaces are shown in a midsagittal cut
+  const shellsKey = skull?.shells ?? "";
+  useEffect(() => {
+    if (!shellsKey) return;
+    const t = window.setTimeout(() => {
+      setMulti(false);
+      setView("midsagittal");
+      setNonce((n) => n + 1);
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [shellsKey]);
+
   // a host request (from the MRI tab): switch view / multi-view once per request number
-  const lastReq = useRef(request?.n ?? 0);
+  const lastReq = useRef(0);
   useEffect(() => {
     if (!request || request.n === lastReq.current) return;
     lastReq.current = request.n;

@@ -1,6 +1,5 @@
-import { opp, physSide, sideName, type MapPathway, type Side, type WP } from "@/lib/atlas/pathways";
-import { EYE_SCALE } from "./eyeScale";
-import type { SceneColors, SceneLayer, SceneLimb, SceneMark, SceneTube, SceneEyes } from "./PathwayScene";
+import { ORDINAL, opp, physSide, type CoursePathway, type MapPathway, type Side, type Stretch, type WP } from "@/lib/atlas/pathways";
+import type { SceneColors, SceneEyes, SceneLayer, SceneLimb, SceneMark, SceneTube, View } from "./PathwayScene";
 import { RECEPTORS, type ReceptorId } from "./receptorInfo";
 import { fieldPalette } from "./visualField";
 
@@ -63,294 +62,292 @@ function at(rel: "i" | "c" | "m", lat: number, dy: number, dz: number, anchor: W
 
 export interface BuildOpts {
   mp: MapPathway;
+  cp: CoursePathway;
   slug: string;
-  cur: number;
-  lastShown: number;
-  summary: boolean;
-  follow: boolean;
-  playing: boolean;
   colors: SceneColors;
-  sideMode: SideMode;
   limbPart: LimbChoice;
-  focusStretch: string;
-  view?: string;
 }
-export interface BuiltScene {
-  layers: SceneLayer[];
+/** One click: a node (where something starts or arrives) or a path (a tract that draws itself between two nodes). */
+export interface Beat {
+  kind: "node" | "path";
+  /** Neuron (0-based) this beat belongs to: the dots under the scene follow it. */
+  neuron: number;
+  /** One short line: the structure for a node, the tract (and a crossing note) for a path. */
+  caption: string;
+  cross?: boolean;
+  info: string;
+  /** Path: which side it runs on relative to the body part (i same, c opposite, cross = crosses). Node: the side of its position. */
+  phys?: "i" | "c" | "cross";
+  rel?: string;
+  /** Points to frame: this beat and the one before. */
+  fit: { wp: WP; body: Side }[];
+  view?: View;
+}
+export interface InfoSpec {
+  kind: "node" | "path";
+  title: string;
+  neuron: number;
+  /** [label, value] pairs from the course data (pathway card, structure info). */
+  lines: [string, string][];
+  ids?: string[];
+  crossing?: string;
+  loss?: string;
+}
+export interface BeatScene {
+  beats: Beat[];
   tubes: SceneTube[];
   marks: SceneMark[];
-  fit: { wp: WP; body: Side }[];
+  layers: SceneLayer[];
   limbs: SceneLimb[];
   eyes?: SceneEyes;
+  infos: Record<string, InfoSpec>;
 }
 
 const SIDES: Side[] = ["L", "R"];
+export const alphaOf = (mode: SideMode, b: Side) => (mode === "both" || mode === b ? 1 : 0.13);
+export const primaryOf = (mode: SideMode): Side => (mode === "both" ? "R" : mode);
+const sameWP = (a: WP, b: WP) => JSON.stringify(a) === JSON.stringify(b);
+const relOf = (w: WP) => String(w[1]);
+type Fit = { wp: WP; body: Side }[];
 
-export function buildPathwayScene(o: BuildOpts): BuiltScene {
-  return o.mp.visual ? buildVisual(o) : buildGeneral(o);
+export function buildBeatScene(o: BuildOpts): BeatScene {
+  return o.mp.visual ? buildVisualBeats(o) : buildGeneralBeats(o);
 }
 
-const alphaOf = (mode: SideMode, b: Side) => (mode === "both" || mode === b ? 1 : 0.13);
-const focused = (mode: SideMode, b: Side) => mode === "both" || mode === b;
-const primaryOf = (mode: SideMode): Side => (mode === "both" ? "R" : mode);
+function startName(slug: string, part: LimbChoice | "face", cfg: OriginCfg): string {
+  if (part === "face") return "Face skin (V1, V2, V3)";
+  if (slug === "stretch-reflex") return "Muscle spindle (Ia afferent)";
+  if (slug === "withdrawal-reflex") return "Skin receptor";
+  const label = part === "hand" ? "Hand" : part === "leg" ? "Leg" : "Foot";
+  if (cfg.skin.length > 1) return `${label}: ${cfg.muscle.length ? "skin and muscle receptors" : "skin receptors"}`;
+  if (cfg.skin.length === 1) return `${label}: ${RECEPTORS[cfg.skin[0]].name.toLowerCase()}`;
+  return `${label}: ${cfg.muscle.map((id) => RECEPTORS[id].name.toLowerCase()).join(", ")}`;
+}
 
-function buildGeneral(o: BuildOpts): BuiltScene {
-  const { mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch } = o;
-  const layers: SceneLayer[] = [];
+function buildGeneralBeats(o: BuildOpts): BeatScene {
+  const { mp, cp, slug, colors, limbPart } = o;
+  const beats: Beat[] = [];
   const tubes: SceneTube[] = [];
   const marks: SceneMark[] = [];
-  const fit: { wp: WP; body: Side }[] = [];
+  const layers: SceneLayer[] = [];
   const limbs: SceneLimb[] = [];
-  const n = mp.neurons.length;
-  const cfg = ORIGINS[slug];
+  const infos: Record<string, InfoSpec> = {};
+  const own: Fit[] = [];
   const sideCol = (s: Side) => (s === "L" ? colors.left : colors.right);
-  let seq = 10;
+  const relColor = (r: string, b: Side) => (r === "i" ? sideCol(b) : r === "c" ? sideCol(opp(b)) : colors.hi);
+  const cfg = ORIGINS[slug];
+  const n = mp.neurons.length;
+  const ord = (i: number) => `${ORDINAL[i + 1] ?? `${i + 1}th`}-order neuron`;
+  const neuronPairs = (i: number): [string, string][] => {
+    const c = cp.neurons[i];
+    if (!c) return [];
+    const out: [string, string][] = [["Neuron", ord(i)], ["Cell body", c.cell_body], ["Tract", c.tract], ["Synapse", c.synapse], ["Level", c.level]];
+    out.push(["Crossing", c.decussates ? `crosses the midline (${cp.decussation})` : "does not cross here"]);
+    return out;
+  };
+  const fitWith = (f: Fit): Fit => [...f, ...(own.length ? own[own.length - 1] : [])];
 
-  const flat = mp.neurons.flatMap((nr, ni) => nr.stretches.map((st) => ({ st, ni })));
-  const firstPath = flat.find((x) => x.st.path && x.st.path.length > 1)?.st.path?.[0];
-  const lastPathStretch = [...flat].reverse().find((x) => x.st.path && x.st.path.length > 1);
-  const lastPoint = lastPathStretch?.st.path?.[lastPathStretch.st.path.length - 1];
-
-  const part: LimbChoice = cfg?.parts ? (cfg.parts.includes(limbPart) ? limbPart : cfg.parts[0]) : "hand";
-  const sensoryOrigin = !!cfg && cfg.kind !== "muscle";
-  const motorTarget = cfg?.kind === "muscle" || !!cfg?.motor;
-
-  for (const b of SIDES) {
-    const al = alphaOf(sideMode, b);
-    const foc = focused(sideMode, b);
-    const primary = b === primaryOf(sideMode);
-    const relColor = (rel: string) => (rel === "i" ? sideCol(b) : rel === "c" ? sideCol(opp(b)) : colors.hi);
-
-    mp.neurons.forEach((nr, ni) => {
-      const visible = ni <= lastShown;
-      const isCur = ni === cur || summary;
-      const inFit = follow && !summary ? ni === cur : true;
-      for (const st of nr.stretches) {
-        if (inFit && (!follow || summary || ni !== cur || !focusStretch || focusStretch === "all" || st.k === focusStretch)) {
-          st.path?.forEach((w) => fit.push({ wp: w, body: b }));
-          st.marks?.forEach((m) => fit.push({ wp: m.p, body: b }));
-        }
-        if (!visible) continue;
+  const addNode = (name: string, wp: WP, neuron: number, lines: [string, string][], extra: Fit = []) => {
+    const bi = beats.length;
+    const key = `n${bi}`;
+    const f: Fit = [...SIDES.map((b) => ({ wp, body: b })), ...extra];
+    beats.push({ kind: "node", neuron, caption: name, info: key, rel: relOf(wp), fit: fitWith(f) });
+    own.push(f);
+    infos[key] = { kind: "node", title: name, neuron, lines };
+    for (const b of SIDES) marks.push({ key: `${key}:${b}`, p: wp, body: b, kind: "node", text: name, color: relColor(relOf(wp), b), beat: bi, info: key });
+    return bi;
+  };
+  const addPath = (st: Stretch, neuron: number, pts: WP[], title: string, lines: [string, string][], extra: Fit = []) => {
+    const bi = beats.length;
+    const key = `p${bi}`;
+    const cross = st.phys === "cross";
+    const f: Fit = [...SIDES.flatMap((b) => pts.map((wp) => ({ wp, body: b }))), ...extra];
+    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: fitWith(f) });
+    own.push(f);
+    infos[key] = { kind: "path", title, neuron, lines, ids: st.ids, crossing: cross ? cp.decussation : undefined, loss: st.loss };
+    for (const b of SIDES) {
+      tubes.push({ key: `${key}:${b}`, pts, body: b, beat: bi, info: key, neuron });
+      if (st.ids?.length) {
         const ps = physSide(st.phys, b);
-        if (st.ids?.length) {
-          layers.push({
-            key: `${b}:${ni}:${st.k}`,
-            ids: st.ids,
-            side: ps ?? "both",
-            color: ps === "L" ? colors.left : ps === "R" ? colors.right : colors.hi,
-            opacity: (isCur ? 0.9 : 0.5) * (st.phys === "cross" ? 1 : al),
-          });
-        }
-        if (st.path && st.path.length > 1) {
-          tubes.push({
-            key: `${slug}:${b}:${ni}:${st.k}`,
-            pts: st.path,
-            body: b,
-            opacity: (isCur ? 1 : 0.55) * al,
-            reveal: 1,
-            pulse: ni === cur && !summary && foc && !playing,
-            width: isCur ? 1 : 0.75,
-            seq: seq++,
-            neuron: ni,
-          });
-        }
-        st.marks?.forEach((m, mi) => {
-          const isDec = m.kind === "dec";
-          const boundary = (slug === "lcst" || slug === "umn-lmn") && m.kind === "syn";
-          if (!isDec && !boundary && !isCur) return;
-          if (isDec ? !primary : !foc) return;
-          const text = boundary ? "UMN | LMN boundary: the upper motor neuron ends on the lower motor neuron in the ventral horn (lamina IX)" : m.text;
-          marks.push({
-            key: `${slug}:${b}:${ni}:${st.k}:${mi}`,
-            p: m.p,
-            body: b,
-            kind: boundary ? "bound" : m.kind,
-            text: sideMode === "both" && !isDec && !boundary ? `${b} · ${text}` : text,
-            color: isDec || boundary ? colors.hi : relColor(String(m.p[1])),
-            prio: isCur || boundary ? 2 : 1,
-          });
-        });
-      }
-    });
-
-    /* ----- where the signal comes from / goes to ----- */
-    if (cfg && firstPath && lastPoint) {
-      const sensoryShown = sensoryOrigin && lastShown >= 0;
-      const motorShown = motorTarget && lastShown >= n - 1;
-      const prom = summary || (sensoryOrigin ? cur === 0 : cur === n - 1);
-      if (sensoryShown) {
-        const a = firstPath;
-        const isFace = cfg.kind === "face";
-        const lat = isFace ? 0 : part === "hand" ? 0.2 : 0.14;
-        const tall = part === "leg" ? 0.72 : 0.2;
-        const dy = isFace ? -0.03 : part === "hand" ? -0.17 : part === "leg" ? -0.45 : -0.4;
-        const dz = isFace ? 0.17 : 0.02;
-        const limbAt = at("i", lat, dy, dz, a);
-        limbs.push({ key: `limb:${b}`, part: isFace ? "face" : part, body: b, skin: [], muscle: [], alpha: al * (prom ? 1 : 0.5), at: limbAt });
-        const contact = isFace ? at("i", 0.03, dy, dz - 0.02, a) : part === "leg" ? at("i", lat, dy + 0.3, dz, a) : limbAt;
-        const mid = isFace ? at("i", 0.03, dy / 2, dz / 2, a) : at("i", lat / 2 + 0.01, dy / 2, dz / 2, a);
-        tubes.push({ key: `${slug}:${b}:nerve`, pts: [contact, mid, a], body: b, opacity: (prom ? 1 : 0.5) * al, reveal: 1, width: 0.9, seq: 0, neuron: 0 });
-        if (cur === 0 || summary) {
-          fit.push({ wp: limbAt, body: b });
-          fit.push({ wp: at("i", lat + 0.08, dy + tall * 0.6, dz, a), body: b }, { wp: at("i", lat + 0.08, dy - tall * 0.6, dz, a), body: b });
-        }
-        if (foc && (cur === 0 || summary)) {
-          const nm = isFace ? "Face (trigeminal divisions)" : part === "hand" ? "Hand" : part === "leg" ? "Leg" : "Foot";
-          marks.push({ key: `lab:${b}:part`, p: at("i", lat, dy - (isFace ? 0.1 : 0.075), dz, a), body: b, kind: "recept", text: `${sideName(b)} ${nm.toLowerCase()}`, color: sideCol(b), prio: 1, dir: 0 });
-          if (cfg.muscle.includes("spindle") && part === "leg") {
-            marks.push({ key: `lab:${b}:spindle`, p: at("i", lat, dy + 0.14, dz + 0.06, a), body: b, kind: "recept", text: "Muscle spindle (Ia afferent)", color: RECEPTORS.spindle.color, prio: 2 });
-          }
-          if (isFace) {
-            ZONE_NAMES.forEach((zn, zi) =>
-              marks.push({ key: `lab:${b}:z${zi}`, p: at("i", 0.03, dy + 0.045 - zi * 0.045, dz + 0.06, a), body: b, kind: "recept", text: zn, color: sideCol(b), prio: 2 }),
-            );
-          }
-        }
-      }
-      if (motorShown) {
-        const a = lastPoint;
-        const lat = 0.17;
-        const dy = -0.09;
-        const dz = 0.03;
-        const muscleAt = at("i", lat, dy, dz, a);
-        limbs.push({ key: `limb:${b}`, part: "muscle", body: b, skin: [], muscle: [], motor: true, alpha: al * (prom ? 1 : 0.5), at: muscleAt });
-        tubes.push({ key: `${slug}:${b}:motor-nerve`, pts: [a, at("i", lat / 2, dy / 2, dz / 2, a), at("i", lat - 0.05, dy, dz, a)], body: b, opacity: (prom ? 1 : 0.5) * al, reveal: 1, width: 0.9, seq: 999, neuron: n - 1 });
-        if (cur === n - 1 || summary) {
-          fit.push({ wp: muscleAt, body: b }, { wp: at("i", lat + 0.12, dy + 0.06, dz, a), body: b }, { wp: at("i", lat + 0.12, dy - 0.06, dz, a), body: b });
-        }
-        if (foc && (cur === n - 1 || summary)) marks.push({ key: `lab:${b}:muscle`, p: at("i", lat, dy - 0.05, dz, a), body: b, kind: "recept", text: "Limb skeletal muscle", color: sideCol(b), prio: 2, dir: 0 });
+        if (ps || b === "R") layers.push({ key: `${key}:${b}`, ids: st.ids, side: ps ?? "both", color: ps === "L" ? colors.left : ps === "R" ? colors.right : colors.hi, opacity: 0.9, beat: bi });
       }
     }
-  }
-  return { layers: dedupeLayers(layers), tubes, marks, fit, limbs };
-}
+    st.marks?.filter((m) => m.kind === "dec").forEach((m, mi) => marks.push({ key: `${key}:dec${mi}`, p: m.p, body: "R", kind: "dec", text: m.text, color: colors.hi, beat: bi, info: key }));
+    return bi;
+  };
 
-function dedupeLayers(l: SceneLayer[]): SceneLayer[] {
-  const seen = new Set<string>();
-  return l.filter((x) => {
-    const k = `${x.ids.join(",")}|${x.side}|${x.color}`;
-    if (x.side === "both" && seen.has(k)) return false;
-    seen.add(k);
-    return true;
+  const flat = mp.neurons.flatMap((nr, ni) => nr.stretches.filter((s) => s.path && s.path.length > 1).map((st) => ({ st, ni })));
+  const firstWP = flat[0]?.st.path?.[0];
+  const sensory = !!cfg && cfg.kind !== "muscle";
+  const motor = cfg?.kind === "muscle" || !!cfg?.motor;
+  const part: LimbChoice = cfg?.parts ? (cfg.parts.includes(limbPart) ? limbPart : cfg.parts[0]) : "hand";
+  let prevEnd: WP | null = null;
+
+  // where the signal comes from: the body part, then the peripheral nerve to the dorsal root ganglion (or ganglion)
+  if (sensory && firstWP && cfg) {
+    const isFace = cfg.kind === "face";
+    const lat = isFace ? 0 : part === "hand" ? 0.2 : 0.14;
+    const dy = isFace ? -0.03 : part === "hand" ? -0.17 : part === "leg" ? -0.45 : -0.4;
+    const dz = isFace ? 0.17 : 0.02;
+    const tall = part === "leg" ? 0.72 : 0.2;
+    const limbAt = at("i", lat, dy, dz, firstWP);
+    const contact = isFace ? at("i", 0.03, dy, dz - 0.02, firstWP) : part === "leg" ? at("i", lat, dy + 0.3, dz, firstWP) : limbAt;
+    const mid = isFace ? at("i", 0.03, dy / 2, dz / 2, firstWP) : at("i", lat / 2 + 0.01, dy / 2, dz / 2, firstWP);
+    const extra: Fit = SIDES.flatMap((b) =>
+      isFace
+        ? [{ wp: at("i", 0.1, dy + 0.11, dz, firstWP), body: b }, { wp: at("i", 0.1, dy - 0.11, dz, firstWP), body: b }]
+        : [{ wp: at("i", lat + 0.08, dy + tall * 0.6, dz, firstWP), body: b }, { wp: at("i", lat + 0.08, dy - tall * 0.6, dz, firstWP), body: b }],
+    );
+    const recLines: [string, string][] = [...cfg.skin, ...cfg.muscle].map((id) => [RECEPTORS[id].name, RECEPTORS[id].senses ?? "named in the course"]);
+    if (isFace) ZONE_NAMES.forEach((z) => recLines.push([z, "division of the trigeminal nerve"]));
+    addNode(startName(slug, isFace ? "face" : part, cfg), contact, 0, recLines.length ? recLines : [["Origin", cfg.source]], extra);
+    addPath({ k: "nerve", label: "Peripheral nerve", phys: "i", path: [contact, mid, firstWP] }, 0, [contact, mid, firstWP], "Peripheral nerve to the ganglion", [["Neuron", ord(0)], ["Tract", cp.neurons[0]?.tract ?? ""]]);
+    addNode(mp.neurons[0].short, firstWP, 0, neuronPairs(0));
+    prevEnd = firstWP;
+    for (const b of SIDES) limbs.push({ key: `limb:${b}`, part: isFace ? "face" : part, body: b, skin: [], muscle: [], alpha: 1, at: limbAt, from: 0, to: 2 });
+  }
+
+  mp.neurons.forEach((nr, ni) => {
+    const sts = nr.stretches.filter((s) => s.path && s.path.length > 1);
+    if (!prevEnd && sts[0]?.path) {
+      prevEnd = sts[0].path[0];
+      addNode(nr.short, prevEnd, ni, neuronPairs(ni));
+    }
+    for (const st of sts) {
+      let pts = st.path!;
+      if (prevEnd && !sameWP(prevEnd, pts[0])) pts = [prevEnd, ...pts];
+      addPath(st, ni, pts, st.label, [["Neuron", ord(ni)], ["Tract", cp.neurons[ni]?.tract ?? st.label], ["Level", cp.neurons[ni]?.level ?? ""]]);
+      prevEnd = pts[pts.length - 1];
+    }
+    if (!prevEnd) return;
+    if (ni < n - 1) addNode(mp.neurons[ni + 1].short, prevEnd, ni + 1, neuronPairs(ni + 1));
+    else if (!motor) addNode(nr.syn ?? cp.neurons[ni]?.synapse ?? "End of the pathway", prevEnd, ni, [["End of the pathway", cp.neurons[ni]?.synapse ?? ""], ["Neuron", ord(ni)]]);
   });
+
+  // where the signal goes: the nerve to the muscle
+  if (motor && prevEnd) {
+    const lat = 0.17;
+    const dy = -0.09;
+    const dz = 0.03;
+    const muscleAt = at("i", lat, dy, dz, prevEnd);
+    const mid = at("i", lat / 2, dy / 2, dz / 2, prevEnd);
+    const target = at("i", lat - 0.05, dy, dz, prevEnd);
+    const nb = beats.length;
+    const extra: Fit = SIDES.flatMap((b) => [{ wp: at("i", lat + 0.12, dy + 0.06, dz, prevEnd!), body: b }, { wp: at("i", lat + 0.12, dy - 0.06, dz, prevEnd!), body: b }]);
+    addPath({ k: "motor-nerve", label: "Peripheral nerve to the muscle", phys: "i", path: [prevEnd, mid, target] }, n - 1, [prevEnd, mid, target], "Peripheral nerve to the muscle", [["Neuron", ord(n - 1)], ["Ends on", "skeletal muscle"]], extra);
+    addNode(slug === "lcst" || slug === "umn-lmn" ? "Limb skeletal muscle" : "Skeletal muscle", target, n - 1, [["End of the pathway", cp.neurons[n - 1]?.synapse ?? "skeletal muscle"]]);
+    for (const b of SIDES) limbs.push({ key: `muscle:${b}`, part: "muscle", body: b, skin: [], muscle: [], motor: true, alpha: 1, at: muscleAt, from: nb - 1, to: beats.length });
+  }
+  return { beats, tubes, marks, layers, limbs, infos };
 }
 
 /* ------------------------------------------------------------------------------------------------------------
  * Visual pathway: colour = the visual field (left field one colour, right field the other; upper lighter, lower darker)
- * from retina to V1, line style = which side of the head the fibres are on.
- * `body` here is the side of the visual field.
+ * from retina to V1, line style = which side of the head the fibres are on. `body` is the side of the visual field.
+ * Beats: retina, optic nerves, chiasm, tract, LGN, optic radiations, V1.
  * ---------------------------------------------------------------------------------------------------------- */
-function buildVisual(o: BuildOpts): BuiltScene {
-  const { mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, view } = o;
-  // the V1 labels follow one field; from a side view the near hemisphere would hide the far one, so it is dimmed
-  const labField: Side = sideMode === "both" ? "L" : sideMode;
-  const layers: SceneLayer[] = [];
+function buildVisualBeats(o: BuildOpts): BeatScene {
+  const { mp, cp, slug, colors } = o;
+  void slug;
+  const beats: Beat[] = [];
   const tubes: SceneTube[] = [];
   const marks: SceneMark[] = [];
-  const fit: { wp: WP; body: Side }[] = [];
+  const layers: SceneLayer[] = [];
+  const infos: Record<string, InfoSpec> = {};
   const pal = fieldPalette(colors.left, colors.right);
   const fieldCol = (f: Side) => (f === "L" ? colors.left : colors.right);
-  const nerveWP = (rel: "i" | "c", t: number): WP => ["optic-nerve-ii", rel, t, 0, 0, 0, "z"] as WP;
-  let seq = 10;
+  const eyeWP = (): WP => ["optic-nerve-ii", "i", 1, 0, 0, 0, "z"] as WP;
+  const nerve = mp.neurons[1].stretches;
+  const get = (k: string) => nerve.find((s) => s.k === k);
+  const own: Fit[] = [];
+  const fitWith = (f: Fit): Fit => [...f, ...(own.length ? own[own.length - 1] : [])];
+  const sideFit = (wps: WP[]): Fit => SIDES.flatMap((b) => wps.map((wp) => ({ wp, body: b })));
+  const course = (title: string, neuron: number, lines: [string, string][], extra?: Partial<InfoSpec>): InfoSpec => ({ kind: "node", title, neuron, lines, ...extra });
 
+  const beat = (b: Beat, f: Fit, info: InfoSpec) => {
+    beats.push({ ...b, info: `b${beats.length}`, fit: fitWith(f) });
+    own.push(f);
+    infos[`b${beats.length - 1}`] = info;
+    return beats.length - 1;
+  };
+
+  // 0 retina
+  const b0 = beat({ kind: "node", neuron: 0, caption: "Retina: nasal and temporal halves of each eye", info: "", fit: [], view: "anterior", rel: "i" }, [
+    { wp: ["optic-nerve-ii", "i", 1, 0.03, 0.03, 0.03, "z"] as WP, body: "L" },
+    { wp: ["optic-nerve-ii", "i", 1, -0.03, -0.03, 0.03, "z"] as WP, body: "R" },
+    { wp: ["optic-nerve-ii", "i", 1, 0.03, -0.03, 0.0, "z"] as WP, body: "L" },
+    { wp: ["optic-nerve-ii", "i", 1, -0.03, 0.03, 0.0, "z"] as WP, body: "R" },
+  ], course("Retina", 0, [["Neuron", "1st-order neuron"], ["Cell body", cp.neurons[0].cell_body], ["Receptors", "rods and cones"], ["Synapse", cp.neurons[0].synapse], ["Halves", "each retina has a nasal and a temporal half; the left half of the visual field falls on the right half of each retina"]]));
+  for (const e of SIDES) marks.push({ key: `ret:${e}`, p: eyeWP(), body: e, kind: "node", text: `${e === "L" ? "Left" : "Right"} retina`, color: fieldCol(e), beat: b0, info: "b0", dir: 0 });
+
+  const fieldTubes = (key: string, st: Stretch | undefined, bi: number, chains?: string[]) => {
+    if (!st?.path) return;
+    void chains;
+    for (const f of SIDES) tubes.push({ key: `${key}:${f}`, pts: st.path, body: f, color: fieldCol(f), beat: bi, info: `b${bi}`, neuron: bi < 4 ? 1 : 2 });
+  };
+  const idLayer = (key: string, ids: string[] | undefined, bi: number, phys: "i" | "c" | "cross") => {
+    if (!ids?.length) return;
+    for (const f of SIDES) layers.push({ key: `${key}:${f}`, ids, side: physSide(phys, f) ?? "both", color: fieldCol(f), opacity: 0.8, beat: bi });
+  };
+
+  // 1 optic nerves
+  const n1 = get("nerve");
+  const n2 = get("nerve2");
+  const b1 = beat({ kind: "path", neuron: 1, caption: "Optic nerves (retinal ganglion cell axons)", info: "", fit: [], view: "top", phys: "i" }, sideFit([...(n1?.path ?? []), ...(n2?.path ?? [])]), { ...course("Optic nerves", 1, [["Neuron", "2nd-order neuron: retinal ganglion cell"], ["Tract", cp.neurons[1].tract], ["Course", "nasal fibres of the eye on the field's side, temporal fibres of the other eye"]]), kind: "path" });
+  fieldTubes("nerve", n1, b1);
+  fieldTubes("nerve2", n2, b1);
+  idLayer("nerve", n1?.ids, b1, "i");
+
+  // 2 chiasm
+  const ch = get("chiasm");
+  const b2 = beat({ kind: "path", neuron: 1, caption: "Optic chiasm: nasal fibres cross, temporal fibres stay", cross: true, info: "", fit: [], view: "top", phys: "cross" }, sideFit(ch?.path ?? []), { ...course("Optic chiasm", 1, [["Fibres", "nasal retinal fibres cross to the opposite optic tract; temporal fibres stay on the same side"], ["Crossing", cp.decussation]], { crossing: cp.decussation, loss: "bitemporal hemianopia" }), kind: "path" });
+  fieldTubes("chiasm", ch, b2);
+  idLayer("chiasm", ch?.ids, b2, "cross");
+  marks.push({ key: "dec:chiasm", p: ["optic-chiasm", "m", 0.5] as WP, body: "R", kind: "dec", text: "OPTIC CHIASM: nasal fibres cross, temporal fibres stay", color: colors.hi, beat: b2, info: "b2" });
+  const scn = get("scn");
+  if (scn?.path) for (const f of SIDES) tubes.push({ key: `scn:${f}`, pts: scn.path, body: f, color: fieldCol(f), beat: b2, info: "b2", neuron: 1, width: 0.7 });
+
+  // 3 optic tract
+  const tr = get("tract");
+  const b3 = beat({ kind: "path", neuron: 1, caption: "Optic tract (the opposite visual field of both eyes)", info: "", fit: [], view: "top", phys: "c" }, sideFit(tr?.path ?? []), { ...course("Optic tract", 1, [["Fibres", "ipsilateral temporal retina and contralateral nasal retina: the contralateral visual field"], ["Ends in", "lateral geniculate nucleus (also the superior colliculus and pretectum)"]]), kind: "path", loss: "homonymous hemianopia" });
+  fieldTubes("tract", tr, b3);
+  idLayer("tract", tr?.ids, b3, "c");
+  const sc = get("sc");
+  if (sc?.path) for (const f of SIDES) tubes.push({ key: `sc:${f}`, pts: sc.path, body: f, color: fieldCol(f), beat: b3, info: "b3", neuron: 1, width: 0.7 });
+
+  // 4 LGN
+  const lgnSt = mp.neurons[2].stretches.find((s) => s.k === "lgn");
+  const lgnWP: WP = ["lateral-geniculate-body", "c", 0.5] as WP;
+  const b4 = beat({ kind: "node", neuron: 2, caption: "Lateral geniculate nucleus", info: "", fit: [], view: "top", rel: "c" }, sideFit([lgnWP]), course("Lateral geniculate nucleus", 2, [["Neuron", "3rd-order neuron"], ["Cell body", cp.neurons[2].cell_body], ["Course fact", "six-layered thalamic nucleus that relays vision from the optic tract to V1"]]));
+  for (const f of SIDES) marks.push({ key: `lgn:${f}`, p: lgnWP, body: f, kind: "node", text: "Lateral geniculate nucleus", color: fieldCol(f), beat: b4, info: "b4" });
+  idLayer("lgn", lgnSt?.ids, b4, "c");
+
+  // 5 optic radiations: Meyer's loop (upper field) and the parietal route (lower field)
+  const lgn: WP = ["lateral-geniculate-body", "c", 0.5, 0.01, 0.002, -0.014] as WP;
+  const meyer: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.034, -0.012, 0.03], ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005], ["lateral-geniculate-body", "c", 0.5, 0.055, -0.02, -0.05], ["lingual-gyrus", "c", 0.5, 0, 0, 0]] as WP[];
+  const parietal: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.036, 0.016, -0.02], ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055], ["cuneus", "c", 0.5, 0, 0, 0]] as WP[];
+  const b5 = beat({ kind: "path", neuron: 2, caption: "Optic radiations: Meyer's loop (upper field) and the parietal route (lower field)", info: "", fit: [], view: "top", phys: "c" }, sideFit([...meyer, ...parietal]), { ...course("Optic radiations", 2, [["Tract", cp.neurons[2].tract], ["Meyer's loop", "through the temporal lobe: the upper visual field (to the lingual gyrus, below the calcarine fissure)"], ["Parietal route", "the lower visual field (to the cuneus, above the fissure)"]], { loss: "quadrantanopia" }), kind: "path" });
   for (const f of SIDES) {
-    const al = alphaOf(sideMode, f);
-    const foc = focused(sideMode, f);
-    const fc = fieldCol(f);
     const up = f === "L" ? pal.LU : pal.RU;
     const low = f === "L" ? pal.LL : pal.RL;
-    mp.neurons.forEach((nr, ni) => {
-      const visible = ni <= lastShown;
-      const isCur = ni === cur || summary;
-      const inFit = follow && !summary ? ni === cur : true;
-      for (const st of nr.stretches) {
-        if (inFit && ni > 0) {
-          st.path?.forEach((w) => fit.push({ wp: w, body: f }));
-        }
-        if (!visible) continue;
-        const op = (isCur ? 1 : 0.6) * al;
-        const w = isCur ? 1 : 0.8;
-        const base = { body: f, reveal: 1, width: w, neuron: ni, pulse: ni === cur && !summary && foc && !playing && ni > 0 } as const;
-        if (st.k === "retina" || st.k === "v1") continue;
-        if (st.k === "sc" || st.k === "scn") {
-          // branches: drawn in the field colour, not part of the travelling impulse
-          if (st.path) tubes.push({ ...base, key: `${slug}:${f}:${ni}:${st.k}`, pts: st.path, color: fc, opacity: op * 0.8, pulse: false });
-          if (foc && isCur && f === primaryOf(sideMode)) {
-            const last = st.path![st.path!.length - 1];
-            marks.push({ key: `${slug}:${f}:${st.k}`, p: last, body: f, kind: "recept", text: st.k === "sc" ? "Superior colliculus" : "Suprachiasmatic nucleus", color: fc, prio: 1 });
-          }
-          continue;
-        }
-        if (st.k === "rad") {
-          // Meyer's loop (upper field, through the temporal lobe to the lingual gyrus) and the parietal route (lower field, to the cuneus)
-          const lgn: WP = ["lateral-geniculate-body", "c", 0.5, 0.01, 0.002, -0.014] as WP;
-          const meyer: WP[] = [lgn, ["lateral-geniculate-body", "c", 0.5, 0.034, -0.012, 0.03], ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005], ["lateral-geniculate-body", "c", 0.5, 0.055, -0.02, -0.05], ["lingual-gyrus", "c", 0.5, 0, 0, 0]] as WP[];
-          const parietal: WP[] = [lgn, ["lateral-geniculate-body", "c", 0.5, 0.036, 0.016, -0.02], ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055], ["cuneus", "c", 0.5, 0, 0, 0]] as WP[];
-          for (const [name, pts, col] of [["meyer", meyer, up], ["parietal", parietal, low]] as const) {
-            tubes.push({ ...base, key: `${slug}:${f}:${name}`, pts, color: col, opacity: op, seq: seq++, chains: ["nm", "tm"].map((c) => c.replace("m", name === "meyer" ? "m" : "p")) });
-            pts.forEach((p) => {
-              if (inFit) fit.push({ wp: p, body: f });
-            });
-          }
-          if (foc && isCur && f === primaryOf(sideMode)) {
-            marks.push({ key: `${slug}:${f}:meyer`, p: ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005] as WP, body: f, kind: "recept", text: `${sideMode === "both" ? `${f} field · ` : ""}Meyer's loop (temporal lobe): upper field`, color: up, prio: 2 });
-            marks.push({ key: `${slug}:${f}:par`, p: ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055] as WP, body: f, kind: "recept", text: `${sideMode === "both" ? `${f} field · ` : ""}Parietal route: lower field`, color: low, prio: 2 });
-          }
-          continue;
-        }
-        if (st.ids?.length && st.k !== "chiasm") {
-          layers.push({ key: `${f}:${ni}:${st.k}`, ids: st.ids, side: physSide(st.phys, f) ?? "both", color: fc, opacity: (isCur ? 0.85 : 0.45) * al });
-        }
-        if (st.path && st.path.length > 1) {
-          // nasal fibres cross (they belong to the eye on the field's side), temporal fibres stay (the other eye): each only on its own branch
-          const chains = st.k === "nerve" || st.k === "chiasm" ? ["nm", "np"] : st.k === "nerve2" ? ["tm", "tp"] : undefined;
-          tubes.push({ ...base, key: `${slug}:${f}:${ni}:${st.k}`, pts: st.path, color: fc, opacity: op, seq: st.k === "nerve2" ? 5 : seq++, chains });
-        }
-        st.marks?.forEach((m, mi) => {
-          if (m.kind !== "dec") return;
-          if (f !== primaryOf(sideMode)) return;
-          marks.push({ key: `${slug}:${f}:${ni}:${st.k}:${mi}`, p: m.p, body: f, kind: "dec", text: "OPTIC CHIASM: nasal fibres cross, temporal fibres stay", color: colors.hi, prio: ni === cur || summary ? 2 : 1 });
-        });
-        if (st.k === "lgn" && foc && isCur && f === primaryOf(sideMode)) marks.push({ key: `${slug}:${f}:lgn`, p: ["lateral-geniculate-body", "c", 0.5] as WP, body: f, kind: "soma", text: "Lateral geniculate nucleus", color: fc, prio: 2 });
-      }
-    });
-    // V1: the calcarine fissure splits the field: cuneus (above) = lower field, lingual gyrus (below) = upper field
-    if (lastShown >= 2) {
-      const isCur = cur === 2 || summary;
-      const near = (view === "left" && f === "R") || (view === "right" && f === "L");
-      const k = near ? 0.14 : 1;
-      layers.push({ key: `${f}:v1:cuneus`, ids: ["cuneus"], side: opp(f), color: low, opacity: (isCur ? 0.95 : 0.5) * al * k });
-      layers.push({ key: `${f}:v1:lingual`, ids: ["lingual-gyrus"], side: opp(f), color: up, opacity: (isCur ? 0.95 : 0.5) * al * k });
-      layers.push({ key: `${f}:v1:calc`, ids: ["calcarine-sulcus"], side: opp(f), color: "#ffffff", opacity: (isCur ? 1 : 0.5) * al * k });
-      if (cur === 2 || summary) {
-        for (const w of [["cuneus", "c", 0.5], ["lingual-gyrus", "c", 0.5]] as WP[]) fit.push({ wp: w, body: f });
-        if (foc && f === labField) {
-          marks.push({ key: `${slug}:${f}:cun`, p: ["cuneus", "c", 0.5, 0, 0.012, 0] as WP, body: f, kind: "recept", text: `${sideMode === "both" ? `${f} field · ` : ""}Cuneus (above the fissure): LOWER field`, color: low, prio: 2 });
-          marks.push({ key: `${slug}:${f}:ling`, p: ["lingual-gyrus", "c", 0.5, 0, -0.012, 0] as WP, body: f, kind: "recept", text: `${sideMode === "both" ? `${f} field · ` : ""}Lingual gyrus (below): UPPER field`, color: up, prio: 2 });
-        }
-      }
-    }
+    tubes.push({ key: `meyer:${f}`, pts: meyer, body: f, color: up, beat: b5, info: "b5", neuron: 2 });
+    tubes.push({ key: `par:${f}`, pts: parietal, body: f, color: low, beat: b5, info: "b5", neuron: 2 });
   }
 
-  // the eyes: retinas split into nasal / temporal halves and upper / lower quadrants, coloured by the field quadrant each receives
-  const eyes: SceneEyes = {
-    nerve: nerveWP("i", 1),
-    spec: { fieldColors: { L: [pal.LU, pal.LL], R: [pal.RU, pal.RL] }, alpha: { L: alphaOf(sideMode, "L"), R: alphaOf(sideMode, "R") } },
-  };
-  if (cur === 0 || summary || !follow) {
-    for (const e of SIDES) {
-      const lbl = (k: string, text: string, dx: number, dy: number, dz: number, prio: 0 | 1 | 2, dir?: -1 | 0 | 1) =>
-        marks.push({ key: `eye:${e}:${k}`, p: ["optic-nerve-ii", "i", 1, dx, dy, dz, "z"] as WP, body: e, kind: "recept", text, color: fieldCol(e), prio, dir });
-      const S = EYE_SCALE;
-      lbl("name", `${sideName(e)} eye`, 0, 0.0125 * S, 0.012 * S, 1, 0);
-      if (cur === 0 || summary) {
-        lbl("nasal", "Nasal retina", -0.0075 * S, -0.0075 * S, 0.008 * S, 2);
-        lbl("temp", "Temporal retina", 0.0075 * S, -0.0075 * S, 0.008 * S, 2);
-      }
-      fit.push({ wp: ["optic-nerve-ii", "i", 1, 0.03, 0.03, 0.03, "z"] as WP, body: e }, { wp: ["optic-nerve-ii", "i", 1, -0.03, -0.025, 0.0, "z"] as WP, body: e });
-    }
+  // 6 V1: the calcarine fissure splits the field
+  const v1WP: WP = ["calcarine-sulcus", "c", 0.5] as WP;
+  const b6 = beat({ kind: "node", neuron: 2, caption: "Primary visual cortex (V1): the calcarine fissure splits the field", info: "", fit: [], view: "left", rel: "c" }, sideFit([v1WP, ["cuneus", "c", 0.5] as WP, ["lingual-gyrus", "c", 0.5] as WP]), course("Primary visual cortex (V1, BA 17)", 2, [["Place", "banks of the calcarine fissure (occipital lobe)"], ["Upper field", "inferior bank: lingual gyrus (below the fissure)"], ["Lower field", "superior bank: cuneus (above the fissure)"], ["Macula", "central vision at the occipital pole"], ["If damaged", "contralateral homonymous hemianopia (macular sparing possible)"]]));
+  for (const f of SIDES) {
+    const up = f === "L" ? pal.LU : pal.RU;
+    const low = f === "L" ? pal.LL : pal.RL;
+    marks.push({ key: `v1:${f}`, p: v1WP, body: f, kind: "node", text: "V1 (BA 17)", color: fieldCol(f), beat: b6, info: "b6" });
+    layers.push({ key: `cun:${f}`, ids: ["cuneus"], side: opp(f), color: low, opacity: 0.95, beat: b6, nearView: f === "R" ? "left" : "right" });
+    layers.push({ key: `ling:${f}`, ids: ["lingual-gyrus"], side: opp(f), color: up, opacity: 0.95, beat: b6, nearView: f === "R" ? "left" : "right" });
+    layers.push({ key: `calc:${f}`, ids: ["calcarine-sulcus"], side: opp(f), color: "#ffffff", opacity: 1, beat: b6, nearView: f === "R" ? "left" : "right" });
   }
-  return { layers, tubes, marks, fit, limbs: [], eyes };
+  marks.push({ key: "cun:lbl", p: ["cuneus", "c", 0.5, 0, 0.012, 0] as WP, body: "L", kind: "syn", text: "Cuneus (above the fissure): LOWER field", color: pal.LL, beat: b6, info: "b6" });
+  marks.push({ key: "ling:lbl", p: ["lingual-gyrus", "c", 0.5, 0, -0.012, 0] as WP, body: "L", kind: "syn", text: "Lingual gyrus (below): UPPER field", color: pal.LU, beat: b6, info: "b6" });
+
+  const eyes: SceneEyes = { nerve: eyeWP(), spec: { fieldColors: { L: [pal.LU, pal.LL], R: [pal.RU, pal.RL] }, alpha: { L: 1, R: 1 } } };
+  return { beats, tubes, marks, layers, limbs: [], eyes, infos };
 }
-
-export { primaryOf, alphaOf, focused };

@@ -3,14 +3,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import type { OrbitControls as OrbitControlsImpl } from "three/examples/jsm/controls/OrbitControls.js";
+import { TrackballControls } from "@react-three/drei";
 import { loadAtlasIndex } from "@/lib/atlas";
 import type { AtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel, releaseAtlasCache, retainAtlasCache } from "@/lib/atlas/loader";
 import type { Side, WP } from "@/lib/atlas/pathways";
 import { LANE, MarkMesh, TubeMesh, loadVerts, resolveWP, wpRefs, type MarkKind, type SceneColors } from "./sceneCore";
 import { EYE_SCALE } from "./eyeScale";
+import { loadPart, type PartFile } from "./PartModels";
 import { EYE_R, EyeBall, Limb, TRIGEMINAL_ZONES, type EyeSpec, type LimbSpec } from "./PathwayExtras";
 
 export { resolveWP };
@@ -38,6 +38,12 @@ export interface SceneLayer {
   opacity: number;
   /** Faint, clickable structures (lesion lab picking). */
   pickable?: boolean;
+  /** Beat at which it lights (beat mode); omitted = always lit. */
+  beat?: number;
+  /** Body side it belongs to, for the side focus dimming. */
+  body?: Side;
+  /** Dimmed (14%) when the camera looks from this side: the near hemisphere would hide the far one. */
+  nearView?: View;
 }
 export interface SceneTube {
   key: string;
@@ -46,16 +52,15 @@ export interface SceneTube {
   body: Side;
   /** One colour for the whole tube; omitted = coloured by side (left / right). */
   color?: string;
-  opacity: number;
-  /** Target fraction drawn (0 hides it, 1 shows it all; animates). */
-  reveal: number;
+  /** Lesion lab (no beats): fixed opacity and reveal. */
+  opacity?: number;
+  reveal?: number;
   pulse?: boolean;
   width?: number;
-  /** Order along the pathway (for the travelling impulse) and the neuron it belongs to. */
-  seq?: number;
+  /** Beat that draws this tube, the neuron it belongs to and the info popover it opens. */
+  beat?: number;
   neuron?: number;
-  /** Impulse branches this tube belongs to (omitted = all branches of its body side). */
-  chains?: string[];
+  info?: string;
 }
 export interface SceneMark {
   key: string;
@@ -68,18 +73,19 @@ export interface SceneMark {
   prio?: 0 | 1 | 2;
   /** Which side of the anchor the label sits on (screen): by default away from the midline. */
   dir?: -1 | 0 | 1;
+  /** Beat at which it appears and the info popover it opens (beat mode). */
+  beat?: number;
+  info?: string;
 }
 export interface SceneLimb extends LimbSpec {
   at: WP;
+  /** Beats during which the part is drawn at full strength (it stays visible, dimmer, otherwise). */
+  from?: number;
+  to?: number;
 }
 export interface SceneEyes {
   spec: EyeSpec;
   nerve: WP;
-}
-export interface PlayState {
-  running: boolean;
-  nonce: number;
-  bodies: Side[];
 }
 export interface SceneProps {
   layers: SceneLayer[];
@@ -96,13 +102,21 @@ export interface SceneProps {
   limbs?: SceneLimb[];
   eyes?: SceneEyes;
   zoneColors?: string[];
-  play?: PlayState;
-  onPlayProgress?: (neuron: number, done: boolean) => void;
+  /** Beat mode: the highest beat drawn so far (omitted = everything) and the current beat (null = none, e.g. the whole pathway). */
+  reveal?: number;
+  hot?: number | null;
+  /** 1 = full strength, small = dimmed (the side that is not in focus). */
+  sideAlpha?: { L: number; R: number };
+  reduced?: boolean;
+  /** Info key hovered in the schematic (or in 3D); a click opens the popover. */
+  hoverInfo?: string | null;
+  onHoverInfo?: (key: string | null) => void;
+  onPickInfo?: (key: string | null) => void;
   onLimbPick?: (s: Side) => void;
   onPick?: (meshId: string, side: Side, point: THREE.Vector3) => void;
   onHover?: (meshId: string | null) => void;
   onReady?: (ready: boolean) => void;
-  /** Real loading progress: structures placed so far / structures needed. */
+  /** Real loading progress: things placed so far / things needed (structure geometry, lit structures, body parts). */
   onLoad?: (done: number, total: number) => void;
   hoverId?: string | null;
 }
@@ -158,6 +172,7 @@ function LayerMesh({
   hovered,
   onPick,
   onHover,
+  onLoaded,
 }: {
   id: string;
   file: string;
@@ -169,15 +184,17 @@ function LayerMesh({
   hovered: boolean;
   onPick?: (meshId: string, side: Side, point: THREE.Vector3) => void;
   onHover?: (meshId: string | null) => void;
+  onLoaded?: () => void;
 }) {
   const [g, setG] = useState<THREE.Group | null>(null);
   const invalidate = useThree((s) => s.invalidate);
   const mat = useMemo(() => new THREE.MeshStandardMaterial({ roughness: 0.55, metalness: 0, side: THREE.DoubleSide }), []);
+  const cur = useRef(0);
   useEffect(() => () => mat.dispose(), [mat]);
   useEffect(() => {
-    styleLayerMat(mat, { color, opacity, pickable, hovered, side });
+    styleLayerMat(mat, { color, opacity: cur.current, pickable, hovered, side });
     invalidate();
-  }, [mat, color, opacity, pickable, hovered, side, invalidate]);
+  }, [mat, color, pickable, hovered, side, invalidate]);
   useEffect(() => {
     let alive = true;
     loadAtlasModel(file).then((m) => {
@@ -187,12 +204,26 @@ function LayerMesh({
         if (me.isMesh) me.material = mat;
       });
       setG(m);
+      onLoaded?.();
       invalidate();
-    }).catch(() => {});
+    }).catch(() => onLoaded?.());
     return () => {
       alive = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file, mat, invalidate]);
+  // the lit structure fades to its target opacity instead of popping
+  useFrame((_, dt) => {
+    if (!g) return;
+    if (Math.abs(cur.current - opacity) < 0.004) {
+      if (cur.current !== opacity) fadeLayer(mat, g, opacity, hovered, pickable);
+      cur.current = opacity;
+      return;
+    }
+    cur.current += (opacity - cur.current) * Math.min(1, dt * 6);
+    fadeLayer(mat, g, cur.current, hovered, pickable);
+    invalidate();
+  });
   if (!g) return null;
   return (
     <primitive
@@ -212,6 +243,13 @@ function LayerMesh({
     />
   );
 }
+function fadeLayer(mat: THREE.MeshStandardMaterial, g: THREE.Group, v: number, hovered: boolean, pickable?: boolean) {
+  mat.opacity = hovered ? Math.min(1, v + 0.25) : v;
+  mat.transparent = mat.opacity < 0.98;
+  mat.depthWrite = !mat.transparent;
+  g.visible = mat.opacity > 0.01;
+  void pickable;
+}
 
 /* ---------- labels: projected to the DOM, no overlaps, leader lines, this step prominent ---------- */
 interface LabelItem {
@@ -221,6 +259,8 @@ interface LabelItem {
   dir?: number;
   /** Fixed tags (the Left / Right pills) are obstacles and never move. */
   fixed?: boolean;
+  /** false = not yet revealed: hidden. */
+  show?: boolean;
 }
 type Size = { w: number; h: number };
 
@@ -269,8 +309,9 @@ function LabelProjector({
       const ay = (-tmp.y * 0.5 + 0.5) * H;
       const sz = sizes.current.get(it.key) ?? { w: 120, h: 22 };
       const ln = lines.current.get(it.key);
-      el.style.visibility = vis ? "visible" : "hidden";
-      if (!vis) {
+      const shown = vis && it.show !== false;
+      el.style.visibility = shown ? "visible" : "hidden";
+      if (!shown) {
         if (ln) ln.style.visibility = "hidden";
         continue;
       }
@@ -348,9 +389,17 @@ function SidePlane({ box, colors }: { box: THREE.Box3; colors: SceneColors }) {
   );
 }
 
+interface GrabControls {
+  target: THREE.Vector3;
+  update: () => void;
+  addEventListener: (t: string, f: () => void) => void;
+  removeEventListener: (t: string, f: () => void) => void;
+}
+
+/** Gentle camera for the beats. It stops the moment the user grabs the view and never springs back. */
 function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: number }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
-  const controls = useThree((s) => s.controls) as OrbitControlsImpl | null;
+  const controls = useThree((s) => s.controls) as unknown as GrabControls | null;
   const invalidate = useThree((s) => s.invalidate);
   const size = useThree((s) => s.size);
   const goal = useRef<{ pos: THREE.Vector3; target: THREE.Vector3 } | null>(null);
@@ -359,12 +408,21 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: 
     (window as unknown as { __pwCam?: THREE.Camera }).__pwCam = camera; // read by the pointer-drag test
   }, [camera]);
   useEffect(() => {
+    if (!controls) return;
+    const grab = () => {
+      goal.current = null;
+    };
+    controls.addEventListener("start", grab);
+    return () => controls.removeEventListener("start", grab);
+  }, [controls]);
+  useEffect(() => {
     if (!box || !controls) return;
     const keep = last.current.view === view && last.current.nonce === nonce;
     last.current = { view, nonce };
+    if (!keep) camera.up.set(0, 1, 0);
     const dir = keep ? camera.position.clone().sub(controls.target).normalize() : new THREE.Vector3(...VIEWS.find((v) => v.id === view)!.dir).normalize();
     const c = box.getCenter(new THREE.Vector3());
-    const right = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), dir).normalize();
+    const right = new THREE.Vector3().crossVectors(camera.up, dir).normalize();
     const up = new THREE.Vector3().crossVectors(dir, right).normalize();
     let rr = 0, uu = 0, dd = 0;
     for (let i = 0; i < 8; i++) {
@@ -382,8 +440,8 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: 
   useFrame(() => {
     const g = goal.current;
     if (!g || !controls) return;
-    camera.position.lerp(g.pos, 0.1);
-    controls.target.lerp(g.target, 0.1);
+    camera.position.lerp(g.pos, 0.07);
+    controls.target.lerp(g.target, 0.07);
     controls.update();
     if (camera.position.distanceTo(g.pos) < 2e-4 && controls.target.distanceTo(g.target) < 2e-4) goal.current = null;
     invalidate();
@@ -391,107 +449,22 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: 
   return null;
 }
 
-/** A glowing impulse that runs along each played side's tubes in order (periphery -> cortex). Redraws only while it moves. */
-function Impulse({
-  tubes,
-  play,
-  radius,
-  colors,
-  onProgress,
-}: {
-  tubes: { body: Side; neuron?: number; seq?: number; chains?: string[]; v: THREE.Vector3[] }[];
-  play: PlayState;
-  radius: number;
-  colors: SceneColors;
-  onProgress?: (neuron: number, done: boolean) => void;
-}) {
-  const invalidate = useThree((s) => s.invalidate);
-  const dots = useRef<(THREE.Mesh | null)[]>([]);
-  const t = useRef(0);
-  const lastNeuron = useRef(-1);
-  const chains = useMemo(() => {
-    const out: { key: string; pts: Float32Array; neuron: number[]; cum: number[]; total: number }[] = [];
-    for (const b of play.bodies) {
-      const mine = tubes.filter((x) => x.body === b && x.seq !== undefined && x.v.length > 1);
-      const ids = [...new Set(mine.flatMap((x) => x.chains ?? []))];
-      for (const id of ids.length ? ids : [""]) {
-        const ts = mine.filter((x) => !x.chains || x.chains.includes(id)).sort((a, c) => a.seq! - c.seq!);
-        const pts: number[] = [];
-        const neuron: number[] = [];
-        const cum: number[] = [];
-        let acc = 0;
-        let prev: THREE.Vector3 | null = null;
-        for (const tb of ts) {
-          const curve = new THREE.CatmullRomCurve3(tb.v, false, "centripetal");
-          const n = Math.max(24, tb.v.length * 18);
-          for (const p of curve.getPoints(n)) {
-            if (prev) acc += p.distanceTo(prev);
-            prev = p;
-            pts.push(p.x, p.y, p.z);
-            neuron.push(tb.neuron ?? 0);
-            cum.push(acc);
-          }
-        }
-        if (acc > 0) out.push({ key: `${b}|${id}`, pts: new Float32Array(pts), neuron, cum, total: acc });
-      }
-    }
-    return out;
-  }, [tubes, play.bodies]);
-  useEffect(() => {
-    t.current = 0;
-    lastNeuron.current = -1;
-    invalidate();
-  }, [play.nonce, play.running, invalidate]);
-  useFrame((_, dt) => {
-    if (!play.running) {
-      dots.current.forEach((d) => d && (d.visible = false));
-      return;
-    }
-    const main = chains[0];
-    if (!main) return;
-    // about 11 s for the whole pathway, never faster than a readable pace
-    t.current += dt * Math.min(0.2, main.total / 11);
-    const frac = Math.min(1, t.current / main.total);
-    chains.forEach((ch, ci) => {
-      const d = dots.current[ci];
-      if (!d) return;
-      const dd = frac * ch.total;
-      let lo = 0, hi = ch.cum.length - 1;
-      while (lo < hi) {
-        const m = (lo + hi) >> 1;
-        if (ch.cum[m] < dd) lo = m + 1;
-        else hi = m;
-      }
-      d.position.set(ch.pts[lo * 3], ch.pts[lo * 3 + 1], ch.pts[lo * 3 + 2]);
-      d.visible = true;
-      if (ci === 0) {
-        const nr = ch.neuron[lo];
-        if (nr !== lastNeuron.current) {
-          lastNeuron.current = nr;
-          onProgress?.(nr, false);
-        }
-      }
-    });
-    if (frac >= 1) onProgress?.(lastNeuron.current, true);
-    else invalidate();
-  });
-  return (
-    <>
-      {chains.map((c, i) => (
-        <mesh key={c.key} ref={(m) => { dots.current[i] = m; }} visible={false} renderOrder={40}>
-          <sphereGeometry args={[radius * 3.2, 16, 12]} />
-          <meshBasicMaterial color={colors.text} depthTest={false} transparent opacity={0.95} toneMapped={false} />
-        </mesh>
-      ))}
-    </>
-  );
-}
-
 export default function PathwayScene(p: SceneProps) {
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [verts, setVerts] = useState<Map<string, Float32Array>>(new Map());
   const [limbHover, setLimbHover] = useState(false);
+  const [hoverLocal, setHoverLocal] = useState<string | null>(null);
+  const [layersDone, setLayersDone] = useState(0);
+  const [partsDone, setPartsDone] = useState(0);
   const { onReady, onLoad } = p;
+  const hoverKey = p.hoverInfo ?? hoverLocal;
+  const sideAlpha = p.sideAlpha ?? { L: 1, R: 1 };
+  const beatMode = p.reveal !== undefined;
+  const hot = p.hot ?? null;
+  const setHover = (k: string | null) => {
+    setHoverLocal(k);
+    p.onHoverInfo?.(k);
+  };
 
   useEffect(() => {
     retainAtlasCache();
@@ -533,14 +506,42 @@ export default function PathwayScene(p: SceneProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, refKey]);
 
-  const ready = !!index && refs.every((r) => verts.has(r) || !index.structures[r]?.file);
+  // body parts: fetched up front too, so nothing is loaded when a beat plays
+  const partFiles = useMemo(() => {
+    const f = new Set<PartFile>();
+    p.limbs?.forEach((l) => {
+      if (l.part === "hand" || l.part === "foot" || l.part === "leg") f.add(l.part);
+      if (l.part === "muscle") f.add("muscle");
+    });
+    if (p.eyes) f.add("eye");
+    return [...f];
+  }, [p.limbs, p.eyes]);
+  useEffect(() => {
+    let alive = true;
+    partFiles.forEach((f) => loadPart(f).then(() => alive && setPartsDone((n) => n + 1)));
+    return () => {
+      alive = false;
+    };
+  }, [partFiles]);
+
+  const layerParts = useMemo(() => {
+    if (!index) return [];
+    return p.layers.flatMap((l) =>
+      l.ids
+        .filter((id) => index.structures[id]?.file)
+        .map((id) => ({ k: `${l.key}:${id}:${l.side}`, id, file: index.structures[id].file!, name: index.structures[id].name, l })),
+    );
+  }, [index, p.layers]);
+  const vertsDone = index ? refs.filter((r) => verts.has(r) || !index.structures[r]?.file).length : 0;
+  const total = refs.length + layerParts.length + partFiles.length;
+  const done = vertsDone + Math.min(layersDone, layerParts.length) + Math.min(partsDone, partFiles.length);
+  const ready = !!index && done >= total;
   useEffect(() => {
     onReady?.(ready);
   }, [ready, onReady]);
-  const doneCount = index ? refs.filter((r) => verts.has(r) || !index.structures[r]?.file).length : 0;
   useEffect(() => {
-    onLoad?.(doneCount, refs.length + 1 - (index ? 1 : 0));
-  }, [doneCount, refs.length, index, onLoad]);
+    onLoad?.(done, Math.max(1, total));
+  }, [done, total, onLoad]);
 
   const tubes = useMemo(
     () => p.tubes.map((t) => ({ ...t, v: t.pts.map((w) => resolveWP(w, verts, t.body, LANE)).filter((x): x is THREE.Vector3 => !!x) })),
@@ -557,6 +558,16 @@ export default function PathwayScene(p: SceneProps) {
       })
       .filter((x): x is { side: Side; at: THREE.Vector3 } => !!x);
   }, [p.eyes, verts]);
+
+  // what the vetting script (tools/pathways/vet.mjs) reads: the resolved 3D objects
+  useEffect(() => {
+    if (!ready) return;
+    (window as unknown as { __pwDebug?: unknown }).__pwDebug = {
+      tubes: tubes.map((t) => ({ key: t.key, beat: t.beat, info: t.info, body: t.body, n: t.v.length, want: t.pts.length, a: t.v[0]?.toArray(), b: t.v[t.v.length - 1]?.toArray() })),
+      marks: marks.map((m) => ({ key: m.key, beat: m.beat, info: m.info, kind: m.kind, text: m.text, body: m.body, at: m.v!.toArray() })),
+      want: { tubes: p.tubes.length, marks: p.marks.length },
+    };
+  }, [ready, tubes, marks, p.tubes.length, p.marks.length]);
 
   const box = useMemo(() => {
     const b = new THREE.Box3();
@@ -605,6 +616,10 @@ export default function PathwayScene(p: SceneProps) {
     return () => ro.disconnect();
   }, []);
   const shownMarks = useMemo(() => marks.filter((m) => m.text), [marks]);
+  // only the current beat is labelled (plus the crossing X once it has drawn): the schematic carries every name
+  const isShown = (m: { beat?: number; body: Side; kind: MarkKind }) =>
+    (beatMode && m.beat !== undefined ? (m.beat === hot ? m.beat <= p.reveal! : m.kind === "dec" && m.beat <= p.reveal!) : true) && sideAlpha[m.body] >= 0.5;
+  const prioOf = (m: { beat?: number; prio?: 0 | 1 | 2; kind: MarkKind }): 0 | 1 | 2 => (beatMode && m.beat !== undefined ? (m.beat === hot ? 2 : m.kind === "dec" ? 1 : 0) : (m.prio ?? 1));
   const tagLevels = useMemo(() => {
     if (!box || !p.tags) return [] as { key: string; side: Side; v: THREE.Vector3 }[];
     const c = box.getCenter(new THREE.Vector3());
@@ -623,9 +638,10 @@ export default function PathwayScene(p: SceneProps) {
   const labelItems = useMemo<LabelItem[]>(
     () => [
       ...tagLevels.map((t) => ({ key: t.key, v: t.v, prio: 9, fixed: true })),
-      ...shownMarks.map((m) => ({ key: m.key, v: m.v!.clone().add(new THREE.Vector3(0, radius * 2.5, 0)), prio: m.prio ?? 1, dir: m.dir })),
+      ...shownMarks.map((m) => ({ key: m.key, v: m.v!.clone().add(new THREE.Vector3(0, radius * 2.5, 0)), prio: prioOf(m), dir: m.dir, show: isShown(m) })),
     ],
-    [shownMarks, tagLevels, radius],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [shownMarks, tagLevels, radius, hot, p.reveal, sideAlpha.L, sideAlpha.R],
   );
   useEffect(() => {
     const measure = () => {
@@ -634,108 +650,150 @@ export default function PathwayScene(p: SceneProps) {
     measure();
     const id = requestAnimationFrame(measure);
     return () => cancelAnimationFrame(id);
-  }, [shownMarks, tagLevels]);
-
-  const layerParts = useMemo(() => {
-    if (!index) return [];
-    return p.layers.flatMap((l) =>
-      l.ids
-        .filter((id) => index.structures[id]?.file)
-        .map((id) => ({ k: `${l.key}:${id}:${l.side}`, id, file: index.structures[id].file!, name: index.structures[id].name, l })),
-    );
-  }, [index, p.layers]);
+  }, [shownMarks, tagLevels, hot]);
 
   const zoneColors = p.zoneColors ?? TRIGEMINAL_ZONES.map(() => p.colors.hi);
   const limbColors = (b: Side) => ({ side: b === "L" ? p.colors.left : p.colors.right, dim: p.colors.dim });
-  const labelStyle = (m: { prio?: number; color: string; kind: MarkKind }): React.CSSProperties => {
-    const pr = m.prio ?? 1;
-    return {
-      width: "max-content",
-      maxWidth: pr === 2 ? 240 : 190,
-      font: `${pr === 2 ? 700 : 600} ${pr === 2 ? 12 : 10.5}px/1.25 var(--font-mono, ui-monospace, monospace)`,
-      letterSpacing: "0.03em",
-      padding: pr === 2 ? "3px 8px" : "2px 6px",
-      borderRadius: 6,
-      background: "color-mix(in srgb, var(--panel-solid, #111) 90%, transparent)",
-      color: "var(--text)",
-      border: `${pr === 2 ? 2 : 1}px solid ${m.color}`,
-      opacity: pr === 2 ? 1 : pr === 1 ? 0.78 : 0.34,
-    };
-  };
+  const labelStyle = (m: { color: string }, pr: number): React.CSSProperties => ({
+    width: "max-content",
+    maxWidth: pr === 2 ? 240 : 190,
+    font: `${pr === 2 ? 700 : 600} ${pr === 2 ? 12 : 10.5}px/1.25 var(--font-mono, ui-monospace, monospace)`,
+    letterSpacing: "0.03em",
+    padding: pr === 2 ? "3px 8px" : "2px 6px",
+    borderRadius: 6,
+    background: "color-mix(in srgb, var(--panel-solid, #111) 90%, transparent)",
+    color: "var(--text)",
+    border: `${pr === 2 ? 2 : 1}px solid ${m.color}`,
+    opacity: pr === 2 ? 1 : pr === 1 ? 0.78 : 0.34,
+    transition: "opacity 200ms",
+  });
+  const interactive = !!p.onPickInfo;
 
   return (
-    <div ref={rootRef} className="relative h-full w-full">
+    <div ref={rootRef} data-hover={hoverKey ?? ""} className="relative h-full w-full">
       <Canvas
         frameloop="demand"
         dpr={[1, 1.5]}
         camera={{ fov: 35, near: 0.005, far: 8, position: [0.4, 1.6, 0.2] }}
         gl={{ antialias: true, powerPreference: "low-power" }}
-        style={{ cursor: limbHover ? "pointer" : undefined }}
+        style={{ cursor: limbHover || hoverKey ? "pointer" : undefined }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
         }}
+        onPointerMissed={() => p.onPickInfo?.(null)}
       >
         <ambientLight intensity={1.4} />
         <directionalLight position={[1, 2, 3]} intensity={1.3} />
         <directionalLight position={[-2, 1, -2]} intensity={0.7} />
-        <OrbitControls makeDefault enableDamping dampingFactor={0.12} minDistance={0.03} maxDistance={4} rotateSpeed={0.8} />
+        {/* a trackball: free rotation on both axes, no pole stops */}
+        <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={1.2} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
         <Rig box={box} view={p.view} nonce={p.frameNonce} />
         {index && <ContextShell file={index.context.file} color={p.colors.dim} />}
-        {layerParts.map((x) => (
-          <LayerMesh
-            key={x.k}
-            id={x.id}
-            file={x.file}
-            name={x.name}
-            side={x.l.side}
-            color={x.l.color}
-            opacity={x.l.opacity}
-            pickable={x.l.pickable}
-            hovered={p.hoverId === x.id}
-            onPick={p.onPick}
-            onHover={p.onHover}
-          />
-        ))}
+        {layerParts.map((x) => {
+          const lb = beatMode && x.l.beat !== undefined;
+          const lit = !lb || x.l.beat! <= p.reveal!;
+          const sa = x.l.body ? sideAlpha[x.l.body] : 1;
+          const strength = lb ? (hot === null || hot === x.l.beat ? 1 : 0.55) : 1;
+          const near = x.l.nearView && x.l.nearView === p.view ? 0.14 : 1;
+          return (
+            <LayerMesh
+              key={x.k}
+              id={x.id}
+              file={x.file}
+              name={x.name}
+              side={x.l.side}
+              color={x.l.color}
+              opacity={lit ? x.l.opacity * sa * strength * near : 0}
+              pickable={x.l.pickable}
+              hovered={p.hoverId === x.id}
+              onPick={p.onPick}
+              onHover={p.onHover}
+              onLoaded={() => setLayersDone((n) => n + 1)}
+            />
+          );
+        })}
         {box && p.midline !== false && p.view !== "left" && p.view !== "right" && <SidePlane box={box} colors={p.colors} />}
-        {limbs.map((l) => (
-          <Limb
-            key={l.key}
-            spec={l}
-            at={l.v!}
-            colors={limbColors(l.body)}
-            zoneColors={zoneColors}
-            onPick={p.onLimbPick}
-            onHover={setLimbHover}
-          />
-        ))}
+        {limbs.map((l) => {
+          const prominent = !beatMode || hot === null || (hot >= (l.from ?? 0) && hot <= (l.to ?? 999));
+          return (
+            <Limb
+              key={l.key}
+              spec={{ ...l, alpha: l.alpha * sideAlpha[l.body] * (prominent ? 1 : 0.55) }}
+              at={l.v!}
+              colors={limbColors(l.body)}
+              zoneColors={zoneColors}
+              onPick={p.onLimbPick}
+              onHover={setLimbHover}
+            />
+          );
+        })}
         {eyes.map((e) => (
-          <EyeBall key={e.side} at={e.at} side={e.side} spec={p.eyes!.spec} dimColor={p.colors.dim} />
+          <EyeBall key={e.side} at={e.at} side={e.side} spec={{ ...p.eyes!.spec, alpha: sideAlpha }} dimColor={p.colors.dim} />
         ))}
-        {tubes.map((t) => (
-          <TubeMesh key={t.key} pts={t.v} color={t.color} colors={p.colors} opacity={t.opacity} reveal={t.reveal} radius={radius * (t.width ?? 1)} pulse={t.pulse} />
-        ))}
-        {marks.map((m) => (
-          <MarkMesh key={m.key} pos={m.v!} kind={m.kind} color={m.color} r={radius} dim={m.prio === 0} />
-        ))}
-        {p.play && <Impulse tubes={tubes} play={p.play} radius={radius} colors={p.colors} onProgress={p.onPlayProgress} />}
+        {tubes.map((t) => {
+          const bm = beatMode && t.beat !== undefined;
+          const revealed = bm ? (t.beat! <= p.reveal! ? 1 : 0) : (t.reveal ?? 1);
+          const base = bm ? (hot === null ? 0.9 : t.beat === hot ? 1 : 0.45) : (t.opacity ?? 1);
+          return (
+            <TubeMesh
+              key={t.key}
+              pts={t.v}
+              color={t.color}
+              colors={p.colors}
+              opacity={base * sideAlpha[t.body]}
+              reveal={revealed}
+              radius={radius * (t.width ?? 1)}
+              pulse={t.pulse}
+              hover={!!t.info && hoverKey === t.info}
+              reduced={p.reduced}
+              interactive={interactive && !!t.info}
+              onPick={() => p.onPickInfo?.(t.info!)}
+              onHover={(h) => setHover(h ? t.info! : null)}
+            />
+          );
+        })}
+        {marks.map((m) => {
+          const bm = beatMode && m.beat !== undefined;
+          const show = bm ? m.beat! <= p.reveal! : true;
+          const dim = sideAlpha[m.body] < 0.5 || (bm && hot !== null && m.beat !== hot && m.kind !== "dec");
+          return (
+            <MarkMesh
+              key={m.key}
+              pos={m.v!}
+              kind={m.kind}
+              color={m.color}
+              r={radius}
+              dim={dim || (!bm && m.prio === 0)}
+              show={show}
+              hot={bm && m.beat === hot}
+              hover={!!m.info && hoverKey === m.info}
+              reduced={p.reduced}
+              onPick={interactive && m.info ? () => p.onPickInfo?.(m.info!) : undefined}
+              onHover={(h) => setHover(h ? m.info! : null)}
+            />
+          );
+        })}
         <LabelProjector items={labelItems} els={labelEls} lines={leaderEls} sizes={sizes} obstacles={obstacleRects} />
       </Canvas>
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <svg className="absolute inset-0 h-full w-full">
-          {shownMarks.map((m) => (
-            <line
-              key={m.key}
-              ref={(el) => { if (el) leaderEls.current.set(m.key, el); else leaderEls.current.delete(m.key); }}
-              stroke={m.color}
-              strokeWidth={m.prio === 2 ? 1.6 : 1}
-              strokeOpacity={m.prio === 2 ? 0.9 : m.prio === 0 ? 0.25 : 0.55}
-              style={{ visibility: "hidden" }}
-            />
-          ))}
+          {shownMarks.map((m) => {
+            const pr = prioOf(m);
+            return (
+              <line
+                key={m.key}
+                ref={(el) => { if (el) leaderEls.current.set(m.key, el); else leaderEls.current.delete(m.key); }}
+                stroke={m.color}
+                strokeWidth={pr === 2 ? 1.6 : 1}
+                strokeOpacity={pr === 2 ? 0.9 : pr === 0 ? 0.25 : 0.55}
+                style={{ visibility: "hidden" }}
+              />
+            );
+          })}
         </svg>
         {shownMarks.map((m) => (
           <div key={m.key} ref={(el) => { if (el) labelEls.current.set(m.key, el); else labelEls.current.delete(m.key); }} style={{ position: "absolute", left: 0, top: 0, visibility: "hidden", willChange: "transform" }}>
-            <div style={labelStyle(m)}>{m.text}</div>
+            <div style={labelStyle(m, prioOf(m))}>{m.text}</div>
           </div>
         ))}
         {tagLevels.map((t) => (

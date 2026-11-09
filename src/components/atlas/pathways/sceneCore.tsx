@@ -148,10 +148,6 @@ function paintSide(geo: THREE.TubeGeometry, left: THREE.Color, right: THREE.Colo
   geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
 }
 
-function setMatOpacity(m: THREE.Material, v: number) {
-  m.opacity = v;
-}
-
 export interface BuiltTube {
   curve: THREE.CatmullRomCurve3;
   geo: THREE.TubeGeometry;
@@ -172,6 +168,21 @@ export function buildTube(pts: THREE.Vector3[], radius: number, color: string | 
   return { curve, geo };
 }
 
+const easeInOut = (x: number) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
+/** Helpers live outside the components so the immutability lint does not treat GPU objects as state. */
+export function approach(cur: number, target: number, step: number) {
+  return cur < target ? Math.min(target, cur + step) : Math.max(target, cur - step);
+}
+function applyTube(mat: THREE.Material, geo: THREE.BufferGeometry, e: number, op: number, count: number) {
+  mat.opacity = op;
+  geo.setDrawRange(0, Math.floor((count * e) / 3) * 3);
+}
+function setOpacityOf(m: THREE.Material, v: number) {
+  m.opacity = v;
+}
+
+/** A tube that draws itself along its length (ease in-out, about a second) with a glowing tip, then settles lit.
+ *  Built once; `reveal` (0 or 1) only animates the draw range, so nothing is created per click. */
 export function TubeMesh({
   pts,
   color,
@@ -180,6 +191,11 @@ export function TubeMesh({
   reveal,
   radius,
   pulse,
+  hover,
+  reduced,
+  interactive,
+  onPick,
+  onHover,
 }: {
   pts: THREE.Vector3[];
   color?: string;
@@ -188,35 +204,62 @@ export function TubeMesh({
   reveal: number;
   radius: number;
   pulse?: boolean;
+  hover?: boolean;
+  reduced?: boolean;
+  interactive?: boolean;
+  onPick?: () => void;
+  onHover?: (h: boolean) => void;
 }) {
   const invalidate = useThree((s) => s.invalidate);
-  const prog = useRef(0);
+  const prog = useRef(reveal ? 1 : 0);
+  const op = useRef(opacity);
   const clock = useRef(0);
   const dot = useRef<THREE.Mesh>(null);
+  const tip = useRef<THREE.Mesh>(null);
+  const mesh = useRef<THREE.Mesh>(null);
   const built = useMemo(() => buildTube(pts, radius, color, colors), [pts, radius, color, colors]);
+  const hitGeo = useMemo(() => (interactive && built ? new THREE.TubeGeometry(built.curve, Math.min(120, Math.max(16, pts.length * 12)), radius * 3.2, 6, false) : null), [interactive, built, pts.length, radius]);
   useEffect(() => () => built?.geo.dispose(), [built]);
+  useEffect(() => () => hitGeo?.dispose(), [hitGeo]);
   const mat = useMemo(() => makeTubeMaterial(color), [color]);
+  const hitMat = useMemo(() => new THREE.MeshBasicMaterial({ color: "#ffffff", transparent: true, opacity: 0, depthTest: false, depthWrite: false, toneMapped: false }), []);
   useEffect(() => () => mat.dispose(), [mat]);
+  useEffect(() => () => hitMat.dispose(), [hitMat]);
   useEffect(() => {
-    setMatOpacity(mat, opacity);
+    setOpacityOf(hitMat, hover ? 0.22 : 0);
     invalidate();
-  }, [mat, opacity, invalidate]);
+  }, [hitMat, hover, invalidate]);
+  useEffect(() => {
+    invalidate();
+  }, [reveal, opacity, invalidate]);
   useFrame((_, dt) => {
     if (!built) return;
-    const idx = built.geo.index?.count ?? 0;
     let busy = false;
-    if (Math.abs(prog.current - reveal) > 0.002) {
-      const step = dt * 1.3;
-      prog.current = prog.current < reveal ? Math.min(reveal, prog.current + step) : Math.max(reveal, prog.current - step * 2);
+    const target = reveal ? 1 : 0;
+    if (prog.current !== target) {
+      prog.current = approach(prog.current, target, dt / (reduced ? 0.2 : 1.05));
       busy = true;
-    } else prog.current = reveal;
-    built.geo.setDrawRange(0, Math.floor((idx * prog.current) / 3) * 3);
+    }
+    const goal = hover ? Math.min(1, opacity + 0.35) : opacity;
+    if (Math.abs(op.current - goal) > 0.004) {
+      op.current += (goal - op.current) * Math.min(1, dt * 7);
+      busy = true;
+    } else op.current = goal;
+    const e = reduced ? prog.current : easeInOut(prog.current);
+    if (mesh.current) mesh.current.visible = prog.current > 0.002;
+    applyTube(mat, built.geo, e, op.current * (reduced ? prog.current : 1), built.geo.index?.count ?? 0);
+    // glowing tip while drawing
+    if (tip.current) {
+      const drawing = !reduced && prog.current > 0.002 && prog.current < 0.998;
+      tip.current.visible = drawing;
+      if (drawing) built.curve.getPointAt(Math.min(1, e), tip.current.position);
+    }
     if (dot.current) {
       const show = pulse && prog.current > 0.98;
       dot.current.visible = !!show;
       if (show) {
         clock.current += dt * 0.35;
-        dot.current.position.copy(built.curve.getPointAt(clock.current % 1));
+        built.curve.getPointAt(clock.current % 1, dot.current.position);
         busy = true;
       }
     }
@@ -225,61 +268,162 @@ export function TubeMesh({
   if (!built) return null;
   return (
     <group renderOrder={20}>
-      <mesh geometry={built.geo} material={mat} renderOrder={20} />
+      <mesh ref={mesh} geometry={built.geo} material={mat} renderOrder={20} visible={reveal > 0} />
+      <mesh ref={tip} renderOrder={22} visible={false}>
+        <sphereGeometry args={[radius * 3.4, 14, 10]} />
+        <meshBasicMaterial color={colors.text} depthTest={false} transparent opacity={0.95} toneMapped={false} />
+      </mesh>
       {pulse && (
         <mesh ref={dot} renderOrder={21} visible={false}>
           <sphereGeometry args={[radius * 2.2, 14, 10]} />
           <meshBasicMaterial color={colors.text} depthTest={false} transparent opacity={0.95} toneMapped={false} />
         </mesh>
       )}
+      {hitGeo && reveal > 0 && (
+        <mesh
+          geometry={hitGeo}
+          material={hitMat}
+          renderOrder={19}
+          onClick={(e: { stopPropagation: () => void; delta: number }) => {
+            if (e.delta > 6) return;
+            e.stopPropagation();
+            onPick?.();
+          }}
+          onPointerOver={(e: { stopPropagation: () => void }) => {
+            e.stopPropagation();
+            onHover?.(true);
+          }}
+          onPointerOut={() => onHover?.(false)}
+        />
+      )}
     </group>
   );
 }
 
-export type MarkKind = "soma" | "syn" | "dec" | "lesion" | "bound" | "recept";
+export type MarkKind = "soma" | "syn" | "dec" | "lesion" | "bound" | "recept" | "node";
 
-/** Mark glyphs: a soma is a ball, a synapse a ring, a decussation a big X (two crossed bars) with a ring, a lesion a ball with a halo. */
-export function MarkMesh({ pos, kind, color, r, dim }: { pos: THREE.Vector3; kind: MarkKind; color: string; r: number; dim?: boolean }) {
-  const op = dim ? 0.35 : 1;
-  const group = useRef<THREE.Group>(null);
+/** Mark glyphs. A node scales in with a soft illumination ring; a decussation is a camera-facing X with a ring; a lesion a ball with a halo. */
+export function MarkMesh({
+  pos,
+  kind,
+  color,
+  r,
+  dim,
+  show = true,
+  hot,
+  hover,
+  reduced,
+  onPick,
+  onHover,
+}: {
+  pos: THREE.Vector3;
+  kind: MarkKind;
+  color: string;
+  r: number;
+  dim?: boolean;
+  show?: boolean;
+  hot?: boolean;
+  hover?: boolean;
+  reduced?: boolean;
+  onPick?: () => void;
+  onHover?: (h: boolean) => void;
+}) {
+  const invalidate = useThree((s) => s.invalidate);
   const camera = useThree((s) => s.camera);
-  // the X faces the camera so it always reads as a cross
-  useFrame(() => {
-    if (kind === "dec" && group.current) group.current.quaternion.copy(camera.quaternion);
+  const group = useRef<THREE.Group>(null);
+  const face = useRef<THREE.Group>(null);
+  const ring = useRef<THREE.Mesh>(null);
+  const ringMat = useRef<THREE.MeshBasicMaterial>(null);
+  const sc = useRef(show ? 1 : 0);
+  const pulse = useRef(1);
+  const wasHot = useRef(false);
+  useFrame((_, dt) => {
+    let busy = false;
+    const target = show ? 1 : 0;
+    if (sc.current !== target) {
+      sc.current = approach(sc.current, target, dt / (reduced ? 0.15 : 0.5));
+      busy = true;
+    }
+    const k = reduced ? sc.current : easeInOut(sc.current);
+    const s = Math.max(0.0001, k * (hover ? 1.25 : 1));
+    if (group.current) {
+      group.current.scale.setScalar(s);
+      group.current.visible = sc.current > 0.002;
+    }
+    if (face.current && kind === "dec") face.current.quaternion.copy(camera.quaternion);
+    if (hot && show && !wasHot.current) pulse.current = 0;
+    wasHot.current = !!hot && show;
+    if (pulse.current < 1) {
+      pulse.current = Math.min(1, pulse.current + dt / (reduced ? 0.4 : 1.1));
+      busy = true;
+    }
+    if (ring.current && ringMat.current) {
+      const p = pulse.current;
+      ring.current.visible = p < 1 && !reduced;
+      ring.current.scale.setScalar(1 + p * 2.6);
+      ringMat.current.opacity = (1 - p) * 0.8;
+    }
+    if (busy) invalidate();
   });
+  const handlers = onPick
+    ? {
+        onClick: (e: { stopPropagation: () => void; delta: number }) => {
+          if (e.delta > 6) return;
+          e.stopPropagation();
+          onPick();
+        },
+        onPointerOver: (e: { stopPropagation: () => void }) => {
+          e.stopPropagation();
+          onHover?.(true);
+        },
+        onPointerOut: () => onHover?.(false),
+      }
+    : {};
+  const op = dim ? 0.4 : 1;
   if (kind === "dec") {
     const L = r * 9;
     const W = r * 1.7;
     return (
       <group position={pos} renderOrder={30}>
         <group ref={group}>
-          {[Math.PI / 4, -Math.PI / 4].map((a) => (
-            <mesh key={a} rotation={[0, 0, a]} renderOrder={31}>
-              <boxGeometry args={[L, W, W]} />
-              <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.95 * op} toneMapped={false} />
+          <group ref={face} {...handlers}>
+            {[Math.PI / 4, -Math.PI / 4].map((a) => (
+              <mesh key={a} rotation={[0, 0, a]} renderOrder={31}>
+                <boxGeometry args={[L, W, W]} />
+                <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.95 * op} toneMapped={false} />
+              </mesh>
+            ))}
+            <mesh renderOrder={30}>
+              <torusGeometry args={[L * 0.58, W * 0.32, 8, 40]} />
+              <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.6 * op} toneMapped={false} />
             </mesh>
-          ))}
-          <mesh renderOrder={30}>
-            <torusGeometry args={[L * 0.58, W * 0.32, 8, 40]} />
-            <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.6 * op} toneMapped={false} />
-          </mesh>
+          </group>
         </group>
       </group>
     );
   }
   const big = kind === "lesion";
+  const node = kind === "node";
   return (
     <group position={pos} renderOrder={30}>
-      <mesh renderOrder={30}>
-        {kind === "syn" || kind === "bound" ? <torusGeometry args={[r * 2.2, r * 0.75, 8, 24]} /> : <sphereGeometry args={[r * (big ? 3.4 : 2.0), 18, 12]} />}
-        <meshBasicMaterial color={color} depthTest={false} transparent opacity={(big ? 0.8 : 0.95) * op} toneMapped={false} />
-      </mesh>
-      {big && (
-        <mesh renderOrder={29} rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[r * 5.5, r * 0.35, 8, 40]} />
-          <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.7 * op} toneMapped={false} />
+      <group ref={group}>
+        <mesh renderOrder={30} {...handlers}>
+          {kind === "syn" || kind === "bound" ? <torusGeometry args={[r * 2.2, r * 0.75, 8, 24]} /> : <sphereGeometry args={[r * (big ? 3.4 : node ? 2.6 : 2.0), 18, 12]} />}
+          <meshBasicMaterial color={color} depthTest={false} transparent opacity={(big ? 0.8 : 0.95) * op} toneMapped={false} />
         </mesh>
-      )}
+        {(big || node) && (
+          <mesh renderOrder={29} rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[r * (big ? 5.5 : 3.8), r * 0.3, 8, 40]} />
+            <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.55 * op} toneMapped={false} />
+          </mesh>
+        )}
+        {node && (
+          <mesh ref={ring} renderOrder={28} visible={false}>
+            <sphereGeometry args={[r * 2.6, 16, 12]} />
+            <meshBasicMaterial ref={ringMat} color={color} depthTest={false} transparent opacity={0} toneMapped={false} />
+          </mesh>
+        )}
+      </group>
     </group>
   );
 }

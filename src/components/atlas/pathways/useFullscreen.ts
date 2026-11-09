@@ -1,12 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 /** Fullscreen for a scene container. After every change the canvas is told to re-measure (the resize event reaches
  *  r3f's size observer) and `onChange` lets the page re-frame the camera, so pointer coordinates never go stale. */
 export function useFullscreen(onChange?: () => void) {
   const el = useRef<HTMLDivElement | null>(null);
-  const ref = useCallback((n: HTMLDivElement | null) => {
+  const attach = useCallback((n: HTMLDivElement | null) => {
     el.current = n;
   }, []);
   const [fs, setFs] = useState(false);
@@ -33,6 +33,11 @@ export function useFullscreen(onChange?: () => void) {
     if (document.fullscreenElement) void document.exitFullscreen();
     else void el.current?.requestFullscreen?.().catch(() => undefined);
   }, []);
-  const can = typeof document !== "undefined" && !!document.fullscreenEnabled;
-  return { ref, fs, toggle, can };
+  // false on the server and during hydration, the browser's answer afterwards (a plain `document` check would mismatch: React error #418)
+  const can = useSyncExternalStore(
+    () => () => {},
+    () => !!document.fullscreenEnabled,
+    () => false,
+  );
+  return { attach, fs, toggle, can };
 }

@@ -197,7 +197,8 @@ export function LesionLab({
 
   // case mode
   const pool = useMemo(() => buildCases(clinical, courseMap), [clinical, courseMap]);
-  const [seed] = useState(() => (Date.now() >>> 8) | 1);
+  // a fixed seed on the server and at hydration (Date.now() there would render a different first case: React error #418); a fresh one when the student starts a case run
+  const [seed, setSeed] = useState(1);
   // the course's own vignettes first, then the generated ones
   const order = useMemo(() => {
     const idx = pool.map((_, i) => i);
@@ -340,6 +341,7 @@ export function LesionLab({
             value={mode}
             onChange={(m) => {
               setMode(m);
+              if (m === "case") setSeed((Date.now() >>> 8) | 1);
               setRevealed(null);
               setFocusPath(null);
               setFrameNonce((n) => n + 1);
@@ -356,7 +358,7 @@ export function LesionLab({
           )}
         </div>
 
-        <div ref={fsc.ref} className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px] [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
+        <div ref={fsc.attach} className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px] [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
           <PathwayViewer
             layers={(scene || sceneIn).layers}
             tubes={(scene || sceneIn).tubes}

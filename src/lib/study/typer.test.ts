@@ -116,7 +116,7 @@ test("lenient decorations: a side word is not tracked from its first letter", ()
   const t = new Typer({ variants: answerVariants("Neuraxis"), decorative: decorativeKeys("Neuraxis"), now: 0 });
   assert.equal(t.set("R", 1).state, "bad");
   assert.equal(t.set("right n", 2).state, "track");
-  assert.equal(t.set("th", 3).state, "track");
+  assert.equal(t.set("th", 3).state, "idle");
   assert.equal(t.set("N", 4).state, "track");
 });
 
@@ -127,4 +127,11 @@ test("alternatives: either term of A/B or A or B is a full answer", () => {
   assert.ok(w.includes("Rostral") && w.includes("anterior"));
   assert.deepEqual(alternativesOf("Gracile/cuneate nuclei"), ["Gracile nuclei", "cuneate nuclei"]);
   assert.deepEqual(alternativesOf("L4/L5"), []);
+});
+
+test("a partial article stays neutral: 't' on a non-T answer is neither green nor a typo", () => {
+  const t = new Typer({ variants: answerVariants("Horizontal plane"), decorative: decorativeKeys("Horizontal plane"), now: 0 });
+  assert.equal(t.set("t", 1).state, "idle");
+  assert.equal(t.set("the h", 2).state, "track");
+  assert.equal(t.typos, 0);
 });

@@ -249,6 +249,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
             box?.classList.add("nudge");
             return;
           }
+          if (e.key === "Enter" && engine.enterBlocked()) return;
           engine.accept();
         } else if (e.key === "Escape") {
           e.preventDefault();
@@ -276,7 +277,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
     if (e.key === "Enter") {
       e.preventDefault();
       if (engine.phase === "prompt") engine.submit(false);
-      else if (engine.phase === "reveal") engine.accept();
+      else if (engine.phase === "reveal" && !engine.enterBlocked()) engine.accept();
     } else if (e.key === "Tab") {
       e.preventDefault();
       if (engine.phase === "prompt") engine.hint(true);

@@ -191,6 +191,10 @@ export class Typer {
     else if (match >= 0) this.state = "match";
     else if (prefix) this.state = "track";
     else this.state = "bad";
+    // following "the X" on a partial "t"/"th"/"the" is allowed, but it is no sign of being right yet: stay neutral
+    // (no green, no red, no typo) until the article is complete
+    const lead = this.variants[this.cur].lead;
+    if (this.state === "track" && lead === "the " && !t.s.startsWith(lead)) this.state = "idle";
     this.lcp = lcp;
     this.L = prefix ? Math.min(t.s.length, a.length) : lcp;
     this.typedOk = lcp < t.map.length ? t.map[lcp] : v.length;

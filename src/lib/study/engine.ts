@@ -499,6 +499,13 @@ export class StudyEngine {
   }
 
   /** The clock stood still for `ms` (e.g. the thought parking lot was open): no time cost, no auto hints. */
+  /** When the answer last submitted itself on its final letter (0 = not this card). */
+  autoRevealAt = 0;
+  /** An Enter pressed out of habit right after an auto-submit must not skip past the reveal and its info. */
+  enterBlocked(): boolean {
+    return this.phase === "reveal" && this.autoRevealAt > 0 && this.deps.now() - this.autoRevealAt < 900;
+  }
+
   pauseFor(ms: number): void {
     const c = this.cur;
     if (ms <= 0) return;
@@ -575,7 +582,12 @@ export class StudyEngine {
     if (t.state === "match" && t.params.autoSubmitOnMatch && !t.extendable) {
       const v = this.judge(c);
       // a right name that still lacks the side is not done yet: let the student add it
-      if (!(v.result === "wrong" && v.kind === "side")) this.submit(false);
+      if (!(v.result === "wrong" && v.kind === "side")) {
+        this.submit(false);
+        // the answer submitted itself on the last letter: an Enter pressed out of habit a moment later must not
+        // skip straight past the reveal (and its info) to the next card
+        if (this.phase === "reveal") this.autoRevealAt = now;
+      }
     }
   }
 

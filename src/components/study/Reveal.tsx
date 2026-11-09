@@ -95,6 +95,27 @@ function Pips({ step, next }: { step: number; next: number }) {
   );
 }
 
+/** Interchangeable names: say so, and say it louder when the student typed the other one. */
+function AlsoCalled({ c }: { c: Current }) {
+  const names = c.card.alsoCalled ?? [];
+  const typed = (c.typer?.typed ?? c.typed ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+  const usedOther = !!typed && names.some((n) => n.toLowerCase() === typed || n.toLowerCase().startsWith(typed + " "));
+  const list = names.join(" / ");
+  return (
+    <p className="v-notes" style={{ marginTop: 2 }}>
+      {usedOther ? (
+        <>
+          <b style={{ color: "var(--good)" }}>{c.typer?.typed ?? c.typed}</b> is right too: <b>{c.card.answer}</b> and <b>{list}</b> are interchangeable names.
+        </>
+      ) : (
+        <>
+          Also called <b>{list}</b>; the names are interchangeable.
+        </>
+      )}
+    </p>
+  );
+}
+
 export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Current; courseSlug: string }) {
   const retypeRef = useRef<HTMLInputElement>(null);
   const r = c.retype;
@@ -124,6 +145,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
       {c.mode !== "self" && <Diff c={c} />}
       {!c.diff && c.card.answer && <p className="answer-line" style={c.right || c.mode === "self" ? undefined : { color: "var(--good)" }}>{c.card.answer}</p>}
       {c.mode === "keywords" && c.verdict?.why && <p className="v-notes">{c.verdict.why}</p>}
+      {c.card.alsoCalled && c.card.alsoCalled.length > 0 && <AlsoCalled c={c} />}
 
       {c.trapReport.length > 0 && (
         <div className="info-panel" style={{ marginTop: 8 }}>

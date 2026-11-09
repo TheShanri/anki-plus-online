@@ -44,6 +44,8 @@ export interface StudyCard {
   step?: string;
   /** what a pin/section answer is: structure | direction | plane | region | term | level (drives the label above the prompt) */
   answerKind?: string;
+  /** other names for the same thing that are equally right ("frontal plane" for "coronal plane") */
+  alsoCalled?: string[];
   image?: PinImageData;
   followups: string[];
   /** explicit follow-up card slugs (practical exam stems), asked before the structure's theory cards */
@@ -139,7 +141,7 @@ export function toStudyCard(row: CardRow): StudyCard {
     prompt: str(c.prompt) || (kind === "pin" ? "Name the structure." : ""),
     vignette: str(c.vignette) || undefined,
     answer: str(c.answer) || str(c.name),
-    accept: strs(c.accept),
+    accept: [...strs(c.accept), ...strs(c.also_called)],
     requireSide: !!c.require_side,
     format,
     keywords,
@@ -149,6 +151,7 @@ export function toStudyCard(row: CardRow): StudyCard {
     pathway: str(c.pathway) || undefined,
     step: str(c.step) || undefined,
     answerKind: str(c.answer_kind) || undefined,
+    alsoCalled: strs(c.also_called).length ? strs(c.also_called) : undefined,
     image,
     followups: strs(c.followups),
     followupCards: strs(c.followup_cards),

@@ -1,0 +1,229 @@
+[
+ {
+  "level": "midbrain-sc",
+  "reg": {
+   "cost": 0.13,
+   "deg": -0.2,
+   "scale": 0.81
+  },
+  "mapped": [
+   "periaqueductal-gray",
+   "cerebral-aqueduct",
+   "oculomotor-nucleus",
+   "edinger-westphal-nucleus",
+   "red-nucleus",
+   "substantia-nigra"
+  ],
+  "unmapped": [
+   "superior-colliculus",
+   "oculomotor-nerve",
+   "interpeduncular-fossa",
+   "cerebral-peduncles",
+   "medial-lemniscus",
+   "anterolateral-spinothalamic-tract",
+   "medial-longitudinal-fasciculus",
+   "medial-geniculate-nucleus",
+   "brachium-of-the-inferior-colliculus",
+   "pineal-gland",
+   "midbrain",
+   "pulvinar"
+  ],
+  "regions": 10,
+  "stroke": {
+   "thick": 4.6,
+   "adjust": -1
+  }
+ },
+ {
+  "level": "midbrain-ic",
+  "reg": {
+   "cost": 0.12,
+   "deg": -0.2,
+   "scale": 0.776
+  },
+  "mapped": [
+   "periaqueductal-gray",
+   "cerebral-aqueduct",
+   "trochlear-nucleus",
+   "decussation-of-the-superior-cerebellar-peduncle",
+   "cerebral-peduncles",
+   "substantia-nigra"
+  ],
+  "unmapped": [
+   "trochlear-nerve",
+   "inferior-colliculus",
+   "anterolateral-spinothalamic-tract",
+   "medial-longitudinal-fasciculus",
+   "medial-lemniscus",
+   "brachium-of-the-inferior-colliculus",
+   "trigeminal-nerve",
+   "pontine-nuclei",
+   "middle-cerebellar-peduncle",
+   "lateral-lemniscus"
+  ],
+  "regions": 11,
+  "stroke": {
+   "thick": 4.1,
+   "adjust": -1
+  }
+ },
+ {
+  "level": "pons-mid",
+  "reg": {
+   "cost": 0.27,
+   "deg": -0.4,
+   "scale": 0.699
+  },
+  "mapped": [
+   "superior-cerebellar-peduncle",
+   "fourth-ventricle",
+   "motor-trigeminal-nucleus",
+   "principal-sensory-nucleus-of-trigeminal",
+   "longitudinal-fibers-of-the-pons"
+  ],
+  "unmapped": [
+   "medial-lemniscus",
+   "middle-cerebellar-peduncle",
+   "trigeminal-nerve",
+   "transverse-fibers-of-the-pons",
+   "pontine-nuclei",
+   "anterolateral-spinothalamic-tract",
+   "medial-longitudinal-fasciculus",
+   "inferior-cerebellar-peduncle"
+  ],
+  "regions": 9,
+  "stroke": {
+   "thick": 4.1,
+   "adjust": 0
+  }
+ },
+ {
+  "level": "pons-caudal",
+  "reg": {
+   "cost": 0.16,
+   "deg": -0.2,
+   "scale": 0.769
+  },
+  "mapped": [
+   "fourth-ventricle",
+   "superior-cerebellar-peduncle",
+   "vestibulocochlear-complex",
+   "abducens-nucleus",
+   "facial-nucleus",
+   "longitudinal-fibers-of-the-pons"
+  ],
+  "unmapped": [
+   "facial-colliculus",
+   "middle-cerebellar-peduncle",
+   "vestibulocochlear-nerve",
+   "facial-nerve",
+   "abducens-nerve",
+   "transverse-fibers-of-the-pons",
+   "pontine-nuclei",
+   "anterolateral-spinothalamic-tract",
+   "medial-lemniscus",
+   "medial-longitudinal-fasciculus",
+   "inferior-cerebellar-peduncle",
+   "spinal-trigeminal-nucleus"
+  ],
+  "regions": 11,
+  "stroke": {
+   "thick": 4.3,
+   "adjust": -1
+  }
+ },
+ {
+  "level": "medulla-rostral",
+  "reg": {
+   "cost": 0.08,
+   "deg": -0.2,
+   "scale": 0.779
+  },
+  "mapped": [
+   "inferior-cerebellar-peduncle",
+   "vestibulocochlear-complex",
+   "hypoglossal-nucleus",
+   "dorsal-motor-nucleus-of-the-vagus",
+   "solitary-nucleus",
+   "inferior-olivary-nucleus",
+   "pyramids"
+  ],
+  "unmapped": [
+   "fourth-ventricle",
+   "vagus-nerve",
+   "glossopharyngeal-nerve",
+   "hypoglossal-nerve",
+   "medial-lemniscus",
+   "anterolateral-spinothalamic-tract",
+   "dorsal-spinocerebellar-tract",
+   "medial-longitudinal-fasciculus",
+   "nucleus-ambiguus",
+   "choroid-plexus",
+   "spinal-trigeminal-nucleus"
+  ],
+  "regions": 21,
+  "stroke": {
+   "thick": 6,
+   "adjust": -1
+  }
+ },
+ {
+  "level": "medulla-mid",
+  "reg": {
+   "cost": 0.1,
+   "deg": -0.2,
+   "scale": 0.657
+  },
+  "mapped": [
+   "gracile-nucleus",
+   "cuneate-nucleus",
+   "spinal-trigeminal-nucleus",
+   "pyramids"
+  ],
+  "unmapped": [
+   "fasciculus-cuneatus",
+   "dorsal-spinocerebellar-tract",
+   "medial-lemniscus",
+   "internal-arcuate-fibers",
+   "medial-longitudinal-fasciculus",
+   "vestibulocochlear-complex",
+   "solitary-nucleus",
+   "inferior-cerebellar-peduncle",
+   "vestibulocochlear-nerve",
+   "inferior-olivary-nucleus",
+   "fasciculus-gracilis",
+   "hypoglossal-nucleus",
+   "nucleus-ambiguus"
+  ],
+  "regions": 5,
+  "stroke": {
+   "thick": 6.1,
+   "adjust": -2
+  }
+ },
+ {
+  "level": "medulla-caudal",
+  "reg": null,
+  "mapped": [],
+  "unmapped": [
+   "fasciculus-gracilis",
+   "gracile-nucleus",
+   "fasciculus-cuneatus",
+   "cuneate-nucleus",
+   "spinal-trigeminal-nucleus",
+   "anterolateral-spinothalamic-tract",
+   "lateral-corticospinal-tract",
+   "motor-decussation",
+   "dorsal-spinocerebellar-tract",
+   "medial-longitudinal-fasciculus",
+   "trigeminal-nerve",
+   "accessory-nerve",
+   "pyramids"
+  ],
+  "regions": 0,
+  "stroke": {
+   "thick": 5,
+   "adjust": -2
+  }
+ }
+]

@@ -1,0 +1,26 @@
+{
+  "midbrain-sc": {
+    "periaqueductal-gray": [2], "cerebral-aqueduct": [3], "oculomotor-nucleus": [4, 5], "edinger-westphal-nucleus": [6, 7],
+    "red-nucleus": [9, 10], "substantia-nigra": [8, 11]
+  },
+  "midbrain-ic": {
+    "periaqueductal-gray": [2], "cerebral-aqueduct": [3], "trochlear-nucleus": [4, 5, 6, 7],
+    "decussation-of-the-superior-cerebellar-peduncle": [8], "cerebral-peduncles": [9, 10], "substantia-nigra": [11, 12]
+  },
+  "pons-mid": {
+    "superior-cerebellar-peduncle": [2, 3], "fourth-ventricle": [4], "motor-trigeminal-nucleus": [6, 7],
+    "principal-sensory-nucleus-of-trigeminal": [8, 9], "longitudinal-fibers-of-the-pons": [10, 11]
+  },
+  "pons-caudal": {
+    "fourth-ventricle": [4], "superior-cerebellar-peduncle": [2, 3], "vestibulocochlear-complex": [5, 6],
+    "abducens-nucleus": [7, 8], "facial-nucleus": [42, 52], "longitudinal-fibers-of-the-pons": [64, 65]
+  },
+  "medulla-rostral": {
+    "inferior-cerebellar-peduncle": [4, 5], "vestibulocochlear-complex": [2, 3], "hypoglossal-nucleus": [13, 14],
+    "dorsal-motor-nucleus-of-the-vagus": [7, 8], "solitary-nucleus": [10, 11],
+    "inferior-olivary-nucleus": [15, 16, 17, 21, 23, 27, 35, 37, 38], "pyramids": [40, 41]
+  },
+  "medulla-mid": {
+    "gracile-nucleus": [3], "cuneate-nucleus": [4, 5], "spinal-trigeminal-nucleus": [6], "pyramids": [11]
+  }
+}

@@ -77,7 +77,7 @@ export function Legend({
 }
 
 /** A compact search that expands when opened and offers matches to add to the view. */
-export function AddStructure({ q, setQ, results, onAdd }: { q: string; setQ: (s: string) => void; results: { key: string; name: string }[]; onAdd: (key: string) => void }) {
+export function AddStructure({ q, setQ, results, onAdd }: { q: string; setQ: (s: string) => void; results: { key: string; name: string; icons?: React.ReactNode }[]; onAdd: (key: string) => void }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -131,7 +131,8 @@ export function AddStructure({ q, setQ, results, onAdd }: { q: string; setQ: (s:
                   setQ("");
                 }}
               >
-                {r.name}
+                <span className="min-w-0 flex-1 truncate">{r.name}</span>
+                {r.icons}
               </button>
             </li>
           ))}

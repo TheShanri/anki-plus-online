@@ -13,7 +13,7 @@ import { AtlasLoader, mbText, stagesFrom } from "./ui/AtlasLoader";
 import { readCssColor } from "@/lib/atlas/theme";
 import { trackAtlas } from "@/lib/atlas/progress";
 import {
-  Brain, ChevronDown, ChevronUp, FlipHorizontal2, LayoutGrid, Lock, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Tag,
+  Bone, Brain, ChevronDown, ChevronUp, FlipHorizontal2, LayoutGrid, Lock, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Tag,
 } from "lucide-react";
 import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
@@ -87,6 +87,12 @@ export type AtlasViewerProps = {
   onUserView?: (view: ViewName) => void;
   /** A click (not a drag) landed on empty space. */
   onPickNothing?: () => void;
+  /** Skull & spine layer: true when the selection is a skull or spine structure (on), false for brain structures (off). The toolbar toggle overrides this until the type changes. */
+  layerAuto?: boolean;
+  /** Extra three.js content drawn inside the Canvas in the same world space as gross.glb (also in every multi-view pane). Children may call invalidate()/useFrame themselves while animating (the frameloop stays on demand). */
+  children?: React.ReactNode;
+  /** Opacity of the base brain (everything not in an overlay), 0-1, e.g. 0.12. Below 1 the brain is drawn translucent with depthWrite off, so solid vessels inside it render correctly. */
+  brainOpacity?: number;
   /** Camera view, multi-view and cut, reported whenever they change (the MRI tab shows the matching slice). */
   onCameraState?: (s: CamState) => void;
   /** Ask the viewer to switch view and/or multi-view (applied once per `n`). */
@@ -187,6 +193,7 @@ const FIXED_PANES: { id: string; view: ViewName; label: string }[] = [
 const FREE_DIR = new THREE.Vector3(0.8, 0.5, 0.75).normalize();
 const DEFAULT_BRAIN = new THREE.Box3(new THREE.Vector3(-0.07, 1.58, -0.1), new THREE.Vector3(0.07, 1.7, 0.085));
 type Dims = { w: number; h: number };
+const EMPTY_LAYER: THREE.Group[] = [];
 /** Pan/zoom of one fixed multi-view pane (rotation stays locked): offsets along the pane's right/up axes, zoom factor. */
 type PaneView = { z: number; ox: number; oy: number };
 type PaneBase = { pos: THREE.Vector3; target: THREE.Vector3; dist: number };
@@ -437,17 +444,19 @@ function configureGross(
   look: Look,
   solid: boolean,
   planes: THREE.Plane[],
+  brainOpacity?: number,
 ) {
+  const op = brainOpacity ?? (solid ? 1 : 0.2);
   for (const k of [...GROUPS, "locked"]) {
     const m = mats[k];
-    m.transparent = !solid;
-    m.opacity = solid ? 1 : 0.2;
-    m.depthWrite = solid;
+    m.transparent = op < 1;
+    m.opacity = op;
+    m.depthWrite = op >= 1; // translucent layers never write depth, so what sits inside them stays visible
     m.clippingPlanes = planes;
     m.side = planes.length ? THREE.DoubleSide : THREE.FrontSide;
     m.needsUpdate = true;
   }
-  styleHull(hull, look === "regions" ? "#14111c" : "#33211d", solid);
+  styleHull(hull, look === "regions" ? "#14111c" : "#33211d", solid && op >= 1);
   hull.clippingPlanes = planes;
   hull.needsUpdate = true;
 }
@@ -848,6 +857,8 @@ function Scene({
   guides,
   centre,
   lockedSet,
+  brainOpacity,
+  layer,
   onWarm,
   probeRef,
   pickEl,
@@ -859,6 +870,8 @@ function Scene({
 }: {
   onMiss?: () => void;
   lockedSet: ReadonlySet<string>;
+  brainOpacity?: number;
+  layer: THREE.Group[];
   onWarm: () => void;
   probeRef: React.MutableRefObject<((dir: THREE.Vector3, mid: boolean) => number) | null>;
   pickEl: HTMLElement | null;
@@ -938,6 +951,7 @@ function Scene({
             metalness: 0,
             transparent: o.opacity < 1,
             opacity: o.opacity,
+            depthWrite: o.opacity >= 0.9, // a translucent territory must not hide the vessels inside it
             side: THREE.DoubleSide,
           }),
       ),
@@ -972,6 +986,29 @@ function Scene({
     }, 0);
     return () => window.clearTimeout(t);
   }, [gross, look, gl, sceneObj, cam0, onWarm, invalidate]);
+
+  // skull & spine layer: translucent bone behind the brain highlight, never hiding the selection
+  const boneMat = useMemo(
+    () => new THREE.MeshStandardMaterial({ color: "#e6dcc3", roughness: 0.9, metalness: 0, transparent: true, opacity: 0.2, depthWrite: false, side: THREE.DoubleSide }),
+    [],
+  );
+  useEffect(() => () => boneMat.dispose(), [boneMat]);
+  const layerRoots = useMemo(
+    () =>
+      layer.map((g) => {
+        const c = g.clone(true);
+        c.traverse((o) => {
+          const m = o as THREE.Mesh;
+          if (m.isMesh) {
+            m.material = boneMat;
+            m.raycast = () => undefined;
+            m.renderOrder = -2;
+          }
+        });
+        return c;
+      }),
+    [layer, boneMat],
+  );
 
   // fills the holes between the gross meshes: a dark cortex-coloured shell behind them (solid brain only)
   const backMat = useMemo(
@@ -1010,10 +1047,12 @@ function Scene({
   }, [loaded.ovl]);
   useEffect(() => {
     eachMesh(ovlRoot, (m) => {
-      m.material = ovlMats[m.userData.k as number];
+      const k = m.userData.k as number;
+      m.material = ovlMats[k];
+      m.renderOrder = (loaded.ovl[k]?.opacity ?? 1) < 0.9 ? 3 : 0; // translucent territories draw after the solid parts
     });
     invalidate();
-  }, [ovlRoot, ovlMats, invalidate]);
+  }, [ovlRoot, ovlMats, loaded.ovl, invalidate]);
 
   // wrap each target in a pivot at its centroid so the pulse scales in place
   const { targetRoot, pivots } = useMemo(() => {
@@ -1061,7 +1100,8 @@ function Scene({
     if (cutting) gp.push(cutP);
     grossPlanes.current = gp;
     configureContextMaterial(ctxMat, mode === "context" ? 0.4 : 0.15, gp);
-    configureGross(grossMats, grossHull, look, solid, gp);
+    configureGross(grossMats, grossHull, look, solid, gp, brainOpacity);
+    if (brainOpacity !== undefined) ctxMat.opacity = Math.min(ctxMat.opacity, brainOpacity);
     const own = cutting ? [cutP] : [];
     ownPlanes.current = own;
     setPlanes(hiMat, own, true);
@@ -1070,9 +1110,10 @@ function Scene({
       setPlanes(m, sd ? [...own, sidePlanes[sd]] : own, true);
     });
     setPlanes(backMat, gp);
+    setPlanes(boneMat, gp, true);
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, sidePlanes, loaded.ovl, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, boneMat, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
@@ -1171,7 +1212,10 @@ function Scene({
       <directionalLight position={[1, 2, 2]} intensity={1.5} />
       <directionalLight position={[-2, -1, -1.5]} intensity={0.55} />
       {loaded.ctx && showCtx && look === "xray" && <primitive object={loaded.ctx} />}
-      {backer && solid && grossOn && <primitive object={backer} />}
+      {layerRoots.map((r, i) => (
+        <primitive key={i} object={r} />
+      ))}
+      {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
@@ -1214,6 +1258,9 @@ export default function AtlasViewer({
   onUserView,
   onPickNothing,
   onCameraState,
+  children,
+  brainOpacity,
+  layerAuto = false,
   request = null,
   overlay,
   toolbarExtra,
@@ -1276,6 +1323,34 @@ export default function AtlasViewer({
   const fixedBase = useRef<(PaneBase | null)[]>([null, null, null]);
   const invalidateRef = useRef<() => void>(() => undefined);
   const [cssFs, setCssFs] = useState(false);
+  // skull & spine layer: automatic from the selection type, with a manual override that holds until the type changes
+  const [layerOv, setLayerOv] = useState<{ auto: boolean; v: boolean } | null>(null);
+  const layerOn = layerOv && layerOv.auto === layerAuto ? layerOv.v : layerAuto;
+  const [layerGroups, setLayerGroups] = useState<THREE.Group[]>([]);
+  const [layerMissing, setLayerMissing] = useState(false);
+  // the layer button only appears once the skull model is actually published
+  useEffect(() => {
+    let alive = true;
+    fetch("/atlas/skull.glb", { method: "HEAD" })
+      .then((r) => alive && !r.ok && setLayerMissing(true))
+      .catch(() => alive && setLayerMissing(true));
+    return () => {
+      alive = false;
+    };
+  }, []);
+  useEffect(() => {
+    if (!layerOn || layerGroups.length || layerMissing) return;
+    let alive = true;
+    Promise.all(["skull.glb", "spine-atlas.glb"].map((f) => loadAtlasModel(f).catch(() => null))).then((g) => {
+      if (!alive) return;
+      const ok = g.filter((x): x is THREE.Group => !!x);
+      if (ok.length) setLayerGroups(ok);
+      else setLayerMissing(true);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [layerOn, layerGroups.length, layerMissing]);
   const probeRef = useRef<((dir: THREE.Vector3, mid: boolean) => number) | null>(null);
   const getPanes = useCallback(() => panes.current, []);
 
@@ -1750,6 +1825,7 @@ export default function AtlasViewer({
     else if (k === "v" && look !== "xray") setSolidPref(!solid);
     else if (k === "l" && !quiz && !hideLabels) setShowLabels((x) => !x);
     else if (k === "h") setShowCtx((x) => !x);
+    else if (k === "k" && shortcuts && !layerMissing) setLayerOv({ auto: layerAuto, v: !layerOn });
     else if (k === "g" && onToggleNeighbors) onToggleNeighbors();
     else if (k === "m" && multiview && !cut) toggleMulti();
     else if (k === "f" && canFs) toggleFs();
@@ -1824,6 +1900,8 @@ export default function AtlasViewer({
             guides={guides ?? []}
             centre={centre}
             lockedSet={lockedSet}
+            brainOpacity={brainOpacity}
+            layer={layerOn ? layerGroups : EMPTY_LAYER}
             onWarm={onWarm}
             probeRef={probeRef}
             pickEl={layerEl}
@@ -1834,6 +1912,7 @@ export default function AtlasViewer({
             onMiss={missStable}
           />
         )}
+        {children}
         <LabelUpdater items={labelItems} lab={lab} enabled={labelsOn} centre={centre} solid={solid} dims={dims} tick={obsTick} />
         <OrbitControls
           makeDefault
@@ -2029,6 +2108,7 @@ export default function AtlasViewer({
                 {!quiz && !hideLabels && <IconBtn label={showLabels ? "Hide labels" : "Show labels"} keys="L" on={showLabels} onClick={() => setShowLabels((s) => !s)} icon={<Tag />} />}
                 <IconBtn label={showCtx ? "Hide shell" : "Show shell"} keys="H" on={showCtx} onClick={() => setShowCtx((s) => !s)} icon={<ShellIcon />} />
                 {onToggleNeighbors && <IconBtn label="Highlight neighbours" keys="G" on={neighbors} onClick={onToggleNeighbors} icon={<NeighborIcon />} />}
+                {shortcuts && !layerMissing && <IconBtn label={layerOn ? "Hide the skull and spine layer" : "Show the skull and spine layer"} keys="K" on={layerOn} onClick={() => setLayerOv({ auto: layerAuto, v: !layerOn })} icon={<Bone />} />}
               </Group>
               {(multiview && !cut) || canFs || toolbarExtra ? <Divider /> : null}
               <Group label="Layout">

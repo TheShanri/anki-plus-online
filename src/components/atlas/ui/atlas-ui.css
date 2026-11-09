@@ -87,3 +87,6 @@ html[data-effects="off"] .atl-drawer, html[data-effects="off"] .atl-card-in { tr
 .atl-fact { animation: atl-in 420ms ease-out; min-height: 3.4em; }
 @media (prefers-reduced-motion: reduce) { .atl-node, .atl-tick.active, .atl-fact, .atl-bar-fill { animation: none; transition: none; } }
 html[data-effects="off"] .atl-node, html[data-effects="off"] .atl-tick.active, html[data-effects="off"] .atl-fact, html[data-effects="off"] .atl-bar-fill { animation: none; transition: none; }
+
+.atl-dim { opacity: 0.5; }
+.atl-dim .atl-lbl { text-decoration: underline dotted; text-underline-offset: 3px; }

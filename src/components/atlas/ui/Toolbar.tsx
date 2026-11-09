@@ -124,14 +124,14 @@ export function Segmented<T extends string>({
 }: {
   value: T;
   onChange: (v: T) => void;
-  items: { id: T; label: string; icon?: ReactNode; text?: string; keys?: string }[];
+  items: { id: T; label: string; icon?: ReactNode; text?: string; keys?: string; /** greyed: not available for this selection (stays clickable) */ dim?: boolean; /** tooltip override, e.g. "Not in the MRI atlas" */ note?: string }[];
   label: string;
   below?: boolean;
 }) {
   return (
     <div className="atl-seg" role="radiogroup" aria-label={label}>
       {items.map((it) => (
-        <IconBtn key={it.id} radio below={below} on={value === it.id} icon={it.icon} text={it.text} label={it.label} keys={it.keys} onClick={() => onChange(it.id)} />
+        <IconBtn key={it.id} radio below={below} on={value === it.id} icon={it.icon} text={it.text} label={it.note ?? it.label} keys={it.keys} className={it.dim ? "atl-dim" : undefined} onClick={() => onChange(it.id)} />
       ))}
     </div>
   );

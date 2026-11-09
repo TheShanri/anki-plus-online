@@ -111,8 +111,7 @@ OVERRIDE = {
 # Vetting fixes (atlas screenshot review): the mapped mesh was either the whole parent shown as if exact, or a mesh
 # so tiny / the wrong shape that the highlight was invisible or misleading. Shown as approximate on the containing mesh.
 APPROX_FIX = {
-    "pulvinar": (["thalamus"], True),
-    "anterior-nucleus-of-thalamus": (["thalamus"], True),
+    # pulvinar / anterior nucleus of the thalamus are now exact: tools/atlas/carve_parts.py carves them out of the thalamus mesh
     "facial-colliculus": (["pons"], True),
     "interpeduncular-fossa": (["midbrain"], True),
     "interpeduncular-cistern": (["midbrain"], True),
@@ -126,6 +125,12 @@ APPROX_FIX = {
     "circle-of-willis": (["cerebral-arterial-circle", "anterior-communicating-artery", "posterior-communicating-artery", "anterior-cerebral-artery", "posterior-cerebral-artery", "basilar-artery"], False),
     "cerebral-blood-vessels": (["cerebral-arterial-circle", "anterior-cerebral-artery", "pericallosal-artery", "middle-cerebral-artery-m1", "middle-cerebral-artery-m3", "posterior-cerebral-artery", "basilar-artery", "superior-cerebellar-artery"], False),
 }
+# Made exact in the 3D round: these names are the very structures the meshes are (a peduncle trio, the pons itself, the hemispheric lobules)
+APPROX_FIX.update({
+    "cerebellar-peduncles": (["superior-cerebellar-peduncle", "mni-middle-cerebellar-peduncle", "mni-inferior-cerebellar-peduncle"], False),
+    "pontine-protuberance": (["pons"], False),
+    "cerebellar-lateral-hemisphere": (["anterior-quadrangular-lobule", "posterior-quadrangular-lobule", "superior-semilunar-lobule", "inferior-semilunar-lobule", "biventral-lobule", "gracile-lobule"], False),
+})
 IDX_BY_NAME = {}
 for k, e in S.items():
     IDX_BY_NAME.setdefault(norm(e["name"]), k)

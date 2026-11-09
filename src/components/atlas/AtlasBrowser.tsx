@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Lock, PanelLeft, PanelRight } from "lucide-react";
+import { SectionEmbed, inSections, levelsShowing, nearestLevel } from "./brainstem/SectionEmbed";
+import { AvailIcons, availabilityFor, slugOf } from "./ui/availability";
 import { loadAtlasIndex, normalizeQuery } from "@/lib/atlas";
 import type { AtlasEntry, AtlasIndex } from "@/lib/atlas";
 import { atlasTargetForCourseName } from "@/lib/atlas/map";
@@ -22,7 +24,7 @@ import { IconBtn, Segmented } from "./ui/Toolbar";
 import { AddStructure, ExtraInfoCard, Legend, LockedCard } from "./ui/Overlays";
 import type { LegendRow } from "./ui/Overlays";
 import { preloadAtlas } from "./ui/modelCache";
-import { mniFromCut, sliceViewFor, view3dFor } from "./ui/translate";
+import { mmFromWorld, mniFromCut, sliceViewFor, view3dFor } from "./ui/translate";
 import type { CamState } from "./ui/translate";
 
 const Loading = ({ what }: { what: string }) => (
@@ -33,7 +35,7 @@ const Loading = ({ what }: { what: string }) => (
 const AtlasViewer = dynamic(() => import("./AtlasViewer"), { ssr: false, loading: () => <Loading what="3D viewer" /> });
 const SliceViewer = dynamic(() => import("./SliceViewer"), { ssr: false, loading: () => <Loading what="MRI viewer" /> });
 
-type Tab = "model" | "slices";
+type Tab = "model" | "slices" | "sections";
 const VIEW_PARAM: Record<string, SliceView> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", transverse: "axial", multi: "multi", multiplanar: "multi", render: "render" };
 const VIEW_NAME: Record<SliceView, string> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", multi: "multi", render: "render" };
 
@@ -45,6 +47,8 @@ type Props = {
   initialNb?: string;
   /** Inside another page (the study overlay): leaves the URL alone. */
   embedded?: boolean;
+  /** The course slug, for the Sections view's slide images (hidden when absent). */
+  courseSlug?: string;
   /** Viewer and list height in px (default: fills the viewport on the atlas page, 560 when embedded). */
   height?: number;
 };
@@ -70,7 +74,7 @@ const SYLLABUS: ReadonlySet<string> = (() => {
   return s;
 })();
 
-export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb, embedded = false, height }: Props) {
+export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb, embedded = false, courseSlug, height }: Props) {
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [atlas2, setAtlas2] = useState<Atlas2 | null>(null);
   const [error, setError] = useState(false);
@@ -83,7 +87,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [nbSide, setNbSide] = useState<Side>("L");
   const [tab, setTabRaw] = useState<Tab>(initialView && VIEW_PARAM[initialView] ? "slices" : "model");
   // both viewers stay mounted once opened, so flipping back restores the 3D camera and look
-  const [seen, setSeen] = useState({ model: !(initialView && VIEW_PARAM[initialView]), slices: !!(initialView && VIEW_PARAM[initialView]) });
+  const [seen, setSeen] = useState({ model: !(initialView && VIEW_PARAM[initialView]), slices: !!(initialView && VIEW_PARAM[initialView]), sections: false });
+  const [secLevel, setSecLevel] = useState<string | null>(null);
   const [atMm, setAtMm] = useState<number[] | null>(null);
   const [request, setRequest] = useState<{ n: number; view?: ViewName; multi?: boolean } | null>(null);
   const [modalityNote, setModalityNote] = useState<string | null>(null);
@@ -197,7 +202,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const extraCard = !!(unlocked && primary?.key === unlocked);
 
   // progress: a curriculum structure was opened (3D or MRI)
-  const via: "3d" | "mri" = tab === "model" ? "3d" : "mri";
+  const via: "3d" | "mri" | "brainstem" = tab === "model" ? "3d" : tab === "slices" ? "mri" : "brainstem";
   const lastViewed = useRef("");
   useEffect(() => {
     if (!infoSlug) return;
@@ -213,6 +218,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const tabFor = (it: CatalogItem, cur: Tab): { tab: Tab; why?: string } => {
     if (cur === "model" && !it.meshIds.length && it.slug) return { tab: "slices", why: "Not in the 3D model, showing MRI" };
     if (cur === "slices" && !it.slug && it.meshIds.length) return { tab: "model", why: "Not in the MRI atlas, showing 3D" };
+    if (cur === "sections" && !inSections(slugOf(it))) return { tab: it.meshIds.length ? "model" : "slices", why: "Not on the course sections, showing " + (it.meshIds.length ? "3D" : "MRI") };
     return { tab: cur };
   };
   const resolvedOnce = useRef(false);
@@ -389,7 +395,13 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   /** Switch 3D <-> MRI, translating the view: multi-view <-> multiplanar, cut <-> same slice, anterior/lateral/superior <-> coronal/sagittal/transverse. */
   function changeTab(next: Tab) {
     if (next === tab) return;
-    if (next === "slices") {
+    if (next === "sections") {
+      // the transverse cut (or the structure's own level) picks the section level
+      const s = cam3d.current;
+      const sl = infoSlug ?? primary?.slug ?? null;
+      const lv = s.cut?.axis === "y" ? nearestLevel(mmFromWorld("y", s.cut.position), sl) : null;
+      setSecLevel(lv ?? levelsShowing(sl)[0]?.slug ?? secLevel);
+    } else if (next === "slices") {
       const s = cam3d.current;
       const sv = sliceViewFor(s);
       setSliceView(sv);
@@ -417,6 +429,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const sliceQuality = primary?.slices ?? null;
   const sliceSrc = primary?.slug && atlas2 ? atlas2.structures[primary.slug]?.source : null;
   const hasInfo = !!infoSlug || extraCard;
+  const modeAvail = availabilityFor(primary);
   const ent = unlocked && index ? index.structures[unlocked] : null;
   const status =
     (primary && tab === "slices" && noSlices && "No MRI label for this structure in the open atlases; the 3D model is the reference.") ||
@@ -434,8 +447,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
           className={`flex w-full flex-col items-start rounded-sm px-2 py-1.5 text-left text-sm hover:bg-panel-2 ${primary?.key === e.key ? "bg-panel-2 text-accent" : locked ? "text-text-faint" : ""}`}
         >
           <span className="flex w-full items-center gap-1.5">
-            {e.name}
-            {locked && <Lock size={11} className="ml-auto flex-none" aria-label="not on your syllabus" />}
+            <span className="min-w-0 flex-1">{e.name}</span>
+            {locked && <Lock size={11} className="flex-none" aria-label="not on your syllabus" />}
+            {!e.group && <AvailIcons a={availabilityFor(e)} />}
           </span>
           <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">
             {index?.regions[e.region] ?? (e.region === "slices" ? "MRI slices" : e.region)}
@@ -450,7 +464,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const overlayNode = (
     <div className="pointer-events-none absolute inset-0 z-[5]">
       <div className="absolute right-2 top-2 flex max-w-[calc(100%-1rem)] flex-col items-end gap-1.5">
-        <AddStructure q={addQ} setQ={setAddQ} results={addResults} onAdd={(k) => setExtraKeys((ks) => [...ks, k.replace(/^slug:/, "")])} />
+        <AddStructure q={addQ} setQ={setAddQ} results={addResults.map((r) => ({ key: r.key, name: r.name, icons: <AvailIcons a={availabilityFor(r)} /> }))} onAdd={(k) => setExtraKeys((ks) => [...ks, k.replace(/^slug:/, "")])} />
         <Legend
           rows={legendRows}
           hoverKey={hoverKey}
@@ -519,8 +533,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               value={tab}
               onChange={(t) => changeTab(t)}
               items={[
-                { id: "model", label: "3D model", text: "3D" },
-                { id: "slices", label: "MRI slices", text: "MRI" },
+                { id: "model", label: "3D model", text: "3D", dim: !!primary && modeAvail.d3 === "none", note: primary && modeAvail.d3 === "none" ? `3D model: ${modeAvail.d3Why}` : primary && modeAvail.d3 === "partial" ? `3D model: ${modeAvail.d3Why}` : "3D model" },
+                { id: "slices", label: "MRI slices", text: "MRI", dim: !!primary && modeAvail.mri === "none", note: primary ? `MRI slices: ${modeAvail.mriWhy}` : "MRI slices" },
+                { id: "sections", label: "Course sections", text: "Sections", dim: !!primary && modeAvail.sec === "none", note: primary ? `Course sections: ${modeAvail.secWhy}` : "Course sections (brainstem and spinal cord levels)" },
               ]}
             />
             <span className="ml-auto" />
@@ -551,6 +566,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 autoReveal
                 onUserView={onUserView}
                 onCameraState={onCameraState}
+                layerAuto={!!primary && /^(skull|spine|bone|cranium|vertebra)/.test(primary.region)}
                 request={request}
               />
               </div>
@@ -577,6 +593,15 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               ) : (
                 <Loading what="MRI atlas" />
               )}
+              </div>
+            )}
+            {seen.sections && (
+              <div className={tab === "sections" ? "absolute inset-0" : "pointer-events-none invisible absolute inset-0"} aria-hidden={tab !== "sections"}>
+                {courseSlug ? (
+                  <SectionEmbed courseSlug={courseSlug} slug={infoSlug ?? primary?.slug ?? null} level={secLevel} onLevel={setSecLevel} />
+                ) : (
+                  <p className="p-6 text-sm text-text-dim">The course cross-sections need you to be signed in to a course.</p>
+                )}
               </div>
             )}
             {modalityNote && (

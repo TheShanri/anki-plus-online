@@ -81,7 +81,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
   const courseCards = d.cards.filter((c) => c.fromCourse);
   const suppCards = d.cards.filter((c) => !c.fromCourse);
   const images = [...new Set(courseCards.filter((c) => c.image).map((c) => c.image as string))];
-  const listed = [...courseCards.filter((c) => !c.image), ...suppCards];
+  const listed = courseCards.filter((c) => !c.image); // slides first: cards that are not from the course sit behind the supplementary gate
   const shown = all ? listed : listed.slice(0, 6);
 
   return (
@@ -211,6 +211,25 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
             </button>
           )}
         </div>
+      )}
+      {suppCards.length > 0 && (
+        <Supplementary section="atlas-info" title={`${suppCards.length} extra question${suppCards.length === 1 ? "" : "s"} (not from your slides)`}>
+          <ul className="grid gap-2">
+            {suppCards.map((c) => (
+              <li key={c.id} className="rounded-sm border border-panel-border p-2 text-sm">
+                <div className="mb-1 flex flex-wrap items-center gap-1.5">
+                  <span className="chip">{KIND_NAMES[c.kind] ?? c.kind}</span>
+                  <span className="chip text-hard">{c.source}</span>
+                </div>
+                <p>{c.prompt}</p>
+                <details className="mt-1">
+                  <summary className="cursor-pointer text-xs text-text-dim">Answer</summary>
+                  <p className="mt-1 text-good">{c.answer}</p>
+                </details>
+              </li>
+            ))}
+          </ul>
+        </Supplementary>
       )}
     </section>
   );

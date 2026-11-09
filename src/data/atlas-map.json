@@ -1546,33 +1546,43 @@
  },
  "Anterior nucleus": {
   "meshIds": [
-   "thalamus"
+   "mni-anterior-nucleus-of-thalamus"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Thalamus"
   ],
   "slug": "anterior-nucleus-of-thalamus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ],
-  "fallbackParentId": "thalamus"
+  "fallbackParentId": "thalamus",
+  "approxMeshIds": [
+   "thalamus"
+  ],
+  "registered": true
  },
  "Pulvinar": {
   "meshIds": [
-   "thalamus"
+   "mni-pulvinar"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Thalamus"
   ],
   "slug": "pulvinar",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ],
-  "fallbackParentId": "thalamus"
+  "fallbackParentId": "thalamus",
+  "approxMeshIds": [
+   "thalamus"
+  ],
+  "registered": true
  },
  "Medial geniculate nucleus": {
   "meshIds": [
@@ -1749,18 +1759,20 @@
  },
  "Cerebellar Peduncles": {
   "meshIds": [
-   "superior-cerebellar-peduncle"
+   "superior-cerebellar-peduncle",
+   "mni-middle-cerebellar-peduncle",
+   "mni-inferior-cerebellar-peduncle"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Superior cerebellar peduncle",
    "Pedunculus cerebellaris superior"
   ],
-  "fallbackParentId": "brainstem",
   "slug": "cerebellar-peduncles",
   "slices": "exact",
   "exactIn": [
-   "slices"
+   "slices",
+   "3d"
   ]
  },
  "Superior Cerebellar Peduncle": {
@@ -2795,15 +2807,15 @@
   "meshIds": [
    "pons"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Pons"
   ],
-  "fallbackParentId": "pons",
   "slug": "pontine-protuberance",
   "slices": "exact",
   "exactIn": [
-   "slices"
+   "slices",
+   "3d"
   ]
  },
  "Middle cerebellar peduncle": {
@@ -3632,18 +3644,23 @@
  },
  "pulvinar": {
   "meshIds": [
-   "thalamus"
+   "mni-pulvinar"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Thalamus"
   ],
   "slug": "pulvinar",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ],
-  "fallbackParentId": "thalamus"
+  "fallbackParentId": "thalamus",
+  "approxMeshIds": [
+   "thalamus"
+  ],
+  "registered": true
  },
  "third ventricle": {
   "meshIds": [
@@ -3990,7 +4007,7 @@
    "biventral-lobule",
    "gracile-lobule"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Anterior quadrangular lobule",
    "Lobulus quadrangularis anterior",
@@ -3999,11 +4016,11 @@
    "Superior semilunar lobule",
    "Lobulus semilunaris superior"
   ],
-  "fallbackParentId": "cerebellum",
   "slug": "cerebellar-lateral-hemisphere",
   "slices": "exact",
   "exactIn": [
-   "slices"
+   "slices",
+   "3d"
   ]
  },
  "Dentate nucleus (in cross-section of cerebellum)": {
@@ -4459,42 +4476,57 @@
  },
  "Head of caudate nucleus": {
   "meshIds": [
-   "caudate-nucleus"
+   "mni-head-of-caudate-nucleus"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [],
   "slug": "head-of-caudate-nucleus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ],
-  "fallbackParentId": "caudate-nucleus"
+  "fallbackParentId": "caudate-nucleus",
+  "approxMeshIds": [
+   "caudate-nucleus"
+  ],
+  "registered": true
  },
  "Body of caudate nucleus": {
   "meshIds": [
-   "caudate-nucleus"
+   "mni-body-of-caudate-nucleus"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [],
   "slug": "body-of-caudate-nucleus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ],
-  "fallbackParentId": "caudate-nucleus"
+  "fallbackParentId": "caudate-nucleus",
+  "approxMeshIds": [
+   "caudate-nucleus"
+  ],
+  "registered": true
  },
  "Tail of caudate nucleus": {
   "meshIds": [
-   "caudate-nucleus"
+   "mni-tail-of-caudate-nucleus"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [],
   "slug": "tail-of-caudate-nucleus",
   "slices": "exact",
   "exactIn": [
+   "3d",
    "slices"
   ],
-  "fallbackParentId": "caudate-nucleus"
+  "fallbackParentId": "caudate-nucleus",
+  "approxMeshIds": [
+   "caudate-nucleus"
+  ],
+  "registered": true
  },
  "Corpus striatum": {
   "meshIds": [
@@ -4982,5 +5014,183 @@
   "fallbackParentId": "nucleus-of-accessory-nerve",
   "slices": null,
   "exactIn": []
+ },
+ "Frontal lobe": {
+  "meshIds": [
+   "frontal-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "frontal-lobe",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Parietal lobe": {
+  "meshIds": [
+   "parietal-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "parietal-lobe",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Occipital lobe": {
+  "meshIds": [
+   "occipital-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "occipital-lobe",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Temporal lobe": {
+  "meshIds": [
+   "temporal-lobe"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "temporal-lobe",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Brain": {
+  "meshIds": [
+   "brain"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "brain",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Diencephalon": {
+  "meshIds": [
+   "diencephalon"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "diencephalon",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Telencephalon": {
+  "meshIds": [
+   "telencephalon"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "telencephalon",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Dural venous sinuses": {
+  "meshIds": [
+   "dural-venous-sinuses"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "dural-venous-sinuses",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Postcentral sulcus": {
+  "meshIds": [
+   "postcentral-sulcus"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "postcentral-sulcus",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Posterior inferior cerebellar artery": {
+  "meshIds": [
+   "posterior-inferior-cerebellar-artery"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "posterior-inferior-cerebellar-artery",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Rubrospinal tract": {
+  "meshIds": [
+   "rubrospinal-tract"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "rubrospinal-tract",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Tectospinal tract": {
+  "meshIds": [
+   "tectospinal-tract"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "tectospinal-tract",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Vestibular nuclei": {
+  "meshIds": [
+   "vestibular-nuclei"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "vestibular-nuclei",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Stria terminalis": {
+  "meshIds": [
+   "stria-terminalis"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "stria-terminalis",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
+ },
+ "Ventral tegmental area": {
+  "meshIds": [],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "ventral-tegmental-area",
+  "slices": "exact",
+  "exactIn": [
+   "slices"
+  ]
  }
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, CircleHelp, Focus, PanelRightClose, PanelRightOpen, Pause, Play, Route, Shuffle } from "lucide-react";
+import { ChevronLeft, ChevronRight, CircleHelp, Focus, Maximize2, Minimize2, PanelRightClose, PanelRightOpen, Pause, Play, Route, Shuffle } from "lucide-react";
 import {
   ORDINAL,
   PATHWAY_MAP,
@@ -29,6 +29,7 @@ import { Supplementary } from "@/components/supplementary/Supplementary";
 import { CalcarineDiagram, FieldDiagram, fieldPalette } from "./visualField";
 import { ORIGINS, ZONE_NAMES, buildPathwayScene, primaryOf, type LimbChoice, type SideMode } from "./buildPathwayScene";
 import { ReceptorLens } from "./ReceptorLens";
+import { useFullscreen } from "./useFullscreen";
 import { AtlasLoader, stagesFrom } from "@/components/atlas/ui/AtlasLoader";
 import { shade } from "./visualField";
 
@@ -174,6 +175,7 @@ export function PathwayTracer({
   const [ready, setReady] = useState(false);
   const [load, setLoad] = useState({ done: 0, total: 0 });
   const [panelOpen, setPanelOpen] = useState(true);
+  const fsc = useFullscreen(() => setFrameNonce((x) => x + 1));
   const [reduced, setReduced] = useState(false);
   const colors = useSceneColors();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -433,7 +435,7 @@ export function PathwayTracer({
           </div>
         )}
 
-        <div className="relative min-h-[380px] flex-1 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[64dvh] max-lg:flex-none">
+        <div ref={fsc.ref} className="relative min-h-[380px] flex-1 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[64dvh] max-lg:flex-none [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
           <PathwayViewer
             layers={scene.layers}
             tubes={scene.tubes}
@@ -471,6 +473,7 @@ export function PathwayTracer({
               options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))}
             />
             <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
+            {fsc.can && <IconButton label={fsc.fs ? "Leave full screen" : "Full screen"} icon={fsc.fs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={fsc.fs} onClick={fsc.toggle} tip="bottom" />}
             <IconButton label={panelOpen ? "Hide the side panel" : "Show the side panel"} icon={panelOpen ? <PanelRightClose size={16} /> : <PanelRightOpen size={16} />} pressed={panelOpen} onClick={() => setPanelOpen((o) => !o)} tip="bottom" />
           </div>
         </div>

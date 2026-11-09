@@ -356,6 +356,9 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: 
   const goal = useRef<{ pos: THREE.Vector3; target: THREE.Vector3 } | null>(null);
   const last = useRef({ view: "" as string, nonce: -1 });
   useEffect(() => {
+    (window as unknown as { __pwCam?: THREE.Camera }).__pwCam = camera; // read by the pointer-drag test
+  }, [camera]);
+  useEffect(() => {
     if (!box || !controls) return;
     const keep = last.current.view === view && last.current.nonce === nonce;
     last.current = { view, nonce };

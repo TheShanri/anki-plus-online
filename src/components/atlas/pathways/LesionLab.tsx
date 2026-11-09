@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Crosshair, Focus, Stethoscope } from "lucide-react";
+import { Crosshair, Focus, Maximize2, Minimize2, Stethoscope } from "lucide-react";
 import type * as THREE from "three";
 import { loadAtlasIndex } from "@/lib/atlas";
 import {
@@ -29,6 +29,7 @@ import { VIEWS, type SceneColors, type SceneLayer, type SceneMark, type SceneTub
 import { useSceneColors } from "./sceneTheme";
 import { BodyIcon, IconButton, Segmented } from "./controls";
 import { LesionFindings } from "./LesionFindings";
+import { useFullscreen } from "./useFullscreen";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { AtlasLoader, stagesFrom } from "@/components/atlas/ui/AtlasLoader";
 
@@ -188,6 +189,7 @@ export function LesionLab({
   const [zoom, setZoom] = useState<"near" | "wide">("near");
   const [view, setView] = useState<View>("anterior");
   const [frameNonce, setFrameNonce] = useState(0);
+  const fsc = useFullscreen(() => setFrameNonce((x) => x + 1));
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [names, setNames] = useState<Record<string, string>>({});
   const [ready, setReady] = useState(false);
@@ -354,7 +356,7 @@ export function LesionLab({
           )}
         </div>
 
-        <div className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px]">
+        <div ref={fsc.ref} className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px] [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
           <PathwayViewer
             layers={(scene || sceneIn).layers}
             tubes={(scene || sceneIn).tubes}
@@ -377,6 +379,7 @@ export function LesionLab({
           <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
             <Segmented label="View" value={view} onChange={setView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
             <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
+            {fsc.can && <IconButton label={fsc.fs ? "Leave full screen" : "Full screen"} icon={fsc.fs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={fsc.fs} onClick={fsc.toggle} tip="bottom" />}
           </div>
         </div>
 

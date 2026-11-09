@@ -17,18 +17,18 @@ def main():
     vk = list(V.keys())
     def vp(kind, keys=None): return [V[k][kind] for k in (keys or vk)]
     out = {}
-    def add(slug, region, kind, anchors=(), radius=0.0, labels=(), tubes=(), closed=False, shells=None, approx=False, tube_r=0.0015, note=None):
+    def add(slug, region, kind, anchors=(), radius=0.0, labels=(), tubes=(), closed=False, shells=None, approx=False, tube_r=0.0015, note=None, nodes=()):
         if slug not in structs: return
         out[slug] = dict(region=region, kind=kind, anchors=[list(a) for a in anchors], radius=radius, labels=[[*p, t] for p, t in labels],
-                         tubes=[[list(p) for p in t] for t in tubes], closed=closed, shells=shells, approx=approx, tubeR=tube_r, note=note)
+                         tubes=[[list(p) for p in t] for t in tubes], closed=closed, shells=shells, approx=approx, tubeR=tube_r, note=note, nodes=list(nodes))
     sh = lambda d, dx=0, dy=0, dz=0: [d[0] + dx, d[1] + dy, d[2] + dz]
     # bones: a patch of the merged skull mesh around anchor points (approximate: the mesh has no bone boundaries)
-    add("frontal-bone", "skull", "patch", [[0, 1.66, 0.085], [0.03, 1.68, 0.06], [-0.03, 1.68, 0.06]], 0.045, [([0, 1.66, 0.1], "Frontal bone")], approx=True)
-    add("parietal-bone", "skull", "patch", [[0.06, 1.68, -0.03], [-0.06, 1.68, -0.03], [0, 1.72, -0.03]], 0.05, [([0.06, 1.7, -0.03], "Parietal bone (L)"), ([-0.06, 1.7, -0.03], "Parietal bone (R)")], approx=True)
-    add("occipital-bone", "skull", "patch", [[0, 1.6, -0.1], [0, 1.65, -0.095], [0, 1.56, -0.05]], 0.05, [([0, 1.6, -0.103], "Occipital bone")], approx=True)
-    add("temporal-bone", "skull", "patch", [[0.068, 1.6, -0.01], [-0.068, 1.6, -0.01]], 0.04, [([0.072, 1.6, -0.01], "Temporal bone (L)"), ([-0.072, 1.6, -0.01], "Temporal bone (R)")], approx=True)
-    add("sphenoid-bone", "skull", "patch", [L["sella_turcica"], sh(L["pterion"], 0, -0.005, -0.005), sh(L["pterion_R"], 0, -0.005, -0.005)], 0.03, [(L["sella_turcica"], "Sphenoid bone (sella turcica)")], approx=True)
-    add("cribriform-plate", "skull", "patch", [L["foramen_caecum"]], 0.014, [(L["foramen_caecum"], "Cribriform plate region (foramen caecum)")], approx=True)
+    add("frontal-bone", "skull", "patch", [[0, 1.66, 0.085], [0.03, 1.68, 0.06], [-0.03, 1.68, 0.06]], 0, [([0, 1.66, 0.1], "Frontal bone")], approx=False, nodes=['frontal-bone'])
+    add("parietal-bone", "skull", "patch", [[0.06, 1.68, -0.03], [-0.06, 1.68, -0.03], [0, 1.72, -0.03]], 0, [([0.06, 1.7, -0.03], "Parietal bone (L)"), ([-0.06, 1.7, -0.03], "Parietal bone (R)")], approx=False, nodes=['parietal-bone'])
+    add("occipital-bone", "skull", "patch", [[0, 1.6, -0.1], [0, 1.65, -0.095], [0, 1.56, -0.05]], 0, [([0, 1.6, -0.103], "Occipital bone")], approx=False, nodes=['occipital-bone'])
+    add("temporal-bone", "skull", "patch", [[0.068, 1.6, -0.01], [-0.068, 1.6, -0.01]], 0, [([0.072, 1.6, -0.01], "Temporal bone (L)"), ([-0.072, 1.6, -0.01], "Temporal bone (R)")], approx=False, nodes=['temporal-bone'])
+    add("sphenoid-bone", "skull", "patch", [L["sella_turcica"], sh(L["pterion"], 0, -0.005, -0.005), sh(L["pterion_R"], 0, -0.005, -0.005)], 0, [(L["sella_turcica"], "Sphenoid bone (sella turcica)")], approx=False, nodes=['sphenoid-bone'])
+    add("cribriform-plate", "skull", "patch", [L["foramen_caecum"]], 0, [(L["foramen_caecum"], "Cribriform plate region (foramen caecum)")], approx=True, nodes=['ethmoid-bone'])
     # landmarks
     add("bregma", "skull", "point", [], 0, [(L["bregma"], "Bregma")])
     add("lambda", "skull", "point", [], 0, [(L["lambda"], "Lambda")])
@@ -36,17 +36,17 @@ def main():
     ring = lm["foramen_magnum_ring"]
     add("foramen-magnum", "skull", "tube", [], 0, [(L["foramen_magnum"], "Foramen magnum")], tubes=[ring], closed=True, tube_r=0.0016)
     # sutures: tubes along the contact lines
-    add("sagittal-suture", "skull", "tube", [], 0, [(SU["sagittal"][len(SU["sagittal"]) // 2], "Sagittal suture")], tubes=[SU["sagittal"]])
-    add("coronal-suture", "skull", "tube", [], 0, [(SU["coronal"][len(SU["coronal"]) // 2], "Coronal suture")], tubes=[SU["coronal"]])
-    add("lambdoid-suture", "skull", "tube", [], 0, [(SU["lambdoid"][len(SU["lambdoid"]) // 2], "Lambdoid suture")], tubes=[SU["lambdoid"]])
+    add("sagittal-suture", "skull", "node", [SU["sagittal"][len(SU["sagittal"]) // 2]], 0, [(SU["sagittal"][len(SU["sagittal"]) // 2], "Sagittal suture")], nodes=["suture-sagittal"])
+    add("coronal-suture", "skull", "node", [SU["coronal"][len(SU["coronal"]) // 2]], 0, [(SU["coronal"][len(SU["coronal"]) // 2], "Coronal suture")], nodes=["suture-coronal"])
+    add("lambdoid-suture", "skull", "node", [SU["lambdoid"][len(SU["lambdoid"]) // 2]], 0, [(SU["lambdoid"][len(SU["lambdoid"]) // 2], "Lambdoid suture")], nodes=["suture-lambdoid"])
     # fossae: patch of the cranial floor around the fossa points
     add("anterior-cranial-fossa", "skull", "patch", [L["fossa_anterior_L"], L["fossa_anterior_R"]], 0.03, [(L["fossa_anterior_L"], "Anterior cranial fossa (L)"), (L["fossa_anterior_R"], "Anterior cranial fossa (R)")], approx=True)
     add("middle-cranial-fossa", "skull", "patch", [L["fossa_middle_L"], L["fossa_middle_R"]], 0.03, [(L["fossa_middle_L"], "Middle cranial fossa (L)"), (L["fossa_middle_R"], "Middle cranial fossa (R)")], approx=True)
     add("posterior-cranial-fossa", "skull", "patch", [L["fossa_posterior"], L["fossa_posterior_L"], L["fossa_posterior_R"]], 0.035, [(L["fossa_posterior"], "Posterior cranial fossa")], approx=True)
     # meningeal spaces: generated layered shells around the brain (real dura exists only as falx/tentorium inside the merged skull mesh)
-    add("epidural-space", "meninges", "shells", [], 0, [], shells="epidural", approx=True)
-    add("subdural-space", "meninges", "shells", [], 0, [], shells="subdural", approx=True)
-    add("subarachnoid-space", "meninges", "shells", [], 0, [], shells="subarachnoid", approx=True)
+    add("epidural-space", "meninges", "shells", [], 0, [], shells="epidural", approx=True, nodes=["falx-cerebri", "tentorium-cerebelli"])
+    add("subdural-space", "meninges", "shells", [], 0, [], shells="subdural", approx=True, nodes=["falx-cerebri", "tentorium-cerebelli"])
+    add("subarachnoid-space", "meninges", "shells", [], 0, [], shells="subarachnoid", approx=True, nodes=["falx-cerebri", "tentorium-cerebelli"])
     # vertebrae: per-vertebra points (the vertebra meshes are single meshes: markers + patches, approximate)
     cerv, thor, lumb = [k for k in vk if k[0] == "C"], [k for k in vk if k[0] == "T"], [k for k in vk if k[0] == "L"]
     lab = lambda kind, name: [(p, name) for p in vp(kind)[:1]]
@@ -56,18 +56,18 @@ def main():
     add("transverse-process", "spine", "patch", vp("transverse_l") + vp("transverse_r"), 0.007, lab("transverse_l", "Transverse process"), approx=True)
     add("vertebral-arch", "spine", "patch", vp("foramen") + vp("spinous") + vp("transverse_l") + vp("transverse_r"), 0.008, lab("spinous", "Vertebral arch"), approx=True)
     add("vertebral-canal", "spine", "tube", [], 0, lab("foramen", "Vertebral canal"), tubes=[vp("foramen")], tube_r=0.004, approx=True)
-    add("dural-sac", "spine", "tube", [], 0, lab("foramen", "Dural sac"), tubes=[vp("foramen")], tube_r=0.0055, approx=True)
-    add("intervertebral-disc", "spine", "patch", [[(a[i] + b[i]) / 2 for i in range(3)] for a, b in zip(vp("body")[:-1], vp("body")[1:])], 0.006, lab("body", "Intervertebral disc"), approx=True)
+    add("dural-sac", "spine", "node", vp("foramen"), 0, lab("foramen", "Dural sac"), nodes=["spinal-dura"], approx=False)
+    add("intervertebral-disc", "spine", "patch", [[(a[i] + b[i]) / 2 for i in range(3)] for a, b in zip(vp("body")[:-1], vp("body")[1:])], 0, lab("body", "Intervertebral disc"), approx=False, nodes=['disc-'])
     add("intervertebral-foramen", "spine", "patch", [[(a[i] + b[i]) / 2 for i in range(3)] for a, b in zip(vp("body")[:-1], vp("transverse_l")[:-1])], 0.005, lab("transverse_l", "Intervertebral foramen"), approx=True)
-    add("cervical-vertebrae", "spine", "patch", vp("body", cerv), 0.017, [(V["C4"]["body"], "Cervical vertebrae")], approx=True)
-    add("thoracic-vertebrae", "spine", "patch", vp("body", thor), 0.02, [(V["T6"]["body"], "Thoracic vertebrae")], approx=True)
-    add("lumbar-vertebrae", "spine", "patch", vp("body", lumb), 0.024, [(V["L3"]["body"], "Lumbar vertebrae")], approx=True)
+    add("cervical-vertebrae", "spine", "patch", vp("body", cerv), 0, [(V["C4"]["body"], "Cervical vertebrae")], approx=False, nodes=['vertebra-c'])
+    add("thoracic-vertebrae", "spine", "patch", vp("body", thor), 0, [(V["T6"]["body"], "Thoracic vertebrae")], approx=False, nodes=['vertebra-t'])
+    add("lumbar-vertebrae", "spine", "patch", vp("body", lumb), 0, [(V["L3"]["body"], "Lumbar vertebrae")], approx=False, nodes=['vertebra-l'])
     l5 = V["L5"]["body"]
-    add("sacral-vertebrae", "spine", "patch", [sh(l5, 0, -0.04, 0.005)], 0.045, [(sh(l5, 0, -0.04, 0.005), "Sacrum")], approx=True)
-    add("coccyx", "spine", "patch", [sh(l5, 0, -0.1, -0.01)], 0.03, [(sh(l5, 0, -0.1, -0.01), "Coccyx")], approx=True)
-    add("atlas", "spine", "patch", [V["C1"]["body"], V["C1"]["spinous"], V["C1"]["transverse_l"], V["C1"]["transverse_r"]], 0.012, [(V["C1"]["transverse_l"], "Atlas (C1)")], approx=True)
-    add("axis", "spine", "patch", [V["C2"]["body"], V["C2"]["spinous"]], 0.014, [(V["C2"]["body"], "Axis (C2)")], approx=True)
-    add("vertebra-prominens", "spine", "patch", [V["C7"]["body"], V["C7"]["spinous"]], 0.014, [(V["C7"]["spinous"], "Vertebra prominens (C7)")], approx=True)
+    add("sacral-vertebrae", "spine", "patch", [sh(l5, 0, -0.04, 0.005)], 0, [(sh(l5, 0, -0.04, 0.005), "Sacrum")], approx=False, nodes=['sacrum'])
+    add("coccyx", "spine", "patch", [sh(l5, 0, -0.1, -0.01)], 0, [(sh(l5, 0, -0.1, -0.01), "Coccyx")], approx=False, nodes=['coccyx'])
+    add("atlas", "spine", "patch", [V["C1"]["body"], V["C1"]["spinous"], V["C1"]["transverse_l"], V["C1"]["transverse_r"]], 0, [(V["C1"]["transverse_l"], "Atlas (C1)")], approx=False, nodes=['vertebra-c1'])
+    add("axis", "spine", "patch", [V["C2"]["body"], V["C2"]["spinous"]], 0, [(V["C2"]["body"], "Axis (C2)")], approx=False, nodes=['vertebra-c2'])
+    add("vertebra-prominens", "spine", "patch", [V["C7"]["body"], V["C7"]["spinous"]], 0, [(V["C7"]["spinous"], "Vertebra prominens (C7)")], approx=False, nodes=['vertebra-c7'])
     json.dump(out, open(os.path.join(ROOT, "src/data/atlas-skull.json"), "w", encoding="utf8"), separators=(",", ":"))
     lp = os.path.join(ROOT, "src/data/atlas-links.json")
     links = json.load(open(lp, encoding="utf8"))

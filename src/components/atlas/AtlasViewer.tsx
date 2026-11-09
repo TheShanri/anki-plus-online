@@ -1073,6 +1073,7 @@ function Scene({
     () =>
       layer.map((g) => {
         const c = g.clone(true);
+        const hit = skull?.nodes ?? [];
         c.traverse((o) => {
           const m = o as THREE.Mesh;
           if (m.isMesh) {
@@ -1081,9 +1082,21 @@ function Scene({
             m.renderOrder = -2;
           }
         });
+        // the exact per-node meshes of the selected structure (bones, vertebrae, sutures, dura)
+        if (hit.length)
+          c.traverse((o) => {
+            if (!hit.some((p) => o.name.startsWith(p))) return;
+            o.traverse((x) => {
+              const m = x as THREE.Mesh;
+              if (m.isMesh) {
+                m.material = skullMat;
+                m.renderOrder = 4;
+              }
+            });
+          });
         return c;
       }),
-    [layer, boneMat],
+    [layer, boneMat, skull, skullMat],
   );
 
   // skull focus: bone patch, landmark markers, suture / canal tubes

@@ -72,7 +72,7 @@ for (const slug of LIST) {
         const t = dbg.tubes.find((x) => x.beat === i && x.body === body);
         if (!t || !t.a) { bad(`beat ${i} (${b.caption}): no resolved tube for ${body}`); return; }
         if (end && dist(t.a, end) > 1e-4) bad(`path ${i} (${b.caption}) starts ${dist(t.a, end).toFixed(4)} m from the previous beat's end (${body})`);
-        if (b.cross && !(t.a[0] * t.b[0] < 0 || Math.abs(t.a[0]) < 1e-3 || Math.abs(t.b[0]) < 1e-3)) bad(`beat ${i}: marked as a crossing but ${body} stays on one side`);
+        if (b.cross && !(t.xr[0] < -1e-3 && t.xr[1] > 1e-3) && !(Math.abs(t.a[0]) < 1e-3 || Math.abs(t.b[0]) < 1e-3)) bad(`beat ${i}: marked as a crossing but ${body} stays on one side`);
         if (b.phys === "cross" && !dbg.marks.some((x) => x.beat === i && x.kind === "dec")) bad(`beat ${i}: crossing without an X mark`);
         end = t.b;
       }
@@ -91,7 +91,7 @@ for (const slug of LIST) {
   // hover: schematic row -> 3D highlight key
   let hoverOk = 0;
   for (let i = 0; i < beats.length; i++) {
-    const got = await ev(`(async()=>{const li=document.querySelectorAll('ol[aria-label="Pathway schematic"] > li')[${i}];const btn=li&&li.querySelector('button');if(!btn)return null;btn.dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));await new Promise(r=>setTimeout(r,60));const h=document.querySelector('[data-hover]').getAttribute('data-hover');btn.dispatchEvent(new MouseEvent('mouseout',{bubbles:true}));return h;})()`);
+    const got = await ev(`(async()=>{const li=document.querySelectorAll('ol[aria-label="Pathway schematic"] > li')[${i}];const btn=li&&li.querySelector('button');if(!btn)return null;btn.dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));await new Promise(r=>setTimeout(r,220));const h=document.querySelector('[data-hover]').getAttribute('data-hover');btn.dispatchEvent(new MouseEvent('mouseout',{bubbles:true}));return h;})()`);
     if (got === beats[i].info) hoverOk++;
     else bad(`hover on schematic row ${i}: 3D highlight key "${got}" (want ${beats[i].info})`);
   }

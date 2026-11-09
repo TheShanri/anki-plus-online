@@ -164,7 +164,7 @@ export function PathwayTracer({
   const [schemOpen, setSchemOpen] = useState(true);
   const [hoverInfo, setHoverInfo] = useState<string | null>(null);
   const [openInfo, setOpenInfo] = useState<string | null>(null);
-  const fsc = useFullscreen(() => setFrameNonce((x) => x + 1));
+  const { attach: attachFs, fs: isFs, toggle: toggleFs, can: canFs } = useFullscreen(() => setFrameNonce((x) => x + 1));
   const [reduced, setReduced] = useState(false);
   const colors = useSceneColors();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -459,7 +459,7 @@ export function PathwayTracer({
             </div>
           </div>
 
-          <div ref={fsc.attach} className="relative min-h-[380px] flex-1 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[60dvh] max-lg:flex-none [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
+          <div ref={attachFs} className="relative min-h-[380px] flex-1 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[60dvh] max-lg:flex-none [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
             <PathwayViewer
               layers={bs.layers}
               tubes={bs.tubes}
@@ -497,7 +497,7 @@ export function PathwayTracer({
             <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
               <Segmented label="View" value={effView} onChange={setUserView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
               <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
-              {fsc.can && <IconButton label={fsc.fs ? "Leave full screen" : "Full screen"} icon={fsc.fs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={fsc.fs} onClick={fsc.toggle} tip="bottom" />}
+              {canFs && <IconButton label={isFs ? "Leave full screen" : "Full screen"} icon={isFs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={isFs} onClick={toggleFs} tip="bottom" />}
               <IconButton label={panelOpen ? "Hide the side panel" : "Show the side panel"} icon={panelOpen ? <PanelRightClose size={16} /> : <PanelRightOpen size={16} />} pressed={panelOpen} onClick={() => setPanelOpen((o) => !o)} tip="bottom" />
             </div>
             {info && openInfo && (

@@ -577,7 +577,7 @@ export default function PathwayScene(p: SceneProps) {
   useEffect(() => {
     if (!ready) return;
     (window as unknown as { __pwDebug?: unknown }).__pwDebug = {
-      tubes: tubes.map((t) => ({ key: t.key, beat: t.beat, info: t.info, body: t.body, n: t.v.length, want: t.pts.length, a: t.v[0]?.toArray(), b: t.v[t.v.length - 1]?.toArray() })),
+      tubes: tubes.map((t) => ({ key: t.key, beat: t.beat, info: t.info, body: t.body, n: t.v.length, want: t.pts.length, a: t.v[0]?.toArray(), b: t.v[t.v.length - 1]?.toArray(), xr: [Math.min(...t.v.map((v) => v.x)), Math.max(...t.v.map((v) => v.x))] })),
       marks: marks.map((m) => ({ key: m.key, beat: m.beat, info: m.info, kind: m.kind, text: m.text, body: m.body, at: m.v!.toArray() })),
       want: { tubes: p.tubes.length, marks: p.marks.length },
     };

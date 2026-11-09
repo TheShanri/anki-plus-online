@@ -189,7 +189,7 @@ export function LesionLab({
   const [zoom, setZoom] = useState<"near" | "wide">("near");
   const [view, setView] = useState<View>("anterior");
   const [frameNonce, setFrameNonce] = useState(0);
-  const fsc = useFullscreen(() => setFrameNonce((x) => x + 1));
+  const { attach: attachFs, fs: isFs, toggle: toggleFs, can: canFs } = useFullscreen(() => setFrameNonce((x) => x + 1));
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [names, setNames] = useState<Record<string, string>>({});
   const [ready, setReady] = useState(false);
@@ -358,7 +358,7 @@ export function LesionLab({
           )}
         </div>
 
-        <div ref={fsc.attach} className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px] [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
+        <div ref={attachFs} className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px] [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0">
           <PathwayViewer
             layers={(scene || sceneIn).layers}
             tubes={(scene || sceneIn).tubes}
@@ -381,7 +381,7 @@ export function LesionLab({
           <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
             <Segmented label="View" value={view} onChange={setView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
             <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
-            {fsc.can && <IconButton label={fsc.fs ? "Leave full screen" : "Full screen"} icon={fsc.fs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={fsc.fs} onClick={fsc.toggle} tip="bottom" />}
+            {canFs && <IconButton label={isFs ? "Leave full screen" : "Full screen"} icon={isFs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={isFs} onClick={toggleFs} tip="bottom" />}
           </div>
         </div>
 

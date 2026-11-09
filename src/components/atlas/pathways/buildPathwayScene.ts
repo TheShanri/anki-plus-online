@@ -322,10 +322,11 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   for (const f of SIDES) marks.push({ key: `lgn:${f}`, p: lgnWP, body: f, kind: "node", text: "Lateral geniculate nucleus", color: fieldCol(f), beat: b4, info: "b4" });
   idLayer("lgn", lgnSt?.ids, b4, "c");
 
-  // 5 optic radiations: Meyer's loop (upper field) and the parietal route (lower field)
+  // 5 optic radiations: Meyer's loop (upper field) and the parietal route (lower field); both end exactly on the V1 node
+  const v1WP: WP = ["calcarine-sulcus", "c", 0.5] as WP;
   const lgn: WP = ["lateral-geniculate-body", "c", 0.5, 0.01, 0.002, -0.014] as WP;
-  const meyer: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.034, -0.012, 0.03], ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005], ["lateral-geniculate-body", "c", 0.5, 0.055, -0.02, -0.05], ["lingual-gyrus", "c", 0.5, 0, 0, 0]] as WP[];
-  const parietal: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.036, 0.016, -0.02], ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055], ["cuneus", "c", 0.5, 0, 0, 0]] as WP[];
+  const meyer: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.034, -0.012, 0.03], ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005], ["lateral-geniculate-body", "c", 0.5, 0.055, -0.02, -0.05], ["lingual-gyrus", "c", 0.5, 0, 0, 0], v1WP] as WP[];
+  const parietal: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.036, 0.016, -0.02], ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055], ["cuneus", "c", 0.5, 0, 0, 0], v1WP] as WP[];
   const b5 = beat({ kind: "path", neuron: 2, caption: "Optic radiations: Meyer's loop (upper field) and the parietal route (lower field)", info: "", fit: [], view: "top", phys: "c" }, sideFit([...meyer, ...parietal]), { ...course("Optic radiations", 2, [["Tract", cp.neurons[2].tract], ["Meyer's loop", "through the temporal lobe: the upper visual field (to the lingual gyrus, below the calcarine fissure)"], ["Parietal route", "the lower visual field (to the cuneus, above the fissure)"]], { loss: "quadrantanopia" }), kind: "path" });
   for (const f of SIDES) {
     const up = f === "L" ? pal.LU : pal.RU;
@@ -335,7 +336,6 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   }
 
   // 6 V1: the calcarine fissure splits the field
-  const v1WP: WP = ["calcarine-sulcus", "c", 0.5] as WP;
   const b6 = beat({ kind: "node", neuron: 2, caption: "Primary visual cortex (V1): the calcarine fissure splits the field", info: "", fit: [], view: "left", rel: "c" }, sideFit([v1WP, ["cuneus", "c", 0.5] as WP, ["lingual-gyrus", "c", 0.5] as WP]), course("Primary visual cortex (V1, BA 17)", 2, [["Place", "banks of the calcarine fissure (occipital lobe)"], ["Upper field", "inferior bank: lingual gyrus (below the fissure)"], ["Lower field", "superior bank: cuneus (above the fissure)"], ["Macula", "central vision at the occipital pole"], ["If damaged", "contralateral homonymous hemianopia (macular sparing possible)"]]));
   for (const f of SIDES) {
     const up = f === "L" ? pal.LU : pal.RU;

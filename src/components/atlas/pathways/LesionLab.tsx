@@ -446,7 +446,7 @@ export function LesionLab({
               </button>
             ))}
           </div>
-          <p className="help-line pb-12 sm:pb-0 sm:pl-36">
+          <p className="help-line flex flex-wrap items-center gap-x-4 gap-y-1 pb-12 text-xs text-text-dim sm:pb-0 sm:pl-36 [&_.kbd]:mr-1 [&_.kbd]:rounded [&_.kbd]:border [&_.kbd]:border-panel-border [&_.kbd]:bg-bg-3 [&_.kbd]:px-1.5 [&_.kbd]:py-px [&_.kbd]:font-mono [&_.kbd]:text-[11px] [&_.kbd]:text-text">
             <span><span className="kbd">/</span> search</span>
             <span><span className="kbd">L</span> <span className="kbd">R</span> side</span>
             {mode === "case" && <span><span className="kbd">Enter</span> {revealed ? "next case" : "check"}</span>}

@@ -141,7 +141,7 @@ export function toStudyCard(row: CardRow): StudyCard {
     prompt: str(c.prompt) || (kind === "pin" ? "Name the structure." : ""),
     vignette: str(c.vignette) || undefined,
     answer: str(c.answer) || str(c.name),
-    accept: [...strs(c.accept), ...strs(c.also_called)],
+    accept: [...strs(c.accept), ...strs(c.also_called), ...promptNounDropped(str(c.prompt), str(c.answer) || str(c.name))],
     requireSide: !!c.require_side,
     format,
     keywords,
@@ -157,6 +157,17 @@ export function toStudyCard(row: CardRow): StudyCard {
     followupCards: strs(c.followup_cards),
     tags: [...strs(c.tags), ...((c.source as { type?: string } | null)?.type === "practical" ? ["practical"] : [])],
   };
+}
+
+/** "Name the plane." answered "Coronal plane": the noun the prompt already says is optional ("Coronal"). */
+function promptNounDropped(prompt: string, answer: string): string[] {
+  const m = /^name the (.+?)(?:\.|\s+(?:the|that|of|on|in|at|by|with|shown|indicated|labelled|labeled|circled|outlined|colored|coloured|identified|highlighted|pointed)|$)/i.exec(prompt.trim());
+  if (!m || !answer) return [];
+  const noun = m[1].trim().split(/\s+/).pop()!.toLowerCase();
+  if (noun === "structure" || noun === "term") return [];
+  const a = answer.trim();
+  const re = new RegExp(`\s+${noun}s?$`, "i");
+  return re.test(a) && a.replace(re, "").trim().length >= 3 ? [a.replace(re, "").trim()] : [];
 }
 
 export type { CardStateRow };

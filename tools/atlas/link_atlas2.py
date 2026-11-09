@@ -198,3 +198,8 @@ json.dump(links, open(os.path.join(ROOT, "src/data/atlas-links.json"), "w", enco
 ap = [k for k, v in amap.items() if v.get("approximate")]
 print("gap meshes:", len(added), "| links:", len(links), "| approximate entries left:", len(ap))
 print("approximate names now exact in slices:", sum(1 for k in amap if amap[k].get("approximate") is not None and "slices" in amap[k].get("exactIn", []) and "3d" not in amap[k]["exactIn"]))
+
+# skull / spine / meninges layer entries (survive a re-run of this script)
+sys.path.insert(0, os.path.dirname(__file__))
+import skull_links
+skull_links.main()

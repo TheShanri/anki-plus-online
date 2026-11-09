@@ -64,13 +64,14 @@ for (const slug of LIST) {
     let end = null;
     beats.forEach((b, i) => {
       if (b.kind === "node") {
-        const m = dbg.marks.find((x) => x.beat === i && x.kind === "node" && x.body === body);
+        const m = dbg.marks.find((x) => x.beat === i && x.kind === "node" && (x.body === body || x.mid));
         if (!m) { bad(`beat ${i} (${b.caption}): no node mark for ${body}`); return; }
         if (end && dist(m.at, end) > 1e-4) bad(`node ${i} (${b.caption}) sits ${dist(m.at, end).toFixed(4)} m from where the path before it ends (${body})`);
         end = m.at;
       } else {
         const t = dbg.tubes.find((x) => x.beat === i && x.body === body);
         if (!t || !t.a) { bad(`beat ${i} (${b.caption}): no resolved tube for ${body}`); return; }
+        if (b.branch) end = null; // a branch leaves the point the neuron started from, not where the last branch ended
         if (end && dist(t.a, end) > 1e-4) bad(`path ${i} (${b.caption}) starts ${dist(t.a, end).toFixed(4)} m from the previous beat's end (${body})`);
         if (b.cross && !(t.xr[0] < -1e-3 && t.xr[1] > 1e-3) && !(Math.abs(t.a[0]) < 1e-3 || Math.abs(t.b[0]) < 1e-3)) bad(`beat ${i}: marked as a crossing but ${body} stays on one side`);
         if (b.phys === "cross" && !dbg.marks.some((x) => x.beat === i && x.kind === "dec")) bad(`beat ${i}: crossing without an X mark`);

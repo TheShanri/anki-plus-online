@@ -1,4 +1,6 @@
 import { ORDINAL, opp, physSide, type CoursePathway, type MapPathway, type Side, type Stretch, type WP } from "@/lib/atlas/pathways";
+import type { AnatFile, SceneAnatomy } from "./AnatomyParts";
+import { CORD_CONTEXT, LEVELS, P, SITES, SYMP_VERTS, cordY, type LevelCfg, type Site } from "./anatomySpec";
 import type { SceneColors, SceneEyes, SceneLayer, SceneLimb, SceneMark, SceneTube, View } from "./PathwayScene";
 import { RECEPTORS, type ReceptorId } from "./receptorInfo";
 import { fieldPalette } from "./visualField";
@@ -57,6 +59,8 @@ const wpRef = (w: WP) => String(w[0]);
 const wpT = (w: WP) => Number((w as unknown as (number | string)[])[2] ?? 0.5);
 const wpAxis = (w: WP) => String((w as unknown as (number | string)[])[6] ?? "y");
 function at(rel: "i" | "c" | "m", lat: number, dy: number, dz: number, anchor: WP): WP {
+  // a part anchor ("spine:drg_C7") stands in for a structure: only its height and depth are used
+  if (anchor[0] === "part") return ["@", rel, lat, dy, dz, `part:${String(anchor[2])}`, 0.5, "y"] as unknown as WP;
   return ["@", rel, lat, dy, dz, wpRef(anchor), wpT(anchor), wpAxis(anchor)] as unknown as WP;
 }
 
@@ -82,6 +86,8 @@ export interface Beat {
   /** Points to frame: this beat and the one before. */
   fit: { wp: WP; body: Side }[];
   view?: View;
+  /** A path that leaves the same point as the one before (a nucleus with several targets), not a continuation of it. */
+  branch?: boolean;
 }
 export interface InfoSpec {
   kind: "node" | "path";
@@ -100,6 +106,7 @@ export interface BeatScene {
   layers: SceneLayer[];
   limbs: SceneLimb[];
   eyes?: SceneEyes;
+  anatomy?: SceneAnatomy[];
   infos: Record<string, InfoSpec>;
 }
 
@@ -125,7 +132,14 @@ function startName(slug: string, part: LimbChoice | "face", cfg: OriginCfg): str
 }
 
 function buildGeneralBeats(o: BuildOpts): BeatScene {
-  const { mp, cp, slug, colors, limbPart } = o;
+  const { cp, slug, colors, limbPart } = o;
+  const cfg = ORIGINS[slug];
+  const part: LimbChoice = cfg?.parts ? (cfg.parts.includes(limbPart) ? limbPart : cfg.parts[0]) : "hand";
+  const lv = LEVELS[slug];
+  const drgLevel = lv?.drg[part];
+  // the spinal level of the body part: the ganglion sits on the real column, the central tract starts at that cord level
+  const mp: MapPathway = withLevels(o.mp, lv, drgLevel);
+  const site = SITES[slug];
   const beats: Beat[] = [];
   const tubes: SceneTube[] = [];
   const marks: SceneMark[] = [];
@@ -133,9 +147,9 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
   const limbs: SceneLimb[] = [];
   const infos: Record<string, InfoSpec> = {};
   const own: Fit[] = [];
+  const hl: Record<string, { match: string; beat: number; color: string }[]> = {};
   const sideCol = (s: Side) => (s === "L" ? colors.left : colors.right);
   const relColor = (r: string, b: Side) => (r === "i" ? sideCol(b) : r === "c" ? sideCol(opp(b)) : colors.hi);
-  const cfg = ORIGINS[slug];
   const n = mp.neurons.length;
   const ord = (i: number) => `${ORDINAL[i + 1] ?? `${i + 1}th`}-order neuron`;
   const neuronPairs = (i: number): [string, string][] => {
@@ -146,27 +160,37 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     return out;
   };
   const fitWith = (f: Fit): Fit => [...f, ...(own.length ? own[own.length - 1] : [])];
+  const light = (file: string, match: string | undefined, beat: number, color = colors.hi) => {
+    if (match) (hl[file] ??= []).push({ match, beat, color });
+  };
 
-  const addNode = (name: string, wp: WP, neuron: number, lines: [string, string][], extra: Fit = []) => {
+  /** A node: one or several marks (a structure on both sides, or several parts of the body). `labels` name each mark. */
+  const addNodes = (name: string, wps: WP[], neuron: number, lines: [string, string][], extra: Fit = [], labels?: string[]) => {
     const bi = beats.length;
     const key = `n${bi}`;
-    const f: Fit = [...SIDES.map((b) => ({ wp, body: b })), ...extra];
-    beats.push({ kind: "node", neuron, caption: name, info: key, rel: relOf(wp), fit: fitWith(f) });
+    const f: Fit = [...wps.flatMap((wp) => SIDES.map((b) => ({ wp, body: b }))), ...extra];
+    beats.push({ kind: "node", neuron, caption: name, info: key, rel: relOf(wps[0]), fit: fitWith(f) });
     own.push(f);
     infos[key] = { kind: "node", title: name, neuron, lines };
-    for (const b of SIDES) marks.push({ key: `${key}:${b}`, p: wp, body: b, kind: "node", text: name, color: relColor(relOf(wp), b), beat: bi, info: key });
+    wps.forEach((wp, wi) => {
+      const mid = relOf(wp) === "m" && wp[0] === "part";
+      for (const b of mid ? (["L"] as Side[]) : SIDES) marks.push({ key: wps.length > 1 ? `${key}:t${wi}:${b}` : `${key}:${b}`, p: wp, body: b, kind: "node", text: labels?.[wi] ?? name, color: relColor(relOf(wp), b), beat: bi, info: key, mid });
+    });
     return bi;
   };
-  const addPath = (st: Stretch, neuron: number, pts: WP[], title: string, lines: [string, string][], extra: Fit = []) => {
+  const addNode = (name: string, wp: WP, neuron: number, lines: [string, string][], extra: Fit = []) => addNodes(name, [wp], neuron, lines, extra);
+  /** A path: one tube per side (or one per point list for a fan of nerves). */
+  const addPath = (st: Stretch, neuron: number, pts: WP[] | WP[][], title: string, lines: [string, string][], extra: Fit = [], flags: { rise?: boolean; branch?: boolean } = {}) => {
+    const lists: WP[][] = typeof pts[0]?.[0] === "string" ? [pts as WP[]] : (pts as WP[][]);
     const bi = beats.length;
     const key = `p${bi}`;
     const cross = st.phys === "cross";
-    const f: Fit = [...SIDES.flatMap((b) => pts.map((wp) => ({ wp, body: b }))), ...extra];
-    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: fitWith(f) });
+    const f: Fit = [...SIDES.flatMap((b) => lists.flat().map((wp) => ({ wp, body: b }))), ...extra];
+    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: fitWith(f), branch: flags.branch });
     own.push(f);
     infos[key] = { kind: "path", title, neuron, lines, ids: st.ids, crossing: cross ? cp.decussation : undefined, loss: st.loss };
     for (const b of SIDES) {
-      tubes.push({ key: `${key}:${b}`, pts, body: b, beat: bi, info: key, neuron });
+      lists.forEach((l, li) => tubes.push({ key: lists.length > 1 ? `${key}:t${li}:${b}` : `${key}:${b}`, pts: l, body: b, beat: bi, info: key, neuron, rise: flags.rise }));
       if (st.ids?.length) {
         const ps = physSide(st.phys, b);
         if (ps || b === "R") layers.push({ key: `${key}:${b}`, ids: st.ids, side: ps ?? "both", color: ps === "L" ? colors.left : ps === "R" ? colors.right : colors.hi, opacity: 0.9, beat: bi });
@@ -175,13 +199,30 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     st.marks?.filter((m) => m.kind === "dec").forEach((m, mi) => marks.push({ key: `${key}:dec${mi}`, p: m.p, body: "R", kind: "dec", text: m.text, color: colors.hi, beat: bi, info: key }));
     return bi;
   };
+  /** Real anatomy at the start or the end of the pathway: the part's node, and the nerve that joins it to the pathway. */
+  const addSite = (s: Site, kind: "start" | "end", joint: WP, neuron: number) => {
+    const wps = s.targets.map((t) => P(t.key, t.rel ?? "i"));
+    const labels = s.targets.map((t) => t.label);
+    const link = (bi: number) => s.targets.forEach((t) => light(t.key.split(":")[0], t.obj, bi));
+    const synth = { k: "site", label: s.path, phys: "i" as const };
+    if (kind === "start") {
+      const bi = addNodes(s.name, wps, neuron, s.lines, [{ wp: joint, body: "L" }, { wp: joint, body: "R" }], labels);
+      link(bi);
+      addPath({ ...synth, path: [wps[0], joint] }, neuron, wps.map((w) => [w, joint]), s.path, [["Neuron", ord(neuron)]]);
+    } else {
+      const pb = addPath({ ...synth, path: [joint, wps[0]] }, neuron, wps.map((w) => [joint, w]), s.path, [["Neuron", ord(neuron)]]);
+      const bi = addNodes(s.name, wps, neuron, s.lines, [], labels);
+      link(bi);
+      link(pb);
+    }
+  };
 
   const flat = mp.neurons.flatMap((nr, ni) => nr.stretches.filter((s) => s.path && s.path.length > 1).map((st) => ({ st, ni })));
   const firstWP = flat[0]?.st.path?.[0];
   const sensory = !!cfg && cfg.kind !== "muscle";
   const motor = cfg?.kind === "muscle" || !!cfg?.motor;
-  const part: LimbChoice = cfg?.parts ? (cfg.parts.includes(limbPart) ? limbPart : cfg.parts[0]) : "hand";
   let prevEnd: WP | null = null;
+  let withSpine = !!lv && !!drgLevel;
 
   // where the signal comes from: the body part, then the peripheral nerve to the dorsal root ganglion (or ganglion)
   if (sensory && firstWP && cfg) {
@@ -201,8 +242,11 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     const recLines: [string, string][] = [...cfg.skin, ...cfg.muscle].map((id) => [RECEPTORS[id].name, RECEPTORS[id].senses ?? "named in the course"]);
     if (isFace) ZONE_NAMES.forEach((z) => recLines.push([z, "division of the trigeminal nerve"]));
     addNode(startName(slug, isFace ? "face" : part, cfg), contact, 0, recLines.length ? recLines : [["Origin", cfg.source]], extra);
-    addPath({ k: "nerve", label: "Peripheral nerve", phys: "i", path: [contact, mid, firstWP] }, 0, [contact, mid, firstWP], "Peripheral nerve to the ganglion", [["Neuron", ord(0)], ["Tract", cp.neurons[0]?.tract ?? ""]]);
-    addNode(mp.neurons[0].short, firstWP, 0, neuronPairs(0));
+    addPath({ k: "nerve", label: "Peripheral nerve", phys: "i", path: [contact, mid, firstWP] }, 0, [contact, mid, firstWP], drgLevel ? `Peripheral nerve to the dorsal root ganglion (${drgLevel})` : "Peripheral nerve to the ganglion", [["Neuron", ord(0)], ["Tract", cp.neurons[0]?.tract ?? ""]]);
+    const gl: [string, string][] = neuronPairs(0);
+    if (drgLevel && lv) gl.push(["Spinal level", lv.range[part] ?? drgLevel]);
+    const gb = addNode(mp.neurons[0].short, firstWP, 0, gl);
+    if (drgLevel && lv) (lv.verts[part] ?? []).forEach((v) => light("spine", v, gb));
     prevEnd = firstWP;
     for (const b of SIDES) limbs.push({ key: `limb:${b}`, part: isFace ? "face" : part, body: b, skin: [], muscle: [], alpha: 1, at: limbAt, from: 0, to: 2 });
   }
@@ -211,17 +255,32 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     const sts = nr.stretches.filter((s) => s.path && s.path.length > 1);
     if (!prevEnd && sts[0]?.path) {
       prevEnd = sts[0].path[0];
-      addNode(nr.short, prevEnd, ni, neuronPairs(ni));
+      if (site?.start) addSite(site.start, "start", prevEnd, ni);
+      const b0 = addNode(nr.short, prevEnd, ni, neuronPairs(ni));
+      if (slug === "sympathetic") SYMP_VERTS.forEach((v) => light("spine", v, b0));
+      if (slug === "parasympathetic") light("spine", "bone_sacrum", b0);
+      if (slug === "sympathetic" || slug === "parasympathetic" || CORD_CONTEXT.has(slug)) withSpine = true;
     }
-    for (const st of sts) {
+    const origin = sts[0]?.path?.[0];
+    let branched = false;
+    sts.forEach((st, si) => {
       let pts = st.path!;
-      if (prevEnd && !sameWP(prevEnd, pts[0])) pts = [prevEnd, ...pts];
-      addPath(st, ni, pts, st.label, [["Neuron", ord(ni)], ["Tract", cp.neurons[ni]?.tract ?? st.label], ["Level", cp.neurons[ni]?.level ?? ""]]);
+      // sibling stretches that all leave the same point (a nucleus with several targets) are branches, not a chain
+      const branch = si > 0 && !!origin && sameWP(pts[0], origin);
+      if (branch) branched = true;
+      else if (prevEnd && !sameWP(prevEnd, pts[0])) pts = [prevEnd, ...pts];
+      addPath(st, ni, pts, st.label, [["Neuron", ord(ni)], ["Tract", cp.neurons[ni]?.tract ?? st.label], ["Level", cp.neurons[ni]?.level ?? ""]], [], { rise: !!lv?.rise.includes(st.k), branch });
       prevEnd = pts[pts.length - 1];
-    }
+      const m = /^To (?:the )?(.+)$/.exec(st.label);
+      if (sts.length > 1 && origin && m && ni === n - 1) {
+        addNode(m[1][0].toUpperCase() + m[1].slice(1), prevEnd, ni, [["Neuron", ord(ni)], ["Synapse", cp.neurons[ni]?.synapse ?? ""]]);
+        if (site?.end?.after === st.k) addSite(site.end, "end", prevEnd, ni);
+      }
+    });
     if (!prevEnd) return;
     if (ni < n - 1) addNode(mp.neurons[ni + 1].short, prevEnd, ni + 1, neuronPairs(ni + 1));
-    else if (!motor) addNode(nr.syn ?? cp.neurons[ni]?.synapse ?? "End of the pathway", prevEnd, ni, [["End of the pathway", cp.neurons[ni]?.synapse ?? ""], ["Neuron", ord(ni)]]);
+    else if (!motor && !branched) addNode(nr.syn ?? cp.neurons[ni]?.synapse ?? "End of the pathway", prevEnd, ni, [["End of the pathway", cp.neurons[ni]?.synapse ?? ""], ["Neuron", ord(ni)]]);
+    if (ni === n - 1 && site?.end && !site.end.after && prevEnd) addSite(site.end, "end", prevEnd, ni);
   });
 
   // where the signal goes: the nerve to the muscle
@@ -238,7 +297,37 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     addNode(slug === "lcst" || slug === "umn-lmn" ? "Limb skeletal muscle" : "Skeletal muscle", target, n - 1, [["End of the pathway", cp.neurons[n - 1]?.synapse ?? "skeletal muscle"]]);
     for (const b of SIDES) limbs.push({ key: `muscle:${b}`, part: "muscle", body: b, skin: [], muscle: [], motor: true, alpha: 1, at: muscleAt, from: nb - 1, to: beats.length });
   }
-  return { beats, tubes, marks, layers, limbs, infos };
+
+  // the anatomy parts that are drawn: the column around the cord, and the objects the sites name
+  const anatomy: SceneAnatomy[] = [];
+  const addFile = (file: AnatFile, show: string[], ghost: string[] = []) => anatomy.push({ key: file, file, show, ghost, hl: hl[file] ?? [], sided: file === "head-targets" });
+  if (withSpine) addFile("spine", ["bone_", "nerve_cord", "nerve_drg", "disc_"]);
+  for (const [file, sh] of Object.entries(site?.files ?? {}) as [AnatFile, { show: string[]; ghost?: string[] }][]) addFile(file, sh.show, sh.ghost);
+  return { beats, tubes, marks, layers, limbs, infos, anatomy };
+}
+
+/** The pathway with its spinal-level waypoints moved onto the real ganglion and the cord segment of the body part. */
+function withLevels(mp: MapPathway, lv: LevelCfg | undefined, level: string | undefined): MapPathway {
+  if (!lv || !level) return mp;
+  const cy = cordY(lv.cord ?? level);
+  return {
+    ...mp,
+    neurons: mp.neurons.map((nr, ni) => ({
+      ...nr,
+      stretches: nr.stretches.map((st, si) => {
+        if (!st.path) return st;
+        const rw = lv.rewrite[st.k];
+        const first = ni === 0 && si === 0;
+        if (!rw && !first) return st;
+        const path = st.path.map((w, wi) => {
+          if (first && wi === 0) return P(`spine:drg_${level}`, "i");
+          if (rw === "all" || (Array.isArray(rw) && rw.includes(wi))) return [w[0], w[1], `y=${cy}`, ...(w as unknown as (number | string)[]).slice(3)] as unknown as WP;
+          return w;
+        });
+        return { ...st, path };
+      }),
+    })),
+  };
 }
 
 /* ------------------------------------------------------------------------------------------------------------

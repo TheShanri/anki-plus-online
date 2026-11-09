@@ -107,6 +107,22 @@ function buildQuestion(slug: string, step: number, courses: CoursePathway[]): Qu
 
 /** The course says just "internal capsule"; "posterior limb" is the textbook detail, so it sits behind the Supplementary gate. */
 function withGate(label: string) {
+  // text between ‹ and › is beyond the slides (a named nerve for a receptor, a textbook level): it sits behind the gate
+  if (label.includes("‹")) {
+    return (
+      <>
+        {label.split(/(‹[^›]*›)/).map((part, i) =>
+          part.startsWith("‹") ? (
+            <Supplementary key={i} section="pathways" title="Textbook detail" inline>
+              {part.slice(1, -1)}
+            </Supplementary>
+          ) : (
+            part
+          ),
+        )}
+      </>
+    );
+  }
   const i = label.indexOf(", posterior limb");
   if (i < 0) return label;
   return (
@@ -184,7 +200,7 @@ export function PathwayTracer({
   const B = bs.beats.length;
   useEffect(() => {
     // read by tools/pathways/vet.mjs
-    (window as unknown as { __pwBeats?: unknown }).__pwBeats = { slug, beats: bs.beats.map(({ kind, neuron, caption, cross, info, phys, rel }) => ({ kind, neuron, caption, cross: !!cross, info, phys, rel })) };
+    (window as unknown as { __pwBeats?: unknown }).__pwBeats = { slug, beats: bs.beats.map(({ kind, neuron, caption, cross, info, phys, rel, branch }) => ({ kind, neuron, caption, cross: !!cross, info, phys, rel, branch: !!branch })) };
   }, [bs.beats, slug]);
   const cur = Math.max(0, Math.min(step, B - 1));
   const beat = bs.beats[cur];
@@ -467,6 +483,7 @@ export function PathwayTracer({
               fit={fit}
               limbs={bs.limbs}
               eyes={bs.eyes}
+              anatomy={bs.anatomy}
               zoneColors={zoneColors}
               reveal={reveal}
               hot={curBeat}
@@ -587,7 +604,7 @@ export function PathwayTracer({
           <span className="mr-2 font-mono text-[11px] uppercase tracking-wider text-text-faint">{all ? "Whole" : beat?.kind === "node" ? "Structure" : "Tract"}</span>
           {caption}
         </p>
-        <p className="help-line">
+        <p className="help-line pb-12 sm:pb-0 sm:pl-36">
           <span><span className="kbd">←</span> <span className="kbd">→</span> beat</span>
           <span><span className="kbd">Space</span> play</span>
           <span><span className="kbd">S</span> side</span>

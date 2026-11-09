@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { loadAtlasModel } from "@/lib/atlas/loader";
 import type { Side, WP } from "@/lib/atlas/pathways";
+import ANCHORS from "@/data/part-anchors.json";
 
 /* Shared pieces of the pathway scene: waypoint resolution (with the schematic lateral "lane" offset that pulls the
  * two sides apart), the side-aware tube material (left solid, right dashed), tubes and marks. */
@@ -51,7 +52,23 @@ export function loadVerts(id: string, file: string): Promise<Float32Array | null
 }
 
 /** Structure ids a waypoint depends on (an "@" point is placed relative to the structure it names). */
-export const wpRefs = (w: WP): string[] => (w[0] === "@" ? (typeof w[5] === "string" ? [w[5]] : []) : [w[0]]);
+export const wpRefs = (w: WP): string[] =>
+  w[0] === "part" ? [] : w[0] === "@" ? (typeof w[5] === "string" && !w[5].startsWith("part:") ? [w[5]] : []) : [w[0]];
+
+/** World position of a part anchor ("spine:drg_C7", "head-targets:masseter") on the physical side `phys` (L = the part's own side). */
+export function partAnchor(key: string, phys: Side | "m"): THREE.Vector3 | null {
+  const [file, name] = key.split(":");
+  const tab = (ANCHORS as unknown as Record<string, Record<string, number[]>>)[file];
+  if (!tab) return null;
+  if (phys === "R") {
+    const r = tab[`${name}_R`];
+    if (r) return new THREE.Vector3(r[0], r[1], r[2]);
+    const l = tab[name];
+    return l ? new THREE.Vector3(-l[0], l[1], l[2]) : null;
+  }
+  const a = tab[name];
+  return a ? new THREE.Vector3(a[0], a[1], a[2]) : null;
+}
 
 /** Waypoint -> world point.
  *  [ref, rel, t, dx, dy, dz, axis]: t runs along `axis` (default y) across the half of the structure on that side;
@@ -59,16 +76,28 @@ export const wpRefs = (w: WP): string[] => (w[0] === "@" ? (typeof w[5] === "str
  *  dy / dz are absolute (z + is anterior).
  *  ["@", rel, lateralX, dy, dz, anchorRef, anchorT, anchorAxis]: a free point (body parts), lateralX is the absolute
  *  distance from the midline on the side `rel` names, y / z are relative to the anchor structure's point.
+ *  ["part", rel, "file:anchor", dx, dy, dz]: an anchor of an anatomy part (public/pathways/parts.json), on the side rel names.
+ *  In the first form t may be "y=<metres>": the point of that structure at that absolute height (a spinal level).
  *  `lane` pulls ipsilateral / contralateral points away from the midline (schematic, side-true). */
 export function resolveWP(wp: WP, verts: Map<string, Float32Array>, body: Side, lane = 0): THREE.Vector3 | null {
   const arr = wp as unknown as [string, string, ...(number | string)[]];
   const rel = arr[1];
   const bodySgn = body === "L" ? 1 : -1;
   const sgn = rel === "i" ? bodySgn : rel === "c" ? -bodySgn : 0;
+  if (arr[0] === "part") {
+    const [, , key, dx = 0, dy = 0, dz = 0] = arr as unknown as [string, string, string, number?, number?, number?];
+    const v = partAnchor(key, sgn === 0 ? "m" : sgn > 0 ? "L" : "R");
+    return v ? v.add(new THREE.Vector3((sgn || 1) * Number(dx), Number(dy), Number(dz))) : null;
+  }
   if (arr[0] === "@") {
     const [, , lx = 0, dy = 0, dz = 0, aref, at = 0.5, aax = "y"] = arr as [string, string, number?, number?, number?, string?, number?, string?];
     let y = 0, z = 0;
-    if (aref) {
+    if (aref?.startsWith("part:")) {
+      const a = partAnchor(aref.slice(5), "L");
+      if (!a) return null;
+      y = a.y;
+      z = a.z;
+    } else if (aref) {
       const a = resolveWP([aref, "i", at, 0, 0, 0, aax] as WP, verts, body, 0);
       if (!a) return null;
       y = a.y;
@@ -76,7 +105,7 @@ export function resolveWP(wp: WP, verts: Map<string, Float32Array>, body: Side, 
     }
     return new THREE.Vector3(sgn * Number(lx), y + Number(dy), z + Number(dz));
   }
-  const [ref, , t = 0.5, dx = 0, dy = 0, dz = 0, ax = "y"] = arr as [string, string, number?, number?, number?, number?, string?];
+  const [ref, , t = 0.5, dx = 0, dy = 0, dz = 0, ax = "y"] = arr as [string, string, number | string | undefined, number?, number?, number?, string?];
   const v = verts.get(ref);
   if (!v || !v.length) return null;
   const a = ax === "x" ? 0 : ax === "z" ? 2 : 1;
@@ -99,7 +128,7 @@ export function resolveWP(wp: WP, verts: Map<string, Float32Array>, body: Side, 
       hi = Math.max(hi, v[i + a]);
     }
   }
-  const target = lo + (hi - lo) * Math.min(1, Math.max(0, Number(t)));
+  const target = typeof t === "string" && t.startsWith("y=") ? Number(t.slice(2)) : lo + (hi - lo) * Math.min(1, Math.max(0, Number(t)));
   const slab = Math.max(0.0012, (hi - lo) * 0.05);
   let sx = 0, sy = 0, sz = 0, n = 0;
   let best = Infinity, bi = use[0];

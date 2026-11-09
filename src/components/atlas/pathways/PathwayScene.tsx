@@ -11,6 +11,7 @@ import type { Side, WP } from "@/lib/atlas/pathways";
 import { LANE, MarkMesh, TubeMesh, loadVerts, resolveWP, wpRefs, type MarkKind, type SceneColors } from "./sceneCore";
 import { EYE_SCALE } from "./eyeScale";
 import { loadPart, type PartFile } from "./PartModels";
+import { Anatomy, type SceneAnatomy } from "./AnatomyParts";
 import { EYE_R, EyeBall, Limb, TRIGEMINAL_ZONES, type EyeSpec, type LimbSpec } from "./PathwayExtras";
 
 export { resolveWP };
@@ -61,6 +62,8 @@ export interface SceneTube {
   beat?: number;
   neuron?: number;
   info?: string;
+  /** An ascending run (a tract climbing the cord): points that would dip below the one before are dropped. */
+  rise?: boolean;
 }
 export interface SceneMark {
   key: string;
@@ -76,6 +79,8 @@ export interface SceneMark {
   /** Beat at which it appears and the info popover it opens (beat mode). */
   beat?: number;
   info?: string;
+  /** A midline structure drawn once (body L): it follows the stronger of the two sides' focus. */
+  mid?: boolean;
 }
 export interface SceneLimb extends LimbSpec {
   at: WP;
@@ -101,6 +106,8 @@ export interface SceneProps {
   tags?: boolean;
   limbs?: SceneLimb[];
   eyes?: SceneEyes;
+  /** Real anatomy (spine, thorax, gut, head targets) drawn around the pathway. */
+  anatomy?: SceneAnatomy[];
   zoneColors?: string[];
   /** Beat mode: the highest beat drawn so far (omitted = everything) and the current beat (null = none, e.g. the whole pathway). */
   reveal?: number;
@@ -119,6 +126,15 @@ export interface SceneProps {
   /** Real loading progress: things placed so far / things needed (structure geometry, lit structures, body parts). */
   onLoad?: (done: number, total: number) => void;
   hoverId?: string | null;
+}
+
+/** Keeps a climbing run climbing: a point more than 1 mm below the last kept one is dropped (the last point always stays). */
+function monotoneUp(v: THREE.Vector3[]): THREE.Vector3[] {
+  const out: THREE.Vector3[] = [];
+  v.forEach((q, i) => {
+    if (i === 0 || i === v.length - 1 || q.y >= out[out.length - 1].y - 0.001) out.push(q);
+  });
+  return out;
 }
 
 const PLANE_L = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0); // keeps x >= 0 (patient's left)
@@ -528,8 +544,9 @@ export default function PathwayScene(p: SceneProps) {
       if (l.part === "muscle") f.add("muscle");
     });
     if (p.eyes) f.add("eye");
+    p.anatomy?.forEach((a) => f.add(a.file));
     return [...f];
-  }, [p.limbs, p.eyes]);
+  }, [p.limbs, p.eyes, p.anatomy]);
   useEffect(() => {
     let alive = true;
     partFiles.forEach((f) => loadPart(f).then(() => alive && setPartsDone((n) => n + 1)));
@@ -558,7 +575,11 @@ export default function PathwayScene(p: SceneProps) {
   }, [done, total, onLoad]);
 
   const tubes = useMemo(
-    () => p.tubes.map((t) => ({ ...t, v: t.pts.map((w) => resolveWP(w, verts, t.body, LANE)).filter((x): x is THREE.Vector3 => !!x) })),
+    () =>
+      p.tubes.map((t) => {
+        const v = t.pts.map((w) => resolveWP(w, verts, t.body, LANE)).filter((x): x is THREE.Vector3 => !!x);
+        return { ...t, v: t.rise ? monotoneUp(v) : v, nres: v.length };
+      }),
     [p.tubes, verts],
   );
   const marks = useMemo(() => p.marks.map((m) => ({ ...m, v: resolveWP(m.p, verts, m.body, LANE) })).filter((m) => m.v), [p.marks, verts]);
@@ -577,8 +598,8 @@ export default function PathwayScene(p: SceneProps) {
   useEffect(() => {
     if (!ready) return;
     (window as unknown as { __pwDebug?: unknown }).__pwDebug = {
-      tubes: tubes.map((t) => ({ key: t.key, beat: t.beat, info: t.info, body: t.body, n: t.v.length, want: t.pts.length, a: t.v[0]?.toArray(), b: t.v[t.v.length - 1]?.toArray(), xr: [Math.min(...t.v.map((v) => v.x)), Math.max(...t.v.map((v) => v.x))] })),
-      marks: marks.map((m) => ({ key: m.key, beat: m.beat, info: m.info, kind: m.kind, text: m.text, body: m.body, at: m.v!.toArray() })),
+      tubes: tubes.map((t) => ({ key: t.key, beat: t.beat, info: t.info, body: t.body, n: t.nres, want: t.pts.length, a: t.v[0]?.toArray(), b: t.v[t.v.length - 1]?.toArray(), xr: [Math.min(...t.v.map((v) => v.x)), Math.max(...t.v.map((v) => v.x))] })),
+      marks: marks.map((m) => ({ key: m.key, mid: !!m.mid, beat: m.beat, info: m.info, kind: m.kind, text: m.text, body: m.body, at: m.v!.toArray() })),
       want: { tubes: p.tubes.length, marks: p.marks.length },
     };
   }, [ready, tubes, marks, p.tubes.length, p.marks.length]);
@@ -631,8 +652,9 @@ export default function PathwayScene(p: SceneProps) {
   }, []);
   const shownMarks = useMemo(() => marks.filter((m) => m.text), [marks]);
   // only the current beat is labelled (plus the crossing X once it has drawn): the schematic carries every name
-  const isShown = (m: { beat?: number; body: Side; kind: MarkKind }) =>
-    (beatMode && m.beat !== undefined ? (m.beat === hot ? m.beat <= p.reveal! : m.kind === "dec" && m.beat <= p.reveal!) : true) && sideAlpha[m.body] >= 0.5;
+  const sideA = (m: { body: Side; mid?: boolean }) => (m.mid ? Math.max(sideAlpha.L, sideAlpha.R) : sideAlpha[m.body]);
+  const isShown = (m: { beat?: number; body: Side; kind: MarkKind; mid?: boolean }) =>
+    (beatMode && m.beat !== undefined ? (m.beat === hot ? m.beat <= p.reveal! : m.kind === "dec" && m.beat <= p.reveal!) : true) && sideA(m) >= 0.5;
   const prioOf = (m: { beat?: number; prio?: 0 | 1 | 2; kind: MarkKind }): 0 | 1 | 2 => (beatMode && m.beat !== undefined ? (m.beat === hot ? 2 : m.kind === "dec" ? 1 : 0) : (m.prio ?? 1));
   const tagLevels = useMemo(() => {
     if (!box || !p.tags) return [] as { key: string; side: Side; v: THREE.Vector3 }[];
@@ -703,6 +725,9 @@ export default function PathwayScene(p: SceneProps) {
         <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={1.2} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
         <Rig box={box} view={p.view} nonce={p.frameNonce} />
         {index && <ContextShell file={index.context.file} color={p.colors.dim} />}
+        {p.anatomy?.map((a) => (
+          <Anatomy key={a.key} spec={a} sideAlpha={sideAlpha} reveal={beatMode ? p.reveal! : 999} hot={hot} />
+        ))}
         {layerParts.map((x) => {
           const lb = beatMode && x.l.beat !== undefined;
           const lit = !lb || x.l.beat! <= p.reveal!;
@@ -769,7 +794,7 @@ export default function PathwayScene(p: SceneProps) {
         {marks.map((m) => {
           const bm = beatMode && m.beat !== undefined;
           const show = bm ? m.beat! <= p.reveal! : true;
-          const dim = sideAlpha[m.body] < 0.5 || (bm && hot !== null && m.beat !== hot && m.kind !== "dec");
+          const dim = sideA(m) < 0.5 || (bm && hot !== null && m.beat !== hot && m.kind !== "dec");
           return (
             <MarkMesh
               key={m.key}

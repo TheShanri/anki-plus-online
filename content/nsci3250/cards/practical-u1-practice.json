@@ -280,14 +280,14 @@
    "type": "apkg",
    "ref": "apkg/unit-1-practice-practicals note 1770157806548 cloze 1"
   },
-  "answer": "Horizontal plane",
+  "answer": "Horizontal",
   "answer_kind": "plane",
   "accept": [
-   "horizontal",
    "axial",
    "transverse",
    "transverse plane",
-   "axial plane"
+   "axial plane",
+   "horizontal plane"
   ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-b5cf5640f7d5c623f808e909662ce3ad17d70773.webp",
@@ -320,6 +320,10 @@
    "kind:pin",
    "source:practice-practical",
    "plane:horizontal"
+  ],
+  "also_called": [
+   "transverse plane",
+   "axial plane"
   ]
  },
  {
@@ -2383,12 +2387,15 @@
    "type": "apkg",
    "ref": "apkg/unit-1-practice-practicals note 1770158222061 cloze 2"
   },
-  "answer": "Mid-sagittal or sagittal",
+  "answer": "Midsagittal",
   "answer_kind": "plane",
   "accept": [
-   "Mid-sagittal",
-   "Midsagittal",
-   "Sagittal"
+   "mid-sagittal",
+   "sagittal",
+   "mid-sagittal or sagittal",
+   "midsagittal plane",
+   "median plane",
+   "median"
   ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-0f9bae51101a0e074ba0ba3710e2f57bcee6063c.webp",
@@ -2428,6 +2435,9 @@
    "kind:pin",
    "source:practice-practical",
    "plane:midsagittal"
+  ],
+  "also_called": [
+   "median plane"
   ]
  },
  {

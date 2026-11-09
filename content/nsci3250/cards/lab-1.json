@@ -5079,11 +5079,12 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349907014 cloze 1"
   },
-  "answer": "Coronal plane",
+  "answer": "Frontal",
   "answer_kind": "plane",
   "accept": [
    "frontal plane",
-   "frontal"
+   "coronal plane",
+   "coronal"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-7c5d9307b44de025c99c804beb080686a1cd1d78.webp",
@@ -5129,6 +5130,9 @@
    "kind:pin",
    "source:anki-deck",
    "plane:coronal"
+  ],
+  "also_called": [
+   "coronal plane"
   ]
  },
  {
@@ -5142,13 +5146,14 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349907014 cloze 2"
   },
-  "answer": "Sagittal plane",
+  "answer": "Midsagittal",
   "answer_kind": "plane",
   "accept": [
-   "midsagittal",
    "mid-sagittal",
-   "parasagittal",
-   "median plane"
+   "median plane",
+   "sagittal plane",
+   "midsagittal plane",
+   "median"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-7c5d9307b44de025c99c804beb080686a1cd1d78.webp",
@@ -5194,6 +5199,9 @@
    "kind:pin",
    "source:anki-deck",
    "plane:sagittal"
+  ],
+  "also_called": [
+   "median plane"
   ]
  },
  {
@@ -5207,14 +5215,14 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768349907014 cloze 3"
   },
-  "answer": "Horizontal plane",
+  "answer": "Transverse",
   "answer_kind": "plane",
   "accept": [
    "horizontal",
    "axial",
-   "transverse",
    "transverse plane",
-   "axial plane"
+   "axial plane",
+   "horizontal plane"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-7c5d9307b44de025c99c804beb080686a1cd1d78.webp",
@@ -5260,6 +5268,10 @@
    "kind:pin",
    "source:anki-deck",
    "plane:horizontal"
+  ],
+  "also_called": [
+   "horizontal plane",
+   "axial plane"
   ]
  },
  {
@@ -6677,14 +6689,15 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350003725 cloze 1"
   },
-  "answer": "Midsagittal plane",
+  "answer": "Midsagittal",
   "answer_kind": "plane",
   "accept": [
-   "midsagittal",
    "mid-sagittal",
    "median plane",
    "sagittal plane",
-   "sagittal"
+   "sagittal",
+   "midsagittal plane",
+   "median"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-a4076f7581e63b0b64a0cdb033ff6b00e7305048.webp",
@@ -6723,6 +6736,9 @@
    "kind:pin",
    "source:anki-deck",
    "plane:sagittal"
+  ],
+  "also_called": [
+   "median plane"
   ]
  },
  {
@@ -6736,12 +6752,12 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350003725 cloze 2"
   },
-  "answer": "Parasagittal plane",
+  "answer": "Parasagittal",
   "answer_kind": "plane",
   "accept": [
-   "parasagittal",
    "sagittal plane",
-   "sagittal"
+   "sagittal",
+   "parasagittal plane"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-a4076f7581e63b0b64a0cdb033ff6b00e7305048.webp",
@@ -6793,14 +6809,14 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350018599 cloze 1"
   },
-  "answer": "Horizontal plane",
+  "answer": "Horizontal",
   "answer_kind": "plane",
   "accept": [
-   "horizontal",
    "axial",
    "transverse",
    "transverse plane",
-   "axial plane"
+   "axial plane",
+   "horizontal plane"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-f98887f175e5e3f815b15242cdd8768df1edc177.webp",
@@ -6832,6 +6848,10 @@
    "kind:pin",
    "source:anki-deck",
    "plane:horizontal"
+  ],
+  "also_called": [
+   "transverse plane",
+   "axial plane"
   ]
  },
  {
@@ -6845,11 +6865,12 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350086792 cloze 1"
   },
-  "answer": "Coronal plane",
+  "answer": "Coronal",
   "answer_kind": "plane",
   "accept": [
    "frontal plane",
-   "frontal"
+   "frontal",
+   "coronal plane"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-1e68d38c2299c9fb4e0d436260e316da9048dfc1.webp",
@@ -6881,6 +6902,9 @@
    "kind:pin",
    "source:anki-deck",
    "plane:coronal"
+  ],
+  "also_called": [
+   "frontal plane"
   ]
  },
  {
@@ -7144,11 +7168,12 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350188659 cloze 3"
   },
-  "answer": "Coronal plane",
+  "answer": "Frontal",
   "answer_kind": "plane",
   "accept": [
    "frontal plane",
-   "frontal"
+   "coronal plane",
+   "coronal"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e9c523cef67bd51ac8f89df7e495defd4b303938.webp",
@@ -7208,6 +7233,9 @@
    "kind:pin",
    "source:anki-deck",
    "plane:coronal"
+  ],
+  "also_called": [
+   "coronal plane"
   ]
  },
  {
@@ -10665,11 +10693,12 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350670118 cloze 1"
   },
-  "answer": "Coronal plane",
+  "answer": "Frontal",
   "answer_kind": "plane",
   "accept": [
    "frontal plane",
-   "frontal"
+   "coronal plane",
+   "coronal"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e2a12a570b2e7cb18d87fba7d972ab7024efb190.webp",
@@ -10722,6 +10751,9 @@
    "kind:pin",
    "source:anki-deck",
    "plane:coronal"
+  ],
+  "also_called": [
+   "coronal plane"
   ]
  },
  {

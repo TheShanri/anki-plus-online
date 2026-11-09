@@ -1,5 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Check, EyeOff, Flag, Lock, Pencil, Plus, ThumbsUp, Trash2, User, Users, X } from "lucide-react";
+import { Badge, Button, Segmented } from "@/components/ui";
 import type { MnemonicsResponse, OwnMnemonic, SharedMnemonic } from "@/lib/study/types";
 
 type Props = {
@@ -19,10 +21,10 @@ type Props = {
 
 const NOTES_KEY = "mnemonics";
 
-function badge(m: OwnMnemonic): string {
-  if (m.hidden) return "Hidden by a moderator";
-  if (m.visibility === "private") return "Private";
-  return m.anonymous ? "Shared with the class, anonymous" : "Shared with the class, with your name";
+function badge(m: OwnMnemonic): React.ReactNode {
+  if (m.hidden) return <Badge tone="danger" icon={EyeOff}>Hidden by a moderator</Badge>;
+  if (m.visibility === "private") return <Badge icon={Lock}>Private</Badge>;
+  return <Badge tone="accent" icon={Users}>{m.anonymous ? "Shared with the class, anonymous" : "Shared with the class, with your name"}</Badge>;
 }
 
 async function call(url: string, method: string, body: unknown): Promise<{ ok: boolean; data: Record<string, unknown> }> {
@@ -155,22 +157,35 @@ export function MnemonicPanel({ cardId, structureSlug, onOwnChange, autoOpen, nu
         placeholder="e.g. Hippo + campus: a hippo on a campus lawn"
         aria-label="Your mnemonic"
       />
-      <fieldset className="mnemo-opts">
-        <legend className="sr-only">Who can see it</legend>
-        <label><input type="radio" name="mnemo-vis" checked={!share} onChange={() => setShare(false)} /> Private (only me)</label>
-        <label><input type="radio" name="mnemo-vis" checked={share} onChange={() => setShare(true)} /> Share with my class</label>
-      </fieldset>
-      {share && (
-        <fieldset className="mnemo-opts">
-          <legend className="sr-only">Name</legend>
-          <label><input type="radio" name="mnemo-anon" checked={!named} onChange={() => setNamed(false)} /> Anonymous</label>
-          <label><input type="radio" name="mnemo-anon" checked={named} onChange={() => setNamed(true)} /> Show my name</label>
-        </fieldset>
-      )}
+      <div className="mnemo-opts">
+        <Segmented
+          label="Who can see it"
+          value={share ? "class" : "private"}
+          onChange={(v) => setShare(v === "class")}
+          size="sm"
+          options={[
+            { value: "private", label: "Private", icon: Lock, title: "Only me" },
+            { value: "class", label: "Class", icon: Users, title: "Share with my class" },
+          ]}
+        />
+        {share && (
+          <Segmented
+            label="Name"
+            value={named ? "named" : "anon"}
+            onChange={(v) => setNamed(v === "named")}
+            size="sm"
+            options={[
+              { value: "anon", label: "Anonymous", icon: EyeOff },
+              { value: "named", label: "My name", icon: User, title: "Show my name" },
+            ]}
+          />
+        )}
+      </div>
+      <p className="v-notes">{share ? (named ? "Your classmates will see your name next to it." : "Your classmates see it without your name.") : "Only you will see it."}</p>
       {err && <p className="v-notes" style={{ color: "var(--again)" }}>{err}</p>}
       <div className="btn-row">
-        <button type="button" className="btn btn-primary" disabled={busy || !text.trim()} onClick={() => void save()}>Save mnemonic</button>
-        <button type="button" className="btn" onClick={() => close(true)}>{nudged ? "Not now" : "Cancel"}</button>
+        <Button variant="primary" size="sm" icon={Check} loading={busy} disabled={!text.trim()} onClick={() => void save()}>Save mnemonic</Button>
+        <Button variant="ghost" size="sm" icon={X} onClick={() => close(true)}>{nudged ? "Not now" : "Cancel"}</Button>
       </div>
       <p className="v-notes"><span className="kbd">Ctrl</span>+<span className="kbd">Enter</span> saves, <span className="kbd">Esc</span> cancels</p>
     </div>
@@ -186,22 +201,24 @@ export function MnemonicPanel({ cardId, structureSlug, onOwnChange, autoOpen, nu
         ) : (
           <div key={m.id} className="mnemo-item">
             <p>{m.body}</p>
-            <p className="v-notes">
+            <div className="mnemo-meta">
               {badge(m)}
-              {m.visibility === "class" && !m.hidden ? ` · ${m.votes} vote${m.votes === 1 ? "" : "s"}` : ""}
-              {m.cardId !== (cardId ?? null) && cardId ? " · written on another card of this structure" : ""}
-              {" · "}
-              <button type="button" className="mnemo-link" onClick={() => openForm(m)}>Edit</button>
-              {" · "}
-              <button type="button" className="mnemo-link" onClick={() => void remove(m)}>Delete</button>
-            </p>
+              <span className="v-notes">
+                {m.visibility === "class" && !m.hidden ? `${m.votes} vote${m.votes === 1 ? "" : "s"}` : ""}
+                {m.cardId !== (cardId ?? null) && cardId ? `${m.visibility === "class" && !m.hidden ? " · " : ""}written on another card of this structure` : ""}
+              </span>
+              <span className="mnemo-acts">
+                <Button variant="ghost" size="sm" icon={Pencil} onClick={() => openForm(m)}>Edit</Button>
+                <Button variant="ghost" size="sm" icon={Trash2} onClick={() => void remove(m)}>Delete</Button>
+              </span>
+            </div>
           </div>
         ),
       )}
       {editing === "new" && form}
       {!exact && !editing && (
         <div className="btn-row">
-          <button type="button" className="btn" onClick={() => openForm()}>Add a mnemonic</button>
+          <Button variant="subtle" size="sm" icon={Plus} onClick={() => openForm()}>Add a mnemonic</Button>
         </div>
       )}
       {data.shared.length > 0 && (
@@ -210,15 +227,15 @@ export function MnemonicPanel({ cardId, structureSlug, onOwnChange, autoOpen, nu
           {data.shared.map((m) => (
             <div key={m.id} className="mnemo-item">
               <p>{m.body}</p>
-              <p className="v-notes">
-                {m.author ? m.author : "A classmate"}
-                {" · "}
-                <button type="button" className={`mnemo-link${m.voted ? " on" : ""}`} aria-pressed={m.voted} onClick={() => void vote(m)} title="Mark as helpful (one vote each)">
-                  {m.voted ? "Helpful" : "Helpful?"} ({m.votes})
-                </button>
-                {" · "}
-                {m.reported ? <span>Reported</span> : <button type="button" className="mnemo-link" onClick={() => void report(m)}>Report</button>}
-              </p>
+              <div className="mnemo-meta">
+                <span className="v-notes">{m.author ? m.author : "A classmate"}</span>
+                <span className="mnemo-acts">
+                  <Button variant={m.voted ? "subtle" : "ghost"} size="sm" icon={ThumbsUp} aria-pressed={m.voted} onClick={() => void vote(m)} title="Mark as helpful (one vote each)">
+                    {m.voted ? "Helpful" : "Helpful?"} ({m.votes})
+                  </Button>
+                  {m.reported ? <Badge tone="warn" icon={Flag}>Reported</Badge> : <Button variant="ghost" size="sm" icon={Flag} onClick={() => void report(m)}>Report</Button>}
+                </span>
+              </div>
             </div>
           ))}
         </div>

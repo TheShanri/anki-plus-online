@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { LogIn } from "lucide-react";
+import { Button, Field, Input } from "@/components/ui";
 
 export function LoginForm({ next }: { next?: string }) {
   const [error, setError] = useState<string | null>(null);
@@ -33,18 +35,16 @@ export function LoginForm({ next }: { next?: string }) {
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
-      <div>
-        <label className="label" htmlFor="email">UVM email</label>
-        <input className="input" id="email" name="email" type="email" autoComplete="username" required />
-      </div>
-      <div>
-        <label className="label" htmlFor="password">Password</label>
-        <input className="input" id="password" name="password" type="password" autoComplete="current-password" required />
-      </div>
+      <Field label="UVM email">
+        <Input id="email" name="email" type="email" autoComplete="username" placeholder="you@uvm.edu" required />
+      </Field>
+      <Field label="Password">
+        <Input id="password" name="password" type="password" autoComplete="current-password" required />
+      </Field>
       {error && <p className="field-error" role="alert">{error}</p>}
-      <button className="btn btn-primary" type="submit" disabled={busy}>
-        {busy ? "Logging in..." : "Log in"}
-      </button>
+      <Button type="submit" variant="primary" icon={LogIn} loading={busy}>
+        {busy ? "Logging in" : "Log in"}
+      </Button>
     </form>
   );
 }

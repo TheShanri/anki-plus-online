@@ -1,5 +1,7 @@
+import { BackdropPause } from "./BackdropPause";
 import { BrainSvg } from "./BrainSvg";
 
+const HLINES = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const MOTES = [8, 19, 27, 38, 47, 58, 66, 74, 83, 92];
 
 /** The fixed background for all three themes. CSS (src/styles/backdrop.css) shows only the active theme's scene.
@@ -7,6 +9,7 @@ const MOTES = [8, 19, 27, 38, 47, 58, 66, 74, 83, 92];
 export function Backdrop() {
   return (
     <div className="bg-scene" aria-hidden>
+      <BackdropPause />
       <div className="scene scene-clinical">
         <div className="wash deco" />
       </div>
@@ -23,14 +26,17 @@ export function Backdrop() {
       </div>
       <div className="scene scene-synth">
         <div className="sky" />
-        <div className="stars deco anim" />
-        <div className="halo deco anim" />
+        <div className="stars deco" />
+        <div className="halo deco" />
         <div className="brain">
           <BrainSvg />
         </div>
         <div className="ground">
-          <div className="plane">
-            <div className="lines anim" />
+          <div className="fan deco" />
+          <div className="deco">
+            {HLINES.map((n) => (
+              <i key={n} className="hl anim" />
+            ))}
           </div>
         </div>
       </div>

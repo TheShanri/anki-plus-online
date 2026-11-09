@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
+import { Ban, BellRing, ChevronRight, Gauge, Monitor, Moon, Palette, Play, Sparkle, Sparkles, SlidersHorizontal, Sun, Target, Volume2 } from "lucide-react";
 import { useRef, useState } from "react";
+import { Button, Segmented } from "@/components/ui";
 import { previewTheme } from "@/lib/sound";
 import { emit } from "@/lib/feedback/events";
 import { ThemePicker } from "@/components/theme/ThemePicker";
@@ -50,80 +51,104 @@ export function SettingsForm({ retention, mnemonics, typingEnabled }: Props) {
       </p>
 
       <section className="panel set-group" aria-labelledby="basics-h">
-        <h2 id="basics-h">Basics</h2>
+        <h2 id="basics-h"><SlidersHorizontal aria-hidden />Basics</h2>
         <p className="hint">Look, sound and your daily target. Each look has its own colours, type and sounds.</p>
 
         <div className="row row-stack">
-          <div className="row-main">
-            <b>Theme</b>
-            <span>Currently {THEMES[prefs.theme].name}. Pick one to switch the whole app.</span>
+          <div className="row-lead">
+            <span className="row-ico"><Palette aria-hidden /></span>
+            <div className="row-main">
+              <b>Theme</b>
+              <span>Currently {THEMES[prefs.theme].name}. Pick one to switch the whole app.</span>
+            </div>
           </div>
           <ThemePicker />
         </div>
 
         {prefs.theme === "uvm-clinical" && (
           <div className="row">
-            <div className="row-main">
-              <b>UVM Clinical appearance</b>
-              <span>Light, dark, or follow your device.</span>
+            <div className="row-lead">
+              <span className="row-ico"><Sun aria-hidden /></span>
+              <div className="row-main">
+                <b>UVM Clinical appearance</b>
+                <span>Light, dark, or follow your device.</span>
+              </div>
             </div>
             <div className="row-ctl">
-              <div className="seg" role="group" aria-label="Appearance">
-                {(["auto", "light", "dark"] as ModePref[]).map((m) => (
-                  <button key={m} type="button" aria-pressed={prefs.mode === m} onClick={() => update({ mode: m })}>
-                    {m === "auto" ? "Auto" : m === "light" ? "Light" : "Dark"}
-                  </button>
-                ))}
-              </div>
+              <Segmented<ModePref>
+                label="Appearance"
+                value={prefs.mode}
+                onChange={(m) => update({ mode: m })}
+                options={[
+                  { value: "auto", label: "Auto", icon: Monitor },
+                  { value: "light", label: "Light", icon: Sun },
+                  { value: "dark", label: "Dark", icon: Moon },
+                ]}
+              />
             </div>
           </div>
         )}
 
         <div className="row">
-          <label className="row-main" htmlFor="sounds">
-            <b>Sounds</b>
-            <span>Key clicks, chimes and feedback while you study. Plays only in the open tab.</span>
-          </label>
+          <div className="row-lead">
+            <span className="row-ico"><BellRing aria-hidden /></span>
+            <label className="row-main" htmlFor="sounds">
+              <b>Sounds</b>
+              <span>Key clicks, chimes and feedback while you study. Plays only in the open tab.</span>
+            </label>
+          </div>
           <div className="row-ctl">
             <Toggle id="sounds" checked={prefs.sounds} onChange={(v) => { update({ sounds: v }); if (v) emit("ui", { name: "toggle" }); }} label="Sounds" />
           </div>
         </div>
 
         <div className="row">
-          <label className="row-main" htmlFor="volume">
-            <b>Volume</b>
-            <span>Master volume for every sound.</span>
-          </label>
+          <div className="row-lead">
+            <span className="row-ico"><Volume2 aria-hidden /></span>
+            <label className="row-main" htmlFor="volume">
+              <b>Volume</b>
+              <span>Master volume for every sound.</span>
+            </label>
+          </div>
           <div className="row-ctl">
             <div className="vol">
               <input id="volume" type="range" min={0} max={100} step={1} value={Math.round(prefs.volume * 100)} disabled={!prefs.sounds} onChange={(e) => update({ volume: Number(e.target.value) / 100 })} onPointerUp={sample} onKeyUp={sample} />
               <output htmlFor="volume">{Math.round(prefs.volume * 100)}%</output>
             </div>
-            <button type="button" className="btn" disabled={!prefs.sounds} onClick={() => previewTheme(prefs.theme)}>Test</button>
+            <Button size="sm" icon={Play} disabled={!prefs.sounds} onClick={() => previewTheme(prefs.theme)}>Test</Button>
           </div>
         </div>
 
         <div className="row">
-          <div className="row-main">
-            <b>Effects</b>
-            <span>Background motion and combo bursts. Subtle is calmer; Off is fastest on a battery-saving laptop.</span>
-          </div>
-          <div className="row-ctl">
-            <div className="seg" role="group" aria-label="Effects">
-              {(["full", "subtle", "off"] as Effects[]).map((m) => (
-                <button key={m} type="button" aria-pressed={prefs.effects === m} onClick={() => update({ effects: m })}>
-                  {m === "full" ? "Full" : m === "subtle" ? "Subtle" : "Off"}
-                </button>
-              ))}
+          <div className="row-lead">
+            <span className="row-ico"><Sparkles aria-hidden /></span>
+            <div className="row-main">
+              <b>Effects</b>
+              <span>Background motion and combo bursts. Subtle is calmer; Off is fastest on a battery-saving laptop.</span>
             </div>
           </div>
+          <div className="row-ctl">
+            <Segmented<Effects>
+              label="Effects"
+              value={prefs.effects}
+              onChange={(m) => update({ effects: m })}
+              options={[
+                { value: "full", label: "Full", icon: Sparkles },
+                { value: "subtle", label: "Subtle", icon: Sparkle },
+                { value: "off", label: "Off", icon: Ban },
+              ]}
+            />
+          </div>
         </div>
 
         <div className="row">
-          <label className="row-main" htmlFor="goal">
-            <b>Daily goal</b>
-            <span>Reviews per day the ring on your home screen counts toward.</span>
-          </label>
+          <div className="row-lead">
+            <span className="row-ico"><Target aria-hidden /></span>
+            <label className="row-main" htmlFor="goal">
+              <b>Daily goal</b>
+              <span>Reviews per day the ring on your home screen counts toward.</span>
+            </label>
+          </div>
           <div className="row-ctl">
             <input id="goal" className="input" type="number" min={5} max={500} step={5} value={prefs.dailyGoal} onChange={(e) => update({ dailyGoal: Math.max(5, Math.min(500, Math.round(Number(e.target.value) || 30))) })} />
           </div>
@@ -133,7 +158,7 @@ export function SettingsForm({ retention, mnemonics, typingEnabled }: Props) {
       {signedIn ? (
         <details className="panel adv">
           <summary>
-            Advanced <small>retention, typing, mnemonics, ambient sound</small>
+            <Gauge aria-hidden className="adv-ico" />Advanced <small>retention, typing, mnemonics, ambient sound</small>
           </summary>
           <div className="adv-body">
             <div className="row">
@@ -166,7 +191,7 @@ export function SettingsForm({ retention, mnemonics, typingEnabled }: Props) {
                 <span>{typingEnabled ? "Typing is on: you type every answer. This is the recommended way to learn for the practical." : "Typing is off: you recall, reveal and grade yourself."}</span>
               </div>
               <div className="row-ctl">
-                <Link href="/settings/scaffolding#typing" className="btn">{typingEnabled ? "Turn typing off…" : "Manage typing"}</Link>
+                <Button href="/settings/scaffolding#typing" size="sm" iconRight={ChevronRight}>{typingEnabled ? "Turn typing off…" : "Manage typing"}</Button>
               </div>
             </div>
 
@@ -196,7 +221,7 @@ export function SettingsForm({ retention, mnemonics, typingEnabled }: Props) {
                 <span>Hints, the scaffold ladder, trap letters, theory follow-ups and focus helpers, each with its own switch.</span>
               </div>
               <div className="row-ctl">
-                <Link href="/settings/scaffolding" className="btn">Open</Link>
+                <Button href="/settings/scaffolding" size="sm" iconRight={ChevronRight}>Open</Button>
               </div>
             </div>
           </div>

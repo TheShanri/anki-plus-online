@@ -32,7 +32,15 @@ export function BrainSvg({ className, glow = true }: { className?: string; glow?
           <stop offset="1" stopColor="#b967ff" stopOpacity="0.05" />
         </linearGradient>
       </defs>
-      <g style={glow ? { filter: "drop-shadow(0 0 5px rgba(255,42,109,0.85)) drop-shadow(0 0 16px rgba(255,42,109,0.45))" } : undefined}>
+      {glow && (
+        // static halo made of two wide, faint strokes: same look as the old double drop-shadow filter, no filter pass to rasterise
+        <g stroke="#ff2a6d" strokeLinejoin="round" fill="none" vectorEffect="non-scaling-stroke">
+          <path d={cerebrum} strokeWidth="14" strokeOpacity="0.1" vectorEffect="non-scaling-stroke" />
+          <path d={cerebrum} strokeWidth="7" strokeOpacity="0.2" vectorEffect="non-scaling-stroke" />
+          <path d={cerebellum} strokeWidth="9" strokeOpacity="0.14" vectorEffect="non-scaling-stroke" />
+        </g>
+      )}
+      <g>
         <path d={cerebrum} fill={`url(#bg-${clip})`} stroke="#ff2a6d" strokeWidth="2.4" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
         <path d={cerebellum} fill="rgba(185,103,255,0.1)" stroke="#ff2a6d" strokeWidth="2" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
         <path d={stem} fill="rgba(185,103,255,0.1)" stroke="#ff2a6d" strokeWidth="2" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />

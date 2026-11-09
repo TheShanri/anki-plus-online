@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight, Tags } from "lucide-react";
 
 export type TagCount = { tag: string; n: number };
 
@@ -44,7 +45,7 @@ export function TagPicker({ tags, course }: { tags: TagCount[]; course?: string 
   const href = (tag: string) => `/study/run?scope=${encodeURIComponent(`tag:${tag}`)}${course ? `&course=${course}` : ""}`;
   return (
     <details className="tag-picker" style={{ margin: "0 0 18px" }}>
-      <summary className="font-display" style={{ fontSize: 16, cursor: "pointer", margin: "8px 0 10px" }}>Study by tag</summary>
+      <summary className="tag-picker-sum"><ChevronRight aria-hidden className="tag-chev" /><Tags aria-hidden />Study by tag <small>region, cut, system, question type</small></summary>
       <div style={{ display: "grid", gap: 10 }}>
         {FACETS.filter((f) => by.has(f.key)).map((f) => (
           <div key={f.key}>

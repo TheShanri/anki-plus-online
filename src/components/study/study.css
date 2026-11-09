@@ -140,10 +140,7 @@
 .gear-btn { padding: 6px 10px; }
 .popover { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; width: min(320px, 92vw); padding: 14px; border-radius: var(--radius); border: 1px solid var(--panel-border-hi); background: var(--panel-solid); display: grid; gap: 8px; }
 .toggle-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; }
-.switch { position: relative; width: 40px; height: 22px; border-radius: 99px; background: var(--bg-3); border: 1px solid var(--panel-border); cursor: pointer; flex: none; padding: 0; }
-.switch::after { content: ""; position: absolute; left: 2px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--text-dim); transition: transform 0.15s var(--ease-out); }
-.switch[aria-checked="true"] { background: color-mix(in srgb, var(--good) 35%, var(--bg-3)); border-color: var(--good); }
-.switch[aria-checked="true"]::after { transform: translateX(18px); background: var(--good); }
+/* .switch lives in base.css (one switch for the whole app) */
 .toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 60; padding: 10px 16px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border-hi); background: var(--panel-solid); font-size: 14px; max-width: 90vw; }
 .overlay { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: color-mix(in srgb, var(--bg) 82%, transparent); padding: 16px; }
 .modal { width: min(520px, 100%); padding: 22px; border-radius: var(--radius); border: 1px solid var(--panel-border-hi); background: var(--panel-solid); display: grid; gap: 12px; }
@@ -198,8 +195,24 @@
 .mnemo-item { display: grid; gap: 2px; padding-top: 6px; border-top: 1px dashed var(--panel-border); }
 .mnemo-item:first-of-type { border-top: 0; padding-top: 0; }
 .mnemo-class { display: grid; gap: 6px; margin-top: 6px; }
-.mnemo-opts { display: flex; flex-wrap: wrap; gap: 4px 16px; border: 0; padding: 0; margin: 0; font-size: 13px; }
-.mnemo-opts label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.tag-picker-sum { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; font-family: var(--font-display); font-size: 16px; padding: 8px 12px 8px 8px; margin: 0 0 6px -8px; border-radius: var(--radius-sm); }
+.tag-picker-sum::-webkit-details-marker { display: none; }
+.tag-picker-sum:hover { background: color-mix(in srgb, var(--text) 6%, transparent); }
+.tag-picker-sum svg { width: 17px; height: 17px; color: var(--accent-2); flex: none; }
+.tag-picker-sum small { font-family: var(--font-body); font-size: 12.5px; color: var(--text-dim); font-weight: 400; letter-spacing: 0; text-transform: none; }
+.tag-picker .tag-chev { transition: transform var(--dur-med) var(--ease-out); color: var(--text-dim); }
+.tag-picker[open] .tag-chev { transform: rotate(90deg); }
+.chip-check { position: relative; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px 0 10px; border-radius: 99px; border: 1px solid var(--panel-border); background: var(--bg-2); color: var(--text-dim); font-size: 13.5px; font-weight: 500; cursor: pointer; transition: background-color var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast); }
+.chip-check input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip-check svg { width: 14px; height: 14px; opacity: 0.25; flex: none; }
+.chip-check .chip-n { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); }
+.chip-check:hover { border-color: var(--panel-border-hi); color: var(--text); }
+.chip-check:has(input:checked) { background: color-mix(in srgb, var(--accent-2) 16%, var(--bg-2)); border-color: var(--accent-2); color: var(--text); }
+.chip-check:has(input:checked) svg { opacity: 1; color: var(--accent-2); }
+.chip-check:has(input:focus-visible) { box-shadow: var(--focus-ring); }
+.mnemo-opts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.mnemo-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.mnemo-acts { display: inline-flex; flex-wrap: wrap; gap: 2px; margin-left: auto; }
 .mnemo-link { background: none; border: 0; padding: 0; font: inherit; color: var(--accent-2); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .mnemo-link.on { color: var(--good); }
 .struct-mnemo .info-panel { margin-top: 0; }

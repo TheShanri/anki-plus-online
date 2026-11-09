@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { ArrowLeft, CheckCheck, FastForward, RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui";
 import type { StudyEngine } from "@/lib/study/engine";
 import type { AnswerSync } from "@/lib/study/sync";
 
@@ -91,16 +93,16 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
                 <li key={p.at}>{p.text}</li>
               ))}
             </ul>
-            <button type="button" className="btn" style={{ justifySelf: "start" }} onClick={clearParked}>
+            <Button size="sm" icon={CheckCheck} style={{ justifySelf: "start" }} onClick={clearParked}>
               Done with these
-            </button>
+            </Button>
           </div>
         )}
         {syncState.pending > 0 && <p className="v-notes" style={{ marginTop: 8 }}>Saving {syncState.pending} answer{syncState.pending === 1 ? "" : "s"}…{syncState.error ? ` ${syncState.error}` : ""}</p>}
         <div className="btn-row" style={{ marginTop: 16 }}>
-          {sprint && <button className="btn btn-primary" type="button" onClick={() => engine.moreRound()}>One more round</button>}
-          <Link className="btn btn-primary" href={`/study/run?scope=${encodeURIComponent(scope)}`} onClick={() => setTimeout(() => window.location.reload(), 0)}>Study more</Link>
-          <Link className="btn" href="/study">Back to study</Link>
+          {sprint && <Button variant="primary" icon={RotateCcw} onClick={() => engine.moreRound()}>One more round</Button>}
+          <Link className="btn btn-primary" href={`/study/run?scope=${encodeURIComponent(scope)}`} onClick={() => setTimeout(() => window.location.reload(), 0)}><FastForward aria-hidden />Study more</Link>
+          <Link className="btn btn-ghost" href="/study"><ArrowLeft aria-hidden />Back to study</Link>
         </div>
         <p className="help-line" style={{ marginTop: 10 }}>
           <span><span className="kbd">Enter</span> {sprint ? "one more round" : "study more"}</span>

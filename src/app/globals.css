@@ -1,4 +1,8 @@
 @import "tailwindcss";
+/* keep the class scanner out of big working dirs (a 1.8 GB _atlas made the Tailwind loader time out and wedged the dev server) */
+@source not "../../_atlas";
+@source not "../../_source";
+@source not "../../content-build";
 @import "../styles/tokens.css";
 @import "../styles/base.css";
 @import "../styles/backdrop.css";

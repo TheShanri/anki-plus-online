@@ -1,19 +1,19 @@
 "use client";
 
 import { useActionState } from "react";
+import { KeyRound } from "lucide-react";
+import { Button, Field, Input } from "@/components/ui";
 import { setNewPassword } from "./actions";
 
 export function ResetForm() {
   const [state, action, pending] = useActionState(setNewPassword, {} as { error?: string });
   return (
     <form action={action} className="space-y-4">
-      <div>
-        <label className="label" htmlFor="password">New password</label>
-        <input className="input" id="password" name="password" type="password" autoComplete="new-password" required minLength={8} />
-        <p className="mt-1 text-xs text-text-faint">At least 8 characters.</p>
-      </div>
+      <Field label="New password" hint="At least 8 characters.">
+        <Input id="password" name="password" type="password" autoComplete="new-password" required minLength={8} />
+      </Field>
       {state.error && <p className="field-error" role="alert">{state.error}</p>}
-      <button className="btn btn-primary" type="submit" disabled={pending}>Save password</button>
+      <Button type="submit" variant="primary" icon={KeyRound} loading={pending}>Save password</Button>
     </form>
   );
 }

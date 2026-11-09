@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Bug, FileWarning, Heart, Lightbulb, MessageSquarePlus, MoreHorizontal, Send, X, type LucideIcon } from "lucide-react";
+import { Button, Segmented, Textarea, Toggle } from "@/components/ui";
 import { appState, captureAfter, installLogger, logRoute, snapshotLogs } from "@/lib/bugs/logger";
 
 // Start recording as early as this module loads (before React effects run).
@@ -10,12 +12,12 @@ if (typeof window !== "undefined") installLogger();
 const AFTER_MS = 60_000;
 
 const TYPES = [
-  { id: "bug", label: "Bug", hint: "Something is broken or confusing." },
-  { id: "card", label: "Mistake in a card", hint: "A wrong answer, typo or unclear question." },
-  { id: "idea", label: "Idea", hint: "Something that would make studying better." },
-  { id: "praise", label: "Praise", hint: "Something that works well." },
-  { id: "other", label: "Other", hint: "Anything else." },
-] as const;
+  { id: "bug", label: "Bug", hint: "Something is broken or confusing.", icon: Bug },
+  { id: "card", label: "Card error", hint: "A wrong answer, typo or unclear question.", icon: FileWarning },
+  { id: "idea", label: "Idea", hint: "Something that would make studying better.", icon: Lightbulb },
+  { id: "praise", label: "Praise", hint: "Something that works well.", icon: Heart },
+  { id: "other", label: "Other", hint: "Anything else.", icon: MoreHorizontal },
+] as const satisfies ReadonlyArray<{ id: string; label: string; hint: string; icon: LucideIcon }>;
 type FbType = (typeof TYPES)[number]["id"];
 
 async function takeScreenshot(): Promise<string | null> {
@@ -158,9 +160,10 @@ export function FeedbackWidget() {
           onClick={() => start("bug")}
           aria-label="Send feedback (Alt+Shift+B)"
           title="Send feedback: bug, idea, mistake in a card (Alt+Shift+B)"
-          className="fixed bottom-3 left-3 z-40 rounded-full border border-panel-border bg-panel-solid px-3 py-1 text-xs text-text-dim shadow-sm transition-opacity hover:text-text focus-visible:opacity-100"
+          className="btn btn-sm fb-fab"
         >
-          Feedback
+          <MessageSquarePlus aria-hidden />
+          <span>Feedback</span>
         </button>
       )}
       {phase === "done" && (
@@ -173,26 +176,18 @@ export function FeedbackWidget() {
             style={{ background: "var(--panel-solid)" }}
             onSubmit={(e) => { e.preventDefault(); void send(); }}
           >
-            <h2 id="fb-title" className="font-display text-lg">Send feedback</h2>
-            <div className="flex flex-wrap gap-1.5" role="radiogroup" aria-label="Type of feedback">
-              {TYPES.map((t) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  role="radio"
-                  aria-checked={type === t.id}
-                  className={`btn ${type === t.id ? "btn-primary" : ""}`}
-                  style={{ padding: "0.25rem 0.6rem", fontSize: "0.8rem" }}
-                  onClick={() => pick(t.id)}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </div>
+            <h2 id="fb-title" className="font-display text-lg panel-title"><MessageSquarePlus aria-hidden />Send feedback</h2>
+            <Segmented<FbType>
+              label="Type of feedback"
+              value={type}
+              onChange={pick}
+              block
+              options={TYPES.map((t) => ({ value: t.id, label: t.label, icon: t.icon }))}
+              className="fb-types"
+            />
             <p className="text-sm text-text-dim">{current.hint}</p>
-            <textarea
-              className="input"
-              style={{ minHeight: "5.5rem", resize: "vertical" }}
+            <Textarea
+              style={{ minHeight: "5.5rem" }}
               autoFocus
               maxLength={2000}
               placeholder={type === "bug" ? "What went wrong? (optional)" : "Your message"}
@@ -204,15 +199,12 @@ export function FeedbackWidget() {
             <p className="text-xs text-text-faint">
               We attach the page ({location.pathname}){card?.slug ? ` and the card you are on (${card.slug})` : ""}.
             </p>
-            <label className="flex items-start gap-2 text-xs text-text-dim">
-              <input type="checkbox" checked={attach} onChange={(e) => setAttach(e.target.checked)} className="mt-0.5" />
-              <span>Include a screenshot of this page and a short technical log (no passwords).</span>
-            </label>
+            <Toggle checked={attach} onChange={setAttach} label="Attach a screenshot and log" hint="A picture of this page and a short technical log (no passwords)." />
             <div className="flex items-center justify-between gap-2">
               <a href="/about#feedback" className="text-xs text-text-faint underline-offset-2 hover:underline">How feedback is used</a>
               <span className="flex gap-2">
-                <button type="button" className="btn" onClick={() => setPhase("idle")} disabled={phase === "sending"}>Cancel</button>
-                <button type="submit" className="btn btn-primary" disabled={phase === "sending"}>{phase === "sending" ? "Sending..." : "Send"}</button>
+                <Button variant="ghost" icon={X} onClick={() => setPhase("idle")} disabled={phase === "sending"}>Cancel</Button>
+                <Button type="submit" variant="primary" icon={Send} loading={phase === "sending"}>{phase === "sending" ? "Sending" : "Send"}</Button>
               </span>
             </div>
           </form>

@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ClipboardCheck, Play, Target, UserPlus } from "lucide-react";
+import { Button } from "@/components/ui";
 import { PageShell } from "@/components/PageShell";
 import { loadCourseView, type Overview } from "@/lib/home/data";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
@@ -41,7 +42,7 @@ export default async function CoursePage() {
       <PageShell title="Course map" kicker="Course">
         <div className="panel">
           <p className="text-text-dim">You are not in a course yet.</p>
-          <Link href="/join" className="btn btn-primary mt-3">Join with course code</Link>
+          <Button href="/join" variant="primary" icon={UserPlus} className="mt-3">Join with course code</Button>
         </div>
       </PageShell>
     );
@@ -65,19 +66,22 @@ export default async function CoursePage() {
 
       <div className="cta-row">
         <div className="panel">
+          <span className="cta-icon"><Play aria-hidden /></span>
           <h3>Study everything due</h3>
           <p>Reviews first, then new cards, mixed across units.</p>
-          <Link href={run("all")} className="btn btn-primary">Study now</Link>
+          <Button href={run("all")} variant="primary" icon={Play}>Study now</Button>
         </div>
         <div className="panel">
+          <span className="cta-icon"><Target aria-hidden /></span>
           <h3>Weak spots</h3>
           <p>Cards you miss most, with extra support.</p>
-          <Link href={run("weak")} className="btn">Drill weak spots</Link>
+          <Button href={run("weak")} icon={Target}>Drill weak spots</Button>
         </div>
         <div className="panel">
+          <span className="cta-icon"><ClipboardCheck aria-hidden /></span>
           <h3>Mock practical</h3>
           <p>Timed lab stations, no going back, scored at the end.</p>
-          <Link href="/practical" className="btn">Start a mock practical</Link>
+          <Button href="/practical" icon={ClipboardCheck}>Start a mock practical</Button>
         </div>
       </div>
 
@@ -99,7 +103,7 @@ export default async function CoursePage() {
                 {g.ov && g.ov.due + g.ov.learning > 0 ? ` · ${g.ov.due + g.ov.learning} due` : ""}
               </p>
             </div>
-            {g.slug && <Link href={run(`unit:${g.slug}`)} className="btn">Study unit</Link>}
+            {g.slug && <Button href={run(`unit:${g.slug}`)} size="sm" icon={Play}>Study unit</Button>}
           </summary>
           <div className="unit-body">
             {g.topics.length === 0 && <p className="px-5 py-4 text-sm text-text-dim">Topics will appear here.</p>}
@@ -115,9 +119,9 @@ export default async function CoursePage() {
                     </span>
                   </div>
                   {o && o.total > 0 ? <Progress o={o} /> : <span />}
-                  <div className="flex items-center gap-2">
+                  <div className="topic-actions">
                     {due > 0 && <span className="due-badge" title="Due now">{due} due</span>}
-                    {o && o.total > 0 && <Link href={run(`topic:${t.slug}`)} className="btn">Study</Link>}
+                    {o && o.total > 0 && <Button href={run(`topic:${t.slug}`)} size="sm" variant="subtle" icon={Play}>Study</Button>}
                   </div>
                 </div>
               );

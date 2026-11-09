@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { ArrowRight, LogIn, UserPlus } from "lucide-react";
+import { Button } from "@/components/ui";
 import { ConfigNotice } from "@/components/ConfigNotice";
 import { ThemePicker } from "@/components/theme/ThemePicker";
 
@@ -33,8 +34,8 @@ export function Landing() {
           Type-the-answer flashcards for your anatomy course, scheduled with spaced repetition. Built for the lab practical, open to everyone in your class from day one.
         </p>
         <div className="hero-cta">
-          <Link href="/join" className="btn btn-primary btn-lg">Join with course code</Link>
-          <Link href="/login" className="btn btn-lg">Log in</Link>
+          <Button href="/join" variant="primary" size="lg" icon={UserPlus} iconRight={ArrowRight}>Join with course code</Button>
+          <Button href="/login" size="lg" icon={LogIn}>Log in</Button>
         </div>
         <p className="text-sm text-text-dim">Use your UVM email. Your instructors see progress summaries, never your individual answers.</p>
       </section>

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { ArrowRight, CalendarClock, ClipboardCheck, Layers, Map as MapIcon, Play, Repeat2, Sparkles, UserPlus, Zap } from "lucide-react";
+import { Button } from "@/components/ui";
 import type { ActivityDay, CourseView, Pace } from "@/lib/home/data";
 import { Heatmap } from "./Heatmap";
 
@@ -80,7 +81,7 @@ export function HomeDashboard({
         <section className="panel">
           <h2 className="font-display text-xl">Join your course</h2>
           <p className="mt-1 text-text-dim">You are not in a course yet. Enter the course code your professor shared and your cards will appear here.</p>
-          <Link href="/join" className="btn btn-primary mt-4">Join with course code</Link>
+          <Button href="/join" variant="primary" icon={UserPlus} className="mt-4">Join with course code</Button>
         </section>
       </>
     );
@@ -109,11 +110,14 @@ export function HomeDashboard({
             <span className="due-label">{ready === 1 ? "card ready" : "cards ready"}</span>
           </div>
           <div className="mini-counts">
-            <span className="pill"><b>{due}</b> due</span>
-            <span className="pill"><b>{newToday}</b> new</span>
-            {o.learning > 0 && <span className="pill"><b>{o.learning}</b> learning</span>}
+            <span className="pill"><CalendarClock aria-hidden /><b>{due}</b> due</span>
+            <span className="pill"><Sparkles aria-hidden /><b>{newToday}</b> new</span>
+            {o.learning > 0 && <span className="pill"><Repeat2 aria-hidden /><b>{o.learning}</b> learning</span>}
           </div>
-          <Link href={q("all")} className="btn btn-primary btn-lg">{ready ? "Study now" : "Study anyway"}</Link>
+          <div className="study-actions">
+            <Button href={q("all")} variant="primary" size="lg" icon={Play}>{ready ? "Study now" : "Study anyway"}</Button>
+            <Button href={`${q("all")}&limit=10`} size="lg" icon={Zap}>10-card sprint</Button>
+          </div>
           {ready === 0 && <p className="text-sm text-text-dim">You are all caught up. New cards will unlock as you go, and reviews come back when they are due.</p>}
         </section>
 
@@ -140,12 +144,12 @@ export function HomeDashboard({
       <section className="panel mt-[18px]" aria-labelledby="map-h">
         <div className="map-entry">
           <div>
-            <h2 id="map-h" className="font-display text-xl">Course map</h2>
+            <h2 id="map-h" className="font-display text-xl panel-title"><Layers aria-hidden />Course map</h2>
             <p className="text-sm text-text-dim">{o.total ? `${solidPct}% solid, ${seenPct}% seen across ${o.total} cards` : "Units and labs with your progress in each"}</p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <Link href="/course" className="btn">Open course map</Link>
-            <Link href="/practical" className="btn">Mock practical</Link>
+          <div className="toolbar">
+            <Button href="/course" icon={MapIcon} iconRight={ArrowRight}>Course map</Button>
+            <Button href="/practical" variant="ghost" icon={ClipboardCheck}>Mock practical</Button>
           </div>
         </div>
         {o.total > 0 && (

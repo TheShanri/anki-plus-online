@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { RotateCcw } from "lucide-react";
+import { Button, Field, Input } from "@/components/ui";
 import type { LearnerSettings } from "@/lib/study/settings";
 import { SCAFFOLD_INFO, Switch, useScaffoldToggles } from "./Scaffolds";
 import "./study.css";
@@ -42,7 +44,7 @@ export function ScaffoldingPanel({ initial }: { initial: LearnerSettings }) {
         </div>
       ))}
       {err && <p className="field-error">{err}</p>}
-      <div className="btn-row"><button type="button" className="btn" onClick={reset}>Reset to the defaults</button></div>
+      <div className="btn-row"><Button icon={RotateCcw} onClick={reset}>Reset to the defaults</Button></div>
 
       <details id="typing" className="panel" open={!typingOn}>
         <summary className="cursor-pointer font-display" style={{ fontSize: 15 }}>Advanced</summary>
@@ -56,20 +58,16 @@ export function ScaffoldingPanel({ initial }: { initial: LearnerSettings }) {
               Recommended: typing each answer trains the spelling the practical asks for. With it off, you answer in your head, reveal the answer and rate yourself (Again, Hard, Good, Easy), and the spelling supports above are skipped.
             </p>
           </div>
-          <div>
-            <label className="label" htmlFor="npd">New cards per day</label>
-            <input
-              id="npd"
-              className="input"
+          <Field label="New cards per day" className="max-w-[160px]">
+            <Input
               type="number"
               min={0}
               max={100}
               value={newPerDay}
-              style={{ maxWidth: 120 }}
               onChange={(e) => setNewPerDay(Number(e.target.value))}
               onBlur={() => void patch({ study: { newPerDay } })}
             />
-          </div>
+          </Field>
         </div>
       </details>
       {saveErr && <p className="field-error">{saveErr}</p>}
@@ -86,8 +84,8 @@ export function ScaffoldingPanel({ initial }: { initial: LearnerSettings }) {
             </ul>
             <p>You can switch it back on any time. We will check in gently once a week while it is off.</p>
             <div className="btn-row">
-              <button type="button" className="btn btn-primary" onClick={() => setWarn(false)}>Keep typing on</button>
-              <button type="button" className="btn" onClick={() => void setTyping(false)}>Turn typing off</button>
+              <Button variant="primary" onClick={() => setWarn(false)}>Keep typing on</Button>
+              <Button variant="ghost" onClick={() => void setTyping(false)}>Turn typing off</Button>
             </div>
           </div>
         </div>

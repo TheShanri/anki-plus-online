@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Brain, ClipboardCheck, Play, Target, Zap } from "lucide-react";
+import { Button } from "@/components/ui";
 import { PageShell } from "@/components/PageShell";
 import { ActivityGrid } from "@/components/study/ActivityGrid";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
@@ -65,12 +67,13 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
           </div>
         ))}
       </div>
-      <div className="btn-row" style={{ margin: "18px 0" }}>
-        <Link className="btn btn-primary" href={q("all")}>{ready ? `Study now (${ready})` : "Study now"}</Link>
-        <Link className="btn" href={`${q("all")}&limit=10`}>Quick sprint (10 cards)</Link>
-        <Link className="btn" href={q("weak")}>Weak spots</Link>
-        <Link className="btn" href="/practical">Mock practical</Link>
-        <Link className="btn" href="/atlas/quiz">Atlas quiz</Link>
+      <div className="toolbar" style={{ margin: "18px 0" }}>
+        <Button href={q("all")} variant="primary" size="lg" icon={Play}>{ready ? `Study now (${ready})` : "Study now"}</Button>
+        <Button href={`${q("all")}&limit=10`} size="lg" icon={Zap}>10-card sprint</Button>
+        <span className="toolbar-sep" aria-hidden />
+        <Button href={q("weak")} variant="subtle" icon={Target}>Weak spots</Button>
+        <Button href="/practical" variant="subtle" icon={ClipboardCheck}>Mock practical</Button>
+        <Button href="/atlas/quiz" variant="subtle" icon={Brain}>Atlas quiz</Button>
       </div>
       {!learner.typing.enabled && <p className="notice" style={{ marginBottom: 16 }}>Typing is switched off (Settings, Advanced). Cards are recalled and self-graded.</p>}
 

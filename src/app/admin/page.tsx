@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { BookCheck, Bug, Flag, Info, Inbox, Users } from "lucide-react";
+import { Button } from "@/components/ui";
 import { PageShell } from "@/components/PageShell";
 import { CreateCourse, UsersTable, type UserRow } from "@/components/admin/AdminPanels";
 import { CourseAdmin, type CourseRow } from "@/components/admin/CourseAdmin";
@@ -65,13 +67,14 @@ export default async function AdminPage() {
 
   return (
     <PageShell title="Admin" kicker="Owner">
-      <div className="mb-6 flex flex-wrap gap-3">
-        <Link href="/admin/feedback" className="btn btn-primary">Feedback inbox{fb.count ? ` (${fb.count} new)` : ""}</Link>
-        <Link href="/admin/review" className="btn">Content review</Link>
-        <Link href="/admin/review/flags" className="btn">Open flags</Link>
-        <Link href="/admin/bugs" className="btn">Old bug reports{bugs.count ? ` (${bugs.count})` : ""}</Link>
-        <Link href="/staff" className="btn">Staff dashboard</Link>
-        <Link href="/about" className="btn">About page</Link>
+      <div className="toolbar mb-6">
+        <Button href="/admin/feedback" variant="primary" icon={Inbox}>Feedback{fb.count ? ` (${fb.count} new)` : ""}</Button>
+        <Button href="/admin/review" icon={BookCheck}>Content review</Button>
+        <Button href="/admin/review/flags" icon={Flag}>Open flags</Button>
+        <Button href="/admin/bugs" variant="subtle" icon={Bug}>Old bug reports{bugs.count ? ` (${bugs.count})` : ""}</Button>
+        <span className="toolbar-sep" aria-hidden />
+        <Button href="/staff" variant="ghost" icon={Users}>Staff</Button>
+        <Button href="/about" variant="ghost" icon={Info}>About</Button>
       </div>
 
       <section className="panel mb-8">

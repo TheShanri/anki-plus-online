@@ -3,6 +3,8 @@
 // on the server at the end (generous spelling per the course setting).
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ArrowRight, Check, Flag, Play, RotateCcw } from "lucide-react";
+import { Button, Field, Input } from "@/components/ui";
 import type { StudyCard } from "@/lib/study/types";
 import { CardFace } from "@/components/cards/CardFace";
 import { PinImage } from "@/components/cards/PinImage";
@@ -59,22 +61,21 @@ export function PracticalSetup({ units, defaultSeconds }: { units: UnitOption[];
         <p className="label">Units</p>
         <div className="btn-row">
           {units.map((u) => (
-            <label key={u.slug} className="chip" style={{ cursor: "pointer", display: "inline-flex", gap: 6, alignItems: "center" }}>
+            <label key={u.slug} className="chip-check">
               <input type="checkbox" checked={picked.includes(u.slug)} onChange={(e) => setPicked((p) => (e.target.checked ? [...p, u.slug] : p.filter((x) => x !== u.slug)))} />
-              {u.title} ({u.pins})
+              <Check aria-hidden />
+              {u.title} <span className="chip-n">{u.pins}</span>
             </label>
           ))}
           {units.length === 0 && <span className="text-text-dim">No pin cards yet.</span>}
         </div>
         <p className="text-text-faint" style={{ fontSize: 12, marginTop: 4 }}>{picked.length ? "Selected units only." : "Nothing selected: the whole course."}</p>
       </div>
-      <div>
-        <label className="label" htmlFor="stations">Stations</label>
-        <input id="stations" className="input" type="number" min={1} max={Math.max(1, Math.min(100, available))} value={count} style={{ maxWidth: 120 }} onChange={(e) => setCount(Number(e.target.value))} />
-        <p className="text-text-faint" style={{ fontSize: 12, marginTop: 4 }}>About {Math.round((Math.min(count, available) * defaultSeconds * 1.5) / 60)} minutes (follow-ups add time). {available} pin cards available.</p>
-      </div>
+      <Field label="Stations" className="max-w-[260px]" hint={`About ${Math.round((Math.min(count, available) * defaultSeconds * 1.5) / 60)} minutes (follow-ups add time). ${available} pin cards available.`}>
+        <Input type="number" min={1} max={Math.max(1, Math.min(100, available))} value={count} style={{ maxWidth: 120 }} onChange={(e) => setCount(Number(e.target.value))} />
+      </Field>
       {err && <p className="field-error">{err}</p>}
-      <div className="btn-row"><button type="button" className="btn btn-primary" disabled={busy || available === 0} onClick={() => void start()}>{busy ? "Preparing…" : "Start practical"}</button></div>
+      <div className="btn-row"><Button variant="primary" size="lg" icon={Play} loading={busy} disabled={available === 0} onClick={() => void start()}>{busy ? "Preparing" : "Start practical"}</Button></div>
     </div>
   );
 }
@@ -153,7 +154,7 @@ function PracticalRun({ started }: { started: Started }) {
   }, [idx]);
 
   if (finishing || !station) {
-    return <div className="panel"><p className="text-text-dim">{err ?? "Scoring your practical…"}</p>{err && <button className="btn" type="button" onClick={() => void finish()}>Try again</button>}</div>;
+    return <div className="panel"><p className="text-text-dim">{err ?? "Scoring your practical…"}</p>{err && <Button icon={RotateCcw} onClick={() => void finish()} style={{ marginTop: 12 }}>Try again</Button>}</div>;
   }
   const set = (i: number, v: string) => {
     setTyped((t) => t.map((x, k) => (k === i ? v : x)));
@@ -194,7 +195,7 @@ function PracticalRun({ started }: { started: Started }) {
             </div>
           ))}
           <div className="btn-row">
-            <button className="btn btn-primary" type="submit">{idx + 1 >= stations.length ? "Finish" : "Next station"}</button>
+            <Button type="submit" variant="primary" icon={idx + 1 >= stations.length ? Flag : undefined} iconRight={idx + 1 >= stations.length ? undefined : ArrowRight}>{idx + 1 >= stations.length ? "Finish" : "Next station"}</Button>
             <span className="v-notes">{fields > 1 ? "Enter moves on. " : "Enter moves on. "}You cannot go back.</span>
           </div>
         </form>

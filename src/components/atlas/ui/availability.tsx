@@ -17,8 +17,13 @@ export function availabilityFor(it: CatalogItem | null): AvailInfo {
   let d3: Avail = "none";
   let d3Why = "Not in the 3D model";
   if (l) {
-    if (l.meshIds.length && !l.approximate) (d3 = "exact"), (d3Why = "Exact in 3D");
-    else if (l.approximate || l.fallbackParentId || l.meshIds.length) (d3 = "partial"), (d3Why = "Approximate in 3D: highlights the structure that contains it");
+    if (l.meshIds.length && !l.approximate) {
+      d3 = "exact";
+      d3Why = "Exact in 3D";
+    } else if (l.approximate || l.fallbackParentId || l.meshIds.length) {
+      d3 = "partial";
+      d3Why = "Approximate in 3D: highlights the structure that contains it";
+    }
   } else if (it && it.meshIds.length) {
     d3 = it.approximate ? "partial" : "exact";
     d3Why = it.approximate ? "Approximate in 3D" : "Exact in 3D";

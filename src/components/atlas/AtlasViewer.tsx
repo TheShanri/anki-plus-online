@@ -138,6 +138,10 @@ function setPlanes(m: THREE.MeshStandardMaterial, planes: THREE.Plane[], alwaysD
   m.needsUpdate = true;
 }
 
+function capOpacity(m: THREE.Material, cap: number | undefined) {
+  if (cap !== undefined) m.opacity = Math.min(m.opacity, cap);
+}
+
 function configureContextMaterial(m: THREE.MeshStandardMaterial, opacity: number, planes: THREE.Plane[]) {
   m.opacity = opacity;
   setPlanes(m, planes);
@@ -1101,7 +1105,7 @@ function Scene({
     grossPlanes.current = gp;
     configureContextMaterial(ctxMat, mode === "context" ? 0.4 : 0.15, gp);
     configureGross(grossMats, grossHull, look, solid, gp, brainOpacity);
-    if (brainOpacity !== undefined) ctxMat.opacity = Math.min(ctxMat.opacity, brainOpacity);
+    capOpacity(ctxMat, brainOpacity);
     const own = cutting ? [cutP] : [];
     ownPlanes.current = own;
     setPlanes(hiMat, own, true);

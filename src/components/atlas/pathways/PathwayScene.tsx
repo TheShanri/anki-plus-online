@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TrackballControls } from "@react-three/drei";
-import { loadAtlasIndex } from "@/lib/atlas";
+import { loadAtlasIndex, resolveStructureIds } from "@/lib/atlas";
 import type { AtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel, releaseAtlasCache, retainAtlasCache } from "@/lib/atlas/loader";
 import type { Side, WP } from "@/lib/atlas/pathways";
@@ -490,9 +490,23 @@ export default function PathwayScene(p: SceneProps) {
   useEffect(() => {
     if (!index) return;
     let alive = true;
-    const need = refs.filter((r) => !verts.has(r) && index.structures[r]?.file);
+    // a group structure (cerebellum, cerebral peduncle ...) has no file of its own: its members' vertices stand in for it
+    const need = refs.filter((r) => !verts.has(r) && resolveStructureIds(index, [r], 40).length > 0);
     if (!need.length) return;
-    Promise.all(need.map((r) => loadVerts(r, index.structures[r].file!).then((v) => [r, v] as const))).then((res) => {
+    Promise.all(
+      need.map((r) =>
+        Promise.all(resolveStructureIds(index, [r], 40).map((id) => loadVerts(id, index.structures[id].file!))).then((parts) => {
+          const ok = parts.filter((x): x is Float32Array => !!x);
+          const all = new Float32Array(ok.reduce((n, x) => n + x.length, 0));
+          let o = 0;
+          for (const x of ok) {
+            all.set(x, o);
+            o += x.length;
+          }
+          return [r, all.length ? all : null] as const;
+        }),
+      ),
+    ).then((res) => {
       if (!alive) return;
       setVerts((prev) => {
         const next = new Map(prev);
@@ -527,12 +541,12 @@ export default function PathwayScene(p: SceneProps) {
   const layerParts = useMemo(() => {
     if (!index) return [];
     return p.layers.flatMap((l) =>
-      l.ids
-        .filter((id) => index.structures[id]?.file)
+      // pathway layers expand group structures into their members; the lesion lab keeps its single-file picking meshes
+      (l.beat !== undefined ? resolveStructureIds(index, l.ids, 40) : l.ids.filter((id) => index.structures[id]?.file))
         .map((id) => ({ k: `${l.key}:${id}:${l.side}`, id, file: index.structures[id].file!, name: index.structures[id].name, l })),
     );
   }, [index, p.layers]);
-  const vertsDone = index ? refs.filter((r) => verts.has(r) || !index.structures[r]?.file).length : 0;
+  const vertsDone = index ? refs.filter((r) => verts.has(r) || resolveStructureIds(index, [r], 40).length === 0).length : 0;
   const total = refs.length + layerParts.length + partFiles.length;
   const done = vertsDone + Math.min(layersDone, layerParts.length) + Math.min(partsDone, partFiles.length);
   const ready = !!index && done >= total;

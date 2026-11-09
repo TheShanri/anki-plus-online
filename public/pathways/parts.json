@@ -1,0 +1,2296 @@
+{
+ "version": 1,
+ "source": "Z-Anatomy (with BodyParts3D), CC BY-SA 4.0",
+ "worldOffsetNote": "worldOffset = the part's centre in the Z-Anatomy/atlas world frame (same frame as public/atlas/gross.glb), for aligning to the body",
+ "parts": {
+  "hand": {
+   "file": "/pathways/hand.glb",
+   "bytes": 115160,
+   "description": "Left hand and forearm (skin, bone, forearm muscle).",
+   "objects": {
+    "skin": 4511,
+    "bone": 8644
+   },
+   "objectCentres": {
+    "skin": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "bone": [
+     0.00242,
+     0.06028,
+     0.00569
+    ]
+   },
+   "bbox": [
+    [
+     -0.07981,
+     -0.19508,
+     -0.08738
+    ],
+    [
+     0.07981,
+     0.31544,
+     0.08738
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "anchors": {
+    "skin": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "bone": [
+     0.00242,
+     0.06028,
+     0.00569
+    ]
+   },
+   "notes": {
+    "anchors": "object centres only (existing part; the pathway code positions it with PartModels props)"
+   },
+   "tissues": {
+    "bone": "#ece4cf",
+    "skin": "#e4b49b"
+   }
+  },
+  "foot": {
+   "file": "/pathways/foot.glb",
+   "bytes": 119336,
+   "description": "Left foot and lower leg (skin, bone, calcaneal tendon).",
+   "objects": {
+    "skin": 5292,
+    "bone": 8349
+   },
+   "objectCentres": {
+    "skin": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "bone": [
+     0.00197,
+     0.01797,
+     0.00902
+    ]
+   },
+   "bbox": [
+    [
+     -0.05951,
+     -0.20361,
+     -0.13205
+    ],
+    [
+     0.05951,
+     0.22997,
+     0.13205
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "anchors": {
+    "skin": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "bone": [
+     0.00197,
+     0.01797,
+     0.00902
+    ]
+   },
+   "notes": {
+    "anchors": "object centres only (existing part; the pathway code positions it with PartModels props)"
+   },
+   "tissues": {
+    "bone": "#ece4cf",
+    "skin": "#e4b49b"
+   }
+  },
+  "leg": {
+   "file": "/pathways/leg.glb",
+   "bytes": 88488,
+   "description": "Left thigh and knee (skin, bone, quadriceps muscle, patellar tendon).",
+   "objects": {
+    "skin": 10214
+   },
+   "objectCentres": {
+    "skin": [
+     0.00247,
+     0.06579,
+     0.03045
+    ]
+   },
+   "bbox": [
+    [
+     -0.08666,
+     -0.41455,
+     -0.04085
+    ],
+    [
+     0.0916,
+     0.54613,
+     0.10175
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "anchors": {
+    "skin": [
+     0.00247,
+     0.06579,
+     0.03045
+    ]
+   },
+   "notes": {
+    "anchors": "object centres only (existing part; the pathway code positions it with PartModels props)"
+   },
+   "tissues": {
+    "skin": "#e4b49b"
+   }
+  },
+  "muscle": {
+   "file": "/pathways/muscle.glb",
+   "bytes": 23716,
+   "description": "Brachioradialis, a single muscle for the stretch-reflex pathway.",
+   "objects": {
+    "muscle": 2500
+   },
+   "objectCentres": {
+    "muscle": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "bbox": [
+    [
+     -0.0374,
+     -0.17446,
+     -0.03469
+    ],
+    [
+     0.0374,
+     0.17446,
+     0.03469
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "anchors": {
+    "muscle": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "notes": {
+    "anchors": "object centres only (existing part; the pathway code positions it with PartModels props)"
+   },
+   "tissues": {
+    "muscle": "#b9444c"
+   }
+  },
+  "eye": {
+   "file": "/pathways/eye.glb",
+   "bytes": 37500,
+   "description": "Left eyeball (sclera, cornea, iris, lens, retina).",
+   "objects": {
+    "sclera": 3754
+   },
+   "objectCentres": {
+    "sclera": [
+     0.0,
+     0.0,
+     0.00119
+    ]
+   },
+   "bbox": [
+    [
+     -0.01312,
+     -0.01311,
+     -0.01247
+    ],
+    [
+     0.01312,
+     0.01311,
+     0.01485
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "anchors": {
+    "sclera": [
+     0.0,
+     0.0,
+     0.00119
+    ]
+   },
+   "notes": {
+    "anchors": "object centres only (existing part; the pathway code positions it with PartModels props)"
+   },
+   "tissues": {}
+  },
+  "spine": {
+   "file": "/pathways/spine.glb",
+   "bytes": 301756,
+   "description": "Vertebral column C1-L5, sacrum, coccyx (each a separate object), intervertebral discs, spinal cord with enlargements, dorsal root ganglia (C2-L2 from Z-Anatomy, L3-S5 generated), cauda equina, dura.",
+   "objects": {
+    "bone_C1": 703,
+    "bone_C2": 700,
+    "bone_C3": 698,
+    "bone_C4": 700,
+    "bone_C5": 698,
+    "bone_C6": 698,
+    "bone_C7": 698,
+    "bone_T1": 700,
+    "bone_T2": 700,
+    "bone_T3": 700,
+    "bone_T4": 700,
+    "bone_T5": 700,
+    "bone_T6": 700,
+    "bone_T7": 700,
+    "bone_T8": 699,
+    "bone_T9": 700,
+    "bone_T10": 700,
+    "bone_T11": 700,
+    "bone_T12": 700,
+    "bone_L1": 700,
+    "bone_L2": 700,
+    "bone_L3": 711,
+    "bone_L4": 700,
+    "bone_L5": 700,
+    "bone_sacrum": 1489,
+    "bone_coccyx": 401,
+    "nerve_cord": 3502,
+    "nerve_drg": 1764,
+    "nerve_drg_procedural": 832,
+    "disc_C2_C3": 201,
+    "disc_C3_C4": 200,
+    "disc_C4_C5": 201,
+    "disc_C5_C6": 201,
+    "disc_C6_C7": 198,
+    "disc_C7_T1": 201,
+    "disc_L1_L2": 201,
+    "disc_L2_L3": 201,
+    "disc_L3_L4": 201,
+    "disc_L4_L5": 201,
+    "disc_L5_S1": 201,
+    "disc_T1_T2": 201,
+    "disc_T10_T11": 201,
+    "disc_T11_T12": 201,
+    "disc_T12_L1": 201,
+    "disc_T2_T3": 201,
+    "disc_T3_T4": 201,
+    "disc_T4_T5": 201,
+    "disc_T5_T6": 201,
+    "disc_T6_T7": 201,
+    "disc_T7_T8": 201,
+    "disc_T8_T9": 201,
+    "disc_T9_T10": 201,
+    "dura": 3350,
+    "nerve_cauda_equina": 3013
+   },
+   "objectCentres": {
+    "bone_C1": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "bbox": [
+    [
+     -0.06156,
+     -0.36124,
+     -0.06013
+    ],
+    [
+     0.06156,
+     0.36124,
+     0.06013
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "worldOffset": [
+    -4e-05,
+    1.19152,
+    -0.04079
+   ],
+   "anchors": {
+    "C1": [
+     3e-05,
+     0.35236,
+     0.03588
+    ],
+    "C1_foramen": [
+     4e-05,
+     0.35236,
+     0.01808
+    ],
+    "C1_spinous": [
+     4e-05,
+     0.34777,
+     -0.00517
+    ],
+    "C1_transverse": [
+     0.04308,
+     0.34923,
+     0.02517
+    ],
+    "C1_transverse_R": [
+     -0.04299,
+     0.34923,
+     0.02517
+    ],
+    "C2": [
+     -0.0,
+     0.34169,
+     0.03446
+    ],
+    "C2_foramen": [
+     4e-05,
+     0.34169,
+     0.02656
+    ],
+    "C2_spinous": [
+     -0.00069,
+     0.31971,
+     -0.01159
+    ],
+    "C2_transverse": [
+     0.02405,
+     0.33185,
+     0.01792
+    ],
+    "C2_transverse_R": [
+     -0.02394,
+     0.33185,
+     0.01792
+    ],
+    "C3": [
+     4e-05,
+     0.31884,
+     0.03354
+    ],
+    "C3_foramen": [
+     4e-05,
+     0.31884,
+     0.01872
+    ],
+    "C3_spinous": [
+     4e-05,
+     0.30241,
+     -0.01319
+    ],
+    "C3_transverse": [
+     0.0283,
+     0.31272,
+     0.02033
+    ],
+    "C3_transverse_R": [
+     -0.02822,
+     0.31272,
+     0.02033
+    ],
+    "C4": [
+     5e-05,
+     0.30408,
+     0.03484
+    ],
+    "C4_foramen": [
+     4e-05,
+     0.30408,
+     0.0195
+    ],
+    "C4_spinous": [
+     0.00011,
+     0.29088,
+     -0.01186
+    ],
+    "C4_transverse": [
+     0.02909,
+     0.29979,
+     0.02866
+    ],
+    "C4_transverse_R": [
+     -0.02887,
+     0.29979,
+     0.02866
+    ],
+    "C5": [
+     4e-05,
+     0.28799,
+     0.0317
+    ],
+    "C5_foramen": [
+     4e-05,
+     0.28799,
+     0.01652
+    ],
+    "C5_spinous": [
+     4e-05,
+     0.27866,
+     -0.01721
+    ],
+    "C5_transverse": [
+     0.03075,
+     0.28426,
+     0.02557
+    ],
+    "C5_transverse_R": [
+     -0.03068,
+     0.28426,
+     0.02557
+    ],
+    "C6": [
+     4e-05,
+     0.27064,
+     0.03219
+    ],
+    "C6_foramen": [
+     4e-05,
+     0.27064,
+     0.0132
+    ],
+    "C6_spinous": [
+     4e-05,
+     0.2663,
+     -0.02598
+    ],
+    "C6_transverse": [
+     0.03067,
+     0.27168,
+     0.02363
+    ],
+    "C6_transverse_R": [
+     -0.03059,
+     0.27168,
+     0.02363
+    ],
+    "C7": [
+     4e-05,
+     0.2574,
+     0.02434
+    ],
+    "C7_foramen": [
+     4e-05,
+     0.2574,
+     0.00729
+    ],
+    "C7_spinous": [
+     4e-05,
+     0.25184,
+     -0.03644
+    ],
+    "C7_transverse": [
+     0.03565,
+     0.2645,
+     0.01479
+    ],
+    "C7_transverse_R": [
+     -0.03557,
+     0.2645,
+     0.01479
+    ],
+    "T1": [
+     4e-05,
+     0.24315,
+     0.01742
+    ],
+    "T1_foramen": [
+     4e-05,
+     0.24315,
+     0.00081
+    ],
+    "T1_spinous": [
+     -0.00226,
+     0.23446,
+     -0.04266
+    ],
+    "T1_transverse": [
+     0.03843,
+     0.25238,
+     0.00267
+    ],
+    "T1_transverse_R": [
+     -0.03835,
+     0.25238,
+     0.00267
+    ],
+    "T2": [
+     4e-05,
+     0.2305,
+     0.00877
+    ],
+    "T2_foramen": [
+     4e-05,
+     0.2305,
+     -0.00394
+    ],
+    "T2_spinous": [
+     -0.00143,
+     0.21363,
+     -0.04846
+    ],
+    "T2_transverse": [
+     0.03704,
+     0.23652,
+     -0.01158
+    ],
+    "T2_transverse_R": [
+     -0.03696,
+     0.23652,
+     -0.01158
+    ],
+    "T3": [
+     4e-05,
+     0.21026,
+     -9e-05
+    ],
+    "T3_foramen": [
+     4e-05,
+     0.21026,
+     -0.00986
+    ],
+    "T3_spinous": [
+     -0.00038,
+     0.1886,
+     -0.05961
+    ],
+    "T3_transverse": [
+     0.03444,
+     0.21896,
+     -0.02403
+    ],
+    "T3_transverse_R": [
+     -0.03436,
+     0.21896,
+     -0.02403
+    ],
+    "T4": [
+     4e-05,
+     0.18363,
+     -0.00696
+    ],
+    "T4_foramen": [
+     4e-05,
+     0.18363,
+     -0.02204
+    ],
+    "T4_spinous": [
+     0.0004,
+     0.16962,
+     -0.06013
+    ],
+    "T4_transverse": [
+     0.03548,
+     0.1911,
+     -0.03178
+    ],
+    "T4_transverse_R": [
+     -0.0354,
+     0.1911,
+     -0.03178
+    ],
+    "T5": [
+     4e-05,
+     0.15868,
+     -0.01016
+    ],
+    "T5_foramen": [
+     4e-05,
+     0.15868,
+     -0.02667
+    ],
+    "T5_spinous": [
+     4e-05,
+     0.13438,
+     -0.05855
+    ],
+    "T5_transverse": [
+     0.03775,
+     0.16708,
+     -0.04001
+    ],
+    "T5_transverse_R": [
+     -0.03767,
+     0.16708,
+     -0.04001
+    ],
+    "T6": [
+     4e-05,
+     0.13177,
+     -0.0139
+    ],
+    "T6_foramen": [
+     4e-05,
+     0.13177,
+     -0.02385
+    ],
+    "T6_spinous": [
+     -0.00065,
+     0.09635,
+     -0.05935
+    ],
+    "T6_transverse": [
+     0.03801,
+     0.13846,
+     -0.04723
+    ],
+    "T6_transverse_R": [
+     -0.03793,
+     0.13846,
+     -0.04723
+    ],
+    "T7": [
+     4e-05,
+     0.10366,
+     -0.01521
+    ],
+    "T7_foramen": [
+     4e-05,
+     0.10366,
+     -0.02944
+    ],
+    "T7_spinous": [
+     0.00035,
+     0.07429,
+     -0.05746
+    ],
+    "T7_transverse": [
+     0.03834,
+     0.10336,
+     -0.04307
+    ],
+    "T7_transverse_R": [
+     -0.03826,
+     0.10336,
+     -0.04307
+    ],
+    "T8": [
+     -3e-05,
+     0.07534,
+     -0.00802
+    ],
+    "T8_foramen": [
+     4e-05,
+     0.07534,
+     -0.03882
+    ],
+    "T8_spinous": [
+     4e-05,
+     0.04381,
+     -0.05948
+    ],
+    "T8_transverse": [
+     0.03514,
+     0.07046,
+     -0.04063
+    ],
+    "T8_transverse_R": [
+     -0.03506,
+     0.07046,
+     -0.04063
+    ],
+    "T9": [
+     4e-05,
+     0.04506,
+     -0.00298
+    ],
+    "T9_foramen": [
+     4e-05,
+     0.04506,
+     -0.02289
+    ],
+    "T9_spinous": [
+     4e-05,
+     0.01961,
+     -0.05565
+    ],
+    "T9_transverse": [
+     0.03618,
+     0.04353,
+     -0.03881
+    ],
+    "T9_transverse_R": [
+     -0.0361,
+     0.04353,
+     -0.03881
+    ],
+    "T10": [
+     -0.00011,
+     0.01828,
+     0.00272
+    ],
+    "T10_foramen": [
+     4e-05,
+     0.01828,
+     -0.01942
+    ],
+    "T10_spinous": [
+     -0.00112,
+     -0.01786,
+     -0.05124
+    ],
+    "T10_transverse": [
+     0.03771,
+     0.01369,
+     -0.03015
+    ],
+    "T10_transverse_R": [
+     -0.03751,
+     0.01369,
+     -0.03015
+    ],
+    "T11": [
+     4e-05,
+     -0.01227,
+     0.00942
+    ],
+    "T11_foramen": [
+     4e-05,
+     -0.01227,
+     -0.02016
+    ],
+    "T11_spinous": [
+     4e-05,
+     -0.03759,
+     -0.04361
+    ],
+    "T11_transverse": [
+     0.02907,
+     -0.0124,
+     -0.02162
+    ],
+    "T11_transverse_R": [
+     -0.029,
+     -0.0124,
+     -0.02162
+    ],
+    "T12": [
+     4e-05,
+     -0.04706,
+     0.02081
+    ],
+    "T12_foramen": [
+     4e-05,
+     -0.04706,
+     -9e-05
+    ],
+    "T12_spinous": [
+     4e-05,
+     -0.07153,
+     -0.0363
+    ],
+    "T12_transverse": [
+     0.02338,
+     -0.04812,
+     -0.01065
+    ],
+    "T12_transverse_R": [
+     -0.0233,
+     -0.04812,
+     -0.01065
+    ],
+    "L1": [
+     4e-05,
+     -0.07852,
+     0.02817
+    ],
+    "L1_foramen": [
+     4e-05,
+     -0.07852,
+     0.00903
+    ],
+    "L1_spinous": [
+     -0.00011,
+     -0.10325,
+     -0.02999
+    ],
+    "L1_transverse": [
+     0.03725,
+     -0.07906,
+     -0.00142
+    ],
+    "L1_transverse_R": [
+     -0.03717,
+     -0.07906,
+     -0.00142
+    ],
+    "L2": [
+     4e-05,
+     -0.1092,
+     0.03237
+    ],
+    "L2_foramen": [
+     4e-05,
+     -0.1092,
+     0.00087
+    ],
+    "L2_spinous": [
+     4e-05,
+     -0.13516,
+     -0.02487
+    ],
+    "L2_transverse": [
+     0.04195,
+     -0.10845,
+     0.0006
+    ],
+    "L2_transverse_R": [
+     -0.04187,
+     -0.10845,
+     0.0006
+    ],
+    "L3": [
+     -2e-05,
+     -0.14346,
+     0.03155
+    ],
+    "L3_foramen": [
+     4e-05,
+     -0.14346,
+     -0.00215
+    ],
+    "L3_spinous": [
+     5e-05,
+     -0.16159,
+     -0.02485
+    ],
+    "L3_transverse": [
+     0.04178,
+     -0.14125,
+     0.00887
+    ],
+    "L3_transverse_R": [
+     -0.04168,
+     -0.14125,
+     0.00887
+    ],
+    "L4": [
+     4e-05,
+     -0.17655,
+     0.03367
+    ],
+    "L4_foramen": [
+     4e-05,
+     -0.17655,
+     0.01107
+    ],
+    "L4_spinous": [
+     4e-05,
+     -0.18753,
+     -0.02543
+    ],
+    "L4_transverse": [
+     0.04441,
+     -0.16924,
+     0.00759
+    ],
+    "L4_transverse_R": [
+     -0.04433,
+     -0.16924,
+     0.00759
+    ],
+    "L5": [
+     4e-05,
+     -0.21142,
+     0.03003
+    ],
+    "L5_foramen": [
+     4e-05,
+     -0.21142,
+     0.00192
+    ],
+    "L5_spinous": [
+     4e-05,
+     -0.20892,
+     -0.0297
+    ],
+    "L5_transverse": [
+     0.04926,
+     -0.20203,
+     0.0135
+    ],
+    "L5_transverse_R": [
+     -0.04918,
+     -0.20203,
+     0.0135
+    ],
+    "S1": [
+     4e-05,
+     -0.2248,
+     0.01253
+    ],
+    "S1_foramen": [
+     4e-05,
+     -0.2248,
+     -0.0036
+    ],
+    "S2": [
+     4e-05,
+     -0.24605,
+     0.03719
+    ],
+    "S2_foramen": [
+     4e-05,
+     -0.24605,
+     -0.01193
+    ],
+    "S3": [
+     4e-05,
+     -0.2673,
+     0.02391
+    ],
+    "S3_foramen": [
+     4e-05,
+     -0.2673,
+     -0.02054
+    ],
+    "S4": [
+     4e-05,
+     -0.28856,
+     -0.02678
+    ],
+    "S4_foramen": [
+     4e-05,
+     -0.28856,
+     -0.04804
+    ],
+    "S5": [
+     4e-05,
+     -0.30981,
+     -0.02352
+    ],
+    "S5_foramen": [
+     4e-05,
+     -0.30981,
+     -0.04804
+    ],
+    "Co1": [
+     4e-05,
+     -0.34591,
+     -0.03616
+    ],
+    "cord_cervical_enlargement": [
+     4e-05,
+     0.35322,
+     0.01304
+    ],
+    "cord_lumbar_enlargement": [
+     4e-05,
+     -0.01078,
+     -0.01265
+    ],
+    "cord_top": [
+     4e-05,
+     0.35071,
+     0.0118
+    ],
+    "conus_medullaris": [
+     4e-05,
+     -0.13378,
+     0.01672
+    ],
+    "drg_C2": [
+     0.01212,
+     0.33835,
+     0.01077
+    ],
+    "cord_C2": [
+     4e-05,
+     0.33835,
+     0.01328
+    ],
+    "drg_C3": [
+     0.01424,
+     0.32654,
+     0.02262
+    ],
+    "cord_C3": [
+     4e-05,
+     0.32654,
+     0.01758
+    ],
+    "drg_C4": [
+     0.0135,
+     0.31285,
+     0.02509
+    ],
+    "cord_C4": [
+     4e-05,
+     0.31285,
+     0.01884
+    ],
+    "drg_C5": [
+     0.01339,
+     0.29828,
+     0.02489
+    ],
+    "cord_C5": [
+     4e-05,
+     0.29828,
+     0.01901
+    ],
+    "drg_C6": [
+     0.01734,
+     0.28155,
+     0.02398
+    ],
+    "cord_C6": [
+     4e-05,
+     0.28155,
+     0.01644
+    ],
+    "drg_C7": [
+     0.01554,
+     0.26675,
+     0.01808
+    ],
+    "cord_C7": [
+     4e-05,
+     0.26675,
+     0.0118
+    ],
+    "drg_C8": [
+     0.01446,
+     0.25697,
+     0.01225
+    ],
+    "cord_C8": [
+     4e-05,
+     0.25697,
+     0.00807
+    ],
+    "drg_T1": [
+     0.01394,
+     0.24298,
+     0.00613
+    ],
+    "cord_T1": [
+     4e-05,
+     0.24298,
+     0.00234
+    ],
+    "drg_T2": [
+     0.01385,
+     0.22485,
+     -0.00283
+    ],
+    "cord_T2": [
+     4e-05,
+     0.22485,
+     -0.00559
+    ],
+    "drg_T3": [
+     0.01357,
+     0.20534,
+     -0.01372
+    ],
+    "cord_T3": [
+     4e-05,
+     0.20534,
+     -0.01407
+    ],
+    "drg_T4": [
+     0.01235,
+     0.18293,
+     -0.02222
+    ],
+    "cord_T4": [
+     4e-05,
+     0.18293,
+     -0.02214
+    ],
+    "drg_T5": [
+     0.0143,
+     0.15656,
+     -0.02786
+    ],
+    "cord_T5": [
+     4e-05,
+     0.15656,
+     -0.02819
+    ],
+    "drg_T6": [
+     0.01417,
+     0.12969,
+     -0.03108
+    ],
+    "cord_T6": [
+     4e-05,
+     0.12969,
+     -0.03063
+    ],
+    "drg_T7": [
+     0.01383,
+     0.09848,
+     -0.03195
+    ],
+    "cord_T7": [
+     4e-05,
+     0.09848,
+     -0.0308
+    ],
+    "drg_T8": [
+     0.01293,
+     0.0688,
+     -0.02771
+    ],
+    "cord_T8": [
+     4e-05,
+     0.0688,
+     -0.02806
+    ],
+    "drg_T9": [
+     0.01239,
+     0.04016,
+     -0.02302
+    ],
+    "cord_T9": [
+     4e-05,
+     0.04016,
+     -0.02412
+    ],
+    "drg_T10": [
+     0.01524,
+     0.00862,
+     -0.01766
+    ],
+    "cord_T10": [
+     4e-05,
+     0.00862,
+     -0.01777
+    ],
+    "drg_T11": [
+     0.01286,
+     -0.02268,
+     -0.00908
+    ],
+    "cord_T11": [
+     4e-05,
+     -0.02268,
+     -0.00877
+    ],
+    "drg_T12": [
+     0.01417,
+     -0.05926,
+     0.00237
+    ],
+    "cord_T12": [
+     4e-05,
+     -0.05926,
+     0.00423
+    ],
+    "drg_L1": [
+     0.01167,
+     -0.09099,
+     0.01197
+    ],
+    "cord_L1": [
+     4e-05,
+     -0.09099,
+     0.01218
+    ],
+    "drg_L2": [
+     0.01434,
+     -0.12332,
+     0.01644
+    ],
+    "cord_L2": [
+     4e-05,
+     -0.12332,
+     0.01628
+    ],
+    "drg_C2_R": [
+     -0.01204,
+     0.33835,
+     0.01077
+    ],
+    "drg_C3_R": [
+     -0.01416,
+     0.32654,
+     0.02262
+    ],
+    "drg_C4_R": [
+     -0.01342,
+     0.31285,
+     0.02509
+    ],
+    "drg_C5_R": [
+     -0.01331,
+     0.29828,
+     0.02489
+    ],
+    "drg_C6_R": [
+     -0.01726,
+     0.28155,
+     0.02398
+    ],
+    "drg_C7_R": [
+     -0.01546,
+     0.26675,
+     0.01808
+    ],
+    "drg_C8_R": [
+     -0.01438,
+     0.25697,
+     0.01225
+    ],
+    "drg_T1_R": [
+     -0.01386,
+     0.24298,
+     0.00613
+    ],
+    "drg_T2_R": [
+     -0.01377,
+     0.22485,
+     -0.00283
+    ],
+    "drg_T3_R": [
+     -0.01349,
+     0.20534,
+     -0.01372
+    ],
+    "drg_T4_R": [
+     -0.01227,
+     0.18293,
+     -0.02222
+    ],
+    "drg_T5_R": [
+     -0.01422,
+     0.15656,
+     -0.02786
+    ],
+    "drg_T6_R": [
+     -0.0141,
+     0.12969,
+     -0.03108
+    ],
+    "drg_T7_R": [
+     -0.01375,
+     0.09848,
+     -0.03195
+    ],
+    "drg_T8_R": [
+     -0.01285,
+     0.0688,
+     -0.02771
+    ],
+    "drg_T9_R": [
+     -0.01231,
+     0.04016,
+     -0.02302
+    ],
+    "drg_T10_R": [
+     -0.01516,
+     0.00862,
+     -0.01766
+    ],
+    "drg_T11_R": [
+     -0.01278,
+     -0.02268,
+     -0.00908
+    ],
+    "drg_T12_R": [
+     -0.01409,
+     -0.05926,
+     0.00237
+    ],
+    "drg_L1_R": [
+     -0.01159,
+     -0.09099,
+     0.01197
+    ],
+    "drg_L2_R": [
+     -0.01426,
+     -0.12332,
+     0.01644
+    ],
+    "drg_L3": [
+     0.01454,
+     -0.16001,
+     0.00446
+    ],
+    "drg_L3_R": [
+     -0.01446,
+     -0.16001,
+     0.00446
+    ],
+    "cord_L3": [
+     4e-05,
+     -0.13278,
+     0.01659
+    ],
+    "drg_L4": [
+     0.01454,
+     -0.19399,
+     0.0065
+    ],
+    "drg_L4_R": [
+     -0.01446,
+     -0.19399,
+     0.0065
+    ],
+    "cord_L4": [
+     4e-05,
+     -0.13208,
+     0.01659
+    ],
+    "drg_L5": [
+     0.01454,
+     -0.21811,
+     -0.00084
+    ],
+    "drg_L5_R": [
+     -0.01446,
+     -0.21811,
+     -0.00084
+    ],
+    "cord_L5": [
+     4e-05,
+     -0.13138,
+     0.01659
+    ],
+    "drg_S1": [
+     0.00854,
+     -0.2248,
+     -0.0036
+    ],
+    "drg_S1_R": [
+     -0.00846,
+     -0.2248,
+     -0.0036
+    ],
+    "cord_S1": [
+     4e-05,
+     -0.13068,
+     0.01659
+    ],
+    "drg_S2": [
+     0.00854,
+     -0.24605,
+     -0.01193
+    ],
+    "drg_S2_R": [
+     -0.00846,
+     -0.24605,
+     -0.01193
+    ],
+    "cord_S2": [
+     4e-05,
+     -0.12998,
+     0.01659
+    ],
+    "drg_S3": [
+     0.00854,
+     -0.2673,
+     -0.02054
+    ],
+    "drg_S3_R": [
+     -0.00846,
+     -0.2673,
+     -0.02054
+    ],
+    "cord_S3": [
+     4e-05,
+     -0.12928,
+     0.01659
+    ],
+    "drg_S4": [
+     0.00854,
+     -0.28856,
+     -0.04804
+    ],
+    "drg_S4_R": [
+     -0.00846,
+     -0.28856,
+     -0.04804
+    ],
+    "cord_S4": [
+     4e-05,
+     -0.12858,
+     0.01659
+    ],
+    "drg_S5": [
+     0.00854,
+     -0.30981,
+     -0.04804
+    ],
+    "drg_S5_R": [
+     -0.00846,
+     -0.30981,
+     -0.04804
+    ],
+    "cord_S5": [
+     4e-05,
+     -0.12788,
+     0.01659
+    ],
+    "cord_Co1": [
+     4e-05,
+     -0.13378,
+     0.01672
+    ],
+    "cauda_equina": [
+     4e-05,
+     -0.22042,
+     -0.00881
+    ],
+    "dura_sac_end": [
+     4e-05,
+     -0.13678,
+     0.01672
+    ]
+   },
+   "notes": {
+    "procedural": [
+     "p_drg_L3",
+     "p_drg_L3_R",
+     "p_drg_L4",
+     "p_drg_L4_R",
+     "p_drg_L5",
+     "p_drg_L5_R",
+     "p_drg_S1",
+     "p_drg_S1_R",
+     "p_drg_S2",
+     "p_drg_S2_R",
+     "p_drg_S3",
+     "p_drg_S3_R",
+     "p_drg_S4",
+     "p_drg_S4_R",
+     "p_drg_S5",
+     "p_drg_S5_R"
+    ],
+    "drg_note": "Z-Anatomy has dorsal root ganglia only for C2-L2. L3-S5 (nerve_drg_procedural) are generated ellipsoids in the foramina. cord_L3..cord_Co1 sit in the conus medullaris: cord segments end near the L1/L2 vertebra."
+   },
+   "tissues": {
+    "bone": "#ece4cf",
+    "nerve": "#e8d27a",
+    "disc": "#6fb8b8",
+    "dura": "#8fa0e0"
+   }
+  },
+  "thorax": {
+   "file": "/pathways/thorax.glb",
+   "bytes": 208716,
+   "description": "Heart (four chambers), pulmonary trunk, ascending aorta, arch, descending aorta, brachiocephalic, subclavian and both carotids with generated carotid sinus bulbs, lungs, trachea and bronchi, diaphragm.",
+   "objects": {
+    "vessel_aorta_ascending": 200,
+    "vessel_aortic_arch": 200,
+    "vessel_aorta_descending": 296,
+    "vessel_brachiocephalic": 200,
+    "vessel_subclavian_L": 392,
+    "vessel_subclavian_R": 296,
+    "vessel_common_carotid_L": 392,
+    "vessel_internal_carotid_L": 200,
+    "vessel_external_carotid_L": 211,
+    "vessel_common_carotid_R": 296,
+    "vessel_internal_carotid_R": 200,
+    "vessel_external_carotid_R": 211,
+    "vessel_carotid_sinus": 200,
+    "organ_heart_ra": 1856,
+    "organ_heart_la": 1813,
+    "organ_heart_rv": 1879,
+    "organ_heart_lv": 1878,
+    "vessel_pulmonary_trunk": 138,
+    "organ_lung_L": 3014,
+    "organ_lung_R": 4225,
+    "organ_trachea": 1501,
+    "organ_bronchus_main": 304,
+    "organ_bronchus_lobar": 1400,
+    "muscle_diaphragm": 2798
+   },
+   "objectCentres": {
+    "vessel_aorta_ascending": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "bbox": [
+    [
+     -0.13049,
+     -0.23493,
+     -0.09288
+    ],
+    [
+     0.13049,
+     0.23493,
+     0.09288
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "worldOffset": [
+    -0.00063,
+    1.27718,
+    0.00962
+   ],
+   "anchors": {
+    "carotid_sinus": [
+     0.03493,
+     0.21426,
+     -0.00575
+    ],
+    "carotid_bifurcation": [
+     0.03187,
+     0.20893,
+     -0.00975
+    ],
+    "common_carotid": [
+     0.0218,
+     0.1555,
+     -0.00724
+    ],
+    "carotid_sinus_R": [
+     -0.03368,
+     0.21426,
+     -0.00575
+    ],
+    "carotid_bifurcation_R": [
+     -0.03062,
+     0.20893,
+     -0.00975
+    ],
+    "common_carotid_R": [
+     -0.02252,
+     0.16192,
+     0.00075
+    ],
+    "aortic_arch": [
+     0.01864,
+     0.11619,
+     -0.01023
+    ],
+    "aorta_ascending": [
+     0.00995,
+     0.05671,
+     0.01639
+    ],
+    "aorta_descending": [
+     0.01654,
+     0.00692,
+     -0.03642
+    ],
+    "heart": [
+     0.0234,
+     0.01357,
+     0.01515
+    ],
+    "heart_apex": [
+     0.07027,
+     -0.0334,
+     0.04759
+    ],
+    "heart_sa_node": [
+     -0.02623,
+     0.06696,
+     0.01116
+    ],
+    "heart_av_node": [
+     0.01861,
+     0.00896,
+     0.0133
+    ],
+    "heart_left_ventricle": [
+     0.07746,
+     -0.01154,
+     0.0529
+    ],
+    "heart_right_atrium": [
+     -0.0326,
+     0.01172,
+     0.03089
+    ],
+    "lung_L": [
+     0.12769,
+     -0.0756,
+     0.0325
+    ],
+    "lung_R": [
+     -0.12879,
+     -0.07959,
+     0.02358
+    ],
+    "lung_L_centre": [
+     0.06998,
+     0.02182,
+     -0.00025
+    ],
+    "lung_R_centre": [
+     -0.06631,
+     0.02251,
+     -0.0
+    ],
+    "bronchus_L": [
+     0.04425,
+     0.04351,
+     -0.0308
+    ],
+    "bronchus_R": [
+     -0.01319,
+     0.07097,
+     -0.02665
+    ],
+    "carina": [
+     0.00038,
+     0.07962,
+     -0.02516
+    ],
+    "trachea": [
+     0.00038,
+     0.15263,
+     0.00402
+    ],
+    "trachea_top": [
+     0.00038,
+     0.18086,
+     -0.00102
+    ],
+    "diaphragm_dome_L": [
+     0.01135,
+     -0.03133,
+     0.04912
+    ],
+    "diaphragm_dome_R": [
+     -0.06477,
+     -0.01504,
+     0.02619
+    ],
+    "diaphragm_centre": [
+     -0.01876,
+     -0.0224,
+     0.03668
+    ],
+    "diaphragm": [
+     0.01135,
+     -0.03133,
+     0.04912
+    ]
+   },
+   "notes": {
+    "procedural": [
+     "vessel_carotid_sinus_L",
+     "vessel_carotid_sinus_R"
+    ],
+    "diaphragm": "open sheet, render double-sided",
+    "carotid_sinus": "vessel_carotid_sinus_L/R are generated ellipsoids on the internal carotid origin (Z-Anatomy has no sinus)."
+   },
+   "tissues": {
+    "muscle": "#b9444c",
+    "vessel": "#c8453f",
+    "organ": "#d99a9a"
+   }
+  },
+  "gut": {
+   "file": "/pathways/gut.glb",
+   "bytes": 168136,
+   "description": "Oesophagus, stomach, duodenum, small intestine (one tube) and the four colon segments.",
+   "objects": {
+    "organ_esophagus": 2212,
+    "organ_stomach": 2629,
+    "organ_duodenum": 887,
+    "organ_small_intestine": 6500,
+    "organ_colon_ascending": 1801,
+    "organ_colon_transverse": 1800,
+    "organ_colon_descending": 1800,
+    "organ_colon_sigmoid": 1716
+   },
+   "objectCentres": {
+    "organ_esophagus": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "bbox": [
+    [
+     -0.11407,
+     -0.25813,
+     -0.08028
+    ],
+    [
+     0.11407,
+     0.25813,
+     0.08028
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "worldOffset": [
+    0.00028,
+    1.06187,
+    0.00851
+   ],
+   "anchors": {
+    "stomach": [
+     0.03805,
+     0.10454,
+     0.02765
+    ],
+    "stomach_wall": [
+     0.04266,
+     0.11093,
+     0.0737
+    ],
+    "stomach_fundus": [
+     0.05808,
+     0.16727,
+     0.01204
+    ],
+    "duodenum": [
+     -0.01983,
+     0.05928,
+     0.0395
+    ],
+    "stomach_pylorus": [
+     -0.01845,
+     0.08039,
+     0.04085
+    ],
+    "esophagus_lower": [
+     0.0124,
+     0.13675,
+     0.00599
+    ],
+    "esophagus_upper": [
+     0.00125,
+     0.2569,
+     -0.03712
+    ],
+    "small_intestine": [
+     0.00737,
+     -0.05599,
+     0.06815
+    ],
+    "colon_ascending": [
+     -0.0852,
+     -0.09759,
+     0.03169
+    ],
+    "colon_transverse": [
+     -0.00045,
+     0.02123,
+     0.07273
+    ],
+    "colon_descending": [
+     0.09003,
+     -0.05373,
+     0.019
+    ],
+    "colon_sigmoid": [
+     -0.01591,
+     -0.16681,
+     -0.03226
+    ],
+    "gut_centre": [
+     0.00815,
+     -0.07648,
+     0.04103
+    ]
+   },
+   "notes": {
+    "missing": "Z-Anatomy models the small bowel as one tube (organ_small_intestine); no separate ileum, caecum or rectum."
+   },
+   "tissues": {
+    "organ": "#d99a9a"
+   }
+  },
+  "head-targets": {
+   "file": "/pathways/head-targets.glb",
+   "bytes": 241452,
+   "description": "Tongue, parotid/submandibular/sublingual/lacrimal glands, larynx cartilages, pharyngeal constrictors, soft palate, mandible, masseter, temporalis, eyeball and extraocular muscles, cochlea, vestibule, generated semicircular canals, ossicles, nasal cavity with olfactory epithelium, olfactory nerve and generated bulb (left side).",
+   "objects": {
+    "organ_tongue": 2501,
+    "gland_parotid": 600,
+    "gland_submandibular": 198,
+    "gland_sublingual": 164,
+    "gland_lacrimal": 600,
+    "cartilage_thyroid": 1101,
+    "cartilage_cricoid": 500,
+    "cartilage_epiglottis": 575,
+    "cartilage_arytenoid": 251,
+    "muscle_pharyngeal_constrictors": 3301,
+    "organ_soft_palate": 1001,
+    "bone_mandible": 2979,
+    "muscle_masseter": 1199,
+    "muscle_temporalis": 1297,
+    "organ_eyeball": 707,
+    "organ_cornea": 301,
+    "muscle_lateral_rectus": 450,
+    "muscle_medial_rectus": 450,
+    "muscle_superior_rectus": 450,
+    "muscle_inferior_rectus": 450,
+    "muscle_superior_oblique": 450,
+    "muscle_inferior_oblique": 450,
+    "muscle_levator_palpebrae": 451,
+    "organ_cochlea": 1109,
+    "organ_vestibule": 810,
+    "organ_semicircular_canals": 672,
+    "bone_ossicles": 1351,
+    "organ_nasal_cavity": 1795,
+    "organ_olfactory_epithelium": 176,
+    "nerve_olfactory": 841,
+    "organ_olfactory_bulb": 100
+   },
+   "objectCentres": {
+    "organ_tongue": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "bbox": [
+    [
+     -0.06427,
+     -0.1025,
+     -0.07927
+    ],
+    [
+     0.06427,
+     0.1025,
+     0.07927
+    ]
+   ],
+   "orientation": {
+    "frame": "metres; Y up, anterior +Z, patient's left +X, centred on the part's bounding box; the left-sided structures only unless a name ends _R",
+    "front": {
+     "cameraAxis": "+Z",
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "left": {
+     "cameraAxis": "+X",
+     "rotation": [
+      0,
+      1.5708,
+      0
+     ]
+    }
+   },
+   "worldOffset": [
+    0.01261,
+    1.55937,
+    0.0288
+   ],
+   "anchors": {
+    "tongue_tip": [
+     -0.01274,
+     -0.03113,
+     0.04932
+    ],
+    "tongue_anterior_2_3": [
+     -0.01359,
+     -0.021,
+     0.02818
+    ],
+    "tongue_posterior_1_3": [
+     -0.00883,
+     -0.0256,
+     0.00591
+    ],
+    "tongue_circumvallate": [
+     -0.01261,
+     -0.02094,
+     0.0139
+    ],
+    "tongue": [
+     -0.01138,
+     -0.02003,
+     0.02139
+    ],
+    "parotid": [
+     0.05208,
+     0.01105,
+     -0.00096
+    ],
+    "parotid_centre": [
+     0.0367,
+     -0.00666,
+     -0.00903
+    ],
+    "submandibular": [
+     0.00853,
+     -0.05464,
+     0.0195
+    ],
+    "submandibular_centre": [
+     0.01122,
+     -0.04401,
+     0.01267
+    ],
+    "sublingual": [
+     -0.00711,
+     -0.04966,
+     0.0412
+    ],
+    "sublingual_centre": [
+     -0.00097,
+     -0.04713,
+     0.03081
+    ],
+    "lacrimal_gland": [
+     0.02321,
+     0.0494,
+     0.04436
+    ],
+    "lacrimal_gland_centre": [
+     0.02891,
+     0.04321,
+     0.03698
+    ],
+    "larynx": [
+     -0.01261,
+     -0.08236,
+     0.00286
+    ],
+    "larynx_centre": [
+     -0.01261,
+     -0.08151,
+     -0.01257
+    ],
+    "epiglottis": [
+     -0.01261,
+     -0.04905,
+     -0.0069
+    ],
+    "larynx_vocal_fold": [
+     -0.00985,
+     -0.08298,
+     -0.01271
+    ],
+    "arytenoid": [
+     -0.00802,
+     -0.08298,
+     -0.02258
+    ],
+    "pharynx": [
+     0.02,
+     -0.01911,
+     0.00467
+    ],
+    "pharynx_superior": [
+     0.02058,
+     -0.01932,
+     0.00646
+    ],
+    "pharynx_middle": [
+     0.00499,
+     -0.04739,
+     -0.02194
+    ],
+    "pharynx_inferior": [
+     0.00988,
+     -0.07102,
+     -0.02693
+    ],
+    "soft_palate": [
+     -0.01318,
+     -0.01143,
+     0.02643
+    ],
+    "mandible_chin": [
+     -0.01261,
+     -0.04504,
+     0.05202
+    ],
+    "mandible_condyle": [
+     0.03028,
+     0.01927,
+     -0.02257
+    ],
+    "mandible_angle": [
+     0.01811,
+     -0.05166,
+     0.01923
+    ],
+    "masseter": [
+     0.04965,
+     0.0121,
+     0.00715
+    ],
+    "masseter_centre": [
+     0.03681,
+     -0.01611,
+     0.00813
+    ],
+    "temporalis": [
+     0.06023,
+     0.09544,
+     -0.05159
+    ],
+    "eyeball": [
+     0.01794,
+     0.03133,
+     0.03451
+    ],
+    "eyeball_front": [
+     0.01875,
+     0.03224,
+     0.04935
+    ],
+    "lateral_rectus": [
+     0.02599,
+     0.03564,
+     0.02614
+    ],
+    "medial_rectus": [
+     0.00513,
+     0.03343,
+     0.03014
+    ],
+    "superior_rectus": [
+     0.01472,
+     0.04294,
+     0.02968
+    ],
+    "inferior_rectus": [
+     0.0116,
+     0.02267,
+     0.02501
+    ],
+    "superior_oblique": [
+     0.01315,
+     0.04304,
+     0.0313
+    ],
+    "inferior_oblique": [
+     0.02302,
+     0.01989,
+     0.0345
+    ],
+    "levator_palpebrae": [
+     0.01714,
+     0.04819,
+     0.03712
+    ],
+    "cochlea": [
+     0.0269,
+     0.0207,
+     -0.02881
+    ],
+    "cochlea_nerve_entry": [
+     0.02377,
+     0.0207,
+     -0.02545
+    ],
+    "vestibule": [
+     0.02714,
+     0.02424,
+     -0.03692
+    ],
+    "vestibule_nerve_entry": [
+     0.02206,
+     0.02618,
+     -0.0367
+    ],
+    "canal_anterior": [
+     0.02903,
+     0.03031,
+     -0.0344
+    ],
+    "canal_posterior": [
+     0.03138,
+     0.02857,
+     -0.0401
+    ],
+    "canal_lateral": [
+     0.03394,
+     0.0246,
+     -0.03621
+    ],
+    "semicircular_canals": [
+     0.03145,
+     0.02782,
+     -0.0369
+    ],
+    "ossicles": [
+     0.03288,
+     0.02277,
+     -0.03487
+    ],
+    "olfactory_epithelium": [
+     -0.01358,
+     0.03546,
+     0.04124
+    ],
+    "nasal_cavity": [
+     -0.0135,
+     0.00082,
+     0.07819
+    ],
+    "olfactory_bulb": [
+     -0.01261,
+     0.05376,
+     -0.00312
+    ],
+    "olfactory_nerve": [
+     -0.00945,
+     0.04311,
+     0.02885
+    ]
+   },
+   "notes": {
+    "procedural": [
+     "organ_semicircular_canals",
+     "organ_olfactory_bulb"
+    ],
+    "semicircular_note": "Z-Anatomy has no semicircular canal meshes (only labels). The three canals are generated arcs around the vestibule, placed on the labelled positions.",
+    "olfactory_note": "Z-Anatomy has no olfactory bulb mesh; organ_olfactory_bulb is a generated ellipsoid at the top of the olfactory nerve. The epithelium is the roof patch of the nasal mucosa."
+   },
+   "tissues": {
+    "bone": "#ece4cf",
+    "muscle": "#b9444c",
+    "nerve": "#e8d27a",
+    "organ": "#d99a9a",
+    "gland": "#d9ab72",
+    "cartilage": "#a9c3d6"
+   }
+  }
+ }
+}

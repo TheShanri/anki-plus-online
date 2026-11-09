@@ -46,6 +46,9 @@ const FLOW_TEXT: Record<string, string> = {
   asa: "Both vertebrals give a branch that joins into one anterior spinal artery running down the cord.",
 };
 
+const INFERIOR: [number, number, number] = [0, -1, 0.02];
+const LATERAL: [number, number, number] = [1, 0, 0];
+const POSTERIOR_ARTS = new Set(["pca", "pcomm", "pontine", "sca", "aica", "pica", "vert", "asa", "psa"]);
 const DEFAULT_SEL = ["ica", "aca", "mca", "pca", "pcomm", "pontine", "vert"];
 const colorMap = new Map(ARTERIES.map((a) => [a.id, a.color]));
 
@@ -60,8 +63,7 @@ export function SupplyMap() {
   const [quizOn, setQuizOn] = useState(false);
   const [drawer, setDrawer] = useState(true);
   const [flow, setFlow] = useState<FlowFile | null>(null);
-  const [zoom, setZoom] = useState(0.42);
-  const [req, setReq] = useState<{ n: number; view: "inferior" } | null>(null);
+  const [frame, setFrame] = useState<{ n: number; dir: [number, number, number] | null }>({ n: 1, dir: INFERIOR });
   const gate = useSupplementaryGate("supply");
 
   useEffect(() => {
@@ -114,34 +116,34 @@ export function SupplyMap() {
   }, []);
   const onPickVessel = useCallback((artery: string) => setSelected({ kind: "artery", id: artery }), []);
 
-  const toggleArtery = useCallback((id: string) => {
-    setCow(false);
-    setSel((s) => {
-      const n = new Set(s);
+  const toggleArtery = useCallback(
+    (id: string) => {
+      const n = new Set(cow ? [] : sel);
       if (n.has(id)) n.delete(id);
       else n.add(id);
-      return n;
-    });
-    setSelected({ kind: "artery", id });
-  }, []);
+      // leaving the circle (or an empty map) picks a sensible view: the base for the posterior circulation, the side for the rest
+      if (cow || sel.size === 0) setFrame((f) => ({ n: f.n + 1, dir: [...n].every((a) => POSTERIOR_ARTS.has(a)) ? INFERIOR : LATERAL }));
+      setCow(false);
+      setSel(n);
+      setSelected({ kind: "artery", id });
+    },
+    [cow, sel],
+  );
   const circle = useCallback(() => {
     setCow(true);
     setSel(new Set(DEFAULT_SEL));
     setTerritories(false);
     setVessels(true);
     setSelected(null);
-    setZoom(0.42);
-    setReq((r) => ({ n: (r?.n ?? 0) + 1, view: "inferior" }));
+    setFrame((f) => ({ n: f.n + 1, dir: INFERIOR }));
   }, []);
   const clear = useCallback(() => {
     setCow(false);
     setSel(new Set());
     setSelected(null);
-    setZoom(1);
   }, []);
   const toggleTerritories = useCallback(() => {
     setTerritories((t) => !t);
-    setZoom((z) => (z < 0.8 ? 0.8 : z));
   }, []);
 
   useEffect(() => {
@@ -213,9 +215,7 @@ export function SupplyMap() {
             tipText={tipText}
             onPickMesh={onPick}
             view="inferior"
-            zoom={zoom}
-            request={req}
-            brainOpacity={sel.size === 0 ? 0.28 : territories ? 0.1 : 0.12}
+            brainOpacity={cow && !territories ? 0.035 : sel.size === 0 ? 0.28 : territories ? 0.1 : 0.12}
             overlay={
               <div className="pointer-events-none absolute bottom-2 left-2 right-2 grid max-w-[520px] gap-1 text-xs text-text-dim">
                 {cow && (
@@ -227,7 +227,7 @@ export function SupplyMap() {
               </div>
             }
           >
-            <VesselLayer flow={flow} colors={colorMap} stateOf={stateOf} sig={sig} animate={animate} labelSlugs={cow ? COW_SLUGS : null} onPick={onPickVessel} />
+            <VesselLayer flow={flow} colors={colorMap} stateOf={stateOf} sig={sig} animate={animate} labelSlugs={cow ? COW_SLUGS : null} onPick={onPickVessel} frame={frame} pad={territories ? 0.015 : 0} />
           </LazyAtlasViewer>
         </div>
 

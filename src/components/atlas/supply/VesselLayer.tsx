@@ -1,6 +1,7 @@
 "use client";
 
 import { Html } from "@react-three/drei";
+import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { useThree, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
@@ -22,11 +23,17 @@ type Props = {
   /** Short labels at the middle of these slugs (Circle of Willis view). */
   labelSlugs: Set<string> | null;
   onPick: (artery: string, name: string) => void;
+  /** Re-aims the camera at the selected vessels. `dir` (camera direction from the target) applies once per `n`; otherwise the current direction is kept. */
+  frame: { n: number; dir: [number, number, number] | null };
+  /** Extra room around the framed vessels (metres), e.g. when territories are shown. */
+  pad: number;
 };
 
+/** three.js removes . [ ] : / from node names ("aca.l" becomes "acal"). */
+const clean = (n: string) => n.replace(/[[\].:/]/g, "");
 const GREY = "#9aa0a6";
 const SPEED = 0.034; // metres per second along the vessel
-const SPACING = 0.0125; // metres between arrows
+const SPACING = 0.009; // metres between arrows
 const FPS = 30;
 
 type Line = { pts: THREE.Vector3[]; cum: number[]; len: number };
@@ -67,7 +74,7 @@ function applyState(mesh: THREE.Mesh, st: VesselState, col: string, get: (key: s
 type Particle = { line: Line; seg: string; phase: number; dir: 1 | -1; r: number; artery: string; fwdStatic: number };
 
 /** The real artery meshes (one node per segment) plus arrows that run proximal to distal along each selected one. */
-export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, onPick }: Props) {
+export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, onPick, frame, pad }: Props) {
   const [root, setRoot] = useState<THREE.Group | null>(null);
   const invalidate = useThree((s) => s.invalidate);
   const reduced = useMemo(() => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches, []);
@@ -105,23 +112,15 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
   }, []);
   useEffect(() => () => mats.all.forEach((x) => x.dispose()), [mats]);
 
+  const byClean = useMemo(() => new Map(Object.keys(flow?.segments ?? {}).map((k) => [clean(k), k])), [flow]);
   const segMeshes = useMemo(() => {
     const r: { mesh: THREE.Mesh; name: string }[] = [];
     root?.traverse((o) => {
       const mesh = o as THREE.Mesh;
-      if (mesh.isMesh) {
-        // the glTF loader names the mesh node after the segment
-        let n: THREE.Object3D | null = mesh;
-        let name = mesh.name;
-        while (n && !(flow && flow.segments[name])) {
-          n = n.parent;
-          name = n?.name ?? "";
-        }
-        r.push({ mesh, name: name || mesh.name });
-      }
+      if (mesh.isMesh) r.push({ mesh, name: byClean.get(clean(mesh.name)) ?? "" });
     });
     return r;
-  }, [root, flow]);
+  }, [root, byClean]);
 
   useEffect(() => {
     if (!flow) return;
@@ -164,10 +163,10 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
 
   const inst = useRef<THREE.InstancedMesh>(null);
   const geo = useMemo(() => {
-    const g = new THREE.ConeGeometry(1, 3.2, 8, 1);
+    const g = new THREE.ConeGeometry(1, 6, 6, 1);
     return g;
   }, []);
-  const mat = useMemo(() => new THREE.MeshBasicMaterial({ color: "#ffffff", toneMapped: false }), []);
+  const mat = useMemo(() => new THREE.MeshBasicMaterial({ color: "#ffffff", toneMapped: false, depthTest: false, transparent: true, opacity: 0.92 }), []);
   useEffect(
     () => () => {
       geo.dispose();
@@ -191,7 +190,7 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
       at(p.line, s);
       const u = s / L;
       const env = 0.55 + 0.45 * Math.sin(Math.PI * u); // arrows swell mid-vessel and thin at the ends
-      const r = Math.max(p.r * 1.25, 0.0006) * env;
+      const r = Math.max(p.r * 0.34, 0.00028) * env; // a slim dash, about a third of the vessel radius
       dummy.position.copy(_p);
       dummy.quaternion.setFromUnitVectors(up, p.dir === 1 ? _t : _t.negate());
       dummy.scale.set(r, r, r);
@@ -240,20 +239,107 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
     };
   }, [animate, reduced, particles.length, invalidate]);
 
-  const labels = useMemo(() => {
-    if (!flow || !labelSlugs) return [];
-    const r: { key: string; text: string; pos: THREE.Vector3 }[] = [];
+  // one label per vessel per side, pushed outward from the circle on a short leader line
+  const { labels, leaders } = useMemo(() => {
+    const out: { key: string; text: string; pos: THREE.Vector3 }[] = [];
+    const segs: number[] = [];
+    if (!flow || !labelSlugs) return { labels: out, leaders: new Float32Array(0) };
+    const mids: { name: string; slug: string; p: THREE.Vector3 }[] = [];
     for (const [name, seg] of Object.entries(flow.segments)) {
       const slug = slugOf(name);
-      if (!labelSlugs.has(slug) || !COW_LABEL[slug] || seg.side === "r" || stateOf(name, seg) !== "selected") continue;
+      if (!labelSlugs.has(slug) || !COW_LABEL[slug] || stateOf(name, seg) !== "selected") continue;
       const line = seg.lines.map(makeLine).sort((a, b) => b.len - a.len)[0];
       if (!line) continue;
-      at(line, line.len * (slug === "aca" ? 0.25 : 0.5));
-      r.push({ key: name, text: COW_LABEL[slug], pos: _p.clone() });
+      at(line, line.len * (slug === "aca" ? 0.2 : slug === "vertebral" ? 0.85 : slug === "ica" ? 0.9 : 0.5));
+      mids.push({ name, slug, p: _p.clone() });
     }
-    return r;
+    const cx = mids.reduce((a, m) => a + m.p.x, 0) / (mids.length || 1);
+    const cz = mids.reduce((a, m) => a + m.p.z, 0) / (mids.length || 1);
+    for (const m of mids) {
+      let dx = m.p.x - cx;
+      let dz = m.p.z - cz;
+      if (m.slug === "acom") [dx, dz] = [0, 1];
+      else if (m.slug === "basilar") [dx, dz] = [-1, -0.2];
+      const l = Math.hypot(dx, dz) || 1;
+      const off = m.slug === "acom" ? 0.011 : 0.016;
+      const pos = new THREE.Vector3(m.p.x + (dx / l) * off, m.p.y, m.p.z + (dz / l) * off);
+      out.push({ key: m.name, text: COW_LABEL[m.slug], pos });
+      segs.push(m.p.x, m.p.y, m.p.z, pos.x, pos.y, pos.z);
+    }
+    return { labels: out, leaders: new Float32Array(segs) };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flow, labelSlugs, sig]);
+  const leaderGeo = useMemo(() => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(leaders, 3));
+    return g;
+  }, [leaders]);
+  useEffect(() => () => leaderGeo.dispose(), [leaderGeo]);
+
+  // ---- camera: fit the selected vessels (from their centrelines); keep the viewing direction unless asked
+  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+  const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
+  const size = useThree((s) => s.size);
+  const moved = useRef(false);
+  const lastN = useRef(-1);
+  useEffect(() => {
+    if (!controls) return;
+    const onStart = () => {
+      moved.current = true;
+    };
+    controls.addEventListener("start", onStart);
+    return () => controls.removeEventListener("start", onStart);
+  }, [controls]);
+  useEffect(() => {
+    if (!flow || !controls) return;
+    const box = new THREE.Box3();
+    let any = false;
+    for (const [name, seg] of Object.entries(flow.segments)) {
+      const st = stateOf(name, seg);
+      if (st !== "selected" && st !== "idle") continue;
+      for (const flat of seg.lines)
+        for (let i = 0; i + 2 < flat.length; i += 3) {
+          box.expandByPoint(_p.set(flat[i], flat[i + 1], flat[i + 2]));
+          any = true;
+        }
+    }
+    if (!any) return;
+    box.expandByScalar(0.004 + pad);
+    const fresh = lastN.current !== frame.n;
+    const dirIn = fresh ? frame.dir : null;
+    lastN.current = frame.n;
+    if (fresh) moved.current = false;
+    const apply = () => {
+      if (moved.current) return;
+      const c = box.getCenter(new THREE.Vector3());
+      const dir = dirIn ? new THREE.Vector3(...dirIn).normalize() : camera.position.clone().sub(controls.target).normalize();
+      const probe = new THREE.PerspectiveCamera();
+      probe.position.copy(c).add(dir);
+      probe.up.set(0, 1, 0);
+      probe.lookAt(c);
+      probe.updateMatrixWorld();
+      const inv = probe.matrixWorld.clone().invert();
+      const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+      const aspect = size.width > 4 && size.height > 4 ? size.width / size.height : 1.5;
+      let D = 0.03;
+      for (let i = 0; i < 8; i++) {
+        const corner = new THREE.Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);
+        const a = corner.clone().sub(c).dot(dir);
+        const v = corner.applyMatrix4(inv);
+        D = Math.max(D, (Math.abs(v.x) / (tanV * aspect)) * 1.12 + a, (Math.abs(v.y) / tanV) * 1.12 + a);
+      }
+      camera.position.copy(c).addScaledVector(dir, D);
+      camera.up.set(0, 1, 0);
+      camera.lookAt(c);
+      controls.target.copy(c);
+      controls.update();
+      invalidate();
+    };
+    // the viewer fits its own camera when it mounts and resizes; re-apply after it settles
+    const ts = [0, 120, 450, 1200].map((ms) => window.setTimeout(apply, ms));
+    return () => ts.forEach((t) => window.clearTimeout(t));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flow, controls, frame, sig, pad, size.width, size.height]);
 
   return (
     <group>
@@ -261,19 +347,23 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
         <primitive
           object={root}
           onClick={(e: { stopPropagation: () => void; object: THREE.Object3D }) => {
-            let n: THREE.Object3D | null = e.object;
-            while (n && !(flow && flow.segments[n.name])) n = n.parent;
-            const seg = n && flow?.segments[n.name];
-            if (seg && n && stateOf(n.name, seg) !== "hidden") {
+            const key = byClean.get(clean(e.object.name));
+            const seg = key ? flow?.segments[key] : undefined;
+            if (key && seg && stateOf(key, seg) !== "hidden") {
               e.stopPropagation();
-              onPick(seg.artery, n.name);
+              onPick(seg.artery, key);
             }
           }}
         />
       )}
       <instancedMesh ref={inst} args={[geo, mat, Math.max(1, particles.length)]} frustumCulled={false} renderOrder={9} raycast={() => null} key={particles.length} />
+      {leaders.length > 0 && (
+        <lineSegments geometry={leaderGeo} renderOrder={8} raycast={() => null}>
+          <lineBasicMaterial color="#cbd5e1" transparent opacity={0.8} depthTest={false} />
+        </lineSegments>
+      )}
       {labels.map((l) => (
-        <Html key={l.key} position={l.pos} center distanceFactor={undefined} zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
+        <Html key={l.key} position={l.pos} center zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
           <span className="whitespace-nowrap rounded-sm border border-panel-border bg-panel-solid px-1.5 py-0.5 font-mono text-[11px] text-text shadow" title={SEG_LABEL[slugOf(l.key)]}>
             {l.text}
           </span>

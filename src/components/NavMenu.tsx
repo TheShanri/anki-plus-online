@@ -37,6 +37,7 @@ export function NavMenu({ links, children }: { links: NavLinkItem[]; children?: 
                 key={l.href}
                 href={l.href}
                 className="nav-link"
+                title={l.label}
                 aria-current={on ? "page" : undefined}
                 onClick={(e) => {
                   // during a study session the atlas opens over the cards instead of leaving them
@@ -48,7 +49,7 @@ export function NavMenu({ links, children }: { links: NavLinkItem[]; children?: 
                 }}
               >
                 {Icon && <Icon aria-hidden />}
-                {l.label}
+                <span className="nav-label">{l.label}</span>
               </Link>
             );
           })}

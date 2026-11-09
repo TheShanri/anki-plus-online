@@ -11,6 +11,7 @@ import { type Attempt, type TrapSpot } from "./traps.ts";
 import { isLong, ladderOutcome, nextStep, nextText, scaffold, MAX_STEP, helpText, rungOf, nextCleanStreak, type LadderOutcome } from "./ladder.ts";
 import { newCardState, previews, ratingFor, scheduleReview, type CardStateRow, type Grade } from "./scheduling.ts";
 import { SessionQueue, isSolidCard, pickFollowups, phaseOf, type Entry } from "./queue.ts";
+import { isPlateCard } from "./mastery.ts";
 import { DEFAULT_BOSS, bossWon, factsOf, nextBossGap, pickBoss } from "./boss.ts";
 import { guardDue, newRun, wanderThreshold, type GuardRun } from "./focus.ts";
 import type { LadderRow, StructureLite, StudyCard, StudyPayload } from "./types.ts";
@@ -200,6 +201,8 @@ export class StudyEngine {
   trapMisses = new Map<string, number>();
   notes = new Map<string, string>();
   names: Record<string, string>;
+  /** structures already solid from the deck's own cards: their brainstem plate card opens with a quick known-check */
+  known = new Set<string>();
   queue: SessionQueue;
   private emit: typeof defaultEmit;
   private rand: () => number;
@@ -256,6 +259,7 @@ export class StudyEngine {
     for (const [k, v] of Object.entries(p.trapMisses)) this.trapMisses.set(k, v);
     for (const [k, v] of Object.entries(p.notes)) this.notes.set(k, v);
     if (p.names) this.names = { ...this.names, ...p.names };
+    for (const id of p.known ?? []) this.known.add(id);
   }
 
   private entriesFrom(p: StudyPayload): Entry[] {
@@ -413,9 +417,11 @@ export class StudyEngine {
 
     const isNew = !state || (state.state === 0 && state.reps === 0);
     // ANKI+ stage 1: every brand-new card is a first look (never scored), in every answer format
-    const isFirstLook = isNew && (mode === "choice" || mode === "tf" || !!card.answer);
+    // a brand-new brainstem plate card of a structure the deck already made solid: a quick known-check, straight from memory
+    const knownCheck = isNew && isPlateCard(card) && !!card.structureId && this.known.has(card.structureId);
+    const isFirstLook = isNew && !knownCheck && (mode === "choice" || mode === "tf" || !!card.answer);
     const ladderOn = sc.ladder && mode === "type";
-    const step = ladderOn ? (isFirstLook ? 0 : ladder?.step ?? 0) : MAX_STEP;
+    const step = ladderOn ? (isFirstLook ? 0 : knownCheck ? MAX_STEP : ladder?.step ?? 0) : MAX_STEP;
     const practice = ladderOn && !isFirstLook && step < MAX_STEP;
 
     let typer: Typer | null = null;

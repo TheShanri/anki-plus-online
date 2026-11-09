@@ -21,6 +21,8 @@ export interface PinImageData {
   target?: Shape | null;
   masks?: Shape[];
   pointer?: { type: "mask" | "existing" | "pin" | "arrow"; color?: string };
+  /** brainstem plate card: draw this level's vector plate with the structure's region highlighted */
+  plate?: { level: string; region: string };
 }
 
 export interface StudyCard {
@@ -121,7 +123,10 @@ export function toStudyCard(row: CardRow): StudyCard {
   if (format === "choice" && !(choices && choices.length > 1)) format = "type";
   let image: PinImageData | undefined;
   const imgKey = str(c.image);
-  if (imgKey) {
+  const plate = c.plate && typeof c.plate === "object" ? (c.plate as { level?: unknown; region?: unknown }) : null;
+  if (plate && str(plate.level)) {
+    image = { key: `plate:${str(plate.level)}`, plate: { level: str(plate.level), region: str(plate.region) } };
+  } else if (imgKey) {
     image = {
       key: imgKey,
       w: typeof c.w === "number" ? c.w : undefined,
@@ -192,6 +197,8 @@ export interface StudyPayload {
   /** canonical structure name / synonym -> slug, to catch "that is a different structure" */
   names: Record<string, string> | null;
   units: Array<{ slug: string; title: string }>;
+  /** structure ids already known from the deck cards (a solid name there): their brainstem plate card is a quick check, not a first look */
+  known?: string[];
 }
 
 /** A student's own mnemonic (always visible to them). */

@@ -29,3 +29,15 @@ test("isContentScope", () => {
   assert.equal(isContentScope(parseScope("structures:x")), true);
   assert.equal(isContentScope(parseScope("unit:u1")), false);
 });
+
+test("parseScope: brainstem plate scopes", () => {
+  assert.deepEqual(parseScope("bslevel:pons-mid"), { type: "bslevel", level: "pons-mid", practice: false });
+  assert.deepEqual(parseScope("bslevel:pons-mid:practice"), { type: "bslevel", level: "pons-mid", practice: true });
+  assert.deepEqual(parseScope("bsregion:medulla"), { type: "bsregion", region: "medulla", practice: false });
+  assert.deepEqual(parseScope("bs:all"), { type: "bsall", practice: false });
+  assert.deepEqual(parseScope("bs:all:practice"), { type: "bsall", practice: true });
+  assert.deepEqual(parseScope("bs:other"), { type: "all" });
+  assert.deepEqual(parseScope("bslevel:bad level!"), { type: "all" });
+  assert.equal(isContentScope(parseScope("bslevel:pons-mid")), true);
+  assert.equal(isContentScope(parseScope("bs:all")), true);
+});

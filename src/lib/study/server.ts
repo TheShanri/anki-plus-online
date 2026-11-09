@@ -165,6 +165,7 @@ export function courseOrder(idx: CourseIndex): LightCard[] {
 }
 
 import { parseScope, isContentScope, type Scope } from "./scope.ts";
+import { knownStructures, structureMastery, plateScopeMatch, MASTERED_AT } from "./mastery.ts";
 export { parseScope };
 export type { Scope };
 
@@ -281,6 +282,16 @@ export async function buildStudyPayload(
     const want = new Set(tagged.map((r) => r.id));
     scoped = scoped.filter((c) => want.has(c.id));
   }
+  const bs = o.scope.type === "bslevel" || o.scope.type === "bsregion" || o.scope.type === "bsall" ? o.scope : null;
+  if (bs) {
+    // brainstem plate cards of one level, one region or the whole brainstem (practice: only the mastered ones)
+    const ps = bs.type === "bslevel" ? ({ type: "bslevel", level: bs.level } as const) : bs.type === "bsregion" ? ({ type: "bsregion", region: bs.region } as const) : ({ type: "bsall" } as const);
+    scoped = scoped.filter((c) => plateScopeMatch(c.slug, ps));
+    if (bs.practice) {
+      const mastery = structureMastery(light, idx.states, idx.ladders);
+      scoped = scoped.filter((c) => !!c.structureId && (mastery.get(c.structureId) ?? 0) >= MASTERED_AT);
+    }
+  }
   if (o.scope.type === "weak") {
     // cards that have lapsed or are hard: the "weak spots" scope
     scoped = scoped.filter((c) => {
@@ -288,7 +299,7 @@ export async function buildStudyPayload(
       return !!st && (st.lapses > 0 || st.difficulty >= 7) && phaseOf(st, now, 86_400_000 * 365) !== "new";
     });
   }
-  const focused = o.scope.type === "tag" || o.scope.type === "structures";
+  const focused = o.scope.type === "tag" || o.scope.type === "structures" || !!bs;
   const entries = buildQueue(scoped, idx.states, idx.ladders, {
     now,
     newLimit: o.scope.type === "weak" ? 0 : focused ? Math.max(newLeft, 15) : newLeft,
@@ -299,6 +310,10 @@ export async function buildStudyPayload(
   // weak scope studies cards even when not due: pull them in as reviews
   let picked = entries;
   if (o.scope.type === "weak" && !entries.length) {
+    picked = scoped.slice(0, 40).map((card) => ({ card, state: idx.states.get(card.id) ?? null, ladder: idx.ladders.get(card.id) ?? null, source: "review" as const }));
+  }
+  if (bs?.practice) {
+    // practice studies what is already mastered, due or not: pull the cards in as reviews
     picked = scoped.slice(0, 40).map((card) => ({ card, state: idx.states.get(card.id) ?? null, ladder: idx.ladders.get(card.id) ?? null, source: "review" as const }));
   }
   const counts = {
@@ -389,6 +404,7 @@ export async function buildStudyPayload(
     counts,
     names,
     units: idx.units.map((u) => ({ slug: u.slug, title: u.title })),
+    known: bs ? [...knownStructures(light, idx.states, idx.ladders)].filter((id) => structIds.has(id)) : undefined,
   };
 }
 

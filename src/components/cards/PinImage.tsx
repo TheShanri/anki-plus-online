@@ -8,6 +8,7 @@
 import { useCallback, useRef, useState } from "react";
 import type { PinImageData, Shape } from "@/lib/study/types";
 import { resolveMediaSrc } from "./media";
+import { PlateImage } from "./PlateImage";
 
 export interface PinImageProps {
   courseSlug: string;
@@ -57,6 +58,8 @@ const MAX_ZOOM = 4;
 
 /** Re-mounts per image so zoom and load state reset without an effect. */
 export function PinImage(props: PinImageProps) {
+  // brainstem plate cards draw the level as a vector plate instead of a bitmap with masks
+  if (props.image.plate) return <PlateImage level={props.image.plate.level} region={props.image.plate.region} compact={props.compact} className={props.className} alt={props.alt} />;
   return <PinImageView key={props.image.key} {...props} />;
 }
 

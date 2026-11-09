@@ -1,0 +1,1370 @@
+[
+ {
+  "slug": "bs-plate-midbrain-sc-periaqueductal-gray",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "periaqueductal-gray",
+  "status": "live",
+  "position": 12000,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
+  "accept": [
+   "periaqueductal grey",
+   "periaqueductal grey matter",
+   "central gray",
+   "PAG"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "periaqueductal-gray"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "periaqueductal-gray:function",
+   "periaqueductal-gray:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-cerebral-aqueduct",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-aqueduct",
+  "status": "live",
+  "position": 12001,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
+  "accept": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct",
+   "CA"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "cerebral-aqueduct"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-aqueduct:level",
+   "cerebral-aqueduct:lesion"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-oculomotor-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "oculomotor-nucleus",
+  "status": "live",
+  "position": 12002,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Oculomotor nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "CN III nucleus",
+   "nucleus of CN III",
+   "oculomotor somatic nucleus",
+   "III nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "oculomotor-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "oculomotor-nucleus:muscle",
+   "oculomotor-nucleus:cranial_nerve",
+   "oculomotor-nucleus:level",
+   "oculomotor-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-edinger-westphal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "edinger-westphal-nucleus",
+  "status": "live",
+  "position": 12003,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Edinger-Westphal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "visceral oculomotor nucleus",
+   "EW"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "edinger-westphal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "edinger-westphal-nucleus:function",
+   "edinger-westphal-nucleus:connections",
+   "edinger-westphal-nucleus:muscle",
+   "edinger-westphal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-red-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "red-nucleus",
+  "status": "live",
+  "position": 12004,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Red nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus ruber"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "red-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "red-nucleus:connections",
+   "red-nucleus:function",
+   "red-nucleus:side",
+   "red-nucleus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-substantia-nigra",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "substantia-nigra",
+  "status": "live",
+  "position": 12005,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Substantia nigra",
+  "answer_kind": "structure",
+  "accept": [
+   "SN"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "substantia-nigra"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "substantia-nigra:function",
+   "substantia-nigra:lesion",
+   "substantia-nigra:embryology",
+   "substantia-nigra:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-periaqueductal-gray",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "periaqueductal-gray",
+  "status": "live",
+  "position": 12006,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Periaqueductal gray",
+  "answer_kind": "structure",
+  "accept": [
+   "periaqueductal grey",
+   "periaqueductal grey matter",
+   "central gray",
+   "PAG"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "periaqueductal-gray"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "periaqueductal-gray:function",
+   "periaqueductal-gray:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-cerebral-aqueduct",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-aqueduct",
+  "status": "live",
+  "position": 12007,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
+  "accept": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct",
+   "CA"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "cerebral-aqueduct"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-aqueduct:level",
+   "cerebral-aqueduct:lesion"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-trochlear-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "trochlear-nucleus",
+  "status": "live",
+  "position": 12008,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Trochlear nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "CN IV nucleus",
+   "nucleus of CN IV",
+   "IV nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "trochlear-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "trochlear-nucleus:muscle",
+   "trochlear-nucleus:cranial_nerve",
+   "trochlear-nucleus:level",
+   "trochlear-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-decussation-of-the-superior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "decussation-of-the-superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 12009,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Decussation of the superior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "SCP decussation",
+   "decussation of superior cerebellar peduncle",
+   "decussation of the SCP",
+   "X/SCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "decussation-of-the-superior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "decussation-of-the-superior-cerebellar-peduncle:level",
+   "decussation-of-the-superior-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-cerebral-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-peduncles",
+  "status": "live",
+  "position": 12010,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "cerebral-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-peduncles:passes",
+   "cerebral-peduncles:lesion",
+   "cerebral-peduncles:embryology",
+   "cerebral-peduncles:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-substantia-nigra",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "substantia-nigra",
+  "status": "live",
+  "position": 12011,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Substantia nigra",
+  "answer_kind": "structure",
+  "accept": [
+   "SN"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "substantia-nigra"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "substantia-nigra:function",
+   "substantia-nigra:lesion",
+   "substantia-nigra:embryology",
+   "substantia-nigra:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-superior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 12012,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium conjunctivum",
+   "SCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "superior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-cerebellar-peduncle:connections",
+   "superior-cerebellar-peduncle:passes",
+   "superior-cerebellar-peduncle:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-fourth-ventricle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fourth-ventricle",
+  "status": "live",
+  "position": 12013,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Fourth ventricle",
+  "answer_kind": "structure",
+  "accept": [
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "fourth-ventricle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fourth-ventricle:connections"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-motor-trigeminal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "motor-trigeminal-nucleus",
+  "status": "live",
+  "position": 12014,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Motor trigeminal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "trigeminal motor nucleus",
+   "motor nucleus of trigeminal",
+   "motor nucleus of V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "motor-trigeminal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "motor-trigeminal-nucleus:muscle",
+   "motor-trigeminal-nucleus:cranial_nerve",
+   "motor-trigeminal-nucleus:level",
+   "motor-trigeminal-nucleus:embryology",
+   "motor-trigeminal-nucleus:lesion"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-principal-sensory-nucleus-of-trigeminal",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "principal-sensory-nucleus-of-trigeminal",
+  "status": "live",
+  "position": 12015,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Principal sensory nucleus of trigeminal",
+  "answer_kind": "structure",
+  "accept": [
+   "principal trigeminal nucleus",
+   "chief sensory nucleus",
+   "trigeminal principal sensory nucleus",
+   "principal sensory trigeminal nucleus",
+   "main sensory nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "principal-sensory-nucleus-of-trigeminal"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "principal-sensory-nucleus-of-trigeminal:function",
+   "principal-sensory-nucleus-of-trigeminal:cranial_nerve",
+   "principal-sensory-nucleus-of-trigeminal:level",
+   "principal-sensory-nucleus-of-trigeminal:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-longitudinal-fibers-of-the-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "longitudinal-fibers-of-the-pons",
+  "status": "live",
+  "position": 12016,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
+  "accept": [
+   "longitudinal fibers of pons",
+   "longitudinal pontine fibers"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "longitudinal-fibers-of-the-pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "longitudinal-fibers-of-the-pons:passes"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-fourth-ventricle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fourth-ventricle",
+  "status": "live",
+  "position": 12017,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Fourth ventricle",
+  "answer_kind": "structure",
+  "accept": [
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "fourth-ventricle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fourth-ventricle:connections"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-superior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "live",
+  "position": 12018,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium conjunctivum",
+   "SCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "superior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-cerebellar-peduncle:connections",
+   "superior-cerebellar-peduncle:passes",
+   "superior-cerebellar-peduncle:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-vestibulocochlear-complex",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "vestibulocochlear-complex",
+  "status": "live",
+  "position": 12019,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
+  "accept": [
+   "vestibulocochlear nuclei",
+   "vestibular nuclei",
+   "vestibular nucleus",
+   "vestibular complex",
+   "cochlear nuclei"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "vestibulocochlear-complex"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "vestibulocochlear-complex:function",
+   "vestibulocochlear-complex:cranial_nerve"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-abducens-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "abducens-nucleus",
+  "status": "live",
+  "position": 12020,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Abducens nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "CN VI nucleus",
+   "nucleus of CN VI",
+   "VI nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "abducens-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "abducens-nucleus:muscle",
+   "abducens-nucleus:cranial_nerve",
+   "abducens-nucleus:function",
+   "abducens-nucleus:level",
+   "abducens-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-facial-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "facial-nucleus",
+  "status": "live",
+  "position": 12021,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Facial nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "CN VII nucleus",
+   "facial motor nucleus",
+   "nucleus of CN VII"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "facial-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "facial-nucleus:muscle",
+   "facial-nucleus:cranial_nerve",
+   "facial-nucleus:lesion",
+   "facial-nucleus:level",
+   "facial-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-longitudinal-fibers-of-the-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "longitudinal-fibers-of-the-pons",
+  "status": "live",
+  "position": 12022,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
+  "accept": [
+   "longitudinal fibers of pons",
+   "longitudinal pontine fibers"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "longitudinal-fibers-of-the-pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "longitudinal-fibers-of-the-pons:passes"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-inferior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "live",
+  "position": 12023,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "restiform body",
+   "ICP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "inferior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-cerebellar-peduncle:passes"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-vestibulocochlear-complex",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "vestibulocochlear-complex",
+  "status": "live",
+  "position": 12024,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Vestibulocochlear complex",
+  "answer_kind": "structure",
+  "accept": [
+   "vestibulocochlear nuclei",
+   "vestibular nuclei",
+   "vestibular nucleus",
+   "vestibular complex",
+   "cochlear nuclei"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "vestibulocochlear-complex"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "vestibulocochlear-complex:function",
+   "vestibulocochlear-complex:cranial_nerve"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-hypoglossal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "hypoglossal-nucleus",
+  "status": "live",
+  "position": 12025,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Hypoglossal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "CN XII nucleus",
+   "nucleus of CN XII",
+   "XII nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "hypoglossal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "hypoglossal-nucleus:muscle",
+   "hypoglossal-nucleus:function",
+   "hypoglossal-nucleus:lesion",
+   "hypoglossal-nucleus:cranial_nerve",
+   "hypoglossal-nucleus:embryology",
+   "hypoglossal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-dorsal-motor-nucleus-of-the-vagus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-motor-nucleus-of-the-vagus",
+  "status": "live",
+  "position": 12026,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Dorsal motor nucleus of the vagus",
+  "answer_kind": "structure",
+  "accept": [
+   "dorsal motor nucleus of vagus",
+   "dorsal motor nucleus of X",
+   "dorsal vagal nucleus",
+   "DMV",
+   "DMX"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "dorsal-motor-nucleus-of-the-vagus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-motor-nucleus-of-the-vagus:function",
+   "dorsal-motor-nucleus-of-the-vagus:connections",
+   "dorsal-motor-nucleus-of-the-vagus:cranial_nerve",
+   "dorsal-motor-nucleus-of-the-vagus:embryology",
+   "dorsal-motor-nucleus-of-the-vagus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-solitary-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "solitary-nucleus",
+  "status": "live",
+  "position": 12027,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Solitary nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus solitarius",
+   "nucleus of the solitary tract",
+   "solitary tract nucleus",
+   "NTS"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "solitary-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "solitary-nucleus:function",
+   "solitary-nucleus:cranial_nerve",
+   "solitary-nucleus:embryology",
+   "solitary-nucleus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-inferior-olivary-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-olivary-nucleus",
+  "status": "live",
+  "position": 12028,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior olive",
+   "olivary nucleus",
+   "ION"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "inferior-olivary-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-olivary-nucleus:function",
+   "inferior-olivary-nucleus:connections",
+   "inferior-olivary-nucleus:embryology",
+   "inferior-olivary-nucleus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-pyramids",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 12029,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Pyramids",
+  "answer_kind": "structure",
+  "accept": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "pyramids"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pyramids:passes",
+   "pyramids:lesion",
+   "pyramids:cranial_nerve",
+   "pyramids:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-gracile-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "gracile-nucleus",
+  "status": "live",
+  "position": 12030,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Gracile nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus gracilis",
+   "gracilis nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "gracile-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "gracile-nucleus:order",
+   "gracile-nucleus:connections",
+   "gracile-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-cuneate-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cuneate-nucleus",
+  "status": "live",
+  "position": 12031,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Cuneate nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus cuneatus",
+   "cuneatus nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "cuneate-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cuneate-nucleus:order",
+   "cuneate-nucleus:function",
+   "cuneate-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-spinal-trigeminal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "live",
+  "position": 12032,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "spinal nucleus of trigeminal",
+   "trigeminal spinal nucleus",
+   "spinal nucleus of V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "spinal-trigeminal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "spinal-trigeminal-nucleus:function",
+   "spinal-trigeminal-nucleus:side",
+   "spinal-trigeminal-nucleus:cranial_nerve",
+   "spinal-trigeminal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-pyramids",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pyramids",
+  "status": "live",
+  "position": 12033,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Pyramids",
+  "answer_kind": "structure",
+  "accept": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "pyramids"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pyramids:passes",
+   "pyramids:lesion",
+   "pyramids:cranial_nerve",
+   "pyramids:written"
+  ],
+  "followup_cards": [],
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ }
+]

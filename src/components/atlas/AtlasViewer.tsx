@@ -19,6 +19,7 @@ import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
 import { fitDistance, frameBox } from "./ui/framing";
 import type { CamState } from "./ui/translate";
+import type { SkullFocus } from "@/lib/atlas/catalog";
 
 export type AtlasMode = "focus" | "context";
 
@@ -93,6 +94,8 @@ export type AtlasViewerProps = {
   children?: React.ReactNode;
   /** Opacity of the base brain (everything not in an overlay), 0-1, e.g. 0.12. Below 1 the brain is drawn translucent with depthWrite off, so solid vessels inside it render correctly. */
   brainOpacity?: number;
+  /** A structure of the skull and spine layer to show (patch, markers, tubes or meningeal shells). Turns the layer on. */
+  skull?: SkullFocus | null;
   /** Camera view, multi-view and cut, reported whenever they change (the MRI tab shows the matching slice). */
   onCameraState?: (s: CamState) => void;
   /** Ask the viewer to switch view and/or multi-view (applied once per `n`). */
@@ -197,6 +200,56 @@ const FIXED_PANES: { id: string; view: ViewName; label: string }[] = [
 const FREE_DIR = new THREE.Vector3(0.8, 0.5, 0.75).normalize();
 const DEFAULT_BRAIN = new THREE.Box3(new THREE.Vector3(-0.07, 1.58, -0.1), new THREE.Vector3(0.07, 1.7, 0.085));
 type Dims = { w: number; h: number };
+
+/** The triangles of the (merged) layer meshes whose centre lies within r of an anchor: a highlighted patch of bone (approximate). */
+function carvePatch(roots: THREE.Object3D[], anchors: number[][], r: number): THREE.BufferGeometry | null {
+  const out: number[] = [];
+  const r2 = r * r;
+  const a = new THREE.Vector3();
+  const b = new THREE.Vector3();
+  const c = new THREE.Vector3();
+  const mid = new THREE.Vector3();
+  for (const root of roots) {
+    root.updateMatrixWorld(true);
+    root.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      const pos = m.geometry.getAttribute("position");
+      const idx = m.geometry.getIndex();
+      const n = idx ? idx.count : pos.count;
+      for (let i = 0; i < n; i += 3) {
+        const i0 = idx ? idx.getX(i) : i;
+        const i1 = idx ? idx.getX(i + 1) : i + 1;
+        const i2 = idx ? idx.getX(i + 2) : i + 2;
+        a.fromBufferAttribute(pos, i0).applyMatrix4(m.matrixWorld);
+        b.fromBufferAttribute(pos, i1).applyMatrix4(m.matrixWorld);
+        c.fromBufferAttribute(pos, i2).applyMatrix4(m.matrixWorld);
+        mid.copy(a).add(b).add(c).multiplyScalar(1 / 3);
+        for (const p of anchors) {
+          const dx = mid.x - p[0];
+          const dy = mid.y - p[1];
+          const dz = mid.z - p[2];
+          if (dx * dx + dy * dy + dz * dz <= r2) {
+            out.push(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z);
+            break;
+          }
+        }
+      }
+    });
+  }
+  if (!out.length) return null;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(out, 3));
+  g.computeVertexNormals();
+  return g;
+}
+
+const SHELLS: { key: "pia" | "arachnoid" | "dura"; s: number; color: string; label: string }[] = [
+  { key: "pia", s: 1.012, color: "#ff9ab8", label: "Pia mater (generated)" },
+  { key: "arachnoid", s: 1.032, color: "#7fd8ff", label: "Arachnoid mater (generated)" },
+  { key: "dura", s: 1.058, color: "#c3b2ff", label: "Dura mater (generated shell)" },
+];
+const SHELL_PAIR: Record<string, string[]> = { epidural: ["dura"], subdural: ["dura", "arachnoid"], subarachnoid: ["arachnoid", "pia"] };
 const EMPTY_LAYER: THREE.Group[] = [];
 /** Pan/zoom of one fixed multi-view pane (rotation stays locked): offsets along the pane's right/up axes, zoom factor. */
 type PaneView = { z: number; ox: number; oy: number };
@@ -862,6 +915,7 @@ function Scene({
   centre,
   lockedSet,
   brainOpacity,
+  skull,
   layer,
   onWarm,
   probeRef,
@@ -875,6 +929,7 @@ function Scene({
   onMiss?: () => void;
   lockedSet: ReadonlySet<string>;
   brainOpacity?: number;
+  skull: SkullFocus | null;
   layer: THREE.Group[];
   onWarm: () => void;
   probeRef: React.MutableRefObject<((dir: THREE.Vector3, mid: boolean) => number) | null>;
@@ -993,9 +1048,26 @@ function Scene({
 
   // skull & spine layer: translucent bone behind the brain highlight, never hiding the selection
   const boneMat = useMemo(
-    () => new THREE.MeshStandardMaterial({ color: "#e6dcc3", roughness: 0.9, metalness: 0, transparent: true, opacity: 0.2, depthWrite: false, side: THREE.DoubleSide }),
-    [],
+    () => new THREE.MeshStandardMaterial({ color: "#e6dcc3", roughness: 0.9, metalness: 0, transparent: true, opacity: skull ? (skull.shells === "epidural" ? 0.4 : 0.3) : 0.2, depthWrite: false, side: THREE.DoubleSide }),
+    [skull],
   );
+  const skullMat = useMemo(
+    () => new THREE.MeshStandardMaterial({ color: accent, emissive: accent, emissiveIntensity: 0.45, roughness: 0.6, metalness: 0, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 }),
+    [accent],
+  );
+  const markMat = useMemo(() => new THREE.MeshBasicMaterial({ color: accent, depthTest: false, transparent: true }), [accent]);
+  useEffect(
+    () => () => {
+      skullMat.dispose();
+      markMat.dispose();
+    },
+    [skullMat, markMat],
+  );
+  const shellMats = useMemo(() => {
+    const pair = skull?.shells ? SHELL_PAIR[skull.shells] : [];
+    return SHELLS.map((sh) => new THREE.MeshStandardMaterial({ color: sh.color, roughness: 0.8, metalness: 0, transparent: true, opacity: pair.includes(sh.key) ? 0.38 : 0.08, depthWrite: false, side: THREE.DoubleSide }));
+  }, [skull]);
+  useEffect(() => () => shellMats.forEach((m) => m.dispose()), [shellMats]);
   useEffect(() => () => boneMat.dispose(), [boneMat]);
   const layerRoots = useMemo(
     () =>
@@ -1013,6 +1085,68 @@ function Scene({
       }),
     [layer, boneMat],
   );
+
+  // skull focus: bone patch, landmark markers, suture / canal tubes
+  const skullGroup = useMemo(() => {
+    if (!skull) return null;
+    const g = new THREE.Group();
+    if (skull.anchors.length && skull.radius > 0 && layerRoots.length) {
+      const geo = carvePatch(layerRoots, skull.anchors, skull.radius);
+      if (geo) {
+        const m = new THREE.Mesh(geo, skullMat);
+        m.raycast = () => undefined;
+        g.add(m);
+      }
+    }
+    for (const t of skull.tubes) {
+      if (t.length < 2) continue;
+      const curve = new THREE.CatmullRomCurve3(t.map((p) => new THREE.Vector3(p[0], p[1], p[2])), skull.closed);
+      const m = new THREE.Mesh(new THREE.TubeGeometry(curve, Math.min(400, t.length * 3), skull.tubeR || 0.0015, 6, skull.closed), markMat);
+      m.renderOrder = 10;
+      m.raycast = () => undefined;
+      g.add(m);
+    }
+    const dot = new THREE.SphereGeometry(0.0035, 12, 8);
+    for (const l of skull.labels) {
+      const m = new THREE.Mesh(dot, markMat);
+      m.position.set(l[0], l[1], l[2]);
+      m.renderOrder = 11;
+      m.raycast = () => undefined;
+      g.add(m);
+    }
+    return g;
+  }, [skull, layerRoots, skullMat, markMat]);
+  useEffect(
+    () => () => {
+      skullGroup?.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.isMesh) m.geometry.dispose();
+      });
+    },
+    [skullGroup],
+  );
+  // meningeal spaces: generated shells (pia, arachnoid, dura) offset from the brain surface
+  const shellGroup = useMemo(() => {
+    if (!skull?.shells || !loaded.ctx) return null;
+    const root = new THREE.Group();
+    SHELLS.forEach((sh, i) => {
+      const c = loaded.ctx!.clone(true);
+      c.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.isMesh) {
+          m.material = shellMats[i];
+          m.raycast = () => undefined;
+          m.renderOrder = 1 + i;
+        }
+      });
+      const holder = new THREE.Group();
+      holder.scale.setScalar(sh.s);
+      holder.position.copy(centre).multiplyScalar(1 - sh.s);
+      holder.add(c);
+      root.add(holder);
+    });
+    return root;
+  }, [skull, loaded.ctx, shellMats, centre]);
 
   // fills the holes between the gross meshes: a dark cortex-coloured shell behind them (solid brain only)
   const backMat = useMemo(
@@ -1115,9 +1249,10 @@ function Scene({
     });
     setPlanes(backMat, gp);
     setPlanes(boneMat, gp, true);
+    shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, boneMat, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, boneMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
@@ -1216,6 +1351,8 @@ function Scene({
       <directionalLight position={[1, 2, 2]} intensity={1.5} />
       <directionalLight position={[-2, -1, -1.5]} intensity={0.55} />
       {loaded.ctx && showCtx && look === "xray" && <primitive object={loaded.ctx} />}
+      {skullGroup && <primitive object={skullGroup} />}
+      {shellGroup && <primitive object={shellGroup} />}
       {layerRoots.map((r, i) => (
         <primitive key={i} object={r} />
       ))}
@@ -1263,8 +1400,9 @@ export default function AtlasViewer({
   onPickNothing,
   onCameraState,
   children,
-  brainOpacity,
-  layerAuto = false,
+  brainOpacity: brainOpacityProp,
+  skull = null,
+  layerAuto: layerAutoProp = false,
   request = null,
   overlay,
   toolbarExtra,
@@ -1326,6 +1464,8 @@ export default function AtlasViewer({
   const paneView = useRef<PaneView[]>(FIXED_PANES.map(() => ({ z: 1, ox: 0, oy: 0 })));
   const fixedBase = useRef<(PaneBase | null)[]>([null, null, null]);
   const invalidateRef = useRef<() => void>(() => undefined);
+  const layerAuto = layerAutoProp || !!skull;
+  const brainOpacity = brainOpacityProp ?? (skull ? 0.22 : undefined);
   const [cssFs, setCssFs] = useState(false);
   // skull & spine layer: automatic from the selection type, with a manual override that holds until the type changes
   const [layerOv, setLayerOv] = useState<{ auto: boolean; v: boolean } | null>(null);
@@ -1602,6 +1742,17 @@ export default function AtlasViewer({
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
   }, [entries, mode]);
 
+  // frame the skull / spine target (not the brain) when one is selected
+  const skullBox = useMemo(() => {
+    if (!skull || skull.shells) return null;
+    const pts: THREE.Vector3[] = [];
+    for (const p of skull.anchors) pts.push(new THREE.Vector3(p[0], p[1], p[2]));
+    for (const l of skull.labels) pts.push(new THREE.Vector3(l[0], l[1], l[2]));
+    for (const t of skull.tubes) for (const p of t) pts.push(new THREE.Vector3(p[0], p[1], p[2]));
+    if (!pts.length) return null;
+    return new THREE.Box3().setFromPoints(pts).expandByScalar(Math.max(skull.radius, 0.012) + 0.012);
+  }, [skull]);
+
   function pickAxis(axis: ClipAxis) {
     if (axis === "off") return setClip((c) => ({ ...c, axis }));
     const lo = ctxBox ? ctxBox.min[axis] : axis === "x" ? -0.08 : axis === "y" ? 1.53 : -0.11;
@@ -1657,8 +1808,15 @@ export default function AtlasViewer({
     };
     shown.targets.forEach((g, i) => add("primary", accentHex, g, shown.targetIds[i], label && shown.targets.length === 1 ? label : undefined));
     shown.ovl.forEach((o) => o.groups.forEach((g, j) => add(o.key, o.color, g, o.ids[j], undefined, o.side)));
+    if (skull) {
+      for (const l of skull.labels) out.push({ key: "primary", sid: "", text: l[3], color: accentHex, anchor: new THREE.Vector3(l[0], l[1], l[2]) });
+      if (skull.shells && ctxBox) {
+        const c = ctxBox.getCenter(new THREE.Vector3());
+        for (const sh of SHELLS) out.push({ key: "shell-" + sh.key, sid: "", text: sh.label, color: sh.color, anchor: new THREE.Vector3(0, c.y + (ctxBox.max.y - c.y) * sh.s, c.z) });
+      }
+    }
     return out.slice(0, MAX_LABELS);
-  }, [quiz, hideLabels, index, shown, colors.accent, label]);
+  }, [quiz, hideLabels, index, shown, colors.accent, label, skull, ctxBox]);
   const labelsOn = showLabels && !quiz && !hideLabels;
   const barRef = useRef<HTMLDivElement>(null);
   const [obsTick, setObsTick] = useState(0);
@@ -1905,6 +2063,7 @@ export default function AtlasViewer({
             centre={centre}
             lockedSet={lockedSet}
             brainOpacity={brainOpacity}
+            skull={skull}
             layer={layerOn ? layerGroups : EMPTY_LAYER}
             onWarm={onWarm}
             probeRef={probeRef}
@@ -1928,7 +2087,7 @@ export default function AtlasViewer({
           maxDistance={1.2}
           touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}
         />
-        <Rig box={box} brain={ctxBox} view={view} nonce={nonce} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} paneView={paneView} fixedBase={fixedBase} />
+        <Rig box={skullBox ?? box} brain={skullBox ?? ctxBox} view={view} nonce={nonce} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} paneView={paneView} fixedBase={fixedBase} />
         {multi && <MultiRender panes={panes} invalidateRef={invalidateRef} />}
       </Canvas>
 
@@ -1976,7 +2135,7 @@ export default function AtlasViewer({
                   onPointerLeave={() => setHover(null)}
                   onPointerDown={(e) => e.stopPropagation()}
                   onPointerUp={(e) => e.stopPropagation()}
-                  onClick={() => onPickMesh?.(it.sid)}
+                  onClick={() => it.sid && onPickMesh?.(it.sid)}
                   className={`pointer-events-auto absolute left-0 top-0 cursor-pointer whitespace-nowrap rounded-sm border bg-panel px-1.5 text-[11px] leading-[20px] text-text backdrop-blur ${active?.key === it.key ? "brightness-125" : ""}`}
                   style={{ borderColor: it.color, borderLeftWidth: 4, height: 22, transform: "translate(-999px,-999px)" }}
                 >

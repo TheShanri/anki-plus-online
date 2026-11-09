@@ -28,6 +28,10 @@ export function availabilityFor(it: CatalogItem | null): AvailInfo {
     d3 = it.approximate ? "partial" : "exact";
     d3Why = it.approximate ? "Approximate in 3D" : "Exact in 3D";
   }
+  if (l?.skull) {
+    d3 = l.approximate ? "partial" : "exact";
+    d3Why = l.approximate ? "Approximate in the skull and spine layer (a bone patch or marker)" : "Exact in the skull and spine layer";
+  }
   const q = it?.slices ?? l?.slices ?? null;
   const mri: Avail = q === "exact" ? "exact" : q ? "partial" : "none";
   const mriWhy = q === "exact" ? "Exact in the MRI atlas" : q === "derived" ? "Derived in the MRI atlas (built from other labels)" : q === "regional" ? "Region only in the MRI atlas" : "Not in the MRI atlas";

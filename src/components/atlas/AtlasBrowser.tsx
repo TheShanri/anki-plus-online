@@ -8,7 +8,7 @@ import { AvailIcons, availabilityFor, slugOf } from "./ui/availability";
 import { loadAtlasIndex, normalizeQuery } from "@/lib/atlas";
 import type { AtlasEntry, AtlasIndex } from "@/lib/atlas";
 import { atlasTargetForCourseName } from "@/lib/atlas/map";
-import { LINKS, atlasTargetForSlug, buildCatalog } from "@/lib/atlas/catalog";
+import { LINKS, SKULL, SKULL_REGIONS, atlasTargetForSlug, buildCatalog } from "@/lib/atlas/catalog";
 import type { CatalogItem } from "@/lib/atlas/catalog";
 import { ATLAS2_BASE, loadAtlas2 } from "@/lib/atlas/slices";
 import type { Atlas2 } from "@/lib/atlas/slices";
@@ -200,6 +200,13 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   }, [primary]);
 
   const extraCard = !!(unlocked && primary?.key === unlocked);
+  // skull, spine and meninges structures show in the skull layer (the layer turns itself on for them and off for brain structures)
+  const skullEntry = infoSlug && LINKS[infoSlug]?.skull ? (SKULL[infoSlug] ?? null) : null;
+  useEffect(() => {
+    if (!skullEntry?.shells) return;
+    const t = window.setTimeout(() => setRequest((r) => ({ n: (r?.n ?? 0) + 1, view: "midsagittal", multi: false })), 0);
+    return () => window.clearTimeout(t);
+  }, [skullEntry]);
 
   // progress: a curriculum structure was opened (3D or MRI)
   const via: "3d" | "mri" | "brainstem" = tab === "model" ? "3d" : tab === "slices" ? "mri" : "brainstem";
@@ -217,8 +224,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   // The current modality stays unless the new structure has nothing to show in it (then say why).
   const tabFor = (it: CatalogItem, cur: Tab): { tab: Tab; why?: string } => {
     if (cur === "model" && !it.meshIds.length && it.slug) return { tab: "slices", why: "Not in the 3D model, showing MRI" };
-    if (cur === "slices" && !it.slug && it.meshIds.length) return { tab: "model", why: "Not in the MRI atlas, showing 3D" };
-    if (cur === "sections" && !inSections(slugOf(it))) return { tab: it.meshIds.length ? "model" : "slices", why: "Not on the course sections, showing " + (it.meshIds.length ? "3D" : "MRI") };
+    const skullIt = !!LINKS[slugOf(it) ?? ""]?.skull;
+    if (cur === "slices" && !it.slug && (it.meshIds.length || skullIt)) return { tab: "model", why: "Not in the MRI atlas, showing 3D" };
+    if (cur === "sections" && !inSections(slugOf(it))) return { tab: it.meshIds.length || skullIt ? "model" : "slices", why: "Not on the course sections, showing " + (it.meshIds.length || skullIt ? "3D" : "MRI") };
     return { tab: cur };
   };
   const resolvedOnce = useRef(false);
@@ -452,7 +460,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
             {!e.group && <AvailIcons a={availabilityFor(e)} />}
           </span>
           <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">
-            {index?.regions[e.region] ?? (e.region === "slices" ? "MRI slices" : e.region)}
+            {index?.regions[e.region] ?? SKULL_REGIONS[e.region] ?? (e.region === "slices" ? "MRI slices" : e.region)}
             {e.group ? " (group)" : ""}
             {e.slices ? " · slices" : ""}
           </span>
@@ -514,6 +522,11 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 {name}
               </option>
             ))}
+          {Object.entries(SKULL_REGIONS).map(([id, name]) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
           <option value="slices">MRI slices only</option>
         </select>
         {error && <p className="text-sm text-again">Could not load the atlas index.</p>}
@@ -548,7 +561,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               <AtlasViewer
                 structureIds={ids3d}
                 mode={primary ? "focus" : "context"}
-                approximate={primary?.approximate ?? false}
+                approximate={skullEntry ? skullEntry.approx : (primary?.approximate ?? false)}
                 label={primary?.name}
                 height="100%"
                 className="!rounded-none !border-0"
@@ -566,7 +579,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 autoReveal
                 onUserView={onUserView}
                 onCameraState={onCameraState}
-                layerAuto={!!primary && /^(skull|spine|bone|cranium|vertebra)/.test(primary.region)}
+                skull={skullEntry}
                 request={request}
               />
               </div>

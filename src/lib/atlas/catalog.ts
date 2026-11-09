@@ -2,6 +2,22 @@ import linksJson from "@/data/atlas-links.json";
 import { normalizeQuery } from "./index";
 import type { AtlasIndex } from "./index";
 import type { SliceQuality } from "./slices";
+import skullData from "@/data/atlas-skull.json";
+
+export type SkullFocus = {
+  region: "skull" | "spine" | "meninges";
+  kind: string;
+  anchors: number[][];
+  radius: number;
+  labels: [number, number, number, string][];
+  tubes: number[][][];
+  closed: boolean;
+  shells: "epidural" | "subdural" | "subarachnoid" | null;
+  approx: boolean;
+  tubeR: number;
+};
+export const SKULL = skullData as unknown as Record<string, SkullFocus>;
+export const SKULL_REGIONS: Record<string, string> = { skull: "Skull", spine: "Spine", meninges: "Meninges" };
 
 export type AtlasLink = {
   name: string;
@@ -11,6 +27,8 @@ export type AtlasLink = {
   slices: SliceQuality | null;
   exactIn: string[];
   registered: boolean;
+  /** Shown in the skull and spine layer (src/data/atlas-skull.json), not as a gross mesh. */
+  skull?: boolean;
 };
 export const LINKS = linksJson as unknown as Record<string, AtlasLink>;
 
@@ -70,11 +88,11 @@ export function buildCatalog(index: AtlasIndex): CatalogItem[] {
     const hasExact3d = l.meshIds.length > 0 && !l.approximate;
     if (hasExact3d) continue;
     const meshIds = l.meshIds.length ? l.meshIds : l.fallbackParentId ? [l.fallbackParentId] : [];
-    if (!l.slices && !meshIds.length) continue;
+    if (!l.slices && !meshIds.length && !l.skull) continue;
     items.push({
       key: `slug:${slug}`,
       name: l.name,
-      region: l.slices ? "slices" : (index.structures[meshIds[0]]?.region ?? "other"),
+      region: l.skull ? (SKULL[slug]?.region ?? "skull") : l.slices ? "slices" : (index.structures[meshIds[0]]?.region ?? "other"),
       meshIds,
       approximate: true,
       slug,
@@ -99,8 +117,8 @@ export function atlasTargetForSlug(slug: string | null | undefined): SlugTarget 
   const l = slug ? LINKS[slug] : undefined;
   if (!l) return null;
   const ids = l.meshIds.length ? l.meshIds : l.fallbackParentId ? [l.fallbackParentId] : [];
-  if (!ids.length && !l.slices) return null;
-  return { ids, approximate: l.approximate || !ids.length, slices: l.slices };
+  if (!ids.length && !l.slices && !l.skull) return null;
+  return { ids, approximate: l.skull ? false : l.approximate || !ids.length, slices: l.slices };
 }
 
 /** The view that shows a structure most exactly: MRI slices when the 3D highlight is only approximate. */

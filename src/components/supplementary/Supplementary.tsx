@@ -120,12 +120,12 @@ export function Supplementary({ section, title = "Supplementary", children, inli
         <button
           type="button"
           onClick={gate.request}
-          className="inline-flex items-center gap-1.5 rounded-sm border border-dashed border-panel-border px-2 py-1 text-xs text-text-faint opacity-80 hover:border-panel-border-hi hover:text-text-dim"
+          className="inline-flex max-w-full items-center gap-1.5 whitespace-nowrap rounded-sm border border-dashed border-panel-border px-2 py-1 text-xs text-text-faint opacity-80 hover:border-panel-border-hi hover:text-text-dim"
           title="Beyond your syllabus and slides: click to peek"
         >
-          <Lock size={12} aria-hidden />
-          <span>{title}</span>
-          <span className="font-mono uppercase tracking-wider">· supplementary</span>
+          <Lock size={12} aria-hidden className="flex-none" />
+          <span className="min-w-0 truncate">{title}</span>
+          <span className="flex-none font-mono uppercase tracking-wider">· supplementary</span>
         </button>
       </Tag>
     );

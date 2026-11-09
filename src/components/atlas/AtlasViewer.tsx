@@ -13,11 +13,12 @@ import { AtlasLoader, mbText, stagesFrom } from "./ui/AtlasLoader";
 import { readCssColor } from "@/lib/atlas/theme";
 import { trackAtlas } from "@/lib/atlas/progress";
 import {
-  Brain, ChevronDown, ChevronUp, FlipHorizontal2, LayoutGrid, Lock, Maximize2, Minimize2, Orbit, Palette, ScanLine, Tag,
+  Brain, ChevronDown, ChevronUp, FlipHorizontal2, LayoutGrid, Lock, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Tag,
 } from "lucide-react";
 import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
 import { fitDistance, frameBox } from "./ui/framing";
+import type { CamState } from "./ui/translate";
 
 export type AtlasMode = "focus" | "context";
 
@@ -86,6 +87,10 @@ export type AtlasViewerProps = {
   onUserView?: (view: ViewName) => void;
   /** A click (not a drag) landed on empty space. */
   onPickNothing?: () => void;
+  /** Camera view, multi-view and cut, reported whenever they change (the MRI tab shows the matching slice). */
+  onCameraState?: (s: CamState) => void;
+  /** Ask the viewer to switch view and/or multi-view (applied once per `n`). */
+  request?: { n: number; view?: ViewName; multi?: boolean } | null;
   /** Overlay content (legend, cards) placed over the canvas; wrappers should set their own pointer-events. */
   overlay?: React.ReactNode;
   /** Extra buttons appended to the toolbar. */
@@ -182,6 +187,25 @@ const FIXED_PANES: { id: string; view: ViewName; label: string }[] = [
 const FREE_DIR = new THREE.Vector3(0.8, 0.5, 0.75).normalize();
 const DEFAULT_BRAIN = new THREE.Box3(new THREE.Vector3(-0.07, 1.58, -0.1), new THREE.Vector3(0.07, 1.7, 0.085));
 type Dims = { w: number; h: number };
+/** Pan/zoom of one fixed multi-view pane (rotation stays locked): offsets along the pane's right/up axes, zoom factor. */
+type PaneView = { z: number; ox: number; oy: number };
+type PaneBase = { pos: THREE.Vector3; target: THREE.Vector3; dist: number };
+const _pr = new THREE.Vector3();
+const _pu = new THREE.Vector3();
+function applyPaneCam(cam: THREE.PerspectiveCamera, base: PaneBase, v: PaneView) {
+  _pr.set(1, 0, 0).applyQuaternion(cam.quaternion);
+  _pu.set(0, 1, 0).applyQuaternion(cam.quaternion);
+  cam.position.copy(base.pos).addScaledVector(_pr, v.ox).addScaledVector(_pu, v.oy);
+  cam.zoom = v.z;
+  cam.updateProjectionMatrix();
+  cam.updateMatrixWorld();
+}
+function setAt<T>(arr: { current: T[] }, i: number, v: T) {
+  arr.current[i] = v;
+}
+function setFn(ref: { current: () => void }, f: () => void) {
+  ref.current = f;
+}
 function setFlag(ref: { current: boolean }, v: boolean) {
   ref.current = v;
 }
@@ -192,15 +216,17 @@ function setAspect(cam: THREE.PerspectiveCamera, a: number) {
 
 /** Frames the camera(s): fits the target plus some context to each pane's own aspect (exact per-corner fit). */
 function Rig({
-  box, brain, view, nonce, zoom, multi, dims, fixed, fixedDims, moved, sizeKey,
+  box, brain, view, nonce, zoom, multi, dims, fixed, fixedDims, moved, sizeKey, paneView, fixedBase,
 }: {
+  paneView: { current: PaneView[] };
+  fixedBase: { current: (PaneBase | null)[] };
   box: THREE.Box3 | null; brain: THREE.Box3 | null; view: ViewName; nonce: number; zoom: number; multi: boolean;
   dims: React.RefObject<Dims>; fixed: THREE.PerspectiveCamera[]; fixedDims: React.RefObject<Dims[]>; moved: React.RefObject<boolean>; sizeKey: string;
 }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const invalidate = useThree((s) => s.invalidate);
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
-  const fit = () => {
+  const fit = (reset: boolean) => {
     const b = brain ?? DEFAULT_BRAIN;
     const mid = view === "midsagittal" && !multi;
     const fb = mid ? b.clone() : frameBox(b, box);
@@ -227,11 +253,17 @@ function Rig({
         cam.aspect = fa;
         cam.near = camera.near;
         cam.far = camera.far;
-        cam.position.copy(c).addScaledVector(fdir, fitDistance(fb, fdir, camera.fov, fa) * zoom);
+        const fdist = fitDistance(fb, fdir, camera.fov, fa) * zoom;
+        cam.position.copy(c).addScaledVector(fdir, fdist);
         cam.up.set(0, 1, 0);
         cam.lookAt(c);
+        cam.zoom = 1;
         cam.updateProjectionMatrix();
         cam.updateMatrixWorld();
+        const pb = { pos: cam.position.clone(), target: c.clone(), dist: fdist };
+        setAt(fixedBase, i, pb);
+        if (reset) setAt(paneView, i, { z: 1, ox: 0, oy: 0 });
+        applyPaneCam(cam, pb, paneView.current[i]);
       });
     }
     setFlag(moved, false);
@@ -242,10 +274,10 @@ function Rig({
     fitRef.current = fit;
   });
   useEffect(() => {
-    fitRef.current();
+    fitRef.current(true);
   }, [box, brain, view, nonce, zoom, multi, camera, controls, invalidate]);
   useEffect(() => {
-    if (!moved.current) fitRef.current();
+    if (!moved.current) fitRef.current(false);
   }, [sizeKey, moved]);
   useEffect(() => {
     if (!controls) return;
@@ -260,10 +292,13 @@ function Rig({
 }
 
 /** Multi-view: one WebGL context, one scene, one scissored render per pane (runs only when mounted; frameloop stays on demand). */
-function MultiRender({ panes }: { panes: React.RefObject<Pane[]> }) {
+function MultiRender({ panes, invalidateRef }: { panes: React.RefObject<Pane[]>; invalidateRef: { current: () => void } }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const size = useThree((s) => s.size);
   const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    setFn(invalidateRef, invalidate);
+  }, [invalidateRef, invalidate]);
   useFrame(({ gl, scene, camera: cam0, size: sz }) => {
     const root = gl.domElement.getBoundingClientRect();
     const auto = gl.autoClear;
@@ -513,7 +548,8 @@ function clippedBy(planes: THREE.Plane[], p: THREE.Vector3): boolean {
 }
 
 /* ---------- in-scene labels ---------- */
-type LabRefs = { bottom: number; solid: boolean; tags: (HTMLDivElement | null)[]; lines: (SVGLineElement | null)[]; dots: (SVGCircleElement | null)[]; w: number[] };
+type Rect = { x: number; y: number; w: number; h: number };
+type LabRefs = { bottom: number; obs: Rect[]; solid: boolean; tags: (HTMLDivElement | null)[]; lines: (SVGLineElement | null)[]; dots: (SVGCircleElement | null)[]; w: number[] };
 const SAMPLE_MAX = 1200;
 const _p = new THREE.Vector3();
 const _q = new THREE.Vector3();
@@ -606,6 +642,14 @@ function layoutLabels(items: LabelItem[], lab: LabRefs, camera: THREE.Camera, W:
           moved = true;
         }
       }
+      // legend, "+" button and toolbar are obstacles: step left of them, else below
+      for (const o of lab.obs) {
+        if (bx < o.x + o.w + 3 && bx + w + 3 > o.x && by < o.y + o.h + 3 && by + LH + 3 > o.y) {
+          if (o.x - w - 6 >= 4) bx = o.x - w - 6;
+          else by = o.y + o.h + 4;
+          moved = true;
+        }
+      }
       if (by > H - LH - lab.bottom) {
         by = Math.max(TOP_BAR, H - LH - lab.bottom);
         bx += w + 8;
@@ -643,13 +687,13 @@ function layoutLabels(items: LabelItem[], lab: LabRefs, camera: THREE.Camera, W:
   }
 }
 
-function LabelUpdater({ items, lab, enabled, centre, solid, dims }: { items: LabelItem[]; lab: React.RefObject<LabRefs>; enabled: boolean; centre: THREE.Vector3; solid: boolean; dims: React.RefObject<Dims> }) {
+function LabelUpdater({ items, lab, enabled, centre, solid, dims, tick }: { items: LabelItem[]; lab: React.RefObject<LabRefs>; enabled: boolean; centre: THREE.Vector3; solid: boolean; dims: React.RefObject<Dims>; tick: number }) {
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
   const invalidate = useThree((s) => s.invalidate);
   useEffect(() => {
     invalidate();
-  }, [items, enabled, size, solid, invalidate]);
+  }, [items, enabled, size, solid, tick, invalidate]);
   useFrame(() => {
     const d = dims.current;
     if (enabled && items.length) layoutLabels(items, lab.current, camera, d.w > 4 ? d.w : size.width, d.h > 4 ? d.h : size.height, centre);
@@ -1169,6 +1213,8 @@ export default function AtlasViewer({
   autoReveal = false,
   onUserView,
   onPickNothing,
+  onCameraState,
+  request = null,
   overlay,
   toolbarExtra,
 }: AtlasViewerProps) {
@@ -1195,7 +1241,7 @@ export default function AtlasViewer({
   const [tipLocked, setTipLocked] = useState(false);
   const tipRef = useRef<HTMLDivElement>(null);
   const tipPos = useRef("translate(0px,0px)");
-  const lab = useRef<LabRefs>({ bottom: 56, solid: false, tags: [], lines: [], dots: [], w: [] });
+  const lab = useRef<LabRefs>({ bottom: 56, obs: [], solid: false, tags: [], lines: [], dots: [], w: [] });
   const [view, setView] = useState<ViewName>(viewProp ?? "left");
   const [nonce, setNonce] = useState(0);
   const [prevViewProp, setPrevViewProp] = useState(viewProp);
@@ -1226,6 +1272,10 @@ export default function AtlasViewer({
   const moved = useRef(false);
   const fixedCams = useMemo(() => FIXED_PANES.map(() => new THREE.PerspectiveCamera(35, 1.3, 0.01, 6)), []);
   const panes = useRef<Pane[]>([]);
+  const paneView = useRef<PaneView[]>(FIXED_PANES.map(() => ({ z: 1, ox: 0, oy: 0 })));
+  const fixedBase = useRef<(PaneBase | null)[]>([null, null, null]);
+  const invalidateRef = useRef<() => void>(() => undefined);
+  const [cssFs, setCssFs] = useState(false);
   const probeRef = useRef<((dir: THREE.Vector3, mid: boolean) => number) | null>(null);
   const getPanes = useCallback(() => panes.current, []);
 
@@ -1258,6 +1308,121 @@ export default function AtlasViewer({
     document.addEventListener("fullscreenchange", f);
     return () => document.removeEventListener("fullscreenchange", f);
   }, []);
+
+  // multi-view: the three fixed panes pan (drag, one finger) and zoom (wheel, pinch) in their own plane; rotation stays locked
+  const resetPane = useCallback(
+    (i: number) => {
+      paneView.current[i] = { z: 1, ox: 0, oy: 0 };
+      const b = fixedBase.current[i];
+      if (b) applyPaneCam(fixedCams[i], b, paneView.current[i]);
+      invalidateRef.current();
+    },
+    [fixedCams],
+  );
+  useEffect(() => {
+    if (!multi) return;
+    const cleanups: (() => void)[] = [];
+    FIXED_PANES.forEach((_, i) => {
+      const el = cellRefs.current[i];
+      if (!el) return;
+      const ptrs = new Map<number, { x: number; y: number }>();
+      let lastDist = 0;
+      const cam = fixedCams[i];
+      const ppu = () => {
+        const b = fixedBase.current[i];
+        return b ? el.clientHeight / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov) / 2) * b.dist) : 0;
+      };
+      const refresh = () => {
+        const b = fixedBase.current[i];
+        if (b) applyPaneCam(cam, b, paneView.current[i]);
+        invalidateRef.current();
+      };
+      const zoomAt = (cx: number, cy: number, f: number) => {
+        const v = paneView.current[i];
+        const k = ppu();
+        if (!k) return;
+        const r = el.getBoundingClientRect();
+        const u = cx - r.left - r.width / 2;
+        const w = r.height / 2 - (cy - r.top);
+        const nz = Math.min(14, Math.max(0.6, v.z * f));
+        v.ox += u / (k * v.z) - u / (k * nz);
+        v.oy += w / (k * v.z) - w / (k * nz);
+        v.z = nz;
+        refresh();
+      };
+      const dist2 = () => {
+        if (ptrs.size !== 2) return 0;
+        const [a, b] = [...ptrs.values()];
+        return Math.hypot(a.x - b.x, a.y - b.y);
+      };
+      const down = (e: PointerEvent) => {
+        if ((e.target as HTMLElement).closest("button")) return;
+        if (e.pointerType === "mouse" && e.button !== 0 && e.button !== 1) return;
+        ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        el.setPointerCapture?.(e.pointerId);
+        lastDist = dist2();
+      };
+      const move = (e: PointerEvent) => {
+        const p = ptrs.get(e.pointerId);
+        if (!p) return;
+        const dx = e.clientX - p.x;
+        const dy = e.clientY - p.y;
+        p.x = e.clientX;
+        p.y = e.clientY;
+        if (ptrs.size === 1) {
+          const k = ppu();
+          if (!k) return;
+          const v = paneView.current[i];
+          v.ox -= dx / (k * v.z);
+          v.oy += dy / (k * v.z);
+          refresh();
+        } else if (ptrs.size === 2) {
+          const d = dist2();
+          const [a, b] = [...ptrs.values()];
+          if (lastDist > 0 && d > 0) zoomAt((a.x + b.x) / 2, (a.y + b.y) / 2, d / lastDist);
+          lastDist = d;
+        }
+      };
+      const up = (e: PointerEvent) => {
+        ptrs.delete(e.pointerId);
+        lastDist = dist2();
+      };
+      const wheel = (e: WheelEvent) => {
+        e.preventDefault();
+        zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.03 : 0.0015)));
+      };
+      const dbl = (e: MouseEvent) => {
+        if ((e.target as HTMLElement).closest("button")) return;
+        resetPane(i);
+      };
+      el.addEventListener("pointerdown", down);
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerup", up);
+      el.addEventListener("pointercancel", up);
+      el.addEventListener("wheel", wheel, { passive: false });
+      el.addEventListener("dblclick", dbl);
+      cleanups.push(() => {
+        el.removeEventListener("pointerdown", down);
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerup", up);
+        el.removeEventListener("pointercancel", up);
+        el.removeEventListener("wheel", wheel);
+        el.removeEventListener("dblclick", dbl);
+      });
+    });
+    return () => cleanups.forEach((f) => f());
+  }, [multi, fixedCams, resetPane]);
+
+  // entering or leaving full screen changes the canvas size: nudge every size listener (canvas, orbit controls, panes)
+  useEffect(() => {
+    const kick = () => window.dispatchEvent(new Event("resize"));
+    const a = requestAnimationFrame(kick);
+    const b = window.setTimeout(kick, 250);
+    return () => {
+      cancelAnimationFrame(a);
+      window.clearTimeout(b);
+    };
+  }, [fs, cssFs]);
 
   const flashT = useRef(0);
   const flash = useCallback((m: string) => {
@@ -1417,6 +1582,39 @@ export default function AtlasViewer({
   }, [quiz, hideLabels, index, shown, colors.accent, label]);
   const labelsOn = showLabels && !quiz && !hideLabels;
   const barRef = useRef<HTMLDivElement>(null);
+  const [obsTick, setObsTick] = useState(0);
+  // overlays marked data-atl-obstacle (legend, add button) and the toolbar keep labels out of their way
+  useEffect(() => {
+    const parent = rootRef.current?.parentElement;
+    if (!mainEl || !parent) return;
+    let raf = 0;
+    const measure = () => {
+      raf = 0;
+      const mr = mainEl.getBoundingClientRect();
+      const els: Element[] = [...parent.querySelectorAll("[data-atl-obstacle]")];
+      if (barRef.current) els.push(barRef.current);
+      lab.current.obs = els
+        .map((e) => {
+          const r = e.getBoundingClientRect();
+          return { x: r.left - mr.left, y: r.top - mr.top, w: r.width, h: r.height };
+        })
+        .filter((o) => o.w > 0 && o.h > 0);
+      setObsTick((t) => t + 1);
+    };
+    const queue = () => {
+      if (!raf) raf = requestAnimationFrame(measure);
+    };
+    queue();
+    const ro = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(queue);
+    ro?.observe(parent);
+    const mo = new MutationObserver(queue);
+    mo.observe(parent, { childList: true, subtree: true });
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      ro?.disconnect();
+      mo.disconnect();
+    };
+  }, [mainEl, multi, barOpen]);
   useLayoutEffect(() => {
     labelItems.forEach((_, i) => {
       lab.current.w[i] = lab.current.tags[i]?.offsetWidth ?? 100;
@@ -1512,13 +1710,29 @@ export default function AtlasViewer({
   const latin = !label && entries.length === 1 ? entries[0].latin : null;
   const missing = index && structureIds.length > 0 && resolved.length === 0;
 
-  const canFs = typeof document !== "undefined" && !!document.fullscreenEnabled;
+  // native full screen where the browser allows it (not on iPhones, not in some embedded views), otherwise a fixed full-window layout
+  const canFs = typeof document !== "undefined";
+  const fsOn = fs || cssFs;
   function toggleFs() {
-    if (document.fullscreenElement) void document.exitFullscreen();
-    else void rootRef.current?.requestFullscreen?.().catch(() => undefined);
+    if (document.fullscreenElement) {
+      void document.exitFullscreen();
+      return;
+    }
+    if (cssFs) {
+      setCssFs(false);
+      return;
+    }
+    const el = rootRef.current;
+    if (!el?.requestFullscreen) return setCssFs(true);
+    el.requestFullscreen().catch(() => setCssFs(true));
   }
 
   const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape" && cssFs) {
+      setCssFs(false);
+      e.stopPropagation();
+      return;
+    }
     if (!shortcuts || e.metaKey || e.ctrlKey || e.altKey) return;
     const t = e.target as HTMLElement;
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable) return;
@@ -1545,6 +1759,32 @@ export default function AtlasViewer({
 
   const clipEff = cut ? { axis: cut.axis, t: cut.position, flip: !!cut.flip } : clip;
 
+  // report the camera state to the host (view, multi-view, cut) for the 3D <-> MRI translation
+  const camCb = useRef(onCameraState);
+  useEffect(() => {
+    camCb.current = onCameraState;
+  });
+  const cutAxisNow = !cut && clip.axis !== "off" ? clip.axis : null;
+  const cutPosNow = clipRange[0] + clip.t * (clipRange[1] - clipRange[0]);
+  useEffect(() => {
+    camCb.current?.({ view, multi, cut: cutAxisNow ? { axis: cutAxisNow, position: cutPosNow } : null });
+  }, [view, multi, cutAxisNow, cutPosNow]);
+
+  // a host request (from the MRI tab): switch view / multi-view once per request number
+  const lastReq = useRef(request?.n ?? 0);
+  useEffect(() => {
+    if (!request || request.n === lastReq.current) return;
+    lastReq.current = request.n;
+    const t = window.setTimeout(() => {
+      if (request.multi !== undefined) setMulti(request.multi);
+      if (request.view) {
+        setView(request.view);
+        setNonce((n) => n + 1);
+      }
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [request]);
+
   return (
     <div
       ref={rootRef}
@@ -1555,7 +1795,7 @@ export default function AtlasViewer({
         if (shortcuts && e.pointerType === "mouse" && !(a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) rootRef.current?.focus({ preventScroll: true });
       }}
       className={`relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2 outline-none ${className ?? ""}`}
-      style={{ height }}
+      style={cssFs ? { position: "fixed", inset: 0, width: "100%", height: "100dvh", zIndex: 200, borderRadius: 0 } : { height }}
     >
       <Canvas
         frameloop="demand"
@@ -1594,7 +1834,7 @@ export default function AtlasViewer({
             onMiss={missStable}
           />
         )}
-        <LabelUpdater items={labelItems} lab={lab} enabled={labelsOn} centre={centre} solid={solid} dims={dims} />
+        <LabelUpdater items={labelItems} lab={lab} enabled={labelsOn} centre={centre} solid={solid} dims={dims} tick={obsTick} />
         <OrbitControls
           makeDefault
           domElement={mainEl ?? undefined}
@@ -1605,27 +1845,32 @@ export default function AtlasViewer({
           maxDistance={1.2}
           touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}
         />
-        <Rig box={box} brain={ctxBox} view={view} nonce={nonce} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} />
-        {multi && <MultiRender panes={panes} />}
+        <Rig box={box} brain={ctxBox} view={view} nonce={nonce} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} paneView={paneView} fixedBase={fixedBase} />
+        {multi && <MultiRender panes={panes} invalidateRef={invalidateRef} />}
       </Canvas>
 
       {/* interaction layer: one cell, or the 2x2 multi-view grid (anterior, lateral, superior, free orbit) */}
-      <div ref={setLayerEl} className={`absolute inset-0 ${multi ? "grid grid-cols-2 grid-rows-2 gap-px" : ""}`}>
+      <div ref={setLayerEl} className={`absolute inset-0 ${multi ? "grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] grid-rows-[minmax(0,1fr)_minmax(0,1fr)] gap-px" : ""}`}>
         {multi &&
           FIXED_PANES.map((p, i) => (
-            <div key={p.id} ref={(el) => void (cellRefs.current[i] = el)} className="atl-multi-cell">
-              <button
-                type="button"
-                className="atl-ptitle"
-                onClick={() => {
-                  setMulti(false);
-                  setViewUser(p.view);
-                }}
-                aria-label={`${p.label} view, click to enlarge`}
-                title="Click to enlarge"
-              >
-                {p.label}
-              </button>
+            <div key={p.id} ref={(el) => void (cellRefs.current[i] = el)} className="atl-multi-cell" style={{ touchAction: "none", cursor: "grab" }}>
+              <span className="atl-ptitle-row">
+                <button
+                  type="button"
+                  className="atl-ptitle"
+                  onClick={() => {
+                    setMulti(false);
+                    setViewUser(p.view);
+                  }}
+                  aria-label={`${p.label} view, click to enlarge`}
+                  title="Click to enlarge"
+                >
+                  {p.label}
+                </button>
+                <button type="button" className="atl-ptitle" onClick={() => resetPane(i)} aria-label={`Reset ${p.label} pan and zoom`} title="Reset pan and zoom (double-click the pane)">
+                  <RotateCcw size={11} aria-hidden />
+                </button>
+              </span>
             </div>
           ))}
         <div ref={setMainEl} className={multi ? "atl-multi-cell" : "absolute inset-0"} style={{ touchAction: "none" }}>
@@ -1788,7 +2033,7 @@ export default function AtlasViewer({
               {(multiview && !cut) || canFs || toolbarExtra ? <Divider /> : null}
               <Group label="Layout">
                 {multiview && !cut && <IconBtn label="Multi-view (anterior, lateral, superior, free)" keys="M" on={multi} onClick={toggleMulti} icon={<LayoutGrid />} />}
-                {canFs && <IconBtn label={fs ? "Exit full screen" : "Full screen"} keys="F" on={fs} onClick={toggleFs} icon={fs ? <Minimize2 /> : <Maximize2 />} />}
+                {canFs && <IconBtn label={fsOn ? "Exit full screen" : "Full screen"} keys="F" on={fsOn} onClick={toggleFs} icon={fsOn ? <Minimize2 /> : <Maximize2 />} />}
                 {toolbarExtra}
               </Group>
             </>

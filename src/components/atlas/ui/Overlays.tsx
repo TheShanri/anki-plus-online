@@ -24,15 +24,11 @@ export function Legend({
   side?: "L" | "R" | null;
   onSide?: (s: "L" | "R") => void;
 }) {
-  const [open, setOpen] = useState(true);
-  useEffect(() => {
-    const t = window.setTimeout(() => setOpen(window.innerWidth >= 768), 0);
-    return () => window.clearTimeout(t);
-  }, []);
+  const [open, setOpen] = useState(false); // collapsed: the in-scene labels need the room
   if (!rows.length) return null;
   const hasNb = rows.some((r) => r.kind === "neighbour");
   return (
-    <div className="atl-chip pointer-events-auto flex max-w-[min(280px,70vw)] flex-col items-stretch gap-1 p-1.5" role="group" aria-label="Legend">
+    <div data-atl-obstacle="" className="atl-chip pointer-events-auto flex max-w-[min(280px,70vw)] flex-col items-stretch gap-1 p-1.5" role="group" aria-label="Legend">
       <div className="flex items-center gap-1.5">
         <button type="button" className="flex flex-1 items-center gap-1.5 text-left text-xs text-text-dim hover:text-text" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
           {rows.slice(0, 8).map((r) => (
@@ -89,12 +85,12 @@ export function AddStructure({ q, setQ, results, onAdd }: { q: string; setQ: (s:
   }, [open]);
   if (!open)
     return (
-      <div className="atl-bar pointer-events-auto">
+      <div data-atl-obstacle="" className="atl-bar pointer-events-auto">
         <IconBtn below label="Add a structure to compare" icon={<Plus />} onClick={() => setOpen(true)} />
       </div>
     );
   return (
-    <div className="pointer-events-auto relative">
+    <div data-atl-obstacle="" className="pointer-events-auto relative">
       <div className="atl-bar items-center gap-1 pl-2">
         <Search size={14} className="text-text-faint" aria-hidden />
         <input

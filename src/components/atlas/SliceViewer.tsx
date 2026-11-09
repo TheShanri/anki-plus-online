@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import type { Niivue } from "@niivue/niivue";
 import { ATLAS2_BASE, structuresAtLabel } from "@/lib/atlas/slices";
+import { Box, LayoutGrid } from "lucide-react";
 import { AtlasLoader, mbText, stagesFrom } from "./ui/AtlasLoader";
+import { FloatBar } from "./ui/FloatBar";
+import { Divider, Group, IconBtn } from "./ui/Toolbar";
+import { CutCoronalIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon } from "./ui/icons";
 import { prefetchWithProgress } from "./ui/modelCache";
 import type { Prog } from "./ui/modelCache";
 import type { Atlas2 } from "@/lib/atlas/slices";
@@ -34,7 +38,24 @@ type Props = {
   atMm?: number[] | null;
   /** Blind mode: no crosshair, no coordinates or names, the mouse wheel does not scroll the slice. */
   blind?: boolean;
+  /** Show the floating view toolbar (same component and position as the 3D viewer's) and report view changes. */
+  onViewChange?: (v: SliceView) => void;
+  /** Neighbour toggle in the toolbar (shown when the handler is given). */
+  neighbors?: boolean;
+  onToggleNeighbors?: () => void;
+  /** Keys 1-5 pick the view, G toggles neighbours, while the viewer has focus. */
+  shortcuts?: boolean;
+  /** A small notice inside the viewer (e.g. "No MRI label for this structure"). */
+  notice?: string | null;
 };
+
+const TOOL_VIEWS: { id: SliceView; label: string; key: string; icon: React.ReactNode }[] = [
+  { id: "coronal", label: "Coronal", key: "1", icon: <CutCoronalIcon /> },
+  { id: "sagittal", label: "Sagittal", key: "2", icon: <CutSagittalIcon /> },
+  { id: "axial", label: "Transverse", key: "3", icon: <CutTransverseIcon /> },
+  { id: "multi", label: "Multiplanar", key: "4", icon: <LayoutGrid /> },
+  { id: "render", label: "3D render", key: "5", icon: <Box /> },
+];
 
 function hexRgb(h: string): [number, number, number] {
   const m = /^#?([0-9a-f]{6})$/i.exec(h.trim());
@@ -69,7 +90,7 @@ function lutFor(leaves: { id: number; name: string }[], colors: Map<number, stri
   return { R, G, B, A, I, labels };
 }
 
-export default function SliceViewer({ atlas, primary, primaryColor, overlays, view, jumpTo, onPick, height = 560, backColor, atMm = null, blind = false }: Props) {
+export default function SliceViewer({ atlas, primary, primaryColor, overlays, view, jumpTo, onPick, height = 560, backColor, atMm = null, blind = false, onViewChange, neighbors = false, onToggleNeighbors, shortcuts = false, notice = null }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nvRef = useRef<Niivue | null>(null);
   const [ready, setReady] = useState(false);
@@ -144,6 +165,7 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
     if (!ready || !nv) return;
     const t = { axial: 0, coronal: 1, sagittal: 2, multi: 3, render: 4 }[view];
     nv.setSliceType(t);
+    nv.setMultiplanarLayout(2); // always a 2x2 grid (never a row of four)
     if (view === "render") nv.setRenderAzimuthElevation(150, 15);
   }, [ready, view]);
 
@@ -198,7 +220,22 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
   const top = probe?.slugs[0];
   return (
     <div
-      className="relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2"
+      tabIndex={-1}
+      onPointerEnter={(e) => {
+        if (shortcuts && e.pointerType === "mouse") e.currentTarget.focus({ preventScroll: true });
+      }}
+      onKeyDown={(e) => {
+        if (!shortcuts || e.metaKey || e.ctrlKey || e.altKey) return;
+        const v = TOOL_VIEWS.find((x) => x.key === e.key);
+        if (v && onViewChange) {
+          onViewChange(v.id);
+          e.preventDefault();
+        } else if (e.key.toLowerCase() === "g" && onToggleNeighbors) {
+          onToggleNeighbors();
+          e.preventDefault();
+        }
+      }}
+      className="relative w-full overflow-hidden rounded-card border border-panel-border bg-bg-2 outline-none"
       style={{ height }}
       onWheelCapture={blind ? (e) => e.stopPropagation() : undefined}
     >
@@ -218,7 +255,29 @@ export default function SliceViewer({ atlas, primary, primaryColor, overlays, vi
           The MRI slice viewer could not be started ({error}).
         </div>
       )}
-      {!blind && <div className="pointer-events-none absolute bottom-2 left-2 right-2 flex flex-wrap items-center gap-2 font-mono text-[11px] text-text-dim">
+      {notice && (
+        <div className="atl-chip pointer-events-none absolute left-2 top-2 z-[6] max-w-[70%] text-text-dim" role="status">
+          {notice}
+        </div>
+      )}
+      {onViewChange && (
+        <FloatBar label="MRI view controls">
+          <Group label="MRI view">
+            {TOOL_VIEWS.map((v) => (
+              <IconBtn key={v.id} radio label={v.label} keys={v.key} on={view === v.id} icon={v.icon} onClick={() => onViewChange(v.id)} />
+            ))}
+          </Group>
+          {onToggleNeighbors && (
+            <>
+              <Divider />
+              <Group label="Toggles">
+                <IconBtn label="Highlight neighbours" keys="G" on={neighbors} onClick={onToggleNeighbors} icon={<NeighborIcon />} />
+              </Group>
+            </>
+          )}
+        </FloatBar>
+      )}
+      {!blind && <div className={`pointer-events-none absolute left-2 right-2 flex flex-wrap items-center gap-2 font-mono text-[11px] text-text-dim ${onViewChange ? "bottom-14" : "bottom-2"}`}>
         <span className="rounded-sm border border-panel-border bg-panel px-2 py-1 backdrop-blur">
           {probe ? `x ${probe.mm.map((v) => Math.round(v)).join("  y ")}`.replace(/^x (-?\d+) {2}y (-?\d+) {2}y (-?\d+)$/, "x $1  y $2  z $3") + " mm" : "Click a voxel to name it"}
         </span>

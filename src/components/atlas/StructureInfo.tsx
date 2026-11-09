@@ -85,7 +85,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
   const shown = all ? listed : listed.slice(0, 6);
 
   return (
-    <section className="panel struct-info grid gap-4 !p-3" aria-label={`${d.name}: course notes`}>
+    <section className="panel struct-info grid grid-cols-[minmax(0,1fr)] gap-4 !p-3" aria-label={`${d.name}: course notes`}>
       <header className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h2 className="font-display text-xl tracking-wide">{d.name}</h2>
         <SpeakButton text={d.name} />
@@ -104,7 +104,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
         </span>
       </header>
 
-      <div className="grid gap-4">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-4">
         <div className="grid content-start gap-2 text-sm">
           <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent-2">
             On the syllabus <span className="text-text-faint normal-case tracking-normal">from the course materials</span>
@@ -138,7 +138,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
         </div>
 
         {(d.supplementary.explanation || facts.length > 0 || (ety && (ety.roots?.length || ety.literal))) && (
-          <Supplementary section="atlas-info" title="Background, facts and word origins">
+          <Supplementary section="atlas-info" title="Background and word origins">
           <div className="grid content-start gap-2 text-sm">
             <h3 className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-hard">
               Supplementary

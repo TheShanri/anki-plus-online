@@ -2,11 +2,11 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Box, LayoutGrid, Lock, PanelLeft, PanelRight } from "lucide-react";
+import { Lock, PanelLeft, PanelRight } from "lucide-react";
 import { loadAtlasIndex, normalizeQuery } from "@/lib/atlas";
 import type { AtlasEntry, AtlasIndex } from "@/lib/atlas";
 import { atlasTargetForCourseName } from "@/lib/atlas/map";
-import { LINKS, atlasTargetForSlug, bestAtlasTab, buildCatalog } from "@/lib/atlas/catalog";
+import { LINKS, atlasTargetForSlug, buildCatalog } from "@/lib/atlas/catalog";
 import type { CatalogItem } from "@/lib/atlas/catalog";
 import { ATLAS2_BASE, loadAtlas2 } from "@/lib/atlas/slices";
 import type { Atlas2 } from "@/lib/atlas/slices";
@@ -21,8 +21,9 @@ import { AtlasLoader } from "./ui/AtlasLoader";
 import { IconBtn, Segmented } from "./ui/Toolbar";
 import { AddStructure, ExtraInfoCard, Legend, LockedCard } from "./ui/Overlays";
 import type { LegendRow } from "./ui/Overlays";
-import { CutCoronalIcon, CutSagittalIcon, CutTransverseIcon } from "./ui/icons";
 import { preloadAtlas } from "./ui/modelCache";
+import { mniFromCut, sliceViewFor, view3dFor } from "./ui/translate";
+import type { CamState } from "./ui/translate";
 
 const Loading = ({ what }: { what: string }) => (
   <div className="relative h-full min-h-[240px]">
@@ -35,13 +36,6 @@ const SliceViewer = dynamic(() => import("./SliceViewer"), { ssr: false, loading
 type Tab = "model" | "slices";
 const VIEW_PARAM: Record<string, SliceView> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", transverse: "axial", multi: "multi", multiplanar: "multi", render: "render" };
 const VIEW_NAME: Record<SliceView, string> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", multi: "multi", render: "render" };
-const SLICE_ITEMS: { id: SliceView; label: string; icon: React.ReactNode }[] = [
-  { id: "coronal", label: "Coronal", icon: <CutCoronalIcon /> },
-  { id: "sagittal", label: "Sagittal", icon: <CutSagittalIcon /> },
-  { id: "axial", label: "Transverse", icon: <CutTransverseIcon /> },
-  { id: "multi", label: "Multiplanar", icon: <LayoutGrid /> },
-  { id: "render", label: "3D render", icon: <Box /> },
-];
 
 type Props = {
   initialS?: string;
@@ -87,7 +81,20 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [extraKeys, setExtraKeys] = useState<string[]>(() => (initialAdd ? initialAdd.split(",").filter(Boolean) : []));
   const [neighbors, setNeighbors] = useState(initialNb === "1");
   const [nbSide, setNbSide] = useState<Side>("L");
-  const [tab, setTab] = useState<Tab>(initialView && VIEW_PARAM[initialView] ? "slices" : "model");
+  const [tab, setTabRaw] = useState<Tab>(initialView && VIEW_PARAM[initialView] ? "slices" : "model");
+  // both viewers stay mounted once opened, so flipping back restores the 3D camera and look
+  const [seen, setSeen] = useState({ model: !(initialView && VIEW_PARAM[initialView]), slices: !!(initialView && VIEW_PARAM[initialView]) });
+  const [atMm, setAtMm] = useState<number[] | null>(null);
+  const [request, setRequest] = useState<{ n: number; view?: ViewName; multi?: boolean } | null>(null);
+  const [modalityNote, setModalityNote] = useState<string | null>(null);
+  const cam3d = useRef<CamState>({ view: "left", multi: false, cut: null });
+  const sliceAtSwitch = useRef<SliceView | null>(null);
+  const noteT = useRef(0);
+  const note = useCallback((m: string) => {
+    setModalityNote(m);
+    window.clearTimeout(noteT.current);
+    noteT.current = window.setTimeout(() => setModalityNote(null), 5000);
+  }, []);
   const [sliceView, setSliceView] = useState<SliceView>((initialView && VIEW_PARAM[initialView]) || "coronal");
   const [addQ, setAddQ] = useState("");
   const [hoverKey, setHoverKey] = useState<string | null>(null);
@@ -202,18 +209,22 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
 
   // Open each structure where it is shown most exactly: MRI slices when the 3D highlight is only approximate,
   // the 3D model when the MRI atlas has no label. A view the student picks stays otherwise.
-  const tabFor = (it: CatalogItem, cur: Tab): Tab => {
-    const best = bestAtlasTab({ ids: it.meshIds, approximate: it.approximate, slices: it.slug ? it.slices : null });
-    if (cur === "model" && best === "slices") return "slices";
-    if (cur === "slices" && !it.slug) return "model";
-    return cur;
+  // The current modality stays unless the new structure has nothing to show in it (then say why).
+  const tabFor = (it: CatalogItem, cur: Tab): { tab: Tab; why?: string } => {
+    if (cur === "model" && !it.meshIds.length && it.slug) return { tab: "slices", why: "Not in the 3D model, showing MRI" };
+    if (cur === "slices" && !it.slug && it.meshIds.length) return { tab: "model", why: "Not in the MRI atlas, showing 3D" };
+    return { tab: cur };
   };
   const resolvedOnce = useRef(false);
   useEffect(() => {
     if (!primary || resolvedOnce.current) return;
     resolvedOnce.current = true;
     if (initialView && VIEW_PARAM[initialView]) return; // the link asked for a view
-    const t = window.setTimeout(() => setTab((cur) => tabFor(primary, cur)), 0);
+    const t = window.setTimeout(() => {
+      const r = tabFor(primary, tab);
+      if (r.tab !== tab) changeTab(r.tab);
+      if (r.why) note(r.why);
+    }, 0);
     return () => window.clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [primary]);
@@ -328,7 +339,11 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     relock();
     setCourseName(undefined);
     setPrimaryKey(key);
-    if (it) setTab((cur) => tabFor(it, cur));
+    if (it) {
+      const r = tabFor(it, tab);
+      if (r.tab !== tab) changeTab(r.tab);
+      if (r.why) note(r.why);
+    }
   }
   function pickSlug(slug: string) {
     relock();
@@ -348,7 +363,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       setUnlocked(id);
       setCourseName(undefined);
       setPrimaryKey(id);
-      setTab("model");
+      changeTab("model");
       setInfoOpen(true);
       trackAtlas({ type: "curious_unlock", mesh: id, name });
     }, 0);
@@ -371,6 +386,27 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     const it = items.find((i) => i.meshIds.includes(id) && !i.group) ?? items.find((i) => i.meshIds.includes(id));
     pick(it ? it.key : id);
   }
+  /** Switch 3D <-> MRI, translating the view: multi-view <-> multiplanar, cut <-> same slice, anterior/lateral/superior <-> coronal/sagittal/transverse. */
+  function changeTab(next: Tab) {
+    if (next === tab) return;
+    if (next === "slices") {
+      const s = cam3d.current;
+      const sv = sliceViewFor(s);
+      setSliceView(sv);
+      sliceAtSwitch.current = sv;
+      const base = (primary?.slug && atlas2?.structures[primary.slug]?.centroid) || [0, -18, 0];
+      setAtMm(s.cut && !s.multi ? mniFromCut(s.cut, base) : null);
+    } else {
+      // back to 3D: the previous camera and look stay; the MRI view only drives the 3D view if it was changed meanwhile
+      if (sliceView === "multi") setRequest({ n: (request?.n ?? 0) + 1, multi: true });
+      else if (sliceView !== sliceAtSwitch.current) setRequest({ n: (request?.n ?? 0) + 1, multi: false, view: view3dFor(sliceView) });
+    }
+    setSeen((x) => ({ ...x, [next]: true }));
+    setTabRaw(next);
+  }
+  const onCameraState = useCallback((s: CamState) => {
+    cam3d.current = s;
+  }, []);
   const onUserView = useCallback((v: ViewName) => {
     if (v === "left") setNbSide("L");
     else if (v === "right") setNbSide("R");
@@ -481,28 +517,19 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               label="Atlas view"
               below
               value={tab}
-              onChange={(t) => setTab(t)}
+              onChange={(t) => changeTab(t)}
               items={[
                 { id: "model", label: "3D model", text: "3D" },
                 { id: "slices", label: "MRI slices", text: "MRI" },
               ]}
             />
-            {tab === "slices" && (
-              <Segmented<SliceView> label="MRI view" below value={sliceView} onChange={setSliceView} items={SLICE_ITEMS.map((v) => ({ id: v.id, label: v.label, icon: v.icon }))} />
-            )}
-            {status && <span className={`hidden min-w-0 truncate text-xs md:inline ${sliceQuality === "regional" ? "text-hard" : "text-text-dim"}`}>{status}</span>}
-            {primary && tab === "model" && primary.approximate && primary.slug && primary.slices !== "regional" && (
-              <button type="button" className="text-xs text-accent-2 underline underline-offset-2" onClick={() => setTab("slices")}>
-                See it exactly in MRI slices
-              </button>
-            )}
-            {!primary && <span className="hidden truncate text-xs text-text-dim md:inline">Pick a structure, or click one in 3D. Drag to rotate, scroll to zoom.</span>}
             <span className="ml-auto" />
             {hasInfo && <IconBtn below className="hidden lg:inline-flex" label={infoOpen ? "Hide the info panel" : "Show the info panel"} icon={<PanelRight />} on={infoOpen} onClick={() => setInfoOpen((o) => !o)} />}
           </div>
 
           <div className="relative min-h-0 flex-1">
-            {tab === "model" ? (
+            {seen.model && (
+              <div className={tab === "model" ? "absolute inset-0" : "pointer-events-none invisible absolute inset-0"} aria-hidden={tab !== "model"}>
               <AtlasViewer
                 structureIds={ids3d}
                 mode={primary ? "focus" : "context"}
@@ -523,24 +550,50 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 unlocked={unlocked}
                 autoReveal
                 onUserView={onUserView}
+                onCameraState={onCameraState}
+                request={request}
               />
-            ) : atlas2 ? (
-              <SliceViewer atlas={atlas2} primary={primary?.slug ?? null} primaryColor={pal.accent} overlays={overlaysSlices} view={sliceView} jumpTo={primary?.slug ?? null} onPick={pickSlug} height="100%" />
-            ) : (
-              <Loading what="MRI atlas" />
+              </div>
+            )}
+            {seen.slices && (
+              <div className={tab === "slices" ? "absolute inset-0" : "pointer-events-none invisible absolute inset-0"} aria-hidden={tab !== "slices"}>
+              {atlas2 ? (
+              <SliceViewer
+                atlas={atlas2}
+                primary={primary?.slug ?? null}
+                primaryColor={pal.accent}
+                overlays={overlaysSlices}
+                view={sliceView}
+                jumpTo={primary?.slug ?? null}
+                onPick={pickSlug}
+                height="100%"
+                onViewChange={setSliceView}
+                neighbors={neighbors}
+                onToggleNeighbors={() => setNeighbors((n) => !n)}
+                shortcuts
+                notice={status}
+                atMm={atMm}
+              />
+              ) : (
+                <Loading what="MRI atlas" />
+              )}
+              </div>
+            )}
+            {modalityNote && (
+              <div className="atl-card-in pointer-events-none absolute left-1/2 top-12 z-[7] max-w-[90%] -translate-x-1/2" role="status">
+                <div className="atl-chip text-text-dim">{modalityNote}</div>
+              </div>
             )}
             {overlayNode}
-            {tab === "slices" && (
-              <div className="pointer-events-auto absolute left-2 top-2">
-                <IconBtn
-                  below
-                  label={neighbors ? "Hide neighbours" : "Highlight neighbours"}
-                  text="Neighbours"
-                  on={neighbors}
-                  onClick={() => setNeighbors((n) => !n)}
-                  className="atl-chip !h-8"
-                />
+            {tab === "model" && primary && primary.approximate && primary.slug && primary.slices !== "regional" && (
+              <div className="pointer-events-auto absolute bottom-16 left-2 z-[6]">
+                <button type="button" className="atl-chip text-accent-2 underline underline-offset-2" onClick={() => changeTab("slices")}>
+                  See it exactly in MRI slices
+                </button>
               </div>
+            )}
+            {tab === "model" && !primary && (
+              <div className="atl-chip pointer-events-none absolute bottom-16 left-2 z-[6] max-w-[60%] text-text-dim">Pick a structure, or click one in 3D. Drag to rotate, scroll to zoom.</div>
             )}
           </div>
         </div>

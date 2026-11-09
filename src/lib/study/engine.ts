@@ -586,7 +586,8 @@ export class StudyEngine {
         this.submit(false);
         // the answer submitted itself on the last letter: an Enter pressed out of habit a moment later must not
         // skip straight past the reveal (and its info) to the next card
-        if (this.phase === "reveal") this.autoRevealAt = now;
+        // submit() moved the phase on (TS still narrows it to "prompt" here)
+        if ((this.phase as string) === "reveal") this.autoRevealAt = now;
       }
     }
   }

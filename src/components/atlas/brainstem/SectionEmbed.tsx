@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LEVELS, imagesFor, levelBySlug } from "./data";
 import type { BsImage, BsLevel } from "./data";
 import { SectionViewer } from "./SectionViewer";
+import "./brainstem.css"; // the section frame and label styles
 
 const NO_RESULTS = {};
 const noop = () => undefined;
@@ -76,7 +77,7 @@ export function SectionEmbed({
           );
         })}
       </div>
-      <div className="relative min-w-0 flex-1 bg-bg-2">
+      <div className="relative flex min-w-0 flex-1 items-center justify-center bg-bg-2 [--bs-max-h:calc(100dvh-260px)]">
         {image ? (
           <SectionViewer image={image} courseSlug={courseSlug} mode="labels" hoverSlug={hover ?? slug} onHover={setHover} results={NO_RESULTS} active={null} onActivate={noop} />
         ) : (

@@ -30,6 +30,7 @@ import { useSceneColors } from "./sceneTheme";
 import { BodyIcon, IconButton, Segmented } from "./controls";
 import { LesionFindings } from "./LesionFindings";
 import { trackAtlas } from "@/lib/atlas/progress";
+import { AtlasLoader, stagesFrom } from "@/components/atlas/ui/AtlasLoader";
 
 /* the white-matter envelope hides the tracts inside it, so it is listed but not pickable in 3D */
 const NOT_PICKABLE = new Set(["white-matter-of-spinal-cord", "central-structures-of-spinal-cord"]);
@@ -329,7 +330,7 @@ export function LesionLab({
   const hoverName = hoverId ? names[hoverId] : null;
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.5fr)_minmax(340px,1fr)]">
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_400px]">
       <div className="grid min-w-0 content-start gap-3">
         <div className="flex flex-wrap items-center gap-2">
           <Segmented
@@ -353,7 +354,7 @@ export function LesionLab({
           )}
         </div>
 
-        <div className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2" style={{ height: "min(62vh, 620px)", minHeight: 360 }}>
+        <div className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2 h-[64dvh] min-h-[380px] lg:h-[calc(100dvh-250px)] lg:min-h-[460px]">
           <PathwayViewer
             layers={(scene || sceneIn).layers}
             tubes={(scene || sceneIn).tubes}
@@ -368,12 +369,12 @@ export function LesionLab({
             onPick={onPick}
             onReady={setReady}
           />
-          {!ready && <div className="pointer-events-none absolute left-3 top-3 rounded-sm bg-panel-solid/80 px-2 py-1 text-xs text-text-dim">Loading the lesion map…</div>}
-          <div className="pointer-events-none absolute bottom-2 left-2 flex flex-wrap gap-2 text-xs">
+          {!ready && <AtlasLoader label="Loading the lesion map" stages={stagesFrom([["map", "Loading the lesion map", false, undefined]])} />}
+          <div data-label-obstacle className="pointer-events-none absolute bottom-2 left-2 flex flex-wrap gap-2 text-xs">
             <span className="rounded-sm bg-panel-solid/85 px-2 py-1" style={{ color: colors.bad }}>■ Cut / lesion</span>
             <span className="rounded-sm bg-panel-solid/85 px-2 py-1 text-text-dim">{hoverName ? `${hoverName} (click to place)` : "Hover a structure, click to place the lesion"}</span>
           </div>
-          <div className="absolute right-2 top-2 flex items-center gap-1.5">
+          <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
             <Segmented label="View" value={view} onChange={setView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
             <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
           </div>

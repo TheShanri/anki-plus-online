@@ -46,7 +46,7 @@ export const PathwayPicker = forwardRef<PickerHandle, { groups: PickerGroup[]; v
   };
 
   return (
-    <div ref={root} className="relative min-w-0 flex-1">
+    <div ref={root} className="relative min-w-[220px] flex-1">
       <button
         type="button"
         aria-haspopup="listbox"

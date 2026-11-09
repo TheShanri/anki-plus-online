@@ -27,9 +27,10 @@ export default async function LesionPage({ searchParams }: { searchParams: Promi
     .map((r) => ({ slug: r.slug, vignette: String(r.content.vignette), prompt: String(r.content.prompt ?? ""), answer: String(r.content.answer ?? "") }));
 
   return (
-    <PageShell title="Lesion lab" kicker="Atlas">
+    <section className="relative left-1/2 w-[min(1760px,calc(100vw-24px))] -translate-x-1/2">
+      <h1 className="sr-only">Lesion lab</h1>
       <AtlasModes />
       <LesionLab courses={coursePathways as unknown as CoursePathway[]} clinical={clinical} initial={sp} />
-    </PageShell>
+    </section>
   );
 }

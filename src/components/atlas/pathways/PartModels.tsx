@@ -9,8 +9,8 @@ import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.j
 /* Anatomical body parts from Z-Anatomy (CC BY-SA 4.0), decimated and meshopt-compressed in public/pathways/*.glb.
  * Loaded lazily, one fetch per file, shared by every use. Real size in metres, left side, anatomical position. */
 
-export type PartFile = "hand" | "foot" | "muscle" | "eye";
-const URL_OF: Record<PartFile, string> = { hand: "/pathways/hand.glb", foot: "/pathways/foot.glb", muscle: "/pathways/muscle.glb", eye: "/pathways/eye.glb" };
+export type PartFile = "hand" | "foot" | "leg" | "muscle" | "eye";
+const URL_OF: Record<PartFile, string> = { hand: "/pathways/hand.glb", foot: "/pathways/foot.glb", leg: "/pathways/leg.glb", muscle: "/pathways/muscle.glb", eye: "/pathways/eye.glb" };
 
 let loader: GLTFLoader | null = null;
 const cache = new Map<PartFile, Promise<THREE.Group | null>>();

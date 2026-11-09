@@ -6,6 +6,8 @@ import bpy, bmesh, sys, os, re, json
 from mathutils import Vector
 
 out = sys.argv[sys.argv.index("--") + 1]
+WANT = os.environ.get("PARTS")
+def want(n): return WANT is None or n in WANT.split(",")
 os.makedirs(out, exist_ok=True)
 dg = bpy.context.evaluated_depsgraph_get()
 tmp = bpy.data.collections.new("_tmp")
@@ -88,23 +90,34 @@ print("HAND skin", [o.name for o in pick(HAND_SKIN)])
 print("HAND bone", [o.name for o in pick(HAND_BONE, excl=HAND_X)][:40])
 print("FOOT bone", [o.name for o in pick(FOOT_BONE, excl="ligament|capsule|muscle|tendon")][:40])
 
-export("hand.glb", {
+if want("hand"): export("hand.glb", {
     "skin": (pick(HAND_SKIN), 900),
     "bone": (pick(HAND_BONE, excl=HAND_X), 350),
     "muscle": (pick(r"^(Flexor carpi radialis|Brachioradialis muscle|Extensor carpi radialis longus|Palmaris longus|Flexor digitorum superficialis|Pronator teres)\.l$"), 700),
 }, centre_on="skin")
-export("foot.glb", {
+if want("foot"): export("foot.glb", {
     "skin": (pick(FOOT_SKIN), 900),
     "bone": (pick(FOOT_BONE, excl="ligament|capsule|muscle|tendon"), 350),
     "tendon": (pick(r"^Calcaneal tendon\.l$"), 900),
 }, centre_on="skin")
-export("muscle.glb", {
+if want("muscle"): export("muscle.glb", {
     "muscle": (pick(r"^Brachioradialis muscle\.l$"), 2500),
 }, centre_on="muscle")
-export("eye.glb", {
+if want("eye"): export("eye.glb", {
     "sclera": (pick(r"^Sclera\.l$"), 900),
     "cornea": (pick(r"^Cornea\.l$"), 500),
     "iris": (pick(r"^Iris\.l$"), 900),
     "lens": (pick(r"^Lens\.l$"), 500),
     "retina": (pick(r"^Retina\.l$"), 900),
 }, centre_on="sclera")
+
+LEG_SKIN = r"^(Anterior region of thigh|Anterior region of knee|Anterior region of leg|Lateral region of thigh|Medial region of thigh)\.l$"
+print("LEG skin", [o.name for o in pick(r"region of (thigh|knee)\.l$")])
+print("LEG quad", [o.name for o in pick(r"femoris|vastus|patell|quadriceps|^femur")])
+if want("leg"):
+    export("leg.glb", {
+        "skin": (pick(r"region of (thigh|knee|leg)\.l$", excl="posterior|calcaneal"), 900),
+        "bone": (pick(r"^(Femur|Patella|Tibia|Fibula)\.l$"), 1200),
+        "muscle": (pick(r"^(Rectus femoris|Vastus lateralis|Vastus medialis|Vastus intermedius) muscle\.l$|^Sartorius muscle\.l$"), 1000),
+        "tendon": (pick(r"patellar ligament|quadriceps femoris tendon|tendon of quadriceps"), 600),
+    }, centre_on="bone")

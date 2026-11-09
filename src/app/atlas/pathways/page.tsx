@@ -36,9 +36,10 @@ export default async function PathwaysPage({ searchParams }: { searchParams: Pro
   }));
 
   return (
-    <PageShell title="Pathway tracer" kicker="Atlas">
+    <section className="relative left-1/2 w-[min(1760px,calc(100vw-24px))] -translate-x-1/2">
+      <h1 className="sr-only">Pathway tracer</h1>
       <AtlasModes />
       <PathwayTracer courses={coursePathways as unknown as CoursePathway[]} cards={cards} initial={sp} />
-    </PageShell>
+    </section>
   );
 }

@@ -10,6 +10,7 @@ import type { AtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel, releaseAtlasCache, retainAtlasCache } from "@/lib/atlas/loader";
 import type { Side, WP } from "@/lib/atlas/pathways";
 import { LANE, MarkMesh, TubeMesh, loadVerts, resolveWP, wpRefs, type MarkKind, type SceneColors } from "./sceneCore";
+import { EYE_SCALE } from "./eyeScale";
 import { EYE_R, EyeBall, Limb, TRIGEMINAL_ZONES, type EyeSpec, type LimbSpec } from "./PathwayExtras";
 
 export { resolveWP };
@@ -228,7 +229,9 @@ function LabelProjector({
   els,
   lines,
   sizes,
+  obstacles,
 }: {
+  obstacles: React.MutableRefObject<number[]>;
   items: LabelItem[];
   els: React.MutableRefObject<Map<string, HTMLElement>>;
   lines: React.MutableRefObject<Map<string, SVGLineElement>>;
@@ -248,6 +251,13 @@ function LabelProjector({
   useFrame(() => {
     let n = 0;
     const rects = rectBuf.current;
+    const ob = obstacles.current;
+    for (let i = 0; i + 3 < ob.length && n < 8; i += 4, n++) {
+      rects[n * 4] = ob[i];
+      rects[n * 4 + 1] = ob[i + 1];
+      rects[n * 4 + 2] = ob[i + 2];
+      rects[n * 4 + 3] = ob[i + 3];
+    }
     const W = size.width;
     const H = size.height;
     for (const it of order) {
@@ -540,7 +550,7 @@ export default function PathwayScene(p: SceneProps) {
     return (["L", "R"] as Side[])
       .map((s) => {
         const e = resolveWP(p.eyes!.nerve, verts, s, LANE);
-        return e ? { side: s, at: e.clone().add(new THREE.Vector3(0, 0, EYE_R)) } : null;
+        return e ? { side: s, at: e.clone().add(new THREE.Vector3(0, 0, EYE_R * EYE_SCALE)) } : null;
       })
       .filter((x): x is { side: Side; at: THREE.Vector3 } => !!x);
   }, [p.eyes, verts]);
@@ -569,6 +579,28 @@ export default function PathwayScene(p: SceneProps) {
   const labelEls = useRef(new Map<string, HTMLElement>());
   const leaderEls = useRef(new Map<string, SVGLineElement>());
   const sizes = useRef(new Map<string, Size>());
+  const rootRef = useRef<HTMLDivElement>(null);
+  const obstacleRects = useRef<number[]>([]);
+  // toolbars and the legend are obstacles: labels never sit under them
+  useEffect(() => {
+    const root = rootRef.current;
+    const host = root?.parentElement;
+    if (!root || !host) return;
+    const measure = () => {
+      const hb = root.getBoundingClientRect();
+      const out: number[] = [];
+      host.querySelectorAll("[data-label-obstacle]").forEach((el) => {
+        const r = el.getBoundingClientRect();
+        out.push(r.left - hb.left - 4, r.top - hb.top - 4, r.right - hb.left + 4, r.bottom - hb.top + 4);
+      });
+      obstacleRects.current = out;
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(root);
+    host.querySelectorAll("[data-label-obstacle]").forEach((el) => ro.observe(el));
+    return () => ro.disconnect();
+  }, []);
   const shownMarks = useMemo(() => marks.filter((m) => m.text), [marks]);
   const tagLevels = useMemo(() => {
     if (!box || !p.tags) return [] as { key: string; side: Side; v: THREE.Vector3 }[];
@@ -622,14 +654,14 @@ export default function PathwayScene(p: SceneProps) {
       padding: pr === 2 ? "3px 8px" : "2px 6px",
       borderRadius: 6,
       background: "color-mix(in srgb, var(--panel-solid, #111) 90%, transparent)",
-      color: m.kind === "dec" || m.kind === "lesion" || m.kind === "bound" ? p.colors.hi : p.colors.text,
+      color: "var(--text)",
       border: `${pr === 2 ? 2 : 1}px solid ${m.color}`,
       opacity: pr === 2 ? 1 : pr === 1 ? 0.78 : 0.34,
     };
   };
 
   return (
-    <div className="relative h-full w-full">
+    <div ref={rootRef} className="relative h-full w-full">
       <Canvas
         frameloop="demand"
         dpr={[1, 1.5]}
@@ -661,7 +693,7 @@ export default function PathwayScene(p: SceneProps) {
             onHover={p.onHover}
           />
         ))}
-        {box && p.midline !== false && <SidePlane box={box} colors={p.colors} />}
+        {box && p.midline !== false && p.view !== "left" && p.view !== "right" && <SidePlane box={box} colors={p.colors} />}
         {limbs.map((l) => (
           <Limb
             key={l.key}
@@ -683,7 +715,7 @@ export default function PathwayScene(p: SceneProps) {
           <MarkMesh key={m.key} pos={m.v!} kind={m.kind} color={m.color} r={radius} dim={m.prio === 0} />
         ))}
         {p.play && <Impulse tubes={tubes} play={p.play} radius={radius} colors={p.colors} onProgress={p.onPlayProgress} />}
-        <LabelProjector items={labelItems} els={labelEls} lines={leaderEls} sizes={sizes} />
+        <LabelProjector items={labelItems} els={labelEls} lines={leaderEls} sizes={sizes} obstacles={obstacleRects} />
       </Canvas>
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <svg className="absolute inset-0 h-full w-full">

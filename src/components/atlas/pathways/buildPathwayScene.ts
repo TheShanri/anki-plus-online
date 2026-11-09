@@ -1,13 +1,14 @@
 import { opp, physSide, sideName, type MapPathway, type Side, type WP } from "@/lib/atlas/pathways";
+import { EYE_SCALE } from "./eyeScale";
 import type { SceneColors, SceneLayer, SceneLimb, SceneMark, SceneTube, SceneEyes } from "./PathwayScene";
-import type { ReceptorId } from "./receptorInfo";
+import { RECEPTORS, type ReceptorId } from "./receptorInfo";
 import { fieldPalette } from "./visualField";
 
 /* Turns one pathway of the map (plus the step, the side focus and the body part) into the plain data the 3D scene draws.
  * Both sides are always drawn, in separate lanes; the side that is not focused is dimmed, not removed. */
 
 export type SideMode = Side | "both";
-export type LimbChoice = "hand" | "foot";
+export type LimbChoice = "hand" | "foot" | "leg";
 
 export interface OriginCfg {
   kind: "limb" | "face" | "muscle";
@@ -43,7 +44,7 @@ export const ORIGINS: Record<string, OriginCfg> = {
     muscle: ["spindle", "gto"],
     source: "Course pathway card: A-alpha (Ia / Ib) fibres from muscle spindles and Golgi tendon organs.",
   },
-  "stretch-reflex": { kind: "limb", parts: ["foot"], skin: [], muscle: ["spindle"], motor: true, source: "Course: the muscle spindle (Ia) afferent synapses directly on the alpha motor neuron, no interneuron (knee jerk, L3/L4)." },
+  "stretch-reflex": { kind: "limb", parts: ["leg"], skin: [], muscle: ["spindle"], motor: true, source: "Course: the muscle spindle (Ia) afferent synapses directly on the alpha motor neuron, no interneuron (knee jerk, L3/L4)." },
   "withdrawal-reflex": { kind: "limb", parts: ["hand"], skin: [], muscle: [], motor: true, source: "Course: a skin stimulus withdraws the limb through spinal interneurons (polysynaptic)." },
   "trigeminal-discriminative": { kind: "face", skin: [], muscle: [], source: "Course: the three divisions of the trigeminal nerve (V1, V2, V3)." },
   "trigeminal-pain": { kind: "face", skin: [], muscle: [], source: "Course: the three divisions of the trigeminal nerve (V1, V2, V3)." },
@@ -72,6 +73,7 @@ export interface BuildOpts {
   sideMode: SideMode;
   limbPart: LimbChoice;
   focusStretch: string;
+  view?: string;
 }
 export interface BuiltScene {
   layers: SceneLayer[];
@@ -180,20 +182,24 @@ function buildGeneral(o: BuildOpts): BuiltScene {
         const a = firstPath;
         const isFace = cfg.kind === "face";
         const lat = isFace ? 0 : part === "hand" ? 0.2 : 0.14;
-        const dy = isFace ? -0.03 : part === "hand" ? -0.17 : -0.4;
+        const tall = part === "leg" ? 0.72 : 0.2;
+        const dy = isFace ? -0.03 : part === "hand" ? -0.17 : part === "leg" ? -0.45 : -0.4;
         const dz = isFace ? 0.17 : 0.02;
         const limbAt = at("i", lat, dy, dz, a);
         limbs.push({ key: `limb:${b}`, part: isFace ? "face" : part, body: b, skin: [], muscle: [], alpha: al * (prom ? 1 : 0.5), at: limbAt });
-        const contact = isFace ? at("i", 0.03, dy, dz - 0.02, a) : limbAt;
+        const contact = isFace ? at("i", 0.03, dy, dz - 0.02, a) : part === "leg" ? at("i", lat, dy + 0.3, dz, a) : limbAt;
         const mid = isFace ? at("i", 0.03, dy / 2, dz / 2, a) : at("i", lat / 2 + 0.01, dy / 2, dz / 2, a);
         tubes.push({ key: `${slug}:${b}:nerve`, pts: [contact, mid, a], body: b, opacity: (prom ? 1 : 0.5) * al, reveal: 1, width: 0.9, seq: 0, neuron: 0 });
         if (cur === 0 || summary) {
           fit.push({ wp: limbAt, body: b });
-          fit.push({ wp: at("i", lat + 0.08, dy + 0.1, dz, a), body: b }, { wp: at("i", lat + 0.08, dy - 0.12, dz, a), body: b });
+          fit.push({ wp: at("i", lat + 0.08, dy + tall * 0.6, dz, a), body: b }, { wp: at("i", lat + 0.08, dy - tall * 0.6, dz, a), body: b });
         }
         if (foc && (cur === 0 || summary)) {
-          const nm = isFace ? "Face (trigeminal divisions)" : part === "hand" ? "Hand" : "Foot";
+          const nm = isFace ? "Face (trigeminal divisions)" : part === "hand" ? "Hand" : part === "leg" ? "Leg" : "Foot";
           marks.push({ key: `lab:${b}:part`, p: at("i", lat, dy - (isFace ? 0.1 : 0.075), dz, a), body: b, kind: "recept", text: `${sideName(b)} ${nm.toLowerCase()}`, color: sideCol(b), prio: 1, dir: 0 });
+          if (cfg.muscle.includes("spindle") && part === "leg") {
+            marks.push({ key: `lab:${b}:spindle`, p: at("i", lat, dy + 0.14, dz + 0.06, a), body: b, kind: "recept", text: "Muscle spindle (Ia afferent)", color: RECEPTORS.spindle.color, prio: 2 });
+          }
           if (isFace) {
             ZONE_NAMES.forEach((zn, zi) =>
               marks.push({ key: `lab:${b}:z${zi}`, p: at("i", 0.03, dy + 0.045 - zi * 0.045, dz + 0.06, a), body: b, kind: "recept", text: zn, color: sideCol(b), prio: 2 }),
@@ -235,7 +241,9 @@ function dedupeLayers(l: SceneLayer[]): SceneLayer[] {
  * `body` here is the side of the visual field.
  * ---------------------------------------------------------------------------------------------------------- */
 function buildVisual(o: BuildOpts): BuiltScene {
-  const { mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode } = o;
+  const { mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, view } = o;
+  // the V1 labels follow one field; from a side view the near hemisphere would hide the far one, so it is dimmed
+  const labField: Side = sideMode === "both" ? "L" : sideMode;
   const layers: SceneLayer[] = [];
   const tubes: SceneTube[] = [];
   const marks: SceneMark[] = [];
@@ -309,12 +317,14 @@ function buildVisual(o: BuildOpts): BuiltScene {
     // V1: the calcarine fissure splits the field: cuneus (above) = lower field, lingual gyrus (below) = upper field
     if (lastShown >= 2) {
       const isCur = cur === 2 || summary;
-      layers.push({ key: `${f}:v1:cuneus`, ids: ["cuneus"], side: opp(f), color: low, opacity: (isCur ? 0.92 : 0.5) * al });
-      layers.push({ key: `${f}:v1:lingual`, ids: ["lingual-gyrus"], side: opp(f), color: up, opacity: (isCur ? 0.92 : 0.5) * al });
-      layers.push({ key: `${f}:v1:calc`, ids: ["calcarine-sulcus"], side: opp(f), color: colors.text, opacity: (isCur ? 0.9 : 0.5) * al });
+      const near = (view === "left" && f === "R") || (view === "right" && f === "L");
+      const k = near ? 0.14 : 1;
+      layers.push({ key: `${f}:v1:cuneus`, ids: ["cuneus"], side: opp(f), color: low, opacity: (isCur ? 0.95 : 0.5) * al * k });
+      layers.push({ key: `${f}:v1:lingual`, ids: ["lingual-gyrus"], side: opp(f), color: up, opacity: (isCur ? 0.95 : 0.5) * al * k });
+      layers.push({ key: `${f}:v1:calc`, ids: ["calcarine-sulcus"], side: opp(f), color: "#ffffff", opacity: (isCur ? 1 : 0.5) * al * k });
       if (cur === 2 || summary) {
         for (const w of [["cuneus", "c", 0.5], ["lingual-gyrus", "c", 0.5]] as WP[]) fit.push({ wp: w, body: f });
-        if (foc && f === primaryOf(sideMode)) {
+        if (foc && f === labField) {
           marks.push({ key: `${slug}:${f}:cun`, p: ["cuneus", "c", 0.5, 0, 0.012, 0] as WP, body: f, kind: "recept", text: `${sideMode === "both" ? `${f} field · ` : ""}Cuneus (above the fissure): LOWER field`, color: low, prio: 2 });
           marks.push({ key: `${slug}:${f}:ling`, p: ["lingual-gyrus", "c", 0.5, 0, -0.012, 0] as WP, body: f, kind: "recept", text: `${sideMode === "both" ? `${f} field · ` : ""}Lingual gyrus (below): UPPER field`, color: up, prio: 2 });
         }
@@ -331,10 +341,11 @@ function buildVisual(o: BuildOpts): BuiltScene {
     for (const e of SIDES) {
       const lbl = (k: string, text: string, dx: number, dy: number, dz: number, prio: 0 | 1 | 2, dir?: -1 | 0 | 1) =>
         marks.push({ key: `eye:${e}:${k}`, p: ["optic-nerve-ii", "i", 1, dx, dy, dz, "z"] as WP, body: e, kind: "recept", text, color: fieldCol(e), prio, dir });
-      lbl("name", `${sideName(e)} eye`, 0, 0.0185, 0.012, 1, 0);
+      const S = EYE_SCALE;
+      lbl("name", `${sideName(e)} eye`, 0, 0.0125 * S, 0.012 * S, 1, 0);
       if (cur === 0 || summary) {
-        lbl("nasal", "Nasal retina", -0.011, -0.0, 0.008, 2);
-        lbl("temp", "Temporal retina", 0.011, 0.0, 0.008, 2);
+        lbl("nasal", "Nasal retina", -0.0075 * S, -0.0075 * S, 0.008 * S, 2);
+        lbl("temp", "Temporal retina", 0.0075 * S, -0.0075 * S, 0.008 * S, 2);
       }
       fit.push({ wp: ["optic-nerve-ii", "i", 1, 0.03, 0.03, 0.03, "z"] as WP, body: e }, { wp: ["optic-nerve-ii", "i", 1, -0.03, -0.025, 0.0, "z"] as WP, body: e });
     }

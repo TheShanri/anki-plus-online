@@ -100,7 +100,8 @@ export function Segmented<T extends string>({
               className={`inline-flex items-center justify-center gap-1.5 text-text transition-colors ${big ? "h-11 min-w-[58px] px-3 text-sm font-semibold" : "h-8 min-w-8 px-2 text-xs"} ${i > 0 ? "border-l border-panel-border" : ""} ${on ? (o.color ? "" : "bg-accent/25") : "bg-panel-solid/80 hover:bg-bg-3 text-text-dim"}`}
             >
               {o.icon}
-              {!iconOnly && <span className={big ? "" : "max-[420px]:hidden"}>{o.label}</span>}
+              {!iconOnly && <span className={big || o.label.length <= 3 || !o.icon ? (o.label.length > 3 && !big ? "max-[420px]:hidden" : "") : "max-[420px]:hidden"}>{o.label}</span>}
+              {!iconOnly && !big && !o.icon && o.label.length > 3 && <span className="hidden max-[420px]:inline">{o.label.charAt(0)}</span>}
             </button>
           </Tip>
         );

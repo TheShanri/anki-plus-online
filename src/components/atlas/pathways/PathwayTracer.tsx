@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, CircleHelp, Focus, Pause, Play, Route, Shuffle } from "lucide-react";
+import { ChevronLeft, ChevronRight, CircleHelp, Focus, PanelRightClose, PanelRightOpen, Pause, Play, Route, Shuffle } from "lucide-react";
 import {
   ORDINAL,
   PATHWAY_MAP,
@@ -29,6 +29,7 @@ import { Supplementary } from "@/components/supplementary/Supplementary";
 import { CalcarineDiagram, FieldDiagram, fieldPalette } from "./visualField";
 import { ORIGINS, ZONE_NAMES, buildPathwayScene, primaryOf, type LimbChoice, type SideMode } from "./buildPathwayScene";
 import { ReceptorLens } from "./ReceptorLens";
+import { AtlasLoader, stagesFrom } from "@/components/atlas/ui/AtlasLoader";
 import { shade } from "./visualField";
 
 /* The pathway tracer: pick a pathway, see both sides in separate lanes (left solid, right dashed), step through the
@@ -172,6 +173,7 @@ export function PathwayTracer({
   const [frameNonce, setFrameNonce] = useState(0);
   const [ready, setReady] = useState(false);
   const [load, setLoad] = useState({ done: 0, total: 0 });
+  const [panelOpen, setPanelOpen] = useState(true);
   const [reduced, setReduced] = useState(false);
   const colors = useSceneColors();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -312,7 +314,7 @@ export function PathwayTracer({
   );
 
   const cycleSide = useCallback(() => setSideMode((m) => (m === "L" ? "R" : m === "R" ? "both" : "L")), []);
-  const effView: View = userView ?? (isVisual && cur >= 1 && !summary ? "top" : isVisual && summary ? "top" : "anterior");
+  const effView: View = userView ?? (isVisual ? (summary ? "top" : cur === 0 ? "anterior" : cur === 1 ? "top" : sideMode === "R" ? "right" : "left") : "anterior");
 
   // keyboard
   useEffect(() => {
@@ -358,8 +360,8 @@ export function PathwayTracer({
 
   /* ---------- the 3D scene for this step ---------- */
   const scene = useMemo(
-    () => buildPathwayScene({ mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch }),
-    [mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch],
+    () => buildPathwayScene({ mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch, view: effView }),
+    [mp, slug, cur, lastShown, summary, follow, playing, colors, sideMode, limbPart, focusStretch, effView],
   );
   const pal = useMemo(() => fieldPalette(colors.left, colors.right), [colors.left, colors.right]);
   const zoneColors = useMemo(() => [shade(colors.hi, 0.1), shade(colors.hi, -0.15), shade(colors.hi, -0.4)], [colors.hi]);
@@ -400,8 +402,8 @@ export function PathwayTracer({
   const sideWord = (s: Side) => `${s === "L" ? "Left" : "Right"} ${noun}`;
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.6fr)_minmax(320px,1fr)]">
-      <div className="grid min-w-0 content-start gap-2.5">
+    <div className="flex flex-col gap-3 lg:h-[calc(100dvh-132px)] lg:min-h-[640px] lg:flex-row">
+      <div className="flex min-w-0 flex-1 flex-col gap-2.5">
         <div className="flex flex-wrap items-center gap-2">
           <PathwayPicker ref={pickerRef} groups={groups} value={slug} onChange={choose} />
           <Segmented
@@ -431,7 +433,7 @@ export function PathwayTracer({
           </div>
         )}
 
-        <div className="relative overflow-hidden rounded-card border border-panel-border bg-bg-2" style={{ height: "min(62vh, 620px)", minHeight: 360 }}>
+        <div className="relative min-h-[380px] flex-1 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[64dvh] max-lg:flex-none">
           <PathwayViewer
             layers={scene.layers}
             tubes={scene.tubes}
@@ -451,15 +453,17 @@ export function PathwayTracer({
             onLoad={(done, total) => setLoad({ done, total })}
           />
           {!ready && (
-            <div className="pointer-events-none absolute left-3 top-3 w-56 rounded-sm bg-panel-solid/90 px-3 py-2 text-xs text-text-dim" role="status">
-              <p>Placing the pathway: {load.done} of {load.total || "…"} structures</p>
-              <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-bg-3">
-                <div className="h-full rounded-full bg-accent transition-[width]" style={{ width: `${load.total ? Math.round((load.done / load.total) * 100) : 4}%` }} />
-              </div>
-            </div>
+            <AtlasLoader
+              label="Placing the pathway"
+              progress={load.total ? load.done / load.total : undefined}
+              stages={stagesFrom([
+                ["index", "Opening the atlas", load.total > 0, undefined],
+                ["structures", "Placing the structures", false, load.total ? `${load.done} / ${load.total}` : undefined],
+              ])}
+            />
           )}
           <Legend colors={colors} visual={isVisual} />
-          <div className="absolute right-2 top-2 flex items-center gap-1.5">
+          <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
             <Segmented
               label="View"
               value={effView}
@@ -467,6 +471,7 @@ export function PathwayTracer({
               options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))}
             />
             <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
+            <IconButton label={panelOpen ? "Hide the side panel" : "Show the side panel"} icon={panelOpen ? <PanelRightClose size={16} /> : <PanelRightOpen size={16} />} pressed={panelOpen} onClick={() => setPanelOpen((o) => !o)} tip="bottom" />
           </div>
         </div>
 
@@ -517,7 +522,8 @@ export function PathwayTracer({
         </p>
       </div>
 
-      <aside className="panel grid min-w-0 content-start gap-3" aria-live="polite">
+      {panelOpen && (
+      <aside className="panel grid min-w-0 content-start gap-3 lg:w-[400px] lg:flex-none lg:overflow-y-auto" aria-live="polite">
         <div>
           <p className="eyebrow">{cp.name}</p>
           <p className="text-xs text-text-dim">{cp.modality}</p>
@@ -707,6 +713,7 @@ export function PathwayTracer({
           </>
         )}
       </aside>
+      )}
     </div>
   );
 }
@@ -714,18 +721,19 @@ export function PathwayTracer({
 const limbPartName = (p: string) => (p === "muscle" ? "muscle" : p === "face" ? "face" : p);
 
 function Legend({ colors, visual }: { colors: { left: string; right: string; hi: string }; visual: boolean }) {
+  const ink = "var(--text)";
   return (
-    <div className="pointer-events-none absolute bottom-2 left-2 grid gap-1 rounded-sm bg-panel-solid/85 px-2 py-1.5 text-[11px] leading-none">
-      <span className="flex items-center gap-1.5" style={{ color: visual ? "var(--text)" : colors.left }}>
-        <svg width="22" height="6" aria-hidden><line x1="0" y1="3" x2="22" y2="3" stroke="currentColor" strokeWidth="2.6" /></svg>
+    <div data-label-obstacle className="pointer-events-none absolute bottom-2 left-2 grid gap-1 rounded-sm bg-panel-solid/90 px-2 py-1.5 text-[11px] leading-none text-text">
+      <span className="flex items-center gap-1.5">
+        <svg width="22" height="6" aria-hidden style={{ color: visual ? ink : colors.left }}><line x1="0" y1="3" x2="22" y2="3" stroke="currentColor" strokeWidth="2.6" /></svg>
         Left side (solid)
       </span>
-      <span className="flex items-center gap-1.5" style={{ color: visual ? "var(--text)" : colors.right }}>
-        <svg width="22" height="6" aria-hidden><line x1="0" y1="3" x2="22" y2="3" stroke="currentColor" strokeWidth="2.6" strokeDasharray="5 3" /></svg>
+      <span className="flex items-center gap-1.5">
+        <svg width="22" height="6" aria-hidden style={{ color: visual ? ink : colors.right }}><line x1="0" y1="3" x2="22" y2="3" stroke="currentColor" strokeWidth="2.6" strokeDasharray="5 3" /></svg>
         Right side (dashed)
       </span>
-      <span className="flex items-center gap-1.5" style={{ color: colors.hi }}>
-        <svg width="22" height="10" aria-hidden><path d="M3 1 L19 9 M19 1 L3 9" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
+      <span className="flex items-center gap-1.5">
+        <svg width="22" height="10" aria-hidden style={{ color: colors.hi }}><path d="M3 1 L19 9 M19 1 L3 9" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
         Crossing (decussation)
       </span>
     </div>

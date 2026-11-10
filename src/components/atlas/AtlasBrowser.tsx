@@ -74,6 +74,30 @@ const SYLLABUS: ReadonlySet<string> = (() => {
   return s;
 })();
 
+/** skull.glb / spine-atlas.glb node-name prefixes -> course structure (longest prefix first), and display names. */
+const SKULL_NODES: { prefix: string; slug: string }[] = [
+  ...Object.entries(SKULL).flatMap(([slug, e]) => (e.nodes ?? []).filter((n) => n !== "falx-cerebri" && n !== "tentorium-cerebelli" && n !== "spinal-dura").map((prefix) => ({ prefix, slug }))),
+  { prefix: "falx-cerebri", slug: "falx-cerebri" },
+  { prefix: "tentorium-cerebelli", slug: "tentorium-cerebelli" },
+  { prefix: "spinal-dura", slug: "dural-sac" },
+].sort((a, b) => b.prefix.length - a.prefix.length);
+const SKULL_NAMES: Record<string, string> = Object.fromEntries(Object.keys(LINKS).filter((k) => LINKS[k].skull || k === "falx-cerebri" || k === "tentorium-cerebelli").map((k) => [k, LINKS[k].name]));
+/** Short background for skull bones that are not course structures (shown after "Oh, I'm just curious"). */
+const NODE_BLURBS: Record<string, string> = {
+  maxilla: "The upper jaw bone. It holds the upper teeth, forms most of the hard palate and floor of the orbit, and contains the maxillary sinus.",
+  "zygomatic-bone": "The cheekbone. It forms the prominence of the cheek and part of the orbit, and joins the temporal bone to make the zygomatic arch.",
+  "nasal-bone": "A small paired bone that forms the bridge of the nose. It is the most commonly fractured facial bone.",
+  "lacrimal-bone": "A thin, fragile bone on the inner wall of the orbit. It carries the groove for the tear sac and duct.",
+  "palatine-bone": "An L-shaped bone behind the maxilla. It forms the back of the hard palate and part of the nasal cavity and orbit.",
+  vomer: "A thin unpaired bone that forms the lower back part of the nasal septum.",
+  "inferior-nasal-concha": "A curled bone on the side wall of the nasal cavity that warms and humidifies inhaled air.",
+  mandible: "The lower jaw, the only skull bone that moves. It articulates with the temporal bones at the temporomandibular joints.",
+  "suture-squamous": "The squamous suture joins the temporal bone to the parietal bone on the side of the skull.",
+  "spinal-ganglion": "A dorsal root ganglion: the cluster of sensory neuron cell bodies on each dorsal root, just outside the spinal cord.",
+};
+const nodeTitle = (n: string) => n.replace(/[-_]l$/, " (L)").replace(/[-_]r$/, " (R)").replace(/[-_]/g, " ").replace(/^./, (c) => c.toUpperCase());
+const nodeBlurb = (n: string) => Object.entries(NODE_BLURBS).find(([k]) => n.startsWith(k))?.[1] ?? "Part of the skull and spine model. It is not one of the structures on your course lists.";
+
 export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb, embedded = false, courseSlug, height }: Props) {
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [atlas2, setAtlas2] = useState<Atlas2 | null>(null);
@@ -119,6 +143,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const gate = useSupplementaryGate("atlas-3d");
   const [lockedPick, setLockedPick] = useState<{ id: string; name: string } | null>(null);
   const [unlocked, setUnlocked] = useState<string | null>(null);
+  const [curiousNode, setCuriousNode] = useState<{ id: string; name: string } | null>(null);
 
   useEffect(() => {
     let alive = true;
@@ -201,7 +226,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
 
   const extraCard = !!(unlocked && primary?.key === unlocked);
   // skull, spine and meninges structures show in the skull layer (the layer turns itself on for them and off for brain structures)
-  const skullEntry = infoSlug && LINKS[infoSlug]?.skull ? (SKULL[infoSlug] ?? null) : null;
+  const skullEntry = useMemo(() => (infoSlug && LINKS[infoSlug]?.skull && SKULL[infoSlug] ? { ...SKULL[infoSlug], slug: infoSlug } : null), [infoSlug]);
   useEffect(() => {
     if (!skullEntry?.shells) return;
     const t = window.setTimeout(() => setRequest((r) => ({ n: (r?.n ?? 0) + 1, view: "midsagittal", multi: false })), 0);
@@ -223,17 +248,19 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   // the 3D model when the MRI atlas has no label. A view the student picks stays otherwise.
   // The current modality stays unless the new structure has nothing to show in it (then say why).
   const tabFor = (it: CatalogItem, cur: Tab): { tab: Tab; why?: string } => {
-    if (cur === "model" && !it.meshIds.length && it.slug) return { tab: "slices", why: "Not in the 3D model, showing MRI" };
+    // Existence wins over any remembered, linked or translated tab: a structure never opens in a view where it does not exist.
     const skullIt = !!LINKS[slugOf(it) ?? ""]?.skull;
-    if (cur === "slices" && !it.slug && (it.meshIds.length || skullIt)) return { tab: "model", why: "Not in the MRI atlas, showing 3D" };
-    if (cur === "sections" && !inSections(slugOf(it))) return { tab: it.meshIds.length || skullIt ? "model" : "slices", why: "Not on the course sections, showing " + (it.meshIds.length || skullIt ? "3D" : "MRI") };
+    const has3d = it.meshIds.length > 0 || skullIt;
+    const hasMri = !!it.slug && !!it.slices;
+    if (cur === "model" && !has3d && hasMri) return { tab: "slices", why: "Not in the 3D model, showing MRI" };
+    if (cur === "slices" && !hasMri && has3d) return { tab: "model", why: "Not in the MRI atlas, showing 3D" };
+    if (cur === "sections" && !inSections(slugOf(it))) return { tab: has3d ? "model" : "slices", why: "Not on the course sections, showing " + (has3d ? "3D" : "MRI") };
     return { tab: cur };
   };
   const resolvedOnce = useRef(false);
   useEffect(() => {
     if (!primary || resolvedOnce.current) return;
     resolvedOnce.current = true;
-    if (initialView && VIEW_PARAM[initialView]) return; // the link asked for a view
     const t = window.setTimeout(() => {
       const r = tabFor(primary, tab);
       if (r.tab !== tab) changeTab(r.tab);
@@ -343,6 +370,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
 
   const relock = useCallback(() => {
     setUnlocked(null);
+    setCuriousNode(null);
     setLockedPick(null);
     gate.lock();
   }, [gate]);
@@ -374,6 +402,14 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     if (!gate.open || !lockedPick || unlocked === lockedPick.id) return;
     const { id, name } = lockedPick;
     const t = window.setTimeout(() => {
+      if (id.startsWith("skull:node:")) {
+        // a bone that is not a course structure: its own card, no selection change
+        setUnlocked(id);
+        setCuriousNode({ id, name });
+        setInfoOpen(true);
+        trackAtlas({ type: "curious_unlock", mesh: id, name });
+        return;
+      }
       setUnlocked(id);
       setCourseName(undefined);
       setPrimaryKey(id);
@@ -393,6 +429,16 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   /** A structure clicked in 3D becomes the primary selection (curriculum item when one exists). */
   function pickMesh(id: string, side?: Side) {
     if (side) setNbSide(side);
+    if (id.startsWith("skull:")) {
+      const k = id.slice(6);
+      if (k.startsWith("node:")) return touchLocked(id, nodeTitle(k.slice(5)));
+      if (!k || !LINKS[k]) return;
+      relock();
+      setCourseName(undefined);
+      setPrimaryKey(k);
+      changeTab("model");
+      return;
+    }
     if (!SYLLABUS.has(id) && index?.structures[id]) {
       if (unlocked === id) return;
       return touchLocked(id, index.structures[id].name);
@@ -436,7 +482,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const ids3d = primary?.meshIds ?? [];
   const sliceQuality = primary?.slices ?? null;
   const sliceSrc = primary?.slug && atlas2 ? atlas2.structures[primary.slug]?.source : null;
-  const hasInfo = !!infoSlug || extraCard;
+  const hasInfo = !!infoSlug || extraCard || !!curiousNode;
   const modeAvail = availabilityFor(primary);
   const ent = unlocked && index ? index.structures[unlocked] : null;
   const status =
@@ -580,6 +626,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 onUserView={onUserView}
                 onCameraState={onCameraState}
                 skull={skullEntry}
+                skullNodes={SKULL_NODES}
+                skullNames={SKULL_NAMES}
                 request={request}
               />
               </div>
@@ -648,7 +696,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">{infoOpen ? "close" : "notes"}</span>
             </button>
             <div className={`${infoOpen ? "max-h-[48dvh]" : "hidden"} overflow-y-auto p-2 lg:block lg:max-h-none lg:min-h-0 lg:flex-1`}>
-              {extraCard && primary ? (
+              {curiousNode ? (
+                <ExtraInfoCard name={curiousNode.name} blurb={nodeBlurb(curiousNode.id.slice(11))} region="Skull and spine" onLock={relock} />
+              ) : extraCard && primary ? (
                 <ExtraInfoCard name={primary.name} latin={ent?.latin} region={ent ? index?.regions[ent.region] : undefined} blurb={EXTRA[primary.key]} onLock={relock} />
               ) : (
                 infoSlug && <StructureInfo slug={infoSlug} name={primary?.name} />

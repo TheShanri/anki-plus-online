@@ -95,6 +95,9 @@ export type AtlasViewerProps = {
   children?: React.ReactNode;
   /** Opacity of the base brain (everything not in an overlay), 0-1, e.g. 0.12. Below 1 the brain is drawn translucent with depthWrite off, so solid vessels inside it render correctly. */
   brainOpacity?: number;
+  /** node-name prefix -> structure slug for the skull and spine layer meshes (picking); names by slug / node. */
+  skullNodes?: { prefix: string; slug: string }[];
+  skullNames?: Record<string, string>;
   /** A structure of the skull and spine layer to show (patch, markers, tubes or meningeal shells). Turns the layer on. */
   skull?: SkullFocus | null;
   /** Camera view, multi-view and cut, reported whenever they change (the MRI tab shows the matching slice). */
@@ -201,6 +204,8 @@ const FIXED_PANES: { id: string; view: ViewName; label: string }[] = [
 const FREE_DIR = new THREE.Vector3(0.8, 0.5, 0.75).normalize();
 const DEFAULT_BRAIN = new THREE.Box3(new THREE.Vector3(-0.07, 1.58, -0.1), new THREE.Vector3(0.07, 1.7, 0.085));
 type Dims = { w: number; h: number };
+const EMPTY_NODES: { prefix: string; slug: string }[] = [];
+const EMPTY_NAMES: Record<string, string> = {};
 
 /** The triangles of the (merged) layer meshes whose centre lies within r of an anchor: a highlighted patch of bone (approximate). */
 function carvePatch(roots: THREE.Object3D[], anchors: number[][], r: number): THREE.BufferGeometry | null {
@@ -812,11 +817,15 @@ function Picker({
   grossPlanes,
   ownPlanes,
   structures,
+  nameOf,
+  layerFirst,
   onHover,
   onMove,
   onPick,
   onMiss,
 }: {
+  nameOf?: (id: string) => string | undefined;
+  layerFirst?: boolean;
   onMiss?: () => void;
   el: HTMLElement | null;
   getPanes: () => Pane[];
@@ -857,19 +866,27 @@ function Picker({
       ndc.set(((cx - r.left) / r.width) * 2 - 1, -((cy - r.top) / r.height) * 2 + 1);
       ray.setFromCamera(ndc, cam);
       const hits = ray.intersectObjects(pickables.current, false);
+      let layerHit: (PickInfo & { side?: "L" | "R" }) | null = null;
       for (const h of hits) {
         const m = h.object as THREE.Mesh;
         _hit.copy(h.point);
-        const gross = m.userData.gid !== undefined;
+        const lid = m.userData.lid as string | undefined;
+        const gross = m.userData.gid !== undefined || lid !== undefined;
         if (clippedBy(gross ? grossPlanes.current : ownPlanes.current, _hit)) continue;
         const ms = m.userData.side as "L" | "R" | undefined;
         if (ms && (ms === "L") !== _hit.x > 0) continue; // the clipped-away hemisphere of a one-sided overlay
-        const id = (gross ? m.userData.gid : m.userData.sid) as string;
+        const side: "L" | "R" | undefined = _hit.x > 0.002 ? "L" : _hit.x < -0.002 ? "R" : undefined;
+        if (lid) {
+          const info = { hover: { id: lid }, name: nameOf?.(lid) ?? lid, side };
+          if (layerFirst) return info; // a skull structure is selected: the bone is what is being explored
+          layerHit ??= info; // otherwise the brain behind it wins; bones answer where there is no brain
+          continue;
+        }
+        const id = (m.userData.gid !== undefined ? m.userData.gid : m.userData.sid) as string;
         const name = structures[id]?.name ?? id;
-        const side = _hit.x > 0.002 ? "L" : _hit.x < -0.002 ? "R" : undefined;
-        return { hover: gross ? { id } : { key: m.userData.key as string, id }, name, side };
+        return { hover: m.userData.gid !== undefined ? { id } : { key: m.userData.key as string, id }, name, side };
       }
-      return null;
+      return layerHit;
     };
     const run = () => {
       raf = 0;
@@ -925,7 +942,7 @@ function Picker({
       el.removeEventListener("pointerdown", dn);
       el.removeEventListener("pointerup", up);
     };
-  }, [el, getPanes, camera, pickables, grossPlanes, ownPlanes, structures, onHover, onMove, onPick, onMiss]);
+  }, [el, getPanes, camera, pickables, grossPlanes, ownPlanes, structures, onHover, onMove, onPick, onMiss, nameOf, layerFirst]);
   return null;
 }
 
@@ -952,6 +969,9 @@ function Scene({
   brainOpacity,
   skull,
   layer,
+  layerShow,
+  skullNodes,
+  skullNames,
   onWarm,
   probeRef,
   pickEl,
@@ -966,6 +986,9 @@ function Scene({
   brainOpacity?: number;
   skull: SkullFocus | null;
   layer: THREE.Group[];
+  layerShow: boolean;
+  skullNodes: { prefix: string; slug: string }[];
+  skullNames: Record<string, string>;
   onWarm: () => void;
   probeRef: React.MutableRefObject<((dir: THREE.Vector3, mid: boolean) => number) | null>;
   pickEl: HTMLElement | null;
@@ -1113,8 +1136,11 @@ function Scene({
           const m = o as THREE.Mesh;
           if (m.isMesh) {
             m.material = boneMat;
-            m.raycast = () => undefined;
             m.renderOrder = -2;
+            const nm = m.name || m.parent?.name || "";
+            const nn = skullNodes.find((n) => nm.startsWith(n.prefix));
+            m.userData.lid = "skull:" + (nn ? nn.slug : "node:" + nm);
+            m.visible = layerShow; // hiding the bones hides only the bones (a selected structure's own mesh stays, below)
           }
         });
         // the exact per-node meshes of the selected structure (bones, vertebrae, sutures, dura)
@@ -1126,12 +1152,23 @@ function Scene({
               if (m.isMesh) {
                 m.material = skullMat;
                 m.renderOrder = 4;
+                m.visible = true;
               }
             });
           });
         return c;
       }),
-    [layer, boneMat, skull, skullMat],
+    [layer, boneMat, skull, skullMat, layerShow, skullNodes],
+  );
+
+  const nameOf = useMemo(
+    () => (id: string) => {
+      if (!id.startsWith("skull:")) return undefined;
+      const k = id.slice(6);
+      if (k.startsWith("node:")) return k.slice(5).replace(/[-_]l$/, " (L)").replace(/[-_]r$/, " (R)").replace(/[-_]/g, " ").replace(/^./, (c) => c.toUpperCase());
+      return skullNames[k] ?? k;
+    },
+    [skullNames],
   );
 
   // skull focus: bone patch, landmark markers, suture / canal tubes
@@ -1151,7 +1188,7 @@ function Scene({
       const curve = new THREE.CatmullRomCurve3(t.map((p) => new THREE.Vector3(p[0], p[1], p[2])), skull.closed);
       const m = new THREE.Mesh(new THREE.TubeGeometry(curve, Math.min(400, t.length * 3), skull.tubeR || 0.0015, 6, skull.closed), markMat);
       m.renderOrder = 10;
-      m.raycast = () => undefined;
+      m.userData.lid = "skull:" + (skull.slug ?? "");
       g.add(m);
     }
     const dot = new THREE.SphereGeometry(0.0035, 12, 8);
@@ -1159,7 +1196,8 @@ function Scene({
       const m = new THREE.Mesh(dot, markMat);
       m.position.set(l[0], l[1], l[2]);
       m.renderOrder = 11;
-      m.raycast = () => undefined;
+      m.scale.setScalar(2.2); // a larger hit target than the dot
+      m.userData.lid = "skull:" + (skull.slug ?? "");
       g.add(m);
     }
     return g;
@@ -1313,9 +1351,18 @@ function Scene({
     eachMesh(targetRoot, (m) => list.push(m));
     eachMesh(ovlRoot, (m) => list.push(m));
     if (grossOn && solid) for (const [id, m] of grossById) if (!hiddenIds.has(id)) list.push(m);
+    for (const r of layerRoots)
+      r.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.isMesh && m.visible && m.userData.lid) list.push(m);
+      });
+    skullGroup?.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (m.isMesh && m.userData.lid) list.push(m);
+    });
     pickables.current = list;
     invalidate();
-  }, [grossById, grossOn, solid, hiddenIds, targetRoot, ovlRoot, invalidate]);
+  }, [grossById, grossOn, solid, hiddenIds, targetRoot, ovlRoot, layerRoots, skullGroup, invalidate]);
 
   // hover highlight: a pooled tinted copy of the hovered mesh(es), parented to the source so transforms follow
   const pool = useMemo(
@@ -1335,6 +1382,13 @@ function Scene({
     if (hover?.key) {
       if (hover.key === "primary") eachMesh(targetRoot, (m) => list.push(m));
       else eachMesh(ovlRoot, (m) => m.userData.key === hover.key && (!perMesh || !hover.id || m.userData.sid === hover.id) && list.push(m));
+    } else if (hover?.id?.startsWith("skull:")) {
+      for (const r of layerRoots)
+        r.traverse((o) => {
+          const m = o as THREE.Mesh;
+          if (m.isMesh && m.visible && m.userData.lid === hover.id) list.push(m);
+        });
+      grossHover = true;
     } else if (hover?.id) {
       const m = grossById.get(hover.id);
       if (m && m.visible) {
@@ -1346,7 +1400,7 @@ function Scene({
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, perMesh, invalidate]);
+  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, layerRoots, perMesh, invalidate]);
 
   // how much of the target can be seen from a direction (rays from the camera to sample points, blocked by the solid brain)
   useEffect(() => {
@@ -1413,7 +1467,7 @@ function Scene({
       {guides.map((g, i) => (
         <GuidePlane key={i} g={g} centre={centre} />
       ))}
-      {!quiz && <Picker el={pickEl} getPanes={getPanes} pickables={pickables} grossPlanes={grossPlanes} ownPlanes={ownPlanes} structures={structures} onHover={onHover} onMove={onMove} onPick={onPick} onMiss={onMiss} />}
+      {!quiz && <Picker nameOf={nameOf} layerFirst={!!skull} el={pickEl} getPanes={getPanes} pickables={pickables} grossPlanes={grossPlanes} ownPlanes={ownPlanes} structures={structures} onHover={onHover} onMove={onMove} onPick={onPick} onMiss={onMiss} />}
     </>
   );
 }
@@ -1452,6 +1506,8 @@ export default function AtlasViewer({
   children,
   brainOpacity: brainOpacityProp,
   skull = null,
+  skullNodes = EMPTY_NODES,
+  skullNames = EMPTY_NAMES,
   layerAuto: layerAutoProp = false,
   request = null,
   overlay,
@@ -1515,11 +1571,11 @@ export default function AtlasViewer({
   const fixedBase = useRef<(PaneBase | null)[]>([null, null, null]);
   const invalidateRef = useRef<() => void>(() => undefined);
   const layerAuto = layerAutoProp || !!skull;
-  const brainOpacity = brainOpacityProp ?? (skull ? 0.22 : undefined);
   const [cssFs, setCssFs] = useState(false);
   // skull & spine layer: automatic from the selection type, with a manual override that holds until the type changes
   const [layerOv, setLayerOv] = useState<{ auto: boolean; v: boolean } | null>(null);
   const layerOn = layerOv && layerOv.auto === layerAuto ? layerOv.v : layerAuto;
+  const brainOpacity = brainOpacityProp ?? (skull && layerOn ? 0.22 : undefined);
   const [layerGroups, setLayerGroups] = useState<THREE.Group[]>([]);
   const [layerMissing, setLayerMissing] = useState(false);
   // the layer button only appears once the skull model is actually published
@@ -1533,7 +1589,7 @@ export default function AtlasViewer({
     };
   }, []);
   useEffect(() => {
-    if (!layerOn || layerGroups.length || layerMissing) return;
+    if (!(layerOn || skull) || layerGroups.length || layerMissing) return;
     let alive = true;
     Promise.all(["skull.glb", "spine-atlas.glb"].map((f) => loadAtlasModel(f).catch(() => null))).then((g) => {
       if (!alive) return;
@@ -1544,7 +1600,7 @@ export default function AtlasViewer({
     return () => {
       alive = false;
     };
-  }, [layerOn, layerGroups.length, layerMissing]);
+  }, [layerOn, skull, layerGroups.length, layerMissing]);
   const probeRef = useRef<((dir: THREE.Vector3, mid: boolean) => number) | null>(null);
   const getPanes = useCallback(() => panes.current, []);
 
@@ -2126,7 +2182,10 @@ export default function AtlasViewer({
             lockedSet={lockedSet}
             brainOpacity={brainOpacity}
             skull={skull}
-            layer={layerOn ? layerGroups : EMPTY_LAYER}
+            layer={layerOn || skull ? layerGroups : EMPTY_LAYER}
+            layerShow={layerOn}
+            skullNodes={skullNodes}
+            skullNames={skullNames}
             onWarm={onWarm}
             probeRef={probeRef}
             pickEl={layerEl}

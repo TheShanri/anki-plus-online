@@ -17,6 +17,8 @@ export type SkullFocus = {
   tubeR: number;
   /** Named nodes of skull.glb / spine-atlas.glb to highlight (prefix match); exact meshes. */
   nodes?: string[];
+  /** Set by the browser: the structure slug (for picking the focus markers). */
+  slug?: string;
 };
 export const SKULL = skullData as unknown as Record<string, SkullFocus>;
 export const SKULL_REGIONS: Record<string, string> = { skull: "Skull", spine: "Spine", meninges: "Meninges" };

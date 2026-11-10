@@ -108,8 +108,9 @@ function browserVoice(text: string): void {
   }
 }
 
-/** Play the clip for `text`. Resolves once playback has started (or fallen back); never rejects. */
-export async function speak(text: string, onState?: (s: "loading" | "playing" | "idle") => void): Promise<void> {
+/** Play the clip for `text`. Resolves once playback has started (or fallen back); never rejects.
+ *  `fallback: false` (automatic read-aloud) stays silent when there is no natural clip instead of using the browser voice. */
+export async function speak(text: string, onState?: (s: "loading" | "playing" | "idle") => void, opts: { fallback?: boolean } = {}): Promise<void> {
   if (typeof window === "undefined" || !text.trim()) return;
   const mine = ++token;
   audio?.pause();
@@ -119,7 +120,7 @@ export async function speak(text: string, onState?: (s: "loading" | "playing" | 
   if (mine !== token) return;
   if (!blob) {
     onState?.("idle");
-    browserVoice(text);
+    if (opts.fallback !== false) browserVoice(text);
     return;
   }
   try {

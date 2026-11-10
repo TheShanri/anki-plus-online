@@ -10,7 +10,7 @@ import { AnswerSync } from "@/lib/study/sync";
 import { sessionIdFor } from "@/lib/study/activity";
 import type { StudyPayload } from "@/lib/study/types";
 import { typingReminderDue } from "@/lib/study/settings";
-import { prefetch as prefetchTts, speak as speakTts } from "@/lib/tts/player";
+import { prefetch as prefetchTts, speak as speakTts, stop as stopTts } from "@/lib/tts/player";
 import { setSoundsEnabled, initFallbackBeepFromStorage, emit } from "@/lib/feedback/events";
 import { CardFace } from "@/components/cards/CardFace";
 import { PinImage } from "@/components/cards/PinImage";
@@ -98,15 +98,17 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   });
 
   // Answer audio: keep a small rolling window of the next clips warm (low priority, skipped on slow links), and
-  // read the answer aloud on reveal when the learner turned that on (it follows the Sounds toggle).
+  // read the answer aloud the moment it is revealed (on by default, like desktop ANKI+; independent of the
+  // Sounds toggle), and cut it off when the learner moves on.
   const curId = engine.cur?.card.id;
   useEffect(() => {
     prefetchTts([...(engine.cur ? [engine.cur.card.answer] : []), ...engine.queue.peek(Date.now(), 5).map((e) => e.card.answer)]);
   }, [engine, curId]);
   const revealed = engine.phase === "reveal" ? curId : undefined;
   useEffect(() => {
-    const sc = engine.settings.scaffold;
-    if (revealed && sc.speak && sc.sounds && engine.cur?.card.answer) void speakTts(engine.cur.card.answer);
+    if (!revealed) return;
+    if (engine.settings.scaffold.readAloud && engine.cur?.card.answer) void speakTts(engine.cur.card.answer, undefined, { fallback: false });
+    return () => stopTts();
   }, [engine, revealed]);
 
   useEffect(() => {

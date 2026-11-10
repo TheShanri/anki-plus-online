@@ -16,8 +16,8 @@ export interface Scaffold {
   /** micro-sprints, wander catcher, hyperfocus guard, trap-letter slow mode */
   focus: boolean;
   sounds: boolean;
-  /** read the answer aloud when it is revealed (pre-generated voice; off by default) */
-  speak: boolean;
+  /** read the answer aloud as soon as it is revealed (pre-generated voice), like desktop ANKI+; independent of Sounds */
+  readAloud: boolean;
   /** streak and activity grid */
   streaks: boolean;
   /** offer the student-written mnemonic prompt after repeated misses */
@@ -32,7 +32,7 @@ export const SCAFFOLD_DEFAULTS: Scaffold = {
   theory: true,
   focus: true,
   sounds: true,
-  speak: false,
+  readAloud: true,
   streaks: true,
   mnemonics: true,
 };

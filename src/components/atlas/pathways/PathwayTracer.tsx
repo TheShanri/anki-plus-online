@@ -176,6 +176,9 @@ export function PathwayTracer({
   const [frameNonce, setFrameNonce] = useState(0);
   const [ready, setReady] = useState(false);
   const [load, setLoad] = useState({ done: 0, total: 0 });
+  // stable, and a no-op when nothing changed: an inline arrow re-ran the scene's report effect on every render, and the new
+  // object re-rendered the tracer again, a loop of ~10 commits a second that starved the router's navigation transition
+  const onLoad = useCallback((done: number, total: number) => setLoad((l) => (l.done === done && l.total === total ? l : { done, total })), []);
   const [panelOpen, setPanelOpen] = useState(true);
   const [schemOpen, setSchemOpen] = useState(true);
   const [hoverInfo, setHoverInfo] = useState<string | null>(null);
@@ -512,7 +515,7 @@ export function PathwayTracer({
               resetKey={slug}
               colors={colors}
               onReady={setReady}
-              onLoad={(done, total) => setLoad({ done, total })}
+              onLoad={onLoad}
             />
             {!ready && (
               <AtlasLoader

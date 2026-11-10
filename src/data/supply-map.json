@@ -7,21 +7,21 @@
    "name": "Anterior cerebral artery",
    "short": "ACA",
    "color": "#ef476f",
-   "territory": "Medial frontal and parietal lobes (leg motor/sensory areas), corpus callosum, cingulate, anterior basal ganglia via the recurrent artery of Heubner."
+   "territory": "Medial frontal and parietal lobes (to about the parieto-occipital sulcus), cingulate gyrus and basal forebrain; lower-extremity motor and sensory areas. Branches: pericallosal and callosomarginal arteries. The medial striate artery (recurrent artery of Heubner) supplies part of the anterior limb of the internal capsule and adjacent basal ganglia."
   },
   {
    "id": "mca",
    "name": "Middle cerebral artery",
    "short": "MCA",
    "color": "#ffa62b",
-   "territory": "Lateral convexity: face/arm motor and sensory cortex, language areas (Broca, Wernicke), insula, auditory cortex."
+   "territory": "Most of the lateral frontal, parietal and temporal lobes: face and upper-extremity motor and sensory areas, speech (Broca) and auditory cortex. Via the lenticulostriate arteries: basal ganglia and the anterior limb of the internal capsule."
   },
   {
    "id": "pca",
    "name": "Posterior cerebral artery",
    "short": "PCA",
    "color": "#3a86ff",
-   "territory": "Occipital lobe (visual cortex), inferior and medial temporal lobe, hippocampus, thalamus (thalamogeniculate, posterior choroidal), midbrain."
+   "territory": "Inferior half of the temporal lobe and the occipital lobe (vision, the 'what' pathway); thalamus and posterior limb of the internal capsule; rostral pons, midbrain and diencephalon through penetrating and circumferential branches."
   },
   {
    "id": "achor",
@@ -84,14 +84,14 @@
    "name": "Anterior spinal artery",
    "short": "Ant. spinal",
    "color": "#e63946",
-   "territory": "Anterior two thirds of the spinal cord and the medial medulla: pyramids, hypoglossal nucleus, medial lemniscus."
+   "territory": "The ventral half of the spinal cord on both sides, plus part of each dorsal horn and lateral funiculus: both ventral horns, intermediate grey, most sensory tracts (not the dorsal columns) and all the motor tracts. Formed by a branch from each vertebral artery that fuse between the pyramids."
   },
   {
    "id": "psa",
    "name": "Posterior spinal arteries",
    "short": "Post. spinal",
    "color": "#4cc9f0",
-   "territory": "Posterior third of the cord: dorsal columns, dorsal horn; gracile and cuneate nuclei."
+   "territory": "A dorsal wedge of cord on its own side: much of the dorsal horn and the whole dorsal column on that side (two small arteries, identified on a picture only)."
   },
   {
    "id": "ica",

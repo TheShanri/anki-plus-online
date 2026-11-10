@@ -672,7 +672,7 @@ export default function PathwayScene(p: SceneProps) {
   // only the current beat is labelled (plus the crossing X once it has drawn): the schematic carries every name
   const sideA = (m: { body: Side; mid?: boolean }) => (m.mid ? Math.max(sideAlpha.L, sideAlpha.R) : sideAlpha[m.body]);
   const isShown = (m: { beat?: number; body: Side; kind: MarkKind; mid?: boolean }) =>
-    (beatMode && m.beat !== undefined ? (m.beat === hot ? m.beat <= p.reveal! : m.kind === "dec" && m.beat <= p.reveal!) : true) && sideA(m) >= 0.5;
+    (beatMode && m.beat !== undefined ? (m.beat === hot ? m.beat <= p.reveal! : false) : true) && sideA(m) >= 0.5;
   const prioOf = (m: { beat?: number; prio?: 0 | 1 | 2; kind: MarkKind }): 0 | 1 | 2 => (beatMode && m.beat !== undefined ? (m.beat === hot ? 2 : m.kind === "dec" ? 1 : 0) : (m.prio ?? 1));
   const tagLevels = useMemo(() => {
     if (!box || !p.tags) return [] as { key: string; side: Side; v: THREE.Vector3 }[];
@@ -779,7 +779,7 @@ export default function PathwayScene(p: SceneProps) {
           return (
             <Limb
               key={l.key}
-              spec={{ ...l, alpha: l.alpha * sideAlpha[l.body] * (prominent ? 1 : 0.55) }}
+              spec={{ ...l, alpha: l.alpha * sideAlpha[l.body] * (prominent ? 1 : 0.2) }}
               at={l.v!}
               colors={limbColors(l.body)}
               zoneColors={zoneColors}
@@ -801,9 +801,9 @@ export default function PathwayScene(p: SceneProps) {
               pts={t.v}
               color={t.color}
               colors={p.colors}
-              opacity={base * sideAlpha[t.body] * (t.meshed ? 0.4 : 1)}
+              opacity={base * sideAlpha[t.body] * (t.meshed ? 0.8 : 1)}
               reveal={revealed}
-              radius={radius * (t.width ?? 1) * (t.meshed ? 0.55 : 1)}
+              radius={radius * (t.width ?? 1) * (t.meshed ? 0.8 : 1)}
               pulse={t.pulse}
               hover={!!t.info && hoverKey === t.info}
               reduced={p.reduced}

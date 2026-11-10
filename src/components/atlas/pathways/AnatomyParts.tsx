@@ -23,6 +23,8 @@ export interface SceneAnatomy {
   hl?: { match: string; beat: number; color: string }[];
   /** The file only holds the left side: draw a mirrored copy for the right (head targets). The spine, thorax and gut are midline. */
   sided?: boolean;
+  /** Beat ranges in which the file is the thing to look at; at other beats it is faint so it never hides the pathway. */
+  focus?: [number, number][];
 }
 
 const TISSUE_COLOR: Record<string, string> = {
@@ -74,7 +76,7 @@ function styleAnatomy(scene: THREE.Object3D, spec: SceneAnatomy, mirror: boolean
     const h = spec.hl?.find((x) => nm === x.match || nm.startsWith(`${x.match}_`));
     const lit = !!h && reveal >= h.beat;
     const mat = mats.base;
-    const strong = lit ? (hot === h!.beat ? 1 : 0.85) : full ? (TISSUE_ALPHA[t] ?? 0.8) * (FADE_ORGAN.test(nm) ? 0.55 : 1) : 0.07;
+    const strong = lit ? (spec.file === "spine" ? (hot === h!.beat ? 0.55 : 0.32) : FADE_ORGAN.test(nm) || t === "bone" ? (hot === h!.beat ? 0.6 : 0.3) : hot === h!.beat ? 0.95 : 0.55) : full ? (TISSUE_ALPHA[t] ?? 0.8) * (FADE_ORGAN.test(nm) ? 0.55 : 1) : 0.07;
     if (lit) {
       mat.color.set(h!.color);
       mat.emissive.set(h!.color);
@@ -85,8 +87,9 @@ function styleAnatomy(scene: THREE.Object3D, spec: SceneAnatomy, mirror: boolean
       mat.emissive.set(c);
       mat.emissiveIntensity = 0.14;
     }
-    mat.opacity = Math.min(1, strong) * alpha;
-    mat.depthWrite = lit && mat.opacity > 0.7;
+    const away = !!spec.focus && hot !== null && !spec.focus.some(([a, b]) => hot >= a && hot <= b);
+    mat.opacity = Math.min(1, strong) * alpha * (away ? 0.1 : 1);
+    mat.depthWrite = false;
     m.renderOrder = lit ? 3 : 1;
   });
 }

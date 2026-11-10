@@ -166,6 +166,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
   const infos: Record<string, InfoSpec> = {};
   const own: Fit[] = [];
   const hl: Record<string, { match: string; beat: number; color: string }[]> = {};
+  const focus: Record<string, [number, number][]> = {};
   const sideCol = (s: Side) => (s === "L" ? colors.left : colors.right);
   const relColor = (r: string, b: Side) => (r === "i" ? sideCol(b) : r === "c" ? sideCol(opp(b)) : colors.hi);
   const n = mp.neurons.length;
@@ -204,7 +205,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     const key = `p${bi}`;
     const cross = st.phys === "cross";
     const f: Fit = [...SIDES.flatMap((b) => lists.flat().map((wp) => ({ wp, body: b }))), ...extra];
-    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: fitWith(f), branch: flags.branch, fork: curFork ?? undefined });
+    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: flags.branch ? f : fitWith(f), branch: flags.branch, fork: curFork ?? undefined });
     own.push(f);
     infos[key] = { kind: "path", title, neuron, lines, ids: st.ids, crossing: cross ? cp.decussation : undefined, loss: st.loss };
     for (const b of SIDES) {
@@ -222,16 +223,19 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     const wps = s.targets.map((t) => P(t.key, t.rel ?? "i"));
     const labels = s.targets.map((t) => t.label);
     const link = (bi: number) => s.targets.forEach((t) => light(t.key.split(":")[0], t.obj, bi));
+    const focusOn = (a: number, b: number) => s.targets.forEach((t) => (focus[t.key.split(":")[0]] ??= []).push([a, b]));
     const synth = { k: "site", label: s.path, phys: "i" as const };
     if (kind === "start") {
       const bi = addNodes(s.name, wps, neuron, s.lines, [{ wp: joint, body: "L" }, { wp: joint, body: "R" }], labels);
       link(bi);
+      focusOn(bi, bi + 1);
       addPath({ ...synth, path: [wps[0], joint] }, neuron, wps.map((w) => [w, joint]), s.path, [["Neuron", ord(neuron)]]);
     } else {
       const pb = addPath({ ...synth, path: [joint, wps[0]] }, neuron, wps.map((w) => [joint, w]), s.path, [["Neuron", ord(neuron)]]);
       const bi = addNodes(s.name, wps, neuron, s.lines, [], labels);
       link(bi);
       link(pb);
+      focusOn(pb, bi);
     }
   };
 
@@ -344,7 +348,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
 
   // the anatomy parts that are drawn: the column around the cord, and the objects the sites name
   const anatomy: SceneAnatomy[] = [];
-  const addFile = (file: AnatFile, show: string[], ghost: string[] = []) => anatomy.push({ key: file, file, show, ghost, hl: hl[file] ?? [], sided: file === "head-targets" });
+  const addFile = (file: AnatFile, show: string[], ghost: string[] = []) => anatomy.push({ key: file, file, show, ghost, hl: hl[file] ?? [], sided: file === "head-targets", focus: file === "spine" ? undefined : focus[file] });
   if (withSpine) addFile("spine", ["bone_", "nerve_cord", "nerve_drg", "disc_"]);
   for (const [file, sh] of Object.entries(site?.files ?? {}) as [AnatFile, { show: string[]; ghost?: string[] }][]) addFile(file, sh.show, sh.ghost);
   return { beats, tubes, marks, layers, limbs, infos, anatomy };
@@ -443,8 +447,8 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
 
   // 3 branch B: the temporal fibres stay on their own side
   const stay: WP[] = [(n2Nerve[n2Nerve.length - 1] ?? nasalEnd) as WP, ["optic-chiasm", "c", 0.5] as WP, tractMid];
-  const b3 = beat({ kind: "path", neuron: 1, caption: "Branch 2: temporal fibres stay on the same side", info: "", fit: [], view: "top", phys: "c", branch: true, fork: { id: "chiasm", k: 1 } }, sideFit(stay), { ...course("Chiasm: the temporal fibres stay", 1, [["Fibres", "temporal retinal fibres (nasal visual field of that eye) pass the chiasm without crossing"], ["Result", "each optic tract now carries the opposite visual field of both eyes"]]), kind: "path" });
-  for (const f of SIDES) meshTube("stay", stay, f, fieldCol(f), b3);
+  const b3 = beat({ kind: "path", neuron: 1, caption: "Branch 2: temporal fibres stay on the same side", info: "", fit: [], view: "top", phys: "c", branch: true, fork: { id: "chiasm", k: 1 } }, sideFit([...stay, ...(get("tract")?.path ?? [])]), { ...course("Chiasm: the temporal fibres stay", 1, [["Fibres", "temporal retinal fibres (nasal visual field of that eye) pass the chiasm without crossing"], ["Result", "each optic tract now carries the opposite visual field of both eyes"]]), kind: "path" });
+  for (const f of SIDES) tubes.push({ key: `stay:${f}`, pts: stay, body: f, color: fieldCol(f), beat: b3, info: `b${b3}`, neuron: 1, width: 1.15 });
 
   // 4 optic tract
   const tr = get("tract");

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { atlasTargetForSlug } from "@/lib/atlas/catalog";
 import type { StudyEngine, Current } from "@/lib/study/engine";
 import type { Grade } from "@/lib/fsrs";
+import type { DiffOp } from "@/lib/study/text";
 import { RUNGS } from "@/lib/study/ladder";
 import { TypeBox } from "./TypeBox";
 import { MnemonicPanel } from "./MnemonicPanel";
@@ -27,16 +28,59 @@ function AtlasButton({ slug, name }: { slug: string; name: string }) {
 
 const GRADE_NAMES: Record<Grade, string> = { 1: "Again", 2: "Hard", 3: "Good", 4: "Easy" };
 
-function Diff({ c }: { c: Current }) {
-  if (!c.diff || !c.verdict) return null;
-  const top = c.diff.map((d, i) =>
+function DiffRows({ diff }: { diff: DiffOp[] }) {
+  const top = diff.map((d, i) =>
     d.op === "eq" ? <span key={i} className="d-eq">{d.typed}</span> : d.op === "sub" ? <span key={i} className="d-wrong">{d.typed}</span> : d.op === "del" ? <span key={i} className="d-extra">{d.typed}</span> : <span key={i} className="d-missing">{d.answer === " " ? "␣" : "_"}</span>,
   );
-  const bot = c.diff.map((d, i) => (d.op === "eq" ? <span key={i} className="d-eq">{d.answer}</span> : d.op === "sub" || d.op === "ins" ? <span key={i} className="d-fix">{d.answer}</span> : null));
+  const bot = diff.map((d, i) => (d.op === "eq" ? <span key={i} className="d-eq">{d.answer}</span> : d.op === "sub" || d.op === "ins" ? <span key={i} className="d-fix">{d.answer}</span> : null));
   return (
     <div className="diff" aria-label="What you typed against the answer">
       <div className="diff-row"><span className="diff-lbl">you</span><span>{top}</span></div>
       <div className="diff-row"><span className="diff-lbl">answer</span><span>{bot}</span></div>
+    </div>
+  );
+}
+
+function Diff({ c }: { c: Current }) {
+  if (!c.diff || !c.verdict) return null;
+  return <DiffRows diff={c.diff} />;
+}
+
+/** Multi-box answers: every part with what its box got. */
+function PartResults({ c }: { c: Current }) {
+  const parts = c.card.parts ?? [];
+  const res = c.partResults;
+  if (!parts.length) return null;
+  return (
+    <div className="part-results" aria-label="Each part of the answer">
+      {res
+        ? res.map((r) => {
+            const k = r.verdict.result;
+            return (
+              <div key={r.box} className={`part-res ${k}`}>
+                <span className="mark" aria-hidden>{k === "correct" ? "✓" : k === "near_miss" ? "~" : "✗"}</span>
+                <div>
+                  <div className="part-text">{r.text}</div>
+                  {k === "correct" ? (
+                    r.typed.trim().toLowerCase() !== r.text.toLowerCase() && r.typed.trim() ? <div className="part-you">box {r.box + 1}: {r.typed.trim()}</div> : null
+                  ) : r.typed.trim() ? (
+                    <>
+                      <div className="part-you">box {r.box + 1}{k === "near_miss" ? ": a tiny typo" : ""}</div>
+                      {r.diff ? <DiffRows diff={r.diff} /> : null}
+                    </>
+                  ) : (
+                    <div className="part-you">box {r.box + 1}: left empty</div>
+                  )}
+                </div>
+              </div>
+            );
+          })
+        : parts.map((p, i) => (
+            <div key={i} className="part-res">
+              <span className="mark" aria-hidden>{i + 1}</span>
+              <div className="part-text">{p.text}</div>
+            </div>
+          ))}
     </div>
   );
 }
@@ -118,16 +162,20 @@ function AlsoCalled({ c }: { c: Current }) {
 
 export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Current; courseSlug: string }) {
   const retypeRef = useRef<HTMLInputElement>(null);
+  const retypeRefs = useRef<Array<HTMLInputElement | null>>([]);
   const r = c.retype;
+  const activeBox = r?.boxes ? r.boxes.indexOf(r.typer) : -1;
   useEffect(() => {
     if (!r || r.done) return;
-    const el = retypeRef.current;
+    const el = r.boxes ? retypeRefs.current[Math.max(0, activeBox)] : retypeRef.current;
     el?.focus({ preventScroll: true });
     el?.closest(".retype-box")?.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [r, r?.done, r?.repsLeft]);
+  }, [r, r?.done, r?.repsLeft, activeBox]);
   const t = c.typer;
-  const hint = t?.hinted ? `${t.hinted} hint letter${t.hinted === 1 ? "" : "s"}` : "";
-  const typos = t?.typos && !c.isFirstLook ? `${t.typos} typo${t.typos === 1 ? "" : "s"}` : "";
+  const nHint = c.multi ? c.multi.hinted : t?.hinted ?? 0;
+  const nTypos = c.multi ? c.multi.typos : t?.typos ?? 0;
+  const hint = nHint ? `${nHint} hint letter${nHint === 1 ? "" : "s"}` : "";
+  const typos = nTypos && !c.isFirstLook ? `${nTypos} typo${nTypos === 1 ? "" : "s"}` : "";
   const secs = c.isFirstLook ? "" : `${(c.durationMs / 1000).toFixed(1)}s`;
   const notes = [c.why, hint, typos, secs].filter(Boolean).join(" · ");
   const wordClass = c.selfGraded ? "g3" : `g${c.rating}`;
@@ -142,8 +190,9 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
         {intro ? <span className="v-notes">not scored{c.why ? ` · ${c.why}` : ""}</span> : notes && <span className="v-notes">{notes}</span>}
         <SpeakButton text={c.card.answer} />
       </div>
-      {c.mode !== "self" && <Diff c={c} />}
-      {!c.diff && c.card.answer && <p className="answer-line" style={c.right || c.mode === "self" ? undefined : { color: "var(--good)" }}>{c.card.answer}</p>}
+      {c.multi ? <PartResults c={c} /> : null}
+      {c.mode !== "self" && !c.multi && <Diff c={c} />}
+      {!c.diff && !c.multi && c.card.answer && <p className="answer-line" style={c.right || c.mode === "self" ? undefined : { color: "var(--good)" }}>{c.card.answer}</p>}
       {c.mode === "keywords" && c.verdict?.why && <p className="v-notes">{c.verdict.why}</p>}
       {c.card.alsoCalled && c.card.alsoCalled.length > 0 && <AlsoCalled c={c} />}
 
@@ -166,20 +215,44 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
             {r.typer.mode === "covered" ? <span className="v-notes"> — it hides at your first key</span> : null}
             {r.kind !== "intro" && <span className="v-notes"> (not graded)</span>}
           </p>
-          <TypeBox
-            ref={retypeRef}
-            typer={r.typer}
-            label="Retype the answer"
-            disabled={r.done}
-            placeholder="Type it from memory…"
-            onChange={(v) => engine.retypeInput(v)}
-            onKeyDown={(e) => {
-              if (e.key === "Tab") {
-                e.preventDefault();
-                engine.peekRetype();
-              }
-            }}
-          />
+          {r.boxes ? (
+            r.boxes.map((bt, i) => (
+              <div key={i} className="part-row">
+                <div className="part-head"><span className="part-label">{i + 1} of {r.boxes!.length}</span></div>
+                <TypeBox
+                  ref={(el) => {
+                    retypeRefs.current[i] = el;
+                  }}
+                  typer={bt}
+                  label={`Retype part ${i + 1} of ${r.boxes!.length}`}
+                  disabled={r.done}
+                  placeholder="Type it from memory…"
+                  onChange={(v) => engine.retypeInput(v, i)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Tab" && !e.shiftKey) {
+                      e.preventDefault();
+                      engine.peekRetype();
+                    }
+                  }}
+                />
+              </div>
+            ))
+          ) : (
+            <TypeBox
+              ref={retypeRef}
+              typer={r.typer}
+              label="Retype the answer"
+              disabled={r.done}
+              placeholder="Type it from memory…"
+              onChange={(v) => engine.retypeInput(v)}
+              onKeyDown={(e) => {
+                if (e.key === "Tab") {
+                  e.preventDefault();
+                  engine.peekRetype();
+                }
+              }}
+            />
+          )}
           {!r.done && (
             <div className="help-line">
               <span><span className="kbd">Enter</span> when done</span>

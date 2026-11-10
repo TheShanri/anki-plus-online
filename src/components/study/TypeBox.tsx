@@ -16,6 +16,7 @@ export interface TypeBoxProps {
   onChange: (value: string) => void;
   onBeforeInput?: (e: React.FormEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onFocus?: () => void;
   label: string;
 }
 
@@ -63,6 +64,7 @@ export const TypeBox = forwardRef<HTMLInputElement, TypeBoxProps>(function TypeB
         onChange={(e) => p.onChange(e.target.value)}
         onBeforeInput={p.onBeforeInput}
         onKeyDown={p.onKeyDown}
+        onFocus={p.onFocus}
       />
     </div>
   );

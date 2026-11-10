@@ -174,7 +174,28 @@
 .station-review .pts { font-family: var(--font-display); }
 .pts.full { color: var(--good); } .pts.half { color: var(--hard); } .pts.none { color: var(--again); }
 
+/* ---------- multi-box answers ---------- */
+.part-inputs { display: grid; gap: 8px; }
+.part-row { display: grid; gap: 3px; }
+.part-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--text-dim); min-height: 18px; }
+.part-label { font-family: var(--font-mono); letter-spacing: 0.04em; }
+.part-row.active .part-label { color: var(--accent-2); }
+.part-chip { font-family: var(--font-mono); font-size: 12px; padding: 1px 9px; border-radius: 99px; border: 1px solid var(--panel-border); color: var(--text-dim); max-width: 70%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.part-chip.one { border-color: var(--accent-2); color: var(--accent-2); }
+.part-chip.done { border-color: var(--good); color: var(--good); }
+.part-row .typebox { min-height: 44px; padding: 8px 14px; font-size: clamp(16px, 2.3vw, 21px); }
+.part-rule { font-size: 12px; color: var(--text-dim); }
+.part-results { display: grid; gap: 6px; margin: 6px 0; }
+.part-res { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--bg-2); }
+.part-res .mark { font-family: var(--font-mono); font-weight: 700; }
+.part-res.correct { border-color: var(--good); } .part-res.correct .mark { color: var(--good); }
+.part-res.near_miss { border-color: var(--hard); } .part-res.near_miss .mark { color: var(--hard); }
+.part-res.wrong, .part-res.empty { border-color: var(--again); } .part-res.wrong .mark, .part-res.empty .mark { color: var(--again); }
+.part-res .part-text { font-family: var(--font-mono); }
+.part-res .part-you { font-size: 12px; color: var(--text-dim); }
+
 @media (max-width: 560px) {
+  .part-chip { max-width: 62%; }
   .grade-bar { grid-template-columns: repeat(2, 1fr); }
   .typebox { padding: 12px; }
 }

@@ -16,6 +16,7 @@ import { CardFace } from "@/components/cards/CardFace";
 import { PinImage } from "@/components/cards/PinImage";
 import { resolveMediaSrc } from "@/components/cards/media";
 import { TypeBox } from "./TypeBox";
+import { PartInputs } from "./PartInputs";
 import { Reveal } from "./Reveal";
 import { GearPopover } from "./Scaffolds";
 import { Summary } from "./Summary";
@@ -63,6 +64,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const kwRef = useRef<HTMLTextAreaElement>(null);
+  const boxRefs = useRef<Array<HTMLInputElement | null>>([]);
   const [, setTick] = useState(0);
   const [syncState, setSyncState] = useState<{ pending: number; error: string | null }>({ pending: 0, error: null });
   const [reminder, setReminder] = useState(() => typingReminderDue(initial.settings.typing));
@@ -141,9 +143,10 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   useEffect(() => {
     if (phase === "prompt") {
       if (c?.mode === "keywords") kwRef.current?.focus();
+      else if (c?.multi) boxRefs.current[c.multi.active]?.focus();
       else inputRef.current?.focus();
     }
-  }, [phase, c?.card.id, c?.mode]);
+  }, [phase, c?.card.id, c?.mode, c?.multi, c?.multi?.active]);
 
   // Thought parking lot (ANKI+): jot a stray thought, Enter parks it and puts you back on the card; the clock waits.
   const [park, setPark] = useState<{ text: string; at: number } | null>(null);
@@ -175,7 +178,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
     }
     engine.pauseFor(Date.now() - p.at);
     window.setTimeout(() => {
-      if (engine.phase === "prompt") (engine.cur?.mode === "keywords" ? kwRef.current : inputRef.current)?.focus();
+      if (engine.phase === "prompt") (engine.cur?.mode === "keywords" ? kwRef.current : engine.cur?.multi ? boxRefs.current[engine.cur.multi.active] : inputRef.current)?.focus();
       else (document.querySelector(".retype-box .typebox-input") as HTMLInputElement | null)?.focus();
     }, 0);
   };
@@ -186,7 +189,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       const cc = engine.cur;
       // Ctrl+Z: take back the last card (ANKI+). While typing a new answer it stays the text undo.
       if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && (e.key === "z" || e.key === "Z")) {
-        const typing = engine.phase === "prompt" && !!(cc?.typer?.typed || cc?.typed);
+        const typing = engine.phase === "prompt" && engine.hasTyped();
         if (engine.canUndo && !typing && !parkRef.current) {
           e.preventDefault();
           engine.undo();
@@ -206,6 +209,8 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       if (inField) return;
       engine.activity();
       if (engine.phase === "prompt" && cc) {
+        // the boxes of a multi-box answer handle their own Tab / Enter / Esc (see multiKeys)
+        if (cc.multi && target?.classList.contains("typebox-input")) return;
         if (cc.mode === "self") {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -279,6 +284,38 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       if (engine.phase === "prompt") engine.submit(false);
       else if (engine.phase === "reveal" && !engine.enterBlocked()) engine.accept();
     } else if (e.key === "Tab") {
+      e.preventDefault();
+      if (engine.phase === "prompt") engine.hint(true);
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      if (engine.phase === "prompt") engine.submit(true);
+    }
+  };
+
+  // Multi-box answers: Tab / Enter go to the next box, Shift+Tab back; Enter on the last box submits; Alt+H is the ghost hint.
+  const multiKeys = (i: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    const m = engine.cur?.multi;
+    if (!m) return;
+    if (e.key === "Backspace" && engine.gateBlocks()) {
+      e.preventDefault();
+      return;
+    }
+    const to = (j: number) => {
+      engine.focusBox(j);
+      boxRefs.current[j]?.focus();
+    };
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (engine.phase !== "prompt") return;
+      if (!m.anyTyped() && engine.cur?.isFirstLook) engine.submit(false); // nothing typed on a first look: Enter reveals
+      else if (i < m.count - 1) to(i + 1);
+      else engine.submit(false);
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      if (engine.phase !== "prompt") return;
+      const j = e.shiftKey ? i - 1 : i + 1;
+      if (j >= 0 && j < m.count) to(j);
+    } else if (e.altKey && (e.key === "h" || e.key === "H")) {
       e.preventDefault();
       if (engine.phase === "prompt") engine.hint(true);
     } else if (e.key === "Escape") {
@@ -378,7 +415,8 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   {c.guard.armedLevel >= 2 ? "A trap you keep falling into: picture it, then type." : "Trap letters ahead: no hints here."}
                 </div>
               )}
-              {c.mode === "type" && c.typer && (
+              {c.mode === "type" && c.multi && <PartInputs engine={engine} c={c} refs={boxRefs} onKeys={multiKeys} />}
+              {c.mode === "type" && c.typer && !c.multi && (
                 <TypeBox
                   ref={inputRef}
                   typer={c.typer}
@@ -431,9 +469,16 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   ) : (
                     <>
                       <span><span className="kbd">Enter</span> reveal</span>
-                      <span>type it first if you know it</span>
+                      <span>{c.multi ? "type each part first if you know it" : "type it first if you know it"}</span>
                     </>
                   )
+                ) : c.mode === "type" && c.multi ? (
+                  <>
+                    <span><span className="kbd">Tab</span> / <span className="kbd">Enter</span> next box</span>
+                    <span><span className="kbd">Shift Tab</span> back</span>
+                    <span><span className="kbd">Alt H</span> ghost hint</span>
+                    <span><span className="kbd">Esc</span> show answer</span>
+                  </>
                 ) : c.mode === "type" ? (
                   <>
                     <span><span className="kbd">Tab</span> ghost hint</span>

@@ -9,15 +9,15 @@ const structs = new Map(JSON.parse(readFileSync(join(root, "content/nsci3250/str
 const atlas = JSON.parse(readFileSync(join(root, "public/atlas2/atlas2.json"), "utf8")).structures;
 
 const LEVELS = [
-  { slug: "midbrain-sc", name: "Rostral midbrain", hallmark: "Superior colliculus, red nucleus, oculomotor nucleus and nerve", kind: "section", y: 0.115 },
-  { slug: "midbrain-ic", name: "Caudal midbrain", hallmark: "Inferior colliculus, decussation of the superior cerebellar peduncles, trochlear nucleus", kind: "section", y: 0.19 },
-  { slug: "pons-rostral", name: "Rostral pons (isthmus)", hallmark: "Locus coeruleus, superior cerebellar peduncle, lateral lemniscus", kind: "section", y: 0.265 },
-  { slug: "pons-mid", name: "Mid pons", hallmark: "Motor and principal sensory trigeminal nuclei, middle cerebellar peduncle", kind: "section", y: 0.35 },
-  { slug: "pons-caudal", name: "Caudal pons", hallmark: "Facial colliculus, abducens and facial nuclei", kind: "section", y: 0.43 },
-  { slug: "medulla-rostral", name: "Rostral medulla", hallmark: "Open medulla: inferior olive, hypoglossal and vestibular nuclei", kind: "section", y: 0.51 },
-  { slug: "medulla-mid", name: "Mid medulla (obex)", hallmark: "Obex, sensory decussation (internal arcuate fibers)", kind: "section", y: 0.61 },
-  { slug: "medulla-caudal", name: "Caudal medulla", hallmark: "Closed medulla: pyramidal (motor) decussation", kind: "section", y: 0.7 },
-  { slug: "cervicomedullary", name: "Cervicomedullary junction", hallmark: "Transition to the cervical spinal cord", kind: "section", y: 0.8 },
+  { slug: "midbrain-sc", name: "Rostral midbrain", hallmark: "Level of the superior colliculus: red nucleus, oculomotor nucleus and nerve", kind: "section", y: 0.115 },
+  { slug: "midbrain-ic", name: "Caudal midbrain", hallmark: "Level of the inferior colliculus: decussation of the superior cerebellar peduncles, trochlear nucleus", kind: "section", y: 0.19 },
+  { slug: "pons-rostral", name: "Isthmus (upper pons)", aka: "Not one of the course's seven levels; one Lab 8 histology card calls it rostral pons", hallmark: "Locus coeruleus, superior cerebellar peduncle, lateral lemniscus", kind: "section", y: 0.265 },
+  { slug: "pons-mid", name: "Rostral pons", aka: "Also called the mid pons", hallmark: "Level of the trigeminal nerve: motor and principal sensory trigeminal nuclei, middle cerebellar peduncle", kind: "section", y: 0.35 },
+  { slug: "pons-caudal", name: "Caudal pons", hallmark: "Level of the facial colliculus: abducens and facial nuclei", kind: "section", y: 0.43 },
+  { slug: "medulla-rostral", name: "Rostral medulla", hallmark: "Level of the olive: inferior olive, hypoglossal and vestibular nuclei (open medulla)", kind: "section", y: 0.51 },
+  { slug: "medulla-mid", name: "Caudal medulla", aka: "Also called the mid medulla", hallmark: "Level of the cuneate and gracile tubercles: sensory decussation (internal arcuate fibers); closed medulla, no 4th ventricle", kind: "section", y: 0.61 },
+  { slug: "medulla-caudal", name: "Brainstem/spinal cord transition", aka: "Also called the very caudal medulla or the cervicomedullary junction", hallmark: "Level of the motor (pyramidal) decussation", kind: "section", y: 0.7 },
+  { slug: "cervicomedullary", name: "Spinal cord: cervical level", hallmark: "Upper cervical cord: dorsal columns, dorsal spinocerebellar and anterolateral tracts", kind: "section", y: 0.8 },
   { slug: "external-anterior", name: "Anterior surface", hallmark: "Ventral view: cranial nerve exits, pyramids, olives", kind: "gross" },
   { slug: "external-posterior", name: "Posterior surface", hallmark: "Dorsal view: colliculi, fourth-ventricle floor, tubercles", kind: "gross" },
   { slug: "external-lateral", name: "Lateral surface", hallmark: "Lateral view: peduncles, nerve roots", kind: "gross" },
@@ -82,7 +82,7 @@ const mni = {
   "pons-mid": [c("pons"), "pons centroid"],
   "pons-caudal": [(bmin("pons") + c("pons")) / 2, "midway between the pons centroid and its lower edge"],
   "medulla-rostral": [c("olives") + 3, "upper olive (olive centroid + 3 mm)"],
-  "medulla-mid": [(c("olives") + bmin("olives")) / 2, "lower olive, near the obex"],
+  "medulla-mid": [(c("olives") + bmin("olives")) / 2, "lower olive (closed medulla)"],
   "medulla-caudal": [bmin("pyramids") + 4, "lower pyramids (decussation zone)"],
   cervicomedullary: [bmin("pyramids"), "lower edge of the pyramids"],
 };

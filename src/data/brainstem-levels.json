@@ -3,7 +3,7 @@
   {
    "slug": "midbrain-sc",
    "name": "Rostral midbrain",
-   "hallmark": "Superior colliculus, red nucleus, oculomotor nucleus and nerve",
+   "hallmark": "Level of the superior colliculus: red nucleus, oculomotor nucleus and nerve",
    "kind": "section",
    "y": 0.115,
    "mniZ": -7.3,
@@ -86,7 +86,7 @@
   {
    "slug": "midbrain-ic",
    "name": "Caudal midbrain",
-   "hallmark": "Inferior colliculus, decussation of the superior cerebellar peduncles, trochlear nucleus",
+   "hallmark": "Level of the inferior colliculus: decussation of the superior cerebellar peduncles, trochlear nucleus",
    "kind": "section",
    "y": 0.19,
    "mniZ": -10.4,
@@ -160,7 +160,8 @@
   },
   {
    "slug": "pons-rostral",
-   "name": "Rostral pons (isthmus)",
+   "name": "Isthmus (upper pons)",
+   "aka": "Not one of the course's seven levels; one Lab 8 histology card calls it rostral pons",
    "hallmark": "Locus coeruleus, superior cerebellar peduncle, lateral lemniscus",
    "kind": "section",
    "y": 0.265,
@@ -231,8 +232,9 @@
   },
   {
    "slug": "pons-mid",
-   "name": "Mid pons",
-   "hallmark": "Motor and principal sensory trigeminal nuclei, middle cerebellar peduncle",
+   "name": "Rostral pons",
+   "aka": "Also called the mid pons",
+   "hallmark": "Level of the trigeminal nerve: motor and principal sensory trigeminal nuclei, middle cerebellar peduncle",
    "kind": "section",
    "y": 0.35,
    "mniZ": -33.5,
@@ -295,7 +297,7 @@
   {
    "slug": "pons-caudal",
    "name": "Caudal pons",
-   "hallmark": "Facial colliculus, abducens and facial nuclei",
+   "hallmark": "Level of the facial colliculus: abducens and facial nuclei",
    "kind": "section",
    "y": 0.43,
    "mniZ": -41.2,
@@ -378,7 +380,7 @@
   {
    "slug": "medulla-rostral",
    "name": "Rostral medulla",
-   "hallmark": "Open medulla: inferior olive, hypoglossal and vestibular nuclei",
+   "hallmark": "Level of the olive: inferior olive, hypoglossal and vestibular nuclei (open medulla)",
    "kind": "section",
    "y": 0.51,
    "mniZ": -51,
@@ -449,6 +451,10 @@
      "source": "course"
     },
     {
+     "slug": "vestibulocochlear-nerve",
+     "source": "course"
+    },
+    {
      "slug": "choroid-plexus",
      "source": "course"
     },
@@ -460,12 +466,13 @@
   },
   {
    "slug": "medulla-mid",
-   "name": "Mid medulla (obex)",
-   "hallmark": "Obex, sensory decussation (internal arcuate fibers)",
+   "name": "Caudal medulla",
+   "aka": "Also called the mid medulla",
+   "hallmark": "Level of the cuneate and gracile tubercles: sensory decussation (internal arcuate fibers); closed medulla, no 4th ventricle",
    "kind": "section",
    "y": 0.61,
    "mniZ": -57,
-   "mniNote": "lower olive, near the obex",
+   "mniNote": "lower olive (closed medulla)",
    "structures": [
     {
      "slug": "gracile-nucleus",
@@ -500,31 +507,15 @@
      "source": "course"
     },
     {
+     "slug": "fasciculus-gracilis",
+     "source": "course"
+    },
+    {
      "slug": "medial-longitudinal-fasciculus",
      "source": "course"
     },
     {
-     "slug": "vestibulocochlear-complex",
-     "source": "course"
-    },
-    {
      "slug": "solitary-nucleus",
-     "source": "course"
-    },
-    {
-     "slug": "inferior-cerebellar-peduncle",
-     "source": "course"
-    },
-    {
-     "slug": "vestibulocochlear-nerve",
-     "source": "course"
-    },
-    {
-     "slug": "inferior-olivary-nucleus",
-     "source": "course"
-    },
-    {
-     "slug": "fasciculus-gracilis",
      "source": "course"
     },
     {
@@ -539,8 +530,9 @@
   },
   {
    "slug": "medulla-caudal",
-   "name": "Caudal medulla",
-   "hallmark": "Closed medulla: pyramidal (motor) decussation",
+   "name": "Brainstem/spinal cord transition",
+   "aka": "Also called the very caudal medulla or the cervicomedullary junction",
+   "hallmark": "Level of the motor (pyramidal) decussation",
    "kind": "section",
    "y": 0.7,
    "mniZ": -65,
@@ -602,8 +594,8 @@
   },
   {
    "slug": "cervicomedullary",
-   "name": "Cervicomedullary junction",
-   "hallmark": "Transition to the cervical spinal cord",
+   "name": "Spinal cord: cervical level",
+   "hallmark": "Upper cervical cord: dorsal columns, dorsal spinocerebellar and anterolateral tracts",
    "kind": "section",
    "y": 0.8,
    "mniZ": -69,

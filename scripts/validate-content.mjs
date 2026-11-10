@@ -15,6 +15,14 @@ const topics = new Set(course.topics.map((t) => t.slug));
 const topicUnit = Object.fromEntries(course.topics.map((t) => [t.slug, t.unit]));
 const manifest = existsSync(join(dir, ".media-manifest.json")) ? J(join(dir, ".media-manifest.json")) : null;
 const errors = [];
+const plates = new Map();
+function plateData(level) {
+  if (!plates.has(level)) {
+    const f = join(root, "src", "data", "brainstem-plates", `${level}.json`);
+    plates.set(level, /^[a-z0-9-]+$/.test(level) && existsSync(f) ? J(f) : null);
+  }
+  return plates.get(level);
+}
 const cards = [];
 for (const f of readdirSync(join(dir, "cards")).filter((f) => f.endsWith(".json"))) for (const c of J(join(dir, "cards", f))) cards.push(c);
 
@@ -30,7 +38,12 @@ for (const c of cards) {
   if (!["live", "draft", "retired"].includes(c.status)) errors.push(`${c.slug}: bad status ${c.status}`);
   if (c.status === "live" && c.kind !== "theory" && !c.answer) errors.push(`${c.slug}: live card without answer`);
   if (c.status === "live" && c.kind === "theory" && !c.answer) errors.push(`${c.slug}: live theory card without answer`);
-  if (c.kind === "pin") {
+  if (c.kind === "pin" && c.plate) {
+    // brainstem plate cards draw a vector plate (src/data/brainstem-plates/<level>.json) instead of an image
+    const plate = plateData(c.plate.level);
+    if (!plate) errors.push(`${c.slug}: no brainstem plate for level ${c.plate.level}`);
+    else if (!plate.regions.some((r) => r.slugs.includes(c.plate.region))) errors.push(`${c.slug}: plate ${c.plate.level} has no region for ${c.plate.region}`);
+  } else if (c.kind === "pin") {
     if (!c.image) errors.push(`${c.slug}: pin without image`);
     else if (manifest && !manifest[c.image]) errors.push(`${c.slug}: media not uploaded: ${c.image}`);
     if (c.pointer?.type === "mask" && !(c.masks?.length && c.target)) errors.push(`${c.slug}: mask pin without masks/target`);

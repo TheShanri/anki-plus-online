@@ -44,6 +44,8 @@ export interface LevelStructure {
 export interface BsLevel {
   slug: string;
   name: string;
+  /** the standard atlas name when the course uses another (e.g. "Also called the mid pons") */
+  aka?: string;
   hallmark: string;
   kind: "section" | "gross";
   y?: number;

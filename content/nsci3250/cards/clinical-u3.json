@@ -571,11 +571,8 @@
   "format": "keywords",
   "keywords": [
    [
-    "intracerebral"
-   ],
-   [
-    "lenticulostriate",
-    "penetrating"
+    "intracerebral",
+    "intraparenchymal"
    ]
   ],
   "tags": [
@@ -1244,7 +1241,7 @@
   },
   "vignette": "How does an ischaemic stroke look on CT, and when does it show?",
   "prompt": "Describe it.",
-  "answer": "Hypodense",
+  "answer": "Hypodense (dark), and only later, not immediately",
   "accept": [
    "dark",
    "dark area",

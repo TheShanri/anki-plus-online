@@ -1529,7 +1529,7 @@
   "pathway": "acst",
   "step": "target",
   "prompt": "Where does the anterior corticospinal tract terminate?",
-  "answer": "Medial ventral horn motor pools of axial muscles",
+  "answer": "Medial ventral horn motor pools of axial muscles, on both sides",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1738,8 +1738,8 @@
   "answer": "Corticobulbar fibers",
   "accept": [
    "corticobulbar",
-   "corticobulbar and corticopontine fibers",
-   "corticopontine fibers"
+   "corticobulbar fibres",
+   "corticonuclear fibers"
   ],
   "require_side": false,
   "format": "keywords",
@@ -1757,7 +1757,7 @@
    "region:brainstem",
    "modality:motor"
   ],
-  "explain": "Corticopontine fibers travel in the same bundle."
+  "explain": "Corticobulbar (corticonuclear) fibers end on the facial nucleus. Corticopontine fibers run beside them in the cerebral peduncle but end in the pontine nuclei, whose axons go to the cerebellum (Lecture 10, Lab 10), so they are not the answer."
  },
  {
   "slug": "pathways-u2-corticobulbar-fiber-bundle-xi",
@@ -3270,6 +3270,7 @@
   "format": "keywords",
   "keywords": [
    [
+    "retinohypothalamic",
     "suprachiasmatic",
     "scn"
    ]
@@ -3536,10 +3537,8 @@
   "format": "keywords",
   "keywords": [
    [
-    "dorsal"
-   ],
-   [
-    "parietal"
+    "dorsal",
+    "where"
    ]
   ],
   "tags": [

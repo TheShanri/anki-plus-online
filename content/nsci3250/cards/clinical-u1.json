@@ -259,8 +259,10 @@
    ],
    [
     "weak",
+    "weakness",
     "motor",
-    "corticospinal"
+    "corticospinal",
+    "spastic"
    ],
    [
     "left",
@@ -474,9 +476,7 @@
    [
     "l1",
     "l2",
-    "conus"
-   ],
-   [
+    "conus",
     "cauda equina",
     "no cord"
    ]
@@ -558,7 +558,11 @@
    [
     "dermatome",
     "dorsal horn",
-    "same"
+    "same",
+    "share",
+    "shared",
+    "converge",
+    "convergence"
    ]
   ],
   "tags": [
@@ -769,7 +773,9 @@
   "format": "keywords",
   "keywords": [
    [
-    "neglect"
+    "neglect",
+    "hemineglect",
+    "hemispatial"
    ]
   ],
   "tags": [
@@ -825,7 +831,7 @@
    "primary-auditory-cortex"
   ],
   "structure": "primary-auditory-cortex",
-  "explain": "Primary auditory cortex damage; mostly the contralateral ear."
+  "explain": "Primary auditory cortex (Heschl's gyrus, BA 41/42). Each ear projects to both hemispheres (\"all sounds go to both sides\", Lecture 5), so a one-sided cortical lesion gives only a slight bilateral hearing loss (Lecture 18), not deafness in one ear."
  },
  {
   "slug": "clinical-u1-cortex-motor-homunculus",

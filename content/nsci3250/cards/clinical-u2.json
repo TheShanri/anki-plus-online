@@ -406,7 +406,7 @@
     "LMN lesion"
    ]
   },
-  "explain": "Right facial nerve or nucleus; the whole side of the face is affected."
+  "explain": "Right facial nerve: the whole side of the face is weak (lower motor neuron). The loss of taste and tearing shows the nerve itself is damaged, since those fibers do not pass through the facial motor nucleus."
  },
  {
   "slug": "clinical-u2-cn-cn7-umn",
@@ -1021,9 +1021,6 @@
    [
     "ventral",
     "what"
-   ],
-   [
-    "temporal"
    ]
   ],
   "tags": [
@@ -1219,9 +1216,7 @@
   "format": "keywords",
   "keywords": [
    [
-    "above"
-   ],
-   [
+    "above",
     "decorticate"
    ]
   ],
@@ -1258,9 +1253,7 @@
   "format": "keywords",
   "keywords": [
    [
-    "below"
-   ],
-   [
+    "below",
     "decerebrate"
    ]
   ],

@@ -272,7 +272,7 @@
    "ref": "practice-exam-u2 Q9 (Practice exam 2)"
   },
   "facet": "written",
-  "prompt": "A patient develops acute onset unilateral facial paralysis involving both the upper and lower face. The condition is diagnosed as Bell\u2019s palsy and is most commonly due to inflammation of which cranial nerve?",
+  "prompt": "A patient develops acute onset unilateral facial paralysis involving both the upper and lower face. The condition is diagnosed as Bell’s palsy and is most commonly due to inflammation of which cranial nerve?",
   "format": "choice",
   "choices": [
    "III",
@@ -430,7 +430,7 @@
    "ref": "practice-exam-u2 Q14 (Practice exam 2)"
   },
   "facet": "written",
-  "prompt": "Because visceral afferent fibers from the heart enter the spinal cord at T1\u2013 T4, where is cardiac ischemic pain commonly referred?",
+  "prompt": "Because visceral afferent fibers from the heart enter the spinal cord at T1– T4, where is cardiac ischemic pain commonly referred?",
   "format": "choice",
   "choices": [
    "Right lower quadrant",
@@ -678,7 +678,7 @@
    "modality:visual"
   ],
   "answer": "All of the above",
-  "explain": "Retinal ganglion cell axons form the optic nerve and project to several targets: the lateral geniculate nucleus (conscious vision), the superior colliculus (orienting eye movements), the pretectum (pupillary light reflex) and the suprachiasmatic nucleus (circadian rhythms). Each of the options is therefore a direct target."
+  "explain": "Keyed answer of the practice exam. Strictly, retinal ganglion cell axons go directly to the lateral geniculate nucleus (conscious vision), the superior colliculus (orienting), the pretectum (pupillary light reflex) and the suprachiasmatic nucleus (circadian rhythm). The primary visual cortex is reached only through the LGN and the optic radiations (Lecture 11), so it is not a direct target."
  },
  {
   "slug": "written-u2-practice-exam-u2-q22",
@@ -820,7 +820,7 @@
    "ref": "practice-exam-u2 Q26 (Practice exam 2)"
   },
   "facet": "written",
-  "prompt": "During a routine neurological exam, a physician lightly touches each of a patient\u2019s corneas with a small piece of cotton. When either cornea is stimulated, the patient\u2019s right eye blinks normally, but the left eye never blinks. Facial sensation is intact bilaterally. Which nerve is most likely damaged?",
+  "prompt": "During a routine neurological exam, a physician lightly touches each of a patient’s corneas with a small piece of cotton. When either cornea is stimulated, the patient’s right eye blinks normally, but the left eye never blinks. Facial sensation is intact bilaterally. Which nerve is most likely damaged?",
   "format": "choice",
   "choices": [
    "Right oculomotor nerve",

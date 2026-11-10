@@ -141,13 +141,13 @@
   "keywords": [
    [
     "alpha",
-    "a\u03b1",
+    "aα",
     "ia",
     "1a"
    ],
    [
     "beta",
-    "a\u03b2",
+    "aβ",
     "type ii",
     "type 2"
    ]
@@ -382,9 +382,6 @@
     "gracilis",
     "cuneate",
     "cuneatus"
-   ],
-   [
-    "medulla"
    ]
   ],
   "tags": [
@@ -484,9 +481,7 @@
   "format": "keywords",
   "keywords": [
    [
-    "medulla"
-   ],
-   [
+    "medulla",
     "internal arcuate",
     "arcuate",
     "sensory decussation"
@@ -857,7 +852,7 @@
    [
     "a-delta",
     "adelta",
-    "a\u03b4",
+    "aδ",
     "a delta",
     "type iii",
     "type 3"
@@ -953,7 +948,7 @@
    [
     "a-delta",
     "adelta",
-    "a\u03b4",
+    "aδ",
     "a delta",
     "type iii",
     "type 3"
@@ -1517,7 +1512,7 @@
   "keywords": [
    [
     "alpha",
-    "a\u03b1",
+    "aα",
     "ia",
     "1a"
    ]
@@ -1612,7 +1607,7 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "Clarke's column (nucleus dorsalis) spans C8\u2013L3 (Lab 5 key; StatPearls, Neuroscience Online). Lecture 5 says C8\u2013L2.",
+  "explain": "Clarke's column (nucleus dorsalis) spans C8–L3 (Lab 5 key; StatPearls, Neuroscience Online). Lecture 5 says C8–L2.",
   "structure": "column-of-clarke"
  },
  {
@@ -1989,7 +1984,7 @@
    "region:spinal-cord",
    "modality:autonomic"
   ],
-  "explain": "Preganglionic neurons of both divisions release ACh onto nicotinic receptors. Most sympathetic postganglionic neurons release norepinephrine (sweat glands are a cholinergic exception). Preganglionic neurons release ACh (sweat glands are a cholinergic exception)."
+  "explain": "Preganglionic neurons of both divisions release ACh onto nicotinic receptors. Most sympathetic postganglionic neurons release norepinephrine (sweat glands are a cholinergic exception)."
  },
  {
   "slug": "pathways-u1-sympathetic-adrenal",
@@ -2596,7 +2591,7 @@
     "ia",
     "1a",
     "alpha",
-    "a\u03b1"
+    "aα"
    ]
   ],
   "tags": [

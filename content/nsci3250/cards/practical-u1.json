@@ -841,9 +841,9 @@
   "accept": [],
   "keywords": null,
   "choices": [
-   "Broca\u2019s aphasia",
+   "Broca’s aphasia",
    "Hemineglect syndrome",
-   "Wernicke\u2019s aphasia",
+   "Wernicke’s aphasia",
    "Prosopagnosia",
    "Cortical blindness"
   ],
@@ -1586,7 +1586,7 @@
    "type": "existing",
    "color": "star sticker"
   },
-  "prompt": "Name the landmark indicated by the star- shaped sticker \u2605",
+  "prompt": "Name the landmark indicated by the star- shaped sticker ★",
   "followups": [
    "lambda:function"
   ],
@@ -2263,7 +2263,7 @@
    "ref": "practical-u1-2025 Q19"
   },
   "facet": "brodmann",
-  "prompt": "What is the Brodmann\u2019s number of the structure indicated by the red pins?",
+  "prompt": "What is the Brodmann’s number of the structure indicated by the red pins?",
   "answer": "BA 17",
   "accept": [],
   "keywords": null,
@@ -2374,13 +2374,13 @@
   },
   "facet": "lesion",
   "prompt": "What symptoms would be caused by damage to the structure indicated by the pins?",
-  "answer": "Broca\u2019s aphasia",
+  "answer": "Broca’s aphasia",
   "accept": [],
   "keywords": null,
   "choices": [
-   "Broca\u2019s aphasia",
+   "Broca’s aphasia",
    "Hemineglect syndrome",
-   "Wernicke\u2019s aphasia",
+   "Wernicke’s aphasia",
    "Prosopagnosia",
    "Cortical Blindness"
   ],
@@ -2680,7 +2680,7 @@
    "type": "existing",
    "color": "star sticker"
   },
-  "prompt": "(Refer to \u2605 stickers) What is the name of the hole through which this nerve exits the vertebral column?",
+  "prompt": "(Refer to ★ stickers) What is the name of the hole through which this nerve exits the vertebral column?",
   "followups": [],
   "followup_cards": [],
   "tags": [
@@ -3675,8 +3675,15 @@
   "accept": [],
   "keywords": [
    [
-    "Arachnoid granulations",
-    "villi: reabsorb CSF into the dural venous sinus"
+    "reabsorb",
+    "absorb",
+    "resorb",
+    "drain",
+    "return"
+   ],
+   [
+    "csf",
+    "cerebrospinal"
    ]
   ],
   "choices": null,

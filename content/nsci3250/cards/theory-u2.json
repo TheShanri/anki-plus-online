@@ -5056,9 +5056,10 @@
   ],
   "keywords": [
    [
-    "90",
+    "80",
+    "75",
     "85",
-    "10-15"
+    "90"
    ]
   ],
   "choices": null,
@@ -5071,7 +5072,7 @@
    "modality:motor",
    "theory:connections"
   ],
-  "explain": "The course teaches about 80% (Lecture 10 slide 15); textbooks give 75\u201390%."
+  "explain": "The course teaches about 80% (Lecture 10 slide 15); textbooks give 75–90%."
  },
  {
   "slug": "theory-lateral-corticospinal-tract-function",

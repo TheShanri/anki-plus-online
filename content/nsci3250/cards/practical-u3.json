@@ -205,7 +205,7 @@
   "accept": [
    "Posterior horn of LV",
    "posterior horn",
-   "inferior horn",
+   "occipital horn",
    "trigone",
    "atrium"
   ],
@@ -1398,9 +1398,14 @@
   ],
   "keywords": [
    [
-    "Eldery who fall",
-    "shaken babies",
-    "alcohol use"
+    "elderly",
+    "older",
+    "aged",
+    "shaken",
+    "babies",
+    "infants",
+    "alcohol",
+    "alcoholic"
    ]
   ],
   "choices": null,
@@ -1466,7 +1471,7 @@
    "ref": "practical-u3-2025 QB1"
   },
   "facet": "brodmann",
-  "prompt": "What Brodman\u2019s area(s) are damaged in this ischemic stroke?",
+  "prompt": "What Brodman’s area(s) are damaged in this ischemic stroke?",
   "answer": "17, 18, 19",
   "accept": [],
   "keywords": [

@@ -70,7 +70,7 @@
    "name": "Posterior inferior cerebellar artery",
    "short": "PICA",
    "color": "#f4845f",
-   "territory": "Inferior vermis and tonsil, inferior cerebellar peduncle, lateral medulla (nucleus ambiguus, solitary and spinal trigeminal nuclei, olive)."
+   "territory": "Inferior vermis and tonsil, inferior cerebellar peduncle, lateral medulla (nucleus ambiguus, spinal trigeminal nucleus and tract, solitary nucleus, vestibular nuclei, anterolateral tract)."
   },
   {
    "id": "vert",
@@ -218,7 +218,7 @@
     "mca",
     "aca"
    ],
-   "course": "Middle cerebral artery."
+   "course": "Middle cerebral artery (lateral) and anterior cerebral artery (medial part)."
   },
   {
    "slug": "inferior-parietal-lobule",
@@ -369,8 +369,8 @@
     "superior-occipital-gyri"
    ],
    "arteries": [
-    "mca",
-    "pca"
+    "pca",
+    "mca"
    ]
   },
   {
@@ -964,10 +964,10 @@
     "olive"
    ],
    "arteries": [
-    "pica",
-    "vert"
+    "vert",
+    "asa"
    ],
-   "course": "PICA and vertebral artery branches."
+   "course": "Vertebral and anterior spinal artery branches."
   },
   {
    "slug": "pyramids",
@@ -1349,6 +1349,7 @@
     "posterior-spinocerebellar-tract"
    ],
    "arteries": [
+    "asa",
     "psa"
    ],
    "course": "Posterior spinal artery and anterior spinal artery branches."

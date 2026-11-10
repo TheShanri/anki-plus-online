@@ -427,7 +427,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   trapLevel={c.guard?.armedLevel ?? 0}
                   gated={c.guard?.gateActive(engine.deps.now()) ?? false}
                   drifting={engine.drift > 0}
-                  placeholder={c.isFirstLook ? "Know it? Type it. Otherwise Enter = reveal" : c.practice ? "Type it…" : "Type the answer…"}
+                  placeholder={c.isFirstLook ? "Know it? Type it, or press Enter" : c.practice ? "Type it…" : "Type the answer…"}
                   onChange={(v) => engine.input(v)}
                   onBeforeInput={(e) => {
                     if (engine.gateBlocks()) e.preventDefault();
@@ -441,7 +441,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   className="kw-input"
                   aria-label="Your answer"
                   value={c.typed}
-                  placeholder={c.isFirstLook ? "Know it? Type it. Otherwise Enter = reveal" : "Answer in your own words…"}
+                  placeholder={c.isFirstLook ? "Know it? Type it, or press Enter" : "Answer in your own words…"}
                   onChange={(e) => engine.input(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {

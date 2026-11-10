@@ -84,7 +84,7 @@
 .ghost { color: var(--text-faint); white-space: pre-wrap; } .ghost.slots { color: var(--hard); }
 .caret { display: inline-block; width: 2px; height: 1.1em; background: var(--accent-2); vertical-align: text-bottom; margin: 0 1px; animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
-.placeholder { color: var(--text-faint); font-family: var(--font-body); font-size: 0.8em; }
+.placeholder { color: var(--text-faint); font-family: var(--font-body); font-size: 0.72em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block; max-width: 100%; vertical-align: bottom; }
 .typebox-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; font-size: 16px; border: 0; background: transparent; color: transparent; caret-color: transparent; cursor: text; }
 .kw-input { width: 100%; min-height: 92px; padding: 12px 14px; border-radius: var(--radius-sm); border: 2px solid var(--panel-border); background: var(--bg-2); color: var(--text); font: inherit; font-size: 17px; resize: vertical; }
 .kw-input:focus { outline: none; border-color: var(--accent-2); }
@@ -137,7 +137,7 @@
 .note-form textarea { width: 100%; padding: 8px 10px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--bg); color: var(--text); font: inherit; }
 
 /* ---------- popovers, toasts, modals ---------- */
-.gear-btn { padding: 6px 10px; }
+.gear-btn { padding: 6px 10px; display: inline-flex; align-items: center; justify-content: center; min-width: 40px; }
 .popover { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; width: min(320px, 92vw); padding: 14px; border-radius: var(--radius); border: 1px solid var(--panel-border-hi); background: var(--panel-solid); display: grid; gap: 8px; }
 .toggle-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; }
 /* .switch lives in base.css (one switch for the whole app) */
@@ -250,4 +250,14 @@
   .toolbar:has(> .toolbar-sep) > .toolbar-sep { display: none; }
   .toolbar:has(> .toolbar-sep) > a, .toolbar:has(> .toolbar-sep) > button { justify-content: center; }
   .toolbar:has(> .toolbar-sep) > :first-child { grid-column: 1 / -1; }
+}
+
+/* phones: the run header reads as counts, then the progress bar, then one compact row of status and controls */
+@media (max-width: 560px) {
+  .st-top { gap: 8px 8px; }
+  .st-top > * { order: 2; }
+  .st-top > .st-counts { order: 0; flex: 1 1 100%; justify-content: space-between; gap: 8px; }
+  .st-top > .st-bar { order: 1; flex: 1 1 100%; }
+  .st-top > .combo-pill { margin-right: auto; }
+  .st-top > .btn { min-height: 40px; padding-inline: 14px; }
 }

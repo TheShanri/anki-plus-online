@@ -19,7 +19,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
 export default function AboutPage() {
   return (
     <PageShell title="About, credits and privacy" kicker="ANKI+ Online">
-      <nav aria-label="On this page" className="mb-5 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+      <nav aria-label="On this page" className="mb-5 flex flex-wrap gap-2 text-sm [&_a]:inline-flex [&_a]:min-h-10 [&_a]:items-center [&_a]:rounded-full [&_a]:border [&_a]:border-[var(--panel-border)] [&_a]:bg-[var(--panel)] [&_a]:px-3.5 [&_a]:no-underline hover:[&_a]:border-[var(--panel-border-hi)]">
         <a href="#supplementary">Supplementary notes</a>
         <a href="#credits">Credits</a>
         <a href="#privacy">Privacy</a>

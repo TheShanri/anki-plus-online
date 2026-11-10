@@ -1,6 +1,7 @@
 "use client";
 // The scaffolding toggles, shared by /settings/scaffolding and the gear popover on the study screen.
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Settings2 } from "lucide-react";
 import { SCAFFOLD_DEFAULTS, type Scaffold, type ScaffoldKey } from "@/lib/study/settings";
 import { setSoundsEnabled } from "@/lib/feedback/events";
 
@@ -46,10 +47,19 @@ export function useScaffoldToggles(initial: Scaffold, onChanged?: (s: Scaffold) 
 export function GearPopover({ scaffold, onChanged }: { scaffold: Scaffold; onChanged: (s: Scaffold) => void }) {
   const [open, setOpen] = useState(false);
   const { s, toggle, err } = useScaffoldToggles(scaffold, onChanged);
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const away = (e: PointerEvent) => { if (root.current && !root.current.contains(e.target as Node)) setOpen(false); };
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("pointerdown", away);
+    document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("pointerdown", away); document.removeEventListener("keydown", esc); };
+  }, [open]);
   return (
-    <div className="st-gear">
+    <div className="st-gear" ref={root}>
       <button type="button" className="btn gear-btn" aria-label="Study supports" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        {"⚙"}
+        <Settings2 aria-hidden size={17} />
       </button>
       {open && (
         <div className="popover" role="dialog" aria-label="Study supports">

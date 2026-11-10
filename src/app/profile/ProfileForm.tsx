@@ -45,7 +45,7 @@ export function ProfileForm({ p, mustChange }: { p: Profile; mustChange: boolean
           <div>
             <label className="label" htmlFor="classYear">Class year</label>
             <select className="input" id="classYear" name="classYear" defaultValue={p.classYear}>
-              <option value="">-</option>
+              <option value="">Not set</option>
               {years.map((y) => <option key={y}>{y}</option>)}
             </select>
           </div>
@@ -62,7 +62,7 @@ export function ProfileForm({ p, mustChange }: { p: Profile; mustChange: boolean
           <div>
             <label className="label" htmlFor="labSection">Lab section ({p.courseTitle})</label>
             <select className="input" id="labSection" name="labSection" defaultValue={p.labSection}>
-              <option value="">-</option>
+              <option value="">Not set</option>
               {p.labSections.map((s) => <option key={s}>{s}</option>)}
             </select>
             {fe.labSection && <p className="field-error">{fe.labSection}</p>}
@@ -73,14 +73,15 @@ export function ProfileForm({ p, mustChange }: { p: Profile; mustChange: boolean
         <button className="btn btn-primary" type="submit" disabled={pending}>Save profile</button>
       </form>
 
-      <form action={pwAction} className="panel max-w-xl space-y-4" id="password">
+      <form action={pwAction} className="panel max-w-xl space-y-4" id="password-form">
         <h2 className="font-display text-lg">Change password</h2>
         {mustChange && (
           <p className="notice">You are using a temporary password. Please choose your own now.</p>
         )}
         <div>
           <label className="label" htmlFor="password">New password</label>
-          <input className="input" id="password" name="password" type="password" autoComplete="new-password" minLength={8} required />
+          <input className="input" id="password" name="password" type="password" autoComplete="new-password" minLength={8} required aria-describedby="pw-hint" />
+          <p id="pw-hint" className="text-xs text-text-dim mt-1">At least 8 characters.</p>
         </div>
         {pw.error && <p className="field-error" role="alert">{pw.error}</p>}
         {pw.ok && <p className="text-sm text-good" role="status">Password changed.</p>}

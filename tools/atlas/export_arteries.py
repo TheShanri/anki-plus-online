@@ -18,34 +18,34 @@ os.makedirs(out, exist_ok=True)
 # (regex on the source object name, slug, supply-map artery id, parent slug (for proximal orientation), tube radius in mm, flow)
 # flow: "fwd" = proximal -> distal, "both" = communicating artery (direction depends on pressure), "up" = vertebral/ICA (blood goes up)
 SEG = [
-    (r"^Internal carotid artery", "ica", "ica", None, 2.6, "fwd"),
-    (r"^Vertebral artery", "vertebral", "vert", None, 1.9, "fwd"),
-    (r"^Basilar artery$", "basilar", "pontine", "vertebral", 2.0, "fwd"),
-    (r"^Anterior cerebral artery", "aca", "aca", "ica", 1.5, "fwd"),
-    (r"^Anterior communicating artery$", "acom", "aca", None, 0.9, "both"),
-    (r"^Pericallosal artery", "pericallosal", "aca", "aca", 1.0, "fwd"),
-    (r"^Callosomarginal artery", "callosomarginal", "aca", "aca", 0.7, "fwd"),
-    (r"^Frontal branches of callosomarginal", "callosomarginal-frontal", "aca", "callosomarginal", 0.45, "fwd"),
-    (r"^Orbitofrontal branches of anterior cerebral", "orbitofrontal", "aca", "aca", 0.6, "fwd"),
-    (r"^Middle cerebral artery \(M1", "mca-m1", "mca", "ica", 1.8, "fwd"),
-    (r"^Insular branches of middle cerebral", "mca-m2", "mca", "mca-m1", 0.9, "fwd"),
-    (r"^Middle cerebral artery \(M3", "mca-m3", "mca", "mca-m2", 0.8, "fwd"),
-    (r"^Temporal branches of middle cerebral", "mca-temporal", "mca", "mca-m1", 0.7, "fwd"),
-    (r"^Parietal branches of middle cerebral", "mca-parietal", "mca", "mca-m3", 0.6, "fwd"),
-    (r"^Artery of central sulcus", "central-sulcus", "mca", "mca-m3", 0.45, "fwd"),
-    (r"^Artery of precentral sulcus", "precentral-sulcus", "mca", "mca-m3", 0.45, "fwd"),
-    (r"^Proximal lateral striate", "lenticulostriate-prox", "lenti", "mca-m1", 0.4, "fwd"),
-    (r"^Distal lateral striate", "lenticulostriate-dist", "lenti", "mca-m1", 0.35, "fwd"),
-    (r"^Posterior communicating artery", "pcom", "pcomm", "ica", 0.9, "both"),
-    (r"^Posterior cerebral artery", "pca", "pca", "basilar", 1.5, "fwd"),
-    (r"^Superior cerebellar artery", "sca", "sca", "basilar", 0.9, "fwd"),
-    (r"^Anterior inferior cerebellar artery", "aica", "aica", "basilar", 0.8, "fwd"),
-    (r"^Posterior inferior cerebellar artery", "pica", "pica", "vertebral", 1.0, "fwd"),
-    (r"^Medial pontine branches of basilar", "pontine-medial", "pontine", "basilar", 0.45, "fwd"),
-    (r"^Lateral pontine branches of basilar", "pontine-lateral", "pontine", "basilar", 0.5, "fwd"),
-    (r"^Anterior spinal artery", "anterior-spinal", "asa", "vertebral", 0.6, "fwd"),
+    (r"^Internal carotid artery", "ica", "ica", None, 2.2, "fwd"),
+    (r"^Vertebral artery", "vertebral", "vert", None, 1.7, "fwd"),
+    (r"^Basilar artery$", "basilar", "pontine", "vertebral", 1.8, "fwd"),
+    (r"^Anterior cerebral artery", "aca", "aca", "ica", 1.0, "fwd"),
+    (r"^Anterior communicating artery$", "acom", "aca", None, 0.6, "both"),
+    (r"^Pericallosal artery", "pericallosal", "aca", "aca", 0.8, "fwd"),
+    (r"^Callosomarginal artery", "callosomarginal", "aca", "aca", 0.5, "fwd"),
+    (r"^Frontal branches of callosomarginal", "callosomarginal-frontal", "aca", "callosomarginal", 0.3, "fwd"),
+    (r"^Orbitofrontal branches of anterior cerebral", "orbitofrontal", "aca", "aca", 0.4, "fwd"),
+    (r"^Middle cerebral artery \(M1", "mca-m1", "mca", "ica", 1.5, "fwd"),
+    (r"^Insular branches of middle cerebral", "mca-m2", "mca", "mca-m1", 0.8, "fwd"),
+    (r"^Middle cerebral artery \(M3", "mca-m3", "mca", "mca-m2", 0.5, "fwd"),
+    (r"^Temporal branches of middle cerebral", "mca-temporal", "mca", "mca-m1", 0.4, "fwd"),
+    (r"^Parietal branches of middle cerebral", "mca-parietal", "mca", "mca-m3", 0.4, "fwd"),
+    (r"^Artery of central sulcus", "central-sulcus", "mca", "mca-m3", 0.3, "fwd"),
+    (r"^Artery of precentral sulcus", "precentral-sulcus", "mca", "mca-m3", 0.3, "fwd"),
+    (r"^Proximal lateral striate", "lenticulostriate-prox", "lenti", "mca-m1", 0.3, "fwd"),
+    (r"^Distal lateral striate", "lenticulostriate-dist", "lenti", "mca-m1", 0.3, "fwd"),
+    (r"^Posterior communicating artery", "pcom", "pcomm", "ica", 0.6, "both"),
+    (r"^Posterior cerebral artery", "pca", "pca", "basilar", 1.0, "fwd"),
+    (r"^Superior cerebellar artery", "sca", "sca", "basilar", 0.6, "fwd"),
+    (r"^Anterior inferior cerebellar artery", "aica", "aica", "basilar", 0.6, "fwd"),
+    (r"^Posterior inferior cerebellar artery", "pica", "pica", "vertebral", 0.7, "fwd"),
+    (r"^Medial pontine branches of basilar", "pontine-medial", "pontine", "basilar", 0.3, "fwd"),
+    (r"^Lateral pontine branches of basilar", "pontine-lateral", "pontine", "basilar", 0.3, "fwd"),
+    (r"^Anterior spinal artery", "anterior-spinal", "asa", "vertebral", 0.4, "fwd"),
 ]
-SIZE_SCALE = 1.25  # tubes a little thicker than life so they read at atlas zoom
+SIZE_SCALE = 1.0  # near-true calibre (radius in mm per segment above, 0.3 mm floor for the tiny branches)
 
 objs = [o for o in bpy.data.objects if o.type in ("MESH", "CURVE")
         and any(c.name.startswith("5:") for c in o.users_collection)]
@@ -115,14 +115,7 @@ for o in sorted(objs, key=lambda o: o.name):
             pts = sample_spline(sp, mw)
             if len(pts) >= 2:
                 lines.append(pts)
-        # re-bevel to a controlled radius; drop any taper so the tube is even
-        d.taper_object = None
-        d.bevel_mode = "ROUND"
-        d.bevel_depth = rad * 0.001 * SIZE_SCALE
-        d.extrude = 0
-        d.bevel_resolution = 2
-        d.resolution_u = 5
-        d.use_fill_caps = True
+        info.append('  scale=%s' % (tuple(round(x, 4) for x in mw.to_scale()),))
     else:  # ACom is a small mesh: centreline = principal axis
         me0 = o.data
         vs = [mw @ v.co for v in me0.vertices]
@@ -133,24 +126,47 @@ for o in sorted(objs, key=lambda o: o.name):
         lines.append([lo, hi])
     if not lines:
         continue
-    oe = o.evaluated_get(dg) if o.type == "MESH" else None
-    if o.type == "CURVE":
-        bpy.context.view_layer.update()
-        dg2 = bpy.context.evaluated_depsgraph_get()
-        me = bpy.data.meshes.new_from_object(o.evaluated_get(dg2), depsgraph=dg2)
-    else:
-        me = bpy.data.meshes.new_from_object(oe, depsgraph=dg)
-    me.transform(mw)
-    if mw.determinant() < 0:
-        me.flip_normals()
-    bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces); bm.to_mesh(me); bm.free()
-    for p in me.polygons:
-        p.use_smooth = True
-    if not len(me.vertices):
-        bpy.data.meshes.remove(me)
-        continue
-    to_export.append((name, me))
-    segments[name] = {"slug": slug, "artery": art, "side": side, "parent": parent, "radius": rad, "flow": flow, "raw": lines}
+    parts = [(name, slug, parent, rad, lines)]
+    if slug == "pca" and len(lines) > 1:
+        # the Z-Anatomy PCA is a tree: keep the trunk (P1, P2) as "pca", the cortical branches as "pca-branches"
+        lens = [sum((ln[i] - ln[i - 1]).length for i in range(1, len(ln))) for ln in lines]
+        k = lens.index(max(lens))
+        parts = [(name, "pca", parent, rad, [lines[k]]),
+                 ("pca-branches" + name[3:], "pca-branches", "pca", rad * 0.5, [ln for i, ln in enumerate(lines) if i != k])]
+    for name, slug, parent, rad, lines in parts:
+        oe = o.evaluated_get(dg) if o.type == "MESH" else None
+        if o.type == "CURVE":
+            # the source objects carry their own (sometimes odd) scale, so rebuild the tube from the WORLD-space polyline
+            # with a bevel in metres; the new curve object has an identity transform
+            nc = bpy.data.curves.new("_c_" + name, "CURVE")
+            nc.dimensions = "3D"
+            nc.bevel_mode = "ROUND"
+            nc.bevel_depth = rad * 0.001 * SIZE_SCALE
+            nc.bevel_resolution = 2
+            nc.use_fill_caps = True
+            for ln in lines:
+                sp = nc.splines.new("POLY")
+                sp.points.add(len(ln) - 1)
+                for i, q in enumerate(ln):
+                    sp.points[i].co = (q.x, q.y, q.z, 1.0)
+            no = bpy.data.objects.new("_c_" + name, nc)
+            tmp.objects.link(no)
+            bpy.context.view_layer.update()
+            dg2 = bpy.context.evaluated_depsgraph_get()
+            me = bpy.data.meshes.new_from_object(no.evaluated_get(dg2), depsgraph=dg2)
+        else:
+            me = bpy.data.meshes.new_from_object(oe, depsgraph=dg)
+            me.transform(mw)
+            if mw.determinant() < 0:
+                me.flip_normals()
+        bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces); bm.to_mesh(me); bm.free()
+        for p in me.polygons:
+            p.use_smooth = True
+        if not len(me.vertices):
+            bpy.data.meshes.remove(me)
+            continue
+        to_export.append((name, me))
+        segments[name] = {"slug": slug, "artery": art, "side": side, "parent": parent, "radius": rad, "flow": flow, "raw": lines}
 print("INFO\n" + "\n".join(info))
 
 # ---- orientation: proximal end = the end of each line nearest the parent's polyline (roots: lowest point)

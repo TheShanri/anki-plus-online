@@ -37,6 +37,7 @@ export const SEG_LABEL: Record<string, string> = {
   "lenticulostriate-dist": "Lateral striate (lenticulostriate) branches, distal",
   pcom: "Posterior communicating artery",
   pca: "Posterior cerebral artery (P1, P2)",
+  "pca-branches": "Cortical branches of the PCA",
   sca: "Superior cerebellar artery",
   aica: "Anterior inferior cerebellar artery",
   pica: "Posterior inferior cerebellar artery",
@@ -60,7 +61,7 @@ export const COW_LABEL: Record<string, string> = {
 export const COW_SLUGS = new Set(Object.keys(COW_LABEL));
 
 /** Not on the course slides: drawn only after the Supplementary gate is opened. */
-export const SUPP_SLUGS = new Set(["orbitofrontal", "mca-temporal", "mca-parietal", "central-sulcus", "precentral-sulcus", "callosomarginal-frontal"]);
+export const SUPP_SLUGS = new Set(["orbitofrontal", "mca-temporal", "mca-parietal", "central-sulcus", "precentral-sulcus", "callosomarginal-frontal", "pca-branches"]);
 
 /** The slides' flow statement for the two communicating arteries (Lab 16, "The Circle of Willis"). */
 export const COMM_NOTE =

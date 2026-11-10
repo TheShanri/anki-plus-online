@@ -281,7 +281,7 @@ export function SupplyMap() {
 
           <div className="grid gap-1.5">
             {gate.asking ? (
-              <SupplementaryHeadsUp what="Small cortical branches (orbitofrontal, temporal, parietal, central and precentral sulcus, frontal callosomarginal)" onConfirm={gate.confirm} onCancel={gate.cancel} />
+              <SupplementaryHeadsUp what="Small cortical branches (orbitofrontal, temporal, parietal, central and precentral sulcus, frontal callosomarginal, PCA cortical)" onConfirm={gate.confirm} onCancel={gate.cancel} />
             ) : (
               <button type="button" className="btn justify-start" aria-pressed={gate.open} onClick={() => (gate.open ? gate.lock() : gate.request())}>
                 <Lock size={14} aria-hidden /> {gate.open ? "Hide" : "Show"} small cortical branches (beyond the slides)

@@ -28,3 +28,7 @@ tools/blender/
 
 # secrets dropped in by hand
 *api_key*.txt
+
+# headless-test session cookies (never commit)
+cookie.js
+*.cookie.js

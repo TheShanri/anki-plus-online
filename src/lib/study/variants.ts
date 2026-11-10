@@ -47,20 +47,22 @@ function cranialVariants(text: string): string[] {
   for (const m of text.matchAll(CN_RE)) {
     const num = romanOf(m[1]);
     if (!num) continue;
+    const at = (form: string) => text.slice(0, m.index) + form + text.slice((m.index ?? 0) + m[0].length);
     for (const prefix of ["CN", "cranial nerve"]) {
-      for (const n of [num.roman, num.arabic]) {
-        out.push(text.slice(0, m.index) + `${prefix} ${n}` + text.slice((m.index ?? 0) + m[0].length));
-      }
+      for (const n of [num.roman, num.arabic]) out.push(at(`${prefix} ${n}`));
     }
+    // "CN7", "CNVII": the space is often left out (the normaliser keeps spaces, so these need their own forms)
+    for (const n of [num.arabic, num.roman]) out.push(at(`CN${n}`));
   }
   return out;
 }
 
 const SIDE_WORDS = ["left", "right"];
 
-/** left/right (or l/r) as a whole word in the text, else null. */
+/** left/right (or l/r) as a whole word in the text, else null. A hyphen or comma after it ends the word too
+ *  ("Right-atrium", "L-caudate", "left, ..."): the normaliser reads those as spaces, so the grader must as well. */
 export function hasSideWord(s: string): "left" | "right" | null {
-  const m = /(^|[^a-z])(left|right|l|r)(\.|\)|\s|$)/i.exec(s.replace(/\(/g, " "));
+  const m = /(^|[^a-z])(left|right|l|r)(?![a-z0-9])/i.exec(s.replace(/\(/g, " "));
   if (!m) return null;
   const w = m[2].toLowerCase();
   return w === "l" || w === "left" ? "left" : "right";
@@ -123,15 +125,24 @@ function buildVariants(answer: string, accept: string[], opts: VariantOptions): 
 
   for (const b of [...out]) for (const v of cranialVariants(b)) add(v);
 
+  // Forms this loop shortened itself. "n." stands for nerve AND nucleus, so expanding a generated "Oculomotor n." again
+  // would turn "Oculomotor nerve" into an accepted "Oculomotor nucleus": only abbreviations the author wrote expand.
+  const shortened = new Set<string>();
   for (const [full, abbrs] of WORD_ABBR) {
     for (const cur of [...out]) {
       const fullRe = new RegExp(`(^|[^\\p{L}])${escapeRe(full)}(?![\\p{L}])`, "giu");
-      if (fullRe.test(cur)) {
-        for (const ab of abbrs) add(cur.replace(new RegExp(fullRe.source, "giu"), `$1${ab}`));
+      // the word must not be the whole answer: "n" alone is no answer to "Nerve"
+      if (fullRe.test(cur) && /\p{L}/u.test(cur.replace(new RegExp(fullRe.source, "giu"), "$1"))) {
+        for (const ab of abbrs) {
+          const s = cur.replace(new RegExp(fullRe.source, "giu"), `$1${ab}`);
+          if (!seen.has(keyOf(s))) shortened.add(keyOf(s));
+          add(s);
+        }
       }
     }
     for (const ab of abbrs) {
       for (const cur of [...out]) {
+        if (shortened.has(keyOf(cur))) continue;
         const abRe = new RegExp(`(^|[^\\p{L}])${escapeRe(ab)}(?=\\s|$)`, "iu");
         if (abRe.test(cur) && cur.trim().length > ab.length + 1) add(cur.replace(abRe, `$1${full}`));
       }

@@ -259,7 +259,9 @@ function classifyGroup(g: Op[], ta: string, aa: string, answer: string, src: (j:
   const exp = g.map((o) => (o.t === "sub" || o.t === "omit" ? aa[o.j] : o.t === "trans" ? aa.slice(o.j, o.j + 2) : "")).join("");
   const got = g.map((o) => (o.t === "sub" || o.t === "insert" ? ta[o.i] : o.t === "trans" ? ta.slice(o.i, o.i + 2) : "")).join("");
   const sLo = src(lo);
-  const sHi = Math.max(sLo + 1, hi < aa.length ? src(hi - 1) + 1 : answer.length);
+  // an insertion covers no answer letter (hi === lo): its chunk is the letter it sits before. (At lo = 0, src(hi - 1)
+  // read map[-1] and the chunk end became NaN, which the not-null end_pos column refused.)
+  const sHi = hi > lo ? Math.max(sLo + 1, hi < aa.length ? src(hi - 1) + 1 : answer.length) : sLo + 1;
   const one = g.length === 1 ? g[0] : null;
 
   if (one && one.t === "trans") {

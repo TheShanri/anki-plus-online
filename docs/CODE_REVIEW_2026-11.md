@@ -48,3 +48,41 @@ With one more `..` it reaches another bucket (`bug-reports`).
 `src/components/staff/Dashboard.tsx:137` had a raw U+FEFF inside a string literal (the Excel UTF-8 marker). It now uses
 the `\uFEFF` escape. This was the only non-ASCII control or invisible character in `src`, `scripts` and `supabase`.
 All files are valid UTF-8 (scan: every `.ts/.tsx/.js/.mjs/.css/.json/.sql/.md`).
+
+### High: a trap chunk with end NaN made `/api/study/answer` return 500 (trap banking lost)
+`src/lib/study/traps.ts` `classifyGroup`: an extra letter before the first one ("ccaudate nucleus") is an insertion at
+answer index 0. `src(hi - 1)` read `map[-1]`, so the chunk end became `NaN`. The `card_traps` upsert (`end_pos int not
+null`) failed. The route had already stored the log and the card state, so the client's retry was `ignored`, and that
+answer's trap evidence was lost.
+- Fix: an insertion's chunk is the letter it sits before (`sLo + 1`). For index > 0 this is the same value as before.
+- Test: `src/lib/study/grade-edge.test.ts` ("traps: an extra letter...").
+
+### Medium: grading errors with real consequences for scheduling (all in `grade-edge.test.ts`)
+- **Wrong number accepted.** "CN VI" for "CN VII", and "T4" for "T5", were near misses (Hard). In exam mode, which is
+  "generous" by default, "CN V" for "CN VI" scored **full marks** ("Spelling forgiven"). Fix: `numberSwap` in
+  `grade.ts`. When both strings name numbers (Roman numeral words or digits) and they differ, the answer is wrong
+  ("check the number"). A lone "v" (vein) on one side does not count.
+- **Abbreviations chained across words.** "nerve" became "n.", and the "nucleus" pass then expanded that same "n."
+  again. So "Oculomotor nucleus" was accepted for "Oculomotor nerve", "Cranial nuclei" for "Cranial nerves", and
+  "CN V" turned into "cranial n. vein". Fix (`variants.ts`): only abbreviations the author wrote are expanded, never
+  ones the generator made. An answer written as "Oculomotor n." still accepts both.
+- **A bare abbreviation was the answer to a one-word name** ("n" for "Nerve", "tr" for "Tract"). Fix: no
+  abbreviating when the word is the whole answer.
+- **"CN7" / "CN12" without the space were wrong.** Fix: `CN7` and `CNVII` forms.
+- **Side word followed by a hyphen or comma** ("Right-atrium", "L-caudate", "left, ...") was graded "Say which side",
+  although the typer had already matched it. Fix: `hasSideWord` ends the word at any non-letter, non-digit.
+- **Non-ASCII dashes** (U+2010/2011/2012, minus U+2212; U+2011 occurs in lecture-13 slides) were deleted instead of
+  separating words, so "Edinger‑Westphal" came out as one word. Fix: every `\p{Pd}` and U+2212 is a hyphen
+  (`text.ts`).
+- **Keyword grading.** "efferent" counted as a hit for the key "afferent" (1 edit), and a phrase key matched inside
+  words ("within there" hit "in the"). Fix: the opposite term is never a hit, and a phrase must start at a word.
+  Added abduction/adduction, abductor/adductor and abducts/adducts to the opposites.
+- Regression check on real content: every one of the 2,957 cards' own answer and accepts grades "correct" before and
+  after (0 regressions). The variants lost are all chained abbreviations. Note: 476 cards (16%) reach the 96-variant
+  cap, which silently drops later forms ("the X", side forms). Before the fix it was 484. Not changed here (see
+  "Not changed").
+
+### Low: settings
+`readLearnerSettings` never clamped `guardMinutes`/`guardCards`. A stored 0 stopped every session at the first
+card. It also did not round `newPerDay`/`sprintSize`. They are clamped and rounded now (`settings.ts`, test in
+`grade-edge.test.ts`).

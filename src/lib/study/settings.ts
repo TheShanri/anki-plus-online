@@ -92,10 +92,13 @@ function pickBools<T extends object>(defaults: T, src: unknown): T {
 export function readLearnerSettings(raw: unknown): LearnerSettings {
   const r = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
   const study = pickBools(STUDY_DEFAULTS, r.study);
-  study.newPerDay = clamp(study.newPerDay, 0, 100);
-  study.reviewsPerDay = clamp(study.reviewsPerDay, 0, 1000);
+  study.newPerDay = Math.round(clamp(study.newPerDay, 0, 100));
+  study.reviewsPerDay = Math.round(clamp(study.reviewsPerDay, 0, 1000));
   study.retention = clamp(study.retention, 0.7, 0.97);
-  study.sprintSize = clamp(study.sprintSize, 3, 20);
+  study.sprintSize = Math.round(clamp(study.sprintSize, 3, 20));
+  // the hyperfocus guard is not in the UI, but a stored 0 would stop every session on its first card
+  study.guardMinutes = clamp(study.guardMinutes, 5, 240);
+  study.guardCards = Math.round(clamp(study.guardCards, 10, 1000));
   return {
     scaffold: pickBools(SCAFFOLD_DEFAULTS, r.scaffold),
     typing: readTyping(r.typing),

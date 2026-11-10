@@ -61,6 +61,7 @@ const ANTONYMS: Array<[string, string]> = [
   ["rostral", "caudal"], ["left", "right"], ["major", "minor"], ["internal", "external"], ["ascending", "descending"],
   ["afferent", "efferent"], ["sensory", "motor"], ["proximal", "distal"], ["deep", "superficial"], ["greater", "lesser"],
   ["upper", "lower"], ["short", "long"], ["sympathetic", "parasympathetic"], ["intrinsic", "extrinsic"],
+  ["abduction", "adduction"], ["abductor", "adductor"], ["abducts", "adducts"],
 ];
 const ANTONYM_OF = new Map<string, string>();
 for (const [a, b] of ANTONYMS) {
@@ -82,6 +83,27 @@ function antonymSwap(typedCanon: string, answerCanon: string): boolean {
     if (opp && !aSet.has(w) && aSet.has(opp)) return true;
   }
   return false;
+}
+
+const ROMAN_VALUE: Record<string, number> = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7, viii: 8, ix: 9, x: 10, xi: 11, xii: 12 };
+
+/** The numbers named in a canonical string (Roman numeral words and digit runs), sorted: "cn vii" -> "7". */
+function numbersOf(c: string): string {
+  const out: number[] = [];
+  for (const w of c.split(" ")) {
+    const r = ROMAN_VALUE[w];
+    if (r) out.push(r);
+    else for (const d of w.match(/\d+/g) ?? []) out.push(Number(d));
+  }
+  return out.sort((a, b) => a - b).join(",");
+}
+
+/** Both name a number and the numbers differ (CN VI for CN VII, T4 for T5): a different structure, not a typo.
+ *  A lone "v" (vein) on one side only is not a swap. */
+function numberSwap(typedCanon: string, answerCanon: string): boolean {
+  const a = numbersOf(typedCanon);
+  const b = numbersOf(answerCanon);
+  return a !== "" && b !== "" && a !== b;
 }
 
 export interface CompiledAnswer {
@@ -154,6 +176,9 @@ export function gradeTyped(typed: string, spec: AnswerSpec, opts: GradeOptions =
     if (antonymSwap(t, target)) {
       return { result: "wrong", matched: comp.variants[best], edits: bestEdits, why: "A different structure (check the direction word)", kind: "antonym", points: 0 };
     }
+    if (numberSwap(t, target)) {
+      return { result: "wrong", matched: comp.variants[best], edits: bestEdits, why: "A different structure (check the number)", kind: "other_structure", points: 0 };
+    }
     const side = sideCheck(typed, spec);
     if (side && side.result === "wrong") return side;
     if (exam) {
@@ -186,6 +211,9 @@ export interface KeywordResult {
 
 function stemMatch(word: string, key: string): boolean {
   if (word === key) return true;
+  // "efferent" is one letter from "afferent": the opposite term is never a hit
+  const opp = ANTONYM_OF.get(key);
+  if (opp && (word === opp || (word.length >= 5 && word.startsWith(opp.slice(0, -1))))) return false;
   if (key.length >= 5 && word.length >= 5 && (word.startsWith(key.slice(0, key.length - 1)) || key.startsWith(word.slice(0, word.length - 1)))) return true;
   return key.length >= 6 && lev(word, key) <= 1;
 }
@@ -199,7 +227,8 @@ export function gradeKeywords(typed: string, groups: string[][], flags: CanonFla
     g.some((k) => {
       const kc = canonStr(k, flags);
       if (!kc) return false;
-      if (kc.includes(" ")) return padded.includes(` ${kc} `) || lev(t, kc) <= 2 || words.join(" ").includes(kc);
+      // a phrase starts at a word ("dorsal columns" hits "dorsal column"; "within there" does not hit "in the")
+      if (kc.includes(" ")) return padded.includes(` ${kc} `) || lev(t, kc) <= 2 || padded.includes(` ${kc}`);
       return words.some((w) => stemMatch(w, kc));
     }),
   );

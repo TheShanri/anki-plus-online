@@ -15,6 +15,9 @@ const PUNCT = /[\p{P}\p{S}]/u;
 const LETTER = /[\p{L}\p{N}]/u;
 // These separate words rather than vanish: "grey-matter" == "grey matter", "dorsal/ventral" == "dorsal ventral".
 const SPACEY = new Set(["-", "/", "_"]);
+// Every dash (hyphen, non-breaking hyphen, figure dash, minus sign...) is a hyphen: pasted or phone-typed
+// "Edinger‑Westphal" must not lose its word break.
+const DASH = /[\p{Pd}−]/u;
 
 export interface Canon {
   /** canonical string */
@@ -30,7 +33,7 @@ export function canon(str: string, f: CanonFlags = DEFAULT_CANON, keepTrailingSp
   let prevSpace = true;
   for (let i = 0; i < str.length; i++) {
     let ch = QUOTES[str[i]] ?? str[i];
-    if (SPACEY.has(ch)) ch = " ";
+    if (SPACEY.has(ch) || DASH.test(ch)) ch = " ";
     if (/\s/.test(ch)) {
       if (!prevSpace) {
         out.push(" ");

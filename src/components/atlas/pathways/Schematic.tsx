@@ -1,26 +1,23 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import type { Side } from "@/lib/atlas/pathways";
+import { useEffect, useMemo, useRef } from "react";
+import { ORDER_COLORS, GUIDE_COLORS } from "@/lib/atlas/pathwayPalette";
 import type { Beat } from "./buildPathwayScene";
+import { DiagramView, FIELD_LEGEND } from "./diagram/DiagramView";
+import { detectSlug, diagramFor, endKinds, resolveBeats } from "./diagram/resolve";
+import type { Side } from "@/lib/atlas/pathways";
 
-/* The pathway as a flowchart, built from the very same beat list as the 3D scene (so the two cannot drift apart):
- * nodes and arrows, a left lane and a right lane, crossings drawn as an X. It lights in step with the 3D beats, the
- * arrows draw as the 3D tubes draw, and hovering or clicking an element does the same as in 3D. */
+/* The pathway as a textbook-style figure, drawn from the same beat list as the 3D scene (so the two cannot drift apart):
+ *  - long tracts: a stack of simplified cross-sections (cortex, thalamus, midbrain, pons, medulla, cord) with the fibres
+ *    passing through them and visibly crossing the midline at the right level,
+ *  - the visual pathway: the classic axial diagram, eyes to the occipital cortex,
+ *  - loops and circuits: boxes and arrows laid out like the brain,
+ *  - the limbic and olfactory pathways on a mid-sagittal brain, and reflexes as arcs through a cord or brainstem section.
+ * Colour = which neuron (1st, 2nd, 3rd order; UMN / LMN for motor), solid = left, dashed = right, the red line is the midline.
+ * Everything lights in step with the 3D beats; hovering or clicking an element does the same as in 3D. */
 
-type Lane = "L" | "R" | "M";
-const laneOf = (rel: string | undefined, body: Side): Lane => (rel === "i" ? body : rel === "c" ? (body === "L" ? "R" : "L") : "M");
-const X = { L: 14, R: 46, M: 30 } as const;
-
-/** Where each body side sits (left or right lane) at the start and end of a beat. */
-function lanes(b: Beat, prevEnd: { L: Lane; R: Lane }): { from: { L: Lane; R: Lane }; to: { L: Lane; R: Lane } } {
-  if (b.kind === "node") {
-    const l = (s: Side) => laneOf(b.rel, s);
-    return { from: prevEnd, to: { L: l("L"), R: l("R") } };
-  }
-  const end = (s: Side): Lane => (b.phys === "i" ? s : b.phys === "c" || b.phys === "cross" ? (s === "L" ? "R" : "L") : prevEnd[s]);
-  return { from: prevEnd, to: { L: end("L"), R: end("R") } };
-}
+const MOTOR = new Set(["lcst", "acst", "corticobulbar", "umn-lmn"]);
+const ORD = ["1st", "2nd", "3rd", "4th"];
 
 export function Schematic({
   beats,
@@ -31,6 +28,7 @@ export function Schematic({
   onPick,
   reduced,
   sideAlpha,
+  slug: slugProp,
 }: {
   beats: Beat[];
   cur: number | null;
@@ -40,129 +38,105 @@ export function Schematic({
   onPick: (k: string) => void;
   reduced?: boolean;
   sideAlpha: { L: number; R: number };
+  /** optional: the pathway's name (otherwise it is recognised from the beat captions) */
+  slug?: string;
 }) {
-  const listRef = useRef<HTMLOListElement>(null);
+  const wrap = useRef<HTMLDivElement>(null);
+  const slug = useMemo(() => slugProp ?? detectSlug(beats), [slugProp, beats]);
+  const diagram = useMemo(() => (slug ? diagramFor(slug) : null), [slug]);
+  const resolved = useMemo(() => (slug && diagram ? resolveBeats(slug, beats, diagram.els.flatMap((e) => e.keys)) : null), [slug, diagram, beats]);
+  const ends = useMemo(() => (slug ? endKinds(slug) : new Map()), [slug]);
+
   useEffect(() => {
     if (cur === null) return;
-    const el = listRef.current?.querySelector<HTMLElement>(`[data-beat="${cur}"]`);
+    const el = wrap.current?.querySelector<SVGElement>(`[data-beat="${cur}"]`);
     el?.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" });
   }, [cur, reduced]);
 
-  const rows = beats.reduce<{ b: Beat; i: number; l: ReturnType<typeof lanes> }[]>((acc, b, i) => {
-    const prev = acc.length ? acc[acc.length - 1].l.to : { L: "L" as Lane, R: "R" as Lane };
-    acc.push({ b, i, l: lanes(b, prev) });
-    return acc;
-  }, []);
-  /** A fork: the rows of one split share a rail on the left; each branch starts with a tick. */
-  const forkRail = (i: number) => {
-    const f = rows[i].b.fork;
-    if (!f) return null;
-    const pf = rows[i - 1]?.b.fork;
-    const nf = rows[i + 1]?.b.fork;
-    const start = !pf || pf.id !== f.id;
-    const sub = start || pf.k !== f.k;
-    const last = !nf || nf.id !== f.id;
-    return (
-      <svg aria-hidden className="pointer-events-none absolute left-0 top-0 h-full w-3" style={{ overflow: "visible" }}>
-        <line x1="5" y1={start ? "0%" : "0%"} x2="5" y2={last ? "50%" : "100%"} stroke="var(--text-faint, #888)" strokeWidth="1.6" />
-        {sub && <line x1="5" y1="50%" x2="11" y2="50%" stroke="var(--text-faint, #888)" strokeWidth="1.6" />}
-        {start && <circle cx="5" cy="0" r="2.2" fill="var(--text-faint, #888)" />}
-      </svg>
-    );
-  };
+  const orders = useMemo(() => {
+    const s = new Set<number>();
+    beats.forEach((b) => s.add(Math.min(4, b.neuron + 1)));
+    return [...s].sort();
+  }, [beats]);
+  const motor = !!slug && MOTOR.has(slug);
+
+  const shownBeat = hoverKey ? beats.findIndex((b) => b.info === hoverKey) : cur;
+  const caption = shownBeat !== null && shownBeat >= 0 ? beats[shownBeat]?.caption : null;
+  const lineStyle = (side: Side) => ({ borderTop: `2px ${side === "R" ? "dashed" : "solid"} var(--text-dim)`, display: "inline-block", width: 18, verticalAlign: "middle" });
+
   return (
-    <ol ref={listRef} className="m-0 grid list-none gap-0 p-0" aria-label="Pathway schematic">
-      {rows.map(({ b, i, l }) => {
-        const shown = i <= reveal;
-        const hot = i === cur;
-        const hov = hoverKey === b.info;
-        const op = shown ? (hot || cur === null ? 1 : 0.62) : 0.28;
-        const common = {
-          "data-beat": i,
-          onMouseEnter: () => onHover(b.info),
-          onMouseLeave: () => onHover(null),
-          onFocus: () => onHover(b.info),
-          onBlur: () => onHover(null),
-          onClick: () => onPick(b.info),
-        };
-        if (b.kind === "node") {
-          const lanesUsed = (["L", "R"] as Side[]).map((s) => ({ s, x: X[l.to[s]] }));
-          const merged = lanesUsed[0].x === lanesUsed[1].x;
-          return (
-            <li key={i} className="m-0">
-              <button
-                type="button"
-                {...common}
-                aria-current={hot ? "step" : undefined}
-                className={`relative flex w-full items-center gap-2 rounded-sm px-1 py-1 text-left transition-colors ${b.fork ? "pl-4" : ""} ${hov ? "bg-bg-3" : ""}`}
-                style={{ opacity: op }}
-              >
-                {forkRail(i)}
-                <svg width="60" height="22" aria-hidden className="flex-none">
-                  {merged ? (
-                    <circle cx={lanesUsed[0].x} cy="11" r={hot ? 7 : 5.5} fill="var(--accent-2, currentColor)" stroke={hot || hov ? "var(--text)" : "none"} strokeWidth="2" />
-                  ) : (
-                    lanesUsed.map(({ s, x }) => (
-                      <circle key={s} cx={x} cy="11" r={hot ? 6.5 : 5} fill={s === "L" ? "var(--blue, #4d8dff)" : "var(--orange, #ff9e3d)"} fillOpacity={sideAlpha[s] < 0.5 ? 0.3 : 1} stroke={hot || hov ? "var(--text)" : "none"} strokeWidth="2" />
-                    ))
-                  )}
-                </svg>
-                <span className={`line-clamp-2 min-w-0 flex-1 text-[12.5px] leading-tight ${hot ? "font-semibold text-text" : "text-text-dim"}`} title={b.caption}>{b.caption}</span>
-              </button>
-            </li>
-          );
-        }
-        // path: two lanes (left solid, right dashed); a crossing swaps them into an X
-        const H = 40;
-        return (
-          <li key={i} className="m-0">
+    <div ref={wrap} className="pwd-root">
+      <style>{`
+        .pwd-draw{transition:stroke-dashoffset 1.8s ease-in-out}
+        .pwd-late{transition:opacity 300ms 1.2s}
+        html[data-effects="off"] .pwd-draw, html[data-effects="off"] .pwd-late{transition:none !important}
+        @media (prefers-reduced-motion: reduce){.pwd-draw,.pwd-late{transition:none !important}}
+      `}</style>
+      {diagram && resolved ? (
+        <>
+          <div className="overflow-x-auto">
+            <DiagramView diagram={diagram} beats={beats} resolved={resolved} cur={cur} reveal={reveal} hoverKey={hoverKey} onHover={onHover} onPick={onPick} reduced={reduced} sideAlpha={sideAlpha} ends={ends} />
+          </div>
+          <ul className="m-0 flex list-none flex-wrap items-center gap-x-3 gap-y-1 p-1 text-[12px] leading-tight text-text-dim" aria-label="Legend">
+            {diagram.legendField ? (
+              FIELD_LEGEND.map((f) => (
+                <li key={f.label} className="flex items-center gap-1">
+                  <span aria-hidden style={{ borderTop: `3px ${f.dash ? "dashed" : "solid"} ${f.color}`, display: "inline-block", width: 18 }} />
+                  {f.label}
+                </li>
+              ))
+            ) : (
+              <>
+                {orders.map((o) => (
+                  <li key={o} className="flex items-center gap-1">
+                    <span aria-hidden className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: ORDER_COLORS[o as 1 | 2 | 3 | 4] }} />
+                    {motor ? (o === 1 ? "UMN" : o === 2 ? "LMN" : ORD[o - 1]) : o === 4 ? "4th link" : `${ORD[o - 1]}`}
+                  </li>
+                ))}
+                {!motor && <li className="text-text-faint">order</li>}
+              </>
+            )}
+            {diagram.mode !== "plain" && (
+              <li className="flex items-center gap-1.5">
+                <span aria-hidden style={lineStyle("L")} /> left <span aria-hidden style={lineStyle("R")} /> right
+              </li>
+            )}
+            {diagram.hasCross && (
+              <li className="flex items-center gap-1">
+                <span aria-hidden className="inline-block h-3 w-3 rounded-full border-2 text-center text-[8px] leading-[9px]" style={{ borderColor: GUIDE_COLORS.crossing, color: GUIDE_COLORS.crossing }}>
+                  ×
+                </span>
+                crosses
+              </li>
+            )}
+            {diagram.note && <li>{diagram.note}</li>}
+          </ul>
+          <p aria-live="polite" className="sticky bottom-0 m-0 min-h-[2.6em] bg-bg-2 px-1 py-1 text-[12px] leading-snug text-text">
+            {caption ?? <span className="text-text-faint">Hover or click a part: the same step lights in 3D.</span>}
+          </p>
+        </>
+      ) : null}
+      {/* every beat, for keyboard and screen-reader users, and for any beat the figure does not draw */}
+      <ol className={diagram && resolved ? "sr-only" : "m-0 grid list-none gap-0.5 p-0"} aria-label="Pathway steps">
+        {beats.map((b, i) => (
+          <li key={i}>
             <button
               type="button"
-              {...common}
-              aria-current={hot ? "step" : undefined}
-              className={`relative flex w-full items-center gap-2 rounded-sm px-1 text-left transition-colors ${b.fork ? "pl-4" : ""} ${hov ? "bg-bg-3" : ""}`}
-              style={{ opacity: op, height: H }}
+              data-beat={diagram ? undefined : i}
+              aria-current={i === cur ? "step" : undefined}
+              onMouseEnter={() => onHover(b.info)}
+              onMouseLeave={() => onHover(null)}
+              onFocus={() => onHover(b.info)}
+              onBlur={() => onHover(null)}
+              onClick={() => onPick(b.info)}
+              className={`w-full rounded-sm px-1.5 py-1 text-left text-[12px] leading-snug ${i === cur ? "font-semibold text-text" : "text-text-dim"}`}
+              style={{ opacity: i <= reveal ? 1 : 0.4 }}
             >
-              {forkRail(i)}
-              <svg width="60" height={H} aria-hidden className="flex-none" style={{ overflow: "visible" }}>
-                {(["L", "R"] as Side[]).map((s) => {
-                  const x1 = X[l.from[s]];
-                  const x2 = X[l.to[s]];
-                  const len = Math.hypot(x2 - x1, H - 6) + 2;
-                  const col = s === "L" ? "var(--blue, #4d8dff)" : "var(--orange, #ff9e3d)";
-                  return (
-                    <g key={s} opacity={sideAlpha[s] < 0.5 ? 0.3 : 1}>
-                      <line x1={x1} y1="0" x2={x2} y2={H - 7} stroke={col} strokeWidth="1.5" strokeOpacity="0.22" strokeDasharray={s === "R" ? "4 3" : undefined} />
-                      <line
-                        x1={x1}
-                        y1="0"
-                        x2={x2}
-                        y2={H - 7}
-                        stroke={col}
-                        strokeWidth={hot || hov ? 3.2 : 2.2}
-                        strokeLinecap="round"
-                        strokeDasharray={shown ? `${len} ${len}` : `${len} ${len}`}
-                        strokeDashoffset={shown ? 0 : len}
-                        style={{ transition: reduced ? "none" : "stroke-dashoffset 2s ease-in-out, stroke-width 150ms" }}
-                      />
-                      <path d={`M${x2 - 4} ${H - 11} L${x2} ${H - 4} L${x2 + 4} ${H - 11}`} fill="none" stroke={col} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity={shown ? 1 : 0} style={{ transition: reduced ? "none" : "opacity 200ms 800ms" }} />
-                    </g>
-                  );
-                })}
-                {b.cross && (
-                  <g opacity={shown ? 1 : 0.2} style={{ transition: reduced ? "none" : "opacity 300ms 500ms" }}>
-                    <circle cx="30" cy={H / 2 - 3} r="7" fill="var(--panel-solid, #111)" stroke="var(--highlight, #fffb96)" strokeWidth="1.6" />
-                    <path d={`M26.5 ${H / 2 - 6.5} L33.5 ${H / 2 + 0.5} M33.5 ${H / 2 - 6.5} L26.5 ${H / 2 + 0.5}`} stroke="var(--highlight, #fffb96)" strokeWidth="2" strokeLinecap="round" />
-                  </g>
-                )}
-              </svg>
-              <span className={`line-clamp-2 min-w-0 flex-1 text-[11.5px] leading-tight ${hot ? "font-semibold text-text" : "text-text-dim"}`} title={b.caption}>
-                {b.caption}
-              </span>
+              {b.caption}
             </button>
           </li>
-        );
-      })}
-    </ol>
+        ))}
+      </ol>
+    </div>
   );
 }

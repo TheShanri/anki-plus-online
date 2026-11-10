@@ -16,16 +16,16 @@ import { LazyAtlasViewer } from "./lazy";
 import { IconBtn } from "../ui/Toolbar";
 import { DeficitIcons } from "../pathways/deficits";
 import { SupplyQuiz } from "./SupplyQuiz";
-import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, OCCLUSION, TOUR, VEIN_STEPS, type Occlusion } from "./supply-guide";
+import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, BLOCK_LIST, OCCLUSION, OCCLUSION_NAME, TOUR, VEIN_STEPS, type Occlusion } from "./supply-guide";
 import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, artShort, unitArteries, type SupplyUnit } from "./supply-data";
 
 type Mode = "explore" | "tour" | "block" | "veins" | "bleeds";
-const MODES: { id: Mode; label: string }[] = [
-  { id: "explore", label: "Explore" },
-  { id: "tour", label: "Follow the blood" },
-  { id: "block", label: "Block a vessel" },
-  { id: "veins", label: "Drainage" },
-  { id: "bleeds", label: "Bleeds" },
+const MODES: { id: Mode; label: string; short: string }[] = [
+  { id: "explore", label: "Explore", short: "Explore" },
+  { id: "tour", label: "Follow the blood", short: "Follow" },
+  { id: "block", label: "Block a vessel", short: "Block" },
+  { id: "veins", label: "Drainage", short: "Drain" },
+  { id: "bleeds", label: "Bleeds", short: "Bleeds" },
 ];
 type Selected = { kind: "unit"; unit: SupplyUnit } | { kind: "artery"; id: string } | null;
 type ViewId = "inferior" | "left" | "midsagittal";
@@ -299,6 +299,12 @@ export function SupplyMap() {
     [mode, track],
   );
 
+  const blockSeg = useCallback((name: string) => {
+    stamp();
+    setBlocked(name);
+    trackAtlas({ type: "supply_occlusion", artery: BLOCKABLE[slugOf(name)] ?? name });
+  }, []);
+
   const toggleArtery = useCallback(
     (id: string) => {
       stamp();
@@ -399,11 +405,12 @@ export function SupplyMap() {
   const caption = mode === "tour" ? TOUR[step] : mode === "veins" ? VEIN_STEPS[vstep] : null;
   return (
     <div className="relative flex h-[calc(100dvh-148px)] min-h-[560px] w-full min-w-0 flex-col overflow-hidden rounded-card border border-panel-border bg-bg-2">
-      <div className="flex flex-none items-center gap-1.5 overflow-x-auto border-b border-panel-border bg-panel px-2 py-1.5">
+      <div className="flex flex-none flex-wrap items-center gap-1.5 border-b border-panel-border bg-panel px-2 py-1.5">
         <div role="tablist" aria-label="Blood supply modes" className="flex flex-none gap-1">
           {MODES.map((m) => (
             <button key={m.id} type="button" role="tab" aria-selected={mode === m.id} className={`btn flex-none ${mode === m.id ? "btn-primary" : ""}`} onClick={() => goMode(m.id)}>
-              {m.label}
+              <span className="sm:hidden">{m.short}</span>
+              <span className="hidden sm:inline">{m.label}</span>
             </button>
           ))}
         </div>
@@ -518,10 +525,11 @@ export function SupplyMap() {
               selected={selected}
               onUnit={(u) => setSelected({ kind: "unit", unit: u })}
               showComm={showComm}
+              onHover={setHover}
             />
           )}
           {mode === "tour" && <TourPanel step={step} goto={gotoStep} askView={askView} />}
-          {mode === "block" && <BlockPanel info={blockInfo} blocked={blocked} onClear={() => setBlocked(null)} />}
+          {mode === "block" && <BlockPanel info={blockInfo} blocked={blocked} onClear={() => setBlocked(null)} onBlock={blockSeg} />}
           {mode === "veins" && <VeinPanel step={vstep} goto={gotoV} />}
           {mode === "bleeds" && <BleedsPanel />}
 
@@ -587,6 +595,7 @@ function ExplorePanel(p: {
   selected: Selected;
   onUnit: (u: SupplyUnit) => void;
   showComm: boolean;
+  onHover: (id: string | null) => void;
 }) {
   const plic = SUPPLY.units.find((u) => u.variants);
   return (
@@ -620,6 +629,10 @@ function ExplorePanel(p: {
                   type="button"
                   aria-pressed={on}
                   onClick={() => p.onToggle(a.id)}
+                  onMouseEnter={() => p.onHover(a.id)}
+                  onMouseLeave={() => p.onHover(null)}
+                  onFocus={() => p.onHover(a.id)}
+                  onBlur={() => p.onHover(null)}
                   className={`flex w-full min-w-0 items-center gap-2 rounded-sm border px-2 py-1 text-left text-[13px] ${on ? "border-accent text-text" : "border-transparent text-text-dim hover:border-panel-border-hi"}`}
                 >
                   <Swatch color={a.color} />
@@ -749,13 +762,34 @@ function ColourKey({ ids }: { ids: string[] }) {
   );
 }
 
-function BlockPanel({ info, blocked, onClear }: { info: { name: string; seg: FlowSegment; artery: string; occ: Occlusion } | null; blocked: string | null; onClear: () => void }) {
+function BlockPicker({ blocked, onBlock }: { blocked: string | null; onBlock: (name: string) => void }) {
+  return (
+    <div className="grid gap-1" role="group" aria-label="Choose a vessel to block">
+      {BLOCK_LIST.map((v) => (
+        <div key={v.seg} className="flex items-center gap-1.5 text-[13px]">
+          <span className="min-w-0 flex-1 truncate text-text-dim">{v.label}</span>
+          {(v.sided ? ["l", "r"] : [""]).map((sd) => {
+            const name = sd ? `${v.seg}.${sd}` : v.seg;
+            const on = blocked === name;
+            return (
+              <button key={name} type="button" aria-pressed={on} className={`btn !px-2 !py-0.5 text-xs ${on ? "btn-primary" : ""}`} onClick={() => onBlock(name)}>
+                {sd ? sd.toUpperCase() : "Block"}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function BlockPanel({ info, blocked, onClear, onBlock }: { info: { name: string; seg: FlowSegment; artery: string; occ: Occlusion } | null; blocked: string | null; onClear: () => void; onBlock: (name: string) => void }) {
   if (!info) {
     return (
       <div className="panel grid gap-2" aria-live="polite">
         <h2 className="font-display text-base text-accent">Block a vessel</h2>
         <p className="text-sm">{blocked ? "That vessel is not one the slides teach as a site of blockage." : "Click an artery in the 3D view to block it. Its territory dims, and the slides' consequences appear here."}</p>
-        <p className="text-xs text-text-dim">Blockable: ICA, ACA, MCA, PCA, vertebral, basilar, pontine branches, lenticulostriates, SCA, AICA, PICA, anterior spinal.</p>
+        <BlockPicker blocked={blocked} onBlock={onBlock} />
         <p className="text-xs text-text-faint">The anterior and posterior communicating arteries carry little flow while the pressures are equal; they light up when a main vessel is blocked.</p>
       </div>
     );
@@ -767,26 +801,27 @@ function BlockPanel({ info, blocked, onClear }: { info: { name: string; seg: Flo
       <h2 className="flex items-center gap-2 font-display text-base text-accent">
         <Swatch color={BLOCK_RED} />
         {side}
-        {a?.name ?? info.name} blocked
+        {OCCLUSION_NAME[info.artery] ?? a?.name ?? info.name} blocked
       </h2>
       <div className="rounded-sm border border-again/40 bg-again/5 px-2 py-1.5 text-sm">
-        <span className="eyebrow text-again">What the slides predict </span>
+        <strong className="block font-semibold text-again">What the slides predict.</strong> 
         <span className="mt-1 flex items-start gap-2">
           <DeficitIcons text={info.occ.deficit} />
           <span>{info.occ.deficit}</span>
         </span>
       </div>
       <p className="text-sm text-text-dim">
-        <span className="eyebrow">Collateral flow </span>
+        <strong className="font-semibold text-text">Collateral flow.</strong> 
         {info.occ.collateral}
       </p>
       <div className="flex flex-wrap gap-2">
-        <StudyLink artery={info.artery} />
+        <StudyLink artery={info.artery === "basilar" ? "pontine" : info.artery} />
         <button type="button" className="btn" onClick={onClear}>
           Unblock
         </button>
       </div>
-      <p className="text-xs text-text-faint">Click another vessel to block it instead. Pulses on the communicating arteries show the direction the blood would take.</p>
+      <BlockPicker blocked={blocked} onBlock={onBlock} />
+      <p className="text-xs text-text-faint">Or click a vessel in the 3D view. Pulses on the communicating arteries show the direction the blood would take.</p>
     </div>
   );
 }
@@ -864,14 +899,14 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
           <p className="flex items-start gap-2 rounded-sm border border-again/40 bg-again/5 px-2 py-1 text-sm">
             <DeficitIcons text={occ.deficit} />
             <span>
-              <span className="eyebrow text-again">If blocked </span>
+              <strong className="font-semibold text-again">If blocked.</strong> 
               {occ.deficit}
             </span>
           </p>
         )}
         {FLOW_TEXT[a.id] && (
           <p className="text-sm text-text-dim">
-            <span className="eyebrow">Blood flow </span>
+            <strong className="font-semibold text-text">Blood flow.</strong> 
             {FLOW_TEXT[a.id]}
           </p>
         )}
@@ -922,7 +957,7 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
       </p>
       {u.course && (
         <p className="text-sm">
-          <span className="eyebrow">Course note </span>
+          <strong className="font-semibold text-text">Course note.</strong> 
           {u.course}
         </p>
       )}

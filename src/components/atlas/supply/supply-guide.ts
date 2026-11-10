@@ -33,53 +33,53 @@ export type TourStep = {
 export const TOUR: TourStep[] = [
   {
     title: "Two feeders",
-    text: "Blood reaches the brain by two pairs of arteries: the internal carotids (anterior circulation) and the vertebrals (posterior circulation).",
+    text: "Blood reaches the brain through two pairs of arteries: the internal carotids (anterior circulation) and the vertebrals (posterior circulation).",
     slugs: ["ica", "vertebral"],
     view: "inferior",
     src: "Lecture 16, slide 8",
   },
   {
     title: "Vertebrals make the basilar",
-    text: "The two vertebral arteries rise through the foramen magnum and join at the ponto-medullary junction to form the basilar artery. Pontine branches leave it on the way up.",
+    text: "The two vertebral arteries join at the ponto-medullary junction to form the basilar artery, which gives off the pontine branches.",
     slugs: ["basilar", "pontine-medial", "pontine-lateral"],
     src: "Lecture 16, slides 9-11",
   },
   {
     title: "The basilar splits into the PCAs",
-    text: "The basilar ends by dividing into the two posterior cerebral arteries. The superior cerebellar arteries leave just below that division.",
+    text: "The basilar artery ends by dividing into the two posterior cerebral arteries, with the superior cerebellar arteries just below the division.",
     slugs: ["pca", "sca"],
     src: "Lab 16, slide 4",
   },
   {
     title: "The carotid splits into MCA and ACA",
-    text: "Each internal carotid divides into a large middle cerebral artery and a smaller anterior cerebral artery. About 80 % of internal carotid flow goes to the MCA and about 20 % to the ACA.",
+    text: "Each internal carotid divides into a large middle cerebral artery and a smaller anterior cerebral artery, and about 80 % of its flow goes to the MCA.",
     slugs: ["mca-m1", "aca"],
     src: "Lab 16, slides 7-8; lecture 18, slide 23",
   },
   {
     title: "Two bridges close the circle",
-    text: "The anterior communicating artery joins the two ACAs; each posterior communicating artery joins the internal carotid to the PCA. Together they make the Circle of Willis around the optic chiasm and hypothalamus.",
+    text: "The anterior communicating artery joins the two ACAs and each posterior communicating artery joins the carotid to the PCA, closing the Circle of Willis.",
     slugs: ["acom", "pcom"],
     src: "Lecture 16, slides 13-14",
   },
   {
     title: "Territories of the three cerebral arteries",
-    text: "ACA: medial frontal and parietal lobes. MCA: most of the lateral surface. PCA: inferior temporal and occipital lobes. Switch to the lateral or medial view to see them.",
-    slugs: ["mca-m2", "mca-m3", "pericallosal", "callosomarginal"],
+    text: "The ACA supplies the medial frontal and parietal lobes, the MCA most of the lateral surface, and the PCA the inferior temporal and occipital lobes.",
+    slugs: [],
     territory: ["aca", "mca", "pca"],
     view: "lateral",
     src: "Lecture 16, slides 15-19",
   },
   {
     title: "Branches of the ACA and MCA",
-    text: "Past the circle the ACA gives the pericallosal and callosomarginal arteries (medial view); the MCA runs through the lateral fissure and gives the lenticulostriate arteries to the basal ganglia and anterior limb of the internal capsule.",
-    slugs: ["lenticulostriate-prox", "lenticulostriate-dist"],
+    text: "The ACA gives the pericallosal and callosomarginal arteries, and the MCA gives the lenticulostriate arteries to the basal ganglia and the anterior limb of the internal capsule.",
+    slugs: ["pericallosal", "callosomarginal", "mca-m2", "lenticulostriate-prox", "lenticulostriate-dist"],
     view: "medial",
     src: "Lecture 16, slides 12, 17, 25",
   },
   {
     title: "Cerebellar and spinal branches",
-    text: "Three pairs of cerebellar arteries (superior, AICA, PICA) and the anterior spinal artery, formed from a branch of each vertebral, complete the posterior circulation.",
+    text: "Three pairs of cerebellar arteries (superior, AICA, PICA) and the anterior spinal artery, which forms from a branch of each vertebral, complete the posterior circulation.",
     slugs: ["aica", "pica", "anterior-spinal"],
     view: "inferior",
     src: "Lecture 16, slides 10-11; lab 16, slides 5, 18",
@@ -122,19 +122,25 @@ export const OCCLUSION: Record<string, Occlusion> = {
   },
   mca: {
     territory: ["mca", "lenti"],
-    deficit: "Contralateral face and arm weakness and sensory loss, speech disturbance (Broca's area if the left) and auditory disturbance. The most common ischemic stroke: 80 % of internal carotid flow goes to the MCA.",
+    deficit: "Contralateral face and arm weakness and sensory loss, speech disturbance (Broca's area) and auditory disturbance. The most common ischemic stroke: 80 % of internal carotid flow goes to the MCA.",
     collateral: "No communicating artery reaches the MCA beyond the block, so the circle does not bypass it.",
   },
   pca: {
     territory: ["pca"],
-    deficit: "Loss of vision (occipital lobe), thalamus and posterior limb of the internal capsule deficits, and the inferior temporal 'what' pathway: inability to recognise faces, difficulty reading.",
+    deficit: "Vision loss (occipital lobe), thalamus and posterior limb of the internal capsule deficits, and the inferior temporal 'what' pathway: inability to recognise faces (prosopagnosia), difficulty reading; the slides also list ataxia, vertigo and unsteadiness.",
     reroute: (side) => [{ slug: "pcom", side, dir: 1 }],
     collateral: `The posterior communicating artery can carry blood from the internal carotid to the PCA. ${CIRCLE_NOTE}`,
   },
   vert: {
-    territory: ["pontine", "pica", "asa"],
-    deficit: "Brainstem and cerebellar damage (medulla, PICA territory); the anterior spinal artery is fed by branches of both vertebrals.",
-    collateral: "The other vertebral artery still joins the basilar. Strokes of the basilar artery are often fatal.",
+    territory: ["pica", "asa"],
+    deficit: "Damage to the brainstem and cerebellum, which the posterior circulation supplies; each vertebral also gives a branch to the anterior spinal artery.",
+    collateral: "The other vertebral artery still feeds the basilar artery.",
+  },
+  basilar: {
+    territory: ["pontine", "sca", "aica", "pca"],
+    deficit: "Strokes or damage to the basilar artery are often fatal, because the brainstem is essential for basic body functioning.",
+    reroute: () => [{ slug: "pcom", side: "l", dir: 1 }, { slug: "pcom", side: "r", dir: 1 }],
+    collateral: `Each posterior communicating artery can bring carotid blood back to the PCA. ${CIRCLE_NOTE}`,
   },
   pontine: {
     territory: ["pontine"],
@@ -148,17 +154,17 @@ export const OCCLUSION: Record<string, Occlusion> = {
   },
   sca: {
     territory: ["sca"],
-    deficit: "Cerebellar infarct in the superior cerebellar territory (ataxia, vertigo, unsteadiness).",
+    deficit: "Infarct of the cerebellum in the superior cerebellar territory; the slides list ataxia, vertigo and unsteadiness among posterior-circulation signs.",
     collateral: "Cerebellar arteries are not bypassed by the circle.",
   },
   aica: {
     territory: ["aica"],
-    deficit: "Cerebellar infarct in the anterior inferior cerebellar territory (ataxia, vertigo, unsteadiness).",
+    deficit: "Infarct of the cerebellum in the anterior inferior cerebellar territory; the slides list ataxia, vertigo and unsteadiness among posterior-circulation signs.",
     collateral: "Cerebellar arteries are not bypassed by the circle.",
   },
   pica: {
     territory: ["pica"],
-    deficit: "Cerebellar infarct in the posterior inferior cerebellar territory (ataxia, vertigo, unsteadiness).",
+    deficit: "Infarct of the cerebellum in the posterior inferior cerebellar territory; the slides list ataxia, vertigo and unsteadiness among posterior-circulation signs.",
     collateral: "Cerebellar arteries are not bypassed by the circle.",
   },
   asa: {
@@ -177,7 +183,7 @@ export const BLOCKABLE: Record<string, string> = {
   "mca-m3": "mca",
   pca: "pca",
   vertebral: "vert",
-  basilar: "vert",
+  basilar: "basilar",
   "pontine-medial": "pontine",
   "pontine-lateral": "pontine",
   "lenticulostriate-prox": "lenti",
@@ -224,3 +230,20 @@ export const BLEEDS: { name: string; vessel: string; where: string; shape: strin
   { name: "Subarachnoid", vessel: "Cerebral artery, often a ruptured aneurysm of the circle of Willis", where: "Subarachnoid space, mixing with CSF", shape: "Fills the fissures and basal cisterns", note: "'Worst headache of your life'. A stroke.", stroke: true },
   { name: "Intracerebral", vessel: "Penetrating artery, e.g. a lenticulostriate", where: "Inside the brain tissue", shape: "Bright pool within the parenchyma", note: "Symptoms resemble an ischemic stroke. A stroke.", stroke: true },
 ];
+
+/** The vessels the Block panel offers as buttons (the 3D vessels can also be clicked): segment base name, label, whether it has a left and a right. */
+export const BLOCK_LIST: { seg: string; label: string; sided: boolean }[] = [
+  { seg: "ica", label: "Internal carotid", sided: true },
+  { seg: "aca", label: "ACA", sided: true },
+  { seg: "mca-m1", label: "MCA", sided: true },
+  { seg: "lenticulostriate-prox", label: "Lenticulostriates", sided: true },
+  { seg: "pca", label: "PCA", sided: true },
+  { seg: "vertebral", label: "Vertebral", sided: true },
+  { seg: "basilar", label: "Basilar", sided: false },
+  { seg: "pontine-medial", label: "Pontine branches", sided: true },
+  { seg: "sca", label: "SCA", sided: true },
+  { seg: "aica", label: "AICA", sided: true },
+  { seg: "pica", label: "PICA", sided: true },
+];
+
+export const OCCLUSION_NAME: Record<string, string> = { basilar: "Basilar artery" };

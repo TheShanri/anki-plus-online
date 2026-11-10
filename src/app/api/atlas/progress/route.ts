@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 const TYPES = new Set([
   "structure_viewed", "curious_unlock", "view_changed", "multiview_opened", "cut_used", "quiz_answer", "quiz_finished", "pathway_completed",
-  "lesion_case", "slice_match_round", "supply_answer", "brainstem_level_viewed", "brainstem_label", "memory_map_opened",
+  "lesion_case", "slice_match_round", "supply_answer", "supply_tour_step", "supply_occlusion", "supply_drainage_step", "supply_bleeds_opened", "brainstem_level_viewed", "brainstem_label", "memory_map_opened",
 ]);
 const MAX_EVENTS = 150;
 const WEEK = 7 * 86_400_000;

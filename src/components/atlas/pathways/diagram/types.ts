@@ -18,6 +18,8 @@ export interface DEl {
   end?: { x: number; y: number; a: number };
   endKind?: EndKind;
   dash?: boolean;
+  /** line width override (the retina halves are drawn thick) */
+  width?: number;
   x?: number;
   y?: number;
   rx?: number;
@@ -43,6 +45,8 @@ export interface DLabel {
   y?: number;
   anchor?: "start" | "middle" | "end";
   small?: boolean;
+  /** fixed labels: a leader line to this point */
+  to?: [number, number];
   /** drawn on a cream region: dark ink, no halo */
   ink?: boolean;
 }

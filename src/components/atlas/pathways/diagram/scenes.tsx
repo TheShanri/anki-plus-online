@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FIELD_COLORS } from "@/lib/atlas/pathwayPalette";
+import { FIELD_COLORS, REGION_COLORS } from "@/lib/atlas/pathwayPalette";
 import { elbow, link, spline, sym, type P } from "./geom";
 import type { DEl, DLabel, Diagram, EndKind, Side } from "./types";
 
@@ -203,19 +203,20 @@ export function visual(): Diagram {
   const F = FIELD_COLORS;
   const seg = (keys: string[], side: Side, pts: P[], color: string, o: { endKind?: EndKind; width?: number } = {}) => {
     const l = link(pts);
-    els.push({ id: `v${n++}`, keys, kind: "path", side, d: l.d, end: l.end, color, endKind: o.endKind ?? "none" });
+    els.push({ id: `v${n++}`, keys, kind: "path", side, d: l.d, end: l.end, color, endKind: o.endKind ?? "none", width: o.width });
   };
-  const L = (keys: string[], text: string, x: number, y: number, anchor: "start" | "middle" | "end" = "middle") => labels.push({ keys, text, x, y, anchor, small: true });
+  const L = (keys: string[], text: string, x: number, y: number, anchor: "start" | "middle" | "end" = "middle", to?: [number, number], ink = false) =>
+    labels.push({ keys, text, x, y, anchor, small: true, to, ink });
   const col = (side: Side, upper?: boolean) => (side === "L" ? (upper ? F.leftUpper : F.leftLower) : upper ? F.rightUpper : F.rightLower);
 
-  // fibres: the left and right VISUAL FIELD (left = solid blue, right = dashed orange). Eye: left x=100, right x=240.
-  // optic nerves (each eye: nasal fibres carry that eye's temporal field; temporal fibres carry the nasal field)
+  // The two VISUAL FIELDS (left = solid blue, right = dashed orange). Left eye x=100, right eye x=240, both at y=112.
+  // Optic nerves: each eye sends two bundles. Nasal retina (toward the nose) sees the temporal field of its own side
+  // and crosses; temporal retina sees the nasal field and stays.
   const nerve = ["~optic nerves"];
   seg(nerve, "R", [[88, 134], [92, 170], [150, 206]], col("R"));
   seg(nerve, "L", [[112, 134], [122, 172], [158, 206]], col("L"));
   seg(nerve, "R", [[228, 134], [218, 172], [182, 206]], col("R"));
   seg(nerve, "L", [[252, 134], [248, 170], [190, 206]], col("L"));
-  // chiasm: nasal fibres cross, temporal fibres stay
   const crossK = ["~nasal fibres cross"];
   seg(crossK, "L", [[158, 206], [170, 216], [187, 226]], col("L"));
   seg(crossK, "R", [[182, 206], [170, 216], [153, 226]], col("R"));
@@ -223,63 +224,67 @@ export function visual(): Diagram {
   seg(stayK, "R", [[150, 206], [147, 226]], col("R"));
   seg(stayK, "L", [[190, 206], [193, 226]], col("L"));
   els.push({ id: "xv", keys: crossK, kind: "cross", side: "M", x: 170, y: 216 });
-  // optic tracts
   const tract = ["~optic tract"];
   seg(tract, "R", [[147, 226], [135, 246], [129, 262]], col("R"), { endKind: "cup" });
   seg(tract, "R", [[153, 226], [141, 246], [135, 262]], col("R"), { endKind: "cup" });
   seg(tract, "L", [[193, 226], [205, 246], [211, 262]], col("L"), { endKind: "cup" });
   seg(tract, "L", [[187, 226], [199, 246], [205, 262]], col("L"), { endKind: "cup" });
-  // radiations: the parietal route carries the lower field to the cuneus, Meyer's loop the upper field to the lingual gyrus
+  // radiations: parietal route = lower field -> cuneus (above the calcarine fissure); Meyer's loop = upper field -> lingual gyrus (below it)
   const par = ["~parietal route"];
   const mey = ["~meyer"];
-  const parP: P[] = [[132, 280], [127, 330], [116, 384]];
-  const meyP: P[] = [[122, 274], [86, 266], [58, 300], [54, 360], [70, 410], [98, 424]];
+  const parP: P[] = [[132, 280], [122, 335], [100, 378]];
+  const meyP: P[] = [[122, 274], [86, 266], [54, 300], [48, 360], [56, 418], [68, 438]];
   seg(par, "R", parP, col("R"), { endKind: "arrow" });
   seg(par, "L", mx(parP), col("L"), { endKind: "arrow" });
   seg(mey, "R", meyP, col("R", true), { endKind: "arrow" });
   seg(mey, "L", mx(meyP), col("L", true), { endKind: "arrow" });
-  // regions
   const region = (keys: string[], x: number, y: number, rx: number, ry: number, soma = false) => els.push({ id: `g${n++}`, keys, kind: "region", side: "M", x, y, rx, ry, soma });
   const lgn = ["~lateral geniculate"];
   region(lgn, 132, 270, 13, 8, true);
   region(lgn, 208, 270, 13, 8, true);
-  // the retina: two arcs per eye, in the colour of the field they receive (left eye: temporal half = right field)
+  // retina: the half toward the nose (nasal) and the half toward the temple (temporal) in the colour of the field each one sees
   const ret = ["~retina"];
-  // viewer-left half of either eye = the right field, viewer-right half = the left field
-  const retina = (cx: number) => {
-    seg(ret, "R", arcPts(cx, 112, 21, 180, 90), col("R"));
-    seg(ret, "L", arcPts(cx, 112, 21, 90, 0), col("L"));
-  };
-  retina(100);
-  retina(240);
-  // V1: the calcarine fissure splits cuneus (upper bank, lower field) and lingual gyrus (lower bank, upper field)
-  const v1 = ["~primary visual cortex"];
-  region(v1, 110, 408, 29, 25);
-  region(v1, 230, 408, 29, 25);
-  for (const cx of [110, 230]) {
-    const l = link([[cx - 28, 408], [cx + 28, 408]]);
-    els.push({ id: `cal${cx}`, keys: v1, kind: "path", side: "M", d: l.d, color: "#1C1A17", endKind: "none", dash: true });
+  for (const cx of [100, 240]) {
+    seg(ret, "R", arcPts(cx, 112, 22, 180, 90), col("R"), { width: 6 });
+    seg(ret, "L", arcPts(cx, 112, 22, 90, 0), col("L"), { width: 6 });
   }
-  labels.push({ keys: v1, text: "Cuneus", x: 110, y: 397, anchor: "middle", small: true, ink: true });
-  labels.push({ keys: v1, text: "Lingual", x: 110, y: 424, anchor: "middle", small: true, ink: true });
-  labels.push({ keys: v1, text: "Calcarine", x: 170, y: 410, anchor: "middle", small: true });
-  labels.push({ keys: v1, text: "V1", x: 170, y: 424, anchor: "middle", small: true });
+  // V1: calcarine fissure (dark line) with the cuneus above it (lower field) and the lingual gyrus below it (upper field)
+  const v1 = ["~primary visual cortex"];
+  for (const cx of [96, 244]) {
+    region(v1, cx, 394, 30, 13);
+    region(v1, cx, 438, 30, 13);
+    const l = link([[cx - 34, 416], [cx + 34, 416]]);
+    els.push({ id: `cal${cx}`, keys: v1, kind: "path", side: "M", d: l.d, color: REGION_COLORS.outline, endKind: "none", dash: true });
+  }
   const badge = (keys: string[], x: number, y: number, text: string, order: number) => els.push({ id: `bd${n++}`, keys, kind: "badge", side: "M", x, y, badge: text, order });
-  badge(ret, 60, 112, "1°", 1);
-  badge(nerve, 70, 176, "2°", 2);
-  badge(lgn, 150, 304, "3°", 3);
-  L(ret, "Retina", 60, 134);
-  L(nerve, "Optic nerve", 82, 196, "end");
-  L(["~optic tract"], "Optic tract", 120, 246, "end");
-  L(["~lateral geniculate"], "LGN", 170, 276);
-  L(crossK, "Nasal fibres", 252, 202, "start");
-  L(crossK, "cross", 252, 216, "start");
-  L(stayK, "Temporal", 252, 232, "start");
-  L(stayK, "fibres stay", 252, 246, "start");
-  L(par, "Parietal", 170, 330);
-  L(par, "route", 170, 344);
-  L(mey, "Meyer's", 80, 322, "middle");
-  L(mey, "loop", 80, 336, "middle");
+  badge(ret, 18, 100, "1°", 1);
+  badge(nerve, 66, 170, "2°", 2);
+  badge(lgn, 160, 296, "3°", 3);
+
+  L(ret, "Retina", 32, 104, "start");
+  L(ret, "Temporal", 68, 152, "end", [82, 126]);
+  L(ret, "Nasal", 122, 150, "start", [114, 128]);
+  L(nerve, "Optic nerve", 70, 196, "end", [105, 184]);
+  L(crossK, "Nasal fibres", 232, 234, "start", [182, 222]);
+  L(crossK, "cross", 232, 247, "start");
+  L(stayK, "Temporal", 272, 184, "start", [250, 166]);
+  L(stayK, "fibres stay", 272, 197, "start");
+  L(["~optic tract"], "Optic tract", 112, 244, "end", [133, 244]);
+  L(lgn, "LGN", 170, 276);
+  L(par, "Parietal", 170, 320);
+  L(par, "route", 170, 333);
+  L(mey, "Meyer's", 84, 330, "middle");
+  L(mey, "loop", 84, 343, "middle");
+  // V1 labels sit in the gap between the two occipital lobes, outside the shapes, each with a leader to its own band
+  L(v1, "Cuneus", 170, 392, "middle", [128, 394]);
+  L(v1, "lower field", 170, 407, "middle");
+  L(v1, "Calcarine", 170, 422, "middle", [128, 416]);
+  L(v1, "Lingual", 170, 437, "middle", [128, 438]);
+  L(v1, "upper field", 170, 452, "middle");
+  L(v1, "", 170, 392, "middle", [212, 394]);
+  L(v1, "", 170, 422, "middle", [212, 416]);
+  L(v1, "", 170, 437, "middle", [212, 438]);
+  L(v1, "V1", 170, 482, "middle");
 
   const deco = (
     <g>
@@ -300,7 +305,7 @@ export function visual(): Diagram {
             {q(180, 270, F.leftUpper)}
             <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--text-faint)" strokeWidth={1.2} />
             <circle cx={cx} cy={cy} r={2.2} fill="var(--text)" />
-            <text x={cx} y={cy - r - 8} fontSize={11} fill="var(--text-faint)" textAnchor="middle">
+            <text x={cx} y={cy - r - 8} fontSize={12} fill="var(--text-dim)" textAnchor="middle">
               {i === 0 ? "Left eye field" : "Right eye field"}
             </text>
           </g>
@@ -315,7 +320,7 @@ export function visual(): Diagram {
       <path d={sym([[0, 0], [14, -3], [20, 4], [14, 10], [0, 12]])} transform="translate(170 210)" fill="color-mix(in srgb, var(--text-faint) 18%, transparent)" stroke="var(--text-faint)" strokeWidth={0.9} />
     </g>
   );
-  return { w: W, h: 448, mode: "field", midline: { x: 170, y0: 30, y1: 440 }, deco, els, labels, hasCross: true, legendField: true };
+  return { w: W, h: 494, mode: "field", midline: { x: 170, y0: 30, y1: 488 }, deco, els, labels, hasCross: true, legendField: true };
 }
 
 export const SCENES: Record<string, () => Diagram> = {

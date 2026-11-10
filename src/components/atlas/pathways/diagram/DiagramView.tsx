@@ -39,7 +39,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
       if (l.lead) {
         const tgt = l.lead.L[0] > l.lead.R[0] ? l.lead.L : l.lead.R;
         gut.push({ l, tx: tgt[0], ty: tgt[1], y: tgt[1], lines: l.text.split("\n").length });
-      } else nodes.push({ l, x: l.x ?? 0, y: l.y ?? 0, anchor: l.anchor ?? "middle" });
+      } else nodes.push({ l, x: l.x ?? 0, y: l.y ?? 0, anchor: l.anchor ?? "middle", tx: l.to?.[0], ty: l.to?.[1] });
     }
     gut.sort((a, b) => a.ty - b.ty);
     let bottom = -1e9;
@@ -49,7 +49,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
       g.y = y;
       bottom = y + hh / 2;
     }
-    for (const g of gut) nodes.push({ l: g.l, x: diagram.midline ? diagram.midline.x + 86 : 250, y: g.y, anchor: "start", tx: g.tx, ty: g.ty });
+    for (const g of gut) nodes.push({ l: g.l, x: diagram.midline ? diagram.midline.x + 89 : 250, y: g.y, anchor: "start", tx: g.tx, ty: g.ty });
     return nodes;
   }, [diagram]);
 
@@ -92,7 +92,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     if (!el.d) return null;
     const c = colorOf(el, st.order);
     const mid = `${uid}m${key}`;
-    const lw = st.hot ? 4.2 : st.hov ? 3.8 : 2.8;
+    const lw = (el.width ?? 0) + (st.hot ? 1.4 : st.hov ? 1 : 0) || (st.hot ? 4.2 : st.hov ? 3.8 : 2.8);
     const dashed = bar(el);
     const ek = el.endKind ?? ends.get(el.keys.find((k) => ends.has(k)) ?? "") ?? "none";
     return (
@@ -207,7 +207,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const y0 = nd.y - ((lines.length - 1) * fs) / 2 + fs * 0.34;
     return (
       <g key={i} opacity={st.shown ? (st.hot || cur === null ? 1 : 0.8) : 0.4}>
-        {nd.tx !== undefined && nd.ty !== undefined && <line x1={nd.x - 3} y1={nd.y} x2={nd.tx} y2={nd.ty} stroke="var(--text-faint)" strokeWidth={0.8} strokeOpacity={0.6} strokeDasharray="1.5 2.5" />}
+        {nd.tx !== undefined && nd.ty !== undefined && <line x1={nd.anchor === "start" ? nd.x - 3 : nd.anchor === "end" ? nd.x + 3 : nd.x} y1={nd.y} x2={nd.tx} y2={nd.ty} stroke="var(--text-faint)" strokeWidth={0.8} strokeOpacity={0.6} strokeDasharray="1.5 2.5" />}
         <text x={nd.x} y={y0} textAnchor={nd.anchor} fontSize={fs} fontWeight={st.hot ? 700 : 500} fill={nd.l.ink ? INK : "var(--text)"} stroke={nd.l.ink ? "none" : "var(--bg-2)"} strokeWidth={3.2} paintOrder="stroke" strokeLinejoin="round">
           {lines.map((t, k) => (
             <tspan key={k} x={nd.x} dy={k === 0 ? 0 : fs}>
@@ -221,7 +221,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
 
   const ml = diagram.midline;
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="group" aria-label="Pathway diagram" className="block select-none" style={{ minWidth: 296, maxWidth: 640, margin: "0 auto" }}>
+    <svg viewBox={`0 0 ${w} ${h}`} width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Pathway diagram" className="pwd-fig block select-none">
       {diagram.deco}
       {ml && (
         <g>
@@ -238,7 +238,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
         </g>
       )}
       {diagram.levelNames?.map((n, i) => (
-        <text key={i} x={(ml?.x ?? 170) - 92} y={n.y - (n.text[1] ? 2 : -4)} textAnchor="end" fontSize={12.5} fill="var(--text-faint)">
+        <text key={i} x={(ml?.x ?? 170) - 92} y={n.y - (n.text[1] ? 2 : -4)} textAnchor="end" fontSize={12.5} fill="var(--text-dim)">
           <tspan x={(ml?.x ?? 170) - 92}>{n.text[0]}</tspan>
           {n.text[1] && (
             <tspan x={(ml?.x ?? 170) - 92} dy={13}>

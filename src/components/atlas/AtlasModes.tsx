@@ -34,6 +34,14 @@ export function AtlasModes() {
             href={m.href}
             aria-current={on ? "page" : undefined}
             title={m.label}
+            onClick={(e) => {
+              // The pathway tracer keeps the client router's transition from committing (measured: the route request answers in ~300 ms but the
+              // page never swaps for 15-40 s). Leaving it by a full navigation always works, so a plain click leaves immediately.
+              if (path.startsWith("/atlas/pathways") && !on && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
+                e.preventDefault();
+                window.location.assign(m.href);
+              }
+            }}
             className={`flex flex-none items-center gap-1.5 rounded-sm border px-2.5 py-1 text-xs no-underline ${on ? "border-accent bg-panel text-accent" : "border-transparent text-text-dim hover:border-panel-border hover:text-text"}`}
           >
             <Icon size={14} aria-hidden />

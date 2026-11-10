@@ -417,10 +417,10 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   ], course("Retina", 0, [["Neuron", "1st-order neuron"], ["Cell body", cp.neurons[0].cell_body], ["Receptors", "rods and cones"], ["Synapse", cp.neurons[0].synapse], ["Halves", "each retina has a nasal and a temporal half; the left half of the visual field falls on the right half of each retina"]]));
   for (const e of SIDES) marks.push({ key: `ret:${e}`, p: eyeWP(), body: e, kind: "node", text: `${e === "L" ? "Left" : "Right"} retina`, color: fieldCol(e), beat: b0, info: "b0", dir: 0 });
 
-  const meshTube = (key: string, pts: WP[], f: Side, color: string, bi: number, width = 1) => tubes.push({ key: `${key}:${f}`, pts, body: f, color, beat: bi, info: `b${bi}`, neuron: bi < 5 ? 1 : 2, width, meshed: true });
+  const meshTube = (key: string, pts: WP[], f: Side, color: string, bi: number, width = 1, dx = 0) => tubes.push({ key: `${key}:${f}`, pts, body: f, color, beat: bi, info: `b${bi}`, neuron: bi < 5 ? 1 : 2, width, meshed: true, dx });
   const idLayer2 = (key: string, ids: string[] | undefined, bi: number, phys: "i" | "c" | "cross") => {
     if (!ids?.length) return;
-    for (const f of SIDES) layers.push({ key: `${key}:${f}`, ids, side: physSide(phys, f) ?? "both", color: fieldCol(f), opacity: 0.85, beat: bi, info: `b${bi}` });
+    for (const f of SIDES) layers.push({ key: `${key}:${f}`, ids, side: physSide(phys, f) ?? "both", color: fieldCol(f), opacity: 0.4, beat: bi, info: `b${bi}` });
   };
   const chPath = get("chiasm")?.path ?? [];
   const nasalEnd = chPath[0];
@@ -431,32 +431,30 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   const n2 = get("nerve2");
   const n2Nerve = (n2?.path ?? []).slice(0, 2);
   const b1 = beat({ kind: "path", neuron: 1, caption: "Optic nerves: both eyes run back to the chiasm", info: "", fit: [], view: "top", phys: "i" }, sideFit([...(n1?.path ?? []), ...n2Nerve, ...chPath]), { ...course("Optic nerves", 1, [["Neuron", "2nd-order neuron: retinal ganglion cell"], ["Tract", cp.neurons[1].tract], ["Course", "each optic nerve carries nasal fibres (from the nasal half of its retina) and temporal fibres (from the temporal half)"]]), kind: "path" });
+  // the two fibre lines of a nerve run side by side inside it: nasal fibres on one side, temporal on the other
+  const NASAL = 0.0013;
   for (const f of SIDES) {
-    meshTube("nerve", n1?.path ?? [], f, fieldCol(f), b1);
-    meshTube("nerve2", n2Nerve, f, fieldCol(f), b1);
+    meshTube("nerve", n1?.path ?? [], f, fieldCol(f), b1, 1, NASAL);
+    meshTube("nerve2", n2Nerve, f, fieldCol(f), b1, 1, -NASAL);
   }
   idLayer2("nerve", n1?.ids, b1, "i");
 
   // 2 branch A: the nasal fibres cross in the chiasm
   const b2 = beat({ kind: "path", neuron: 1, caption: "Branch 1: nasal fibres cross in the chiasm", cross: true, info: "", fit: [], view: "top", phys: "cross", fork: { id: "chiasm", k: 0 } }, sideFit(chPath), { ...course("Chiasm: the nasal fibres cross", 1, [["Fibres", "nasal retinal fibres (temporal visual field of that eye) cross to the opposite optic tract"], ["Crossing", cp.decussation]], { crossing: cp.decussation, loss: "bitemporal hemianopia" }), kind: "path" });
-  for (const f of SIDES) meshTube("chiasm", chPath, f, fieldCol(f), b2);
+  for (const f of SIDES) meshTube("chiasm", chPath, f, fieldCol(f), b2, 1, NASAL);
   idLayer2("chiasm", get("chiasm")?.ids, b2, "cross");
-  marks.push({ key: "dec:chiasm", p: ["optic-chiasm", "m", 0.5] as WP, body: "R", kind: "dec", text: "OPTIC CHIASM: nasal fibres cross", color: colors.hi, beat: b2, info: `b${b2}` });
-  const scn = get("scn");
-  if (scn?.path) for (const f of SIDES) tubes.push({ key: `scn:${f}`, pts: scn.path, body: f, color: fieldCol(f), beat: b2, info: `b${b2}`, neuron: 1, width: 0.7 });
+  marks.push({ key: "dec:chiasm", p: ["optic-chiasm", "m", 0.5] as WP, body: "R", kind: "dec", text: "Nasal fibres cross", color: colors.hi, beat: b2, info: `b${b2}` });
 
   // 3 branch B: the temporal fibres stay on their own side
   const stay: WP[] = [(n2Nerve[n2Nerve.length - 1] ?? nasalEnd) as WP, ["optic-chiasm", "c", 0.5] as WP, tractMid];
   const b3 = beat({ kind: "path", neuron: 1, caption: "Branch 2: temporal fibres stay on the same side", info: "", fit: [], view: "top", phys: "c", branch: true, fork: { id: "chiasm", k: 1 } }, sideFit([...stay, ...(get("tract")?.path ?? [])]), { ...course("Chiasm: the temporal fibres stay", 1, [["Fibres", "temporal retinal fibres (nasal visual field of that eye) pass the chiasm without crossing"], ["Result", "each optic tract now carries the opposite visual field of both eyes"]]), kind: "path" });
-  for (const f of SIDES) tubes.push({ key: `stay:${f}`, pts: stay, body: f, color: fieldCol(f), beat: b3, info: `b${b3}`, neuron: 1, width: 1.15 });
+  for (const f of SIDES) tubes.push({ key: `stay:${f}`, pts: stay, body: f, color: fieldCol(f), beat: b3, info: `b${b3}`, neuron: 1, width: 1, dx: -NASAL });
 
   // 4 optic tract
   const tr = get("tract");
   const b4 = beat({ kind: "path", neuron: 1, caption: "Optic tract (the opposite visual field of both eyes)", info: "", fit: [], view: "top", phys: "c" }, sideFit(tr?.path ?? []), { ...course("Optic tract", 1, [["Fibres", "ipsilateral temporal retina and contralateral nasal retina: the contralateral visual field"], ["Ends in", "lateral geniculate nucleus (also the superior colliculus and pretectum)"]]), kind: "path", loss: "homonymous hemianopia" });
   for (const f of SIDES) meshTube("tract", tr?.path ?? [], f, fieldCol(f), b4);
   idLayer2("tract", tr?.ids, b4, "c");
-  const sc = get("sc");
-  if (sc?.path) for (const f of SIDES) tubes.push({ key: `sc:${f}`, pts: sc.path, body: f, color: fieldCol(f), beat: b4, info: `b${b4}`, neuron: 1, width: 0.7 });
 
   // 5 LGN
   const lgnSt = mp.neurons[2].stretches.find((s) => s.k === "lgn");

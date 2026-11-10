@@ -23,7 +23,7 @@ export interface SceneColors {
 export const DRAW_S = 2.0;
 
 /** Schematic half-gap (world units) between the midline and each side's lane, fading out with lateral distance. */
-export const LANE = 0.0125;
+export const LANE = 0.003;
 const LANE_FALL = 0.04;
 
 /* ---------- geometry cache: world-space vertices per structure, for resolving waypoints ---------- */
@@ -73,6 +73,50 @@ export function partAnchor(key: string, phys: Side | "m"): THREE.Vector3 | null 
   return a ? new THREE.Vector3(a[0], a[1], a[2]) : null;
 }
 
+/* The axis t runs along. "x" and "z" are explicit. "y" (the default) is the vertical axis for upright structures, but the structure's own
+ * long axis (principal axis of its vertices on that side) when it clearly is not upright (optic nerve, optic tract, radiations,
+ * transverse fibres): the point then lies on the structure's own centreline instead of a slab across it. The axis points up (or
+ * anterior for horizontal structures), so t = 1 is the superior / anterior end. */
+const AXES = new WeakMap<Float32Array, Map<number, [number, number, number]>>();
+function axisFor(v: Float32Array, sgn: number, ax: string): [number, number, number] {
+  if (ax === "x") return [1, 0, 0];
+  if (ax === "z") return [0, 0, 1];
+  let m = AXES.get(v);
+  if (!m) AXES.set(v, (m = new Map()));
+  const hit = m.get(sgn);
+  if (hit) return hit;
+  let n = 0, mx = 0, my = 0, mz = 0;
+  const step = Math.max(1, Math.floor(v.length / 3 / 4000)) * 3;
+  for (let i = 0; i < v.length; i += step) {
+    if (sgn !== 0 && v[i] * sgn <= 0) continue;
+    mx += v[i]; my += v[i + 1]; mz += v[i + 2]; n++;
+  }
+  let out: [number, number, number] = [0, 1, 0];
+  if (n > 8) {
+    mx /= n; my /= n; mz /= n;
+    let cxx = 0, cxy = 0, cxz = 0, cyy = 0, cyz = 0, czz = 0;
+    for (let i = 0; i < v.length; i += step) {
+      if (sgn !== 0 && v[i] * sgn <= 0) continue;
+      const x = v[i] - mx, y = v[i + 1] - my, z = v[i + 2] - mz;
+      cxx += x * x; cxy += x * y; cxz += x * z; cyy += y * y; cyz += y * z; czz += z * z;
+    }
+    let e: [number, number, number] = [0.3, 1, 0.3];
+    for (let k = 0; k < 24; k++) {
+      const nx = cxx * e[0] + cxy * e[1] + cxz * e[2];
+      const ny = cxy * e[0] + cyy * e[1] + cyz * e[2];
+      const nz = cxz * e[0] + cyz * e[1] + czz * e[2];
+      const l = Math.hypot(nx, ny, nz) || 1;
+      e = [nx / l, ny / l, nz / l];
+    }
+    if (Math.abs(e[1]) < 0.6) {
+      // a transverse axis (x) is left alone: those structures are addressed across, not along
+      if (Math.abs(e[0]) < 0.8) out = Math.abs(e[1]) > 0.35 ? (e[1] < 0 ? [-e[0], -e[1], -e[2]] : e) : e[2] < 0 ? [-e[0], -e[1], -e[2]] : e;
+    }
+  }
+  m.set(sgn, out);
+  return out;
+}
+
 /** Waypoint -> world point.
  *  [ref, rel, t, dx, dy, dz, axis]: t runs along `axis` (default y) across the half of the structure on that side;
  *  the point is the centroid of the vertices in a thin slab there. dx is mirrored by side (positive = lateral),
@@ -111,14 +155,15 @@ export function resolveWP(wp: WP, verts: Map<string, Float32Array>, body: Side, 
   const [ref, , t = 0.5, dx = 0, dy = 0, dz = 0, ax = "y"] = arr as [string, string, number | string | undefined, number?, number?, number?, string?];
   const v = verts.get(ref);
   if (!v || !v.length) return null;
-  const a = ax === "x" ? 0 : ax === "z" ? 2 : 1;
+  const A = axisFor(v, sgn, ax);
+  const pj = (i: number) => v[i] * A[0] + v[i + 1] * A[1] + v[i + 2] * A[2];
   let lo = Infinity;
   let hi = -Infinity;
   const use: number[] = [];
   for (let i = 0; i < v.length; i += 3) {
     if (sgn !== 0 && v[i] * sgn <= 0) continue;
     use.push(i);
-    const c = v[i + a];
+    const c = pj(i);
     if (c < lo) lo = c;
     if (c > hi) hi = c;
   }
@@ -127,8 +172,8 @@ export function resolveWP(wp: WP, verts: Map<string, Float32Array>, body: Side, 
     lo = Infinity;
     hi = -Infinity;
     for (const i of use) {
-      lo = Math.min(lo, v[i + a]);
-      hi = Math.max(hi, v[i + a]);
+      lo = Math.min(lo, pj(i));
+      hi = Math.max(hi, pj(i));
     }
   }
   const target = typeof t === "string" && t.startsWith("y=") ? Number(t.slice(2)) : lo + (hi - lo) * Math.min(1, Math.max(0, Number(t)));
@@ -136,7 +181,7 @@ export function resolveWP(wp: WP, verts: Map<string, Float32Array>, body: Side, 
   let sx = 0, sy = 0, sz = 0, n = 0;
   let best = Infinity, bi = use[0];
   for (const i of use) {
-    const d = Math.abs(v[i + a] - target);
+    const d = Math.abs(pj(i) - target);
     if (d < best) { best = d; bi = i; }
     if (d <= slab) { sx += v[i]; sy += v[i + 1]; sz += v[i + 2]; n++; }
   }
@@ -413,8 +458,8 @@ export function MarkMesh({
     : {};
   const op = dim ? 0.4 : 1;
   if (kind === "dec") {
-    const L = r * 9;
-    const W = r * 1.7;
+    const L = r * 3.6;
+    const W = r * 0.7;
     return (
       <group position={pos} renderOrder={30}>
         <group ref={group}>
@@ -422,7 +467,7 @@ export function MarkMesh({
             {[Math.PI / 4, -Math.PI / 4].map((a) => (
               <mesh key={a} rotation={[0, 0, a]} renderOrder={31}>
                 <boxGeometry args={[L, W, W]} />
-                <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.95 * op} toneMapped={false} />
+                <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.6 * op} toneMapped={false} />
               </mesh>
             ))}
             <mesh renderOrder={30}>

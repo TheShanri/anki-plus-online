@@ -366,7 +366,7 @@ export function PathwayTracer({
         e.preventDefault();
         togglePlay();
       } else if (e.key === "q" || e.key === "Q") setQuiz((v) => !v);
-      else if (e.key === "v" || e.key === "V") setUserView(VIEWS[(VIEWS.findIndex((x) => x.id === effView) + 1) % VIEWS.length].id);
+      else if (e.key === "v" || e.key === "V") { setUserView(VIEWS[(VIEWS.findIndex((x) => x.id === effView) + 1) % VIEWS.length].id); setFrameNonce((x) => x + 1); }
       else if (e.key === "f" || e.key === "F") setFrameNonce((x) => x + 1);
       else if (e.key === "s" || e.key === "S") cycleSide();
       else if (e.key === "p" || e.key === "P") {
@@ -496,6 +496,7 @@ export function PathwayTracer({
               tags
               view={effView}
               frameNonce={frameNonce}
+              resetKey={slug}
               colors={colors}
               onReady={setReady}
               onLoad={(done, total) => setLoad({ done, total })}
@@ -512,7 +513,7 @@ export function PathwayTracer({
             )}
             <Legend colors={colors} visual={isVisual} />
             <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
-              <Segmented label="View" value={effView} onChange={setUserView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
+              <Segmented label="View" value={effView} onChange={(v) => { setUserView(v); setFrameNonce((x) => x + 1); }} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
               <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
               {canFs && <IconButton label={isFs ? "Leave full screen" : "Full screen"} icon={isFs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={isFs} onClick={toggleFs} tip="bottom" />}
               <IconButton label={panelOpen ? "Hide the side panel" : "Show the side panel"} icon={panelOpen ? <PanelRightClose size={16} /> : <PanelRightOpen size={16} />} pressed={panelOpen} onClick={() => setPanelOpen((o) => !o)} tip="bottom" />

@@ -64,6 +64,8 @@ export interface SceneTube {
   beat?: number;
   neuron?: number;
   info?: string;
+  /** World x offset (m) of the whole line: the lines of one nerve run side by side inside it. */
+  dx?: number;
   /** A real mesh already shows this tract: the tube is a slim, faint signal along it and is not clickable. */
   meshed?: boolean;
   /** An ascending run (a tract climbing the cord): points that would dip below the one before are dropped. */
@@ -104,6 +106,8 @@ export interface SceneProps {
   view: View;
   /** Bump to re-frame the camera on the fit box (e.g. the "frame" button). */
   frameNonce: number;
+  /** Changes with the pathway: the camera follows the beats again. */
+  resetKey?: string;
   colors: SceneColors;
   midline?: boolean;
   /** Show the Left / Right tags down both sides. */
@@ -430,29 +434,52 @@ interface GrabControls {
   removeEventListener: (t: string, f: () => void) => void;
 }
 
-/** Gentle camera for the beats. It stops the moment the user grabs the view and never springs back. */
-function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: number }) {
+/** Camera for the beats. User input always wins: the first grab (pointer, wheel, touch or the controls' own start) cancels any tween at once and
+ * locks the view, so beat changes do not move the camera again until Frame (or a view button) is used or another pathway is chosen.
+ * A tween (about 0.8 s, ease-out) moves position and target together and ends exactly on the goal. */
+function Rig({ box, view, nonce, resetKey, onLock }: { box: THREE.Box3 | null; view: View; nonce: number; resetKey?: string; onLock: (l: boolean) => void }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const controls = useThree((s) => s.controls) as unknown as GrabControls | null;
+  const gl = useThree((s) => s.gl);
   const invalidate = useThree((s) => s.invalidate);
   const size = useThree((s) => s.size);
-  const goal = useRef<{ pos: THREE.Vector3; target: THREE.Vector3 } | null>(null);
-  const last = useRef({ view: "" as string, nonce: -1 });
+  const tween = useRef<{ t: number; fp: THREE.Vector3; ft: THREE.Vector3; pos: THREE.Vector3; target: THREE.Vector3 } | null>(null);
+  const locked = useRef(false);
+  const last = useRef({ view: "" as string, nonce: -1, reset: "" as string | undefined });
   useEffect(() => {
     (window as unknown as { __pwCam?: THREE.Camera }).__pwCam = camera; // read by the pointer-drag test
+    (window as unknown as { __pwRig?: () => unknown }).__pwRig = () => ({ locked: locked.current, tweening: !!tween.current });
   }, [camera]);
   useEffect(() => {
-    if (!controls) return;
     const grab = () => {
-      goal.current = null;
+      tween.current = null;
+      if (!locked.current) {
+        locked.current = true;
+        onLock(true);
+      }
     };
-    controls.addEventListener("start", grab);
-    return () => controls.removeEventListener("start", grab);
-  }, [controls]);
+    const el = gl.domElement;
+    el.addEventListener("pointerdown", grab, true);
+    el.addEventListener("wheel", grab, { capture: true, passive: true });
+    el.addEventListener("touchstart", grab, { capture: true, passive: true });
+    controls?.addEventListener("start", grab);
+    return () => {
+      el.removeEventListener("pointerdown", grab, true);
+      el.removeEventListener("wheel", grab, true);
+      el.removeEventListener("touchstart", grab, true);
+      controls?.removeEventListener("start", grab);
+    };
+  }, [controls, gl, onLock]);
   useEffect(() => {
     if (!box || !controls) return;
+    const forced = last.current.nonce !== nonce || last.current.reset !== resetKey;
     const keep = last.current.view === view && last.current.nonce === nonce;
-    last.current = { view, nonce };
+    last.current = { view, nonce, reset: resetKey };
+    if (forced && locked.current) {
+      locked.current = false;
+      onLock(false);
+    }
+    if (locked.current) return; // the user has the camera: beats do not move it
     if (!keep) camera.up.set(0, 1, 0);
     const dir = keep ? camera.position.clone().sub(controls.target).normalize() : new THREE.Vector3(...VIEWS.find((v) => v.id === view)!.dir).normalize();
     const c = box.getCenter(new THREE.Vector3());
@@ -468,16 +495,22 @@ function Rig({ box, view, nonce }: { box: THREE.Box3 | null; view: View; nonce: 
     const aspect = size.width / Math.max(1, size.height);
     const tan = Math.tan((camera.fov * Math.PI) / 360);
     const d = Math.max(uu / tan, rr / (tan * aspect)) * 1.12 + dd + 0.01;
-    goal.current = { pos: c.clone().add(dir.multiplyScalar(d)), target: c };
+    tween.current = { t: 0, fp: camera.position.clone(), ft: controls.target.clone(), pos: c.clone().add(dir.multiplyScalar(d)), target: c };
     invalidate();
-  }, [box, view, nonce, camera, controls, size.width, size.height, invalidate]);
-  useFrame(() => {
-    const g = goal.current;
+  }, [box, view, nonce, resetKey, camera, controls, size.width, size.height, invalidate, onLock]);
+  useFrame((_, dt) => {
+    const g = tween.current;
     if (!g || !controls) return;
-    camera.position.lerp(g.pos, 0.07);
-    controls.target.lerp(g.target, 0.07);
+    g.t = Math.min(1, g.t + dt / 0.8);
+    const e = 1 - Math.pow(1 - g.t, 3);
+    camera.position.lerpVectors(g.fp, g.pos, e);
+    controls.target.lerpVectors(g.ft, g.target, e);
+    if (g.t >= 1) {
+      camera.position.copy(g.pos);
+      controls.target.copy(g.target);
+      tween.current = null;
+    }
     controls.update();
-    if (camera.position.distanceTo(g.pos) < 2e-4 && controls.target.distanceTo(g.target) < 2e-4) goal.current = null;
     invalidate();
   });
   return null;
@@ -490,6 +523,7 @@ export default function PathwayScene(p: SceneProps) {
   const [hoverLocal, setHoverLocal] = useState<string | null>(null);
   const [layersDone, setLayersDone] = useState(0);
   const [partsDone, setPartsDone] = useState(0);
+  const [viewLocked, setViewLocked] = useState(false);
   const { onReady, onLoad } = p;
   const hoverKey = p.hoverInfo ?? hoverLocal;
   const sideAlpha = p.sideAlpha ?? { L: 1, R: 1 };
@@ -596,7 +630,9 @@ export default function PathwayScene(p: SceneProps) {
     () =>
       p.tubes.map((t) => {
         const v = t.pts.map((w) => resolveWP(w, verts, t.body, LANE)).filter((x): x is THREE.Vector3 => !!x);
-        return { ...t, v: t.rise ? monotoneUp(v) : v, nres: v.length };
+        const w = t.rise ? monotoneUp(v) : v;
+        if (t.dx) w.forEach((q) => { q.x += t.dx!; });
+        return { ...t, v: w, nres: v.length };
       }),
     [p.tubes, verts],
   );
@@ -741,7 +777,7 @@ export default function PathwayScene(p: SceneProps) {
         <directionalLight position={[-2, 1, -2]} intensity={0.7} />
         {/* a trackball: free rotation on both axes, no pole stops */}
         <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={1.2} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
-        <Rig box={box} view={p.view} nonce={p.frameNonce} />
+        <Rig box={box} view={p.view} nonce={p.frameNonce} resetKey={p.resetKey} onLock={setViewLocked} />
         {index && <ContextShell file={index.context.file} color={p.colors.dim} />}
         {p.anatomy?.map((a) => (
           <Anatomy key={a.key} spec={a} sideAlpha={sideAlpha} reveal={beatMode ? p.reveal! : 999} hot={hot} />
@@ -836,6 +872,11 @@ export default function PathwayScene(p: SceneProps) {
         })}
         <LabelProjector items={labelItems} els={labelEls} lines={leaderEls} sizes={sizes} obstacles={obstacleRects} />
       </Canvas>
+      {beatMode && viewLocked && (
+        <div className="pointer-events-none absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-full border border-panel-border bg-panel-solid/80 px-3 py-1 font-mono text-[11px] text-text-dim" role="status">
+          View locked: press Frame (F) to follow
+        </div>
+      )}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <svg className="absolute inset-0 h-full w-full">
           {shownMarks.map((m) => {

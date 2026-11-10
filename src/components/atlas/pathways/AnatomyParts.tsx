@@ -40,7 +40,7 @@ const TISSUE_COLOR: Record<string, string> = {
 };
 /** Base opacity per tissue when the object is drawn at normal strength. */
 const TISSUE_ALPHA: Record<string, number> = { bone: 0.3, nerve: 0.95, disc: 0.2, dura: 0.1, muscle: 0.9, vessel: 0.85, organ: 0.9, gland: 0.9, cartilage: 0.85 };
-const FADE_ORGAN = /lung|trachea|bronch|heart|stomach|colon|intestine|esophagus|duodenum/;
+const FADE_ORGAN = /lung|trachea|bronch|heart|stomach|colon|intestine|esophagus|duodenum|eyeball|cornea/;
 
 function tissueOf(name: string) {
   const k = name.split("_")[0];

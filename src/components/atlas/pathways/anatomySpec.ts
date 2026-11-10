@@ -188,10 +188,7 @@ export const SITES: Record<string, AnatCfg> = {
       name: "Both pupils constrict",
       path: "CN III parasympathetics (ciliary ganglion) to the sphincter pupillae",
       lines: [["Result", "pupil constriction in both eyes (the consensual reflex)"]],
-      targets: [
-        { key: "head-targets:eyeball_front", label: "Pupil", obj: "organ_eyeball" },
-        { key: "head-targets:eyeball_front", rel: "c", label: "Other pupil", obj: "organ_eyeball" },
-      ],
+      targets: [{ key: "head-targets:eyeball_front", label: "Pupil (each eye)", obj: "organ_eyeball" }],
     },
   },
   corneal: {

@@ -43,13 +43,23 @@ def api(method, path, body=None, headers=None, raw=False):
     data = body if isinstance(body, (bytes, type(None))) else json.dumps(body).encode()
     if isinstance(body, (dict, list)):
         h["Content-Type"] = "application/json"
-    req = urllib.request.Request(BASE + path, data=data, method=method, headers=h)
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            b = r.read()
-            return b if raw else (json.loads(b) if b else None)
-    except urllib.error.HTTPError as ex:
-        return {"_error": ex.code, "_body": ex.read().decode(errors="replace")[:300]}
+    # network blips (DNS failures, resets) used to kill a multi-hour run: retry with backoff
+    import time
+    for attempt in range(8):
+        req = urllib.request.Request(BASE + path, data=data, method=method, headers=h)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                b = r.read()
+                return b if raw else (json.loads(b) if b else None)
+        except urllib.error.HTTPError as ex:
+            if ex.code >= 500 and attempt < 7:
+                time.sleep(min(60, 2 ** attempt))
+                continue
+            return {"_error": ex.code, "_body": ex.read().decode(errors="replace")[:300]}
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError):
+            if attempt == 7:
+                raise
+            time.sleep(min(60, 2 ** attempt))
 
 
 def ensure_bucket():

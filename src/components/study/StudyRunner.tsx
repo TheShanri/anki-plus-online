@@ -188,6 +188,10 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   // global keys
   const onKey = useCallback(
     (e: KeyboardEvent) => {
+      // Already handled by the answer box: React's onKeyDown (boxKeys, multiKeys, the retype box) runs before this
+      // window listener for the same event. Without this, one Esc submitted the card AND skipped its reveal, one
+      // Tab gave two ghost letters, and Enter on a right answer skipped the reveal.
+      if (e.defaultPrevented) return;
       const cc = engine.cur;
       // Ctrl+Z: take back the last card (ANKI+). While typing a new answer it stays the text undo.
       if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && (e.key === "z" || e.key === "Z")) {

@@ -36,6 +36,8 @@ export interface AnswerPayload {
   keystrokes: Record<string, unknown>;
   ladder?: { stepBefore: number; stepAfter: number; effectiveStep: number };
   unaided: boolean;
+  /** typing off / free-text answers: how the self-rated recall moves the clean streak (the ladder step stays) */
+  recall?: "clean" | "miss" | "keep";
   traps?: { attempts: Attempt[]; passes: string[]; firstTryMisses: string[] };
   retention?: number;
 }
@@ -173,6 +175,16 @@ function retypeVariants(card: StudyCard): string[] {
 }
 
 const EMPTY_RATINGS = (): Record<Grade, number> => ({ 1: 0, 2: 0, 3: 0, 4: 0 });
+
+/** Card ids the next batch must leave out: everything still queued, plus the most recently answered cards (their
+ *  answers may not be stored yet). Older answers are stored and no longer due, so they are not needed, and the list
+ *  travels in the URL: uncapped, a long session (~380 cards) outgrew the URL limit, the fetch failed, and the session
+ *  ended as if no cards were left. */
+export function excludeForFetch(answered: Iterable<string>, queued: string[], recent = 200): string[] {
+  const out = new Set(queued);
+  for (const id of [...answered].slice(-recent)) out.add(id);
+  return [...out];
+}
 
 function shuffle<T>(a: T[], rand: () => number): T[] {
   const x = a.slice();
@@ -314,24 +326,35 @@ export class StudyEngine {
     return this.queue.size;
   }
 
-  private async prefetch(): Promise<void> {
-    if (this.fetching || this.noMore || !this.deps.fetchMore) return;
+  /** The batch on its way, so a caller that runs out of cards can wait for it (instead of ending the session). */
+  private loading: Promise<void> | null = null;
+
+  private prefetch(): Promise<void> {
+    if (this.loading) return this.loading;
+    if (this.noMore || !this.deps.fetchMore) return Promise.resolve();
+    const fetchMore = this.deps.fetchMore;
     this.fetching = true;
-    try {
-      const exclude = [...this.answered, ...this.queue.pending.map((e) => e.card.id), ...this.queue.learning.map((l) => l.entry.card.id)];
-      const p = await this.deps.fetchMore(exclude);
-      if (p) {
-        this.ingest(p);
-        const more = this.entriesFrom(p);
-        if (more.length) this.queue.push(more);
-        else this.noMore = true;
-      } else this.noMore = true;
-    } catch {
-      /* offline: carry on with what we have */
-    } finally {
+    const run = async () => {
+      try {
+        const exclude = excludeForFetch(this.answered, [...this.queue.pending.map((e) => e.card.id), ...this.queue.learning.map((l) => l.entry.card.id)]);
+        const p = await fetchMore(exclude);
+        if (p) {
+          this.ingest(p);
+          const more = this.entriesFrom(p);
+          if (more.length) this.queue.push(more);
+          else this.noMore = true;
+        } else this.noMore = true;
+      } catch {
+        /* offline: carry on with what we have */
+      }
+    };
+    // cleared in .finally (always after this assignment, even if fetchMore throws synchronously)
+    this.loading = run().finally(() => {
       this.fetching = false;
+      this.loading = null;
       this.changed();
-    }
+    });
+    return this.loading;
   }
 
   private async nextCard(): Promise<void> {
@@ -1084,6 +1107,7 @@ export class StudyEngine {
     const prevLadder = this.ladders.get(c.card.id);
     const stepBefore = c.mode === "type" ? (c.isFirstLook ? 0 : c.step) : MAX_STEP;
     let ladderPayload: AnswerPayload["ladder"];
+    let recall: AnswerPayload["recall"];
     const unaided = c.mode === "type" && c.right && hinted === 0 && !c.practice;
     if (c.mode === "type" && this.settings.scaffold.ladder) {
       let stepAfter = c.stepAfter;
@@ -1102,6 +1126,7 @@ export class StudyEngine {
     } else if (c.mode === "self" || c.mode === "keywords") {
       // typing off / free text: a good self-rating of a recall counts as a clean recall
       const clean = chosen >= 3 && (c.mode === "self" || c.right);
+      recall = clean ? "clean" : chosen === 1 ? "miss" : "keep";
       const streak = clean ? (prevLadder?.clean_streak ?? 0) + 1 : chosen === 1 ? 0 : prevLadder?.clean_streak ?? 0;
       this.ladders.set(c.card.id, { card_id: c.card.id, step: prevLadder?.step ?? 0, clean_streak: streak, last_clean_at: null });
     }
@@ -1134,6 +1159,7 @@ export class StudyEngine {
       },
       ladder: ladderPayload,
       unaided,
+      ...(recall ? { recall } : {}),
       retention: this.settings.study.retention,
     };
     if (this.settings.scaffold.traps && c.mode === "type" && !c.practice && !c.isFirstLook) {

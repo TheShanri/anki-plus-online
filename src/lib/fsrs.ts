@@ -112,3 +112,10 @@ export function gradeFromTyping(o: { correct: boolean; hintCount: number; durati
   if (o.hintCount > 0) return 2;
   return o.durationMs <= (o.fastMs ?? 4000) ? 4 : 3;
 }
+
+/** A logged review whose card state never caught up: the stored state's last review is older than the log (or the card
+ *  has no state). Equal = applied; newer = a later answer has been applied since. */
+export function stateNeedsReplay(stateLastReview: string | null, loggedAt: string): boolean {
+  if (!stateLastReview) return true;
+  return new Date(stateLastReview).getTime() < new Date(loggedAt).getTime();
+}

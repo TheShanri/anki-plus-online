@@ -213,3 +213,30 @@ export function nextCleanStreak(streak: number, o: { right: boolean; step: numbe
   if (o.hinted > 0 || o.step < MAX_STEP || o.practice) return streak;
   return streak + 1;
 }
+
+/** The fields of an answer (POST /api/study/answer) that move the card's ladder row. */
+export interface LadderAnswer {
+  ladder?: { stepBefore: number; stepAfter: number; effectiveStep: number };
+  correct?: boolean | null;
+  hintCount: number;
+  unaided: boolean;
+  recall?: "clean" | "miss" | "keep";
+}
+
+/** The card_ladder row the server stores after an answer (null: leave the row as it is); `clean` = a clean recall
+ *  (stamps last_clean_at). Must agree with what StudyEngine.accept() keeps locally. */
+export function ladderWrite(prev: { step: number; clean_streak: number } | null, b: LadderAnswer): { step: number; clean_streak: number; clean: boolean } | null {
+  const prevStreak = prev?.clean_streak ?? 0;
+  if (b.ladder) {
+    const streak = nextCleanStreak(prevStreak, { right: b.correct === true, step: b.ladder.effectiveStep, hinted: b.hintCount });
+    return { step: b.ladder.stepAfter, clean_streak: streak, clean: streak > prevStreak };
+  }
+  // typing off / free text: the self-rating decides (a Hard keeps the streak; only Again resets it)
+  if (b.recall === "clean") return { step: prev?.step ?? 0, clean_streak: prevStreak + 1, clean: true };
+  if (b.recall === "miss") return { step: prev?.step ?? 0, clean_streak: 0, clean: false };
+  if (b.recall === "keep") return null;
+  // ladder switched off: every unaided correct answer is a recall
+  if (b.correct === true && b.hintCount === 0 && b.unaided) return { step: MAX_STEP, clean_streak: prevStreak + 1, clean: true };
+  if (b.correct === false && prev) return { step: prev.step, clean_streak: 0, clean: false };
+  return null;
+}

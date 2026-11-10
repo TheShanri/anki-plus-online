@@ -86,3 +86,60 @@ answer's trap evidence was lost.
 `readLearnerSettings` never clamped `guardMinutes`/`guardCards`. A stored 0 stopped every session at the first
 card. It also did not round `newPerDay`/`sprintSize`. They are clamped and rounded now (`settings.ts`, test in
 `grade-edge.test.ts`).
+
+### High: the session ended while the next batch was still loading
+`StudyEngine.prefetch()` returned at once when a fetch was already running (`if (this.fetching) return`). When the
+last queued card was answered before that fetch came back, `nextCard()` awaited it twice, got nothing both times,
+and called `finish()`: "Session complete" with cards still on their way. Whenever a batch starts with fewer than 8
+cards the prefetch starts at once, so a quick answer hits this.
+- Fix: the in-flight fetch is kept as a promise (`loading`) and every caller waits for the same one (`engine.ts`).
+- Test: `engine-sync.test.ts` ("the last card answered while the next batch is still loading..."). Checked: it
+  fails with the old early return ("the session ended while cards were still loading").
+
+### High: long sessions ended early (the exclude list outgrew the URL)
+`fetchMore` sends every card answered in the session in `?exclude=` (37 bytes per id). About 380 answers make the
+URL longer than Vercel accepts (14 KB), the fetch fails, the catch treats it as offline, and when the queue runs dry
+the session ends as if nothing were left.
+- Fix: `excludeForFetch()` sends what is still queued plus the 200 most recent answers. Older answers are stored and
+  no longer due (every accept, first looks included, sends an answer), so the server does not offer them again.
+- Test: `engine-sync.test.ts` ("the exclude list ... stays bounded").
+
+### High: typing off: the self-rated recall streak never reached the server
+With typing off (mode `self`, and free-text `keywords` cards) the engine counts a Good/Easy self-rating as a clean
+recall and keeps the streak locally. The answer API only knew the typed cases (`unaided`, which needs typing), so it
+wrote nothing for a good rating. Every new session reloaded the old streak, so theory follow-ups and mastery that
+depend on the streak never moved for students who study with typing off.
+- Fix: the payload carries `recall: clean | miss | keep`; the server's rule is one shared function,
+  `ladderWrite()` in `ladder.ts`, which the route uses.
+- Test: `engine-sync.test.ts` ("the server's ladder write matches what the engine keeps..."), which compares the
+  engine's local ladder row with `ladderWrite()` of the payload it sent. Checked: with the old server rule it fails
+  for "typing off, recalled well" (server streak 1, engine 2).
+- Also: the route wrote `last_clean_at: null` on every answer that was not a clean recall, erasing the date of the
+  last clean one. It now only sets it on a clean recall (nothing reads it yet).
+
+### Medium: a retried answer whose first attempt died after the log insert never moved the card
+The route stores the review log first (its id is the idempotency key), then the card state, ladder and traps. If
+the first attempt failed after the log (a 500 from a later write, such as the trap-chunk NaN above, or a timeout),
+the client's retry found the log and returned `ignored`, and the card's FSRS state never moved. The next answer to
+that card was then scheduled from the stale state.
+- Fix: on a duplicate log, the route reads the log back; if the stored state's `last_review` is older than the log
+  (or there is no state), it applies the logged review once (`stateNeedsReplay()` in `fsrs.ts`). Equal means it was
+  applied; newer means a later answer has been applied since, so nothing is replayed twice. Ladder and trap writes of
+  the lost attempt are not replayed.
+- Test: `engine-sync.test.ts` ("a retried answer whose state write was lost is replayed once, never twice"), on the
+  helper (the route itself has no test harness).
+
+### Medium: pagehide beacons could store answers out of order
+`AnswerSync.beacon()` sent the first 10 queued items with `sendBeacon`, which go out in parallel and can arrive in
+any order. Two answers to one card (a learning step) could be applied second-first, and the server state then stays
+wrong for good (the later retry of the first finds its log). An undo could arrive before the answer it takes back.
+- Fix: `beaconBatch()` sends only the leading run that is safe unordered: one answer per card, and an undo only as
+  the first item. The rest stays in localStorage for the ordered pump on the next visit.
+- Test: `engine-sync.test.ts` ("pagehide beacons only what can be stored in any order").
+
+### Medium: one key press was handled twice in the study runner
+The answer box's React `onKeyDown` (boxKeys, multiKeys) handles Enter/Tab/Esc, then the same native event bubbles
+on to the runner's `window` keydown listener (React's root listener runs first). So one Tab gave two ghost letters,
+Esc in the box submitted the card and then, now in the reveal, skipped its retype, and Enter on a right answer went
+straight past the reveal. Fix: the window listener ignores events already `defaultPrevented`
+(`StudyRunner.tsx`). Not covered by a unit test (no DOM harness); proven by the event order.

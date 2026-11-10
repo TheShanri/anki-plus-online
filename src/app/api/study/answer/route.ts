@@ -2,8 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { authed, bad } from "@/lib/study/api";
 import { loadSettings, resolveCourse } from "@/lib/study/server";
-import { newCardState, scheduleReview, type CardStateRow } from "@/lib/fsrs";
-import { nextCleanStreak, MAX_STEP } from "@/lib/study/ladder";
+import { newCardState, scheduleReview, stateNeedsReplay, type CardStateRow, type Grade } from "@/lib/fsrs";
+import { ladderWrite } from "@/lib/study/ladder";
 import { activeSpots, bankAttempts, type PatternRow, type TrapRow, ARM_AT } from "@/lib/study/traps";
 import { toStudyCard, type CardRow } from "@/lib/study/types";
 
@@ -28,6 +28,8 @@ const body = z.object({
   ladder: z.object({ stepBefore: z.number().int().min(0).max(6), stepAfter: z.number().int().min(0).max(6), effectiveStep: z.number().int().min(0).max(6) }).optional(),
   /** the answer was typed unaided (counts toward the clean-recall streak at the recall rung) */
   unaided: z.boolean().default(false),
+  /** typing off / free text: the self-rated recall's effect on the clean streak */
+  recall: z.enum(["clean", "miss", "keep"]).optional(),
   /** practice (below the recall rung) or a self-graded card never feed the trap model */
   traps: z.object({ attempts: z.array(attempt).max(40), passes: z.array(z.string()).max(10), firstTryMisses: z.array(z.string()).max(10) }).optional(),
   retention: z.number().min(0.7).max(0.97).optional(),
@@ -64,7 +66,8 @@ export async function POST(req: NextRequest) {
     sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 0 }),
   ]);
   const prev: CardStateRow = (stateR.data as CardStateRow | null) ?? newCardState(userId, b.cardId, at);
-  const { next } = scheduleReview(prev, b.rating as 1 | 2 | 3 | 4, at, { retention: b.retention ?? learner.study.retention });
+  const retention = b.retention ?? learner.study.retention;
+  const { next } = scheduleReview(prev, b.rating as Grade, at, { retention });
 
   // the review log first (its id is the idempotency key): a retry that finds it already stored changes nothing
   const { data: logged, error: logErr } = await sb
@@ -89,6 +92,18 @@ export async function POST(req: NextRequest) {
     .select("id");
   if (logErr) return bad(logErr.message, 500);
   if (!logged || logged.length === 0) {
+    // A retry of an answer that is already logged. If the first attempt died after the log insert (timeout, failed
+    // write), the card state never moved and every retry would be ignored: apply the logged review now. The stored
+    // state is then still the one from before it (an older last_review); a later answer would have a newer one.
+    const { data: log } = await sb.from("review_logs").select("rating, reviewed_at").eq("id", b.clientId).eq("user_id", userId).eq("card_id", b.cardId).maybeSingle();
+    if (log && stateNeedsReplay(stateR.data?.last_review ?? null, log.reviewed_at)) {
+      const loggedAt = new Date(log.reviewed_at);
+      const base = (stateR.data as CardStateRow | null) ?? newCardState(userId, b.cardId, loggedAt);
+      const { next: replayed } = scheduleReview(base, log.rating as Grade, loggedAt, { retention });
+      const { error } = await sb.from("card_states").upsert(replayed, { onConflict: "user_id,card_id" });
+      if (error) return bad(error.message, 500);
+      return NextResponse.json({ ignored: true, replayed: true, state: replayed, ladder: ladderR.data ?? null });
+    }
     return NextResponse.json({ ignored: true, state: prev, ladder: ladderR.data ?? null });
   }
 
@@ -97,25 +112,16 @@ export async function POST(req: NextRequest) {
     sb.rpc("engine_heartbeat", { p_id: b.sessionId, p_course: course?.id ?? null, p_kind: "study", p_ms: 0, p_cards: 1 }),
   ];
 
-  let ladderRow: { step: number; clean_streak: number } | null = null;
-  if (b.ladder) {
-    const prevStreak = ladderR.data?.clean_streak ?? 0;
-    const streak = nextCleanStreak(prevStreak, { right: b.correct === true, step: b.ladder.effectiveStep, hinted: b.hintCount });
-    ladderRow = { step: b.ladder.stepAfter, clean_streak: streak };
+  // the ladder row (same rule as the client's StudyEngine.accept, see ladderWrite); last_clean_at only moves on a clean recall
+  const lw = ladderWrite(ladderR.data ?? null, b);
+  const ladderRow: { step: number; clean_streak: number } | null = lw ? { step: lw.step, clean_streak: lw.clean_streak } : null;
+  if (lw) {
     writes.push(
       sb.from("card_ladder").upsert(
-        { user_id: userId, card_id: b.cardId, step: ladderRow.step, clean_streak: streak, last_clean_at: streak > prevStreak ? at.toISOString() : null, updated_at: at.toISOString() },
+        { user_id: userId, card_id: b.cardId, step: lw.step, clean_streak: lw.clean_streak, ...(lw.clean ? { last_clean_at: at.toISOString() } : {}), updated_at: at.toISOString() },
         { onConflict: "user_id,card_id" },
       ),
     );
-  } else if (b.correct === true && b.hintCount === 0 && b.unaided) {
-    // ladder switched off: every unaided correct answer is a recall
-    const prevStreak = ladderR.data?.clean_streak ?? 0;
-    ladderRow = { step: MAX_STEP, clean_streak: prevStreak + 1 };
-    writes.push(sb.from("card_ladder").upsert({ user_id: userId, card_id: b.cardId, step: MAX_STEP, clean_streak: prevStreak + 1, last_clean_at: at.toISOString(), updated_at: at.toISOString() }, { onConflict: "user_id,card_id" }));
-  } else if (b.correct === false && ladderR.data) {
-    ladderRow = { step: ladderR.data.step, clean_streak: 0 };
-    writes.push(sb.from("card_ladder").upsert({ user_id: userId, card_id: b.cardId, step: ladderR.data.step, clean_streak: 0, updated_at: at.toISOString() }, { onConflict: "user_id,card_id" }));
   }
 
   // trap letters

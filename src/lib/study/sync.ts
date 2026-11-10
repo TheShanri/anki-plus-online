@@ -7,6 +7,22 @@ import type { AnswerPayload, UndoPayload } from "./engine.ts";
 type Item = AnswerPayload | UndoPayload;
 const isUndo = (x: Item): x is UndoPayload => (x as UndoPayload).undo === true;
 
+/** What pagehide sends with sendBeacon. Beacons go out in parallel and arrive in any order, so only the leading run
+ *  that is safe unordered is sent: one answer per card (a card's second answer is computed from its first), and an undo
+ *  only as the very first item (it must not overtake the answer it takes back). The rest waits in localStorage for the
+ *  next visit, where the ordered pump sends it. */
+export function beaconBatch<T extends { cardId: string }>(queue: T[], max = 10): T[] {
+  const out: T[] = [];
+  const cards = new Set<string>();
+  for (const p of queue) {
+    if (out.length >= max || cards.has(p.cardId)) break;
+    if ((p as { undo?: unknown }).undo === true && out.length > 0) break;
+    cards.add(p.cardId);
+    out.push(p);
+  }
+  return out;
+}
+
 const KEY = "anki.pendingAnswers.v1";
 const URL_ANSWER = "/api/study/answer";
 const URL_UNDO = "/api/study/undo";
@@ -115,6 +131,6 @@ export class AnswerSync {
 
   private beacon(): void {
     if (!this.queue.length || !("sendBeacon" in navigator)) return;
-    for (const p of this.queue.slice(0, 10)) navigator.sendBeacon(isUndo(p) ? URL_UNDO : URL_ANSWER, new Blob([JSON.stringify(p)], { type: "text/plain" }));
+    for (const p of beaconBatch(this.queue)) navigator.sendBeacon(isUndo(p) ? URL_UNDO : URL_ANSWER, new Blob([JSON.stringify(p)], { type: "text/plain" }));
   }
 }

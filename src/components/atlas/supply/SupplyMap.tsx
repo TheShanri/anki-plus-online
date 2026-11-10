@@ -223,11 +223,11 @@ export function SupplyMap() {
                     <strong className="text-text">Circle of Willis, seen from below.</strong> Arrows show blood flow: ICA to ACA and MCA; vertebral to basilar to PCA.
                   </p>
                 )}
-                {showComm && <p className="rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1">{COMM_NOTE}</p>}
+                {showComm && <p className="hidden rounded-sm sm:block border border-panel-border bg-panel-solid/90 px-2 py-1">{COMM_NOTE}</p>}
               </div>
             }
           >
-            <VesselLayer flow={flow} colors={colorMap} stateOf={stateOf} sig={sig} animate={animate} labelSlugs={cow ? COW_SLUGS : null} onPick={onPickVessel} frame={frame} pad={territories ? 0.015 : 0} />
+            <VesselLayer flow={flow} colors={colorMap} stateOf={stateOf} sig={sig} animate={animate} labelSlugs={cow ? COW_SLUGS : null} onPick={onPickVessel} frame={frame} pad={territories ? 0.03 : 0} />
           </LazyAtlasViewer>
         </div>
 

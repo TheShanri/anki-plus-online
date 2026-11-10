@@ -45,7 +45,18 @@ export function labSectionsOf(settings: unknown): string[] {
   return Array.isArray(raw) ? raw.map((s) => String(s)).filter(Boolean) : [];
 }
 
-/** Only same-site relative paths are accepted as a redirect target. */
-export function safeNext(next: string | null | undefined, fallback = "/study"): string {
-  return next && next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : fallback;
+export { safeNext } from "./next.ts";
+
+/** Join codes are stored upper-case and compared with `=`, so a typed code is case-insensitive. */
+export function joinCodeKey(code: string): string {
+  return String(code ?? "").trim().toUpperCase();
+}
+
+/** A fresh join code: five letters, a dash, three letters (no 0/O, 1/I). */
+export function newJoinCode(): string {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  // 32 letters divide 256 evenly, so `% 32` is unbiased; each part reads its own bytes
+  const bytes = crypto.getRandomValues(new Uint8Array(8));
+  const pick = (from: number, n: number) => Array.from({ length: n }, (_, i) => alphabet[bytes[from + i] % alphabet.length]).join("");
+  return `${pick(0, 5)}-${pick(5, 3)}`;
 }

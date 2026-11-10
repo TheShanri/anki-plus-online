@@ -3,6 +3,7 @@
 import { randomBytes } from "node:crypto";
 import { createClient as createPlainClient } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
+import { newJoinCode } from "@/lib/auth";
 import { courseRole, isProfRole, isStaffRole } from "@/lib/auth/guard";
 import { SITE_URL, SUPABASE_KEY, SUPABASE_URL } from "@/lib/env";
 import { getViewer } from "@/lib/session";
@@ -64,13 +65,6 @@ export async function saveCourseSettings(courseId: string, form: FormData): Prom
   if (error) return fail("Could not save settings.");
   revalidatePath("/staff");
   return { ok: true, message: "Settings saved." };
-}
-
-function newJoinCode(): string {
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const bytes = randomBytes(8);
-  const pick = (n: number) => Array.from({ length: n }, (_, i) => alphabet[bytes[i] % alphabet.length]).join("");
-  return `${pick(5)}-${pick(3)}`;
 }
 
 export async function regenerateJoinCode(courseId: string): Promise<ActionResult> {

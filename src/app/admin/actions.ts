@@ -1,7 +1,7 @@
 "use server";
 
-import { randomBytes } from "node:crypto";
 import { revalidatePath } from "next/cache";
+import { newJoinCode } from "@/lib/auth";
 import { getViewer } from "@/lib/session";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -12,13 +12,6 @@ async function adminOnly() {
   const db = createAdminClient();
   if (!viewer || viewer.role !== "admin" || !db) return null;
   return { viewer, db };
-}
-
-function joinCode(): string {
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const b = randomBytes(8);
-  const pick = (n: number) => Array.from({ length: n }, (_, i) => alphabet[b[i] % alphabet.length]).join("");
-  return `${pick(5)}-${pick(3)}`;
 }
 
 export async function createCourse(form: FormData): Promise<AdminResult> {
@@ -34,7 +27,7 @@ export async function createCourse(form: FormData): Promise<AdminResult> {
     code,
     title,
     term: term || null,
-    join_code: custom || joinCode(),
+    join_code: custom || newJoinCode(),
     settings: { lab_sections: [], station_seconds: 75, exam_spelling: "generous", allowed_email_domains: ["uvm.edu"], inactivity_days: 5, practicals: [] },
   });
   if (error) return { ok: false, message: /duplicate/.test(error.message) ? "That join code is already in use." : "Could not create the course." };

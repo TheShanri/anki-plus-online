@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { mediaPath } from "@/lib/media";
 
 // Auth-gated course media: signed-in members of the course (or admins) get a redirect to a signed URL.
 // Hot path (every card image), so: lookups run in parallel, and each server instance caches access
@@ -21,8 +22,8 @@ function trim<K, V>(m: Map<K, V>) {
 
 export async function GET(_req: Request, ctx: { params: Promise<{ course: string; key: string[] }> }) {
   const { course, key } = await ctx.params;
-  const path = `${course}/${key.join("/")}`;
-  if (key.some((k) => k === ".." || k === "") || !/^[\w.\-]+$/.test(course)) return new NextResponse("Not found", { status: 404 });
+  const path = mediaPath(course, key);
+  if (!path) return new NextResponse("Not found", { status: 404 });
 
   const supabase = await createClient();
   const admin = createAdminClient();

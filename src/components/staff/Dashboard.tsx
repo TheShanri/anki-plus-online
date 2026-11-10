@@ -134,7 +134,8 @@ export function Dashboard(props: {
       "Sessions", "Cards reviewed", "Accuracy %", "Streak (days)", "Last seen", "Mock practicals", "Mock avg %"];
     const lines = [head, ...rows.map((r) => [r.display_name, r.pronouns, r.lab_section, r.email, ...r.weeks_min.slice(0, 9),
       r.sessions, r.cards_reviewed, r.accuracy, r.streak, r.last_seen, mockBy.get(r.user_id)?.attempts ?? 0, mockBy.get(r.user_id)?.avg_pct ?? ""])].map((l) => l.map(csvCell).join(","));
-    const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+    // "\uFEFF": the byte-order mark Excel needs to read the CSV as UTF-8 (escaped: an invisible literal is easy to lose)
+    const blob = new Blob(["\uFEFF" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = `${props.courseCode}-summary-${new Date().toISOString().slice(0, 10)}.csv`;

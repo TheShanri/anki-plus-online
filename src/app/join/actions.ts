@@ -1,6 +1,6 @@
 "use server";
 
-import { emailDomainAllowed, joinSchema, labSectionsOf } from "@/lib/auth";
+import { emailDomainAllowed, joinCodeKey, joinSchema, labSectionsOf } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
@@ -18,7 +18,7 @@ export async function lookupCourse(code: string): Promise<CourseLookup> {
   const { data: course } = await admin
     .from("courses")
     .select("title, settings")
-    .ilike("join_code", clean.replace(/[%_]/g, "\$&"))
+    .eq("join_code", joinCodeKey(clean))
     .maybeSingle();
   if (!course) return { ok: false, error: "That course code is not valid." };
   const raw = (course.settings as { allowed_email_domains?: unknown } | null)?.allowed_email_domains;
@@ -39,11 +39,11 @@ export async function joinCourse(_prev: JoinState, form: FormData): Promise<Join
   }
   const v = parsed.data;
 
-  // 1. course code (case-insensitive)
+  // 1. course code (case-insensitive: codes are stored upper-case; `=`, never LIKE, so % and _ are not wildcards)
   const { data: course } = await admin
     .from("courses")
     .select("id, settings")
-    .ilike("join_code", v.joinCode.replace(/[%_]/g, "\$&"))
+    .eq("join_code", joinCodeKey(v.joinCode))
     .maybeSingle();
   if (!course) return { ok: false, error: "That course code is not valid.", fieldErrors: { joinCode: "Not valid" } };
 

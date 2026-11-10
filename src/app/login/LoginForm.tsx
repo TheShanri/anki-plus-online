@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { LogIn } from "lucide-react";
 import { Button, Field, Input } from "@/components/ui";
+import { safeNext } from "@/lib/auth/next";
 
 export function LoginForm({ next }: { next?: string }) {
   const [error, setError] = useState<string | null>(null);
@@ -20,9 +21,8 @@ export function LoginForm({ next }: { next?: string }) {
         body: JSON.stringify({ email: f.get("email"), password: f.get("password") }),
       });
       if (res.ok) {
-        // Only same-site relative paths are accepted as a redirect target.
-        const dest = next && next.startsWith("/") && !next.startsWith("//") ? next : "/study";
-        window.location.assign(dest);
+        // Only same-site relative paths are accepted as a redirect target (no backslash or tab tricks).
+        window.location.assign(safeNext(next));
         return;
       }
       const body = await res.json().catch(() => ({}));

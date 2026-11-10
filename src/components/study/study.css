@@ -246,7 +246,8 @@
 @media (max-width: 560px) {
   .tag-picker-sum { white-space: nowrap; }
   .tag-picker-sum small { display: none; }
-  .toolbar:has(> .toolbar-sep) { display: grid; grid-template-columns: 1fr 1fr; }
+  .toolbar:has(> .toolbar-sep) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .toolbar:has(> .toolbar-sep) > a, .toolbar:has(> .toolbar-sep) > button { min-width: 0; padding-inline: 10px; font-size: 13px; letter-spacing: 0.02em; white-space: normal; text-align: center; }
   .toolbar:has(> .toolbar-sep) > .toolbar-sep { display: none; }
   .toolbar:has(> .toolbar-sep) > a, .toolbar:has(> .toolbar-sep) > button { justify-content: center; }
   .toolbar:has(> .toolbar-sep) > :first-child { grid-column: 1 / -1; }

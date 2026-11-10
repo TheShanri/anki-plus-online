@@ -10,7 +10,6 @@ import type { DEl, DLabel, Diagram, EndKind, Side } from "./types";
 const ICONS: Record<string, LucideIcon> = { hand: Hand, foot: Footprints, smile: Smile, eye: Eye, ear: Ear, nose: Wind, muscle: Dumbbell, organ: Heart, visceral: Activity };
 const INK = REGION_COLORS.outline;
 const orderColor = (o: number) => ORDER_COLORS[Math.max(1, Math.min(4, o)) as 1 | 2 | 3 | 4];
-const LABEL_GAP = 13.5;
 
 interface Props {
   diagram: Diagram;

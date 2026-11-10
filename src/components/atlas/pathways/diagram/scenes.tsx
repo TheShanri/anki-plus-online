@@ -286,7 +286,7 @@ export function visual(): Diagram {
       {([100, 240] as number[]).map((cx, i) => {
         // visual-field circle of each eye: left half = left field, right half = right field, upper lighter / lower darker
         const r = 26;
-        const cy = 50;
+        const cy = 56;
         const q = (a0: number, a1: number, fill: string) => {
           const p0 = [cx + r * Math.cos((a0 * Math.PI) / 180), cy + r * Math.sin((a0 * Math.PI) / 180)];
           const p1 = [cx + r * Math.cos((a1 * Math.PI) / 180), cy + r * Math.sin((a1 * Math.PI) / 180)];
@@ -300,7 +300,7 @@ export function visual(): Diagram {
             {q(180, 270, F.leftUpper)}
             <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--text-faint)" strokeWidth={1.2} />
             <circle cx={cx} cy={cy} r={2.2} fill="var(--text)" />
-            <text x={cx} y={cy + r + 14} fontSize={11} fill="var(--text-faint)" textAnchor="middle">
+            <text x={cx} y={cy - r - 8} fontSize={11} fill="var(--text-faint)" textAnchor="middle">
               {i === 0 ? "Left eye field" : "Right eye field"}
             </text>
           </g>

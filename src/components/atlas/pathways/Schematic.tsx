@@ -50,7 +50,7 @@ export function Schematic({
   useEffect(() => {
     if (cur === null) return;
     const el = wrap.current?.querySelector<SVGElement>(`[data-beat="${cur}"]`);
-    el?.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" });
+    el?.scrollIntoView({ block: "center", behavior: reduced ? "auto" : "smooth" });
   }, [cur, reduced]);
 
   const orders = useMemo(() => {

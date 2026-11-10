@@ -488,7 +488,7 @@ export function MarkMesh({
           {kind === "syn" || kind === "bound" ? <torusGeometry args={[r * 2.2, r * 0.75, 8, 24]} /> : <sphereGeometry args={[r * (big ? 3.4 : node ? 2.6 : 2.0), 18, 12]} />}
           <meshBasicMaterial color={color} depthTest={false} transparent opacity={(big ? 0.8 : 0.95) * op} toneMapped={false} />
         </mesh>
-        {(big || node) && (
+        {big && (
           <mesh renderOrder={29} rotation={[Math.PI / 2, 0, 0]}>
             <torusGeometry args={[r * (big ? 5.5 : 3.8), r * 0.3, 8, 40]} />
             <meshBasicMaterial color={color} depthTest={false} transparent opacity={0.55 * op} toneMapped={false} />

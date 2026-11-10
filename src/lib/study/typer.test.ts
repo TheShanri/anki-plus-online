@@ -168,9 +168,9 @@ test("skeleton and ghost hints continue after typed punctuation", () => {
   assert.equal(t.ghost(), "_________) ___ _________ __________");
   t.mask = null;
   t.hint(2);
-  assert.equal(t.ghost(), "a"); // not "(a": the "(" is already typed
+  assert.equal(t.ghost(), "amy"); // not "(amy": the "(" is already typed (long answer: 3 letters a hint)
   t.hint(3);
-  assert.equal(t.ghost(), "am");
+  assert.equal(t.ghost(), "amygda");
 });
 
 test("commas, hyphens, slashes and apostrophes typed early are not repeated", () => {

@@ -27,7 +27,7 @@ function payload(known?: string[]): StudyPayload {
   };
 }
 function engine(p: StudyPayload) {
-  let t = 1_000_000;
+  const t = 1_000_000;
   let n = 0;
   return new StudyEngine(p, { now: () => t, send: () => {}, emit: () => {}, uuid: () => `id-${++n}`, sessionId: "s", rand: () => 0.5 });
 }

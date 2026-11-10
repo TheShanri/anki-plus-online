@@ -6,7 +6,8 @@ import { answerVariants, decorativeKeys } from "./variants.ts";
 import { DEFAULT_CANON, diffOps, type DiffOp } from "./text.ts";
 import { gradeTyped, gradeKeywords, verdictFromKeywords, type Verdict } from "./grade.ts";
 import { Typer } from "./typer.ts";
-import { TrapGuard, type GuardEvent } from "./trapguard.ts";
+import { TrapGuard, GuardGroup, type GuardEvent, type GuardLike } from "./trapguard.ts";
+import { PartBoxes, spotsForPart, type PartResult } from "./parts.ts";
 import { type Attempt, type TrapSpot } from "./traps.ts";
 import { isLong, ladderOutcome, nextStep, nextText, scaffold, MAX_STEP, helpText, rungOf, nextCleanStreak, type LadderOutcome } from "./ladder.ts";
 import { newCardState, previews, ratingFor, scheduleReview, type CardStateRow, type Grade } from "./scheduling.ts";
@@ -65,7 +66,10 @@ interface UndoSnap {
 
 export interface Retype {
   kind: "fail" | "intro" | "near" | "reps";
+  /** the box being typed (multi-box answers: the active one) */
   typer: Typer;
+  /** multi-box answers: one retype box per part */
+  boxes?: Typer[];
   repsLeft: number;
   done: boolean;
   guard: TrapGuard | null;
@@ -84,8 +88,11 @@ export interface Current {
   step: number;
   /** below the recall rung: practice (at most Hard, never banks traps) */
   practice: boolean;
+  /** the answer box (multi-box answers: box 0; see `multi`) */
   typer: Typer | null;
-  guard: TrapGuard | null;
+  /** several separate items: one box per part */
+  multi: PartBoxes | null;
+  guard: GuardLike | null;
   spots: TrapSpot[];
   hintFirstMs: number;
   shownAt: number;
@@ -104,6 +111,8 @@ export interface Current {
   headline: string;
   why: string;
   diff: DiffOp[] | null;
+  /** multi-box answers: how each box did (set once answered) */
+  partResults: PartResult[] | null;
   surprise: boolean;
   lockUntil: number;
   outcome: LadderOutcome | null;
@@ -425,10 +434,35 @@ export class StudyEngine {
     const practice = ladderOn && !isFirstLook && step < MAX_STEP;
 
     let typer: Typer | null = null;
-    let guard: TrapGuard | null = null;
+    let multi: PartBoxes | null = null;
+    let guard: GuardLike | null = null;
     let spots: TrapSpot[] = [];
     const promptLen = (card.prompt + (card.vignette ?? "")).length;
-    if (mode === "type") {
+    if (mode === "type" && card.parts && card.parts.length >= 2) {
+      const relearn = state?.state === 3;
+      multi = new PartBoxes({
+        parts: card.parts,
+        ordered: !!card.partsOrdered,
+        requireSide: card.requireSide,
+        strict: practice,
+        noHints: isFirstLook || !sc.hints,
+        cap: relearn ? 0.5 : 1,
+        params: { hintAuto: sc.hints },
+        promptLen,
+        reveal: sc.hints,
+        now,
+      });
+      typer = multi.boxes[0];
+      if (practice) for (const b of multi.boxes) b.mask = (answer, from, hintEnd) => scaffold(answer, from, step, hintEnd);
+      if (sc.traps && !practice && !isFirstLook && multi.ordered) {
+        spots = this.traps.get(card.id) ?? [];
+        const guards = multi.boxes.map((b, i) => {
+          const mine = spotsForPart(spots, card.parts![i].text);
+          return mine.length ? new TrapGuard(b, mine, { gate: sc.focus, light: false }, "typing", this.sessionMisses) : null;
+        });
+        if (guards.some(Boolean)) guard = new GuardGroup(guards);
+      }
+    } else if (mode === "type") {
       // With a scaffold showing (copy / skeleton / first letters) the box follows exactly the answer it shows, so a
       // synonym cannot swap the ghost mid-word ("of the lateral" appearing only after "the" was typed).
       const variants = practice ? retypeVariants(card) : answerVariants(card.answer, card.accept, { requireSide: card.requireSide, max: 96 });
@@ -455,9 +489,9 @@ export class StudyEngine {
       mode === "choice" && card.choices ? shuffle(card.choices, this.rand) : mode === "tf" ? ["True", "False"] : null;
 
     this.cur = {
-      entry, card, structure, mode, isFirstLook, isBoss: boss, isFollowup, parent, step, practice, typer, guard, spots,
+      entry, card, structure, mode, isFirstLook, isBoss: boss, isFollowup, parent, step, practice, typer, multi, guard, spots,
       hintFirstMs: typer ? typer.firstHintDelay(promptLen) : 0, shownAt: now, typed: "", choices, picked: null,
-      verdict: null, right: false, gaveUp: false, rating: 3, maxRating: 4, fixed: false, headline: "", why: "", diff: null, surprise: false, lockUntil: 0,
+      verdict: null, right: false, gaveUp: false, rating: 3, maxRating: 4, fixed: false, headline: "", why: "", diff: null, partResults: null, surprise: false, lockUntil: 0,
       outcome: null, stepAfter: step, ladderNote: "", trapReport: [], retype: null, previews: null, mnemonicOffer: false, durationMs: 0, selfGraded: false,
       note: this.notes.get(card.id) ?? null,
     };
@@ -486,6 +520,35 @@ export class StudyEngine {
   }
 
   // ------------------------------------------------------------------ typing
+  /** the box the caret is in (a single answer: its one box) */
+  private activeTyper(c: Current): Typer | null {
+    return c.multi ? c.multi.activeBox : c.typer;
+  }
+  private hintedOf(c: Current): number {
+    return c.multi ? c.multi.hinted : c.typer?.hinted ?? 0;
+  }
+  private typosOf(c: Current): number {
+    return c.multi ? c.multi.typos : c.typer?.typos ?? 0;
+  }
+  private easyWindowOf(c: Current): number | null {
+    return c.multi ? c.multi.easyWindow : c.typer?.easyWindow ?? null;
+  }
+  private predictedOf(c: Current, now: number): Grade {
+    return (c.multi ? c.multi.predicted(now) : c.typer ? c.typer.predicted(now) : 3) as Grade;
+  }
+  private typedOf(c: Current): string {
+    return c.multi ? c.multi.joined() : c.typer?.typed ?? c.typed;
+  }
+  /** Is anything typed (any box)? */
+  hasTyped(): boolean {
+    const c = this.cur;
+    return !!c && !!(c.multi ? c.multi.anyTyped() : c.typer?.typed || c.typed);
+  }
+  private shiftClocks(c: Current, ms: number): void {
+    if (c.multi) c.multi.shift(ms);
+    else c.typer?.shift(ms);
+  }
+
   activity(): void {
     const now = this.deps.now();
     this.lastActivity = now;
@@ -516,7 +579,7 @@ export class StudyEngine {
     const c = this.cur;
     if (ms <= 0) return;
     if (c?.typer && this.phase === "prompt") {
-      c.typer.shift(ms);
+      this.shiftClocks(c, ms);
       c.shownAt += ms;
     }
     this.run.startedAt += ms;
@@ -530,7 +593,7 @@ export class StudyEngine {
     this.drift = 0;
     this.driftBackMs = ms;
     if (c?.typer && this.phase === "prompt") {
-      c.typer.shift(ms);
+      this.shiftClocks(c, ms);
       c.shownAt += ms;
     }
     this.run.startedAt += ms;
@@ -543,7 +606,7 @@ export class StudyEngine {
     if (!c || this.phase !== "prompt") return;
     const now = this.deps.now();
     if (this.settings.scaffold.focus) {
-      const typical = Math.max(c.typer?.easyWindow ?? 6000, 6000);
+      const typical = Math.max(this.easyWindowOf(c) ?? 6000, 6000);
       const N = wanderThreshold(typical);
       if (!this.drift && !this.away && now - this.lastActivity >= N) {
         this.drift = 1;
@@ -562,7 +625,7 @@ export class StudyEngine {
         return; // clocks and auto hints stand still while away
       } else if (this.away) return;
     }
-    const t = c.typer;
+    const t = this.activeTyper(c);
     if (t && this.settings.scaffold.hints && !c.isFirstLook && !c.retype && (!c.practice || c.step >= 2) && t.autoHintDue(now, c.hintFirstMs)) this.hint(false);
   }
 
@@ -576,6 +639,7 @@ export class StudyEngine {
       this.changed();
       return;
     }
+    if (c.multi) return this.inputBox(c.multi.active, value);
     const t = c.typer;
     if (!t) return;
     const before = t.state;
@@ -596,6 +660,53 @@ export class StudyEngine {
         if ((this.phase as string) === "reveal") this.autoRevealAt = now;
       }
     }
+  }
+
+  /** Multi-box answers: keystrokes in box `i`. The boxes claim and release parts as they complete. */
+  inputBox(i: number, value: string): void {
+    const c = this.cur;
+    const m = c?.multi;
+    if (!c || !m || this.phase !== "prompt" || i < 0 || i >= m.count) return;
+    const now = this.deps.now();
+    this.activity();
+    this.setBoxActive(c, i, now);
+    const t = m.boxes[i];
+    const before = t.state;
+    m.input(i, value, now);
+    if (c.guard) for (const ev of c.guard.update(now)) this.onGuard(ev);
+    if (t.state === "track" || t.state === "match") {
+      if (value.length > 0 && before !== "match") this.emit("key", { progress: t.progress() });
+    }
+    // a finished box hands the caret to the next one that still needs an answer
+    if (m.complete(i) && !m.allComplete()) {
+      const nx = m.nextOpen(i);
+      if (nx >= 0) this.setBoxActive(c, nx, now);
+    }
+    this.changed();
+    if (m.allComplete() && t.params.autoSubmitOnMatch) {
+      const v = this.judge(c);
+      if (!(v.result === "wrong" && v.kind === "side")) {
+        this.submit(false);
+        if ((this.phase as string) === "reveal") this.autoRevealAt = now;
+      }
+    }
+  }
+
+  /** Move the caret to another box of a multi-box answer (Tab / Shift+Tab / Enter / a click). */
+  focusBox(i: number): void {
+    const c = this.cur;
+    if (!c?.multi || this.phase !== "prompt") return;
+    if (this.setBoxActive(c, i, this.deps.now())) this.changed();
+  }
+
+  private setBoxActive(c: Current, i: number, now: number): boolean {
+    const m = c.multi;
+    if (!m || !m.focus(i, now)) return false;
+    if (c.guard instanceof GuardGroup) {
+      c.guard.active = i;
+      for (const ev of c.guard.initial(now)) this.onGuard(ev);
+    }
+    return true;
   }
 
   /** Key presses that should bounce off a trap's pause gate. Returns true if the key must be swallowed. */
@@ -636,7 +747,7 @@ export class StudyEngine {
       this.submit(true);
       return;
     }
-    const t = c.typer;
+    const t = this.activeTyper(c);
     if (!t) return;
     if (!this.settings.scaffold.hints) {
       if (manual) this.say("Hints are switched off. Esc shows the answer.");
@@ -656,13 +767,14 @@ export class StudyEngine {
   predicted(): Grade {
     const c = this.cur;
     if (!c?.typer) return 3;
-    let g = c.typer.predicted(this.deps.now());
+    let g = this.predictedOf(c, this.deps.now());
     if (c.practice) g = Math.min(g, 2) as Grade;
     if (c.guard?.missedAny) g = Math.min(g, 2) as Grade;
     return g;
   }
 
   private judge(c: Current): Verdict {
+    if (c.multi) return c.multi.grade().verdict;
     const typed = c.typer?.typed ?? c.typed;
     if (c.mode === "keywords" && c.card.keywords) return verdictFromKeywords(gradeKeywords(typed, c.card.keywords), typed);
     return gradeTyped(typed, { answer: c.card.answer, accept: c.card.accept, requireSide: c.card.requireSide }, { knownNames: this.names, ownSlug: c.structure?.slug ?? null });
@@ -692,7 +804,7 @@ export class StudyEngine {
       this.revealSelf(c);
       return;
     }
-    const typed = c.typer?.typed ?? c.typed;
+    const typed = this.typedOf(c);
     if ((c.mode === "type" || c.mode === "keywords") && c.isFirstLook) return this.submitFirstLook(c, giveUp);
     if ((c.mode === "choice" || c.mode === "tf") && c.isFirstLook) {
       c.durationMs = Math.round(this.deps.now() - c.shownAt);
@@ -716,11 +828,11 @@ export class StudyEngine {
     const t = c.typer;
     const now = this.deps.now();
     c.fixed = true;
-    c.durationMs = Math.round(t ? t.elapsed(now) : now - c.shownAt);
-    const typed = (t?.typed ?? c.typed).trim();
+    c.durationMs = Math.round(c.multi ? c.multi.elapsed(now) : t ? t.elapsed(now) : now - c.shownAt);
+    const typed = this.typedOf(c).trim();
     c.typed = typed;
     const verdict = typed && !giveUp ? this.judge(c) : null;
-    const known = t ? t.state === "match" && verdict?.result !== "wrong" : verdict?.result === "correct";
+    const known = c.multi ? c.multi.allComplete() && verdict?.result !== "wrong" : t ? t.state === "match" && verdict?.result !== "wrong" : verdict?.result === "correct";
     if (!giveUp && known) {
       c.right = true;
       c.rating = 4;
@@ -741,7 +853,8 @@ export class StudyEngine {
       c.verdict = verdict;
       c.headline = "SO CLOSE";
       c.why = "almost: one more go";
-      if (t) c.diff = diffOps(typed, verdict.matched ?? c.card.answer, DEFAULT_CANON);
+      if (c.multi) c.partResults = c.multi.grade().results;
+      else if (t) c.diff = diffOps(typed, verdict.matched ?? c.card.answer, DEFAULT_CANON);
       this.emit("near_miss", { edits: verdict.edits });
       this.enterReveal(c, true, "near");
       return;
@@ -777,25 +890,27 @@ export class StudyEngine {
     const right = verdict.result === "correct";
     c.right = right;
     if (c.guard) c.guard.finish(right ? "right" : giveUp ? "gaveup" : "wrong");
-    const predicted: Grade = t ? t.predicted(now) : 3;
+    const hinted = this.hintedOf(c);
+    const predicted: Grade = t ? this.predictedOf(c, now) : 3;
     let rating = ratingFor({
       result: verdict.result,
       predicted: (c.mode === "tf" || c.mode === "choice" ? (right ? (c.durationMs < 5000 ? 4 : 3) : 1) : predicted) as Grade,
       gaveUp: giveUp,
       practice: c.practice,
       trapMissed: !!c.guard?.missedAny,
-      hinted: t?.hinted ?? 0,
+      hinted,
     });
     // a choice is recognition, not recall: never better than Good
     if (c.mode === "choice" || c.mode === "tf") rating = Math.min(rating, 3) as Grade;
     c.rating = rating;
     c.maxRating = rating;
-    c.surprise = !right && !giveUp && !!typed.trim() && (t?.hinted ?? 0) === 0 && !!t && c.durationMs <= t.easyWindow && rating === 1 && c.mode === "type";
+    const easyWin = this.easyWindowOf(c);
+    c.surprise = !right && !giveUp && !!typed.trim() && hinted === 0 && easyWin !== null && c.durationMs <= easyWin && rating === 1 && c.mode === "type";
     if (c.surprise) c.lockUntil = now + 1200;
     c.why = verdict.why;
-    const hinted = t?.hinted ?? 0;
     c.headline = giveUp ? "HERE IT IS" : right ? (rating === 4 ? "FLAWLESS" : rating === 3 ? (hinted ? "GOT IT" : "NICE") : "PULLED IT OFF") : verdict.result === "near_miss" ? "SO CLOSE" : "NOT QUITE";
-    if (!right && typed.trim() && c.mode !== "choice" && c.mode !== "tf" && c.mode !== "keywords") {
+    if (c.multi) c.partResults = c.multi.grade().results;
+    else if (!right && typed.trim() && c.mode !== "choice" && c.mode !== "tf" && c.mode !== "keywords") {
       c.diff = diffOps(typed, verdict.matched ?? c.card.answer, DEFAULT_CANON);
     }
     if (right) this.emit(rating === 4 ? "easy" : "correct", { rating, combo: this.stats.combo + 1 });
@@ -806,7 +921,7 @@ export class StudyEngine {
     let retype: Retype["kind"] | undefined;
     if (c.mode === "type") {
       const long = isLong(c.card.answer);
-      c.outcome = ladderOutcome(c.step, { right, firstLook: false, typos: t?.typos ?? 0, hinted });
+      c.outcome = ladderOutcome(c.step, { right, firstLook: false, typos: this.typosOf(c), hinted });
       c.stepAfter = this.settings.scaffold.ladder ? nextStep(c.step, c.outcome, long) : MAX_STEP;
       if (this.settings.scaffold.ladder) c.ladderNote = nextText(c.card.answer, c.step, c.stepAfter);
       if (verdict.result === "near_miss") retype = "near";
@@ -840,30 +955,56 @@ export class StudyEngine {
     const ladderCopy = (this.settings.scaffold.ladder && c.step < MAX_STEP) || (kind === "intro" && c.mode !== "type");
     // look-cover-type by default; with the scaffold on below recall, the answer stays visible (copy)
     const mode = kind === "intro" || kind === "near" || kind === "fail" ? (ladderCopy ? "retype" : "covered") : "covered";
+    if (c.card.parts && c.card.parts.length >= 2) {
+      const boxes = this.retypeBoxes(c, mode, now);
+      return { kind, typer: boxes[0], boxes, repsLeft: reps, done: false, guard: null };
+    }
     const typer = new Typer({ variants: retypeVariants(c.card), mode, now });
     return { kind, typer, repsLeft: reps, done: false, guard: null };
   }
 
+  /** Look-then-type for a multi-box answer: one copy box per part, in order. */
+  private retypeBoxes(c: Current, mode: "retype" | "covered", now: number): Typer[] {
+    return c.card.parts!.map((p) => new Typer({ variants: answerVariants(p.text, [], { requireSide: c.card.requireSide, max: 24 }), mode, now }));
+  }
+
   /** Keystrokes in the retype box (copy / lock-in / reps). */
-  retypeInput(value: string): void {
+  retypeInput(value: string, box = 0): void {
     const c = this.cur;
     const r = c?.retype;
     if (!c || !r || r.done || this.phase !== "reveal") return;
     const now = this.deps.now();
     this.activity();
-    r.typer.set(value, now);
-    if (r.typer.state === "track" || r.typer.state === "match") this.emit("key", { progress: r.typer.progress() });
+    const boxes = r.boxes;
+    const bt = boxes ? boxes[box] : r.typer;
+    if (!bt) return;
+    if (boxes) r.typer = bt;
+    bt.set(value, now);
+    if (bt.state === "track" || bt.state === "match") this.emit("key", { progress: bt.progress() });
+    if (boxes && !boxes.every((b) => b.state === "match")) {
+      // a finished box hands the caret on to the next one still open
+      if (bt.state === "match") {
+        const nx = boxes.findIndex((b, k) => k > box && b.state !== "match");
+        const open = nx >= 0 ? nx : boxes.findIndex((b) => b.state !== "match");
+        if (open >= 0) r.typer = boxes[open];
+      }
+      this.changed();
+      return;
+    }
     if (r.typer.state === "match") {
       r.repsLeft--;
       if (r.repsLeft > 0 && r.kind === "reps") {
         this.emit("save");
-        r.typer = new Typer({ variants: retypeVariants(c.card), mode: "covered", now });
+        if (boxes) {
+          r.boxes = this.retypeBoxes(c, "covered", now);
+          r.typer = r.boxes[0];
+        } else r.typer = new Typer({ variants: retypeVariants(c.card), mode: "covered", now });
       } else {
         r.done = true;
         this.emit("save");
         if (r.kind === "intro" || r.kind === "near") {
           // a clean copy on a first look climbs the ladder (no typos, no hints)
-          if (r.kind === "intro" && r.typer.typos === 0) {
+          if (r.kind === "intro" && (r.boxes ? r.boxes.every((b) => b.typos === 0) : r.typer.typos === 0)) {
             c.outcome = ladderOutcome(0, { right: false, firstLook: true, introClean: true, typos: 0, hinted: 0 });
             c.stepAfter = nextStep(0, c.outcome, isLong(c.card.answer));
             c.ladderNote = nextText(c.card.answer, 0, c.stepAfter);
@@ -877,7 +1018,7 @@ export class StudyEngine {
   peekRetype(): void {
     const r = this.cur?.retype;
     if (!r || r.typer.mode !== "covered") return;
-    r.typer.peek = true;
+    for (const b of r.boxes ?? [r.typer]) b.peek = true;
     this.changed();
   }
 
@@ -931,8 +1072,7 @@ export class StudyEngine {
       sinceBoss: this.sinceBoss,
       run: { ...this.run },
     };
-    const t = c.typer;
-    const hinted = t?.hinted ?? 0;
+    const hinted = this.hintedOf(c);
     const date = new Date(now);
     const prev = this.states.get(c.card.id) ?? newCardState("me", c.card.id, date);
     const { next } = scheduleReview(prev, chosen, date, { retention: this.settings.study.retention });
@@ -975,14 +1115,15 @@ export class StudyEngine {
       sessionId: this.deps.sessionId,
       courseId: this.payload.course.id,
       rating: chosen,
-      typed: c.mode === "self" ? null : c.typed || t?.typed || null,
+      typed: c.mode === "self" ? null : c.typed || this.typedOf(c) || null,
       correct,
       hintCount: hinted,
       durationMs: c.durationMs,
       clientTs: now,
       keystrokes: {
         mode: c.mode,
-        typos: t?.typos ?? 0,
+        typos: this.typosOf(c),
+        parts: c.multi?.count,
         firstLook: c.isFirstLook,
         boss: wasBoss,
         followup: c.isFollowup,

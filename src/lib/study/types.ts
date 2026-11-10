@@ -25,6 +25,12 @@ export interface PinImageData {
   plate?: { level: string; region: string };
 }
 
+export interface AnswerPart {
+  text: string;
+  /** extra accepted forms of this part */
+  accept: string[];
+}
+
 export interface StudyCard {
   id: string;
   slug: string;
@@ -48,6 +54,10 @@ export interface StudyCard {
   answerKind?: string;
   /** other names for the same thing that are equally right ("frontal plane" for "coronal plane") */
   alsoCalled?: string[];
+  /** several separate items the answer consists of (2 or more): one box each. Never synonyms. */
+  parts?: AnswerPart[];
+  /** true when the order of the parts matters */
+  partsOrdered?: boolean;
   image?: PinImageData;
   followups: string[];
   /** explicit follow-up card slugs (practical exam stems), asked before the structure's theory cards */
@@ -111,6 +121,15 @@ function toShape(v: unknown): Shape | null {
   return null;
 }
 
+/** `parts` + `part_accept` (keyed by the part text or its 0-based index) -> parts; fewer than 2 means a single answer. */
+export function toParts(raw: unknown, acceptRaw: unknown): AnswerPart[] | undefined {
+  const texts = strs(raw).map((t) => t.trim()).filter(Boolean);
+  if (texts.length < 2) return undefined;
+  const acc = acceptRaw && typeof acceptRaw === "object" && !Array.isArray(acceptRaw) ? (acceptRaw as Record<string, unknown>) : {};
+  const byKey = new Map(Object.entries(acc).map(([k, v]) => [k.trim().toLowerCase(), strs(v)]));
+  return texts.map((text, i) => ({ text, accept: byKey.get(text.toLowerCase()) ?? byKey.get(String(i)) ?? [] }));
+}
+
 /** Normalise one cards row. */
 export function toStudyCard(row: CardRow): StudyCard {
   const c = (row.content ?? {}) as Record<string, unknown>;
@@ -136,6 +155,7 @@ export function toStudyCard(row: CardRow): StudyCard {
       pointer: c.pointer && typeof c.pointer === "object" ? (c.pointer as PinImageData["pointer"]) : { type: "mask" },
     };
   }
+  const parts = toParts(c.parts, c.part_accept);
   return {
     id: row.id,
     slug: row.slug,
@@ -145,7 +165,7 @@ export function toStudyCard(row: CardRow): StudyCard {
     position: row.position,
     prompt: str(c.prompt) || (kind === "pin" ? "Name the structure." : ""),
     vignette: str(c.vignette) || undefined,
-    answer: str(c.answer) || str(c.name),
+    answer: str(c.answer) || str(c.name) || (parts ? parts.map((p) => p.text).join(", ") : ""),
     accept: [...strs(c.accept), ...strs(c.also_called), ...promptNounDropped(str(c.prompt), str(c.answer) || str(c.name))],
     requireSide: !!c.require_side,
     format,
@@ -157,6 +177,8 @@ export function toStudyCard(row: CardRow): StudyCard {
     step: str(c.step) || undefined,
     answerKind: str(c.answer_kind) || undefined,
     alsoCalled: strs(c.also_called).length ? strs(c.also_called) : undefined,
+    parts,
+    partsOrdered: parts ? !!c.parts_ordered : undefined,
     image,
     followups: strs(c.followups),
     followupCards: strs(c.followup_cards),

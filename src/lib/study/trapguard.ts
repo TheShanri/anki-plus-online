@@ -267,3 +267,78 @@ export class TrapGuard {
       .map((l) => ({ chunk: l.spot.chunk, question: l.spot.question, label: l.spot.label, passed: l.st === "passed", level: l.lvl, pattern: l.spot.source === "pattern" }));
   }
 }
+
+/** What the session and the UI need from a card's trap guard (one Typer, or one per box of a multi-box answer). */
+export interface GuardLike {
+  readonly has: boolean;
+  readonly missedAny: boolean;
+  readonly armed: TrapSpot | null;
+  readonly armedLevel: number;
+  readonly attempts: Attempt[];
+  readonly passed: string[];
+  readonly missed: string[];
+  gateActive(now: number): boolean;
+  initial(now: number): GuardEvent[];
+  update(now: number): GuardEvent[];
+  blindView(): BlindView | null;
+  finish(how: "right" | "wrong" | "gaveup" | "abort"): void;
+  repsWanted(): number;
+  report(): ReturnType<TrapGuard["report"]>;
+}
+
+/** Multi-box answer: one guard per box (ordered parts only), the caret box is the live one. */
+export class GuardGroup implements GuardLike {
+  active = 0;
+  readonly guards: Array<TrapGuard | null>;
+  constructor(guards: Array<TrapGuard | null>) {
+    this.guards = guards;
+  }
+  private g(): TrapGuard | null {
+    return this.guards[this.active] ?? null;
+  }
+  private all(): TrapGuard[] {
+    return this.guards.filter((g): g is TrapGuard => !!g);
+  }
+  get has(): boolean {
+    return this.all().some((g) => g.has);
+  }
+  get missedAny(): boolean {
+    return this.all().some((g) => g.missedAny);
+  }
+  get armed(): TrapSpot | null {
+    return this.g()?.armed ?? null;
+  }
+  get armedLevel(): number {
+    return this.g()?.armedLevel ?? 0;
+  }
+  get attempts(): Attempt[] {
+    return this.all().flatMap((g) => g.attempts);
+  }
+  get passed(): string[] {
+    return this.all().flatMap((g) => g.passed);
+  }
+  get missed(): string[] {
+    return this.all().flatMap((g) => g.missed);
+  }
+  gateActive(now: number): boolean {
+    return this.g()?.gateActive(now) ?? false;
+  }
+  initial(now: number): GuardEvent[] {
+    return this.g()?.initial(now) ?? [];
+  }
+  update(now: number): GuardEvent[] {
+    return this.g()?.update(now) ?? [];
+  }
+  blindView(): BlindView | null {
+    return this.g()?.blindView() ?? null;
+  }
+  finish(how: "right" | "wrong" | "gaveup" | "abort"): void {
+    for (const g of this.all()) g.finish(how);
+  }
+  repsWanted(): number {
+    return Math.min(10, this.all().reduce((n, g) => Math.max(n, g.repsWanted()), 0));
+  }
+  report(): ReturnType<TrapGuard["report"]> {
+    return this.all().flatMap((g) => g.report());
+  }
+}

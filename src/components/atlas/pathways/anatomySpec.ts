@@ -282,3 +282,49 @@ export const vertLevels = (a: string, b: string, names: string[]) => names.slice
 
 /** Sympathetic lateral horn T1 to L2: the vertebrae lit. */
 export const SYMP_VERTS = ["bone_T1", "bone_T2", "bone_T3", "bone_T4", "bone_T5", "bone_T6", "bone_T7", "bone_T8", "bone_T9", "bone_T10", "bone_T11", "bone_T12", "bone_L1", "bone_L2"];
+
+/* ---- fibres inside the cord: they follow the real cord centreline (the cord_<segment> anchors of the spine part, which carry the
+ * cervical and lumbar curves), offset inside its cross-section: dorsal columns dorsal, lateral tracts lateral, anterolateral system
+ * anterolateral. dx is the lateral offset (m, toward the side rel names), dz the antero-posterior one (+ anterior). */
+const SEGMENTS = ["C2", "C3", "C4", "C5", "C6", "C7", "C8", "T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "L1", "L2", "L3", "L4", "L5", "S1", "S2", "S3"];
+export const cordP = (seg: string, rel: "i" | "c" | "m" = "i", dx = 0, dz = 0): WP => P(`spine:cord_${seg}`, rel, dx, 0, dz);
+/** Cord points from segment `from` up (or down) to `to`, every segment, so the line follows the curve of the cord. */
+export function cordRun(from: string, to: string, rel: "i" | "c" | "m", dx: number, dz: number): WP[] {
+  const a = SEGMENTS.indexOf(from);
+  const b = SEGMENTS.indexOf(to);
+  if (a < 0 || b < 0) return [];
+  const out: WP[] = [];
+  for (let k = a; b < a ? k >= b : k <= b; k += b < a ? -1 : 1) out.push(cordP(SEGMENTS[k], rel, dx, dz));
+  return out;
+}
+type Central = (seg: string, drg: string | undefined, orig: WP[]) => WP[];
+const DORSAL = [0.001, -0.0035] as const;
+const LATERAL = [0.004, -0.0015] as const;
+const ANTLAT = [0.004, 0.001] as const;
+export const CENTRAL: Record<string, Record<string, Central>> = {
+  dcml: { dc: (seg, drg, o) => [P(`spine:drg_${drg}`, "i"), ...cordRun(seg, "C2", "i", ...DORSAL), o[o.length - 1]] },
+  alst: {
+    root: (seg, drg) => [P(`spine:drg_${drg}`, "i"), cordP(seg, "i", 0.004, -0.002), cordP(seg, "i", 0.002, -0.003)],
+    awc: (seg) => [cordP(seg, "i", 0.002, -0.003), cordP(seg, "m", 0, 0.001), cordP(seg, "c", ...ANTLAT)],
+    tract: (seg, _d, o) => [...cordRun(seg, "C2", "c", ...ANTLAT), ...o.slice(2)],
+  },
+  dsct: {
+    root: (seg, drg) => [P(`spine:drg_${drg}`, "i"), cordP(seg, "i", 0.003, -0.002)],
+    tract: (seg, _d, o) => [...cordRun(seg, "C2", "i", ...LATERAL), ...o.slice(2)],
+  },
+  "stretch-reflex": {
+    ia: (seg, drg) => [P(`spine:drg_${drg}`, "i"), cordP(seg, "i", 0.003, -0.004), cordP(seg, "i", 0.003, 0.002)],
+    lmn: (seg) => [cordP(seg, "i", 0.003, 0.002), cordP(seg, "i", 0.007, 0.012)],
+  },
+  "withdrawal-reflex": {
+    root: (seg, drg) => [P(`spine:drg_${drg}`, "i"), cordP(seg, "i", 0.003, -0.004), cordP(seg, "i", 0.002, -0.002)],
+    int: (seg) => [cordP(seg, "i", 0.002, -0.002), cordP(seg, "i", 0.002, 0), cordP(seg, "i", 0.003, 0.002)],
+    lmn: (seg) => [cordP(seg, "i", 0.003, 0.002), cordP(seg, "i", 0.007, 0.012)],
+  },
+  lcst: {
+    cord: (_s, _d, o) => [o[0], ...cordRun("C2", "C8", "i", ...LATERAL)],
+    lmn: () => [cordP("C8", "i", ...LATERAL), cordP("C8", "i", 0.003, 0.002), cordP("C8", "i", 0.007, 0.012)],
+  },
+};
+/** Cord segment of pathways that have no limb choice. */
+export const FIXED_SEG: Record<string, string> = { lcst: "C8" };

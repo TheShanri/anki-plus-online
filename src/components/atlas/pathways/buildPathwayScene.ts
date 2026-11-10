@@ -1,6 +1,6 @@
 import { ORDINAL, opp, physSide, type CoursePathway, type MapPathway, type Side, type Stretch, type WP } from "@/lib/atlas/pathways";
 import type { AnatFile, SceneAnatomy } from "./AnatomyParts";
-import { CORD_CONTEXT, LEVELS, P, SITES, SYMP_VERTS, cordY, type LevelCfg, type Site } from "./anatomySpec";
+import { CENTRAL, CORD_CONTEXT, FIXED_SEG, LEVELS, P, SITES, SYMP_VERTS, type LevelCfg, type Site } from "./anatomySpec";
 import type { SceneColors, SceneEyes, SceneLayer, SceneLimb, SceneMark, SceneTube, View } from "./PathwayScene";
 import { RECEPTORS, type ReceptorId } from "./receptorInfo";
 import { fieldPalette } from "./visualField";
@@ -156,7 +156,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
   const lv = LEVELS[slug];
   const drgLevel = lv?.drg[part];
   // the spinal level of the body part: the ganglion sits on the real column, the central tract starts at that cord level
-  const mp: MapPathway = withLevels(o.mp, lv, drgLevel);
+  const mp: MapPathway = withLevels(o.mp, slug, lv, drgLevel);
   const site = SITES[slug];
   const beats: Beat[] = [];
   const tubes: SceneTube[] = [];
@@ -354,25 +354,18 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
   return { beats, tubes, marks, layers, limbs, infos, anatomy };
 }
 
-/** The pathway with its spinal-level waypoints moved onto the real ganglion and the cord segment of the body part. */
-function withLevels(mp: MapPathway, lv: LevelCfg | undefined, level: string | undefined): MapPathway {
-  if (!lv || !level) return mp;
-  const cy = cordY(lv.cord ?? level);
+/** The pathway with its spinal-level waypoints moved onto the real ganglion and the real cord centreline of the body part's segment. */
+function withLevels(mp: MapPathway, slug: string, lv: LevelCfg | undefined, level: string | undefined): MapPathway {
+  const central = CENTRAL[slug];
+  const seg = (lv?.cord ?? level ?? FIXED_SEG[slug]) as string | undefined;
+  if (!central || !seg) return mp;
   return {
     ...mp,
-    neurons: mp.neurons.map((nr, ni) => ({
+    neurons: mp.neurons.map((nr) => ({
       ...nr,
-      stretches: nr.stretches.map((st, si) => {
-        if (!st.path) return st;
-        const rw = lv.rewrite[st.k];
-        const first = ni === 0 && si === 0;
-        if (!rw && !first) return st;
-        const path = st.path.map((w, wi) => {
-          if (first && wi === 0) return P(`spine:drg_${level}`, "i");
-          if (rw === "all" || (Array.isArray(rw) && rw.includes(wi))) return [w[0], w[1], `y=${cy}`, ...(w as unknown as (number | string)[]).slice(3)] as unknown as WP;
-          return w;
-        });
-        return { ...st, path };
+      stretches: nr.stretches.map((st) => {
+        const fn = central[st.k] as ((s: string, d: string | undefined, o: WP[]) => WP[]) | undefined;
+        return fn && st.path ? { ...st, path: fn(seg, level, st.path) } : st;
       }),
     })),
   };

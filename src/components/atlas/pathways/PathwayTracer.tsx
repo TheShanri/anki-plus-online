@@ -276,6 +276,19 @@ export function PathwayTracer({
     [resetStepUi],
   );
 
+  // the loader always ends: after 15 s the scene is shown anyway and the note names what is still missing
+  const [loadNote, setLoadNote] = useState<string | null>(null);
+  useEffect(() => {
+    if (ready) {
+      setLoadNote(null);
+      return;
+    }
+    const t = setTimeout(() => {
+      setLoadNote(`Some parts did not finish loading (${load.done} of ${load.total}); showing what is there.`);
+      setReady(true);
+    }, 15000);
+    return () => clearTimeout(t);
+  }, [ready, slug, load.done, load.total]);
   useEffect(() => {
     // lets tools/pathways/vet.mjs switch pathway without reloading the page (the 3D parts stay cached)
     (window as unknown as { __pwChoose?: (s: string) => void }).__pwChoose = (s: string) => {
@@ -512,6 +525,7 @@ export function PathwayTracer({
               />
             )}
             <Legend colors={colors} visual={isVisual} />
+            {loadNote && <p role="status" className="absolute bottom-2 left-2 z-10 max-w-sm rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1 text-[11px] text-text-dim">{loadNote}</p>}
             <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
               <Segmented label="View" value={effView} onChange={(v) => { setUserView(v); setFrameNonce((x) => x + 1); }} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
               <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />

@@ -619,9 +619,10 @@ export default function PathwayScene(p: SceneProps) {
   const total = refs.length + layerParts.length + partFiles.length;
   const done = vertsDone + Math.min(layersDone, layerParts.length) + Math.min(partsDone, partFiles.length);
   const ready = !!index && done >= total;
+  // reported on every change (and on a pathway switch) so a stale "not ready" in the parent can never stick
   useEffect(() => {
     onReady?.(ready);
-  }, [ready, onReady]);
+  }, [ready, done, total, p.resetKey, onReady]);
   useEffect(() => {
     onLoad?.(done, Math.max(1, total));
   }, [done, total, onLoad]);
@@ -716,7 +717,7 @@ export default function PathwayScene(p: SceneProps) {
     const halfX = Math.max(box.getSize(new THREE.Vector3()).x / 2, LANE * 3) * 0.94;
     const out: { key: string; side: Side; v: THREE.Vector3 }[] = [];
     const top = p.view === "top";
-    [0.1, 0.5, 0.9].forEach((f, i) => {
+    [0.5].forEach((f, i) => {
       // in the top view the long axis of the picture is front to back (z), otherwise it is vertical
       const y = top ? c.y : box.min.y + (box.max.y - box.min.y) * f;
       const z = top ? box.min.z + (box.max.z - box.min.z) * f : c.z;
@@ -776,7 +777,7 @@ export default function PathwayScene(p: SceneProps) {
         <directionalLight position={[1, 2, 3]} intensity={1.3} />
         <directionalLight position={[-2, 1, -2]} intensity={0.7} />
         {/* a trackball: free rotation on both axes, no pole stops */}
-        <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={1.2} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
+        <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={2.4} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
         <Rig box={box} view={p.view} nonce={p.frameNonce} resetKey={p.resetKey} onLock={setViewLocked} />
         {index && <ContextShell file={index.context.file} color={p.colors.dim} />}
         {p.anatomy?.map((a) => (

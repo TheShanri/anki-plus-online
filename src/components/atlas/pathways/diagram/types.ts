@@ -43,6 +43,8 @@ export interface DLabel {
   y?: number;
   anchor?: "start" | "middle" | "end";
   small?: boolean;
+  /** drawn on a cream region: dark ink, no halo */
+  ink?: boolean;
 }
 
 export interface Diagram {

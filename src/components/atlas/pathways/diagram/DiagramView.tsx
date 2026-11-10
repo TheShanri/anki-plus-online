@@ -44,7 +44,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     gut.sort((a, b) => a.ty - b.ty);
     let bottom = -1e9;
     for (const g of gut) {
-      const hh = g.lines * 12.5;
+      const hh = g.lines * 13;
       const y = Math.max(g.ty, bottom + hh / 2 + 2);
       g.y = y;
       bottom = y + hh / 2;
@@ -96,7 +96,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const dashed = bar(el);
     const ek = el.endKind ?? ends.get(el.keys.find((k) => ends.has(k)) ?? "") ?? "none";
     return (
-      <g key={key} data-beat={st.main} opacity={alphaOf(el.side) * st.op} {...handlers(st.idx)}>
+      <g key={key} data-beat={st.main} data-beats={st.idx.join(",")} opacity={alphaOf(el.side) * st.op} {...handlers(st.idx)}>
         <title>{beats[st.main].caption}</title>
         <mask id={mid} maskUnits="userSpaceOnUse" x={0} y={0} width={w} height={h}>
           <path d={el.d} pathLength={1} fill="none" stroke="#fff" strokeWidth={14} strokeDasharray="1 1" strokeDashoffset={st.shown ? 0 : 1} className="pwd-draw" style={trans ? { transition: trans } : undefined} />
@@ -125,7 +125,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const y = el.y ?? 0;
     const c = colorOf(el, st.order);
     return (
-      <g key={key} data-beat={st.main} opacity={alphaOf(el.side) * st.op} {...handlers(st.idx)}>
+      <g key={key} data-beat={st.main} data-beats={st.idx.join(",")} opacity={alphaOf(el.side) * st.op} {...handlers(st.idx)}>
         <title>{beats[st.main].caption}</title>
         <ellipse cx={x} cy={y} rx={(el.rx ?? 6) + (st.hot ? 1.5 : 0)} ry={(el.ry ?? 4.5) + (st.hot ? 1.5 : 0)} fill={st.hot || st.hov ? REGION_COLORS.current : REGION_COLORS.fill} stroke={INK} strokeWidth={st.hot ? 2 : 1.2} strokeDasharray={el.side === "R" ? "3 2" : undefined} />
         {el.soma && <circle cx={x} cy={y} r={st.hot ? 3.6 : 3} fill={c} stroke={INK} strokeWidth={0.8} />}
@@ -138,7 +138,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const x = el.x ?? 0;
     const y = el.y ?? 0;
     return (
-      <g key={key} data-beat={st.main} opacity={alphaOf(el.side) * st.op} {...handlers(st.idx)}>
+      <g key={key} data-beat={st.main} data-beats={st.idx.join(",")} opacity={alphaOf(el.side) * st.op} {...handlers(st.idx)}>
         <title>{beats[st.main].caption}</title>
         <circle cx={x} cy={y} r={st.hot ? 14 : 12.5} fill={st.hot || st.hov ? REGION_COLORS.current : REGION_COLORS.fill} stroke={INK} strokeWidth={st.hot ? 2 : 1.2} strokeDasharray={el.side === "R" ? "3 2" : undefined} />
         <I x={x - 8} y={y - 8} width={16} height={16} stroke={INK} strokeWidth={2} />
@@ -153,11 +153,11 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const bh = el.h ?? 32;
     const lines = el.text ?? [];
     return (
-      <g key={key} data-beat={st.main} opacity={st.op} {...handlers(st.idx)}>
+      <g key={key} data-beat={st.main} data-beats={st.idx.join(",")} opacity={st.op} {...handlers(st.idx)}>
         <title>{beats[st.main].caption}</title>
         <rect x={x - bw / 2} y={y - bh / 2} width={bw} height={bh} rx={7} fill={st.hot || st.hov ? REGION_COLORS.current : REGION_COLORS.fill} stroke={INK} strokeWidth={st.hot ? 2.4 : 1.3} />
         {lines.map((t, i) => (
-          <text key={i} x={x + (el.soma ? 3 : 0)} y={y + (i - (lines.length - 1) / 2) * 13 + 4.4} textAnchor="middle" fontSize={12.5} fontWeight={st.hot ? 700 : 500} fill={INK}>
+          <text key={i} x={x + (el.soma ? 3 : 0)} y={y + (i - (lines.length - 1) / 2) * 13 + 4.4} textAnchor="middle" fontSize={13} fontWeight={st.hot ? 700 : 500} fill={INK}>
             {t}
           </text>
         ))}
@@ -167,7 +167,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
   };
 
   const renderCross = ({ el, st }: (typeof items)[number], key: string) => (
-    <g key={key} data-beat={st.main} opacity={st.shown ? Math.max(st.op, 0.7) : 0.25} {...handlers(st.idx)} className="pwd-late" style={trans ? { transition: trans } : undefined}>
+    <g key={key} data-beat={st.main} data-beats={st.idx.join(",")} opacity={st.shown ? Math.max(st.op, 0.7) : 0.25} {...handlers(st.idx)} className="pwd-late" style={trans ? { transition: trans } : undefined}>
       <title>Crosses the midline</title>
       <circle cx={el.x} cy={el.y} r={st.hot ? 8.5 : 7} fill="var(--bg-2)" stroke={GUIDE_COLORS.crossing} strokeWidth={2} />
       <path d={`M${(el.x ?? 0) - 3} ${(el.y ?? 0) - 3} L${(el.x ?? 0) + 3} ${(el.y ?? 0) + 3} M${(el.x ?? 0) + 3} ${(el.y ?? 0) - 3} L${(el.x ?? 0) - 3} ${(el.y ?? 0) + 3}`} stroke={GUIDE_COLORS.crossing} strokeWidth={2} strokeLinecap="round" />
@@ -175,7 +175,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
   );
 
   const renderBadge = ({ el, st }: (typeof items)[number], key: string) => (
-    <g key={key} opacity={st.op} data-beat={st.main} {...handlers(st.idx)}>
+    <g key={key} opacity={st.op} data-beat={st.main} data-beats={st.idx.join(",")} {...handlers(st.idx)}>
       <circle cx={el.x} cy={el.y} r={9} fill={orderColor(el.order ?? st.order)} stroke={INK} strokeWidth={1} />
       <text x={el.x} y={(el.y ?? 0) + 4} textAnchor="middle" fontSize={11} fontWeight={700} fill={INK}>
         {el.badge}
@@ -203,12 +203,12 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const st = labelState(nd.l);
     if (!st) return null;
     const lines = nd.l.text.split("\n");
-    const fs = nd.l.small ? 12 : 12.5;
+    const fs = 13;
     const y0 = nd.y - ((lines.length - 1) * fs) / 2 + fs * 0.34;
     return (
       <g key={i} opacity={st.shown ? (st.hot || cur === null ? 1 : 0.8) : 0.4}>
         {nd.tx !== undefined && nd.ty !== undefined && <line x1={nd.x - 3} y1={nd.y} x2={nd.tx} y2={nd.ty} stroke="var(--text-faint)" strokeWidth={0.8} strokeOpacity={0.6} strokeDasharray="1.5 2.5" />}
-        <text x={nd.x} y={y0} textAnchor={nd.anchor} fontSize={fs} fontWeight={st.hot ? 700 : 500} fill="var(--text)" stroke="var(--bg-2)" strokeWidth={3.2} paintOrder="stroke" strokeLinejoin="round">
+        <text x={nd.x} y={y0} textAnchor={nd.anchor} fontSize={fs} fontWeight={st.hot ? 700 : 500} fill={nd.l.ink ? INK : "var(--text)"} stroke={nd.l.ink ? "none" : "var(--bg-2)"} strokeWidth={3.2} paintOrder="stroke" strokeLinejoin="round">
           {lines.map((t, k) => (
             <tspan key={k} x={nd.x} dy={k === 0 ? 0 : fs}>
               {t}
@@ -221,7 +221,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
 
   const ml = diagram.midline;
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="group" aria-label="Pathway diagram" className="block select-none" style={{ minWidth: 300, maxWidth: 620, margin: "0 auto" }}>
+    <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="group" aria-label="Pathway diagram" className="block select-none" style={{ minWidth: 296, maxWidth: 640, margin: "0 auto" }}>
       {diagram.deco}
       {ml && (
         <g>
@@ -238,7 +238,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
         </g>
       )}
       {diagram.levelNames?.map((n, i) => (
-        <text key={i} x={(ml?.x ?? 170) - 92} y={n.y - (n.text[1] ? 2 : -4)} textAnchor="end" fontSize={12} fill="var(--text-faint)">
+        <text key={i} x={(ml?.x ?? 170) - 92} y={n.y - (n.text[1] ? 2 : -4)} textAnchor="end" fontSize={12.5} fill="var(--text-faint)">
           <tspan x={(ml?.x ?? 170) - 92}>{n.text[0]}</tspan>
           {n.text[1] && (
             <tspan x={(ml?.x ?? 170) - 92} dy={13}>

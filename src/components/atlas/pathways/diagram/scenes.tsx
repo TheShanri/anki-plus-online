@@ -61,8 +61,8 @@ export function basalGanglia(): Diagram {
   b.line("pt", [[216, 156], [290, 156], [290, 116]], "bar");
   b.line("pt", [[290, 84], [290, 34], [216, 34]], "arrow");
   b.line("snc", [[16, 232], [7, 232], [7, 100], [16, 100]], "arrow", { dash: true });
-  b.text("direct", "Direct", 121, 132);
-  b.text("indirect", "Indirect", 66, 194);
+  b.text("direct", "Direct (go)", 121, 132);
+  b.text("indirect", "Indirect (no-go)", 66, 194);
   return { w: W, h: 262, mode: "plain", deco: null, els: b.els, labels: b.labels, note: "→ excites  ⊣ inhibits  ┄ modulates" };
 }
 
@@ -119,10 +119,10 @@ export function limbicFornix(): Diagram {
   dot(b, "end", 92, 142, { rx: 6, ry: 4 });
   b.text("n0", "Hippocampus", 252, 132, "middle");
   b.text("end", "Mammillary", 140, 196, "middle");
-  b.text("end", "bodies", 140, 208, "middle");
+  b.text("end", "bodies", 140, 210, "middle");
   b.text("end", "Septal nuclei", 60, 110, "middle");
   b.text("end", "Basal", 48, 174, "middle");
-  b.text("end", "forebrain", 48, 186, "middle");
+  b.text("end", "forebrain", 48, 188, "middle");
   b.text("fx", "Fornix", 190, 86, "middle");
   return sag(b);
 }
@@ -138,7 +138,7 @@ export function limbicAmygdala(): Diagram {
   b.text("end", "BNST", 98, 98, "middle");
   b.text("end", "Hypothalamus", 106, 178, "middle");
   b.text("end", "Brainstem", 270, 150, "middle");
-  b.text("end", "autonomic nuclei", 270, 162, "middle");
+  b.text("end", "autonomic nuclei", 270, 164, "middle");
   b.text("st", "Stria terminalis", 240, 100, "start");
   return sag(b);
 }
@@ -160,9 +160,9 @@ export function reward(): Diagram {
   dot(b, "end", 54, 94, { rx: 9, ry: 7 });
   b.text("n0", "VTA", 258, 210, "start");
   b.text("end", "Nucleus", 70, 170, "middle");
-  b.text("end", "accumbens", 70, 182, "middle");
+  b.text("end", "accumbens", 70, 184, "middle");
   b.text("end", "Prefrontal", 44, 66, "middle");
-  b.text("end", "cortex", 44, 78, "middle");
+  b.text("end", "cortex", 44, 80, "middle");
   b.text("mfb", "MFB", 150, 196, "middle");
   return sag(b);
 }
@@ -180,7 +180,7 @@ export function olfactory(): Diagram {
   b.text("n1", "Olfactory bulb", 70, 124, "middle");
   b.text("tr", "Olfactory tract", 104, 192, "middle");
   b.text("end", "Piriform", 134, 214, "middle");
-  b.text("end", "cortex", 134, 226, "middle");
+  b.text("end", "cortex", 134, 228, "middle");
   b.text("end", "Amygdala", 200, 192, "start");
   return sag(b, 240);
 }
@@ -260,8 +260,8 @@ export function visual(): Diagram {
     const l = link([[cx - 28, 408], [cx + 28, 408]]);
     els.push({ id: `cal${cx}`, keys: v1, kind: "path", side: "M", d: l.d, color: "#1C1A17", endKind: "none", dash: true });
   }
-  labels.push({ keys: v1, text: "Cuneus", x: 110, y: 397, anchor: "middle", small: true });
-  labels.push({ keys: v1, text: "Lingual", x: 110, y: 424, anchor: "middle", small: true });
+  labels.push({ keys: v1, text: "Cuneus", x: 110, y: 397, anchor: "middle", small: true, ink: true });
+  labels.push({ keys: v1, text: "Lingual", x: 110, y: 424, anchor: "middle", small: true, ink: true });
   labels.push({ keys: v1, text: "Calcarine", x: 170, y: 410, anchor: "middle", small: true });
   labels.push({ keys: v1, text: "V1", x: 170, y: 424, anchor: "middle", small: true });
   const badge = (keys: string[], x: number, y: number, text: string, order: number) => els.push({ id: `bd${n++}`, keys, kind: "badge", side: "M", x, y, badge: text, order });
@@ -273,13 +273,13 @@ export function visual(): Diagram {
   L(["~optic tract"], "Optic tract", 120, 246, "end");
   L(["~lateral geniculate"], "LGN", 170, 276);
   L(crossK, "Nasal fibres", 252, 202, "start");
-  L(crossK, "cross", 252, 214, "start");
+  L(crossK, "cross", 252, 216, "start");
   L(stayK, "Temporal", 252, 232, "start");
-  L(stayK, "fibres stay", 252, 244, "start");
+  L(stayK, "fibres stay", 252, 246, "start");
   L(par, "Parietal", 170, 330);
-  L(par, "route", 170, 342);
+  L(par, "route", 170, 344);
   L(mey, "Meyer's", 80, 322, "middle");
-  L(mey, "loop", 80, 334, "middle");
+  L(mey, "loop", 80, 336, "middle");
 
   const deco = (
     <g>

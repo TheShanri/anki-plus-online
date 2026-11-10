@@ -212,7 +212,7 @@ export const LEVELS: Record<string, LevelDef> = {
     label: ["Medulla", "caudal"], hw: 40, h: 50, draw: medCDraw,
     at: { gr: [8, 8], cu: [17, 10], dcn: [12, 9], arc1: [14, 20], arc2: [7, 28], mid: [0, 30], ml: [4, 35], stt: [32, 17], alst: [33, 34], pyr: [14, 43], vst: [26, 36], rst: [26, 30], tst: [4, 30], ttt: [33, 36] },
   },
-  cmj: { label: ["Medulla–cord", "junction"], hw: 38, h: 48, draw: cmjDraw, at: { pyr: [13, 40], pd1: [8, 32], mid: [0, 26], pd2: [6, 20], lcst: [27, 16], acst: [8, 41] } },
+  cmj: { label: ["Cervico-", "medullary"], hw: 38, h: 48, draw: cmjDraw, at: { pyr: [13, 40], pd1: [8, 32], mid: [0, 26], pd2: [6, 20], lcst: [27, 16], acst: [8, 41] } },
   cordC: { label: ["Cervical", "cord"], ...cord(38, 46, 1, 1) },
   cordT: { label: ["Thoracic", "cord"], ...cord(30, 40, 0.8, 0.87) },
   cordL: { label: ["Lumbar", "cord"], ...cord(34, 40, 0.9, 0.87) },

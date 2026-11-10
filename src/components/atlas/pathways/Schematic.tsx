@@ -74,7 +74,7 @@ export function Schematic({
       `}</style>
       {diagram && resolved ? (
         <>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-clip">
             <DiagramView diagram={diagram} beats={beats} resolved={resolved} cur={cur} reveal={reveal} hoverKey={hoverKey} onHover={onHover} onPick={onPick} reduced={reduced} sideAlpha={sideAlpha} ends={ends} />
           </div>
           <ul className="m-0 flex list-none flex-wrap items-center gap-x-3 gap-y-1 p-1 text-[12px] leading-tight text-text-dim" aria-label="Legend">

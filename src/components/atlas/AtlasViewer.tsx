@@ -2016,7 +2016,8 @@ export default function AtlasViewer({
       setHover(h);
       setTip(name !== null && h?.id && tipTextRef.current ? tipTextRef.current(h.id, name) : name);
       const sy = syllabusRef.current;
-      setTipLocked(!!(h?.id && !h.key && sy.syllabus && !sy.syllabus.has(h.id) && h.id !== sy.unlocked));
+      const skullId = h?.id?.startsWith("skull:");
+      setTipLocked(!!(h?.id && !h.key && (skullId ? h.id?.startsWith("skull:node:") : sy.syllabus && !sy.syllabus.has(h.id) && h.id !== sy.unlocked)));
     },
     [],
   );

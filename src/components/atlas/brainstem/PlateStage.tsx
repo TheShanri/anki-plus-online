@@ -1,9 +1,63 @@
 "use client";
-// The level's plate: clean outlines only. Hovering (or focusing) a region tints it softly and shows its name in a callout;
-// clicking selects it (the page opens the structure drawer). Only course-list structures have regions.
-import { useEffect, useState } from "react";
-import { cachedPlate, loadPlate } from "@/components/cards/PlateImage";
+// The level's plate (atlas v3): illustration on the left, the course's myelin-stained section on the right, registered
+// at the midline. Quiet by default: hovering a structure lights it on both halves and names it; clicking opens it.
+// View: Split (default), Illustration or Photo; Histology (Gross where a source exists); Atlas labels in the margins.
+// Level changes crossfade. A small sagittal locator shows where the cut is.
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { Columns2, PenTool, Image as ImageIcon, Tags } from "lucide-react";
 import { STRUCTURES } from "./data";
+import { usePlate } from "./plate/usePlate";
+import { PlateArt, type PlateView } from "./plate/PlateArt";
+import { LevelLocator } from "./plate/LevelLocator";
+
+export const NAMES: Record<string, string> = Object.fromEntries(Object.entries(STRUCTURES).map(([k, s]) => [k, s.name]));
+
+const PREF = "bs3-view";
+type Prefs = { view: PlateView; labels: boolean };
+const DEFAULT_PREFS: Prefs = { view: "split", labels: false };
+let prefsCache: Prefs | null = null;
+const prefListeners = new Set<() => void>();
+function readPrefs(): Prefs {
+  if (prefsCache) return prefsCache;
+  prefsCache = DEFAULT_PREFS;
+  try {
+    const v = JSON.parse(localStorage.getItem(PREF) ?? "null") as Partial<Prefs> | null;
+    if (v && (v.view === "split" || v.view === "illustration" || v.view === "photo")) prefsCache = { view: v.view, labels: !!v.labels };
+  } catch {}
+  return prefsCache;
+}
+function writePrefs(p: Prefs) {
+  prefsCache = p;
+  try {
+    localStorage.setItem(PREF, JSON.stringify(p));
+  } catch {}
+  for (const l of prefListeners) l();
+}
+/** The plate view preferences (remembered per browser). */
+export function usePlatePrefs(): [Prefs, (p: Prefs) => void] {
+  const prefs = useSyncExternalStore(
+    (cb) => {
+      prefListeners.add(cb);
+      return () => prefListeners.delete(cb);
+    },
+    readPrefs,
+    () => DEFAULT_PREFS,
+  );
+  return [prefs, writePrefs];
+}
+
+function Seg<T extends string>({ value, options, onChange, label }: { value: T; options: { id: T; label: string; icon?: React.ComponentType<{ size?: number }>; disabled?: boolean; title?: string }[]; onChange: (v: T) => void; label: string }) {
+  return (
+    <div className="bs-seg" role="radiogroup" aria-label={label}>
+      {options.map((o) => (
+        <button key={o.id} type="button" role="radio" aria-checked={value === o.id} aria-pressed={value === o.id} disabled={o.disabled} title={o.title ?? o.label} onClick={() => onChange(o.id)}>
+          {o.icon && <o.icon size={14} />}
+          <span className="bs-seg-t">{o.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export function PlateStage({
   level,
@@ -20,72 +74,92 @@ export function PlateStage({
   onSelect: (slug: string) => void;
   mastery: Record<string, number>;
 }) {
-  const [, tick] = useState(0);
+  const [prefs, save] = usePlatePrefs();
+  const [side, setSide] = useState<"L" | "R" | "M" | null>(null);
+  // crossfade: keep the previous level on screen while the new one fades in
+  const [cur, setCur] = useState(level);
+  const [prev, setPrev] = useState<string | null>(null);
+  if (level !== cur) {
+    setPrev(cur);
+    setCur(level);
+  }
   useEffect(() => {
-    if (cachedPlate(level)) return;
-    let alive = true;
-    loadPlate(level).then(() => alive && tick((t) => t + 1));
-    return () => {
-      alive = false;
-    };
-  }, [level]);
-  const plate = cachedPlate(level);
-  if (!plate) return <div className="plate-skel" aria-busy style={{ aspectRatio: "4 / 3" }} />;
-  if (plate === "missing") return <div className="panel text-sm text-text-dim">The plate could not be loaded.</div>;
-  const [, , vw, vh] = plate.viewBox;
-  const hot = hover ?? null;
-  const callout = hot ? plate.regions.filter((r) => r.slugs.includes(hot)) : [];
-  // the callout sits at the region nearest the middle of the plate
-  const anchor = callout.length ? callout.slice().sort((a, b) => Math.abs(a.c[0] - vw / 2) - Math.abs(b.c[0] - vw / 2))[0] : null;
-  const name = hot ? STRUCTURES[hot]?.name ?? hot : "";
+    if (!prev) return;
+    const t = setTimeout(() => setPrev(null), 280);
+    return () => clearTimeout(t);
+  }, [prev]);
+
+  const plate = usePlate(level);
+  const prevPlate = usePlate(prev);
+  const ready = plate && plate !== "missing" ? plate : null;
+  const names = NAMES;
+  const hot = hover;
   const pct = hot && mastery[hot] !== undefined ? ` · ${Math.round(mastery[hot] * 100)}%` : "";
-  const text = name + pct;
-  const w = Math.min(vw - 20, text.length * 17 + 28);
-  const cx = anchor ? Math.max(10 + w / 2, Math.min(vw - 10 - w / 2, anchor.c[0])) : 0;
-  const cy = anchor ? Math.max(28, anchor.c[1] - 40) : 0;
+  const approx = ready && hot ? ready.regions.some((r) => r.slug === hot && r.approx) : false;
+  const callNames = hot ? { ...names, [hot]: `${names[hot] ?? hot}${approx ? " (approx.)" : ""}${pct}` } : names;
+  const ratio = ready ? `${ready.viewBox[2] + (prefs.labels ? 420 : 0)} / ${ready.viewBox[3]}` : "4 / 3";
+
   return (
-    <svg viewBox={`0 0 ${vw} ${vh}`} className="plate-svg" role="group" aria-label="Brainstem section plate" style={{ aspectRatio: `${vw} / ${vh}` }}>
-      {plate.regions.map((r) => {
-        const slug = r.slugs[0];
-        const on = r.slugs.includes(hot ?? "") || r.slugs.includes(selected ?? "");
-        const sel = r.slugs.includes(selected ?? "");
-        return (
-          <path
-            key={r.id}
-            d={r.d}
-            fillRule="evenodd"
-            className="plate-region"
-            fill="var(--accent)"
-            fillOpacity={on ? (sel ? 0.5 : 0.34) : 0}
-            stroke="var(--accent)"
-            strokeWidth={sel ? 3 : 0}
-            pointerEvents="all"
-            tabIndex={0}
-            role="button"
-            aria-label={`${STRUCTURES[slug]?.name ?? slug}${r.slugs.length > 1 ? "" : ""}`}
-            onPointerEnter={() => onHover(slug)}
-            onPointerLeave={() => onHover(null)}
-            onFocus={() => onHover(slug)}
-            onBlur={() => onHover(null)}
-            onClick={() => onSelect(slug)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                onSelect(slug);
-              }
-            }}
-          />
-        );
-      })}
-      <path d={plate.ink} fill="var(--text)" fillRule="evenodd" pointerEvents="none" />
-      {anchor && text && (
-        <g pointerEvents="none" className="plate-callout">
-          <rect x={cx - w / 2} y={cy - 26} width={w} height={40} rx={8} fill="var(--panel-solid)" stroke="var(--accent)" strokeWidth={2} />
-          <text x={cx} y={cy + 2} textAnchor="middle" fontSize={26} fontWeight={600} fill="var(--text)">
-            {text}
-          </text>
-        </g>
-      )}
-    </svg>
+    <div className="bsp-stage">
+      <div className="bsp-tools" role="toolbar" aria-label="Plate view">
+        <Seg
+          label="View"
+          value={prefs.view}
+          onChange={(v) => save({ ...prefs, view: v })}
+          options={[
+            { id: "split", label: "Split", icon: Columns2, title: "Illustration and section, split at the midline" },
+            { id: "illustration", label: "Illustration", icon: PenTool },
+            { id: "photo", label: "Section", icon: ImageIcon, title: "The course's myelin-stained section" },
+          ]}
+        />
+        <Seg
+          label="Section stain"
+          value="histology"
+          onChange={() => undefined}
+          options={[
+            { id: "histology", label: "Histology", title: "Myelin-stained section (Weil)" },
+            { id: "gross", label: "Gross", disabled: true, title: "No gross section of this level in the course or the open atlases" },
+          ]}
+        />
+        <button type="button" className={`bs-ib${prefs.labels ? " bs-on" : ""}`} aria-pressed={prefs.labels} title="Atlas labels (L)" aria-label="Atlas labels (L)" onClick={() => save({ ...prefs, labels: !prefs.labels })}>
+          <Tags size={16} aria-hidden />
+        </button>
+      </div>
+      <div className="bsp-frame" style={{ aspectRatio: ratio }}>
+        {prev && prevPlate && prevPlate !== "missing" && (
+          <div className="bsp-layer bs-fade-out" aria-hidden>
+            <PlateArt plate={prevPlate} view={prefs.view} labels={prefs.labels} names={names} />
+          </div>
+        )}
+        {ready ? (
+          <div key={cur} className="bsp-layer bs-fade-in">
+            <PlateArt
+              plate={ready}
+              view={prefs.view}
+              hot={hot}
+              hotSide={side}
+              selected={selected}
+              labels={prefs.labels}
+              callout={!prefs.labels}
+              names={callNames}
+              interactive
+              onHover={(s, sd) => {
+                onHover(s);
+                setSide(sd ?? null);
+              }}
+              onPick={onSelect}
+              ariaLabel={`Brainstem plate, ${level}`}
+            />
+          </div>
+        ) : plate === "missing" ? (
+          <div className="panel text-sm text-text-dim">The plate could not be loaded.</div>
+        ) : (
+          <div className="plate-skel absolute inset-0" aria-busy />
+        )}
+        <div className="bsp-locator" title="Where this section is cut">
+          <LevelLocator level={level} />
+        </div>
+      </div>
+    </div>
   );
 }

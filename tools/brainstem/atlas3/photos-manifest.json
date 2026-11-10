@@ -1,0 +1,66 @@
+{
+ "atlas3/brainstem/cervicomedullary-histology.webp": {
+  "hash": "4d0790ce4f8ea6004c437ad5",
+  "bytes": 299516
+ },
+ "atlas3/brainstem/medulla-caudal-histology.webp": {
+  "hash": "4d55a3b8ee74752071dd3936",
+  "bytes": 257332
+ },
+ "atlas3/brainstem/medulla-mid-histology.webp": {
+  "hash": "b7d8fcf8b5c6421d3c0e08a5",
+  "bytes": 230806
+ },
+ "atlas3/brainstem/medulla-rostral-histology.webp": {
+  "hash": "b80a219d643493e3659ae0f6",
+  "bytes": 131028
+ },
+ "atlas3/brainstem/midbrain-ic-histology.webp": {
+  "hash": "08886d67947e61f09aec4818",
+  "bytes": 200466
+ },
+ "atlas3/brainstem/midbrain-sc-histology.webp": {
+  "hash": "93ddd15a19b208aafeee8a50",
+  "bytes": 165410
+ },
+ "atlas3/brainstem/pons-caudal-histology.webp": {
+  "hash": "a2c0cb296d8536cb8b574942",
+  "bytes": 209890
+ },
+ "atlas3/brainstem/pons-mid-histology.webp": {
+  "hash": "7ad5c30588bc93a47f4897f9",
+  "bytes": 134716
+ },
+ "atlas3/brainstem/cervicomedullary-histology-4d0790ce4f.webp": {
+  "hash": "4d0790ce4f8ea6004c437ad5",
+  "bytes": 299516
+ },
+ "atlas3/brainstem/medulla-caudal-histology-4d55a3b8ee.webp": {
+  "hash": "4d55a3b8ee74752071dd3936",
+  "bytes": 257332
+ },
+ "atlas3/brainstem/medulla-mid-histology-b7d8fcf8b5.webp": {
+  "hash": "b7d8fcf8b5c6421d3c0e08a5",
+  "bytes": 230806
+ },
+ "atlas3/brainstem/medulla-rostral-histology-b80a219d64.webp": {
+  "hash": "b80a219d643493e3659ae0f6",
+  "bytes": 131028
+ },
+ "atlas3/brainstem/midbrain-ic-histology-08886d6794.webp": {
+  "hash": "08886d67947e61f09aec4818",
+  "bytes": 200466
+ },
+ "atlas3/brainstem/midbrain-sc-histology-93ddd15a19.webp": {
+  "hash": "93ddd15a19b208aafeee8a50",
+  "bytes": 165410
+ },
+ "atlas3/brainstem/pons-caudal-histology-a2c0cb296d.webp": {
+  "hash": "a2c0cb296d8536cb8b574942",
+  "bytes": 209890
+ },
+ "atlas3/brainstem/pons-mid-histology-7ad5c30588.webp": {
+  "hash": "7ad5c30588bc93a47f4897f9",
+  "bytes": 134716
+ }
+}

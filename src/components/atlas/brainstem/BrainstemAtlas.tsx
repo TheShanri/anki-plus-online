@@ -72,7 +72,10 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels }: { courseSlu
         <div className="mb-3 flex items-center gap-2">
           <div className="min-w-0 flex-1">
             <h2 className="truncate text-lg">{level.name}</h2>
-            <p className="truncate text-xs text-text-dim">{level.hallmark}</p>
+            <p className="truncate text-xs text-text-dim" title={level.aka ?? undefined}>
+              {level.hallmark}
+              {level.aka ? <span className="text-text-faint"> · {level.aka}</span> : null}
+            </p>
           </div>
           <IconBtn icon={Columns2} label="Compare with other sources" keys="X" pressed={compare} onClick={() => setCompare((c) => !c)} />
           <IconBtn icon={ChevronUp} label="Previous level" keys="Up / K" onClick={() => step(-1)} disabled={levelSlug === LEVELS[0].slug} />
@@ -84,7 +87,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels }: { courseSlu
             <div className={compare ? "grid gap-3 lg:grid-cols-2" : ""}>
               <div className="plate-wrap">
                 <PlateStage level={levelSlug} hover={hover} onHover={setHover} selected={selected} onSelect={select} mastery={lm?.structures ?? {}} />
-                {!compare && <p className="mt-1.5 text-xs text-text-dim">Hover a region to name it, click to open it. Dorsal is up.</p>}
+                {!compare && <p className="mt-1.5 text-xs text-text-dim">Hover a structure to light it on both halves, click to open it. Dorsal is up; the illustration mirrors the section&apos;s right half.</p>}
               </div>
               {compare && <ComparePane level={level} courseSlug={courseSlug} />}
             </div>

@@ -2,13 +2,14 @@
 
 import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Layers, Lock, Orbit, Pause, PanelRight, Play } from "lucide-react";
+import { Focus, Layers, Lock, Orbit, Pause, PanelRight, Play } from "lucide-react";
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
 import type { AtlasOverlay } from "../AtlasViewer";
 import { VesselLayer, type VesselState } from "./VesselLayer";
 import { COMM_NOTE, COW_SLUGS, SUPP_SLUGS, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { LazyAtlasViewer } from "./lazy";
+import { IconBtn } from "../ui/Toolbar";
 import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, TERRITORY_ARTERIES, artShort, unitArteries, type SupplyUnit } from "./supply-data";
 
 type Selected = { kind: "unit"; unit: SupplyUnit } | { kind: "artery"; id: string } | null;
@@ -121,8 +122,6 @@ export function SupplyMap() {
       const n = new Set(cow ? [] : sel);
       if (n.has(id)) n.delete(id);
       else n.add(id);
-      // leaving the circle (or an empty map) picks a sensible view: the base for the posterior circulation, the side for the rest
-      if (cow || sel.size === 0) setFrame((f) => ({ n: f.n + 1, dir: [...n].every((a) => POSTERIOR_ARTS.has(a)) ? INFERIOR : LATERAL }));
       setCow(false);
       setSel(n);
       setSelected({ kind: "artery", id });
@@ -135,7 +134,6 @@ export function SupplyMap() {
     setTerritories(false);
     setVessels(true);
     setSelected(null);
-    setFrame((f) => ({ n: f.n + 1, dir: INFERIOR }));
   }, []);
   const clear = useCallback(() => {
     setCow(false);
@@ -215,6 +213,7 @@ export function SupplyMap() {
             tipText={tipText}
             onPickMesh={onPick}
             view="inferior"
+            toolbarExtra={<IconBtn label="Frame the selected vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} />}
             brainOpacity={cow && !territories ? 0.035 : sel.size === 0 ? 0.28 : territories ? 0.1 : 0.12}
             overlay={
               <div className="pointer-events-none absolute bottom-2 left-2 right-2 grid max-w-[520px] gap-1 text-xs text-text-dim">

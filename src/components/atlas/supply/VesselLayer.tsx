@@ -325,6 +325,7 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
   const size = useThree((s) => s.size);
   const moved = useRef(false);
   const lastN = useRef(-1);
+  const framed = useRef(false);
   const dirRef = useRef<[number, number, number] | null>(null);
   useEffect(() => {
     if (!controls) return;
@@ -353,10 +354,13 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
     box.expandByScalar((labelSlugs ? 0.022 : 0.008) + pad);
     const fresh = lastN.current !== frame.n;
     if (fresh) {
-      dirRef.current = frame.dir;
+      dirRef.current = frame.dir ?? dirRef.current;
       moved.current = false;
     }
     lastN.current = frame.n;
+    // Keep the student's view: after the first framing the camera only moves on an explicit Frame (frame.n changes), never on a selection change.
+    if (!fresh && framed.current) return;
+    framed.current = true;
     const apply = () => {
       if (moved.current) return;
       const c = box.getCenter(new THREE.Vector3());

@@ -1833,10 +1833,14 @@ export default function AtlasViewer({
   // Keep the previous scene on screen while the next structure loads (no blank flash between picks).
   const shown = current ?? (loaded && !loaded.error ? loaded : null);
   const currentCtx = shown?.ctx ?? null;
-  const ctxBox = useMemo(() => {
+  const ctxBoxRaw = useMemo(() => {
     const b = currentCtx ? new THREE.Box3().setFromObject(currentCtx) : null;
     return b && !b.isEmpty() ? b : null;
   }, [currentCtx]);
+  // Every reload of the scene makes a new context mesh with the same size; keep one box by value so the camera is not re-framed (snapped) by it.
+  const ctxKey = ctxBoxRaw ? `${ctxBoxRaw.min.toArray().map((v) => v.toFixed(5))}|${ctxBoxRaw.max.toArray().map((v) => v.toFixed(5))}` : "";
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const ctxBox = useMemo(() => ctxBoxRaw, [ctxKey]);
   const centre = useMemo(() => (ctxBox ? ctxBox.getCenter(new THREE.Vector3()) : DEFAULT_CTX_CENTER.clone()), [ctxBox]);
   const clipRange = useMemo<[number, number]>(() => {
     const ax = clip.axis === "off" ? "z" : clip.axis;

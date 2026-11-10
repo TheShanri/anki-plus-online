@@ -53,6 +53,22 @@ export const ORIGINS: Record<string, OriginCfg> = {
   "umn-lmn": { kind: "muscle", skin: [], muscle: [], source: "Course pathway card: the lower motor neuron (lamina IX) ends on skeletal muscle." },
 };
 
+/** Inputs that join a neuron from elsewhere (not a continuation of the chain): drawn as a branch of their own. */
+const FORK_MAIN: Record<string, string[]> = { lcst: ["dec", "cord"] };
+const SIDE_INPUT = new Set(["snc", "sc", "scn"]);
+/** A fork the map does not list: an extra branch drawn after the named stretch, leaving the point that stretch started from. */
+const EXTRA_BRANCH: Record<string, Record<string, { label: string; note: string; phys: "i" | "c" | "cross"; path: WP[]; ids?: string[] }>> = {
+  lcst: {
+    cord: {
+      label: "Uncrossed fibres: anterior corticospinal tract",
+      note: "the minority of fibres that do not cross in the pyramids descend in the anterior corticospinal tract (the lateral tract carries the crossed majority)",
+      phys: "c",
+      path: [["pyramid-of-medulla-oblongata", "c", 0] as unknown as WP, ["anterior-corticospinal-tract", "c", 0.9] as unknown as WP, ["anterior-corticospinal-tract", "c", 0.45] as unknown as WP],
+      ids: ["anterior-corticospinal-tract"],
+    },
+  },
+};
+
 export const ZONE_NAMES = ["V1 ophthalmic", "V2 maxillary", "V3 mandibular"];
 
 const wpRef = (w: WP) => String(w[0]);
@@ -88,6 +104,8 @@ export interface Beat {
   view?: View;
   /** A path that leaves the same point as the one before (a nucleus with several targets), not a continuation of it. */
   branch?: boolean;
+  /** Member of a fork: `id` groups the beats of one split, `k` is the branch (0, 1 ...) the beat belongs to. */
+  fork?: { id: string; k: number };
 }
 export interface InfoSpec {
   kind: "node" | "path";
@@ -169,7 +187,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     const bi = beats.length;
     const key = `n${bi}`;
     const f: Fit = [...wps.flatMap((wp) => SIDES.map((b) => ({ wp, body: b }))), ...extra];
-    beats.push({ kind: "node", neuron, caption: name, info: key, rel: relOf(wps[0]), fit: fitWith(f) });
+    beats.push({ kind: "node", neuron, caption: name, info: key, rel: relOf(wps[0]), fit: fitWith(f), fork: curFork ?? undefined });
     own.push(f);
     infos[key] = { kind: "node", title: name, neuron, lines };
     wps.forEach((wp, wi) => {
@@ -186,14 +204,14 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
     const key = `p${bi}`;
     const cross = st.phys === "cross";
     const f: Fit = [...SIDES.flatMap((b) => lists.flat().map((wp) => ({ wp, body: b }))), ...extra];
-    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: fitWith(f), branch: flags.branch });
+    beats.push({ kind: "path", neuron, caption: cross ? `${title} · crosses the midline` : title, cross, info: key, phys: st.phys, fit: fitWith(f), branch: flags.branch, fork: curFork ?? undefined });
     own.push(f);
     infos[key] = { kind: "path", title, neuron, lines, ids: st.ids, crossing: cross ? cp.decussation : undefined, loss: st.loss };
     for (const b of SIDES) {
-      lists.forEach((l, li) => tubes.push({ key: lists.length > 1 ? `${key}:t${li}:${b}` : `${key}:${b}`, pts: l, body: b, beat: bi, info: key, neuron, rise: flags.rise }));
+      lists.forEach((l, li) => tubes.push({ key: lists.length > 1 ? `${key}:t${li}:${b}` : `${key}:${b}`, pts: l, body: b, beat: bi, info: key, neuron, rise: flags.rise, meshed: !!st.ids?.length }));
       if (st.ids?.length) {
         const ps = physSide(st.phys, b);
-        if (ps || b === "R") layers.push({ key: `${key}:${b}`, ids: st.ids, side: ps ?? "both", color: ps === "L" ? colors.left : ps === "R" ? colors.right : colors.hi, opacity: 0.9, beat: bi });
+        if (ps || b === "R") layers.push({ key: `${key}:${b}`, ids: st.ids, side: ps ?? "both", color: ps === "L" ? colors.left : ps === "R" ? colors.right : colors.hi, opacity: 0.9, beat: bi, info: key });
       }
     }
     st.marks?.filter((m) => m.kind === "dec").forEach((m, mi) => marks.push({ key: `${key}:dec${mi}`, p: m.p, body: "R", kind: "dec", text: m.text, color: colors.hi, beat: bi, info: key }));
@@ -222,6 +240,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
   const sensory = !!cfg && cfg.kind !== "muscle";
   const motor = cfg?.kind === "muscle" || !!cfg?.motor;
   let prevEnd: WP | null = null;
+  let curFork: { id: string; k: number } | null = null;
   let withSpine = !!lv && !!drgLevel;
 
   // where the signal comes from: the body part, then the peripheral nerve to the dorsal root ganglion (or ganglion)
@@ -262,24 +281,49 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
       if (slug === "sympathetic" || slug === "parasympathetic" || CORD_CONTEXT.has(slug)) withSpine = true;
     }
     const origin = sts[0]?.path?.[0];
+    const shared = sts.filter((s2) => !!origin && sameWP(s2.path![0], origin)).length;
     let branched = false;
+    let bk = 0;
     sts.forEach((st, si) => {
       let pts = st.path!;
-      // sibling stretches that all leave the same point (a nucleus with several targets) are branches, not a chain
-      const branch = si > 0 && !!origin && sameWP(pts[0], origin);
-      if (branch) branched = true;
-      else if (prevEnd && !sameWP(prevEnd, pts[0])) pts = [prevEnd, ...pts];
+      // sibling stretches that all leave the same point (a nucleus with several targets) are branches, not a chain;
+      // an extra input into the same neuron (substantia nigra, superior colliculus) is a branch of its own
+      const sameStart = !!origin && sameWP(pts[0], origin);
+      const side = SIDE_INPUT.has(st.k);
+      const member = (shared > 1 && sameStart) || side || !!FORK_MAIN[slug]?.includes(st.k);
+      const branch = (si > 0 && sameStart) || side;
+      if (member) {
+        branched = true;
+        curFork = { id: `f${ni}`, k: bk };
+        if (branch) bk++;
+      } else curFork = null;
+      if (!branch && prevEnd && !sameWP(prevEnd, pts[0])) pts = [prevEnd, ...pts];
       addPath(st, ni, pts, st.label, [["Neuron", ord(ni)], ["Tract", cp.neurons[ni]?.tract ?? st.label], ["Level", cp.neurons[ni]?.level ?? ""]], [], { rise: !!lv?.rise.includes(st.k), branch });
-      prevEnd = pts[pts.length - 1];
+      if (!side) prevEnd = pts[pts.length - 1];
       const m = /^To (?:the )?(.+)$/.exec(st.label);
       if (sts.length > 1 && origin && m && ni === n - 1) {
-        addNode(m[1][0].toUpperCase() + m[1].slice(1), prevEnd, ni, [["Neuron", ord(ni)], ["Synapse", cp.neurons[ni]?.synapse ?? ""]]);
-        if (site?.end?.after === st.k) addSite(site.end, "end", prevEnd, ni);
+        addNode(m[1][0].toUpperCase() + m[1].slice(1), pts[pts.length - 1], ni, [["Neuron", ord(ni)], ["Synapse", cp.neurons[ni]?.synapse ?? ""]]);
+        if (site?.end?.after === st.k) addSite(site.end, "end", pts[pts.length - 1], ni);
+      }
+      const extra = EXTRA_BRANCH[slug]?.[st.k];
+      if (extra) {
+        curFork = { id: `f${ni}`, k: bk };
+        bk++;
+        branched = true;
+        const first = extra.path[0];
+        addPath({ k: `${st.k}-x`, label: extra.label, phys: extra.phys, path: extra.path, ids: extra.ids }, ni, extra.path, extra.label, [["Neuron", ord(ni)], ["Tract", extra.label], ["Share", extra.note]], [], { branch: true });
+        void first;
+        curFork = null;
       }
     });
+    curFork = null;
     if (!prevEnd) return;
-    if (ni < n - 1) addNode(mp.neurons[ni + 1].short, prevEnd, ni + 1, neuronPairs(ni + 1));
-    else if (!motor && !branched) addNode(nr.syn ?? cp.neurons[ni]?.synapse ?? "End of the pathway", prevEnd, ni, [["End of the pathway", cp.neurons[ni]?.synapse ?? ""], ["Neuron", ord(ni)]]);
+    if (ni < n - 1) {
+      // after a split the next neuron starts where its own first tract starts
+      const nextStart = branched ? mp.neurons[ni + 1].stretches.find((x) => x.path && x.path.length > 1)?.path?.[0] : undefined;
+      if (nextStart) prevEnd = nextStart;
+      addNode(mp.neurons[ni + 1].short, prevEnd, ni + 1, neuronPairs(ni + 1));
+    } else if (!motor && !branched) addNode(nr.syn ?? cp.neurons[ni]?.synapse ?? "End of the pathway", prevEnd, ni, [["End of the pathway", cp.neurons[ni]?.synapse ?? ""], ["Neuron", ord(ni)]]);
     if (ni === n - 1 && site?.end && !site.end.after && prevEnd) addSite(site.end, "end", prevEnd, ni);
   });
 
@@ -369,73 +413,76 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   ], course("Retina", 0, [["Neuron", "1st-order neuron"], ["Cell body", cp.neurons[0].cell_body], ["Receptors", "rods and cones"], ["Synapse", cp.neurons[0].synapse], ["Halves", "each retina has a nasal and a temporal half; the left half of the visual field falls on the right half of each retina"]]));
   for (const e of SIDES) marks.push({ key: `ret:${e}`, p: eyeWP(), body: e, kind: "node", text: `${e === "L" ? "Left" : "Right"} retina`, color: fieldCol(e), beat: b0, info: "b0", dir: 0 });
 
-  const fieldTubes = (key: string, st: Stretch | undefined, bi: number, chains?: string[]) => {
-    if (!st?.path) return;
-    void chains;
-    for (const f of SIDES) tubes.push({ key: `${key}:${f}`, pts: st.path, body: f, color: fieldCol(f), beat: bi, info: `b${bi}`, neuron: bi < 4 ? 1 : 2 });
-  };
-  const idLayer = (key: string, ids: string[] | undefined, bi: number, phys: "i" | "c" | "cross") => {
+  const meshTube = (key: string, pts: WP[], f: Side, color: string, bi: number, width = 1) => tubes.push({ key: `${key}:${f}`, pts, body: f, color, beat: bi, info: `b${bi}`, neuron: bi < 5 ? 1 : 2, width, meshed: true });
+  const idLayer2 = (key: string, ids: string[] | undefined, bi: number, phys: "i" | "c" | "cross") => {
     if (!ids?.length) return;
-    for (const f of SIDES) layers.push({ key: `${key}:${f}`, ids, side: physSide(phys, f) ?? "both", color: fieldCol(f), opacity: 0.8, beat: bi });
+    for (const f of SIDES) layers.push({ key: `${key}:${f}`, ids, side: physSide(phys, f) ?? "both", color: fieldCol(f), opacity: 0.85, beat: bi, info: `b${bi}` });
   };
+  const chPath = get("chiasm")?.path ?? [];
+  const nasalEnd = chPath[0];
+  const tractMid: WP = ["optic-tract", "c", 0.5] as WP;
 
-  // 1 optic nerves
+  // 1 optic nerves: both eyes' nerves run back to the chiasm (nasal fibres of one eye, temporal fibres of the other)
   const n1 = get("nerve");
   const n2 = get("nerve2");
-  const b1 = beat({ kind: "path", neuron: 1, caption: "Optic nerves (retinal ganglion cell axons)", info: "", fit: [], view: "top", phys: "i" }, sideFit([...(n1?.path ?? []), ...(n2?.path ?? [])]), { ...course("Optic nerves", 1, [["Neuron", "2nd-order neuron: retinal ganglion cell"], ["Tract", cp.neurons[1].tract], ["Course", "nasal fibres of the eye on the field's side, temporal fibres of the other eye"]]), kind: "path" });
-  fieldTubes("nerve", n1, b1);
-  fieldTubes("nerve2", n2, b1);
-  idLayer("nerve", n1?.ids, b1, "i");
+  const n2Nerve = (n2?.path ?? []).slice(0, 2);
+  const b1 = beat({ kind: "path", neuron: 1, caption: "Optic nerves: both eyes run back to the chiasm", info: "", fit: [], view: "top", phys: "i" }, sideFit([...(n1?.path ?? []), ...n2Nerve, ...chPath]), { ...course("Optic nerves", 1, [["Neuron", "2nd-order neuron: retinal ganglion cell"], ["Tract", cp.neurons[1].tract], ["Course", "each optic nerve carries nasal fibres (from the nasal half of its retina) and temporal fibres (from the temporal half)"]]), kind: "path" });
+  for (const f of SIDES) {
+    meshTube("nerve", n1?.path ?? [], f, fieldCol(f), b1);
+    meshTube("nerve2", n2Nerve, f, fieldCol(f), b1);
+  }
+  idLayer2("nerve", n1?.ids, b1, "i");
 
-  // 2 chiasm
-  const ch = get("chiasm");
-  const b2 = beat({ kind: "path", neuron: 1, caption: "Optic chiasm: nasal fibres cross, temporal fibres stay", cross: true, info: "", fit: [], view: "top", phys: "cross" }, sideFit(ch?.path ?? []), { ...course("Optic chiasm", 1, [["Fibres", "nasal retinal fibres cross to the opposite optic tract; temporal fibres stay on the same side"], ["Crossing", cp.decussation]], { crossing: cp.decussation, loss: "bitemporal hemianopia" }), kind: "path" });
-  fieldTubes("chiasm", ch, b2);
-  idLayer("chiasm", ch?.ids, b2, "cross");
-  marks.push({ key: "dec:chiasm", p: ["optic-chiasm", "m", 0.5] as WP, body: "R", kind: "dec", text: "OPTIC CHIASM: nasal fibres cross, temporal fibres stay", color: colors.hi, beat: b2, info: "b2" });
+  // 2 branch A: the nasal fibres cross in the chiasm
+  const b2 = beat({ kind: "path", neuron: 1, caption: "Branch 1: nasal fibres cross in the chiasm", cross: true, info: "", fit: [], view: "top", phys: "cross", fork: { id: "chiasm", k: 0 } }, sideFit(chPath), { ...course("Chiasm: the nasal fibres cross", 1, [["Fibres", "nasal retinal fibres (temporal visual field of that eye) cross to the opposite optic tract"], ["Crossing", cp.decussation]], { crossing: cp.decussation, loss: "bitemporal hemianopia" }), kind: "path" });
+  for (const f of SIDES) meshTube("chiasm", chPath, f, fieldCol(f), b2);
+  idLayer2("chiasm", get("chiasm")?.ids, b2, "cross");
+  marks.push({ key: "dec:chiasm", p: ["optic-chiasm", "m", 0.5] as WP, body: "R", kind: "dec", text: "OPTIC CHIASM: nasal fibres cross", color: colors.hi, beat: b2, info: `b${b2}` });
   const scn = get("scn");
-  if (scn?.path) for (const f of SIDES) tubes.push({ key: `scn:${f}`, pts: scn.path, body: f, color: fieldCol(f), beat: b2, info: "b2", neuron: 1, width: 0.7 });
+  if (scn?.path) for (const f of SIDES) tubes.push({ key: `scn:${f}`, pts: scn.path, body: f, color: fieldCol(f), beat: b2, info: `b${b2}`, neuron: 1, width: 0.7 });
 
-  // 3 optic tract
+  // 3 branch B: the temporal fibres stay on their own side
+  const stay: WP[] = [(n2Nerve[n2Nerve.length - 1] ?? nasalEnd) as WP, ["optic-chiasm", "c", 0.5] as WP, tractMid];
+  const b3 = beat({ kind: "path", neuron: 1, caption: "Branch 2: temporal fibres stay on the same side", info: "", fit: [], view: "top", phys: "c", branch: true, fork: { id: "chiasm", k: 1 } }, sideFit(stay), { ...course("Chiasm: the temporal fibres stay", 1, [["Fibres", "temporal retinal fibres (nasal visual field of that eye) pass the chiasm without crossing"], ["Result", "each optic tract now carries the opposite visual field of both eyes"]]), kind: "path" });
+  for (const f of SIDES) meshTube("stay", stay, f, fieldCol(f), b3);
+
+  // 4 optic tract
   const tr = get("tract");
-  const b3 = beat({ kind: "path", neuron: 1, caption: "Optic tract (the opposite visual field of both eyes)", info: "", fit: [], view: "top", phys: "c" }, sideFit(tr?.path ?? []), { ...course("Optic tract", 1, [["Fibres", "ipsilateral temporal retina and contralateral nasal retina: the contralateral visual field"], ["Ends in", "lateral geniculate nucleus (also the superior colliculus and pretectum)"]]), kind: "path", loss: "homonymous hemianopia" });
-  fieldTubes("tract", tr, b3);
-  idLayer("tract", tr?.ids, b3, "c");
+  const b4 = beat({ kind: "path", neuron: 1, caption: "Optic tract (the opposite visual field of both eyes)", info: "", fit: [], view: "top", phys: "c" }, sideFit(tr?.path ?? []), { ...course("Optic tract", 1, [["Fibres", "ipsilateral temporal retina and contralateral nasal retina: the contralateral visual field"], ["Ends in", "lateral geniculate nucleus (also the superior colliculus and pretectum)"]]), kind: "path", loss: "homonymous hemianopia" });
+  for (const f of SIDES) meshTube("tract", tr?.path ?? [], f, fieldCol(f), b4);
+  idLayer2("tract", tr?.ids, b4, "c");
   const sc = get("sc");
-  if (sc?.path) for (const f of SIDES) tubes.push({ key: `sc:${f}`, pts: sc.path, body: f, color: fieldCol(f), beat: b3, info: "b3", neuron: 1, width: 0.7 });
+  if (sc?.path) for (const f of SIDES) tubes.push({ key: `sc:${f}`, pts: sc.path, body: f, color: fieldCol(f), beat: b4, info: `b${b4}`, neuron: 1, width: 0.7 });
 
-  // 4 LGN
+  // 5 LGN
   const lgnSt = mp.neurons[2].stretches.find((s) => s.k === "lgn");
   const lgnWP: WP = ["lateral-geniculate-body", "c", 0.5] as WP;
-  const b4 = beat({ kind: "node", neuron: 2, caption: "Lateral geniculate nucleus", info: "", fit: [], view: "top", rel: "c" }, sideFit([lgnWP]), course("Lateral geniculate nucleus", 2, [["Neuron", "3rd-order neuron"], ["Cell body", cp.neurons[2].cell_body], ["Course fact", "six-layered thalamic nucleus that relays vision from the optic tract to V1"]]));
-  for (const f of SIDES) marks.push({ key: `lgn:${f}`, p: lgnWP, body: f, kind: "node", text: "Lateral geniculate nucleus", color: fieldCol(f), beat: b4, info: "b4" });
-  idLayer("lgn", lgnSt?.ids, b4, "c");
+  const b5 = beat({ kind: "node", neuron: 2, caption: "Lateral geniculate nucleus", info: "", fit: [], view: "top", rel: "c" }, sideFit([lgnWP]), course("Lateral geniculate nucleus", 2, [["Neuron", "3rd-order neuron"], ["Cell body", cp.neurons[2].cell_body], ["Course fact", "six-layered thalamic nucleus that relays vision from the optic tract to V1"]]));
+  for (const f of SIDES) marks.push({ key: `lgn:${f}`, p: lgnWP, body: f, kind: "node", text: "Lateral geniculate nucleus", color: fieldCol(f), beat: b5, info: `b${b5}` });
+  idLayer2("lgn", lgnSt?.ids, b5, "c");
 
-  // 5 optic radiations: Meyer's loop (upper field) and the parietal route (lower field); both end exactly on the V1 node
+  // 6 and 7: the radiations split, the parietal route (lower field) and Meyer's loop (upper field); both end exactly on the V1 node
   const v1WP: WP = ["calcarine-sulcus", "c", 0.5] as WP;
   const lgn: WP = ["lateral-geniculate-body", "c", 0.5, 0.01, 0.002, -0.014] as WP;
   const meyer: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.034, -0.012, 0.03], ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005], ["lateral-geniculate-body", "c", 0.5, 0.055, -0.02, -0.05], ["lingual-gyrus", "c", 0.5, 0, 0, 0], v1WP] as WP[];
   const parietal: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.036, 0.016, -0.02], ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055], ["cuneus", "c", 0.5, 0, 0, 0], v1WP] as WP[];
-  const b5 = beat({ kind: "path", neuron: 2, caption: "Optic radiations: Meyer's loop (upper field) and the parietal route (lower field)", info: "", fit: [], view: "top", phys: "c" }, sideFit([...meyer, ...parietal]), { ...course("Optic radiations", 2, [["Tract", cp.neurons[2].tract], ["Meyer's loop", "through the temporal lobe: the upper visual field (to the lingual gyrus, below the calcarine fissure)"], ["Parietal route", "the lower visual field (to the cuneus, above the fissure)"]], { loss: "quadrantanopia" }), kind: "path" });
+  const b6 = beat({ kind: "path", neuron: 2, caption: "Branch 1: parietal route (lower field) to the cuneus", info: "", fit: [], view: "left", phys: "c", fork: { id: "rad", k: 0 } }, sideFit(parietal), { ...course("Optic radiations: the parietal route", 2, [["Tract", cp.neurons[2].tract], ["Route", "superior fibres run through the parietal lobe to the cuneus, above the calcarine fissure"], ["Carries", "the lower visual field"]], { loss: "inferior quadrantanopia" }), kind: "path" });
+  const b7 = beat({ kind: "path", neuron: 2, caption: "Branch 2: Meyer's loop (upper field) to the lingual gyrus", info: "", fit: [], view: "left", phys: "c", branch: true, fork: { id: "rad", k: 1 } }, sideFit(meyer), { ...course("Optic radiations: Meyer's loop", 2, [["Tract", cp.neurons[2].tract], ["Route", "inferior fibres loop forward through the temporal lobe, then back to the lingual gyrus below the calcarine fissure"], ["Carries", "the upper visual field"]], { loss: "superior quadrantanopia" }), kind: "path" });
   for (const f of SIDES) {
-    const up = f === "L" ? pal.LU : pal.RU;
-    const low = f === "L" ? pal.LL : pal.RL;
-    tubes.push({ key: `meyer:${f}`, pts: meyer, body: f, color: up, beat: b5, info: "b5", neuron: 2 });
-    tubes.push({ key: `par:${f}`, pts: parietal, body: f, color: low, beat: b5, info: "b5", neuron: 2 });
+    meshTube("par", parietal, f, f === "L" ? pal.LL : pal.RL, b6);
+    meshTube("meyer", meyer, f, f === "L" ? pal.LU : pal.RU, b7);
   }
 
-  // 6 V1: the calcarine fissure splits the field
-  const b6 = beat({ kind: "node", neuron: 2, caption: "Primary visual cortex (V1): the calcarine fissure splits the field", info: "", fit: [], view: "left", rel: "c" }, sideFit([v1WP, ["cuneus", "c", 0.5] as WP, ["lingual-gyrus", "c", 0.5] as WP]), course("Primary visual cortex (V1, BA 17)", 2, [["Place", "banks of the calcarine fissure (occipital lobe)"], ["Upper field", "inferior bank: lingual gyrus (below the fissure)"], ["Lower field", "superior bank: cuneus (above the fissure)"], ["Macula", "central vision at the occipital pole"], ["If damaged", "contralateral homonymous hemianopia (macular sparing possible)"]]));
+  // 8 V1: the calcarine fissure splits the field
+  const b8 = beat({ kind: "node", neuron: 2, caption: "Primary visual cortex (V1): the calcarine fissure splits the field", info: "", fit: [], view: "left", rel: "c" }, sideFit([v1WP, ["cuneus", "c", 0.5] as WP, ["lingual-gyrus", "c", 0.5] as WP]), course("Primary visual cortex (V1, BA 17)", 2, [["Place", "banks of the calcarine fissure (occipital lobe)"], ["Upper field", "inferior bank: lingual gyrus (below the fissure)"], ["Lower field", "superior bank: cuneus (above the fissure)"], ["Macula", "central vision at the occipital pole"], ["If damaged", "contralateral homonymous hemianopia (macular sparing possible)"]]));
   for (const f of SIDES) {
-    const up = f === "L" ? pal.LU : pal.RU;
-    const low = f === "L" ? pal.LL : pal.RL;
-    marks.push({ key: `v1:${f}`, p: v1WP, body: f, kind: "node", text: "V1 (BA 17)", color: fieldCol(f), beat: b6, info: "b6" });
-    layers.push({ key: `cun:${f}`, ids: ["cuneus"], side: opp(f), color: low, opacity: 0.95, beat: b6, nearView: f === "R" ? "left" : "right" });
-    layers.push({ key: `ling:${f}`, ids: ["lingual-gyrus"], side: opp(f), color: up, opacity: 0.95, beat: b6, nearView: f === "R" ? "left" : "right" });
-    layers.push({ key: `calc:${f}`, ids: ["calcarine-sulcus"], side: opp(f), color: "#ffffff", opacity: 1, beat: b6, nearView: f === "R" ? "left" : "right" });
+    marks.push({ key: `v1:${f}`, p: v1WP, body: f, kind: "node", text: "V1 (BA 17)", color: fieldCol(f), beat: b8, info: `b${b8}` });
+    layers.push({ key: `cun:${f}`, ids: ["cuneus"], side: opp(f), color: f === "L" ? pal.LL : pal.RL, opacity: 0.95, beat: b6, info: `b${b6}`, nearView: f === "R" ? "left" : "right" });
+    layers.push({ key: `ling:${f}`, ids: ["lingual-gyrus"], side: opp(f), color: f === "L" ? pal.LU : pal.RU, opacity: 0.95, beat: b7, info: `b${b7}`, nearView: f === "R" ? "left" : "right" });
+    layers.push({ key: `calc:${f}`, ids: ["calcarine-sulcus"], side: opp(f), color: "#ffffff", opacity: 1, beat: b8, info: `b${b8}`, nearView: f === "R" ? "left" : "right" });
   }
-  marks.push({ key: "cun:lbl", p: ["cuneus", "c", 0.5, 0, 0.012, 0] as WP, body: "L", kind: "syn", text: "Cuneus (above the fissure): LOWER field", color: pal.LL, beat: b6, info: "b6" });
-  marks.push({ key: "ling:lbl", p: ["lingual-gyrus", "c", 0.5, 0, -0.012, 0] as WP, body: "L", kind: "syn", text: "Lingual gyrus (below): UPPER field", color: pal.LU, beat: b6, info: "b6" });
+  marks.push({ key: "cun:lbl", p: ["cuneus", "c", 0.5, 0, 0.012, 0] as WP, body: "L", kind: "syn", text: "Cuneus (above the fissure): LOWER field", color: pal.LL, beat: b8, info: `b${b8}` });
+  marks.push({ key: "ling:lbl", p: ["lingual-gyrus", "c", 0.5, 0, -0.012, 0] as WP, body: "L", kind: "syn", text: "Lingual gyrus (below): UPPER field", color: pal.LU, beat: b8, info: `b${b8}` });
 
   const eyes: SceneEyes = { nerve: eyeWP(), spec: { fieldColors: { L: [pal.LU, pal.LL], R: [pal.RU, pal.RL] }, alpha: { L: 1, R: 1 } } };
   return { beats, tubes, marks, layers, limbs: [], eyes, infos };

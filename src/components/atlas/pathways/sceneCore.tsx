@@ -19,6 +19,9 @@ export interface SceneColors {
   bad: string;
 }
 
+/** Seconds a path beat takes to draw (ease-in-out). */
+export const DRAW_S = 2.0;
+
 /** Schematic half-gap (world units) between the midline and each side's lane, fading out with lateral distance. */
 export const LANE = 0.0125;
 const LANE_FALL = 0.04;
@@ -266,7 +269,7 @@ export function TubeMesh({
     let busy = false;
     const target = reveal ? 1 : 0;
     if (prog.current !== target) {
-      prog.current = approach(prog.current, target, dt / (reduced ? 0.2 : 1.05));
+      prog.current = approach(prog.current, target, dt / (reduced ? 0.2 : DRAW_S));
       busy = true;
     }
     const goal = hover ? Math.min(1, opacity + 0.35) : opacity;

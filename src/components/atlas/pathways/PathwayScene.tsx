@@ -43,6 +43,8 @@ export interface SceneLayer {
   beat?: number;
   /** Body side it belongs to, for the side focus dimming. */
   body?: Side;
+  /** Info popover this structure opens (beat mode): the lit mesh itself is the clickable thing. */
+  info?: string;
   /** Dimmed (14%) when the camera looks from this side: the near hemisphere would hide the far one. */
   nearView?: View;
 }
@@ -62,6 +64,8 @@ export interface SceneTube {
   beat?: number;
   neuron?: number;
   info?: string;
+  /** A real mesh already shows this tract: the tube is a slim, faint signal along it and is not clickable. */
+  meshed?: boolean;
   /** An ascending run (a tract climbing the cord): points that would dip below the one before are dropped. */
   rise?: boolean;
 }
@@ -141,10 +145,10 @@ const PLANE_L = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0); // keeps x >= 0 
 const PLANE_R = new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0);
 
 /* Imperative material helpers live outside the components so the immutability lint does not treat GPU objects as state. */
-function styleLayerMat(mat: THREE.MeshStandardMaterial, o: { color: string; opacity: number; pickable?: boolean; hovered: boolean; side: Side | "both" }) {
+function styleLayerMat(mat: THREE.MeshStandardMaterial, o: { color: string; opacity: number; pickable?: boolean; hovered: boolean; side: Side | "both"; glow?: boolean }) {
   mat.color.set(o.color);
   mat.emissive.set(o.color);
-  mat.emissiveIntensity = o.pickable ? (o.hovered ? 0.7 : 0.25) : 0.55;
+  mat.emissiveIntensity = o.pickable ? (o.hovered ? 0.7 : 0.25) : o.glow ? 1.15 : o.hovered ? 0.9 : 0.55;
   mat.opacity = o.hovered ? Math.min(1, o.opacity + 0.25) : o.opacity;
   mat.transparent = mat.opacity < 0.98;
   mat.depthWrite = !mat.transparent;
@@ -186,6 +190,10 @@ function LayerMesh({
   opacity,
   pickable,
   hovered,
+  glow,
+  infoKey,
+  onPickInfo,
+  onHoverInfo,
   onPick,
   onHover,
   onLoaded,
@@ -198,6 +206,10 @@ function LayerMesh({
   opacity: number;
   pickable?: boolean;
   hovered: boolean;
+  glow?: boolean;
+  infoKey?: string;
+  onPickInfo?: (k: string | null) => void;
+  onHoverInfo?: (k: string | null) => void;
   onPick?: (meshId: string, side: Side, point: THREE.Vector3) => void;
   onHover?: (meshId: string | null) => void;
   onLoaded?: () => void;
@@ -208,9 +220,9 @@ function LayerMesh({
   const cur = useRef(0);
   useEffect(() => () => mat.dispose(), [mat]);
   useEffect(() => {
-    styleLayerMat(mat, { color, opacity: cur.current, pickable, hovered, side });
+    styleLayerMat(mat, { color, opacity: cur.current, pickable, hovered, side, glow });
     invalidate();
-  }, [mat, color, pickable, hovered, side, invalidate]);
+  }, [mat, color, pickable, hovered, side, glow, invalidate]);
   useEffect(() => {
     let alive = true;
     loadAtlasModel(file).then((m) => {
@@ -245,10 +257,16 @@ function LayerMesh({
     <primitive
       object={g}
       name={name}
-      onPointerOver={pickable ? (e: { stopPropagation: () => void }) => { e.stopPropagation(); onHover?.(id); } : undefined}
-      onPointerOut={pickable ? () => onHover?.(null) : undefined}
+      onPointerOver={pickable ? (e: { stopPropagation: () => void }) => { e.stopPropagation(); onHover?.(id); } : infoKey && onHoverInfo && opacity > 0.05 ? (e: { stopPropagation: () => void }) => { e.stopPropagation(); onHoverInfo(infoKey); } : undefined}
+      onPointerOut={pickable ? () => onHover?.(null) : infoKey && onHoverInfo ? () => onHoverInfo(null) : undefined}
       onClick={
-        pickable && onPick
+        !pickable && infoKey && onPickInfo && opacity > 0.05
+          ? (e: { stopPropagation: () => void; delta: number }) => {
+              if (e.delta > 6) return;
+              e.stopPropagation();
+              onPickInfo(infoKey);
+            }
+          : pickable && onPick
           ? (e: { stopPropagation: () => void; delta: number; point: THREE.Vector3 }) => {
               if (e.delta > 6) return;
               e.stopPropagation();
@@ -744,7 +762,11 @@ export default function PathwayScene(p: SceneProps) {
               color={x.l.color}
               opacity={lit ? x.l.opacity * sa * strength * near : 0}
               pickable={x.l.pickable}
-              hovered={p.hoverId === x.id}
+              hovered={p.hoverId === x.id || (!!x.l.info && hoverKey === x.l.info)}
+              glow={lb && hot === x.l.beat}
+              infoKey={lb ? x.l.info : undefined}
+              onPickInfo={p.onPickInfo}
+              onHoverInfo={setHover}
               onPick={p.onPick}
               onHover={p.onHover}
               onLoaded={() => setLayersDone((n) => n + 1)}
@@ -779,13 +801,13 @@ export default function PathwayScene(p: SceneProps) {
               pts={t.v}
               color={t.color}
               colors={p.colors}
-              opacity={base * sideAlpha[t.body]}
+              opacity={base * sideAlpha[t.body] * (t.meshed ? 0.4 : 1)}
               reveal={revealed}
-              radius={radius * (t.width ?? 1)}
+              radius={radius * (t.width ?? 1) * (t.meshed ? 0.55 : 1)}
               pulse={t.pulse}
               hover={!!t.info && hoverKey === t.info}
               reduced={p.reduced}
-              interactive={interactive && !!t.info}
+              interactive={interactive && !!t.info && !t.meshed}
               onPick={() => p.onPickInfo?.(t.info!)}
               onHover={(h) => setHover(h ? t.info! : null)}
             />

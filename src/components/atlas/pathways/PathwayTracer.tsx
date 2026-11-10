@@ -200,7 +200,7 @@ export function PathwayTracer({
   const B = bs.beats.length;
   useEffect(() => {
     // read by tools/pathways/vet.mjs
-    (window as unknown as { __pwBeats?: unknown }).__pwBeats = { slug, beats: bs.beats.map(({ kind, neuron, caption, cross, info, phys, rel, branch }) => ({ kind, neuron, caption, cross: !!cross, info, phys, rel, branch: !!branch })) };
+    (window as unknown as { __pwBeats?: unknown }).__pwBeats = { slug, beats: bs.beats.map(({ kind, neuron, caption, cross, info, phys, rel, branch, fork }) => ({ kind, neuron, caption, cross: !!cross, info, phys, rel, branch: !!branch, fork })) };
   }, [bs.beats, slug]);
   const cur = Math.max(0, Math.min(step, B - 1));
   const beat = bs.beats[cur];
@@ -331,7 +331,7 @@ export function PathwayTracer({
           return s + 1;
         });
       },
-      reduced ? 1400 : 1700,
+      reduced ? 1400 : 2700,
     );
     return () => clearInterval(t);
   }, [playing, quiz, B, reduced]);

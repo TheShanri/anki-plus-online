@@ -53,6 +53,23 @@ export function Schematic({
     acc.push({ b, i, l: lanes(b, prev) });
     return acc;
   }, []);
+  /** A fork: the rows of one split share a rail on the left; each branch starts with a tick. */
+  const forkRail = (i: number) => {
+    const f = rows[i].b.fork;
+    if (!f) return null;
+    const pf = rows[i - 1]?.b.fork;
+    const nf = rows[i + 1]?.b.fork;
+    const start = !pf || pf.id !== f.id;
+    const sub = start || pf.k !== f.k;
+    const last = !nf || nf.id !== f.id;
+    return (
+      <svg aria-hidden className="pointer-events-none absolute left-0 top-0 h-full w-3" style={{ overflow: "visible" }}>
+        <line x1="5" y1={start ? "0%" : "0%"} x2="5" y2={last ? "50%" : "100%"} stroke="var(--text-faint, #888)" strokeWidth="1.6" />
+        {sub && <line x1="5" y1="50%" x2="11" y2="50%" stroke="var(--text-faint, #888)" strokeWidth="1.6" />}
+        {start && <circle cx="5" cy="0" r="2.2" fill="var(--text-faint, #888)" />}
+      </svg>
+    );
+  };
   return (
     <ol ref={listRef} className="m-0 grid list-none gap-0 p-0" aria-label="Pathway schematic">
       {rows.map(({ b, i, l }) => {
@@ -77,9 +94,10 @@ export function Schematic({
                 type="button"
                 {...common}
                 aria-current={hot ? "step" : undefined}
-                className={`flex w-full items-center gap-2 rounded-sm px-1 py-1 text-left transition-colors ${hov ? "bg-bg-3" : ""}`}
+                className={`relative flex w-full items-center gap-2 rounded-sm px-1 py-1 text-left transition-colors ${b.fork ? "pl-4" : ""} ${hov ? "bg-bg-3" : ""}`}
                 style={{ opacity: op }}
               >
+                {forkRail(i)}
                 <svg width="60" height="22" aria-hidden className="flex-none">
                   {merged ? (
                     <circle cx={lanesUsed[0].x} cy="11" r={hot ? 7 : 5.5} fill="var(--accent-2, currentColor)" stroke={hot || hov ? "var(--text)" : "none"} strokeWidth="2" />
@@ -102,9 +120,10 @@ export function Schematic({
               type="button"
               {...common}
               aria-current={hot ? "step" : undefined}
-              className={`flex w-full items-center gap-2 rounded-sm px-1 text-left transition-colors ${hov ? "bg-bg-3" : ""}`}
+              className={`relative flex w-full items-center gap-2 rounded-sm px-1 text-left transition-colors ${b.fork ? "pl-4" : ""} ${hov ? "bg-bg-3" : ""}`}
               style={{ opacity: op, height: H }}
             >
+              {forkRail(i)}
               <svg width="60" height={H} aria-hidden className="flex-none" style={{ overflow: "visible" }}>
                 {(["L", "R"] as Side[]).map((s) => {
                   const x1 = X[l.from[s]];
@@ -124,7 +143,7 @@ export function Schematic({
                         strokeLinecap="round"
                         strokeDasharray={shown ? `${len} ${len}` : `${len} ${len}`}
                         strokeDashoffset={shown ? 0 : len}
-                        style={{ transition: reduced ? "none" : "stroke-dashoffset 1s ease-in-out, stroke-width 150ms" }}
+                        style={{ transition: reduced ? "none" : "stroke-dashoffset 2s ease-in-out, stroke-width 150ms" }}
                       />
                       <path d={`M${x2 - 4} ${H - 11} L${x2} ${H - 4} L${x2 + 4} ${H - 11}`} fill="none" stroke={col} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity={shown ? 1 : 0} style={{ transition: reduced ? "none" : "opacity 200ms 800ms" }} />
                     </g>

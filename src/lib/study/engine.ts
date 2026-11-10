@@ -420,7 +420,8 @@ export class StudyEngine {
 
     let mode: AnswerMode = "type";
     if (!typing) mode = "self";
-    else if (card.format === "keywords") mode = "keywords";
+    // separate parts are typed in one box each, even where the card also carries keywords for a free-text answer
+    else if (card.format === "keywords" && !(card.parts && card.parts.length >= 2)) mode = "keywords";
     else if (card.format === "tf") mode = "tf";
     else if (card.format === "choice") mode = "choice";
 

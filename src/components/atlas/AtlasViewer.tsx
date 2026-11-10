@@ -465,6 +465,7 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
 }
 
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
+const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 const INFLATE = { value: 0 };
 function inflate(m: THREE.MeshStandardMaterial) {
   m.onBeforeCompile = (s) => {
@@ -474,7 +475,7 @@ function inflate(m: THREE.MeshStandardMaterial) {
   m.customProgramCacheKey = () => "atlas-inflate";
 }
 function setInflate(on: boolean) {
-  INFLATE.value = on ? 0.00045 : 0;
+  INFLATE.value = on ? 0.0006 : 0;
 }
 
 function buildGrossMats(look: Look): Record<string, THREE.MeshStandardMaterial> {
@@ -547,13 +548,14 @@ function configureGross(
     m.transparent = op < 1;
     m.opacity = op;
     m.depthWrite = op >= 1; // translucent layers never write depth, so what sits inside them stays visible
-    m.clippingPlanes = planes;
-    m.side = planes.length ? THREE.DoubleSide : THREE.FrontSide;
+    // the lower medulla is an open thin tube (it read as a dark stalk): the brainstem material stops where the medulla stops being a solid body
+    m.clippingPlanes = k === "brainstem" ? [...planes, MEDULLA_CUT] : planes;
+    m.side = planes.length || k === "brainstem" ? THREE.DoubleSide : THREE.FrontSide;
     m.needsUpdate = true;
   }
   styleHull(hull, look === "regions" ? "#3a3646" : "#6a4e46", solid && op >= 1);
   setInflate(solid && op >= 1);
-  hull.clippingPlanes = planes;
+  hull.clippingPlanes = [...planes, MEDULLA_CUT];
   hull.needsUpdate = true;
 }
 
@@ -564,6 +566,7 @@ function applyGrossMats(meshes: Map<string, THREE.Mesh>, mats: Record<string, TH
 function addHulls(root: THREE.Object3D, mat: THREE.Material): THREE.Mesh[] {
   const list: THREE.Mesh[] = [];
   eachMesh(root, (m) => {
+    if (m.userData.g === "brainstem") return; // no outline on the brainstem: its thin lower tube turned into a dark stalk
     const h = new THREE.Mesh(m.geometry, mat);
     h.userData.hull = true;
     h.raycast = () => undefined;
@@ -589,7 +592,7 @@ function tagGross(root: THREE.Object3D, structures: Record<string, AtlasEntry>):
 
 const stalkCache = new WeakMap<THREE.BufferGeometry, THREE.BufferGeometry>();
 /** The context cerebrum has a stalk running down the midline (brainstem): drop those triangles so only the hemispheres back the gross meshes. */
-function withoutStalk(src: THREE.BufferGeometry): THREE.BufferGeometry {
+function withoutStalk(src: THREE.BufferGeometry, matrix: THREE.Matrix4): THREE.BufferGeometry {
   const hit = stalkCache.get(src);
   if (hit) return hit;
   const pos = src.getAttribute("position");
@@ -600,9 +603,10 @@ function withoutStalk(src: THREE.BufferGeometry): THREE.BufferGeometry {
   const b = new THREE.Vector3();
   const c = new THREE.Vector3();
   for (let i = 0; i < idx.count; i += 3) {
-    a.fromBufferAttribute(pos, idx.getX(i));
-    b.fromBufferAttribute(pos, idx.getX(i + 1));
-    c.fromBufferAttribute(pos, idx.getX(i + 2));
+    // the node transform (position / scale of the exported context mesh) puts the vertices in world metres
+    a.fromBufferAttribute(pos, idx.getX(i)).applyMatrix4(matrix);
+    b.fromBufferAttribute(pos, idx.getX(i + 1)).applyMatrix4(matrix);
+    c.fromBufferAttribute(pos, idx.getX(i + 2)).applyMatrix4(matrix);
     const cx = (a.x + b.x + c.x) / 3;
     const cy = (a.y + b.y + c.y) / 3;
     if (cy < 1.607 && Math.abs(cx) < 0.034) continue;
@@ -1249,7 +1253,8 @@ function Scene({
       if (/cord|brainstem/i.test(o.name)) drop.push(o);
       const m = o as THREE.Mesh;
       if (m.isMesh) {
-        m.geometry = withoutStalk(m.geometry);
+        m.updateMatrix();
+        m.geometry = withoutStalk(m.geometry, m.matrix);
         m.material = backMat;
         m.raycast = () => undefined;
       }

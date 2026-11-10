@@ -14,7 +14,7 @@ import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { readCssColor } from "@/lib/atlas/theme";
 import { trackAtlas } from "@/lib/atlas/progress";
 import {
-  Bone, Brain, ChevronDown, ChevronUp, FlipHorizontal2, LayoutGrid, Lock, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Tag,
+  Bone, Brain, ChevronDown, ChevronUp, Crosshair, FlipHorizontal2, LayoutGrid, Lock, LockOpen, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Tag,
 } from "lucide-react";
 import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
@@ -286,17 +286,49 @@ function setAspect(cam: THREE.PerspectiveCamera, a: number) {
 
 /** Frames the camera(s): fits the target plus some context to each pane's own aspect (exact per-corner fit). */
 function Rig({
-  box, brain, view, nonce, zoom, multi, dims, fixed, fixedDims, moved, sizeKey, paneView, fixedBase,
+  box, brain, view, nonce, frameTick, lockView, zoom, multi, dims, fixed, fixedDims, moved, sizeKey, paneView, fixedBase,
 }: {
   paneView: { current: PaneView[] };
   fixedBase: { current: (PaneBase | null)[] };
-  box: THREE.Box3 | null; brain: THREE.Box3 | null; view: ViewName; nonce: number; zoom: number; multi: boolean;
+  box: THREE.Box3 | null; brain: THREE.Box3 | null; view: ViewName; nonce: number; frameTick: number; lockView: boolean; zoom: number; multi: boolean;
   dims: React.RefObject<Dims>; fixed: THREE.PerspectiveCamera[]; fixedDims: React.RefObject<Dims[]>; moved: React.RefObject<boolean>; sizeKey: string;
 }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const invalidate = useThree((s) => s.invalidate);
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
-  const fit = (reset: boolean) => {
+  const anim = useRef(0);
+  const first = useRef(true);
+  /** Eased camera move: the viewing direction turns along the shortest arc, the target and distance blend. Interrupted by the next move or by the user grabbing the view. */
+  const glide = (toPos: THREE.Vector3, toTarget: THREE.Vector3) => {
+    cancelAnimationFrame(anim.current);
+    const fromT = controls ? controls.target.clone() : toTarget.clone();
+    const fo = camera.position.clone().sub(fromT);
+    const to = toPos.clone().sub(toTarget);
+    const lf = Math.max(1e-6, fo.length());
+    const lt = Math.max(1e-6, to.length());
+    const q = new THREE.Quaternion().setFromUnitVectors(fo.clone().normalize(), to.clone().normalize());
+    const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const dur = reduce ? 0 : 480;
+    const t0 = performance.now();
+    const step = (now: number) => {
+      const k = dur ? Math.min(1, (now - t0) / dur) : 1;
+      const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      const tg = fromT.clone().lerp(toTarget, e);
+      const off = fo.clone().normalize().applyQuaternion(new THREE.Quaternion().slerp(q, e)).multiplyScalar(lf * Math.pow(lt / lf, e));
+      camera.position.copy(tg).add(off);
+      camera.up.set(0, 1, 0);
+      camera.lookAt(tg);
+      if (controls) {
+        controls.target.copy(tg);
+        controls.update();
+      }
+      invalidate();
+      if (k < 1) anim.current = requestAnimationFrame(step);
+    };
+    anim.current = requestAnimationFrame(step);
+  };
+  const fit = (reset: boolean, mode: "snap" | "glide" | "glideKeep") => {
+    cancelAnimationFrame(anim.current);
     const b = brain ?? DEFAULT_BRAIN;
     const mid = view === "midsagittal" && !multi;
     const fb = mid ? b.clone() : frameBox(b, box);
@@ -304,14 +336,24 @@ function Rig({
     if (mid) c.x = 0;
     const d = dims.current;
     const aspect = d.w > 4 && d.h > 4 ? d.w / d.h : camera.aspect || 1.5;
-    const dir = multi ? FREE_DIR : new THREE.Vector3(...(VIEWS.find((x) => x.id === view) ?? VIEWS[2]).dir).normalize();
+    let dir = multi ? FREE_DIR : new THREE.Vector3(...(VIEWS.find((x) => x.id === view) ?? VIEWS[2]).dir).normalize();
+    if (mode === "glideKeep" && controls && !multi) {
+      // keep the direction the student is looking from
+      const cur = camera.position.clone().sub(controls.target);
+      if (cur.lengthSq() > 1e-10) dir = cur.normalize();
+    }
     const dist = fitDistance(fb, dir, camera.fov, aspect) * zoom;
-    camera.position.copy(c).addScaledVector(dir, dist);
-    camera.up.set(0, 1, 0);
-    camera.lookAt(c);
-    if (controls) {
-      controls.target.copy(c);
-      controls.update();
+    const toPos = c.clone().addScaledVector(dir, dist);
+    if (mode !== "snap" && !multi && controls) {
+      glide(toPos, c);
+    } else {
+      camera.position.copy(toPos);
+      camera.up.set(0, 1, 0);
+      camera.lookAt(c);
+      if (controls) {
+        controls.target.copy(c);
+        controls.update();
+      }
     }
     if (multi) {
       FIXED_PANES.forEach((p, i) => {
@@ -343,20 +385,39 @@ function Rig({
   useEffect(() => {
     fitRef.current = fit;
   });
+  // a new view, zoom, layout or camera: refit (eased, after the first fit)
   useEffect(() => {
-    fitRef.current(true);
-  }, [box, brain, view, nonce, zoom, multi, camera, controls, invalidate]);
+    const m = first.current ? "snap" : "glide";
+    first.current = false;
+    fitRef.current(true, m);
+  }, [brain, view, nonce, zoom, multi, camera, controls, invalidate]);
+  // a different selection: an eased move that keeps the viewing direction; never when the view is locked
+  const prevBox = useRef(box);
   useEffect(() => {
-    if (!moved.current) fitRef.current(false);
+    if (prevBox.current === box) return;
+    prevBox.current = box;
+    if (!lockView) fitRef.current(true, "glideKeep");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [box]);
+  // F: frame the selection on demand (also when locked)
+  useEffect(() => {
+    if (frameTick > 0) fitRef.current(true, "glideKeep");
+  }, [frameTick]);
+  useEffect(() => {
+    if (!moved.current) fitRef.current(false, "snap");
   }, [sizeKey, moved]);
   useEffect(() => {
     if (!controls) return;
     const c = controls as unknown as { addEventListener: (t: string, f: () => void) => void; removeEventListener: (t: string, f: () => void) => void };
     const f = () => {
       moved.current = true;
+      cancelAnimationFrame(anim.current);
     };
     c.addEventListener("start", f);
-    return () => c.removeEventListener("start", f);
+    return () => {
+      c.removeEventListener("start", f);
+      cancelAnimationFrame(anim.current);
+    };
   }, [controls, moved]);
   return null;
 }
@@ -465,6 +526,7 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
 }
 
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
+const BACKER_SCALE = 0.975;
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 const INFLATE = { value: 0 };
 function inflate(m: THREE.MeshStandardMaterial) {
@@ -953,6 +1015,7 @@ function Picker({
 function Scene({
   loaded,
   gross,
+  fill,
   structures,
   look,
   solid,
@@ -999,6 +1062,7 @@ function Scene({
   getPanes: () => Pane[];
   loaded: Loaded;
   gross: THREE.Group | null;
+  fill: THREE.Group | null;
   structures: Record<string, AtlasEntry>;
   look: Look;
   solid: boolean;
@@ -1246,6 +1310,20 @@ function Scene({
   );
   useEffect(() => () => backMat.dispose(), [backMat]);
   const backer = useMemo(() => {
+    if (fill) {
+      // the watertight brain solid: nothing can show through a crack, a missing medial wall or an open orbital surface
+      const g = fill.clone(true);
+      g.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (m.isMesh) {
+          m.material = backMat;
+          m.raycast = () => undefined;
+        }
+      });
+      g.scale.setScalar(BACKER_SCALE);
+      g.position.copy(centre).multiplyScalar(1 - BACKER_SCALE);
+      return g;
+    }
     if (!loaded.ctx) return null;
     const g = loaded.ctx.clone(true);
     const drop: THREE.Object3D[] = [];
@@ -1263,7 +1341,7 @@ function Scene({
     g.scale.setScalar(0.985); // a little inward of the gyri
     g.position.copy(centre).multiplyScalar(1 - 0.985);
     return g;
-  }, [loaded.ctx, backMat, centre]);
+  }, [fill, loaded.ctx, backMat, centre]);
 
   const ovlRoot = useMemo(() => {
     const root = new THREE.Group();
@@ -1456,9 +1534,9 @@ function Scene({
 
   return (
     <>
-      <hemisphereLight args={[0xfff1e6, 0x4a3b5c, 1.0]} />
+      <hemisphereLight args={[0xfff1e6, 0x9d8c9e, 1.05]} />
       <directionalLight position={[1, 2, 2]} intensity={1.5} />
-      <directionalLight position={[-2, -1, -1.5]} intensity={0.55} />
+      <directionalLight position={[-2, -2, -1.5]} intensity={1.0} />
       {loaded.ctx && showCtx && look === "xray" && <primitive object={loaded.ctx} />}
       {skullGroup && <primitive object={skullGroup} />}
       {shellGroup && <primitive object={shellGroup} />}
@@ -1523,6 +1601,7 @@ export default function AtlasViewer({
   const [indexError, setIndexError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   const [gross, setGross] = useState<THREE.Group | null>(null);
+  const [fill, setFill] = useState<THREE.Group | null>(null);
   const [showCtx, setShowCtx] = useState(true);
   const [grossProg, setGrossProg] = useState<Prog>({ loaded: 0, total: 0 });
   const [warmed, setWarmed] = useState(false);
@@ -1544,6 +1623,8 @@ export default function AtlasViewer({
   const lab = useRef<LabRefs>({ bottom: 56, obs: [], solid: false, tags: [], lines: [], dots: [], w: [] });
   const [view, setView] = useState<ViewName>(viewProp ?? "left");
   const [nonce, setNonce] = useState(0);
+  const [frameTick, setFrameTick] = useState(0);
+  const [lockView, setLockView] = useState(false);
   const [prevViewProp, setPrevViewProp] = useState(viewProp);
   if (viewProp !== prevViewProp) {
     setPrevViewProp(viewProp);
@@ -1786,6 +1867,10 @@ export default function AtlasViewer({
     loadAtlasModel("gross.glb", (p) => alive && setGrossProg(p))
       .then((g) => alive && setGross(g))
       .catch(() => undefined);
+    // the closed brain solid behind the gyri (small; the viewer falls back to the context shell without it)
+    loadAtlasModel("brainfill.glb")
+      .then((g) => alive && setFill(g))
+      .catch(() => undefined);
     return () => {
       alive = false;
     };
@@ -1852,10 +1937,14 @@ export default function AtlasViewer({
     if (!ctxBox) return ax === "x" ? [-0.08, 0.08] : ax === "y" ? [1.53, 1.68] : [-0.11, 0.1];
     return [ctxBox.min[ax], ctxBox.max[ax]];
   }, [ctxBox, clip.axis]);
-  const box = useMemo(() => {
+  const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
   }, [entries, mode]);
+  // one box per value, so a reload of the same selection does not look like a new selection to the camera
+  const boxKey = boxRaw ? `${boxRaw.min.toArray().map((v) => v.toFixed(5))}|${boxRaw.max.toArray().map((v) => v.toFixed(5))}` : "";
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const box = useMemo(() => boxRaw, [boxKey]);
 
   // frame the skull / spine target (not the brain) when one is selected
   const skullBox = useMemo(() => {
@@ -2106,7 +2195,8 @@ export default function AtlasViewer({
     else if (k === "k" && shortcuts && !layerMissing) setLayerOv({ auto: layerAuto, v: !layerOn });
     else if (k === "g" && onToggleNeighbors) onToggleNeighbors();
     else if (k === "m" && multiview && !cut) toggleMulti();
-    else if (k === "f" && canFs) toggleFs();
+    else if (k === "f" && !multi) setFrameTick((n) => n + 1);
+    else if (k === "z" && canFs) toggleFs();
     else used = false;
     if (used) e.preventDefault();
   };
@@ -2173,6 +2263,7 @@ export default function AtlasViewer({
           <Scene
             loaded={shown}
             gross={gross}
+            fill={fill}
             structures={index.structures}
             look={look}
             solid={solid}
@@ -2218,7 +2309,7 @@ export default function AtlasViewer({
           maxDistance={1.2}
           touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}
         />
-        <Rig box={skullBox ?? box} brain={skullBox ?? ctxBox} view={view} nonce={nonce} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} paneView={paneView} fixedBase={fixedBase} />
+        <Rig box={skullBox ?? box} brain={skullBox ?? ctxBox} view={view} nonce={nonce} frameTick={frameTick} lockView={lockView} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} paneView={paneView} fixedBase={fixedBase} />
         {multi && <MultiRender panes={panes} invalidateRef={invalidateRef} />}
       </Canvas>
 
@@ -2364,6 +2455,13 @@ export default function AtlasViewer({
                       ))
                     }
                   </Popover>
+                  <IconBtn label="Frame the selection from this side" keys="F" icon={<Crosshair />} onClick={() => setFrameTick((n) => n + 1)} />
+                  <IconBtn
+                    label={lockView ? "View locked: choosing a structure will not move the camera" : "Lock the view (stop the camera following the selection)"}
+                    on={lockView}
+                    onClick={() => setLockView((l) => !l)}
+                    icon={lockView ? <Lock /> : <LockOpen />}
+                  />
                 </Group>
               )}
               {!cut && (
@@ -2407,7 +2505,7 @@ export default function AtlasViewer({
               {(multiview && !cut) || canFs || toolbarExtra ? <Divider /> : null}
               <Group label="Layout">
                 {multiview && !cut && <IconBtn label="Multi-view (anterior, lateral, superior, free)" keys="M" on={multi} onClick={toggleMulti} icon={<LayoutGrid />} />}
-                {canFs && <IconBtn label={fsOn ? "Exit full screen" : "Full screen"} keys="F" on={fsOn} onClick={toggleFs} icon={fsOn ? <Minimize2 /> : <Maximize2 />} />}
+                {canFs && <IconBtn label={fsOn ? "Exit full screen" : "Full screen"} keys="Z" on={fsOn} onClick={toggleFs} icon={fsOn ? <Minimize2 /> : <Maximize2 />} />}
                 {toolbarExtra}
               </Group>
             </>

@@ -262,3 +262,8 @@
   .st-top > .combo-pill { margin-right: auto; }
   .st-top > .btn { min-height: 40px; padding-inline: 14px; }
 }
+
+/* mock practical: setup beside the recent attempts on wide screens, stacked otherwise */
+.prac-layout { display: grid; gap: 24px; align-items: start; }
+.prac-recent { max-width: 640px; }
+@media (min-width: 1000px) { .prac-layout { grid-template-columns: minmax(0, 640px) minmax(0, 1fr); gap: 32px; } .prac-recent { max-width: none; } }

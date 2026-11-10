@@ -31,11 +31,12 @@ export default async function PracticalPage() {
   const seconds = Number(course.settings.station_seconds) > 0 ? Math.round(Number(course.settings.station_seconds)) : DEFAULT_STATION_SECONDS;
   return (
     <PageShell title="Mock lab practical" kicker={course.code}>
+      <div className="prac-layout">
       <PracticalSetup units={units} defaultSeconds={seconds} />
       {(attempts.data ?? []).length > 0 && (
-        <div style={{ marginTop: 24 }}>
+        <div className="prac-recent">
           <h2 className="font-display" style={{ fontSize: 16, marginBottom: 8 }}>Your recent practicals</h2>
-          <div style={{ display: "grid", gap: 8, maxWidth: 640 }}>
+          <div style={{ display: "grid", gap: 8 }}>
             {(attempts.data ?? []).map((a: { id: string; created_at: string; score: number; max_score: number }) => (
               <a key={a.id} className="scope-card" href={`/practical/results/${a.id}`}>
                 <h3>{new Date(a.created_at).toLocaleString()}</h3>
@@ -45,6 +46,18 @@ export default async function PracticalPage() {
           </div>
         </div>
       )}
+      {(attempts.data ?? []).length === 0 && (
+        <aside className="panel prac-recent" aria-label="How a practical works">
+          <h2 className="font-display" style={{ fontSize: 16, marginBottom: 8 }}>How a practical works</h2>
+          <ol className="text-sm text-text-dim" style={{ paddingLeft: 18, display: "grid", gap: 6, listStyle: "decimal" }}>
+            <li>Each station shows a pin on a lab photo. Type the structure&apos;s name.</li>
+            <li>Some stations add a follow-up question about function or connections.</li>
+            <li>The timer moves you on, and you cannot go back.</li>
+            <li>Your score and every miss appear at the end, ready to drill.</li>
+          </ol>
+        </aside>
+      )}
+      </div>
     </PageShell>
   );
 }

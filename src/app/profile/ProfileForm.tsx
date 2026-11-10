@@ -25,8 +25,8 @@ export function ProfileForm({ p, mustChange }: { p: Profile; mustChange: boolean
   const fe = state.fieldErrors ?? {};
   const years = p.classYear && !YEARS.includes(p.classYear) ? [...YEARS, p.classYear] : YEARS;
   return (
-    <div className="space-y-6">
-      <form key={[p.displayName, p.pronouns, p.classYear, p.major, p.minor, p.labSection].join("|")} action={action} className="panel max-w-xl space-y-4">
+    <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,36rem)_minmax(0,28rem)] lg:gap-8">
+      <form key={[p.displayName, p.pronouns, p.classYear, p.major, p.minor, p.labSection].join("|")} action={action} className="panel w-full space-y-4">
         <input type="hidden" name="courseId" value={p.courseId} />
         <div>
           <label className="label" htmlFor="email">Email (cannot be changed)</label>
@@ -73,7 +73,7 @@ export function ProfileForm({ p, mustChange }: { p: Profile; mustChange: boolean
         <button className="btn btn-primary" type="submit" disabled={pending}>Save profile</button>
       </form>
 
-      <form action={pwAction} className="panel max-w-xl space-y-4" id="password-form">
+      <form action={pwAction} className="panel w-full space-y-4" id="password-form">
         <h2 className="font-display text-lg">Change password</h2>
         {mustChange && (
           <p className="notice">You are using a temporary password. Please choose your own now.</p>

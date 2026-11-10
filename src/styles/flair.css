@@ -325,3 +325,8 @@ html[data-effects="off"] .panel::before, html[data-effects="off"] .panel::after 
 @media (prefers-reduced-motion: reduce) {
   [data-theme] .grade-btn:hover, [data-theme] .btn:hover { transform: none !important; }
 }
+
+/* Numerals: Orbitron's zero is slashed (reads as "none/prohibited") and Cormorant's old-style zero reads as the
+   letter O. Big counters use a plain body zero / lining figures instead. */
+[data-theme="synthwave-cortex"] .num-zero { font-family: var(--font-body); font-weight: 700; }
+[data-theme="dark-academia"] .streak-num, [data-theme="dark-academia"] .due-num, [data-theme="dark-academia"] .stat-num { font-variant-numeric: lining-nums; }

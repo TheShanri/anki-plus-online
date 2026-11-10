@@ -106,7 +106,7 @@ export function HomeDashboard({
         <section className="panel study-now" aria-labelledby="sn-h">
           <h2 id="sn-h">Today</h2>
           <div className="due-line">
-            <span className="due-num">{ready}</span>
+            <span className={`due-num${ready === 0 ? " num-zero" : ""}`}>{ready}</span>
             <span className="due-label">{ready === 1 ? "card ready" : "cards ready"}</span>
           </div>
           <div className="mini-counts">
@@ -126,7 +126,7 @@ export function HomeDashboard({
             <section className="panel streak-card" aria-label="Streak">
               <span className="streak-flame"><Flame /></span>
               <div>
-                <p className="streak-num">{streak}</p>
+                <p className={`streak-num${streak === 0 ? " num-zero" : ""}`}>{streak}</p>
                 <p className="text-sm text-text-dim">{streak === 1 ? "day streak" : "day streak"}{streak === 0 ? ": study today to start one" : ""}</p>
               </div>
             </section>

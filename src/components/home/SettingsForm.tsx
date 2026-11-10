@@ -45,7 +45,7 @@ export function SettingsForm({ retention, mnemonics, typingEnabled }: Props) {
   };
 
   return (
-    <div className="max-w-[920px]">
+    <div className="w-full">
       <p className="save-state" data-s={state} role="status" aria-live="polite">
         {state === "saving" ? "Saving…" : state === "saved" ? "Saved" : state === "error" ? "Could not save. Your change is applied on this device." : signedIn ? "Changes save automatically." : "Changes are saved on this device."}
       </p>

@@ -285,3 +285,10 @@
 .skel-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 @keyframes skel-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .skel { animation: none; } }
+
+/* phones: three stacked theme cards get a short preview so the choice fits on about one screen */
+@media (max-width: 560px) {
+  .theme-grid { gap: 10px; }
+  .theme-grid[data-size="lg"] .tp { max-height: 96px; }
+  .theme-card-snd { display: none; }
+}

@@ -59,11 +59,11 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
 
   return (
     <PageShell title="Study now" kicker={course.code}>
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4">
         {stats.map(([label, n, color]) => (
           <div key={label} className="panel">
             <p className="label">{label}</p>
-            <p className="font-display text-4xl" style={{ color }}>{n}</p>
+            <p className={`font-display text-4xl stat-num${n === 0 ? " num-zero" : ""}`} style={{ color }}>{n}</p>
           </div>
         ))}
       </div>
@@ -79,7 +79,10 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
 
       <TagPicker tags={tags} course={sp.course} />
 
-      <h2 className="font-display" style={{ fontSize: 16, margin: "8px 0 10px" }}>Pick a unit or topic</h2>
+      <div className="scope-legend">
+        <h2 className="font-display" style={{ fontSize: 16 }}>Pick a unit or topic</h2>
+        <p className="text-xs text-text-dim"><span className="c-new">new</span> · <span className="c-learn">learning</span> · <span className="c-review">due</span></p>
+      </div>
       {unitsSorted.length === 0 && <p className="text-text-dim">No content in this course yet.</p>}
       <div style={{ display: "grid", gap: 18 }}>
         {unitsSorted.map((un) => {
@@ -99,7 +102,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
                   return (
                     <Link key={t.id} href={q(`topic:${t.slug}`)} className="scope-card">
                       <h3>{t.title}</h3>
-                      <div className="scope-nums"><span className="c-new">{to.newCount}</span><span className="c-learn">{to.learning}</span><span className="c-review">{to.due}</span><span>{to.total} cards</span></div>
+                      <div className="scope-nums"><span className="c-new" title="new" data-z={to.newCount === 0 ? "" : undefined}>{to.newCount}</span><span className="c-learn" title="learning" data-z={to.learning === 0 ? "" : undefined}>{to.learning}</span><span className="c-review" title="due" data-z={to.due === 0 ? "" : undefined}>{to.due}</span><span>{to.total} cards</span></div>
                     </Link>
                   );
                 })}

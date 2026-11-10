@@ -59,6 +59,8 @@ export interface TyperOptions {
   promptLen?: number;
   mode?: TyperMode;
   noHints?: boolean;
+  /** multi-box answers: the part index each variant belongs to (parallel to `variants`) */
+  tags?: number[];
   /** max share of the answer's letters hints may reveal in graded mode (1 = no cap) */
   cap?: number;
   now: number;
@@ -69,6 +71,8 @@ interface Variant {
   canon: Canon;
   /** a lenient decoration in front ("the ", "left ", "r "): the canonical text of it, else "" */
   lead: string;
+  /** multi-box answers: which part this variant spells (-1: single answer) */
+  part: number;
 }
 
 /** Leading decorations of lenient variants. Side words only count once typed in full, so "R" for "Neuraxis"
@@ -76,6 +80,21 @@ interface Variant {
 const LEAD_RE = /^(the|left|right|l|r)\s+/i;
 
 const MARK = /\p{M}/u;
+const PUNCT = /[\p{P}\p{S}]/u;
+const QUOTE_NORM: Record<string, string> = { "’": "'", "‘": "'", "“": '"', "”": '"', "–": "-", "—": "-" };
+const norm = (c: string) => QUOTE_NORM[c] ?? c;
+
+/** Predicted rating of a correct answer from typing quality (shared by one box and a multi-box set). */
+export function predictRating(T: TypingParams, s: { hinted: number; letters: number; hintBeforeFirst: boolean; typos: number; elapsed: number; easyWindow: number }): 1 | 2 | 3 | 4 {
+  if (s.hinted > 0) {
+    const frac = s.hinted / Math.max(1, s.letters);
+    let g: 1 | 2 | 3 = frac <= T.goodMaxHintFrac ? 3 : frac <= T.hardMaxHintFrac ? 2 : 1;
+    if (T.capHardIfHintBeforeFirst && s.hintBeforeFirst) g = Math.min(g, 2) as 1 | 2 | 3;
+    return g;
+  }
+  if (s.typos <= T.easyMaxTypos && s.elapsed <= s.easyWindow) return 4;
+  return 3;
+}
 
 export class Typer {
   readonly params: TypingParams;
@@ -83,7 +102,7 @@ export class Typer {
   readonly mode: TyperMode;
   readonly noHints: boolean;
   readonly cap: number;
-  readonly letters: number;
+  letters: number;
   readonly easyWindow: number;
   private variants: Variant[];
   private decorative: Set<string>;
@@ -125,15 +144,61 @@ export class Typer {
     this.cap = o.cap ?? 1;
     this.peek = this.mode === "covered";
     this.decorative = o.decorative ?? new Set();
-    this.variants = o.variants.map((text) => {
-      const m = this.decorative.has(text.trim().toLowerCase().replace(/\s+/g, " ")) ? LEAD_RE.exec(text.trim()) : null;
-      return { text, canon: canon(text, this.flags), lead: m ? canon(m[0], this.flags, true).s : "" };
-    });
-    if (!this.variants.length) this.variants = [{ text: "", canon: canon("", this.flags), lead: "" }];
+    this.variants = this.buildVariants(o.variants, o.tags);
     this.letters = Math.max(1, letterCount(this.answer));
     this.start = o.now;
     this.lastProgress = o.now;
     this.easyWindow = this.params.easyBaseMs + this.params.easyMsPerChar * this.letters + this.params.easyMsPerPromptChar * (o.promptLen ?? 0);
+  }
+
+  private buildVariants(texts: string[], tags?: number[]): Variant[] {
+    const out = texts.map((text, i) => {
+      const m = this.decorative.has(text.trim().toLowerCase().replace(/\s+/g, " ")) ? LEAD_RE.exec(text.trim()) : null;
+      return { text, canon: canon(text, this.flags), lead: m ? canon(m[0], this.flags, true).s : "", part: tags?.[i] ?? -1 };
+    });
+    return out.length ? out : [{ text: "", canon: canon("", this.flags), lead: "", part: -1 }];
+  }
+
+  /** Swap the accepted variants (multi-box: a part was claimed or released elsewhere) and re-read the typed text.
+   *  Re-reading is not a new mistake: the typo count stays as it was. */
+  setVariants(texts: string[], tags: number[] | undefined, decorative: Set<string> | undefined, now: number): void {
+    if (decorative) this.decorative = decorative;
+    this.variants = this.buildVariants(texts, tags);
+    this.cur = 0;
+    this.letters = Math.max(1, letterCount(this.answer));
+    const typos = this.typos;
+    const typed = this.typed;
+    this.state = "idle";
+    if (typed) this.set(typed, now);
+    else {
+      this.L = 0;
+      this.lcp = 0;
+      this.typedOk = 0;
+    }
+    this.typos = typos;
+  }
+
+  /** The parts whose accepted forms the typed text is still a prefix of (multi-box narrowing). */
+  fits(): number[] {
+    const t = this.typedC.s;
+    if (!t.trim()) return [];
+    const trimmed = t.trimEnd();
+    const out: number[] = [];
+    for (const v of this.variants) {
+      if (v.lead && !t.startsWith(v.lead) && !(v.lead === "the " && "the ".startsWith(t))) continue;
+      if ((v.canon.s.startsWith(t) || v.canon.s === trimmed) && !out.includes(v.part)) out.push(v.part);
+    }
+    return out;
+  }
+
+  /** The part of the variant currently followed (-1: single answer). */
+  get part(): number {
+    return this.variants[this.cur].part;
+  }
+
+  /** Restart the idle clock (a multi-box answer moved on to this box). */
+  touch(now: number): void {
+    this.lastProgress = now;
   }
 
   /** the variant currently being typed (the canonical answer until the typed prefix says otherwise) */
@@ -146,6 +211,30 @@ export class Typer {
   /** canonical answer text (variant 0) */
   get primary(): string {
     return this.variants[0].text;
+  }
+
+  /** Where the ghost / skeleton / hints continue in the answer. Canonical matching ignores punctuation, so the
+   *  canonical position can still point at a "(" the student already typed: step past punctuation (and the
+   *  spaces around it) that the typed text has beyond its last canonical character, so it is never drawn twice.
+   *  Typed punctuation the answer does not have at that point is left alone. */
+  ghostPos(): number {
+    const ans = this.answer;
+    let pos = this.origPos(this.L);
+    const tm = this.typedC.map;
+    let i = this.L > 0 && this.L <= tm.length ? tm[this.L - 1] + 1 : 0;
+    while (i < this.typed.length && MARK.test(this.typed[i])) i++;
+    for (; i < this.typed.length; i++) {
+      const ch = this.typed[i];
+      if (/\s/.test(ch)) {
+        if (pos < ans.length && /\s/.test(ans[pos])) pos++;
+        continue;
+      }
+      if (!PUNCT.test(ch)) break; // a letter: the typed text diverges here
+      let q = pos;
+      while (q < ans.length && /\s/.test(ans[q])) q++;
+      if (q < ans.length && norm(ans[q]) === norm(ch)) pos = q + 1;
+    }
+    return pos;
   }
 
   origPos(Lc: number): number {
@@ -226,7 +315,7 @@ export class Typer {
   hint(now: number): number {
     if (this.state === "match" || this.noHints) return 0;
     const ans = this.answer;
-    const from = Math.max(this.origPos(this.L), this.hintEnd);
+    const from = Math.max(this.ghostPos(), this.hintEnd);
     const stop = this.hintStop ? Math.min(ans.length, this.hintStop(from)) : ans.length;
     this.trapBlocked = stop <= from && from < ans.length;
     if (this.trapBlocked) return 0;
@@ -259,7 +348,7 @@ export class Typer {
 
   /** The ghost text to show after the caret. */
   ghost(): string {
-    const pos = this.origPos(this.L);
+    const pos = this.ghostPos();
     const ans = this.answer;
     if (this.mode === "retype") return ans.slice(pos);
     if (this.mode === "covered") return this.peek ? ans.slice(pos) : "";
@@ -273,15 +362,7 @@ export class Typer {
 
   /** Predicted rating for a correct answer (1..4), before the verdict adjusts it. */
   predicted(now: number): 1 | 2 | 3 | 4 {
-    const T = this.params;
-    if (this.hinted > 0) {
-      const frac = this.hinted / this.letters;
-      let g: 1 | 2 | 3 = frac <= T.goodMaxHintFrac ? 3 : frac <= T.hardMaxHintFrac ? 2 : 1;
-      if (T.capHardIfHintBeforeFirst && this.hintBeforeFirst) g = Math.min(g, 2) as 1 | 2 | 3;
-      return g;
-    }
-    if (this.typos <= T.easyMaxTypos && this.elapsed(now) <= this.easyWindow) return 4;
-    return 3;
+    return predictRating(this.params, { hinted: this.hinted, letters: this.letters, hintBeforeFirst: this.hintBeforeFirst, typos: this.typos, elapsed: this.elapsed(now), easyWindow: this.easyWindow });
   }
 
   accuracy(): number {

@@ -135,3 +135,69 @@ test("a partial article stays neutral: 't' on a non-T answer is neither green no
   assert.equal(t.set("the h", 2).state, "track");
   assert.equal(t.typos, 0);
 });
+
+// ---- punctuation the student already typed must not be drawn again by the ghost / skeleton / hints
+const AC = "The two temporal lobes (amygdalae) and olfactory structures";
+
+test("retype: typed '(' that also comes next in the answer is not repeated by the ghost", () => {
+  const t = mk(AC, [], { mode: "retype" });
+  t.set("The two temporal lobes", 1);
+  assert.equal(t.ghost(), " (amygdalae) and olfactory structures");
+  t.set("The two temporal lobes (", 2);
+  assert.equal(t.ghost(), "amygdalae) and olfactory structures");
+  t.set("The two temporal lobes(", 3); // no space before it: still not repeated
+  assert.equal(t.ghost(), "amygdalae) and olfactory structures");
+  t.set("The two temporal lobes (amygdalae", 4);
+  assert.equal(t.ghost(), ") and olfactory structures");
+  t.set("The two temporal lobes (amygdalae)", 5);
+  assert.equal(t.ghost(), " and olfactory structures");
+  assert.equal(t.state, "track");
+});
+
+test("covered: the peeked answer continues past typed punctuation", () => {
+  const t = mk(AC, [], { mode: "covered" });
+  t.set("The two temporal lobes (", 1);
+  t.peek = true;
+  assert.equal(t.ghost(), "amygdalae) and olfactory structures");
+});
+
+test("skeleton and ghost hints continue after typed punctuation", () => {
+  const t = mk(AC);
+  t.mask = (answer, from) => answer.slice(from).replace(/[a-z]/gi, "_");
+  t.set("The two temporal lobes (", 1);
+  assert.equal(t.ghost(), "_________) ___ _________ __________");
+  t.mask = null;
+  t.hint(2);
+  assert.equal(t.ghost(), "a"); // not "(a": the "(" is already typed
+  t.hint(3);
+  assert.equal(t.ghost(), "am");
+});
+
+test("commas, hyphens, slashes and apostrophes typed early are not repeated", () => {
+  const ghost = (answer: string, typed: string) => {
+    const t = mk(answer, [], { mode: "retype" });
+    t.set(typed, 1);
+    return t.ghost();
+  };
+  assert.equal(ghost("Reward, motivation", "Reward,"), " motivation");
+  assert.equal(ghost("Reward, motivation", "Reward, "), "motivation");
+  assert.equal(ghost("Anterior-posterior axis", "Anterior-"), "posterior axis");
+  assert.equal(ghost("Dorsal/ventral stream", "Dorsal/"), "ventral stream");
+  assert.equal(ghost("Broca's area", "Broca'"), "s area");
+  assert.equal(ghost("Layer IV (granular) cortex", "Layer IV ("), "granular) cortex");
+  assert.equal(ghost("Layer IV (granular) cortex", "Layer IV (granular)"), " cortex");
+});
+
+test("typed punctuation the answer does not have does not move or break the ghost", () => {
+  const ghost = (answer: string, typed: string) => {
+    const t = mk(answer, [], { mode: "retype" });
+    t.set(typed, 1);
+    return t.ghost();
+  };
+  assert.equal(ghost("Thalamus", "Thal."), "amus");
+  assert.equal(ghost("Reward, motivation", "Reward ["), "motivation");
+  assert.equal(ghost("The two lobes (amygdalae)", "The two lobes, ("), "amygdalae)");
+  const t = mk("Thalamus", [], { mode: "retype" });
+  t.set("Thal.", 1);
+  assert.equal(t.state, "track");
+});

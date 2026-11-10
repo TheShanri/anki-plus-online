@@ -295,7 +295,7 @@ export function groupHits(hits: Hit[]): { pathway: string; name: string; hits: H
 
 /** Findings written from the engine (for sites without a course card), one line each. */
 export function generatedFindings(r: LesionResult): string[] {
-  const clean = (t: string) => t.replace(/\s*\([^)]*\)/g, "").replace(/the lesion/g, "a certain level").replace(/at the level of a certain level/g, "at one level");
+  const clean = (t: string) => t.replace(/\s*\([^)]*\)/g, "").replace(/\bthe lesion\b/g, "a certain level").replace(/\bat the level of a certain level\b/g, "at one level");
   const lines: string[] = [];
   const seen = new Set<string>();
   for (const g of groupHits(r.hits)) {

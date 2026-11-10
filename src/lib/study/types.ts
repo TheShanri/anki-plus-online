@@ -187,13 +187,13 @@ export function toStudyCard(row: CardRow): StudyCard {
 }
 
 /** "Name the plane." answered "Coronal plane": the noun the prompt already says is optional ("Coronal"). */
-function promptNounDropped(prompt: string, answer: string): string[] {
-  const m = /^name the (.+?)(?:\.|\s+(?:the|that|of|on|in|at|by|with|shown|indicated|labelled|labeled|circled|outlined|colored|coloured|identified|highlighted|pointed)|$)/i.exec(prompt.trim());
+export function promptNounDropped(prompt: string, answer: string): string[] {
+  const m = /^name the (.+?)(?:\.|\s+(?:the|that|of|on|in|at|by|with|shown|indicated|labelled|labeled|circled|outlined|colored|coloured|identified|highlighted|pointed)\b|$)/i.exec(prompt.trim());
   if (!m || !answer) return [];
   const noun = m[1].trim().split(/\s+/).pop()!.toLowerCase();
   if (noun === "structure" || noun === "term") return [];
   const a = answer.trim();
-  const re = new RegExp(`\s+${noun}s?$`, "i");
+  const re = new RegExp(`\\s+${noun.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}s?$`, "i");
   return re.test(a) && a.replace(re, "").trim().length >= 3 ? [a.replace(re, "").trim()] : [];
 }
 

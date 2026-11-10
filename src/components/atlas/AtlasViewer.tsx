@@ -10,6 +10,7 @@ import type { AtlasEntry, AtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel } from "./ui/modelCache";
 import type { Prog } from "./ui/modelCache";
 import { AtlasLoader, mbText, stagesFrom } from "./ui/AtlasLoader";
+import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { readCssColor } from "@/lib/atlas/theme";
 import { trackAtlas } from "@/lib/atlas/progress";
 import {
@@ -458,15 +459,47 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
   });
 }
 
+/** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
+const INFLATE = { value: 0 };
+function inflate(m: THREE.MeshStandardMaterial) {
+  m.onBeforeCompile = (s) => {
+    s.uniforms.uInflate = INFLATE;
+    s.vertexShader = "uniform float uInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uInflate;");
+  };
+  m.customProgramCacheKey = () => "atlas-inflate";
+}
+function setInflate(on: boolean) {
+  INFLATE.value = on ? 0.00045 : 0;
+}
+
 function buildGrossMats(look: Look): Record<string, THREE.MeshStandardMaterial> {
   const out: Record<string, THREE.MeshStandardMaterial> = {};
   for (const g of GROUPS) {
     const color = look === "regions" ? LOBE_TINT[g] : (BRAIN_TINT[g] ?? CORTEX_TINT);
     out[g] = new THREE.MeshStandardMaterial({ color, vertexColors: true, roughness: 0.62, metalness: 0 });
+    inflate(out[g]);
   }
-  // meshes that are not on the syllabus: grey and flat, so they read as "locked"
-  out.locked = new THREE.MeshStandardMaterial({ color: "#a4a5aa", vertexColors: true, roughness: 0.9, metalness: 0 });
+  // meshes that are not on the syllabus: a desaturated, slightly lighter warm grey-pink (still "part of the brain"); the lock shows on hover
+  out.locked = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#b3a9aa" : "#d0b6ab", vertexColors: true, roughness: 0.7, metalness: 0 });
+  inflate(out.locked);
   return out;
+}
+
+/** Smooth shading: merge duplicated vertices (position + colour) and rebuild vertex normals once per cached geometry. */
+const smoothCache = new WeakMap<THREE.BufferGeometry, THREE.BufferGeometry>();
+function smoothGeometry(m: THREE.Mesh) {
+  const src = m.geometry;
+  const hit = smoothCache.get(src);
+  if (hit) {
+    m.geometry = hit;
+    return;
+  }
+  const g = src.clone();
+  g.deleteAttribute("normal");
+  const merged = mergeVertices(g, 1e-6);
+  merged.computeVertexNormals();
+  smoothCache.set(src, merged);
+  m.geometry = merged;
 }
 
 /** Back-face "inverted hull" outline: the mesh is drawn again, pushed outward in view space by a constant number of pixels. */
@@ -513,7 +546,8 @@ function configureGross(
     m.side = planes.length ? THREE.DoubleSide : THREE.FrontSide;
     m.needsUpdate = true;
   }
-  styleHull(hull, look === "regions" ? "#14111c" : "#33211d", solid && op >= 1);
+  styleHull(hull, look === "regions" ? "#3a3646" : "#6a4e46", solid && op >= 1);
+  setInflate(solid && op >= 1);
   hull.clippingPlanes = planes;
   hull.needsUpdate = true;
 }
@@ -540,6 +574,7 @@ function tagGross(root: THREE.Object3D, structures: Record<string, AtlasEntry>):
     let n: THREE.Object3D | null = m;
     while (n && !structures[n.name]) n = n.parent;
     if (!n) return;
+    smoothGeometry(m);
     m.userData.gid = n.name;
     m.userData.g = groupOf(structures[n.name]);
     byId.set(n.name, m);
@@ -979,7 +1014,7 @@ function Scene({
     [dim],
   );
   const accentHull = useMemo(() => makeHull("#" + accent.clone().multiplyScalar(1.15).getHexString(), 0.0024), [accent]);
-  const grossHull = useMemo(() => makeHull("#33211d", 0.0013), []);
+  const grossHull = useMemo(() => makeHull("#6a4e46", 0.0008), []);
   const grossMats = useMemo(() => buildGrossMats(look), [look]);
   const hoverMat = useMemo(
     () =>
@@ -1164,7 +1199,7 @@ function Scene({
   // fills the holes between the gross meshes: a dark cortex-coloured shell behind them (solid brain only)
   const backMat = useMemo(
     () =>
-      new THREE.MeshStandardMaterial({ color: look === "regions" ? "#3d3a48" : "#5e4640", roughness: 1, metalness: 0, polygonOffset: true, polygonOffsetFactor: 4, polygonOffsetUnits: 4 }),
+      new THREE.MeshStandardMaterial({ color: look === "regions" ? "#7a7484" : "#8f6c62", roughness: 1, metalness: 0, polygonOffset: true, polygonOffsetFactor: 4, polygonOffsetUnits: 4 }),
     [look],
   );
   useEffect(() => () => backMat.dispose(), [backMat]);
@@ -1182,8 +1217,10 @@ function Scene({
       }
     });
     drop.forEach((o) => o.removeFromParent());
+    g.scale.setScalar(0.985); // a little inward of the gyri
+    g.position.copy(centre).multiplyScalar(1 - 0.985);
     return g;
-  }, [loaded.ctx, backMat]);
+  }, [loaded.ctx, backMat, centre]);
 
   const ovlRoot = useMemo(() => {
     const root = new THREE.Group();

@@ -49,6 +49,18 @@ const FLOW_TEXT: Record<string, string> = {
 
 const INFERIOR: [number, number, number] = [0, -1, 0.02];
 const LATERAL: [number, number, number] = [1, 0, 0];
+/** "If this vessel is blocked": slide-level deficits only (lecture 16 slides 19, 25-26; lab 16; lecture 18 slide 26). */
+const DEFICIT: Record<string, string> = {
+  aca: "Contralateral leg weakness and sensory loss (lower extremity), and behavioural change (medial frontal lobe, cingulate gyrus, basal forebrain).",
+  mca: "Contralateral face and arm weakness and sensory loss, speech disturbance (Broca's area) and auditory deficits. Most ischemic strokes are here: 80 % of internal carotid flow goes to the MCA.",
+  pca: "Loss of vision (occipital lobe), thalamic and posterior limb of the internal capsule deficits, and damage to the inferior temporal 'what' pathway.",
+  lenti: "A lacunar infarct: motor, sensory and cognitive deficits from the basal ganglia and the anterior limb of the internal capsule.",
+  ica: "Often shows up as an MCA-territory stroke, because most of the internal carotid flow goes to the MCA.",
+  vert: "Brainstem and cerebellar damage; blockage of the basilar artery is often fatal.",
+  pontine: "Small penetrating branches: a blockage can hit cranial nerve nuclei, the reticular formation or cortical efferents in that part of the pons.",
+  asa: "A spinal cord lesion of the ventral half of the cord (both sides): both ventral horns, intermediate grey and part of each dorsal horn and lateral funiculus.",
+  psa: "A spinal cord lesion of a dorsal wedge on one side: much of the dorsal horn and the whole dorsal column on that side.",
+};
 const ARTERY_GROUPS: { label: string; ids: string[] }[] = [
   { label: "Anterior circulation (internal carotid)", ids: ["ica", "aca", "mca", "achor", "lenti"] },
   { label: "Posterior circulation (vertebrobasilar)", ids: ["vert", "pontine", "sca", "aica", "pica", "pca", "pcomm", "asa", "psa"] },
@@ -364,6 +376,12 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
           {a.name}
         </h2>
         <p className="text-sm">{a.territory}</p>
+        {DEFICIT[a.id] && (
+          <p className="rounded-sm border border-again/40 bg-again/5 px-2 py-1 text-sm">
+            <span className="eyebrow text-again">If blocked </span>
+            {DEFICIT[a.id]}
+          </p>
+        )}
         {FLOW_TEXT[a.id] && (
           <p className="text-sm text-text-dim">
             <span className="eyebrow">Blood flow </span>

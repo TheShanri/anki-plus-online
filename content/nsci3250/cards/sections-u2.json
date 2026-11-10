@@ -488,14 +488,16 @@
   "w": 1236,
   "h": 1600,
   "prompt": "Which brainstem / spinal level is this section?",
-  "answer": "Brainstem to spinal cord transition (motor decussation)",
+  "answer": "Cervicomedullary junction",
   "answer_kind": "level",
   "accept": [
    "motor decussation",
    "pyramidal decussation",
    "cervicomedullary junction",
    "spinal cord transition",
-   "medulla spinal cord junction"
+   "medulla spinal cord junction",
+   "brainstem to spinal cord transition",
+   "brainstem to spinal cord transition (motor decussation)"
   ],
   "require_side": false,
   "format": "type",
@@ -509,7 +511,7 @@
    "plane:horizontal",
    "modality:motor"
   ],
-  "explain": "Level of the motor (pyramidal) decussation at the medulla-spinal cord junction."
+  "explain": "Level of the motor (pyramidal) decussation at the medulla-spinal cord junction. The transition from brainstem to spinal cord, at the motor decussation."
  },
  {
   "slug": "sections-u2-fac-colliculus",
@@ -641,7 +643,7 @@
    "ref": "lab-8, lab-10, lecture-6"
   },
   "prompt": "At which brainstem level does the superior cerebellar peduncle decussate?",
-  "answer": "Caudal midbrain (inferior colliculus level)",
+  "answer": "Caudal midbrain",
   "answer_kind": "level",
   "accept": [
    "caudal midbrain",
@@ -660,7 +662,8 @@
    "plane:horizontal",
    "modality:auditory",
    "modality:motor"
-  ]
+  ],
+  "explain": "Inferior colliculus level."
  },
  {
   "slug": "sections-u2-sc-level",
@@ -673,7 +676,7 @@
    "ref": "lab-8, lab-10, lecture-6"
   },
   "prompt": "Which midbrain level shows the red nuclei and the substantia nigra?",
-  "answer": "Rostral midbrain (superior colliculus level)",
+  "answer": "Rostral midbrain",
   "answer_kind": "level",
   "accept": [
    "rostral midbrain",
@@ -692,7 +695,8 @@
    "plane:horizontal",
    "modality:visual",
    "modality:motor"
-  ]
+  ],
+  "explain": "Superior colliculus level."
  },
  {
   "slug": "sections-u2-motor-dec",
@@ -705,12 +709,14 @@
    "ref": "lab-8, lab-10, lecture-6"
   },
   "prompt": "At which level is the motor (pyramidal) decussation?",
-  "answer": "Brainstem to spinal cord transition (caudal medulla)",
+  "answer": "Caudal medulla",
   "answer_kind": "level",
   "accept": [
    "caudal medulla",
    "medulla spinal cord junction",
-   "cervicomedullary junction"
+   "cervicomedullary junction",
+   "brainstem to spinal cord transition",
+   "brainstem to spinal cord transition (caudal medulla)"
   ],
   "require_side": false,
   "format": "type",
@@ -723,6 +729,7 @@
    "region:brainstem",
    "plane:horizontal",
    "modality:motor"
-  ]
+  ],
+  "explain": "The transition from brainstem to spinal cord."
  }
 ]

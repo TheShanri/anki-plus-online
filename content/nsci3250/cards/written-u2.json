@@ -955,7 +955,7 @@
   "choices": [
    "The upper limb",
    "The face",
-   "The lower limb",
+   "Lower limb",
    "The spinal trigeminal nucleus",
    "The cerebellum"
   ],
@@ -969,7 +969,7 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "The lower limb"
+  "answer": "Lower limb"
  },
  {
   "slug": "written-u2-si-session-5-q05",
@@ -1053,7 +1053,7 @@
   "format": "choice",
   "choices": [
    "The mesencephalic nucleus",
-   "The trigeminal ganglion",
+   "Trigeminal ganglion",
    "The spinal trigeminal nucleus",
    "The hypoglossal nucleus",
    "The solitary nucleus"
@@ -1068,7 +1068,7 @@
    "source:practice-exam",
    "modality:sensory"
   ],
-  "answer": "The trigeminal ganglion",
+  "answer": "Trigeminal ganglion",
   "explain": "The first-order afferents of the trigeminal system have their pseudounipolar cell bodies in the trigeminal ganglion (also called the semilunar ganglion for its crescent shape). Their central processes enter the pons and synapse in the principal sensory nucleus (fine touch) or the spinal trigeminal nucleus."
  },
  {

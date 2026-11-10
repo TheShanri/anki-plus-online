@@ -13,8 +13,11 @@
   "facet": "lesion",
   "prompt": "A fracture through the floor of the anterior cranial fossa (frontal bone / cribriform region) most likely produces loss of which sense?",
   "format": "keywords",
-  "answer": "Smell (anosmia), with possible CSF rhinorrhoea",
-  "accept": [],
+  "answer": "Anosmia",
+  "accept": [
+   "loss of smell",
+   "smell"
+  ],
   "keywords": [
    [
     "smell",
@@ -31,7 +34,8 @@
    "source:supplementary",
    "region:skull",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Loss of smell (anosmia); a fracture here can also cause CSF rhinorrhoea."
  },
  {
   "slug": "theory-temporal-bone-lesion",
@@ -47,7 +51,7 @@
   "facet": "lesion",
   "prompt": "A blow to the thin temporal bone at the pterion can tear which artery, causing which bleed?",
   "format": "keywords",
-  "answer": "Middle meningeal artery; epidural hematoma",
+  "answer": "Middle meningeal artery and epidural hematoma",
   "accept": [],
   "keywords": [
    [
@@ -66,7 +70,23 @@
    "source:supplementary",
    "region:skull",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Middle meningeal artery",
+   "Epidural hematoma"
+  ],
+  "part_accept": {
+   "Middle meningeal artery": [
+    "middle meningeal",
+    "MMA"
+   ],
+   "Epidural hematoma": [
+    "epidural",
+    "extradural hematoma",
+    "extradural haematoma",
+    "epidural haematoma"
+   ]
+  }
  },
  {
   "slug": "theory-sphenoid-bone-passes",
@@ -82,8 +102,20 @@
   "facet": "passes",
   "prompt": "Name one cranial nerve that passes through the superior orbital fissure of the sphenoid.",
   "format": "keywords",
-  "answer": "III, IV, V1 (ophthalmic) or VI",
-  "accept": [],
+  "answer": "CN III",
+  "accept": [
+   "III",
+   "IV",
+   "V1",
+   "VI",
+   "CN IV",
+   "CN V1",
+   "CN VI",
+   "oculomotor",
+   "trochlear",
+   "abducens",
+   "ophthalmic"
+  ],
   "keywords": [
    [
     "oculomotor",
@@ -107,7 +139,8 @@
    "source:supplementary",
    "region:skull",
    "theory:passes"
-  ]
+  ],
+  "explain": "Superior orbital fissure: CN III, IV, V1 (ophthalmic) and VI."
  },
  {
   "slug": "theory-pterion-supply",
@@ -153,8 +186,12 @@
   "facet": "lesion",
   "prompt": "What type of hematoma follows a fracture at the pterion?",
   "format": "keywords",
-  "answer": "Epidural (extradural) hematoma",
-  "accept": [],
+  "answer": "Epidural hematoma",
+  "accept": [
+   "extradural hematoma",
+   "epidural",
+   "extradural haematoma"
+  ],
   "keywords": [
    [
     "epidural",
@@ -213,7 +250,7 @@
   "facet": "passes",
   "prompt": "Name one structure that passes through the foramen magnum.",
   "format": "keywords",
-  "answer": "Medulla/spinal cord junction, vertebral arteries, spinal accessory roots",
+  "answer": "Medulla-spinal cord junction",
   "accept": [],
   "keywords": [
    [
@@ -231,7 +268,8 @@
    "source:supplementary",
    "region:skull",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also the vertebral arteries and the spinal accessory roots (CN XI)."
  },
  {
   "slug": "theory-coronal-suture-connections",
@@ -247,7 +285,7 @@
   "facet": "connections",
   "prompt": "Which bones meet at the coronal suture?",
   "format": "keywords",
-  "answer": "Frontal and the two parietal bones",
+  "answer": "Frontal and parietal bones",
   "accept": [],
   "keywords": [
    [
@@ -266,7 +304,22 @@
    "region:skull",
    "plane:coronal",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Frontal bone",
+   "Parietal bones"
+  ],
+  "part_accept": {
+   "Frontal bone": [
+    "frontal"
+   ],
+   "Parietal bones": [
+    "parietal",
+    "parietals",
+    "two parietal bones"
+   ]
+  },
+  "explain": "The frontal bone meets the two parietal bones."
  },
  {
   "slug": "theory-sagittal-suture-connections",
@@ -282,8 +335,11 @@
   "facet": "connections",
   "prompt": "Which bones meet at the sagittal suture?",
   "format": "keywords",
-  "answer": "The two parietal bones",
-  "accept": [],
+  "answer": "Parietal bones",
+  "accept": [
+   "two parietal bones",
+   "parietal"
+  ],
   "keywords": [
    [
     "parietal"
@@ -314,7 +370,7 @@
   "facet": "connections",
   "prompt": "Which bones meet at the lambdoid suture?",
   "format": "keywords",
-  "answer": "Occipital and the two parietal bones",
+  "answer": "Occipital and parietal bones",
   "accept": [],
   "keywords": [
    [
@@ -332,7 +388,22 @@
    "source:supplementary",
    "region:skull",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Occipital bone",
+   "Parietal bones"
+  ],
+  "part_accept": {
+   "Occipital bone": [
+    "occipital"
+   ],
+   "Parietal bones": [
+    "parietal",
+    "parietals",
+    "two parietal bones"
+   ]
+  },
+  "explain": "The occipital bone meets the two parietal bones."
  },
  {
   "slug": "theory-anterior-cranial-fossa-passes",
@@ -348,7 +419,7 @@
   "facet": "passes",
   "prompt": "Which cranial nerve passes through the cribriform plate of the anterior cranial fossa?",
   "format": "type",
-  "answer": "Olfactory nerve (CN I)",
+  "answer": "Olfactory nerve",
   "accept": [
    "olfactory",
    "CN I",
@@ -381,8 +452,10 @@
   "facet": "connections",
   "prompt": "Which endocrine gland sits in the sella turcica of the middle cranial fossa?",
   "format": "keywords",
-  "answer": "Pituitary gland (hypophysis)",
-  "accept": [],
+  "answer": "Pituitary gland",
+  "accept": [
+   "hypophysis"
+  ],
   "keywords": [
    [
     "pituitary",
@@ -434,6 +507,11 @@
    "region:skull",
    "modality:motor",
    "theory:connections"
+  ],
+  "parts": [
+   "Cerebellum",
+   "Pons",
+   "Medulla"
   ]
  },
  {
@@ -450,7 +528,7 @@
   "facet": "function",
   "prompt": "Name one function of the dura mater.",
   "format": "keywords",
-  "answer": "Protects/supports the brain; forms the falx and tentorium; houses the venous sinuses",
+  "answer": "Protects the brain",
   "accept": [],
   "keywords": [
    [
@@ -470,7 +548,8 @@
    "source:supplementary",
    "region:meninges",
    "theory:function"
-  ]
+  ],
+  "explain": "Also supports the brain, forms the falx and tentorium, and houses the dural venous sinuses."
  },
  {
   "slug": "theory-dura-mater-supply",
@@ -547,7 +626,7 @@
   "facet": "function",
   "prompt": "Name one function of the arachnoid mater.",
   "format": "keywords",
-  "answer": "Encloses the subarachnoid space of CSF; arachnoid granulations drain CSF; barrier layer",
+  "answer": "Encloses the subarachnoid space (CSF)",
   "accept": [],
   "keywords": [
    [
@@ -565,7 +644,8 @@
    "source:supplementary",
    "region:meninges",
    "theory:function"
-  ]
+  ],
+  "explain": "Arachnoid granulations drain CSF into the venous sinuses; the arachnoid also acts as a barrier layer."
  },
  {
   "slug": "theory-pia-mater-function",
@@ -581,7 +661,7 @@
   "facet": "function",
   "prompt": "What does the pia mater do?",
   "format": "keywords",
-  "answer": "Covers the surface of brain and spinal cord closely, supporting vessels (forms denticulate ligaments, filum terminale)",
+  "answer": "Covers the brain and spinal cord surface",
   "accept": [],
   "keywords": [
    [
@@ -600,7 +680,8 @@
    "source:supplementary",
    "region:meninges",
    "theory:function"
-  ]
+  ],
+  "explain": "Closely adherent and supports the vessels; forms the denticulate ligaments and the filum terminale."
  },
  {
   "slug": "theory-subdural-space-lesion",
@@ -648,8 +729,12 @@
   "facet": "connections",
   "prompt": "Name one patient population with increased susceptibility to a subdural hematoma.",
   "format": "keywords",
-  "answer": "Elderly (falls), shaken infants, alcohol use",
-  "accept": [],
+  "answer": "Elderly",
+  "accept": [
+   "elderly (falls)",
+   "shaken infants",
+   "alcohol use"
+  ],
   "keywords": [
    [
     "elderly",
@@ -667,7 +752,8 @@
    "source:supplementary",
    "region:meninges",
    "theory:connections"
-  ]
+  ],
+  "explain": "Also shaken infants and heavy alcohol use (bridging veins tear more easily)."
  },
  {
   "slug": "theory-subarachnoid-space-lesion",
@@ -714,7 +800,7 @@
   "facet": "connections",
   "prompt": "What fluid fills the subarachnoid space?",
   "format": "type",
-  "answer": "Cerebrospinal fluid (CSF)",
+  "answer": "Cerebrospinal fluid",
   "accept": [
    "cerebrospinal fluid",
    "csf"
@@ -834,8 +920,13 @@
   "facet": "function",
   "prompt": "What does the falx cerebri separate?",
   "format": "keywords",
-  "answer": "The two cerebral hemispheres",
-  "accept": [],
+  "answer": "Cerebral hemispheres",
+  "accept": [
+   "the two cerebral hemispheres",
+   "two cerebral hemispheres",
+   "hemispheres",
+   "left and right hemispheres"
+  ],
   "keywords": [
    [
     "hemisphere",
@@ -868,7 +959,7 @@
   "facet": "function",
   "prompt": "What does the tentorium cerebelli separate?",
   "format": "keywords",
-  "answer": "The cerebellum from the occipital lobes (infratentorial vs supratentorial)",
+  "answer": "Cerebellum from the occipital lobes",
   "accept": [],
   "keywords": [
    [
@@ -889,7 +980,19 @@
    "region:meninges",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "Cerebellum",
+   "Occipital lobes"
+  ],
+  "part_accept": {
+   "Occipital lobes": [
+    "occipital lobe",
+    "cerebrum",
+    "cerebral hemispheres"
+   ]
+  },
+  "explain": "Infratentorial (cerebellum, brainstem) versus supratentorial (cerebrum)."
  },
  {
   "slug": "theory-tentorium-cerebelli-lesion",
@@ -905,8 +1008,10 @@
   "facet": "lesion",
   "prompt": "Uncal herniation over the tentorial edge compresses which cranial nerve?",
   "format": "keywords",
-  "answer": "Oculomotor nerve (CN III)",
-  "accept": [],
+  "answer": "Oculomotor nerve",
+  "accept": [
+   "CN III"
+  ],
   "keywords": [
    [
     "oculomotor",
@@ -941,7 +1046,7 @@
   "facet": "function",
   "prompt": "Name one function of the cerebral cortex.",
   "format": "keywords",
-  "answer": "Higher cognition, voluntary movement, sensory perception, language",
+  "answer": "Higher cognition",
   "accept": [],
   "keywords": [
    [
@@ -963,7 +1068,8 @@
    "source:supplementary",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Also voluntary movement, sensory perception and language."
  },
  {
   "slug": "theory-cerebral-cortex-embryology",
@@ -1007,7 +1113,7 @@
   "facet": "function",
   "prompt": "Name one function of the cerebellum.",
   "format": "keywords",
-  "answer": "Coordination, balance, motor learning and timing of movement",
+  "answer": "Coordination of movement",
   "accept": [],
   "keywords": [
    [
@@ -1028,7 +1134,8 @@
    "region:cerebellum",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Also balance, motor learning and timing of movement."
  },
  {
   "slug": "theory-cerebellum-embryology",
@@ -1072,8 +1179,10 @@
   "facet": "lesion",
   "prompt": "Which side shows ataxia after a unilateral cerebellar lesion?",
   "format": "keywords",
-  "answer": "Ipsilateral (same side)",
-  "accept": [],
+  "answer": "Ipsilateral",
+  "accept": [
+   "same side"
+  ],
   "keywords": [
    [
     "ipsilateral",
@@ -1105,7 +1214,7 @@
   "facet": "function",
   "prompt": "Name one function of the brainstem.",
   "format": "keywords",
-  "answer": "Conduit for tracts; cranial nerve nuclei; arousal and vital reflexes",
+  "answer": "Conduit for tracts",
   "accept": [],
   "keywords": [
    [
@@ -1125,7 +1234,8 @@
    "kind:theory",
    "source:supplementary",
    "theory:function"
-  ]
+  ],
+  "explain": "Also houses cranial nerve nuclei and mediates arousal and vital reflexes."
  },
  {
   "slug": "theory-brainstem-connections",
@@ -1161,7 +1271,13 @@
    "kind:theory",
    "source:supplementary",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Midbrain",
+   "Pons",
+   "Medulla"
+  ],
+  "parts_ordered": true
  },
  {
   "slug": "theory-midbrain-embryology",
@@ -1314,7 +1430,7 @@
   "facet": "function",
   "prompt": "Name one function of the thalamus.",
   "format": "keywords",
-  "answer": "Relay of sensory information to the cortex (except olfaction); motor and limbic relays",
+  "answer": "Sensory relay to the cortex",
   "accept": [],
   "keywords": [
    [
@@ -1336,7 +1452,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Relays all senses except olfaction; also has motor and limbic relays."
  },
  {
   "slug": "theory-hypothalamus-function",
@@ -1352,7 +1469,7 @@
   "facet": "function",
   "prompt": "Name one function of the hypothalamus.",
   "format": "keywords",
-  "answer": "Homeostasis: temperature, hunger, thirst, circadian rhythm, endocrine and autonomic control",
+  "answer": "Homeostasis",
   "accept": [],
   "keywords": [
    [
@@ -1377,7 +1494,8 @@
    "region:diencephalon",
    "modality:autonomic",
    "theory:function"
-  ]
+  ],
+  "explain": "Temperature, hunger, thirst, circadian rhythm, endocrine and autonomic control."
  },
  {
   "slug": "theory-lateral-ventricle-function",
@@ -1393,7 +1511,7 @@
   "facet": "function",
   "prompt": "What is the main function of the lateral ventricles?",
   "format": "keywords",
-  "answer": "Contain choroid plexus that makes CSF; CSF passes via the foramina of Monro",
+  "answer": "Contain choroid plexus that makes CSF",
   "accept": [],
   "keywords": [
    [
@@ -1410,7 +1528,8 @@
    "source:supplementary",
    "region:ventricles",
    "theory:function"
-  ]
+  ],
+  "explain": "CSF then passes through the interventricular foramina (of Monro)."
  },
  {
   "slug": "theory-lateral-ventricle-connections",
@@ -1426,10 +1545,11 @@
   "facet": "connections",
   "prompt": "Through which foramen does the lateral ventricle drain into the third ventricle?",
   "format": "type",
-  "answer": "Interventricular foramen (of Monro)",
+  "answer": "Interventricular foramen",
   "accept": [
    "monro",
-   "interventricular"
+   "interventricular",
+   "Interventricular foramen of Monro"
   ],
   "keywords": null,
   "choices": null,
@@ -1490,11 +1610,12 @@
   "facet": "connections",
   "prompt": "Which channel connects the third ventricle to the fourth ventricle?",
   "format": "type",
-  "answer": "Cerebral aqueduct (of Sylvius)",
+  "answer": "Cerebral aqueduct",
   "accept": [
    "cerebral aqueduct",
    "aqueduct",
-   "sylvius"
+   "sylvius",
+   "Cerebral aqueduct of Sylvius"
   ],
   "keywords": null,
   "choices": null,
@@ -1521,8 +1642,10 @@
   "facet": "lesion",
   "prompt": "Aqueductal stenosis causes which condition?",
   "format": "keywords",
-  "answer": "Obstructive (non-communicating) hydrocephalus",
-  "accept": [],
+  "answer": "Obstructive hydrocephalus",
+  "accept": [
+   "non-communicating hydrocephalus"
+  ],
   "keywords": [
    [
     "hydrocephalus"
@@ -1552,7 +1675,7 @@
   "facet": "connections",
   "prompt": "Name one aperture through which CSF leaves the fourth ventricle.",
   "format": "keywords",
-  "answer": "Foramen of Magendie (median) or foramina of Luschka (lateral)",
+  "answer": "Foramen of Magendie or foramina of Luschka",
   "accept": [],
   "keywords": [
    [
@@ -1570,7 +1693,8 @@
    "source:supplementary",
    "region:ventricles",
    "theory:connections"
-  ]
+  ],
+  "explain": "Magendie is the median aperture; the Luschka foramina are the lateral apertures."
  },
  {
   "slug": "theory-foramen-of-magendie-connections",
@@ -1586,8 +1710,10 @@
   "facet": "connections",
   "prompt": "Does the foramen of Magendie lie in the midline or laterally?",
   "format": "keywords",
-  "answer": "Midline (median aperture)",
-  "accept": [],
+  "answer": "Midline",
+  "accept": [
+   "median aperture"
+  ],
   "keywords": [
    [
     "median",
@@ -1618,8 +1744,10 @@
   "facet": "connections",
   "prompt": "The foramina of Luschka open into which space?",
   "format": "keywords",
-  "answer": "Subarachnoid space (cerebellopontine angle)",
-  "accept": [],
+  "answer": "Subarachnoid space",
+  "accept": [
+   "cerebellopontine angle"
+  ],
   "keywords": [
    [
     "subarachnoid",
@@ -1783,7 +1911,7 @@
   "facet": "function",
   "prompt": "What is the function of the corpus callosum?",
   "format": "keywords",
-  "answer": "Connects the two hemispheres, transferring information",
+  "answer": "Connects the two hemispheres",
   "accept": [],
   "keywords": [
    [
@@ -1802,7 +1930,8 @@
    "source:supplementary",
    "region:cerebrum",
    "theory:function"
-  ]
+  ],
+  "explain": "It transfers information between them."
  },
  {
   "slug": "theory-corpus-callosum-connections",
@@ -1847,7 +1976,7 @@
   "facet": "function",
   "prompt": "Name one function of the basal ganglia.",
   "format": "keywords",
-  "answer": "Selection and initiation of voluntary movement, habit, reward",
+  "answer": "Selection and initiation of voluntary movement",
   "accept": [],
   "keywords": [
    [
@@ -1868,7 +1997,8 @@
    "region:cerebrum",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Also habit and reward."
  },
  {
   "slug": "theory-basal-ganglia-lesion",
@@ -1884,7 +2014,7 @@
   "facet": "lesion",
   "prompt": "Name one disease of the basal ganglia.",
   "format": "keywords",
-  "answer": "Parkinson disease, Huntington disease, hemiballismus",
+  "answer": "Parkinson disease",
   "accept": [],
   "keywords": [
    [
@@ -1904,7 +2034,8 @@
    "region:cerebrum",
    "modality:motor",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Also Huntington disease and hemiballismus."
  },
  {
   "slug": "theory-hippocampus-function",
@@ -1920,7 +2051,7 @@
   "facet": "function",
   "prompt": "What is the main function of the hippocampus?",
   "format": "keywords",
-  "answer": "Formation of new declarative memory (and spatial navigation)",
+  "answer": "Formation of new declarative memory",
   "accept": [],
   "keywords": [
    [
@@ -1939,7 +2070,8 @@
    "region:cerebrum",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "Also spatial navigation."
  },
  {
   "slug": "theory-hippocampus-lesion",
@@ -1988,7 +2120,7 @@
   "facet": "function",
   "prompt": "Name one function of the amygdala.",
   "format": "keywords",
-  "answer": "Emotional processing, fear, emotional memory",
+  "answer": "Emotional processing",
   "accept": [],
   "keywords": [
    [
@@ -2008,7 +2140,8 @@
    "region:cerebrum",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "Also fear and emotional memory."
  },
  {
   "slug": "theory-amygdala-connections",
@@ -2052,8 +2185,10 @@
   "facet": "lesion",
   "prompt": "Uncal herniation compresses which cranial nerve, producing a blown pupil?",
   "format": "keywords",
-  "answer": "Oculomotor nerve (CN III)",
-  "accept": [],
+  "answer": "Oculomotor nerve",
+  "accept": [
+   "CN III"
+  ],
   "keywords": [
    [
     "oculomotor",
@@ -2120,7 +2255,7 @@
   "facet": "function",
   "prompt": "Name the memory circuit in which the mammillary bodies participate.",
   "format": "keywords",
-  "answer": "Papez circuit (limbic memory loop)",
+  "answer": "Papez circuit",
   "accept": [],
   "keywords": [
    [
@@ -2136,7 +2271,8 @@
    "region:diencephalon",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "Limbic memory loop."
  },
  {
   "slug": "theory-mammillary-bodies-lesion",
@@ -2217,8 +2353,12 @@
   "facet": "connections",
   "prompt": "Which retinal fibres decussate in the optic chiasm?",
   "format": "keywords",
-  "answer": "Nasal (medial) retinal fibres",
-  "accept": [],
+  "answer": "Nasal retinal fibres",
+  "accept": [
+   "medial retinal fibres",
+   "nasal fibres",
+   "nasal"
+  ],
   "keywords": [
    [
     "nasal",
@@ -2250,8 +2390,10 @@
   "facet": "connections",
   "prompt": "Which structure does the pituitary stalk join to the pituitary gland?",
   "format": "keywords",
-  "answer": "Hypothalamus (infundibulum)",
-  "accept": [],
+  "answer": "Hypothalamus",
+  "accept": [
+   "infundibulum"
+  ],
   "keywords": [
    [
     "hypothalamus"
@@ -2281,8 +2423,12 @@
   "facet": "connections",
   "prompt": "The interthalamic adhesion bridges which two structures?",
   "format": "keywords",
-  "answer": "The two thalami",
-  "accept": [],
+  "answer": "Thalami",
+  "accept": [
+   "the two thalami",
+   "two thalami",
+   "thalamus"
+  ],
   "keywords": [
    [
     "thalami",
@@ -2313,8 +2459,11 @@
   "facet": "connections",
   "prompt": "The septum pellucidum separates which two structures?",
   "format": "keywords",
-  "answer": "The two lateral ventricles (anterior horns)",
-  "accept": [],
+  "answer": "Lateral ventricles",
+  "accept": [
+   "the two lateral ventricles",
+   "two lateral ventricles"
+  ],
   "keywords": [
    [
     "lateral ventricle",
@@ -2329,7 +2478,8 @@
    "source:supplementary",
    "region:ventricles",
    "theory:connections"
-  ]
+  ],
+  "explain": "It separates the anterior (frontal) horns of the two lateral ventricles."
  },
  {
   "slug": "theory-primary-motor-cortex-brodmann",
@@ -2443,8 +2593,10 @@
   "facet": "lesion",
   "prompt": "A lesion of the right primary motor cortex produces weakness on which side?",
   "format": "keywords",
-  "answer": "Left (contralateral)",
-  "accept": [],
+  "answer": "Left",
+  "accept": [
+   "contralateral"
+  ],
   "keywords": [
    [
     "left",
@@ -2561,7 +2713,25 @@
    "source:supplementary",
    "region:cortex",
    "theory:brodmann"
-  ]
+  ],
+  "parts": [
+   "BA 44",
+   "BA 45"
+  ],
+  "part_accept": {
+   "BA 44": [
+    "44",
+    "area 44",
+    "Brodmann area 44",
+    "Brodmann's area 44"
+   ],
+   "BA 45": [
+    "45",
+    "area 45",
+    "Brodmann area 45",
+    "Brodmann's area 45"
+   ]
+  }
  },
  {
   "slug": "theory-broca-s-area-function",
@@ -2612,8 +2782,13 @@
   "facet": "lesion",
   "prompt": "Damage to Broca's area causes which type of aphasia?",
   "format": "keywords",
-  "answer": "Non-fluent (expressive) aphasia",
-  "accept": [],
+  "answer": "Non-fluent aphasia",
+  "accept": [
+   "expressive aphasia",
+   "Broca aphasia",
+   "nonfluent aphasia",
+   "non-fluent (expressive) aphasia"
+  ],
   "keywords": [
    [
     "expressive",
@@ -2738,8 +2913,12 @@
   "facet": "lesion",
   "prompt": "Damage to Wernicke's area causes which type of aphasia?",
   "format": "keywords",
-  "answer": "Fluent (receptive) aphasia",
-  "accept": [],
+  "answer": "Fluent aphasia",
+  "accept": [
+   "receptive aphasia",
+   "Wernicke aphasia",
+   "fluent (receptive) aphasia"
+  ],
   "keywords": [
    [
     "receptive",
@@ -2771,7 +2950,7 @@
   "facet": "function",
   "prompt": "Name one function of the anterior cingulate cortex.",
   "format": "keywords",
-  "answer": "Emotion, motivation, error monitoring, pain affect",
+  "answer": "Emotion",
   "accept": [],
   "keywords": [
    [
@@ -2792,7 +2971,8 @@
    "region:cortex",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "Also motivation, error monitoring and pain affect."
  },
  {
   "slug": "theory-dorsolateral-prefrontal-cortex-function",
@@ -2808,7 +2988,7 @@
   "facet": "function",
   "prompt": "Name one function of the dorsolateral prefrontal cortex.",
   "format": "keywords",
-  "answer": "Executive function: working memory, planning, attention",
+  "answer": "Executive function",
   "accept": [],
   "keywords": [
    [
@@ -2827,7 +3007,8 @@
    "source:supplementary",
    "region:cortex",
    "theory:function"
-  ]
+  ],
+  "explain": "Working memory, planning and attention."
  },
  {
   "slug": "theory-orbitofrontal-cortex-function",
@@ -2843,7 +3024,7 @@
   "facet": "function",
   "prompt": "Name one function of the orbitofrontal cortex.",
   "format": "keywords",
-  "answer": "Reward valuation, decision-making, social behaviour, inhibition",
+  "answer": "Reward valuation",
   "accept": [],
   "keywords": [
    [
@@ -2862,7 +3043,8 @@
    "source:supplementary",
    "region:cortex",
    "theory:function"
-  ]
+  ],
+  "explain": "Also decision-making, social behaviour and inhibition."
  },
  {
   "slug": "theory-orbitofrontal-cortex-lesion",
@@ -2878,8 +3060,10 @@
   "facet": "lesion",
   "prompt": "Damage to the orbitofrontal cortex classically causes what behavioural change?",
   "format": "keywords",
-  "answer": "Disinhibition, inappropriate social behaviour (e.g. Phineas Gage)",
-  "accept": [],
+  "answer": "Disinhibition",
+  "accept": [
+   "inappropriate social behaviour"
+  ],
   "keywords": [
    [
     "disinhibition",
@@ -2897,7 +3081,8 @@
    "source:supplementary",
    "region:cortex",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Classically inappropriate social behaviour (e.g. Phineas Gage)."
  },
  {
   "slug": "theory-ventromedial-prefrontal-cortex-function",
@@ -2913,7 +3098,7 @@
   "facet": "function",
   "prompt": "Name one function of the ventromedial prefrontal cortex.",
   "format": "keywords",
-  "answer": "Emotion regulation, value-based decisions, social cognition",
+  "answer": "Emotion regulation",
   "accept": [],
   "keywords": [
    [
@@ -2932,7 +3117,8 @@
    "source:supplementary",
    "region:cortex",
    "theory:function"
-  ]
+  ],
+  "explain": "Also value-based decisions and social cognition."
  },
  {
   "slug": "theory-primary-somatosensory-cortex-brodmann",
@@ -2970,7 +3156,32 @@
    "region:cortex",
    "modality:sensory",
    "theory:brodmann"
-  ]
+  ],
+  "parts": [
+   "BA 3",
+   "BA 1",
+   "BA 2"
+  ],
+  "part_accept": {
+   "BA 3": [
+    "3",
+    "area 3",
+    "Brodmann area 3",
+    "Brodmann's area 3"
+   ],
+   "BA 1": [
+    "1",
+    "area 1",
+    "Brodmann area 1",
+    "Brodmann's area 1"
+   ],
+   "BA 2": [
+    "2",
+    "area 2",
+    "Brodmann area 2",
+    "Brodmann's area 2"
+   ]
+  }
  },
  {
   "slug": "theory-primary-somatosensory-cortex-function",
@@ -2986,7 +3197,7 @@
   "facet": "function",
   "prompt": "What is the function of the primary somatosensory cortex?",
   "format": "keywords",
-  "answer": "Conscious perception of touch, vibration, proprioception from the contralateral body",
+  "answer": "Conscious perception of body sensation",
   "accept": [],
   "keywords": [
    [
@@ -3006,7 +3217,8 @@
    "region:cortex",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Touch, vibration and proprioception from the contralateral body."
  },
  {
   "slug": "theory-primary-somatosensory-cortex-supply",
@@ -3055,10 +3267,11 @@
   "facet": "connections",
   "prompt": "Which thalamic nucleus relays body sensation to the primary somatosensory cortex?",
   "format": "type",
-  "answer": "VPL (ventral posterolateral nucleus)",
+  "answer": "Ventral posterolateral nucleus",
   "accept": [
    "VPL",
-   "ventral posterolateral"
+   "ventral posterolateral",
+   "VPL (ventral posterolateral nucleus)"
   ],
   "keywords": null,
   "choices": null,
@@ -3105,7 +3318,25 @@
    "region:cortex",
    "modality:sensory",
    "theory:brodmann"
-  ]
+  ],
+  "parts": [
+   "BA 5",
+   "BA 7"
+  ],
+  "part_accept": {
+   "BA 5": [
+    "5",
+    "area 5",
+    "Brodmann area 5",
+    "Brodmann's area 5"
+   ],
+   "BA 7": [
+    "7",
+    "area 7",
+    "Brodmann area 7",
+    "Brodmann's area 7"
+   ]
+  }
  },
  {
   "slug": "theory-somatosensory-association-cortex-lesion",
@@ -3121,8 +3352,10 @@
   "facet": "lesion",
   "prompt": "Damage to the somatosensory association cortex causes inability to recognise objects by touch. What is this called?",
   "format": "keywords",
-  "answer": "Astereognosis (tactile agnosia)",
-  "accept": [],
+  "answer": "Astereognosis",
+  "accept": [
+   "tactile agnosia"
+  ],
   "keywords": [
    [
     "astereognosis",
@@ -3154,8 +3387,12 @@
   "facet": "lesion",
   "prompt": "A right parietal association lesion causes which syndrome?",
   "format": "keywords",
-  "answer": "Contralateral (left) hemineglect",
-  "accept": [],
+  "answer": "Contralateral hemineglect",
+  "accept": [
+   "left hemineglect",
+   "hemispatial neglect",
+   "neglect"
+  ],
   "keywords": [
    [
     "neglect",
@@ -3217,7 +3454,7 @@
   "facet": "supply",
   "prompt": "Which artery supplies the primary visual cortex?",
   "format": "keywords",
-  "answer": "Posterior cerebral artery (calcarine branch)",
+  "answer": "Posterior cerebral artery",
   "accept": [],
   "keywords": [
    [
@@ -3235,7 +3472,8 @@
    "region:cortex",
    "modality:visual",
    "theory:supply"
-  ]
+  ],
+  "explain": "Calcarine branch."
  },
  {
   "slug": "theory-primary-visual-cortex-lesion",
@@ -3336,7 +3574,25 @@
    "region:cortex",
    "modality:visual",
    "theory:brodmann"
-  ]
+  ],
+  "parts": [
+   "BA 18",
+   "BA 19"
+  ],
+  "part_accept": {
+   "BA 18": [
+    "18",
+    "area 18",
+    "Brodmann area 18",
+    "Brodmann's area 18"
+   ],
+   "BA 19": [
+    "19",
+    "area 19",
+    "Brodmann area 19",
+    "Brodmann's area 19"
+   ]
+  }
  },
  {
   "slug": "theory-visual-association-cortex-lesion",
@@ -3352,7 +3608,7 @@
   "facet": "lesion",
   "prompt": "Damage to the ventral occipitotemporal visual association cortex impairs recognition of what?",
   "format": "keywords",
-  "answer": "Faces and objects (agnosia, prosopagnosia)",
+  "answer": "Faces and objects",
   "accept": [],
   "keywords": [
    [
@@ -3372,7 +3628,22 @@
    "region:cortex",
    "modality:visual",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Faces",
+   "Objects"
+  ],
+  "part_accept": {
+   "Faces": [
+    "face",
+    "prosopagnosia"
+   ],
+   "Objects": [
+    "object",
+    "agnosia"
+   ]
+  },
+  "explain": "Visual agnosia and prosopagnosia."
  },
  {
   "slug": "theory-primary-auditory-cortex-brodmann",
@@ -3407,7 +3678,25 @@
    "region:cortex",
    "modality:auditory",
    "theory:brodmann"
-  ]
+  ],
+  "parts": [
+   "BA 41",
+   "BA 42"
+  ],
+  "part_accept": {
+   "BA 41": [
+    "41",
+    "area 41",
+    "Brodmann area 41",
+    "Brodmann's area 41"
+   ],
+   "BA 42": [
+    "42",
+    "area 42",
+    "Brodmann area 42",
+    "Brodmann's area 42"
+   ]
+  }
  },
  {
   "slug": "theory-primary-auditory-cortex-connections",
@@ -3517,7 +3806,7 @@
   "facet": "function",
   "prompt": "Name one function of the temporal association cortex.",
   "format": "keywords",
-  "answer": "Object and face recognition, semantic memory, language",
+  "answer": "Object and face recognition",
   "accept": [],
   "keywords": [
    [
@@ -3537,7 +3826,8 @@
    "source:supplementary",
    "region:cortex",
    "theory:function"
-  ]
+  ],
+  "explain": "Also semantic memory and language."
  },
  {
   "slug": "theory-association-fibers-function",
@@ -3587,8 +3877,12 @@
   "facet": "function",
   "prompt": "What do commissural fibres connect?",
   "format": "keywords",
-  "answer": "The two hemispheres (corresponding areas)",
-  "accept": [],
+  "answer": "Cerebral hemispheres",
+  "accept": [
+   "the two hemispheres",
+   "two hemispheres",
+   "left and right hemispheres"
+  ],
   "keywords": [
    [
     "hemispheres",
@@ -3606,7 +3900,8 @@
    "source:supplementary",
    "region:white-matter",
    "theory:function"
-  ]
+  ],
+  "explain": "They connect corresponding areas of the two hemispheres."
  },
  {
   "slug": "theory-projection-fibers-function",
@@ -3622,7 +3917,7 @@
   "facet": "function",
   "prompt": "What do projection fibres connect?",
   "format": "keywords",
-  "answer": "Cortex with subcortical structures (thalamus, brainstem, spinal cord)",
+  "answer": "Cortex with subcortical structures",
   "accept": [],
   "keywords": [
    [
@@ -3641,7 +3936,8 @@
    "source:supplementary",
    "region:white-matter",
    "theory:function"
-  ]
+  ],
+  "explain": "Thalamus, brainstem and spinal cord."
  },
  {
   "slug": "theory-anterior-commissure-connections",
@@ -3657,7 +3953,7 @@
   "facet": "connections",
   "prompt": "Which structures does the anterior commissure connect?",
   "format": "keywords",
-  "answer": "The two temporal lobes (amygdalae) and olfactory structures",
+  "answer": "Temporal lobes and olfactory structures",
   "accept": [],
   "keywords": [
    [
@@ -3675,7 +3971,26 @@
    "region:white-matter",
    "modality:olfactory",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Temporal lobes",
+   "Olfactory structures"
+  ],
+  "part_accept": {
+   "Temporal lobes": [
+    "temporal lobe",
+    "anterior temporal lobes",
+    "amygdalae",
+    "amygdala"
+   ],
+   "Olfactory structures": [
+    "olfactory",
+    "olfactory bulbs",
+    "anterior olfactory nuclei",
+    "olfactory tracts"
+   ]
+  },
+  "explain": "Course wording: connects the left and right (anterior) temporal lobes, involved in pain, olfaction, memory, emotion and speech (Lecture 2 slide 43, Lecture 13 slide 20). Includes the amygdalae and olfactory structures such as the olfactory bulbs/anterior olfactory nuclei."
  },
  {
   "slug": "theory-internal-capsule-passes",
@@ -3691,7 +4006,7 @@
   "facet": "passes",
   "prompt": "Name one tract passing through the internal capsule.",
   "format": "keywords",
-  "answer": "Corticospinal, corticobulbar, corticopontine, thalamocortical",
+  "answer": "Corticospinal tract",
   "accept": [],
   "keywords": [
    [
@@ -3711,7 +4026,8 @@
    "region:white-matter",
    "modality:motor",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also corticobulbar, corticopontine and thalamocortical fibres."
  },
  {
   "slug": "theory-internal-capsule-lesion",
@@ -3727,8 +4043,10 @@
   "facet": "lesion",
   "prompt": "A lacunar stroke of the posterior limb of the internal capsule causes what deficit?",
   "format": "keywords",
-  "answer": "Contralateral pure motor (or sensory) hemiparesis",
-  "accept": [],
+  "answer": "Contralateral pure motor hemiparesis",
+  "accept": [
+   "contralateral pure motor (or sensory) hemiparesis"
+  ],
   "keywords": [
    [
     "hemiparesis",
@@ -3747,7 +4065,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Or pure sensory hemiparesis, depending on the lacune."
  },
  {
   "slug": "theory-internal-capsule-supply",
@@ -3812,7 +4131,19 @@
    "modality:motor",
    "modality:sensory",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Precentral gyrus",
+   "Postcentral gyrus"
+  ],
+  "part_accept": {
+   "Precentral gyrus": [
+    "precentral"
+   ],
+   "Postcentral gyrus": [
+    "postcentral"
+   ]
+  }
  },
  {
   "slug": "theory-lateral-fissure-connections",
@@ -3995,8 +4326,12 @@
   "facet": "lesion",
   "prompt": "Damage to the left inferior frontal gyrus causes which aphasia?",
   "format": "keywords",
-  "answer": "Broca (non-fluent) aphasia",
-  "accept": [],
+  "answer": "Broca aphasia",
+  "accept": [
+   "non-fluent aphasia",
+   "expressive aphasia",
+   "Broca (non-fluent) aphasia"
+  ],
   "keywords": [
    [
     "broca",
@@ -4029,8 +4364,12 @@
   "facet": "lesion",
   "prompt": "Damage to the posterior left superior temporal gyrus causes which aphasia?",
   "format": "keywords",
-  "answer": "Wernicke (fluent, receptive) aphasia",
-  "accept": [],
+  "answer": "Wernicke aphasia",
+  "accept": [
+   "fluent aphasia",
+   "receptive aphasia",
+   "Wernicke (fluent, receptive) aphasia"
+  ],
   "keywords": [
    [
     "wernicke",
@@ -4128,8 +4467,10 @@
   "facet": "function",
   "prompt": "What is the function of the vertebral body?",
   "format": "keywords",
-  "answer": "Weight bearing; supports the body",
-  "accept": [],
+  "answer": "Weight bearing",
+  "accept": [
+   "supports the body"
+  ],
   "keywords": [
    [
     "weight",
@@ -4161,8 +4502,11 @@
   "facet": "connections",
   "prompt": "What passes through the vertebral foramen/canal?",
   "format": "keywords",
-  "answer": "The spinal cord (and meninges)",
-  "accept": [],
+  "answer": "Spinal cord",
+  "accept": [
+   "the spinal cord",
+   "spinal cord and meninges"
+  ],
   "keywords": [
    [
     "spinal cord",
@@ -4177,7 +4521,8 @@
    "source:supplementary",
    "region:vertebral-column",
    "theory:connections"
-  ]
+  ],
+  "explain": "Together with its meninges."
  },
  {
   "slug": "theory-intervertebral-disc-lesion",
@@ -4193,8 +4538,11 @@
   "facet": "lesion",
   "prompt": "A posterolateral disc herniation compresses which structure?",
   "format": "keywords",
-  "answer": "The spinal nerve root",
-  "accept": [],
+  "answer": "Spinal nerve root",
+  "accept": [
+   "the spinal nerve root",
+   "nerve root"
+  ],
   "keywords": [
    [
     "nerve root",
@@ -4226,8 +4574,10 @@
   "facet": "passes",
   "prompt": "What passes through the intervertebral foramen?",
   "format": "keywords",
-  "answer": "A spinal nerve (with the dorsal root ganglion)",
-  "accept": [],
+  "answer": "Spinal nerve",
+  "accept": [
+   "a spinal nerve"
+  ],
   "keywords": [
    [
     "spinal nerve",
@@ -4245,7 +4595,8 @@
    "region:vertebral-column",
    "modality:sensory",
    "theory:passes"
-  ]
+  ],
+  "explain": "Together with the dorsal root ganglion."
  },
  {
   "slug": "theory-spinous-process-function",
@@ -4261,7 +4612,7 @@
   "facet": "function",
   "prompt": "A lumbar puncture is performed by passing between which structures?",
   "format": "keywords",
-  "answer": "Between spinous processes (below L2)",
+  "answer": "Between spinous processes",
   "accept": [],
   "keywords": [
    [
@@ -4281,7 +4632,8 @@
    "source:supplementary",
    "region:vertebral-column",
    "theory:function"
-  ]
+  ],
+  "explain": "Below L2 (L3-L4 or L4-L5), under the end of the cord."
  },
  {
   "slug": "theory-conus-medullaris-level",
@@ -4329,7 +4681,7 @@
   "facet": "lesion",
   "prompt": "Conus medullaris syndrome gives early loss of which functions?",
   "format": "keywords",
-  "answer": "Bladder, bowel (and sexual) function with saddle anaesthesia",
+  "answer": "Bladder and bowel function",
   "accept": [],
   "keywords": [
    [
@@ -4347,7 +4699,20 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Bladder function",
+   "Bowel function"
+  ],
+  "part_accept": {
+   "Bladder function": [
+    "bladder"
+   ],
+   "Bowel function": [
+    "bowel"
+   ]
+  },
+  "explain": "Also sexual dysfunction, with saddle anaesthesia."
  },
  {
   "slug": "theory-cauda-equina-passes",
@@ -4363,7 +4728,7 @@
   "facet": "passes",
   "prompt": "What does the cauda equina consist of?",
   "format": "keywords",
-  "answer": "Lumbar and sacral spinal nerve roots",
+  "answer": "Lumbar and sacral nerve roots",
   "accept": [],
   "keywords": [
    [
@@ -4381,7 +4746,21 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:passes"
-  ]
+  ],
+  "parts": [
+   "Lumbar nerve roots",
+   "Sacral nerve roots"
+  ],
+  "part_accept": {
+   "Lumbar nerve roots": [
+    "lumbar roots",
+    "lumbar"
+   ],
+   "Sacral nerve roots": [
+    "sacral roots",
+    "sacral"
+   ]
+  }
  },
  {
   "slug": "theory-cauda-equina-lesion",
@@ -4397,7 +4776,7 @@
   "facet": "lesion",
   "prompt": "Name one sign of cauda equina syndrome.",
   "format": "keywords",
-  "answer": "Saddle anaesthesia, urinary retention, leg weakness, areflexia",
+  "answer": "Saddle anaesthesia",
   "accept": [],
   "keywords": [
    [
@@ -4417,7 +4796,8 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Also urinary retention, leg weakness and areflexia."
  },
  {
   "slug": "theory-filum-terminale-connections",
@@ -4495,7 +4875,7 @@
   "facet": "function",
   "prompt": "What do the denticulate ligaments do?",
   "format": "keywords",
-  "answer": "Anchor the spinal cord to the dura, suspending it in the dural sac",
+  "answer": "Anchor the spinal cord to the dura",
   "accept": [],
   "keywords": [
    [
@@ -4515,7 +4895,8 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:function"
-  ]
+  ],
+  "explain": "They suspend the cord in the dural sac."
  },
  {
   "slug": "theory-dorsal-root-function",
@@ -4531,8 +4912,10 @@
   "facet": "function",
   "prompt": "Do dorsal roots carry sensory or motor fibres?",
   "format": "keywords",
-  "answer": "Sensory (afferent)",
-  "accept": [],
+  "answer": "Sensory",
+  "accept": [
+   "afferent"
+  ],
   "keywords": [
    [
     "sensory",
@@ -4565,8 +4948,10 @@
   "facet": "function",
   "prompt": "Do ventral roots carry sensory or motor fibres?",
   "format": "keywords",
-  "answer": "Motor (efferent)",
-  "accept": [],
+  "answer": "Motor",
+  "accept": [
+   "efferent"
+  ],
   "keywords": [
    [
     "motor",
@@ -4665,8 +5050,12 @@
   "facet": "lesion",
   "prompt": "Which virus lies dormant in the dorsal root ganglia and causes a dermatomal rash?",
   "format": "keywords",
-  "answer": "Varicella zoster (herpes zoster)",
-  "accept": [],
+  "answer": "Varicella zoster",
+  "accept": [
+   "herpes zoster",
+   "varicella zoster virus",
+   "shingles virus"
+  ],
   "keywords": [
    [
     "varicella",
@@ -4700,8 +5089,11 @@
   "facet": "function",
   "prompt": "Are spinal nerves sensory, motor or mixed?",
   "format": "keywords",
-  "answer": "Mixed (sensory and motor)",
-  "accept": [],
+  "answer": "Mixed",
+  "accept": [
+   "sensory and motor",
+   "both"
+  ],
   "keywords": [
    [
     "mixed",
@@ -4782,7 +5174,21 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "Deep back muscles",
+   "Skin of the back"
+  ],
+  "part_accept": {
+   "Deep back muscles": [
+    "back muscles",
+    "paraspinal muscles",
+    "muscles of the back"
+   ],
+   "Skin of the back": [
+    "skin"
+   ]
+  }
  },
  {
   "slug": "theory-ventral-ramus-function",
@@ -4798,7 +5204,7 @@
   "facet": "function",
   "prompt": "What do the ventral rami supply and form?",
   "format": "keywords",
-  "answer": "Anterior and lateral trunk and limbs; they form the plexuses",
+  "answer": "Anterolateral trunk and limbs; plexuses",
   "accept": [],
   "keywords": [
    [
@@ -4817,7 +5223,22 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "Anterolateral trunk and limbs",
+   "Plexuses"
+  ],
+  "part_accept": {
+   "Anterolateral trunk and limbs": [
+    "trunk and limbs",
+    "limbs"
+   ],
+   "Plexuses": [
+    "plexus",
+    "brachial and lumbosacral plexuses"
+   ]
+  },
+  "explain": "Ventral rami supply the anterior and lateral trunk and the limbs, and they form the plexuses."
  },
  {
   "slug": "theory-brachial-plexus-connections",
@@ -4867,8 +5288,11 @@
   "facet": "lesion",
   "prompt": "An upper trunk (C5-C6) brachial plexus injury is called what?",
   "format": "keywords",
-  "answer": "Erb palsy (waiter's tip)",
-  "accept": [],
+  "answer": "Erb palsy",
+  "accept": [
+   "waiter's tip",
+   "Erb's palsy"
+  ],
   "keywords": [
    [
     "erb"
@@ -4932,7 +5356,7 @@
   "facet": "function",
   "prompt": "What is the function of the dorsal horn?",
   "format": "keywords",
-  "answer": "Receives and processes sensory input (pain, temperature, touch)",
+  "answer": "Receives and processes sensory input",
   "accept": [],
   "keywords": [
    [
@@ -4952,7 +5376,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Pain, temperature and touch."
  },
  {
   "slug": "theory-dorsal-horn-fiber_type",
@@ -5005,8 +5430,11 @@
   "facet": "function",
   "prompt": "Which neurons are in the ventral horn?",
   "format": "keywords",
-  "answer": "Alpha (and gamma) lower motor neurons",
-  "accept": [],
+  "answer": "Alpha lower motor neurons",
+  "accept": [
+   "alpha motor neurons",
+   "lower motor neurons"
+  ],
   "keywords": [
    [
     "lower motor",
@@ -5024,7 +5452,8 @@
    "region:spinal-cord",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Also gamma motor neurons."
  },
  {
   "slug": "theory-ventral-horn-lesion",
@@ -5176,7 +5605,7 @@
   "facet": "function",
   "prompt": "Name one sensation carried in the dorsal columns.",
   "format": "keywords",
-  "answer": "Fine touch, vibration, conscious proprioception, two-point discrimination",
+  "answer": "Fine touch",
   "accept": [],
   "keywords": [
    [
@@ -5195,7 +5624,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Also vibration, conscious proprioception and two-point discrimination."
  },
  {
   "slug": "theory-dorsal-columns-side",
@@ -5244,8 +5674,11 @@
   "facet": "order",
   "prompt": "The dorsal columns contain axons of which order of neuron?",
   "format": "keywords",
-  "answer": "First-order (DRG) neurons",
-  "accept": [],
+  "answer": "First-order neurons",
+  "accept": [
+   "first order neurons",
+   "DRG neurons"
+  ],
   "keywords": [
    [
     "first",
@@ -5260,7 +5693,8 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:order"
-  ]
+  ],
+  "explain": "Their cell bodies are in the dorsal root ganglion."
  },
  {
   "slug": "theory-dorsal-columns-lesion",
@@ -5297,7 +5731,17 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Vibration",
+   "Proprioception",
+   "Ipsilateral"
+  ],
+  "part_accept": {
+   "Ipsilateral": [
+    "same side"
+   ]
+  }
  },
  {
   "slug": "theory-dorsal-columns-receptor",
@@ -5313,8 +5757,13 @@
   "facet": "receptor",
   "prompt": "Name one receptor that feeds the dorsal columns.",
   "format": "keywords",
-  "answer": "Meissner, Pacinian, Merkel, Ruffini corpuscles or muscle spindle",
-  "accept": [],
+  "answer": "Meissner corpuscle",
+  "accept": [
+   "Pacinian",
+   "Merkel",
+   "Ruffini",
+   "muscle spindle"
+  ],
   "keywords": [
    [
     "meissner",
@@ -5332,7 +5781,8 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:receptor"
-  ]
+  ],
+  "explain": "Also Pacinian, Merkel and Ruffini endings and muscle spindles."
  },
  {
   "slug": "theory-fasciculus-gracilis-function",
@@ -5348,7 +5798,7 @@
   "facet": "function",
   "prompt": "Fasciculus gracilis carries sensation from which part of the body?",
   "format": "keywords",
-  "answer": "Lower limb and lower trunk (below T6)",
+  "answer": "Lower limb and lower trunk",
   "accept": [],
   "keywords": [
    [
@@ -5367,7 +5817,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Below T6."
  },
  {
   "slug": "theory-fasciculus-gracilis-connections",
@@ -5415,7 +5866,7 @@
   "facet": "function",
   "prompt": "Fasciculus cuneatus carries sensation from which part of the body?",
   "format": "keywords",
-  "answer": "Upper limb and upper trunk (above T6)",
+  "answer": "Upper limb and upper trunk",
   "accept": [],
   "keywords": [
    [
@@ -5434,7 +5885,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Above T6."
  },
  {
   "slug": "theory-fasciculus-cuneatus-connections",
@@ -5482,7 +5934,7 @@
   "facet": "function",
   "prompt": "Name one sensation carried in the anterolateral (spinothalamic) tract.",
   "format": "keywords",
-  "answer": "Pain, temperature, itch, crude touch",
+  "answer": "Pain",
   "accept": [],
   "keywords": [
    [
@@ -5501,7 +5953,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Also temperature, itch and crude touch."
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-order",
@@ -5550,7 +6003,7 @@
   "facet": "side",
   "prompt": "Do spinothalamic axons ascend ipsilateral or contralateral to the side of the body they serve?",
   "format": "keywords",
-  "answer": "Contralateral (they cross in the ventral white commissure)",
+  "answer": "Contralateral",
   "accept": [],
   "keywords": [
    [
@@ -5567,7 +6020,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:side"
-  ]
+  ],
+  "explain": "The second-order axons cross in the ventral white commissure."
  },
  {
   "slug": "theory-anterolateral-spinothalamic-tract-fiber_type",
@@ -5619,8 +6073,11 @@
   "facet": "receptor",
   "prompt": "Name one receptor type for the sensations carried by the spinothalamic tract.",
   "format": "keywords",
-  "answer": "Free nerve endings (nociceptors, thermoreceptors)",
-  "accept": [],
+  "answer": "Free nerve endings",
+  "accept": [
+   "nociceptors",
+   "thermoreceptors"
+  ],
   "keywords": [
    [
     "free nerve",
@@ -5684,7 +6141,7 @@
   "facet": "function",
   "prompt": "What sensation does the dorsal spinocerebellar tract carry?",
   "format": "keywords",
-  "answer": "Unconscious proprioception from muscles and tendons (lower body)",
+  "answer": "Unconscious proprioception",
   "accept": [],
   "keywords": [
    [
@@ -5701,7 +6158,8 @@
    "region:cerebellum",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "From muscles and tendons of the lower body."
  },
  {
   "slug": "theory-dorsal-spinocerebellar-tract-side",
@@ -5751,8 +6209,12 @@
   "facet": "order",
   "prompt": "Where are the cell bodies of the dorsal spinocerebellar tract axons?",
   "format": "keywords",
-  "answer": "Clarke's nucleus (column of Clarke)",
-  "accept": [],
+  "answer": "Clarke's nucleus",
+  "accept": [
+   "column of Clarke",
+   "Clarke's column",
+   "nucleus dorsalis"
+  ],
   "keywords": [
    [
     "clarke",
@@ -5849,7 +6311,7 @@
   "facet": "fiber_type",
   "prompt": "Which fibre types enter via the lateral part of the dorsal root entry zone?",
   "format": "keywords",
-  "answer": "Small fibres: A-delta and C (pain, temperature)",
+  "answer": "A-delta and C fibres",
   "accept": [],
   "keywords": [
    [
@@ -5873,7 +6335,26 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:fiber-type"
-  ]
+  ],
+  "parts": [
+   "A-delta",
+   "C"
+  ],
+  "part_accept": {
+   "A-delta": [
+    "adelta",
+    "a delta",
+    "a-delta fibers",
+    "a-delta fibres"
+   ],
+   "C": [
+    "c fiber",
+    "c fibers",
+    "c fibre",
+    "c fibres"
+   ]
+  },
+  "explain": "Small fibres carrying pain and temperature."
  },
  {
   "slug": "theory-medial-dorsal-root-entry-zone-fiber_type",
@@ -5889,7 +6370,7 @@
   "facet": "fiber_type",
   "prompt": "Name one fibre type entering at the medial dorsal root entry zone.",
   "format": "keywords",
-  "answer": "A-alpha or A-beta (large myelinated)",
+  "answer": "A-alpha or A-beta",
   "accept": [],
   "keywords": [
    [
@@ -5910,7 +6391,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:fiber-type"
-  ]
+  ],
+  "explain": "Large myelinated fibres."
  },
  {
   "slug": "theory-lateral-dorsal-root-entry-zone-fiber_type",
@@ -5926,7 +6408,7 @@
   "facet": "fiber_type",
   "prompt": "Name one fibre type entering at the lateral dorsal root entry zone.",
   "format": "keywords",
-  "answer": "A-delta or C (small)",
+  "answer": "A-delta or C",
   "accept": [],
   "keywords": [
    [
@@ -5945,7 +6427,8 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:fiber-type"
-  ]
+  ],
+  "explain": "Small fibres."
  },
  {
   "slug": "theory-marginal-nucleus-function",
@@ -5979,6 +6462,10 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:function"
+  ],
+  "parts": [
+   "Pain",
+   "Temperature"
   ]
  },
  {
@@ -5995,8 +6482,10 @@
   "facet": "function",
   "prompt": "What is the role of the substantia gelatinosa (lamina II)?",
   "format": "keywords",
-  "answer": "Modulates pain transmission (gate control)",
-  "accept": [],
+  "answer": "Modulates pain transmission",
+  "accept": [
+   "gate control"
+  ],
   "keywords": [
    [
     "pain",
@@ -6061,7 +6550,7 @@
   "facet": "function",
   "prompt": "What does the nucleus proprius process?",
   "format": "keywords",
-  "answer": "Touch (fine discriminative) and proprioceptive input (laminae III-IV)",
+  "answer": "Fine touch and proprioception",
   "accept": [],
   "keywords": [
    [
@@ -6081,7 +6570,21 @@
    "region:spinal-cord",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "Fine touch",
+   "Proprioception"
+  ],
+  "part_accept": {
+   "Fine touch": [
+    "touch",
+    "discriminative touch"
+   ],
+   "Proprioception": [
+    "proprioceptive input"
+   ]
+  },
+  "explain": "Laminae III-IV."
  },
  {
   "slug": "theory-column-of-clarke-level",
@@ -6168,8 +6671,12 @@
   "facet": "function",
   "prompt": "What decussates in the ventral white commissure?",
   "format": "keywords",
-  "answer": "Second-order spinothalamic (anterolateral) axons",
-  "accept": [],
+  "answer": "Second-order spinothalamic axons",
+  "accept": [
+   "second-order anterolateral axons",
+   "spinothalamic axons",
+   "anterolateral axons"
+  ],
   "keywords": [
    [
     "spinothalamic",
@@ -6203,7 +6710,7 @@
   "facet": "lesion",
   "prompt": "Damage to the ventral white commissure (syringomyelia) causes which pattern of loss?",
   "format": "keywords",
-  "answer": "Bilateral cape-like loss of pain and temperature, touch spared",
+  "answer": "Bilateral cape-like loss of pain and temperature",
   "accept": [],
   "keywords": [
    [
@@ -6220,6 +6727,7 @@
    "source:supplementary",
    "region:spinal-cord",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Touch is spared (dorsal columns intact)."
  }
 ]

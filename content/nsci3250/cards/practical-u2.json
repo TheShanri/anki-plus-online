@@ -1014,8 +1014,11 @@
   },
   "facet": "passes",
   "prompt": "Name one tract that travels through this structure.",
-  "answer": "Corticospinal, corticopontine, corticobulbar",
-  "accept": [],
+  "answer": "Corticospinal tract",
+  "accept": [
+   "corticopontine",
+   "corticobulbar"
+  ],
   "keywords": [
    [
     "Corticospinal",
@@ -1034,7 +1037,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also corticopontine and corticobulbar fibres."
  },
  {
   "slug": "practical-u2-2025-q07",
@@ -1434,8 +1438,17 @@
   },
   "facet": "cranial_nerve",
   "prompt": "Name one cranial nerve carrying afferent signals to the nucleus circled in purple.",
-  "answer": "VII, IX, X",
-  "accept": [],
+  "answer": "VII",
+  "accept": [
+   "IX",
+   "X",
+   "CN VII",
+   "CN IX",
+   "CN X",
+   "facial",
+   "glossopharyngeal",
+   "vagus"
+  ],
   "keywords": [
    [
     "VII",
@@ -1458,7 +1471,8 @@
    "kind:theory",
    "source:practical",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "VII, IX and X all send afferents to the nucleus."
  },
  {
   "slug": "practical-u2-2025-q18",
@@ -1924,8 +1938,13 @@
   },
   "facet": "connections",
   "prompt": "What is the function of the tract circled in blue?",
-  "answer": "Coordinate lateral / conjugate gaze",
-  "accept": [],
+  "answer": "Coordinate conjugate gaze",
+  "accept": [
+   "coordinate lateral gaze",
+   "conjugate gaze",
+   "lateral gaze",
+   "coordinate lateral / conjugate gaze"
+  ],
   "keywords": [
    [
     "Coordinate lateral",
@@ -2150,8 +2169,10 @@
   },
   "facet": "function",
   "prompt": "Name a main function of this structure.",
-  "answer": "Blood supply, temperature regulation",
-  "accept": [],
+  "answer": "Blood supply",
+  "accept": [
+   "temperature regulation"
+  ],
   "keywords": [
    [
     "Blood supply",
@@ -2169,7 +2190,8 @@
    "region:visual",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "Also temperature regulation."
  },
  {
   "slug": "practical-u2-2025-q37",

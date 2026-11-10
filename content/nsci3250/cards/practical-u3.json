@@ -441,8 +441,10 @@
   },
   "facet": "connections",
   "prompt": "What nuclei are the origin of the fibers contained within this structure?",
-  "answer": "Pontine nuclei (contralateral)",
-  "accept": [],
+  "answer": "Pontine nuclei",
+  "accept": [
+   "Pontine nuclei (contralateral)"
+  ],
   "keywords": null,
   "choices": null,
   "format": "type",
@@ -455,7 +457,8 @@
    "region:cerebellum",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "explain": "Their axons cross (contralateral) to the cerebellum."
  },
  {
   "slug": "practical-u3-2025-q13",
@@ -1386,8 +1389,13 @@
   },
   "facet": "lesion",
   "prompt": "Name one patient population who has increased susceptibility to a subdural hematoma.",
-  "answer": "Eldery who fall, shaken babies or alcohol use",
-  "accept": [],
+  "answer": "Elderly",
+  "accept": [
+   "shaken babies",
+   "shaken infants",
+   "alcohol use",
+   "elderly who fall"
+  ],
   "keywords": [
    [
     "Eldery who fall",
@@ -1410,7 +1418,8 @@
    "kind:theory",
    "source:practical",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Also shaken babies and heavy alcohol use."
  },
  {
   "slug": "practical-u3-2025-q40",
@@ -1486,7 +1495,26 @@
    "kind:theory",
    "source:practical",
    "theory:brodmann"
-  ]
+  ],
+  "parts": [
+   "17",
+   "18",
+   "19"
+  ],
+  "part_accept": {
+   "17": [
+    "BA 17",
+    "area 17"
+   ],
+   "18": [
+    "BA 18",
+    "area 18"
+   ],
+   "19": [
+    "BA 19",
+    "area 19"
+   ]
+  }
  },
  {
   "slug": "practical-u3-2025-qB2",
@@ -1539,8 +1567,10 @@
   },
   "facet": "function",
   "prompt": "Name one function of the nucleus circled in pink.",
-  "answer": "Taste, chemodetection from blood or GI",
-  "accept": [],
+  "answer": "Taste",
+  "accept": [
+   "chemodetection from blood or GI"
+  ],
   "keywords": [
    [
     "Taste",
@@ -1563,6 +1593,7 @@
    "kind:theory",
    "source:practical",
    "theory:function"
-  ]
+  ],
+  "explain": "Also chemodetection from blood or the GI tract."
  }
 ]

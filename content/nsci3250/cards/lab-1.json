@@ -11128,9 +11128,13 @@
    "type": "apkg",
    "ref": "apkg/lab-1 note 1768350782186 cloze 1"
   },
-  "answer": "External (superficial) to the dura",
+  "answer": "External to the dura",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "superficial to the dura",
+   "epidural space",
+   "external (superficial) to the dura"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
   "w": 1373,
@@ -11196,7 +11200,9 @@
   },
   "answer": "Between dura and arachnoid",
   "answer_kind": "space",
-  "accept": [],
+  "accept": [
+   "subdural space"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
   "w": 1373,
@@ -11262,7 +11268,9 @@
   },
   "answer": "Between arachnoid and pia",
   "answer_kind": "space",
-  "accept": [],
+  "accept": [
+   "subarachnoid space"
+  ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
   "w": 1373,

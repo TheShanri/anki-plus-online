@@ -45,7 +45,7 @@
   "facet": "connections",
   "prompt": "Which tract carries input to the anterior nucleus of the thalamus, and from where?",
   "format": "keywords",
-  "answer": "Mammillothalamic tract, from the mammillary bodies",
+  "answer": "Mammillothalamic tract from the mammillary bodies",
   "accept": [],
   "keywords": [
    [
@@ -62,7 +62,21 @@
    "region:brainstem",
    "modality:limbic",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Mammillothalamic tract",
+   "Mammillary bodies"
+  ],
+  "part_accept": {
+   "Mammillothalamic tract": [
+    "mammillothalamic",
+    "MTT"
+   ],
+   "Mammillary bodies": [
+    "mammillary body",
+    "mamillary bodies"
+   ]
+  }
  },
  {
   "slug": "theory-anterior-nucleus-of-thalamus-embryology",
@@ -105,7 +119,7 @@
   "facet": "function",
   "prompt": "Name one function of the pulvinar.",
   "format": "keywords",
-  "answer": "Visual attention; integration of visual, auditory and somatosensory information",
+  "answer": "Visual attention",
   "accept": [],
   "keywords": [
    [
@@ -126,7 +140,8 @@
    "modality:visual",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Also integrates visual, auditory and somatosensory information."
  },
  {
   "slug": "theory-pulvinar-embryology",
@@ -297,9 +312,14 @@
   "facet": "connections",
   "prompt": "Where do axons from the lateral geniculate nucleus synapse?",
   "format": "type",
-  "answer": "Primary visual cortex (V1)",
+  "answer": "Primary visual cortex",
   "accept": [
-   "primary visual,V1,calcarine,occipital,BA 17,17"
+   "primary visual",
+   "V1",
+   "calcarine",
+   "occipital",
+   "BA 17",
+   "17"
   ],
   "keywords": null,
   "choices": null,
@@ -389,7 +409,7 @@
   "facet": "function",
   "prompt": "Name one function of the epithalamus.",
   "format": "keywords",
-  "answer": "Circadian rhythm via the pineal gland (melatonin); limbic-midbrain link via the habenula",
+  "answer": "Circadian rhythm via the pineal gland",
   "accept": [],
   "keywords": [
    [
@@ -409,7 +429,8 @@
    "region:brainstem",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "The pineal gland makes melatonin; the habenula links the limbic system to the midbrain."
  },
  {
   "slug": "theory-pineal-gland-function",
@@ -456,7 +477,7 @@
   "facet": "lesion",
   "prompt": "A pineal tumour compressing the tectum causes which syndrome?",
   "format": "keywords",
-  "answer": "Parinaud syndrome (impaired upgaze)",
+  "answer": "Parinaud syndrome",
   "accept": [],
   "keywords": [
    [
@@ -473,7 +494,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Impaired upgaze."
  },
  {
   "slug": "theory-optic-tract-lesion",
@@ -555,7 +577,7 @@
   "facet": "order",
   "prompt": "Optic tract axons come from which retinal cell type?",
   "format": "keywords",
-  "answer": "Retinal ganglion cells (second-order neurons in the course's scheme)",
+  "answer": "Retinal ganglion cells",
   "accept": [],
   "keywords": [
    [
@@ -588,7 +610,7 @@
   "facet": "function",
   "prompt": "Name one function of the superior colliculus.",
   "format": "keywords",
-  "answer": "Visual reflexes, saccades, orienting head and eye movements",
+  "answer": "Visual reflexes",
   "accept": [],
   "keywords": [
    [
@@ -609,7 +631,8 @@
    "region:brainstem",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "Also saccades and orienting head and eye movements."
  },
  {
   "slug": "theory-superior-colliculus-connections",
@@ -803,7 +826,18 @@
    "region:brainstem",
    "modality:auditory",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Inferior colliculus",
+   "Medial geniculate nucleus"
+  ],
+  "part_accept": {
+   "Medial geniculate nucleus": [
+    "MGN",
+    "medial geniculate",
+    "medial geniculate body"
+   ]
+  }
  },
  {
   "slug": "theory-cerebral-peduncles-passes",
@@ -819,7 +853,7 @@
   "facet": "passes",
   "prompt": "Name one tract that travels through the cerebral peduncle.",
   "format": "keywords",
-  "answer": "Corticospinal, corticobulbar, corticopontine",
+  "answer": "Corticospinal tract",
   "accept": [],
   "keywords": [
    [
@@ -837,7 +871,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also corticobulbar and corticopontine fibres."
  },
  {
   "slug": "theory-cerebral-peduncles-lesion",
@@ -915,7 +950,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve exits from the interpeduncular fossa?",
   "format": "type",
-  "answer": "Oculomotor nerve (CN III)",
+  "answer": "Oculomotor nerve",
   "accept": [
    "oculomotor",
    "CN III",
@@ -948,8 +983,15 @@
   "facet": "connections",
   "prompt": "Name one structure within the interpeduncular cistern.",
   "format": "keywords",
-  "answer": "Basilar artery tip, PCA, SCA or CN III",
-  "accept": [],
+  "answer": "Basilar artery tip",
+  "accept": [
+   "PCA",
+   "SCA",
+   "CN III",
+   "posterior cerebral artery",
+   "superior cerebellar artery",
+   "oculomotor nerve"
+  ],
   "keywords": [
    [
     "basilar",
@@ -967,7 +1009,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:connections"
-  ]
+  ],
+  "explain": "Also the PCA, SCA and CN III."
  },
  {
   "slug": "theory-superior-cerebellar-peduncle-connections",
@@ -1003,7 +1046,21 @@
    "region:cerebellum",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Dentate nucleus",
+   "Red nucleus",
+   "Thalamus"
+  ],
+  "part_accept": {
+   "Dentate nucleus": [
+    "dentate"
+   ],
+   "Thalamus": [
+    "VL",
+    "ventrolateral thalamus"
+   ]
+  }
  },
  {
   "slug": "theory-superior-cerebellar-peduncle-passes",
@@ -1019,7 +1076,7 @@
   "facet": "passes",
   "prompt": "Name one tract in the superior cerebellar peduncle.",
   "format": "keywords",
-  "answer": "Dentatorubrothalamic fibres (efferent) or ventral spinocerebellar tract",
+  "answer": "Dentatorubrothalamic fibres or ventral spinocerebellar tract",
   "accept": [],
   "keywords": [
    [
@@ -1038,7 +1095,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:passes"
-  ]
+  ],
+  "explain": "Dentatorubrothalamic fibres are efferent; the ventral spinocerebellar tract enters via the SCP."
  },
  {
   "slug": "theory-middle-cerebellar-peduncle-connections",
@@ -1054,7 +1112,7 @@
   "facet": "connections",
   "prompt": "The middle cerebellar peduncle carries fibres from which nuclei?",
   "format": "keywords",
-  "answer": "Pontine nuclei (contralateral)",
+  "answer": "Pontine nuclei",
   "accept": [],
   "keywords": [
    [
@@ -1070,7 +1128,8 @@
    "region:cerebellum",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "explain": "Crossed (contralateral) pontocerebellar fibres."
  },
  {
   "slug": "theory-inferior-cerebellar-peduncle-passes",
@@ -1086,8 +1145,11 @@
   "facet": "passes",
   "prompt": "Name one tract entering the cerebellum through the inferior cerebellar peduncle.",
   "format": "keywords",
-  "answer": "Dorsal spinocerebellar, olivocerebellar or vestibulocerebellar fibres",
-  "accept": [],
+  "answer": "Dorsal spinocerebellar tract",
+  "accept": [
+   "olivocerebellar fibres",
+   "vestibulocerebellar fibres"
+  ],
   "keywords": [
    [
     "dorsal spinocerebellar",
@@ -1107,7 +1169,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also olivocerebellar and vestibulocerebellar fibres."
  },
  {
   "slug": "theory-cerebellar-peduncles-embryology",
@@ -1151,7 +1214,7 @@
   "facet": "connections",
   "prompt": "The transverse fibres of the pons originate in which nuclei and project to where?",
   "format": "keywords",
-  "answer": "Pontine nuclei, to the contralateral cerebellum via the middle cerebellar peduncle",
+  "answer": "Pontine nuclei to contralateral cerebellum",
   "accept": [],
   "keywords": [
    [
@@ -1172,7 +1235,18 @@
    "region:brainstem",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Pontine nuclei",
+   "Contralateral cerebellum"
+  ],
+  "part_accept": {
+   "Contralateral cerebellum": [
+    "cerebellum",
+    "opposite cerebellum"
+   ]
+  },
+  "explain": "Via the middle cerebellar peduncle."
  },
  {
   "slug": "theory-facial-colliculus-cranial_nerve",
@@ -1188,7 +1262,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which two cranial nerve components create/underlie the facial colliculus?",
   "format": "keywords",
-  "answer": "Facial nerve fibres looping over the abducens nucleus (VII and VI)",
+  "answer": "Facial nerve fibres over the abducens nucleus",
   "accept": [],
   "keywords": [
    [
@@ -1209,7 +1283,24 @@
    "region:brainstem",
    "modality:visual",
    "theory:cranial-nerve"
-  ]
+  ],
+  "parts": [
+   "Facial nerve fibres",
+   "Abducens nucleus"
+  ],
+  "part_accept": {
+   "Facial nerve fibres": [
+    "facial nerve",
+    "VII",
+    "CN VII"
+   ],
+   "Abducens nucleus": [
+    "abducens",
+    "VI",
+    "CN VI"
+   ]
+  },
+  "explain": "Facial nerve (VII) axons loop over the abducens (VI) nucleus."
  },
  {
   "slug": "theory-facial-colliculus-lesion",
@@ -1244,7 +1335,22 @@
    "source:supplementary",
    "region:brainstem",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Lateral gaze palsy",
+   "Facial palsy"
+  ],
+  "part_accept": {
+   "Lateral gaze palsy": [
+    "gaze palsy",
+    "horizontal gaze palsy",
+    "abducens palsy"
+   ],
+   "Facial palsy": [
+    "facial paralysis",
+    "facial nerve palsy"
+   ]
+  }
  },
  {
   "slug": "theory-pyramids-passes",
@@ -1290,8 +1396,13 @@
   "facet": "lesion",
   "prompt": "A lesion of the left medullary pyramid causes weakness on which side?",
   "format": "keywords",
-  "answer": "Right (contralateral) body, below the face",
-  "accept": [],
+  "answer": "Right body",
+  "accept": [
+   "right (contralateral) body",
+   "contralateral",
+   "right side",
+   "right"
+  ],
   "keywords": [
    [
     "right",
@@ -1307,7 +1418,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Weakness of the contralateral body below the face."
  },
  {
   "slug": "theory-pyramids-cranial_nerve",
@@ -1323,7 +1435,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve exits just lateral to the pyramid (preolivary sulcus)?",
   "format": "type",
-  "answer": "Hypoglossal nerve (CN XII)",
+  "answer": "Hypoglossal nerve",
   "accept": [
    "hypoglossal",
    "CN XII",
@@ -1385,8 +1497,10 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve exits just medial to the olive?",
   "format": "keywords",
-  "answer": "Hypoglossal nerve (CN XII)",
-  "accept": [],
+  "answer": "Hypoglossal nerve",
+  "accept": [
+   "CN XII"
+  ],
   "keywords": [
    [
     "hypoglossal",
@@ -1508,7 +1622,7 @@
   "facet": "level",
   "prompt": "The obex marks the transition between which two structures?",
   "format": "keywords",
-  "answer": "Fourth ventricle and central canal (medulla and spinal cord)",
+  "answer": "Fourth ventricle and central canal",
   "accept": [],
   "keywords": [
    [
@@ -1527,7 +1641,18 @@
    "source:supplementary",
    "region:brainstem",
    "theory:level"
-  ]
+  ],
+  "parts": [
+   "Fourth ventricle",
+   "Central canal"
+  ],
+  "part_accept": {
+   "Fourth ventricle": [
+    "4th ventricle",
+    "IV ventricle"
+   ]
+  },
+  "explain": "It marks the transition from medulla to spinal cord."
  },
  {
   "slug": "theory-area-postrema-function",
@@ -1543,8 +1668,10 @@
   "facet": "function",
   "prompt": "What is the function of the area postrema?",
   "format": "keywords",
-  "answer": "Chemoreceptor trigger zone: detects toxins and triggers vomiting",
-  "accept": [],
+  "answer": "Chemoreceptor trigger zone",
+  "accept": [
+   "CTZ"
+  ],
   "keywords": [
    [
     "vomit",
@@ -1563,7 +1690,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:function"
-  ]
+  ],
+  "explain": "Detects toxins and triggers vomiting."
  },
  {
   "slug": "theory-periaqueductal-gray-function",
@@ -1579,7 +1707,7 @@
   "facet": "function",
   "prompt": "Name one function of the periaqueductal grey.",
   "format": "keywords",
-  "answer": "Descending pain modulation; defensive behaviours",
+  "answer": "Descending pain modulation",
   "accept": [],
   "keywords": [
    [
@@ -1599,7 +1727,8 @@
    "source:supplementary",
    "region:ventricles",
    "theory:function"
-  ]
+  ],
+  "explain": "Also defensive behaviours."
  },
  {
   "slug": "theory-periaqueductal-gray-embryology",
@@ -1674,7 +1803,7 @@
   "facet": "function",
   "prompt": "What is the function of the red nucleus?",
   "format": "keywords",
-  "answer": "Facilitates flexor tone/limb movement via the rubrospinal tract; relay from cerebellum",
+  "answer": "Facilitates flexor tone via the rubrospinal tract",
   "accept": [],
   "keywords": [
    [
@@ -1695,7 +1824,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Also relays cerebellar output (limb movement)."
  },
  {
   "slug": "theory-red-nucleus-side",
@@ -1744,8 +1874,13 @@
   "facet": "muscle",
   "prompt": "Name one muscle innervated by the oculomotor nucleus.",
   "format": "keywords",
-  "answer": "Medial rectus, superior rectus, inferior rectus, inferior oblique or levator palpebrae superioris",
-  "accept": [],
+  "answer": "Medial rectus",
+  "accept": [
+   "superior rectus",
+   "inferior rectus",
+   "inferior oblique",
+   "levator palpebrae superioris"
+  ],
   "keywords": [
    [
     "medial rectus",
@@ -1764,7 +1899,8 @@
    "region:brainstem",
    "modality:visual",
    "theory:muscle"
-  ]
+  ],
+  "explain": "Also superior rectus, inferior rectus, inferior oblique and levator palpebrae superioris."
  },
  {
   "slug": "theory-oculomotor-nucleus-cranial_nerve",
@@ -1780,7 +1916,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the oculomotor nucleus?",
   "format": "type",
-  "answer": "Oculomotor nerve (CN III)",
+  "answer": "Oculomotor nerve",
   "accept": [
    "oculomotor",
    "CN III",
@@ -1875,8 +2011,11 @@
   "facet": "function",
   "prompt": "Name one function of the Edinger-Westphal nucleus.",
   "format": "keywords",
-  "answer": "Pupillary constriction (and lens accommodation)",
-  "accept": [],
+  "answer": "Pupillary constriction",
+  "accept": [
+   "lens accommodation",
+   "accommodation"
+  ],
   "keywords": [
    [
     "pupil",
@@ -1895,7 +2034,8 @@
    "region:brainstem",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "Also lens accommodation."
  },
  {
   "slug": "theory-edinger-westphal-nucleus-connections",
@@ -1911,8 +2051,10 @@
   "facet": "connections",
   "prompt": "What modality of fibres originate from the Edinger-Westphal nucleus?",
   "format": "keywords",
-  "answer": "Parasympathetic (preganglionic)",
-  "accept": [],
+  "answer": "Parasympathetic",
+  "accept": [
+   "preganglionic"
+  ],
   "keywords": [
    [
     "parasympathetic"
@@ -1978,7 +2120,7 @@
   "facet": "function",
   "prompt": "What is the main neurotransmitter of the substantia nigra pars compacta and what does it do?",
   "format": "keywords",
-  "answer": "Dopamine to the striatum, facilitating movement",
+  "answer": "Dopamine facilitating movement",
   "accept": [],
   "keywords": [
    [
@@ -2000,7 +2142,19 @@
    "region:brainstem",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "Dopamine",
+   "Facilitates movement"
+  ],
+  "part_accept": {
+   "Facilitates movement": [
+    "movement",
+    "motor facilitation",
+    "promotes movement"
+   ]
+  },
+  "explain": "Pars compacta dopamine projects to the striatum."
  },
  {
   "slug": "theory-substantia-nigra-lesion",
@@ -2076,7 +2230,7 @@
   "facet": "cranial_nerve",
   "prompt": "Name one unique feature of the path of the oculomotor nerve.",
   "format": "keywords",
-  "answer": "Exits the interpeduncular fossa between the PCA and SCA; parasympathetic fibres lie superficially",
+  "answer": "Exits between the PCA and SCA",
   "accept": [],
   "keywords": [
    [
@@ -2098,7 +2252,8 @@
    "modality:visual",
    "modality:autonomic",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "It exits the interpeduncular fossa between the PCA and SCA; its parasympathetic fibres lie superficially."
  },
  {
   "slug": "theory-oculomotor-nerve-lesion",
@@ -2114,7 +2269,7 @@
   "facet": "lesion",
   "prompt": "A CN III palsy gives which eye position?",
   "format": "keywords",
-  "answer": "Down and out (ptosis, dilated pupil)",
+  "answer": "Down and out",
   "accept": [],
   "keywords": [
    [
@@ -2133,7 +2288,8 @@
    "region:cranial-nerves",
    "modality:visual",
    "theory:lesion"
-  ]
+  ],
+  "explain": "With ptosis and a dilated pupil."
  },
  {
   "slug": "theory-oculomotor-nerve-muscle",
@@ -2149,8 +2305,13 @@
   "facet": "muscle",
   "prompt": "Name one muscle innervated by the oculomotor nerve.",
   "format": "keywords",
-  "answer": "Superior, medial, inferior rectus, inferior oblique, levator palpebrae",
-  "accept": [],
+  "answer": "Medial rectus",
+  "accept": [
+   "superior rectus",
+   "inferior rectus",
+   "inferior oblique",
+   "levator palpebrae"
+  ],
   "keywords": [
    [
     "rectus",
@@ -2167,7 +2328,8 @@
    "region:cranial-nerves",
    "modality:visual",
    "theory:muscle"
-  ]
+  ],
+  "explain": "Also superior rectus, inferior rectus, inferior oblique and levator palpebrae superioris."
  },
  {
   "slug": "theory-medial-lemniscus-function",
@@ -2183,7 +2345,7 @@
   "facet": "function",
   "prompt": "Name one sensation carried by the medial lemniscus.",
   "format": "keywords",
-  "answer": "Fine touch, vibration, conscious proprioception",
+  "answer": "Fine touch",
   "accept": [],
   "keywords": [
    [
@@ -2201,7 +2363,8 @@
    "region:brainstem",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Also vibration and conscious proprioception."
  },
  {
   "slug": "theory-medial-lemniscus-order",
@@ -2315,7 +2478,7 @@
   "facet": "function",
   "prompt": "What is the function of the MLF?",
   "format": "keywords",
-  "answer": "Coordinates conjugate eye movements (links CN III, IV, VI with vestibular nuclei)",
+  "answer": "Coordinates conjugate eye movements",
   "accept": [],
   "keywords": [
    [
@@ -2335,7 +2498,8 @@
    "region:brainstem",
    "modality:vestibular",
    "theory:function"
-  ]
+  ],
+  "explain": "Links CN III, IV and VI with the vestibular nuclei."
  },
  {
   "slug": "theory-medial-longitudinal-fasciculus-lesion",
@@ -2351,8 +2515,10 @@
   "facet": "lesion",
   "prompt": "An MLF lesion causes which eye movement disorder?",
   "format": "keywords",
-  "answer": "Internuclear ophthalmoplegia (failure of ipsilateral adduction)",
-  "accept": [],
+  "answer": "Internuclear ophthalmoplegia",
+  "accept": [
+   "INO"
+  ],
   "keywords": [
    [
     "internuclear",
@@ -2368,7 +2534,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Failure of ipsilateral adduction."
  },
  {
   "slug": "theory-trochlear-nucleus-muscle",
@@ -2384,9 +2551,10 @@
   "facet": "muscle",
   "prompt": "Which muscle does the trochlear nucleus innervate?",
   "format": "type",
-  "answer": "Superior oblique (contralateral)",
+  "answer": "Superior oblique",
   "accept": [
-   "superior oblique"
+   "superior oblique",
+   "Superior oblique (contralateral)"
   ],
   "keywords": null,
   "choices": null,
@@ -2398,7 +2566,8 @@
    "region:brainstem",
    "modality:visual",
    "theory:muscle"
-  ]
+  ],
+  "explain": "The trochlear nucleus innervates the contralateral superior oblique."
  },
  {
   "slug": "theory-trochlear-nucleus-cranial_nerve",
@@ -2414,7 +2583,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the trochlear nucleus?",
   "format": "type",
-  "answer": "Trochlear nerve (CN IV)",
+  "answer": "Trochlear nerve",
   "accept": [
    "trochlear",
    "CN IV",
@@ -2543,7 +2712,7 @@
   "facet": "connections",
   "prompt": "Where do decussated superior cerebellar peduncle fibres terminate?",
   "format": "keywords",
-  "answer": "Contralateral red nucleus and thalamus (VL)",
+  "answer": "Contralateral red nucleus and thalamus",
   "accept": [],
   "keywords": [
    [
@@ -2561,7 +2730,18 @@
    "region:cerebellum",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Red nucleus",
+   "Thalamus"
+  ],
+  "part_accept": {
+   "Thalamus": [
+    "VL",
+    "ventrolateral thalamus"
+   ]
+  },
+  "explain": "The thalamic target is VL."
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-muscle",
@@ -2577,8 +2757,13 @@
   "facet": "muscle",
   "prompt": "Name one muscle innervated by the motor trigeminal nucleus.",
   "format": "keywords",
-  "answer": "Masseter, temporalis, medial or lateral pterygoid, tensor tympani",
-  "accept": [],
+  "answer": "Masseter",
+  "accept": [
+   "temporalis",
+   "medial pterygoid",
+   "lateral pterygoid",
+   "tensor tympani"
+  ],
   "keywords": [
    [
     "masseter",
@@ -2600,7 +2785,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:muscle"
-  ]
+  ],
+  "explain": "Also temporalis, medial and lateral pterygoids and tensor tympani."
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-cranial_nerve",
@@ -2616,12 +2802,14 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the motor trigeminal nucleus?",
   "format": "type",
-  "answer": "Trigeminal nerve (CN V, V3)",
+  "answer": "Trigeminal nerve",
   "accept": [
    "trigeminal",
    "CN V",
    "V",
-   "5"
+   "5",
+   "V3",
+   "Trigeminal nerve (CN V, V3)"
   ],
   "keywords": null,
   "choices": null,
@@ -2634,7 +2822,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "The mandibular division (V3)."
  },
  {
   "slug": "theory-motor-trigeminal-nucleus-level",
@@ -2711,8 +2900,11 @@
   "facet": "lesion",
   "prompt": "With a unilateral motor trigeminal lesion, the jaw deviates toward which side on opening?",
   "format": "keywords",
-  "answer": "Toward the weak (lesioned) side",
-  "accept": [],
+  "answer": "Toward the lesioned side",
+  "accept": [
+   "toward the weak side",
+   "toward the weak (lesioned) side"
+  ],
   "keywords": [
    [
     "ipsilateral",
@@ -2783,7 +2975,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve provides input to the principal sensory nucleus?",
   "format": "type",
-  "answer": "Trigeminal nerve (CN V)",
+  "answer": "Trigeminal nerve",
   "accept": [
    "trigeminal",
    "CN V",
@@ -2846,7 +3038,7 @@
   "facet": "passes",
   "prompt": "Name one tract in the longitudinal fibres of the basis pontis.",
   "format": "keywords",
-  "answer": "Corticospinal, corticobulbar, corticopontine",
+  "answer": "Corticospinal tract",
   "accept": [],
   "keywords": [
    [
@@ -2864,7 +3056,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also corticobulbar and corticopontine fibres."
  },
  {
   "slug": "theory-pontine-nuclei-function",
@@ -2998,7 +3191,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the abducens nucleus?",
   "format": "type",
-  "answer": "Abducens nerve (CN VI)",
+  "answer": "Abducens nerve",
   "accept": [
    "abducens",
    "CN VI",
@@ -3031,8 +3224,11 @@
   "facet": "function",
   "prompt": "Stimulation of the abducens nucleus turns the eye which way?",
   "format": "keywords",
-  "answer": "Laterally (abduction, toward the ear)",
-  "accept": [],
+  "answer": "Laterally",
+  "accept": [
+   "abduction",
+   "toward the ear"
+  ],
   "keywords": [
    [
     "lateral",
@@ -3126,8 +3322,14 @@
   "facet": "muscle",
   "prompt": "Name one muscle innervated by the facial nucleus.",
   "format": "keywords",
-  "answer": "Orbicularis oculi, buccinator, stapedius, platysma, frontalis, orbicularis oris",
-  "accept": [],
+  "answer": "Orbicularis oculi",
+  "accept": [
+   "buccinator",
+   "stapedius",
+   "platysma",
+   "frontalis",
+   "orbicularis oris"
+  ],
   "keywords": [
    [
     "orbicularis",
@@ -3148,7 +3350,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:muscle"
-  ]
+  ],
+  "explain": "Also buccinator, stapedius, platysma, frontalis and orbicularis oris."
  },
  {
   "slug": "theory-facial-nucleus-cranial_nerve",
@@ -3164,7 +3367,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the facial nucleus?",
   "format": "type",
-  "answer": "Facial nerve (CN VII)",
+  "answer": "Facial nerve",
   "accept": [
    "facial",
    "CN VII",
@@ -3196,8 +3399,10 @@
   "facet": "lesion",
   "prompt": "Which part of the face is spared in an upper motor neuron facial palsy?",
   "format": "keywords",
-  "answer": "Forehead (upper face)",
-  "accept": [],
+  "answer": "Forehead",
+  "accept": [
+   "upper face"
+  ],
   "keywords": [
    [
     "forehead",
@@ -3285,8 +3490,11 @@
   "facet": "function",
   "prompt": "Name one function of the vestibulocochlear complex.",
   "format": "keywords",
-  "answer": "Hearing and balance",
-  "accept": [],
+  "answer": "Hearing",
+  "accept": [
+   "balance",
+   "hearing and balance"
+  ],
   "keywords": [
    [
     "hearing",
@@ -3306,7 +3514,8 @@
    "modality:auditory",
    "modality:vestibular",
    "theory:function"
-  ]
+  ],
+  "explain": "The cochlear division mediates hearing and the vestibular division balance."
  },
  {
   "slug": "theory-vestibulocochlear-complex-cranial_nerve",
@@ -3322,7 +3531,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve supplies the vestibulocochlear complex?",
   "format": "type",
-  "answer": "Vestibulocochlear nerve (CN VIII)",
+  "answer": "Vestibulocochlear nerve",
   "accept": [
    "vestibulocochlear",
    "CN VIII",
@@ -3355,7 +3564,7 @@
   "facet": "function",
   "prompt": "Name one function of the facial nerve.",
   "format": "keywords",
-  "answer": "Facial expression, tears and saliva, taste from anterior two-thirds of the tongue",
+  "answer": "Facial expression",
   "accept": [],
   "keywords": [
    [
@@ -3376,7 +3585,8 @@
    "source:supplementary",
    "region:cranial-nerves",
    "theory:function"
-  ]
+  ],
+  "explain": "Also tears and saliva, and taste from the anterior two-thirds of the tongue."
  },
  {
   "slug": "theory-facial-nerve-lesion",
@@ -3455,8 +3665,12 @@
   "facet": "muscle",
   "prompt": "Name one muscle innervated by the hypoglossal nucleus.",
   "format": "keywords",
-  "answer": "Genioglossus, hyoglossus, styloglossus or intrinsic tongue muscles",
-  "accept": [],
+  "answer": "Genioglossus",
+  "accept": [
+   "hyoglossus",
+   "styloglossus",
+   "intrinsic tongue muscles"
+  ],
   "keywords": [
    [
     "genioglossus",
@@ -3474,7 +3688,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:muscle"
-  ]
+  ],
+  "explain": "Also hyoglossus, styloglossus and the intrinsic tongue muscles."
  },
  {
   "slug": "theory-hypoglossal-nucleus-function",
@@ -3490,7 +3705,7 @@
   "facet": "function",
   "prompt": "What is the function of the hypoglossal nucleus?",
   "format": "keywords",
-  "answer": "Motor control of the tongue (movement for speech and swallowing)",
+  "answer": "Motor control of the tongue",
   "accept": [],
   "keywords": [
    [
@@ -3507,7 +3722,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Movement for speech and swallowing."
  },
  {
   "slug": "theory-hypoglossal-nucleus-lesion",
@@ -3523,8 +3739,11 @@
   "facet": "lesion",
   "prompt": "With a unilateral hypoglossal lesion, the tongue deviates toward which side?",
   "format": "keywords",
-  "answer": "Toward the lesion side (ipsilateral)",
-  "accept": [],
+  "answer": "Toward the lesion",
+  "accept": [
+   "ipsilateral",
+   "toward the lesion side"
+  ],
   "keywords": [
    [
     "ipsilateral",
@@ -3557,7 +3776,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the hypoglossal nucleus?",
   "format": "type",
-  "answer": "Hypoglossal nerve (CN XII)",
+  "answer": "Hypoglossal nerve",
   "accept": [
    "hypoglossal",
    "CN XII",
@@ -3653,8 +3872,11 @@
   "facet": "connections",
   "prompt": "What modality of fibres originate from the dorsal motor nucleus of the vagus?",
   "format": "keywords",
-  "answer": "Parasympathetic (visceral motor)",
-  "accept": [],
+  "answer": "Parasympathetic",
+  "accept": [
+   "visceral motor",
+   "preganglionic"
+  ],
   "keywords": [
    [
     "parasympathetic",
@@ -3687,7 +3909,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerve arises from the dorsal motor nucleus of the vagus?",
   "format": "type",
-  "answer": "Vagus nerve (CN X)",
+  "answer": "Vagus nerve",
   "accept": [
    "vagus",
    "CN X",
@@ -3750,8 +3972,10 @@
   "facet": "function",
   "prompt": "Name one function of the solitary nucleus.",
   "format": "keywords",
-  "answer": "Taste and visceral sensation (chemo/baro-receptors, gut)",
-  "accept": [],
+  "answer": "Taste",
+  "accept": [
+   "visceral sensation"
+  ],
   "keywords": [
    [
     "taste",
@@ -3771,7 +3995,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:function"
-  ]
+  ],
+  "explain": "Also visceral sensation (chemo/baroreceptors, gut)."
  },
  {
   "slug": "theory-solitary-nucleus-cranial_nerve",
@@ -3787,8 +4012,17 @@
   "facet": "cranial_nerve",
   "prompt": "Name one cranial nerve carrying afferents to the solitary nucleus.",
   "format": "keywords",
-  "answer": "VII, IX or X",
-  "accept": [],
+  "answer": "VII",
+  "accept": [
+   "IX",
+   "X",
+   "CN VII",
+   "CN IX",
+   "CN X",
+   "facial",
+   "glossopharyngeal",
+   "vagus"
+  ],
   "keywords": [
    [
     "VII",
@@ -3810,7 +4044,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "Cranial nerves VII, IX and X all send afferents to the solitary nucleus."
  },
  {
   "slug": "theory-solitary-nucleus-embryology",
@@ -3853,7 +4088,7 @@
   "facet": "function",
   "prompt": "Name one function of nucleus ambiguus.",
   "format": "keywords",
-  "answer": "Motor control of the pharynx and larynx: swallowing, phonation, gag",
+  "answer": "Motor control of pharynx and larynx",
   "accept": [],
   "keywords": [
    [
@@ -3875,7 +4110,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Swallowing, phonation and the gag reflex."
  },
  {
   "slug": "theory-nucleus-ambiguus-cranial_nerve",
@@ -3891,8 +4127,18 @@
   "facet": "cranial_nerve",
   "prompt": "Name one nerve that arises from nucleus ambiguus.",
   "format": "keywords",
-  "answer": "Glossopharyngeal (IX), vagus (X) or cranial accessory (XI)",
-  "accept": [],
+  "answer": "Vagus nerve",
+  "accept": [
+   "X",
+   "CN X",
+   "glossopharyngeal",
+   "IX",
+   "CN IX",
+   "cranial accessory",
+   "XI",
+   "CN XI",
+   "accessory"
+  ],
   "keywords": [
    [
     "IX",
@@ -3912,7 +4158,8 @@
    "region:brainstem",
    "modality:autonomic",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "Nucleus ambiguus contributes to CN IX, X and the cranial root of XI."
  },
  {
   "slug": "theory-nucleus-ambiguus-lesion",
@@ -3928,8 +4175,11 @@
   "facet": "lesion",
   "prompt": "Name one deficit after a nucleus ambiguus lesion.",
   "format": "keywords",
-  "answer": "Dysphagia, hoarseness, dysarthria, uvula deviating away",
-  "accept": [],
+  "answer": "Dysphagia",
+  "accept": [
+   "hoarseness",
+   "dysarthria"
+  ],
   "keywords": [
    [
     "dysphagia",
@@ -3947,7 +4197,8 @@
    "source:supplementary",
    "region:brainstem",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Also hoarseness, dysarthria and the uvula deviating away from the lesion."
  },
  {
   "slug": "theory-nucleus-ambiguus-embryology",
@@ -3990,7 +4241,7 @@
   "facet": "function",
   "prompt": "What is the function of the inferior olivary nucleus?",
   "format": "keywords",
-  "answer": "Sends climbing fibres to the contralateral cerebellum for motor learning",
+  "answer": "Climbing fibres to the contralateral cerebellum",
   "accept": [],
   "keywords": [
    [
@@ -4009,7 +4260,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "For motor learning."
  },
  {
   "slug": "theory-inferior-olivary-nucleus-connections",
@@ -4082,7 +4334,7 @@
   "facet": "function",
   "prompt": "Name one function of the glossopharyngeal nerve.",
   "format": "keywords",
-  "answer": "Taste and sensation from posterior one-third of tongue, parotid secretion, carotid sinus, stylopharyngeus",
+  "answer": "Taste from the posterior third of the tongue",
   "accept": [],
   "keywords": [
    [
@@ -4103,7 +4355,8 @@
    "source:supplementary",
    "region:cranial-nerves",
    "theory:function"
-  ]
+  ],
+  "explain": "Also sensation there, parotid secretion, carotid sinus and stylopharyngeus."
  },
  {
   "slug": "theory-glossopharyngeal-nerve-muscle",
@@ -4175,7 +4428,7 @@
   "facet": "function",
   "prompt": "Name one function of the vagus nerve.",
   "format": "keywords",
-  "answer": "Parasympathetic to thoracic and abdominal viscera; motor to pharynx and larynx",
+  "answer": "Parasympathetic to thoracic and abdominal viscera",
   "accept": [],
   "keywords": [
    [
@@ -4198,7 +4451,8 @@
    "modality:autonomic",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Also motor to the pharynx and larynx."
  },
  {
   "slug": "theory-vagus-nerve-passes",
@@ -4305,8 +4559,12 @@
   "facet": "muscle",
   "prompt": "Name one muscle innervated by the hypoglossal nerve.",
   "format": "keywords",
-  "answer": "Genioglossus, hyoglossus, styloglossus or intrinsic tongue muscles",
-  "accept": [],
+  "answer": "Genioglossus",
+  "accept": [
+   "hyoglossus",
+   "styloglossus",
+   "intrinsic tongue muscles"
+  ],
   "keywords": [
    [
     "genioglossus",
@@ -4324,7 +4582,8 @@
    "source:supplementary",
    "region:cranial-nerves",
    "theory:muscle"
-  ]
+  ],
+  "explain": "Also hyoglossus, styloglossus and the intrinsic tongue muscles."
  },
  {
   "slug": "theory-gracile-nucleus-order",
@@ -4373,7 +4632,7 @@
   "facet": "connections",
   "prompt": "Do gracile nucleus axons cross the midline?",
   "format": "keywords",
-  "answer": "Yes, as internal arcuate fibres in the caudal medulla",
+  "answer": "Yes",
   "accept": [],
   "keywords": [
    [
@@ -4392,7 +4651,8 @@
    "region:brainstem",
    "modality:sensory",
    "theory:connections"
-  ]
+  ],
+  "explain": "They cross as internal arcuate fibres in the caudal medulla."
  },
  {
   "slug": "theory-gracile-nucleus-embryology",
@@ -4531,7 +4791,7 @@
   "facet": "connections",
   "prompt": "Internal arcuate fibres are the axons of which neurons, and what do they form?",
   "format": "keywords",
-  "answer": "Gracile and cuneate nucleus axons; they form the medial lemniscus",
+  "answer": "Gracile and cuneate nucleus axons; medial lemniscus",
   "accept": [],
   "keywords": [
    [
@@ -4551,7 +4811,18 @@
    "region:brainstem",
    "modality:sensory",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Gracile and cuneate nucleus axons",
+   "Medial lemniscus"
+  ],
+  "part_accept": {
+   "Gracile and cuneate nucleus axons": [
+    "gracile and cuneate nuclei",
+    "gracile and cuneate",
+    "second-order neurons"
+   ]
+  }
  },
  {
   "slug": "theory-internal-arcuate-fibers-level",
@@ -4694,8 +4965,17 @@
   "facet": "cranial_nerve",
   "prompt": "Name one cranial nerve besides V that sends pain afferents to the spinal trigeminal nucleus.",
   "format": "keywords",
-  "answer": "VII, IX or X",
-  "accept": [],
+  "answer": "VII",
+  "accept": [
+   "IX",
+   "X",
+   "CN VII",
+   "CN IX",
+   "CN X",
+   "facial",
+   "glossopharyngeal",
+   "vagus"
+  ],
   "keywords": [
    [
     "VII",
@@ -4715,7 +4995,8 @@
    "region:brainstem",
    "modality:sensory",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "VII, IX and X also send pain afferents to the spinal trigeminal nucleus."
  },
  {
   "slug": "theory-motor-decussation-level",
@@ -4731,11 +5012,13 @@
   "facet": "level",
   "prompt": "At which level is the motor (pyramidal) decussation?",
   "format": "type",
-  "answer": "Caudal medulla (cervicomedullary junction)",
+  "answer": "Caudal medulla",
   "accept": [
    "medulla",
    "caudal medulla",
-   "cervicomedullary"
+   "cervicomedullary",
+   "cervicomedullary junction",
+   "Caudal medulla (cervicomedullary junction)"
   ],
   "keywords": null,
   "choices": null,
@@ -4804,7 +5087,7 @@
   "facet": "function",
   "prompt": "What does the lateral corticospinal tract control?",
   "format": "keywords",
-  "answer": "Voluntary movement of the contralateral limbs, especially distal muscles",
+  "answer": "Voluntary movement of contralateral limbs",
   "accept": [],
   "keywords": [
    [
@@ -4824,7 +5107,8 @@
    "region:spinal-cord",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Especially distal muscles."
  },
  {
   "slug": "theory-lateral-corticospinal-tract-order",
@@ -4873,7 +5157,7 @@
   "facet": "side",
   "prompt": "A lateral corticospinal tract lesion in the cord causes weakness on which side?",
   "format": "keywords",
-  "answer": "Ipsilateral (below the lesion), since the tract has already crossed",
+  "answer": "Ipsilateral",
   "accept": [],
   "keywords": [
    [
@@ -4890,7 +5174,8 @@
    "region:spinal-cord",
    "modality:motor",
    "theory:side"
-  ]
+  ],
+  "explain": "Below the lesion, since the tract has already crossed in the medulla."
  },
  {
   "slug": "theory-lateral-corticospinal-tract-connections",
@@ -4906,7 +5191,7 @@
   "facet": "connections",
   "prompt": "Where do lateral corticospinal axons synapse?",
   "format": "keywords",
-  "answer": "On ventral horn lower motor neurons (via interneurons)",
+  "answer": "Ventral horn lower motor neurons",
   "accept": [],
   "keywords": [
    [
@@ -4924,7 +5209,8 @@
    "region:spinal-cord",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "explain": "Directly or via interneurons."
  },
  {
   "slug": "theory-anterior-corticospinal-tract-function",
@@ -4940,7 +5226,7 @@
   "facet": "function",
   "prompt": "What does the anterior corticospinal tract control?",
   "format": "keywords",
-  "answer": "Axial/trunk and proximal muscles, bilaterally",
+  "answer": "Axial and proximal muscles",
   "accept": [],
   "keywords": [
    [
@@ -4960,7 +5246,8 @@
    "plane:horizontal",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Bilaterally."
  },
  {
   "slug": "theory-anterior-corticospinal-tract-side",
@@ -4976,7 +5263,7 @@
   "facet": "side",
   "prompt": "Where does the anterior corticospinal tract decussate?",
   "format": "keywords",
-  "answer": "At the segmental level in the ventral white commissure",
+  "answer": "At the segmental level",
   "accept": [],
   "keywords": [
    [
@@ -4995,7 +5282,8 @@
    "region:spinal-cord",
    "modality:motor",
    "theory:side"
-  ]
+  ],
+  "explain": "In the ventral white commissure."
  },
  {
   "slug": "theory-lateral-funiculus-passes",
@@ -5011,7 +5299,7 @@
   "facet": "passes",
   "prompt": "Name one tract in the lateral funiculus.",
   "format": "keywords",
-  "answer": "Lateral corticospinal, rubrospinal, spinothalamic, spinocerebellar",
+  "answer": "Lateral corticospinal tract",
   "accept": [],
   "keywords": [
    [
@@ -5032,7 +5320,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also rubrospinal, spinothalamic and spinocerebellar tracts."
  },
  {
   "slug": "theory-anterior-funiculus-passes",
@@ -5048,7 +5337,7 @@
   "facet": "passes",
   "prompt": "Name one tract in the anterior funiculus.",
   "format": "keywords",
-  "answer": "Anterior corticospinal, vestibulospinal, reticulospinal, tectospinal",
+  "answer": "Anterior corticospinal tract",
   "accept": [],
   "keywords": [
    [
@@ -5068,7 +5357,8 @@
    "modality:vestibular",
    "modality:motor",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also vestibulospinal, reticulospinal and tectospinal tracts."
  },
  {
   "slug": "theory-location-of-limb-lower-motor-neurons-function",
@@ -5149,7 +5439,7 @@
   "facet": "passes",
   "prompt": "Name one fibre system in the basis pontis.",
   "format": "keywords",
-  "answer": "Corticospinal, corticobulbar, corticopontine, pontocerebellar fibres",
+  "answer": "Corticospinal fibres",
   "accept": [],
   "keywords": [
    [
@@ -5168,7 +5458,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:passes"
-  ]
+  ],
+  "explain": "Also corticobulbar, corticopontine and pontocerebellar fibres."
  },
  {
   "slug": "theory-cornea-function",
@@ -5184,7 +5475,7 @@
   "facet": "function",
   "prompt": "Name one function of the cornea.",
   "format": "keywords",
-  "answer": "Refracts light (major focusing power); protects the eye",
+  "answer": "Refracts light",
   "accept": [],
   "keywords": [
    [
@@ -5204,7 +5495,8 @@
    "region:visual",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "Provides most of the eye's focusing power; also protects the eye."
  },
  {
   "slug": "theory-cornea-cranial_nerve",
@@ -5220,7 +5512,7 @@
   "facet": "cranial_nerve",
   "prompt": "Which cranial nerves mediate the corneal reflex (afferent and efferent)?",
   "format": "keywords",
-  "answer": "V1 (afferent) and VII (efferent)",
+  "answer": "V1 and VII",
   "accept": [],
   "keywords": [
    [
@@ -5242,7 +5534,25 @@
    "region:visual",
    "modality:visual",
    "theory:cranial-nerve"
-  ]
+  ],
+  "parts": [
+   "V1",
+   "VII"
+  ],
+  "part_accept": {
+   "V1": [
+    "CN V1",
+    "ophthalmic",
+    "trigeminal",
+    "CN V",
+    "V"
+   ],
+   "VII": [
+    "CN VII",
+    "facial"
+   ]
+  },
+  "explain": "V1 is the afferent limb and VII the efferent limb."
  },
  {
   "slug": "theory-sclera-function",
@@ -5258,7 +5568,7 @@
   "facet": "function",
   "prompt": "Name one function of the sclera.",
   "format": "keywords",
-  "answer": "Gives the eye shape and protects it; muscle attachment",
+  "answer": "Gives the eye shape",
   "accept": [],
   "keywords": [
    [
@@ -5278,7 +5588,8 @@
    "region:visual",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "Also protects the eye and anchors the extraocular muscles."
  },
  {
   "slug": "theory-optic-nerve-cranial_nerve",
@@ -5389,7 +5700,7 @@
   "facet": "function",
   "prompt": "What do the optic radiations connect?",
   "format": "keywords",
-  "answer": "LGN to primary visual cortex (V1)",
+  "answer": "LGN to primary visual cortex",
   "accept": [],
   "keywords": [
    [
@@ -5412,7 +5723,23 @@
    "region:visual",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "LGN",
+   "Primary visual cortex"
+  ],
+  "part_accept": {
+   "LGN": [
+    "lateral geniculate nucleus",
+    "lateral geniculate"
+   ],
+   "Primary visual cortex": [
+    "V1",
+    "visual cortex",
+    "BA 17",
+    "striate cortex"
+   ]
+  }
  },
  {
   "slug": "theory-optic-radiations-lesion",
@@ -5428,8 +5755,11 @@
   "facet": "lesion",
   "prompt": "Temporal lobe (Meyer loop) lesion of the optic radiations causes which defect?",
   "format": "keywords",
-  "answer": "Contralateral superior quadrantanopia (pie in the sky)",
-  "accept": [],
+  "answer": "Contralateral superior quadrantanopia",
+  "accept": [
+   "pie in the sky",
+   "superior quadrantanopia"
+  ],
   "keywords": [
    [
     "superior",
@@ -5495,7 +5825,7 @@
   "facet": "function",
   "prompt": "Name one function of the iris.",
   "format": "keywords",
-  "answer": "Controls pupil size and thus light entering the eye",
+  "answer": "Controls pupil size",
   "accept": [],
   "keywords": [
    [
@@ -5513,7 +5843,8 @@
    "region:visual",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "And so the amount of light entering the eye."
  },
  {
   "slug": "theory-iris-muscle",
@@ -5529,7 +5860,7 @@
   "facet": "muscle",
   "prompt": "Which iris muscle constricts the pupil, and which division supplies it?",
   "format": "keywords",
-  "answer": "Sphincter pupillae; parasympathetic (CN III)",
+  "answer": "Sphincter pupillae; parasympathetic",
   "accept": [],
   "keywords": [
    [
@@ -5551,7 +5882,18 @@
    "modality:visual",
    "modality:autonomic",
    "theory:muscle"
-  ]
+  ],
+  "parts": [
+   "Sphincter pupillae",
+   "Parasympathetic"
+  ],
+  "part_accept": {
+   "Parasympathetic": [
+    "CN III",
+    "oculomotor",
+    "parasympathetic division"
+   ]
+  }
  },
  {
   "slug": "theory-lens-function",
@@ -5567,8 +5909,10 @@
   "facet": "function",
   "prompt": "What is the function of the lens?",
   "format": "keywords",
-  "answer": "Fine focusing of light on the retina (accommodation)",
-  "accept": [],
+  "answer": "Fine focusing of light on the retina",
+  "accept": [
+   "accommodation"
+  ],
   "keywords": [
    [
     "focus",
@@ -5660,8 +6004,10 @@
   "facet": "function",
   "prompt": "What is the function of the retina?",
   "format": "keywords",
-  "answer": "Converts light into neural signals (phototransduction)",
-  "accept": [],
+  "answer": "Converts light into neural signals",
+  "accept": [
+   "phototransduction"
+  ],
   "keywords": [
    [
     "light",
@@ -5728,7 +6074,7 @@
   "facet": "lesion",
   "prompt": "Name one retinal disease.",
   "format": "keywords",
-  "answer": "Retinal detachment, diabetic retinopathy, macular degeneration, central retinal artery occlusion",
+  "answer": "Retinal detachment",
   "accept": [],
   "keywords": [
    [
@@ -5748,7 +6094,8 @@
    "region:visual",
    "modality:visual",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Also diabetic retinopathy, macular degeneration and central retinal artery occlusion."
  },
  {
   "slug": "theory-choroid-function",
@@ -5764,7 +6111,7 @@
   "facet": "function",
   "prompt": "Name one function of the choroid.",
   "format": "keywords",
-  "answer": "Vascular nourishment of the outer retina; absorbs stray light",
+  "answer": "Nourishes the outer retina",
   "accept": [],
   "keywords": [
    [
@@ -5784,7 +6131,8 @@
    "region:visual",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "Also absorbs stray light."
  },
  {
   "slug": "theory-suprachiasmatic-nucleus-function",
@@ -5865,8 +6213,11 @@
   "facet": "function",
   "prompt": "What is the function of the PPRF?",
   "format": "keywords",
-  "answer": "Horizontal (lateral) conjugate gaze centre",
-  "accept": [],
+  "answer": "Horizontal conjugate gaze centre",
+  "accept": [
+   "lateral conjugate gaze centre",
+   "horizontal gaze centre"
+  ],
   "keywords": [
    [
     "horizontal",
@@ -5929,8 +6280,10 @@
   "facet": "lesion",
   "prompt": "A PPRF lesion causes inability to look toward which side?",
   "format": "keywords",
-  "answer": "Toward the side of the lesion (ipsilateral)",
-  "accept": [],
+  "answer": "Toward the side of the lesion",
+  "accept": [
+   "ipsilateral"
+  ],
   "keywords": [
    [
     "ipsilateral",
@@ -6079,7 +6432,7 @@
   "facet": "cranial_nerve",
   "prompt": "Name one unique feature of the trochlear nerve.",
   "format": "keywords",
-  "answer": "Exits dorsally from the midbrain, decussates, and is the smallest/longest intracranial nerve",
+  "answer": "Exits dorsally from the midbrain",
   "accept": [],
   "keywords": [
    [
@@ -6100,7 +6453,8 @@
    "region:cranial-nerves",
    "modality:visual",
    "theory:cranial-nerve"
-  ]
+  ],
+  "explain": "It also decussates and is the smallest nerve with the longest intracranial course."
  },
  {
   "slug": "theory-trigeminal-nerve-function",
@@ -6116,7 +6470,7 @@
   "facet": "function",
   "prompt": "Name one function of the trigeminal nerve.",
   "format": "keywords",
-  "answer": "Facial sensation; motor to muscles of mastication",
+  "answer": "Facial sensation",
   "accept": [],
   "keywords": [
    [
@@ -6136,7 +6490,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:function"
-  ]
+  ],
+  "explain": "Also motor to the muscles of mastication."
  },
  {
   "slug": "theory-trigeminal-nerve-passes",
@@ -6152,8 +6507,15 @@
   "facet": "passes",
   "prompt": "Name the foramen for one of the trigeminal divisions.",
   "format": "keywords",
-  "answer": "V1 superior orbital fissure; V2 foramen rotundum; V3 foramen ovale",
-  "accept": [],
+  "answer": "Foramen ovale (V3)",
+  "accept": [
+   "foramen rotundum",
+   "superior orbital fissure",
+   "ovale",
+   "rotundum",
+   "foramen rotundum (V2)",
+   "superior orbital fissure (V1)"
+  ],
   "keywords": [
    [
     "orbital fissure",
@@ -6170,7 +6532,8 @@
    "region:cranial-nerves",
    "modality:sensory",
    "theory:passes"
-  ]
+  ],
+  "explain": "V1: superior orbital fissure; V2: foramen rotundum; V3: foramen ovale."
  },
  {
   "slug": "theory-trigeminal-nerve-lesion",
@@ -6244,8 +6607,10 @@
   "facet": "lesion",
   "prompt": "An abducens palsy leaves the eye in which position?",
   "format": "keywords",
-  "answer": "Medially deviated (esotropia), unable to abduct",
-  "accept": [],
+  "answer": "Medially deviated",
+  "accept": [
+   "esotropia"
+  ],
   "keywords": [
    [
     "medial",
@@ -6264,7 +6629,8 @@
    "region:cranial-nerves",
    "modality:visual",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Esotropia; unable to abduct."
  },
  {
   "slug": "theory-vestibulocochlear-nerve-function",
@@ -6280,8 +6646,11 @@
   "facet": "function",
   "prompt": "Name one function of the vestibulocochlear nerve.",
   "format": "keywords",
-  "answer": "Hearing and balance",
-  "accept": [],
+  "answer": "Hearing",
+  "accept": [
+   "balance",
+   "hearing and balance"
+  ],
   "keywords": [
    [
     "hearing",
@@ -6299,7 +6668,8 @@
    "modality:auditory",
    "modality:vestibular",
    "theory:function"
-  ]
+  ],
+  "explain": "The cochlear division mediates hearing and the vestibular division balance."
  },
  {
   "slug": "theory-vestibulocochlear-nerve-lesion",
@@ -6315,9 +6685,11 @@
   "facet": "lesion",
   "prompt": "Which tumour of CN VIII presents with hearing loss, tinnitus and vertigo?",
   "format": "type",
-  "answer": "Vestibular schwannoma (acoustic neuroma)",
+  "answer": "Vestibular schwannoma",
   "accept": [
-   "schwannoma,acoustic neuroma"
+   "schwannoma",
+   "acoustic neuroma",
+   "Vestibular schwannoma (acoustic neuroma)"
   ],
   "keywords": null,
   "choices": null,

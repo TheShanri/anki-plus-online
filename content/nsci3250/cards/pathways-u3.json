@@ -114,7 +114,7 @@
   "pathway": "cerebellar",
   "step": "input-olive",
   "prompt": "Which structure gives rise to climbing fibers, and from which side?",
-  "answer": "Contralateral inferior olivary nucleus (via ICP)",
+  "answer": "Contralateral inferior olivary nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -136,7 +136,19 @@
    "region:cerebellum",
    "modality:motor"
   ],
-  "structure": "inferior-olivary-nucleus"
+  "structure": "inferior-olivary-nucleus",
+  "parts": [
+   "Inferior olivary nucleus",
+   "Contralateral"
+  ],
+  "part_accept": {
+   "Inferior olivary nucleus": [
+    "inferior olive",
+    "olive",
+    "IO"
+   ]
+  },
+  "explain": "Via the inferior cerebellar peduncle."
  },
  {
   "slug": "pathways-u3-cerebellar-input-dsct",
@@ -172,7 +184,16 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Ipsilateral",
+   "Inferior cerebellar peduncle"
+  ],
+  "part_accept": {
+   "Inferior cerebellar peduncle": [
+    "ICP"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-cerebellar-input-vest",
@@ -187,7 +208,7 @@
   "pathway": "cerebellar",
   "step": "input-vest",
   "prompt": "Vestibular input reaches the cerebellum from which side and through which peduncles?",
-  "answer": "Ipsilateral, via the inferior cerebellar peduncle (juxtarestiform body)",
+  "answer": "Ipsilateral, via the inferior cerebellar peduncle",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -210,7 +231,17 @@
    "region:cerebellum",
    "modality:motor"
   ],
-  "explain": "Vestibular input reaches the cerebellum ipsilaterally through the inferior cerebellar peduncle (juxtarestiform body), ending mainly in the flocculonodular lobe; the middle cerebellar peduncle carries pontine (corticopontocerebellar) input, not vestibular."
+  "explain": "Vestibular input reaches the cerebellum ipsilaterally through the inferior cerebellar peduncle (juxtarestiform body), ending mainly in the flocculonodular lobe; the middle cerebellar peduncle carries pontine (corticopontocerebellar) input, not vestibular.",
+  "parts": [
+   "Ipsilateral",
+   "Inferior cerebellar peduncle"
+  ],
+  "part_accept": {
+   "Inferior cerebellar peduncle": [
+    "ICP",
+    "juxtarestiform body"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-cerebellar-mossy",
@@ -225,7 +256,7 @@
   "pathway": "cerebellar",
   "step": "mossy",
   "prompt": "Mossy fibers synapse on which cell type in the cerebellar cortex?",
-  "answer": "Granule cells (parallel fibers excite Purkinje cells)",
+  "answer": "Granule cells",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -243,7 +274,8 @@
    "region:cerebellum",
    "modality:motor"
   ],
-  "structure": "granule-cell"
+  "structure": "granule-cell",
+  "explain": "Parallel fibers excite Purkinje cells."
  },
  {
   "slug": "pathways-u3-cerebellar-climbing",
@@ -356,8 +388,11 @@
   "pathway": "cerebellar",
   "step": "decussation",
   "prompt": "Where does the cerebellar output pathway decussate?",
-  "answer": "Decussation of the SCP in the caudal midbrain (inferior colliculus level)",
-  "accept": [],
+  "answer": "Caudal midbrain",
+  "accept": [
+   "decussation of the SCP",
+   "inferior colliculus level"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -376,7 +411,8 @@
    "region:cerebellum",
    "modality:motor"
   ],
-  "structure": "decussation-of-the-superior-cerebellar-peduncle"
+  "structure": "decussation-of-the-superior-cerebellar-peduncle",
+  "explain": "The decussation of the superior cerebellar peduncle, at the level of the inferior colliculus."
  },
  {
   "slug": "pathways-u3-cerebellar-targets",
@@ -391,7 +427,7 @@
   "pathway": "cerebellar",
   "step": "targets",
   "prompt": "Cerebellar output via the SCP goes to which contralateral targets?",
-  "answer": "Red nucleus and VA/VL thalamus (then motor cortex)",
+  "answer": "Red nucleus and VA/VL thalamus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -413,7 +449,21 @@
    "source:lecture",
    "region:cerebellum",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Red nucleus",
+   "VA/VL thalamus"
+  ],
+  "part_accept": {
+   "VA/VL thalamus": [
+    "thalamus",
+    "VL",
+    "VA",
+    "VL thalamus",
+    "ventrolateral thalamus"
+   ]
+  },
+  "explain": "Then on to the motor cortex."
  },
  {
   "slug": "pathways-u3-cerebellar-dentate",
@@ -494,7 +544,7 @@
   "pathway": "cerebellar",
   "step": "interposed",
   "prompt": "Which deep nucleus serves the paravermis (distal limbs)?",
-  "answer": "Interposed nucleus (emboliform and globose)",
+  "answer": "Interposed nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -514,7 +564,8 @@
    "region:cerebellum",
    "modality:motor"
   ],
-  "structure": "interposed-nucleus"
+  "structure": "interposed-nucleus",
+  "explain": "Emboliform and globose."
  },
  {
   "slug": "pathways-u3-cerebellar-flocculonodular",
@@ -529,7 +580,7 @@
   "pathway": "cerebellar",
   "step": "flocculonodular",
   "prompt": "The flocculonodular lobe projects to which structures?",
-  "answer": "Vestibular nuclei (balance, eye movements)",
+  "answer": "Vestibular nuclei",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -547,7 +598,8 @@
    "region:cerebellum",
    "modality:motor"
   ],
-  "structure": "flocculonodular-lobe"
+  "structure": "flocculonodular-lobe",
+  "explain": "Balance and eye movements."
  },
  {
   "slug": "pathways-u3-cerebellar-lesion-side",
@@ -562,8 +614,10 @@
   "pathway": "cerebellar",
   "step": "lesion-side",
   "prompt": "A lesion of the right cerebellar hemisphere causes ataxia on which side?",
-  "answer": "Right (ipsilateral)",
-  "accept": [],
+  "answer": "Right",
+  "accept": [
+   "ipsilateral"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -598,7 +652,7 @@
   "pathway": "basal-ganglia",
   "step": "input",
   "prompt": "Which structure is the main input nucleus of the basal ganglia?",
-  "answer": "Striatum (caudate + putamen)",
+  "answer": "Striatum",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -617,7 +671,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "explain": "Caudate + putamen."
  },
  {
   "slug": "pathways-u3-basal-ganglia-striatum",
@@ -652,7 +707,16 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Caudate nucleus",
+   "Putamen"
+  ],
+  "part_accept": {
+   "Caudate nucleus": [
+    "caudate"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-basal-ganglia-lentiform",
@@ -689,7 +753,17 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Putamen",
+   "Globus pallidus"
+  ],
+  "part_accept": {
+   "Globus pallidus": [
+    "pallidum",
+    "GP"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-basal-ganglia-ventral",
@@ -724,6 +798,10 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
+  ],
+  "parts": [
+   "Nucleus accumbens",
+   "Olfactory tubercle"
   ]
  },
  {
@@ -739,7 +817,7 @@
   "pathway": "basal-ganglia",
   "step": "output",
   "prompt": "Which nucleus is the primary output of the basal ganglia?",
-  "answer": "Globus pallidus internus (GPi)",
+  "answer": "Globus pallidus internus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -758,7 +836,8 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "explain": "GPi."
  },
  {
   "slug": "pathways-u3-basal-ganglia-gpi-effect",
@@ -842,7 +921,7 @@
   "pathway": "basal-ganglia",
   "step": "direct",
   "prompt": "In the direct 'go' pathway, what does the striatum do to GPi, and what is the net effect on cortex?",
-  "answer": "Inhibits GPi, disinhibiting thalamus: excites cortex, promotes movement",
+  "answer": "Inhibits GPi; excites cortex",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -866,7 +945,18 @@
    "region:basal-ganglia",
    "modality:motor"
   ],
-  "structure": "direct-pathway"
+  "structure": "direct-pathway",
+  "parts": [
+   "Inhibits GPi",
+   "Excites cortex"
+  ],
+  "part_accept": {
+   "Excites cortex": [
+    "promotes movement",
+    "excites the cortex"
+   ]
+  },
+  "explain": "Inhibiting the GPi disinhibits the thalamus, so the cortex is excited and movement is promoted."
  },
  {
   "slug": "pathways-u3-basal-ganglia-indirect",
@@ -881,7 +971,7 @@
   "pathway": "basal-ganglia",
   "step": "indirect",
   "prompt": "In the indirect 'no-go' pathway, the striatum inhibits which nucleus, and what follows?",
-  "answer": "GPe is inhibited, so STN is disinhibited, more GPi drive, less movement",
+  "answer": "GPe; less movement",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -904,7 +994,23 @@
    "region:basal-ganglia",
    "modality:motor"
   ],
-  "structure": "indirect-pathway"
+  "structure": "indirect-pathway",
+  "parts": [
+   "GPe",
+   "Less movement"
+  ],
+  "part_accept": {
+   "GPe": [
+    "globus pallidus externus",
+    "globus pallidus external"
+   ],
+   "Less movement": [
+    "reduced movement",
+    "inhibits movement",
+    "hypokinesia"
+   ]
+  },
+  "explain": "GPe is inhibited, so the STN is disinhibited, GPi drive increases and movement is reduced."
  },
  {
   "slug": "pathways-u3-basal-ganglia-stn",
@@ -919,7 +1025,7 @@
   "pathway": "basal-ganglia",
   "step": "stn",
   "prompt": "Is the subthalamic nucleus excitatory or inhibitory, and what is its net effect?",
-  "answer": "Excitatory (to GPi); dampens movement",
+  "answer": "Excitatory; dampens movement",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -944,7 +1050,18 @@
    "region:basal-ganglia",
    "modality:motor"
   ],
-  "structure": "subthalamic-nucleus"
+  "structure": "subthalamic-nucleus",
+  "parts": [
+   "Excitatory",
+   "Dampens movement"
+  ],
+  "part_accept": {
+   "Dampens movement": [
+    "reduces movement",
+    "inhibits movement"
+   ]
+  },
+  "explain": "It excites the GPi."
  },
  {
   "slug": "pathways-u3-basal-ganglia-da-d1",
@@ -959,8 +1076,12 @@
   "pathway": "basal-ganglia",
   "step": "da-d1",
   "prompt": "Dopamine acting on D1 receptors does what to the direct pathway?",
-  "answer": "Excites (enhances) the direct 'go' pathway",
-  "accept": [],
+  "answer": "Excites the direct pathway",
+  "accept": [
+   "enhances the direct pathway",
+   "excites the direct go pathway",
+   "excites (enhances) the direct go pathway"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1060,7 +1181,7 @@
   "pathway": "basal-ganglia",
   "step": "parkinson",
   "prompt": "Parkinson's disease follows loss of which neurons, and does it cause too much or too little movement?",
-  "answer": "Dopaminergic substantia nigra neurons; hypokinesia / bradykinesia",
+  "answer": "Dopaminergic substantia nigra neurons; hypokinesia",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1085,7 +1206,21 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Dopaminergic substantia nigra neurons",
+   "Hypokinesia"
+  ],
+  "part_accept": {
+   "Dopaminergic substantia nigra neurons": [
+    "substantia nigra",
+    "dopaminergic neurons"
+   ],
+   "Hypokinesia": [
+    "bradykinesia",
+    "too little movement"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-basal-ganglia-huntington",
@@ -1100,7 +1235,7 @@
   "pathway": "basal-ganglia",
   "step": "huntington",
   "prompt": "Huntington's disease involves degeneration of which structure and causes which movement?",
-  "answer": "Striatum; chorea (hyperkinesia)",
+  "answer": "Striatum; chorea",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1122,7 +1257,21 @@
    "source:lecture",
    "region:basal-ganglia",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Striatum",
+   "Chorea"
+  ],
+  "part_accept": {
+   "Striatum": [
+    "caudate and putamen"
+   ],
+   "Chorea": [
+    "hyperkinesia",
+    "too much movement"
+   ]
+  },
+  "explain": "Chorea is a hyperkinetic movement disorder."
  },
  {
   "slug": "pathways-u3-basal-ganglia-ballismus",
@@ -1193,7 +1342,16 @@
    "region:limbic",
    "modality:olfactory"
   ],
-  "structure": "olfactory-epithelium"
+  "structure": "olfactory-epithelium",
+  "parts": [
+   "Olfactory epithelium",
+   "Bipolar neuron"
+  ],
+  "part_accept": {
+   "Bipolar neuron": [
+    "bipolar"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-olfactory-bone",
@@ -1241,7 +1399,7 @@
   "pathway": "olfactory",
   "step": "second-order",
   "prompt": "Where are the second-order olfactory neurons?",
-  "answer": "Olfactory bulb (mitral cells)",
+  "answer": "Olfactory bulb",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1260,7 +1418,8 @@
    "region:limbic",
    "modality:olfactory"
   ],
-  "structure": "olfactory-bulb"
+  "structure": "olfactory-bulb",
+  "explain": "Mitral cells."
  },
  {
   "slug": "pathways-u3-olfactory-tract",
@@ -1308,7 +1467,7 @@
   "pathway": "olfactory",
   "step": "cortex",
   "prompt": "Name the primary olfactory cortical targets.",
-  "answer": "Olfactory tubercle and prepiriform (piriform) cortex",
+  "answer": "Olfactory tubercle and piriform cortex",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1327,7 +1486,17 @@
    "source:lecture",
    "region:limbic",
    "modality:olfactory"
-  ]
+  ],
+  "parts": [
+   "Olfactory tubercle",
+   "Piriform cortex"
+  ],
+  "part_accept": {
+   "Piriform cortex": [
+    "prepiriform cortex",
+    "pyriform cortex"
+   ]
+  }
  },
  {
   "slug": "pathways-u3-olfactory-thalamus",
@@ -1342,7 +1511,7 @@
   "pathway": "olfactory",
   "step": "thalamus",
   "prompt": "Is a thalamic relay required for olfaction to reach cortex?",
-  "answer": "No: olfaction bypasses the thalamus (MD thalamus relays secondarily to orbitofrontal cortex)",
+  "answer": "No",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1361,7 +1530,7 @@
    "region:limbic",
    "modality:olfactory"
   ],
-  "explain": "Olfaction is the one sensory system whose primary cortical projection bypasses the thalamus: the olfactory tract goes straight to the olfactory cortex. The thalamus (mediodorsal nucleus) only relays secondarily to orbitofrontal cortex."
+  "explain": "Olfaction is the one sensory system whose primary cortical projection bypasses the thalamus: the olfactory tract goes straight to the olfactory cortex. The thalamus (mediodorsal nucleus) only relays secondarily to orbitofrontal cortex. Olfaction bypasses the thalamus; the MD thalamus relays secondarily to orbitofrontal cortex."
  },
  {
   "slug": "pathways-u3-olfactory-orbitofrontal",
@@ -1376,8 +1545,12 @@
   "pathway": "olfactory",
   "step": "orbitofrontal",
   "prompt": "Through which thalamic nucleus does smell reach the orbitofrontal cortex?",
-  "answer": "Mediodorsal (MD) nucleus",
-  "accept": [],
+  "answer": "Mediodorsal nucleus",
+  "accept": [
+   "MD",
+   "MD nucleus",
+   "MD thalamus"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1411,7 +1584,7 @@
   "pathway": "olfactory",
   "step": "special",
   "prompt": "What is unusual about olfactory receptors compared with other special senses?",
-  "answer": "They are neurons themselves and are replaced throughout life (~60 days)",
+  "answer": "They are neurons and are replaced throughout life",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1435,7 +1608,7 @@
    "region:limbic",
    "modality:olfactory"
   ],
-  "explain": "Olfactory receptor cells are bipolar neurons exposed to the environment, so they are damaged and replaced continually from basal stem cells (turnover about every 60 days), unlike most neurons."
+  "explain": "Olfactory receptor cells are bipolar neurons exposed to the environment, so they are damaged and replaced continually from basal stem cells (turnover about every 60 days), unlike most neurons. Turnover about every 60 days."
  },
  {
   "slug": "pathways-u3-olfactory-lesion",
@@ -1450,8 +1623,11 @@
   "pathway": "olfactory",
   "step": "lesion",
   "prompt": "A fracture of the cribriform plate most likely causes loss of which sense?",
-  "answer": "Smell (anosmia)",
-  "accept": [],
+  "answer": "Anosmia",
+  "accept": [
+   "smell",
+   "loss of smell"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1541,7 +1717,18 @@
    "region:limbic",
    "modality:limbic"
   ],
-  "structure": "fornix"
+  "structure": "fornix",
+  "parts": [
+   "Crus",
+   "Body",
+   "Column"
+  ],
+  "part_accept": {
+   "Column": [
+    "columns"
+   ]
+  },
+  "parts_ordered": true
  },
  {
   "slug": "pathways-u3-limbic-fornix-mammillary",
@@ -1589,8 +1776,11 @@
   "pathway": "limbic-fornix",
   "step": "function",
   "prompt": "The hippocampal formation is critical for which memory process?",
-  "answer": "Consolidation (formation) of explicit/declarative long-term memory, not retrieval",
-  "accept": [],
+  "answer": "Consolidation of declarative memory",
+  "accept": [
+   "formation of declarative memory",
+   "consolidation of explicit memory"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1608,7 +1798,8 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "explain": "Formation (consolidation) of explicit/declarative long-term memory, not retrieval."
  },
  {
   "slug": "pathways-u3-limbic-fornix-cholinergic",
@@ -1623,7 +1814,7 @@
   "pathway": "limbic-fornix",
   "step": "cholinergic",
   "prompt": "Cholinergic input from the basal forebrain reaches the hippocampus via which tract?",
-  "answer": "Fornix (septohippocampal pathway)",
+  "answer": "Fornix",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1641,7 +1832,8 @@
    "region:limbic",
    "modality:limbic"
   ],
-  "structure": "fornix"
+  "structure": "fornix",
+  "explain": "Septohippocampal pathway."
  },
  {
   "slug": "pathways-u3-limbic-amygdala-tract",
@@ -1722,7 +1914,7 @@
   "pathway": "limbic-amygdala",
   "step": "targets",
   "prompt": "Name the amygdala's main efferent targets for autonomic and endocrine output.",
-  "answer": "Hypothalamus (and pituitary regulation), brainstem autonomic nuclei such as the dorsal motor nucleus of vagus",
+  "answer": "Hypothalamus and brainstem autonomic nuclei",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1744,7 +1936,19 @@
    "source:lecture",
    "region:limbic",
    "modality:limbic"
-  ]
+  ],
+  "parts": [
+   "Hypothalamus",
+   "Brainstem autonomic nuclei"
+  ],
+  "part_accept": {
+   "Brainstem autonomic nuclei": [
+    "dorsal motor nucleus of the vagus",
+    "brainstem",
+    "autonomic nuclei"
+   ]
+  },
+  "explain": "Hypothalamic output includes pituitary regulation; brainstem targets include the dorsal motor nucleus of the vagus."
  },
  {
   "slug": "pathways-u3-limbic-septal-tract",
@@ -1826,8 +2030,10 @@
   "pathway": "reward",
   "step": "origin",
   "prompt": "Where do the dopaminergic neurons of the reward pathway originate?",
-  "answer": "Ventral tegmental area (VTA) of the midbrain",
-  "accept": [],
+  "answer": "Ventral tegmental area",
+  "accept": [
+   "VTA"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1846,7 +2052,8 @@
    "region:limbic",
    "modality:limbic"
   ],
-  "structure": "ventral-tegmental-area"
+  "structure": "ventral-tegmental-area",
+  "explain": "In the midbrain."
  },
  {
   "slug": "pathways-u3-reward-target",

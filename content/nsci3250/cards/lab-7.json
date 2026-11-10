@@ -11638,7 +11638,20 @@
    "region:brainstem",
    "modality:visual"
   ],
-  "explain": "Retinal axons leave in the optic tract and mainly synapse in the lateral geniculate nucleus of the thalamus (for conscious vision) and in the superior colliculus (for visual reflexes and orienting eye movements)."
+  "explain": "Retinal axons leave in the optic tract and mainly synapse in the lateral geniculate nucleus of the thalamus (for conscious vision) and in the superior colliculus (for visual reflexes and orienting eye movements).",
+  "parts": [
+   "Thalamus",
+   "Superior colliculus"
+  ],
+  "part_accept": {
+   "Thalamus": [
+    "LGN",
+    "lateral geniculate nucleus"
+   ],
+   "Superior colliculus": [
+    "superior colliculi"
+   ]
+  }
  },
  {
   "slug": "lab-7-io-1770685863805-c4",
@@ -12653,6 +12666,10 @@
    "source:anki-deck",
    "region:brainstem",
    "modality:motor"
+  ],
+  "parts": [
+   "Cerebellum",
+   "Pons"
   ]
  },
  {
@@ -12666,9 +12683,11 @@
    "type": "apkg",
    "ref": "apkg/lab-7 note 1770685937875 cloze 2"
   },
-  "answer": "Cerebellum with midbrain and thalamus",
+  "answer": "Cerebellum, midbrain and thalamus",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "cerebellum with midbrain and thalamus"
+  ],
   "require_side": false,
   "image": "apkg/lab-7/media/paste-0692dcccacb5579d42b481541724f851f934463f.webp",
   "w": 1806,
@@ -12721,6 +12740,11 @@
    "source:anki-deck",
    "region:brainstem",
    "modality:motor"
+  ],
+  "parts": [
+   "Cerebellum",
+   "Midbrain",
+   "Thalamus"
   ]
  },
  {
@@ -12789,6 +12813,10 @@
    "source:anki-deck",
    "region:brainstem",
    "modality:motor"
+  ],
+  "parts": [
+   "Cerebellum",
+   "Medulla"
   ]
  },
  {
@@ -18699,7 +18727,19 @@
    "source:anki-deck",
    "region:brainstem",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Pyramids",
+   "Olive"
+  ],
+  "part_accept": {
+   "Pyramids": [
+    "pyramid"
+   ],
+   "Olive": [
+    "olives"
+   ]
+  }
  },
  {
   "slug": "lab-7-io-1770686410815-c5",

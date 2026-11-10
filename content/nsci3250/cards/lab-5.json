@@ -11223,9 +11223,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769696394309 cloze 4"
   },
-  "answer": "Horn Ventral",
-  "answer_kind": "direction",
-  "accept": [],
+  "answer": "Ventral horn",
+  "answer_kind": "structure",
+  "accept": [
+   "Horn Ventral"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-fdbbb4e627de3b53210143f0526f52dc03cea59e.webp",
   "w": 1248,
@@ -11497,7 +11499,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -15187,6 +15189,10 @@
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
+  ],
+  "parts": [
+   "Pain",
+   "Temperature"
   ]
  },
  {
@@ -15336,7 +15342,7 @@
   },
   "prompt": "Name the term.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) A\u03b4 fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]",
+  "review_note": "weak fuzzy match to 'Transverse fibers of the pons' (52); OCR text not recognised; long free-text label (not a structure name) [OCR 'Free nerve endings on either 1) C fibers (slow, burning pain) that will enter lateral DREZ and synapse on dendrites in substantia gelatinosa w/ cell bodies in nucleus proprius or 2) Aδ fibers (fast, localized pain) that enter lateral DREZ and synapse in the marginal zone nucleus', conf 0.98]",
   "tags": [
    "unit:u1",
    "kind:pin",
@@ -16672,9 +16678,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769734912436 cloze 5"
   },
-  "answer": "Synapse (L1 Lumbar) Marginal Zone Nucleus",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "Marginal zone nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "synapse (L1 lumbar) marginal zone nucleus"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
   "w": 2000,
@@ -16768,14 +16776,15 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
-  ]
+  ],
+  "explain": "Diagram label: Synapse (L1 Lumbar) Marginal Zone Nucleus."
  },
  {
   "slug": "lab-5-io-1769734912436-c6",
@@ -17366,7 +17375,7 @@
   },
   "prompt": "Name the structure.",
   "followups": [],
-  "review_note": "pathway flow-chart label [OCR 'Thalamus Synapse (VPL Nuc\u00cdeus)', conf 1.00]",
+  "review_note": "pathway flow-chart label [OCR 'Thalamus Synapse (VPL NucÍeus)', conf 1.00]",
   "tags": [
    "unit:u1",
    "kind:pin",
@@ -17393,7 +17402,9 @@
    "primary sensory cortex",
    "primary somatosensensory cortex",
    "S1",
-   "BA 3,1,2"
+   "BA 3",
+   "1",
+   "2"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-05fce54f5ee9670dc21dcfe0c045aeb0ed4f3721.webp",
@@ -17509,9 +17520,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769735630176 cloze 1"
   },
-  "answer": "Sensory Input (Legs/T6 and below)",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "Sensory input from legs below T6",
+  "answer_kind": "structure",
+  "accept": [
+   "sensory input (legs/T6 and below)"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
   "w": 1984,
@@ -17605,7 +17618,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17626,9 +17639,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769735630176 cloze 2"
   },
-  "answer": "Sensory Input (Arms/T6 and above)",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "Sensory input from arms above T6",
+  "answer_kind": "structure",
+  "accept": [
+   "sensory input (arms/T6 and above)"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
   "w": 1984,
@@ -17722,7 +17737,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17743,9 +17758,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769735630176 cloze 3"
   },
-  "answer": "1st Order Neuron (DRG Cervical/Thoracic)",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "1st order neuron, DRG cervical and thoracic",
+  "answer_kind": "structure",
+  "accept": [
+   "1st order neuron (DRG cervical/thoracic)"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
   "w": 1984,
@@ -17839,7 +17856,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -17859,9 +17876,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769735630176 cloze 4"
   },
-  "answer": "1st Order Neuron (DRG Sacral/Lumbar)",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "1st order neuron, DRG sacral and lumbar",
+  "answer_kind": "structure",
+  "accept": [
+   "1st order neuron (DRG sacral/lumbar)"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
   "w": 1984,
@@ -17955,7 +17974,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -18696,7 +18715,9 @@
    "primary sensory cortex",
    "primary somatosensensory cortex",
    "S1",
-   "BA 3,1,2"
+   "BA 3",
+   "1",
+   "2"
   ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-926c1bdaf2478886e8f69c6d3faebaeadfe30030.webp",
@@ -18812,9 +18833,11 @@
    "type": "apkg",
    "ref": "apkg/lab-5 note 1769735915192 cloze 1"
   },
-  "answer": "Sensory Input (Legs/Muscle Spindles)",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "Sensory input from legs, muscle spindles",
+  "answer_kind": "structure",
+  "accept": [
+   "sensory input (legs/muscle spindles)"
+  ],
   "require_side": false,
   "image": "apkg/lab-5/media/paste-b4f79c0003be3d2cd664436763c69fb17a06779b.webp",
   "w": 1771,
@@ -18873,7 +18896,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",

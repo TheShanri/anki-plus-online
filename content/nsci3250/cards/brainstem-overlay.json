@@ -12107,9 +12107,11 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942841779 cloze 1"
   },
-  "answer": "Caudal Medulla (Level of Tubercles)",
+  "answer": "Caudal medulla",
   "answer_kind": "level",
-  "accept": [],
+  "accept": [
+   "Caudal Medulla (Level of Tubercles)"
+  ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp",
   "w": 2000,
@@ -12141,7 +12143,8 @@
    "source:anki-deck",
    "region:brainstem",
    "plane:horizontal"
-  ]
+  ],
+  "explain": "Level of the gracile and cuneate tubercles."
  },
  {
   "slug": "brainstem-overlay-io-1771942886634-c1",
@@ -12701,9 +12704,11 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942916028 cloze 6"
   },
-  "answer": "Tract Spinocerebellar Dorsal",
+  "answer": "Dorsal spinocerebellar tract",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "Tract Spinocerebellar Dorsal"
+  ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-7b39dc431d7674453c3aa482b164981ebf715d62.webp",
   "w": 2000,

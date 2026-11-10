@@ -8095,7 +8095,20 @@
    "source:anki-deck",
    "region:spinal-cord"
   ],
-  "explain": "The lumbar and sacral cord segments (lumbosacral enlargement) supply the lower limbs and pelvis."
+  "explain": "The lumbar and sacral cord segments (lumbosacral enlargement) supply the lower limbs and pelvis.",
+  "parts": [
+   "Lower limbs",
+   "Pelvis"
+  ],
+  "part_accept": {
+   "Lower limbs": [
+    "lower limb",
+    "legs"
+   ],
+   "Pelvis": [
+    "pelvic region"
+   ]
+  }
  },
  {
   "slug": "lab-4-io-1769518577960-c8",
@@ -8764,6 +8777,10 @@
    "kind:pin",
    "source:anki-deck",
    "region:spinal-cord"
+  ],
+  "parts": [
+   "Chest",
+   "Back"
   ]
  },
  {

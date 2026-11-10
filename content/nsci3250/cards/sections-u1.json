@@ -7250,11 +7250,12 @@
    "ref": "lab-8, lab-10, lecture-6"
   },
   "prompt": "At which spinal levels is the lateral horn present?",
-  "answer": "T1 to L2 (sympathetic) and S2-S4 (parasympathetic)",
+  "answer": "T1 to L2 and S2-S4",
   "answer_kind": "level",
   "accept": [
    "t1-l2",
-   "t1 to l2"
+   "t1 to l2",
+   "T1 to L2 (sympathetic) and S2-S4 (parasympathetic)"
   ],
   "require_side": false,
   "format": "type",
@@ -7267,7 +7268,20 @@
    "region:spinal-cord",
    "plane:horizontal",
    "modality:autonomic"
-  ]
+  ],
+  "parts": [
+   "T1 to L2",
+   "S2-S4"
+  ],
+  "part_accept": {
+   "T1 to L2": [
+    "T1-L2"
+   ],
+   "S2-S4": [
+    "S2 to S4"
+   ]
+  },
+  "explain": "T1-L2 holds the sympathetic and S2-S4 the parasympathetic preganglionic neurons."
  },
  {
   "slug": "sections-u1-lumbar-vs-thoracic",

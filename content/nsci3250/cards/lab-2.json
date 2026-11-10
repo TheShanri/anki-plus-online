@@ -4480,7 +4480,28 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "parts": [
+   "Lateral",
+   "3rd",
+   "4th"
+  ],
+  "part_accept": {
+   "Lateral": [
+    "lateral ventricles",
+    "lateral ventricle"
+   ],
+   "3rd": [
+    "third",
+    "third ventricle",
+    "III"
+   ],
+   "4th": [
+    "fourth",
+    "fourth ventricle",
+    "IV"
+   ]
+  }
  },
  {
   "slug": "lab-2-io-1768768977386-c1",
@@ -12252,6 +12273,10 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
+  ],
+  "parts": [
+   "Anger",
+   "Fear"
   ]
  },
  {
@@ -12707,9 +12732,11 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768772516612 cloze 1"
   },
-  "answer": "Gyrus Parahippocampal",
+  "answer": "Parahippocampal gyrus",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "Gyrus Parahippocampal"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-db57bf7fdfdf59d393c03cf6e8bacf6c2010a606.webp",
   "w": 680,
@@ -14416,9 +14443,11 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768773534376 cloze 2"
   },
-  "answer": "Pain and olfaction (smell)",
-  "answer_kind": "function",
-  "accept": [],
+  "answer": "Pain and olfaction",
+  "answer_kind": "structure",
+  "accept": [
+   "Pain and olfaction (smell)"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
   "w": 1912,
@@ -14568,14 +14597,23 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the function.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck",
    "modality:olfactory"
-  ]
+  ],
+  "parts": [
+   "Pain",
+   "Olfaction"
+  ],
+  "part_accept": {
+   "Olfaction": [
+    "smell"
+   ]
+  }
  },
  {
   "slug": "lab-2-io-1768773534376-c3",
@@ -21148,9 +21186,11 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768864857166 cloze 10"
   },
-  "answer": "Eye cup Thalamus, hypothalamus, and epithalamus",
+  "answer": "Eye cup, thalamus, hypothalamus and epithalamus",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "Eye cup Thalamus, hypothalamus, and epithalamus"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
   "w": 1702,
@@ -21264,7 +21304,20 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "parts": [
+   "Eye cup",
+   "Thalamus",
+   "Hypothalamus",
+   "Epithalamus"
+  ],
+  "part_accept": {
+   "Eye cup": [
+    "optic cup",
+    "optic vesicle"
+   ]
+  },
+  "explain": "Derivatives of the embryonic diencephalon."
  },
  {
   "slug": "lab-2-io-1768864857166-c11",
@@ -21409,9 +21462,11 @@
    "type": "apkg",
    "ref": "apkg/lab-2 note 1768864857166 cloze 12"
   },
-  "answer": "Pons Cerebellum",
+  "answer": "Pons and cerebellum",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "Pons Cerebellum"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-5a27c4d3552416628479f77e7e3dc43f170be477.webp",
   "w": 1702,
@@ -21526,7 +21581,12 @@
    "kind:pin",
    "source:anki-deck",
    "modality:motor"
-  ]
+  ],
+  "parts": [
+   "Pons",
+   "Cerebellum"
+  ],
+  "explain": "Derivatives of the metencephalon."
  },
  {
   "slug": "lab-2-io-1768864857166-c13",

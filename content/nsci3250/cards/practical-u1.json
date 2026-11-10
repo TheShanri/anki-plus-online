@@ -800,8 +800,11 @@
   },
   "facet": "function",
   "prompt": "For question 21, what is the function of the gyrus immediately above and below the groove?",
-  "answer": "Primary visual cortex / vision",
-  "accept": [],
+  "answer": "Vision",
+  "accept": [
+   "primary visual cortex",
+   "visual processing"
+  ],
   "keywords": [
    [
     "Primary visual cortex",
@@ -1321,8 +1324,12 @@
   },
   "facet": "connections",
   "prompt": "Name one sensation carried in the tract highlighted in blue.",
-  "answer": "Pain, temp, itch, crude touch",
-  "accept": [],
+  "answer": "Pain",
+  "accept": [
+   "temperature",
+   "itch",
+   "crude touch"
+  ],
   "keywords": [
    [
     "Pain",
@@ -1346,7 +1353,8 @@
    "kind:theory",
    "source:practical",
    "theory:connections"
-  ]
+  ],
+  "explain": "Also temperature, itch and crude touch."
  },
  {
   "slug": "practical-u1-2024-q37",
@@ -1361,8 +1369,15 @@
   },
   "facet": "receptor",
   "prompt": "Name one somatosensory receptor that would detect a stimulus carried in the fiber tract highlighted in yellow.",
-  "answer": "Meissener, Merkel, Pacinian, Ruffini, GTO, M. Spindle",
-  "accept": [],
+  "answer": "Meissner corpuscle",
+  "accept": [
+   "Meissner",
+   "Merkel",
+   "Pacinian",
+   "Ruffini",
+   "GTO",
+   "muscle spindle"
+  ],
   "keywords": [
    [
     "Meissener",
@@ -1389,7 +1404,8 @@
    "source:practical",
    "modality:sensory",
    "theory:receptor"
-  ]
+  ],
+  "explain": "Any one counts: Meissner, Merkel, Pacinian, Ruffini, GTO or muscle spindle."
  },
  {
   "slug": "practical-u1-2024-q38",
@@ -1599,8 +1615,10 @@
   },
   "facet": "function",
   "prompt": "What three bones fuse to form this landmark?",
-  "answer": "Parietal x2, Occipital",
-  "accept": [],
+  "answer": "Two parietal bones and the occipital bone",
+  "accept": [
+   "parietal x2, occipital"
+  ],
   "keywords": [
    [
     "Parietal x2",
@@ -1617,7 +1635,23 @@
    "source:practical",
    "region:skull",
    "theory:function"
-  ]
+  ],
+  "parts": [
+   "Parietal bones",
+   "Occipital bone"
+  ],
+  "part_accept": {
+   "Parietal bones": [
+    "parietal",
+    "parietals",
+    "two parietal bones",
+    "2 parietal bones"
+   ],
+   "Occipital bone": [
+    "occipital"
+   ]
+  },
+  "explain": "Lambda is where the sagittal and lambdoid sutures meet."
  },
  {
   "slug": "practical-u1-2025-q03",
@@ -1712,8 +1746,13 @@
   },
   "facet": "function",
   "prompt": "What is the function of this structure?",
-  "answer": "Drain / reabsorb CSF",
-  "accept": [],
+  "answer": "Reabsorb CSF",
+  "accept": [
+   "drain CSF",
+   "drain",
+   "reabsorb",
+   "drain / reabsorb CSF"
+  ],
   "keywords": [
    [
     "Drain",
@@ -2148,7 +2187,9 @@
    "primary sensory cortex",
    "primary somatosensensory cortex",
    "S1",
-   "BA 3,1,2"
+   "BA 3",
+   "1",
+   "2"
   ],
   "require_side": false,
   "image": "decks/practical-u1-2025/pages/025.webp",
@@ -2869,8 +2910,17 @@
   },
   "facet": "receptor",
   "prompt": "Name one receptor type that conveys sensations associated with the yellow tract.",
-  "answer": "GTO, Spindles, M M R P",
-  "accept": [],
+  "answer": "Muscle spindle",
+  "accept": [
+   "GTO",
+   "Golgi tendon organ",
+   "spindles",
+   "Meissner",
+   "Merkel",
+   "Ruffini",
+   "Pacinian",
+   "MMRP"
+  ],
   "keywords": [
    [
     "GTO",
@@ -2893,7 +2943,8 @@
    "kind:theory",
    "source:practical",
    "theory:receptor"
-  ]
+  ],
+  "explain": "Any one counts. The key reads \"GTO, Spindles, MMRP\": Golgi tendon organ, muscle spindles, Meissner, Merkel, Ruffini, Pacinian."
  },
  {
   "slug": "practical-u1-2025-q38",
@@ -3620,7 +3671,7 @@
   },
   "facet": "function",
   "prompt": "What is the function of the structure shown?",
-  "answer": "Arachnoid granulations/villi: reabsorb CSF into the dural venous sinus",
+  "answer": "Reabsorb CSF",
   "accept": [],
   "keywords": [
    [
@@ -3643,7 +3694,8 @@
    "kind:theory",
    "source:practical",
    "theory:function"
-  ]
+  ],
+  "explain": "Arachnoid granulations/villi reabsorb CSF into the dural venous sinus."
  },
  {
   "slug": "practice-practical-lab3-q17",

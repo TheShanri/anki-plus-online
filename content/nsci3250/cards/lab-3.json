@@ -1022,9 +1022,13 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769003972932 cloze 5"
   },
-  "answer": "Medial view (midsagittal)",
-  "answer_kind": "plane",
-  "accept": [],
+  "answer": "Medial view",
+  "answer_kind": "structure",
+  "accept": [
+   "midsagittal view",
+   "midsagittal",
+   "medial view (midsagittal)"
+  ],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-4d03fc49169c3d69bba036a466d8eb0eefe58e3a.webp",
   "w": 908,
@@ -1120,7 +1124,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the plane.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
@@ -3570,7 +3574,7 @@
   },
   "prompt": "Name the term.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; \u201cplanning for planning\u201d for movement', conf 0.97]",
+  "review_note": "weak fuzzy match to 'Abducens nucleus' (48); OCR text not recognised; long free-text label (not a structure name) [OCR 'Complex aspects of behavior; “planning for planning” for movement', conf 0.97]",
   "tags": [
    "unit:u1",
    "kind:pin",
@@ -3995,7 +3999,20 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "parts": [
+   "Self control",
+   "Regulation of emotions"
+  ],
+  "part_accept": {
+   "Self control": [
+    "self-control"
+   ],
+   "Regulation of emotions": [
+    "emotion regulation",
+    "emotional regulation"
+   ]
+  }
  },
  {
   "slug": "lab-3-io-1769005221472-c5",
@@ -4367,6 +4384,10 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
+  ],
+  "parts": [
+   "Executive function",
+   "Working memory"
   ]
  },
  {
@@ -5125,7 +5146,9 @@
    "primary sensory cortex",
    "primary somatosensensory cortex",
    "S1",
-   "BA 3,1,2"
+   "BA 3",
+   "1",
+   "2"
   ],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-a141d9f2e2e97efc5f8405bdb2f3bcb923e2cc73.webp",
@@ -5280,7 +5303,26 @@
    "source:anki-deck",
    "region:cortex",
    "modality:sensory"
-  ]
+  ],
+  "parts": [
+   "3",
+   "1",
+   "2"
+  ],
+  "part_accept": {
+   "1": [
+    "BA 1",
+    "area 1"
+   ],
+   "2": [
+    "BA 2",
+    "area 2"
+   ],
+   "3": [
+    "BA 3",
+    "area 3"
+   ]
+  }
  },
  {
   "slug": "lab-3-io-1769005845374-c3",
@@ -6236,7 +6278,9 @@
    "primary sensory cortex",
    "primary somatosensensory cortex",
    "S1",
-   "BA 3,1,2"
+   "BA 3",
+   "1",
+   "2"
   ],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-b0c0e9bb92dcb58acd959f31c47a8550f99a3efa.webp",
@@ -8458,7 +8502,21 @@
    "source:anki-deck",
    "region:cortex",
    "modality:visual"
-  ]
+  ],
+  "parts": [
+   "18",
+   "19"
+  ],
+  "part_accept": {
+   "18": [
+    "BA 18",
+    "area 18"
+   ],
+   "19": [
+    "BA 19",
+    "area 19"
+   ]
+  }
  },
  {
   "slug": "lab-3-io-1769007127389-c3",
@@ -9579,7 +9637,21 @@
    "source:anki-deck",
    "region:cortex",
    "modality:auditory"
-  ]
+  ],
+  "parts": [
+   "41",
+   "42"
+  ],
+  "part_accept": {
+   "41": [
+    "BA 41",
+    "area 41"
+   ],
+   "42": [
+    "BA 42",
+    "area 42"
+   ]
+  }
  },
  {
   "slug": "lab-3-io-1769007615723-c3",
@@ -11041,7 +11113,21 @@
    "kind:pin",
    "source:anki-deck",
    "region:cortex"
-  ]
+  ],
+  "parts": [
+   "44",
+   "45"
+  ],
+  "part_accept": {
+   "44": [
+    "BA 44",
+    "area 44"
+   ],
+   "45": [
+    "BA 45",
+    "area 45"
+   ]
+  }
  },
  {
   "slug": "lab-3-io-1769008135190-c8",
@@ -15898,7 +15984,7 @@
   },
   "prompt": "Name the term.",
   "followups": [],
-  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the \u201cmultimodal\" area', conf 0.98]",
+  "review_note": "weak fuzzy match to 'Orientation of the neuraxis (cerebrum vs brainstem/spinal cord)' (41); OCR text not recognised; long free-text label (not a structure name) [OCR 'integration of information from somatosensory, auditory, and visual areas, and is sometimes referred to as the “multimodal\" area', conf 0.98]",
   "tags": [
    "unit:u1",
    "kind:pin",

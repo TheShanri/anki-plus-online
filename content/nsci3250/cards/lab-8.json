@@ -29160,7 +29160,20 @@
    "source:anki-deck",
    "region:brainstem",
    "plane:horizontal"
-  ]
+  ],
+  "parts": [
+   "Hypoglossal nucleus",
+   "Hypoglossal nerve"
+  ],
+  "part_accept": {
+   "Hypoglossal nucleus": [
+    "XII nucleus"
+   ],
+   "Hypoglossal nerve": [
+    "CN XII",
+    "XII"
+   ]
+  }
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c4",
@@ -29904,7 +29917,19 @@
    "region:brainstem",
    "plane:horizontal",
    "modality:sensory"
-  ]
+  ],
+  "parts": [
+   "Trigeminal nucleus",
+   "Trigeminal tract"
+  ],
+  "part_accept": {
+   "Trigeminal nucleus": [
+    "spinal trigeminal nucleus"
+   ],
+   "Trigeminal tract": [
+    "spinal trigeminal tract"
+   ]
+  }
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338316625-c9",
@@ -32222,7 +32247,19 @@
    "region:brainstem",
    "plane:horizontal",
    "modality:sensory"
-  ]
+  ],
+  "parts": [
+   "Trigeminal nucleus",
+   "Trigeminal tract"
+  ],
+  "part_accept": {
+   "Trigeminal nucleus": [
+    "spinal trigeminal nucleus"
+   ],
+   "Trigeminal tract": [
+    "spinal trigeminal tract"
+   ]
+  }
  },
  {
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c10",

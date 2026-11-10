@@ -11,7 +11,7 @@
   },
   "vignette": "A patient cannot smell coffee on either side. Which cranial nerve is tested and which structure does it pass through?",
   "prompt": "Answer both.",
-  "answer": "CN I (olfactory), through the cribriform plate of the ethmoid",
+  "answer": "CN I; cribriform plate of the ethmoid",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -37,7 +37,24 @@
   "structures": [
    "olfactory-nerve"
   ],
-  "structure": "olfactory-nerve"
+  "structure": "olfactory-nerve",
+  "parts": [
+   "CN I",
+   "Cribriform plate"
+  ],
+  "part_accept": {
+   "CN I": [
+    "olfactory nerve",
+    "olfactory",
+    "I",
+    "1"
+   ],
+   "Cribriform plate": [
+    "cribriform plate of the ethmoid",
+    "cribriform"
+   ]
+  },
+  "explain": "The olfactory nerve (CN I) passes through the cribriform plate of the ethmoid."
  },
  {
   "slug": "clinical-u2-cn-cn2-light",
@@ -51,8 +68,11 @@
   },
   "vignette": "A patient's left eye is blind. Shining a light in the left eye produces no pupil constriction in either eye; light in the right eye constricts both.",
   "prompt": "Which nerve is damaged?",
-  "answer": "Left optic nerve (CN II): afferent limb of the pupillary reflex",
-  "accept": [],
+  "answer": "Left optic nerve",
+  "accept": [
+   "left CN II",
+   "left optic nerve (CN II)"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -78,7 +98,8 @@
   "structures": [
    "optic-nerve"
   ],
-  "structure": "optic-nerve"
+  "structure": "optic-nerve",
+  "explain": "CN II is the afferent limb of the pupillary reflex."
  },
  {
   "slug": "clinical-u2-cn-cn3-pupil",
@@ -92,8 +113,11 @@
   },
   "vignette": "A patient with a head injury has a fixed, dilated right pupil and the right eye is turned down and out.",
   "prompt": "Which nerve is compressed?",
-  "answer": "Right oculomotor nerve (CN III): uncal herniation compresses it",
-  "accept": [],
+  "answer": "Right oculomotor nerve",
+  "accept": [
+   "right CN III",
+   "right oculomotor nerve (CN III)"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -119,7 +143,8 @@
   "structures": [
    "oculomotor-nerve"
   ],
-  "structure": "oculomotor-nerve"
+  "structure": "oculomotor-nerve",
+  "explain": "Uncal herniation compresses it."
  },
  {
   "slug": "clinical-u2-cn-cn4",
@@ -133,7 +158,7 @@
   },
   "vignette": "A patient has vertical diplopia on looking down and inward, and tilts the head. Which muscle and nerve are affected?",
   "prompt": "Name both.",
-  "answer": "Superior oblique muscle; trochlear nerve (CN IV)",
+  "answer": "Superior oblique; trochlear nerve",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -160,7 +185,21 @@
   "structures": [
    "trochlear-nerve"
   ],
-  "structure": "trochlear-nerve"
+  "structure": "trochlear-nerve",
+  "parts": [
+   "Superior oblique",
+   "Trochlear nerve"
+  ],
+  "part_accept": {
+   "Superior oblique": [
+    "superior oblique muscle"
+   ],
+   "Trochlear nerve": [
+    "CN IV",
+    "IV",
+    "4"
+   ]
+  }
  },
  {
   "slug": "clinical-u2-cn-cn6",
@@ -174,7 +213,7 @@
   },
   "vignette": "A patient cannot abduct the left eye and has horizontal diplopia, esotropia of the left eye.",
   "prompt": "Which nerve and muscle are affected?",
-  "answer": "Left abducens nerve (CN VI), lateral rectus",
+  "answer": "Left abducens nerve; lateral rectus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -203,7 +242,18 @@
    "abducens-nerve",
    "abducens-nucleus"
   ],
-  "structure": "abducens-nerve"
+  "structure": "abducens-nerve",
+  "parts": [
+   "Left abducens nerve",
+   "Lateral rectus"
+  ],
+  "part_accept": {
+   "Left abducens nerve": [
+    "abducens nerve",
+    "left CN VI",
+    "CN VI"
+   ]
+  }
  },
  {
   "slug": "clinical-u2-cn-cn5-motor",
@@ -261,8 +311,11 @@
   },
   "vignette": "A patient has numbness of the right forehead, cheek and chin and loss of the right corneal blink.",
   "prompt": "Which nerve is damaged?",
-  "answer": "Right trigeminal nerve (CN V: V1, V2, V3)",
-  "accept": [],
+  "answer": "Right trigeminal nerve",
+  "accept": [
+   "right CN V",
+   "right trigeminal nerve (CN V)"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -288,7 +341,8 @@
   "structures": [
    "trigeminal-nerve"
   ],
-  "structure": "trigeminal-nerve"
+  "structure": "trigeminal-nerve",
+  "explain": "CN V: V1, V2 and V3."
  },
  {
   "slug": "clinical-u2-cn-cn7-lmn",
@@ -302,7 +356,7 @@
   },
   "vignette": "A patient cannot wrinkle the right forehead, close the right eye or smile on the right. Taste on the anterior tongue and tearing are reduced on the right.",
   "prompt": "Where is the lesion, and which kind of lesion is this?",
-  "answer": "Right facial nerve/nucleus (lower motor neuron, whole side of the face)",
+  "answer": "Right facial nerve; lower motor neuron lesion",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -334,7 +388,25 @@
    "facial-nerve",
    "facial-nucleus"
   ],
-  "structure": "facial-nerve"
+  "structure": "facial-nerve",
+  "parts": [
+   "Right facial nerve",
+   "Lower motor neuron lesion"
+  ],
+  "part_accept": {
+   "Right facial nerve": [
+    "right facial nucleus",
+    "right CN VII",
+    "facial nerve",
+    "facial nerve/nucleus"
+   ],
+   "Lower motor neuron lesion": [
+    "LMN",
+    "lower motor neuron",
+    "LMN lesion"
+   ]
+  },
+  "explain": "Right facial nerve or nucleus; the whole side of the face is affected."
  },
  {
   "slug": "clinical-u2-cn-cn7-umn",
@@ -390,7 +462,7 @@
   },
   "vignette": "A patient reports ringing and hearing loss in the right ear with vertigo.",
   "prompt": "Which nerve is affected, and which two components does it contain?",
-  "answer": "Right vestibulocochlear nerve (CN VIII): cochlear (hearing) and vestibular (balance) parts",
+  "answer": "Right vestibulocochlear nerve; cochlear and vestibular parts",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -421,7 +493,27 @@
   "structures": [
    "vestibulocochlear-nerve"
   ],
-  "structure": "vestibulocochlear-nerve"
+  "structure": "vestibulocochlear-nerve",
+  "parts": [
+   "Right vestibulocochlear nerve",
+   "Cochlear",
+   "Vestibular"
+  ],
+  "part_accept": {
+   "Right vestibulocochlear nerve": [
+    "vestibulocochlear nerve",
+    "CN VIII",
+    "right CN VIII"
+   ],
+   "Cochlear": [
+    "hearing",
+    "cochlear part"
+   ],
+   "Vestibular": [
+    "balance",
+    "vestibular part"
+   ]
+  }
  },
  {
   "slug": "clinical-u2-cn-cn8-romberg",
@@ -435,7 +527,7 @@
   },
   "vignette": "A patient sways more when closing the eyes with feet together.",
   "prompt": "Name the three senses combined for balance in this test.",
-  "answer": "Vestibular (CN VIII), proprioception (DSCT and DCML), vision (CN II)",
+  "answer": "Vestibular, proprioception, vision",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -465,7 +557,27 @@
    "theory:lesion"
   ],
   "structures": [],
-  "explain": "Balance depends on three inputs: vestibular (CN VIII), proprioception (dorsal columns and spinocerebellar tracts) and vision. Closing the eyes removes vision, so a patient who sways has a deficit in one of the other two inputs. Romberg is a surname (Moritz Romberg, who described the sign)."
+  "explain": "Balance depends on three inputs: vestibular (CN VIII), proprioception (dorsal columns and spinocerebellar tracts) and vision. Closing the eyes removes vision, so a patient who sways has a deficit in one of the other two inputs. Romberg is a surname (Moritz Romberg, who described the sign). Vestibular (CN VIII), proprioception (DSCT and DCML), vision (CN II).",
+  "parts": [
+   "Vestibular",
+   "Proprioception",
+   "Vision"
+  ],
+  "part_accept": {
+   "Vestibular": [
+    "CN VIII",
+    "vestibular system"
+   ],
+   "Proprioception": [
+    "dorsal columns",
+    "DSCT and DCML",
+    "somatosensory"
+   ],
+   "Vision": [
+    "CN II",
+    "visual"
+   ]
+  }
  },
  {
   "slug": "clinical-u2-cn-cn9-10",
@@ -479,7 +591,7 @@
   },
   "vignette": "A patient has a hoarse voice, difficulty swallowing and the uvula deviates away from the lesioned side.",
   "prompt": "Which nucleus supplies the pharyngeal and laryngeal muscles?",
-  "answer": "Nucleus ambiguus (CN IX, X)",
+  "answer": "Nucleus ambiguus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -502,7 +614,8 @@
    "nucleus-ambiguus",
    "vagus-nerve"
   ],
-  "structure": "nucleus-ambiguus"
+  "structure": "nucleus-ambiguus",
+  "explain": "CN IX, X."
  },
  {
   "slug": "clinical-u2-cn-cn11",
@@ -516,8 +629,10 @@
   },
   "vignette": "A patient cannot shrug the right shoulder or turn the head against resistance.",
   "prompt": "Which nerve is affected?",
-  "answer": "Spinal accessory nerve (CN XI)",
-  "accept": [],
+  "answer": "Spinal accessory nerve",
+  "accept": [
+   "CN XI"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -596,7 +711,7 @@
   },
   "vignette": "Touching the left cornea produces no blink in either eye, but touching the right cornea causes both eyes to blink.",
   "prompt": "Which nerve is damaged?",
-  "answer": "Left trigeminal nerve (afferent limb, CN V1)",
+  "answer": "Left trigeminal nerve",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -623,7 +738,8 @@
   "structures": [
    "trigeminal-nerve"
   ],
-  "structure": "trigeminal-nerve"
+  "structure": "trigeminal-nerve",
+  "explain": "Afferent limb, CN V1."
  },
  {
   "slug": "clinical-u2-cn-corneal-efferent",
@@ -637,7 +753,7 @@
   },
   "vignette": "Touching either cornea produces a blink in the left eye but not in the right eye.",
   "prompt": "Which nerve is damaged?",
-  "answer": "Right facial nerve (efferent limb, CN VII)",
+  "answer": "Right facial nerve",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -663,7 +779,8 @@
   "structures": [
    "facial-nerve"
   ],
-  "structure": "facial-nerve"
+  "structure": "facial-nerve",
+  "explain": "Efferent limb, CN VII."
  },
  {
   "slug": "clinical-u2-visual-optic-chiasm",
@@ -702,7 +819,11 @@
   "structures": [
    "optic-chiasm"
   ],
-  "structure": "optic-chiasm"
+  "structure": "optic-chiasm",
+  "parts": [
+   "Bitemporal hemianopia",
+   "Optic chiasm"
+  ]
  },
  {
   "slug": "clinical-u2-visual-optic-tract",
@@ -716,8 +837,15 @@
   },
   "vignette": "A patient cannot see the entire left visual field in either eye.",
   "prompt": "Which structures could be damaged?",
-  "answer": "Right optic tract, LGN, optic radiations or visual cortex (left homonymous hemianopia)",
-  "accept": [],
+  "answer": "Right optic tract",
+  "accept": [
+   "LGN",
+   "optic radiations",
+   "visual cortex",
+   "right LGN",
+   "right optic radiations",
+   "right visual cortex"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -743,7 +871,8 @@
   ],
   "structures": [
    "optic-tract"
-  ]
+  ],
+  "explain": "Or the LGN, optic radiations or visual cortex on the right: all give a left homonymous hemianopia."
  },
  {
   "slug": "clinical-u2-visual-quadrant",
@@ -837,7 +966,7 @@
   },
   "vignette": "A patient with cortical blindness still turns toward a sudden bright light.",
   "prompt": "Which pathway explains this?",
-  "answer": "Retinal projections to the superior colliculus and pulvinar (blind sight)",
+  "answer": "Retinal projections to the superior colliculus and pulvinar",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -862,7 +991,11 @@
   "structures": [
    "superior-colliculus"
   ],
-  "explain": "Cortical blindness destroys primary visual cortex, but some retinal fibers still reach the superior colliculus and pulvinar. These pathways support orienting to bright light without conscious seeing, called blindsight."
+  "explain": "Cortical blindness destroys primary visual cortex, but some retinal fibers still reach the superior colliculus and pulvinar. These pathways support orienting to bright light without conscious seeing, called blindsight. Blindsight.",
+  "parts": [
+   "Superior colliculus",
+   "Pulvinar"
+  ]
  },
  {
   "slug": "clinical-u2-visual-prosopagnosia",
@@ -876,8 +1009,12 @@
   },
   "vignette": "A patient with a PCA stroke cannot recognise faces but sees normally.",
   "prompt": "Which visual stream is damaged?",
-  "answer": "Ventral ('what') stream in the inferior temporal lobe",
-  "accept": [],
+  "answer": "Ventral stream",
+  "accept": [
+   "ventral what stream",
+   "what stream",
+   "ventral ('what') stream"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -903,7 +1040,7 @@
   "structures": [
    "inferior-temporal-gyrus"
   ],
-  "explain": "Face recognition depends on the ventral ('what') visual stream in the inferior temporal lobe, including the fusiform region. A PCA stroke there impairs face identity while primary visual cortex still allows normal seeing. Prosopagnosia: Greek prosopon (face) + a- (without) + gnosis (knowledge)."
+  "explain": "Face recognition depends on the ventral ('what') visual stream in the inferior temporal lobe, including the fusiform region. A PCA stroke there impairs face identity while primary visual cortex still allows normal seeing. Prosopagnosia: Greek prosopon (face) + a- (without) + gnosis (knowledge). The ventral ('what') stream in the inferior temporal lobe."
  },
  {
   "slug": "clinical-u2-visual-mlf",
@@ -917,8 +1054,11 @@
   },
   "vignette": "A patient with multiple sclerosis looks right: the right eye abducts but the left eye fails to adduct. Convergence is normal.",
   "prompt": "Which structure is damaged?",
-  "answer": "Left medial longitudinal fasciculus (internuclear ophthalmoplegia)",
-  "accept": [],
+  "answer": "Left medial longitudinal fasciculus",
+  "accept": [
+   "left MLF",
+   "internuclear ophthalmoplegia"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -944,7 +1084,8 @@
   "structures": [
    "medial-longitudinal-fasciculus"
   ],
-  "structure": "medial-longitudinal-fasciculus"
+  "structure": "medial-longitudinal-fasciculus",
+  "explain": "Internuclear ophthalmoplegia."
  },
  {
   "slug": "clinical-u2-visual-gaze-palsy",
@@ -994,7 +1135,7 @@
   },
   "vignette": "A patient has right arm, leg and lower-face weakness with brisk reflexes and a left hemisphere lacunar stroke.",
   "prompt": "Where is the lesion?",
-  "answer": "Left internal capsule (corticospinal and corticobulbar fibers)",
+  "answer": "Left internal capsule",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1019,7 +1160,8 @@
   "structures": [
    "internal-capsule"
   ],
-  "structure": "internal-capsule"
+  "structure": "internal-capsule",
+  "explain": "Corticospinal and corticobulbar fibers."
  },
  {
   "slug": "clinical-u2-motor-pyramid-below",
@@ -1033,8 +1175,10 @@
   },
   "vignette": "A lesion below the pyramidal decussation on the right produces weakness on which side?",
   "prompt": "Side of weakness?",
-  "answer": "Right (ipsilateral)",
-  "accept": [],
+  "answer": "Right",
+  "accept": [
+   "ipsilateral"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1069,7 +1213,7 @@
   },
   "vignette": "An unconscious patient holds both arms flexed and legs extended.",
   "prompt": "Where is the lesion relative to the red nucleus?",
-  "answer": "Above the red nucleus (decorticate posturing; rubrospinal released)",
+  "answer": "Above the red nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1093,7 +1237,8 @@
   ],
   "structures": [
    "red-nucleus"
-  ]
+  ],
+  "explain": "Decorticate posturing; rubrospinal released."
  },
  {
   "slug": "clinical-u2-motor-decerebrate",
@@ -1107,7 +1252,7 @@
   },
   "vignette": "An unconscious patient has all four limbs extended with arms pronated.",
   "prompt": "Where is the lesion relative to the red nucleus?",
-  "answer": "Below the red nucleus (decerebrate posturing, brainstem injury)",
+  "answer": "Below the red nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1131,7 +1276,8 @@
   ],
   "structures": [
    "red-nucleus"
-  ]
+  ],
+  "explain": "Decerebrate posturing, brainstem injury."
  },
  {
   "slug": "clinical-u2-motor-cerebellar",
@@ -1145,8 +1291,11 @@
   },
   "vignette": "A patient has a right-sided intention tremor, dysmetria and a wide-based gait after a right cerebellar hemisphere stroke.",
   "prompt": "On which side are the deficits and why?",
-  "answer": "Ipsilateral (right): the cerebellum acts on the same side; output crosses in the SCP decussation and returns via the crossed corticospinal tract",
-  "accept": [],
+  "answer": "Ipsilateral",
+  "accept": [
+   "right",
+   "right side"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1169,7 +1318,7 @@
   "structures": [
    "cerebellar-lateral-hemisphere"
   ],
-  "explain": "Each cerebellar hemisphere controls the same side of the body. Cerebellar output crosses in the decussation of the superior cerebellar peduncle, and the crossed corticospinal tract recrosses at the pyramids, so the double crossing gives ipsilateral signs: intention tremor, dysmetria and a wide-based gait."
+  "explain": "Each cerebellar hemisphere controls the same side of the body. Cerebellar output crosses in the decussation of the superior cerebellar peduncle, and the crossed corticospinal tract recrosses at the pyramids, so the double crossing gives ipsilateral signs: intention tremor, dysmetria and a wide-based gait. The cerebellum acts on the same side: its output crosses in the SCP decussation and returns via the crossed corticospinal tract."
  },
  {
   "slug": "clinical-u2-brainstem-medial-medullary",

@@ -309,9 +309,11 @@
    "type": "apkg",
    "ref": "apkg/lab-14 note 1773943047508 cloze 3"
   },
-  "answer": "White Matter (Corona Radiata, association fibers)",
+  "answer": "White matter",
   "answer_kind": "term",
-  "accept": [],
+  "accept": [
+   "White Matter (Corona Radiata, association fibers)"
+  ],
   "require_side": false,
   "image": "apkg/lab-14/media/paste-5cfc2b3d9ccfaaad40fd406f1b2db75465078095.webp",
   "w": 967,
@@ -356,7 +358,8 @@
    "kind:pin",
    "source:anki-deck",
    "plane:coronal"
-  ]
+  ],
+  "explain": "Corona radiata and association fibers."
  },
  {
   "slug": "lab-14-io-1773943065204-c1",

@@ -35,7 +35,25 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "parts": [
+   "Conscious proprioception",
+   "Fine touch",
+   "Vibration",
+   "Pressure"
+  ],
+  "part_accept": {
+   "Conscious proprioception": [
+    "proprioception"
+   ],
+   "Fine touch": [
+    "touch",
+    "discriminative touch"
+   ],
+   "Pressure": [
+    "deep pressure"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-dcml-first-order",
@@ -116,7 +134,7 @@
   "pathway": "dcml",
   "step": "fiber",
   "prompt": "Which fiber types carry DCML information from the periphery?",
-  "answer": "A-alpha (Ia/Ib) and A-beta (type II)",
+  "answer": "A-alpha and A-beta",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -143,7 +161,24 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "DCML information travels on large, heavily myelinated fibers: A-alpha (Ia/Ib, from muscle spindles and Golgi tendon organs) and A-beta (type II and cutaneous mechanoreceptor afferents). Their fast conduction suits precise, rapid proprioception and fine touch."
+  "explain": "DCML information travels on large, heavily myelinated fibers: A-alpha (Ia/Ib, from muscle spindles and Golgi tendon organs) and A-beta (type II and cutaneous mechanoreceptor afferents). Their fast conduction suits precise, rapid proprioception and fine touch. A-alpha (Ia/Ib) and A-beta (type II) fibers.",
+  "parts": [
+   "A-alpha",
+   "A-beta"
+  ],
+  "part_accept": {
+   "A-alpha": [
+    "aalpha",
+    "a alpha",
+    "Ia/Ib",
+    "Ia"
+   ],
+   "A-beta": [
+    "abeta",
+    "a beta",
+    "type II"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-dcml-receptors",
@@ -158,7 +193,7 @@
   "pathway": "dcml",
   "step": "receptors",
   "prompt": "Name the cutaneous receptors served by the DCML pathway.",
-  "answer": "Meissner, Merkel, Pacinian and Ruffini endings (plus muscle spindles and Golgi tendon organs for proprioception)",
+  "answer": "Meissner, Merkel, Pacinian and Ruffini endings",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -185,7 +220,13 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "DCML serves the encapsulated or specialised mechanoreceptors of the skin (Meissner for light touch, Merkel for pressure and texture, Pacinian for vibration, Ruffini for stretch), plus muscle spindles and Golgi tendon organs for conscious proprioception."
+  "explain": "DCML serves the encapsulated or specialised mechanoreceptors of the skin (Meissner for light touch, Merkel for pressure and texture, Pacinian for vibration, Ruffini for stretch), plus muscle spindles and Golgi tendon organs for conscious proprioception. Plus muscle spindles and Golgi tendon organs for proprioception.",
+  "parts": [
+   "Meissner",
+   "Merkel",
+   "Pacinian",
+   "Ruffini"
+  ]
  },
  {
   "slug": "pathways-u1-dcml-tract-leg",
@@ -262,7 +303,7 @@
   "pathway": "dcml",
   "step": "topography",
   "prompt": "In the dorsal columns, which fasciculus lies closest to the midline?",
-  "answer": "Fasciculus gracilis (sacral/lower limb fibers lie medially; cervical fibers laterally)",
+  "answer": "Fasciculus gracilis",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -281,7 +322,8 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "fasciculus-gracilis"
+  "structure": "fasciculus-gracilis",
+  "explain": "Sacral/lower limb fibers lie medially, cervical fibers laterally."
  },
  {
   "slug": "pathways-u1-dcml-funiculus",
@@ -330,7 +372,7 @@
   "pathway": "dcml",
   "step": "synapse-1",
   "prompt": "Where do first-order DCML axons synapse?",
-  "answer": "Gracile or cuneate nucleus in the caudal medulla (ipsilateral)",
+  "answer": "Gracile or cuneate nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -353,7 +395,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "explain": "In the caudal medulla, ipsilateral."
  },
  {
   "slug": "pathways-u1-dcml-synapse-skip",
@@ -399,7 +442,7 @@
   "pathway": "dcml",
   "step": "second-order",
   "prompt": "Where is the cell body of the second-order DCML neuron?",
-  "answer": "Gracile or cuneate nucleus (caudal medulla)",
+  "answer": "Gracile or cuneate nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -419,7 +462,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "explain": "In the caudal medulla."
  },
  {
   "slug": "pathways-u1-dcml-decussation",
@@ -434,7 +478,7 @@
   "pathway": "dcml",
   "step": "decussation",
   "prompt": "Where does the DCML pathway decussate?",
-  "answer": "Caudal medulla (internal arcuate fibers, the sensory decussation)",
+  "answer": "Caudal medulla",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -457,7 +501,8 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "internal-arcuate-fibers"
+  "structure": "internal-arcuate-fibers",
+  "explain": "Internal arcuate fibers, the sensory decussation."
  },
  {
   "slug": "pathways-u1-dcml-tract-above",
@@ -502,8 +547,13 @@
   "pathway": "dcml",
   "step": "third-order",
   "prompt": "Where is the cell body of the third-order DCML neuron?",
-  "answer": "Ventral posterolateral (VPL) nucleus of the thalamus",
-  "accept": [],
+  "answer": "Ventral posterolateral nucleus of the thalamus",
+  "accept": [
+   "VPL",
+   "VPL nucleus",
+   "VPL thalamus",
+   "ventral posterolateral nucleus"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -538,7 +588,7 @@
   "pathway": "dcml",
   "step": "cortex",
   "prompt": "Which cortical area receives DCML information, and on which side of the stimulus?",
-  "answer": "Primary somatosensory cortex (BA 3, 1, 2), contralateral",
+  "answer": "Primary somatosensory cortex, contralateral",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -562,7 +612,20 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "primary-somatosensory-cortex"
+  "structure": "primary-somatosensory-cortex",
+  "parts": [
+   "Primary somatosensory cortex",
+   "Contralateral"
+  ],
+  "part_accept": {
+   "Primary somatosensory cortex": [
+    "S1",
+    "somatosensory cortex",
+    "BA 3, 1, 2",
+    "postcentral gyrus"
+   ]
+  },
+  "explain": "Brodmann areas 3, 1 and 2."
  },
  {
   "slug": "pathways-u1-dcml-capsule",
@@ -610,8 +673,11 @@
   "pathway": "dcml",
   "step": "lesion-below",
   "prompt": "A lesion of the right dorsal column in the lumbar spinal cord causes loss of vibration sense on which side?",
-  "answer": "Right (ipsilateral): the axons have not yet crossed",
-  "accept": [],
+  "answer": "Right",
+  "accept": [
+   "ipsilateral",
+   "right side"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -630,7 +696,7 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "DCML first-order axons ascend uncrossed in the dorsal column and only decussate in the caudal medulla (internal arcuate fibers). A lumbar dorsal column lesion therefore removes vibration sense on the same (right) side as the lesion."
+  "explain": "DCML first-order axons ascend uncrossed in the dorsal column and only decussate in the caudal medulla (internal arcuate fibers). A lumbar dorsal column lesion therefore removes vibration sense on the same (right) side as the lesion. Ipsilateral: the axons have not yet crossed."
  },
  {
   "slug": "pathways-u1-dcml-lesion-above",
@@ -645,8 +711,11 @@
   "pathway": "dcml",
   "step": "lesion-above",
   "prompt": "A lesion of the left medial lemniscus in the pons causes loss of fine touch on which side of the body?",
-  "answer": "Right (contralateral): the axons crossed in the caudal medulla",
-  "accept": [],
+  "answer": "Right",
+  "accept": [
+   "contralateral",
+   "right side"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -665,7 +734,7 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "After the internal arcuate fibers cross in the caudal medulla, the medial lemniscus carries information from the opposite side of the body. A left pontine medial lemniscus lesion therefore causes loss of fine touch on the right side."
+  "explain": "After the internal arcuate fibers cross in the caudal medulla, the medial lemniscus carries information from the opposite side of the body. A left pontine medial lemniscus lesion therefore causes loss of fine touch on the right side. Contralateral: the axons crossed in the caudal medulla."
  },
  {
   "slug": "pathways-u1-dcml-order-count",
@@ -680,7 +749,7 @@
   "pathway": "dcml",
   "step": "order-count",
   "prompt": "How many neurons carry DCML information from receptor to cortex, and where is the last cell body?",
-  "answer": "Three (DRG, gracile/cuneate nucleus, VPL thalamus); last in VPL",
+  "answer": "Three; last in VPL thalamus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -703,7 +772,21 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "The DCML relay has three neurons: the first-order cell body is in the dorsal root ganglion, the second-order in the gracile or cuneate nucleus (axons cross as internal arcuate fibers), and the third-order in the ventral posterolateral nucleus of the thalamus, which projects to cortex."
+  "explain": "The DCML relay has three neurons: the first-order cell body is in the dorsal root ganglion, the second-order in the gracile or cuneate nucleus (axons cross as internal arcuate fibers), and the third-order in the ventral posterolateral nucleus of the thalamus, which projects to cortex. DRG, gracile/cuneate nucleus, then VPL thalamus.",
+  "parts": [
+   "Three",
+   "VPL thalamus"
+  ],
+  "part_accept": {
+   "Three": [
+    "3"
+   ],
+   "VPL thalamus": [
+    "VPL",
+    "thalamus",
+    "ventral posterolateral nucleus"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-alst-modality",
@@ -739,7 +822,19 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "parts": [
+   "Pain",
+   "Temperature",
+   "Itch",
+   "Crude touch"
+  ],
+  "part_accept": {
+   "Crude touch": [
+    "crude tactile",
+    "touch"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-alst-fiber",
@@ -754,7 +849,7 @@
   "pathway": "alst",
   "step": "fiber",
   "prompt": "Which two fiber types carry pain/temperature information into the cord?",
-  "answer": "A-delta (lightly myelinated) and C (unmyelinated)",
+  "answer": "A-delta and C fibers",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -786,7 +881,23 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "Pain and temperature enter on A-delta fibers (thin, lightly myelinated, fast) and C fibers (unmyelinated, slow). Thin fibers have slower conduction than the A-alpha/A-beta fibers of the dorsal column system."
+  "explain": "Pain and temperature enter on A-delta fibers (thin, lightly myelinated, fast) and C fibers (unmyelinated, slow). Thin fibers have slower conduction than the A-alpha/A-beta fibers of the dorsal column system. A-delta are lightly myelinated; C fibers are unmyelinated.",
+  "parts": [
+   "A-delta",
+   "C"
+  ],
+  "part_accept": {
+   "A-delta": [
+    "adelta",
+    "a delta",
+    "a-delta fibers"
+   ],
+   "C": [
+    "c fibers",
+    "c fiber",
+    "c fibres"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-alst-receptor",
@@ -872,8 +983,10 @@
   "pathway": "alst",
   "step": "slow-pain",
   "prompt": "Which fiber type carries slow, dull, burning pain?",
-  "answer": "C fibers (unmyelinated)",
-  "accept": [],
+  "answer": "C fibers",
+  "accept": [
+   "unmyelinated"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -911,7 +1024,7 @@
   "pathway": "alst",
   "step": "synapse-adelta",
   "prompt": "Where do A-delta pain fibers synapse in the dorsal horn?",
-  "answer": "Marginal zone (lamina I)",
+  "answer": "Marginal zone",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -930,7 +1043,8 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "marginal-nucleus"
+  "structure": "marginal-nucleus",
+  "explain": "Lamina I."
  },
  {
   "slug": "pathways-u1-alst-synapse-c",
@@ -945,8 +1059,10 @@
   "pathway": "alst",
   "step": "synapse-c",
   "prompt": "Where do C fibers synapse in the dorsal horn?",
-  "answer": "Substantia gelatinosa (lamina II), onto dendrites of nucleus proprius neurons",
-  "accept": [],
+  "answer": "Substantia gelatinosa",
+  "accept": [
+   "lamina II"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -966,7 +1082,8 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "substantia-gelatinosa"
+  "structure": "substantia-gelatinosa",
+  "explain": "Lamina II, onto dendrites of nucleus proprius neurons."
  },
  {
   "slug": "pathways-u1-alst-second-order",
@@ -981,7 +1098,7 @@
   "pathway": "alst",
   "step": "second-order",
   "prompt": "Where is the second-order neuron cell body of the anterolateral pathway?",
-  "answer": "Dorsal horn: marginal zone (fast pain) or nucleus proprius (slow pain)",
+  "answer": "Marginal zone or nucleus proprius",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1000,7 +1117,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "explain": "Dorsal horn: marginal zone (fast pain) or nucleus proprius (slow pain)."
  },
  {
   "slug": "pathways-u1-alst-decussation",
@@ -1015,7 +1133,7 @@
   "pathway": "alst",
   "step": "decussation",
   "prompt": "Where and through which structure does the anterolateral pathway decussate?",
-  "answer": "In the spinal cord, through the anterior (ventral) white commissure, near the level of entry",
+  "answer": "Spinal cord, through the anterior white commissure",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1037,7 +1155,19 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "ventral-commissure-of-spinal-cord"
+  "structure": "ventral-commissure-of-spinal-cord",
+  "parts": [
+   "Spinal cord",
+   "Anterior white commissure"
+  ],
+  "part_accept": {
+   "Anterior white commissure": [
+    "ventral white commissure",
+    "anterior commissure",
+    "ventral commissure"
+   ]
+  },
+  "explain": "Near the level of entry."
  },
  {
   "slug": "pathways-u1-alst-funiculus",
@@ -1052,7 +1182,7 @@
   "pathway": "alst",
   "step": "funiculus",
   "prompt": "In which funiculi do second-order anterolateral axons ascend?",
-  "answer": "Anterior and lateral funiculi (contralateral)",
+  "answer": "Anterior and lateral funiculi",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1073,7 +1203,21 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "parts": [
+   "Anterior funiculus",
+   "Lateral funiculus"
+  ],
+  "part_accept": {
+   "Anterior funiculus": [
+    "anterior",
+    "ventral funiculus"
+   ],
+   "Lateral funiculus": [
+    "lateral"
+   ]
+  },
+  "explain": "On the contralateral side."
  },
  {
   "slug": "pathways-u1-alst-third-order",
@@ -1123,8 +1267,11 @@
   "pathway": "alst",
   "step": "lesion",
   "prompt": "A right-sided spinal cord hemisection at T10 abolishes pain and temperature below the lesion on which side?",
-  "answer": "Left (contralateral): second-order axons have already crossed",
-  "accept": [],
+  "answer": "Left",
+  "accept": [
+   "contralateral",
+   "left side"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1143,7 +1290,7 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "Anterolateral second-order axons cross in the anterior white commissure within a segment or two of entry. A right hemisection at T10 therefore removes pain and temperature from the left side below the lesion (with ipsilateral loss of DCML modalities, as in Brown-Sequard syndrome)."
+  "explain": "Anterolateral second-order axons cross in the anterior white commissure within a segment or two of entry. A right hemisection at T10 therefore removes pain and temperature from the left side below the lesion (with ipsilateral loss of DCML modalities, as in Brown-Sequard syndrome). Contralateral: second-order axons have already crossed."
  },
  {
   "slug": "pathways-u1-alst-lesion-level",
@@ -1158,8 +1305,10 @@
   "pathway": "alst",
   "step": "lesion-level",
   "prompt": "A lesion of the right anterolateral tract in the cervical cord causes loss of pain/temperature on which side?",
-  "answer": "Left (contralateral)",
-  "accept": [],
+  "answer": "Left",
+  "accept": [
+   "contralateral"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1193,7 +1342,7 @@
   "pathway": "alst",
   "step": "modulation",
   "prompt": "Which brainstem structures send descending fibers to modulate pain in the substantia gelatinosa?",
-  "answer": "Periaqueductal grey and reticular formation (opiates act here)",
+  "answer": "Periaqueductal grey and reticular formation",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1213,7 +1362,21 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "periaqueductal-gray"
+  "structure": "periaqueductal-gray",
+  "parts": [
+   "Periaqueductal grey",
+   "Reticular formation"
+  ],
+  "part_accept": {
+   "Periaqueductal grey": [
+    "PAG",
+    "periaqueductal gray"
+   ],
+   "Reticular formation": [
+    "reticular nuclei"
+   ]
+  },
+  "explain": "Opiates act here."
  },
  {
   "slug": "pathways-u1-alst-compare-dcml",
@@ -1259,7 +1422,7 @@
   "pathway": "dsct",
   "step": "modality",
   "prompt": "Which sensory information does the dorsal spinocerebellar tract carry?",
-  "answer": "Unconscious proprioception (muscle length, tension, joint position)",
+  "answer": "Unconscious proprioception",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1279,7 +1442,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:sensory"
-  ]
+  ],
+  "explain": "Muscle length, tension, joint position."
  },
  {
   "slug": "pathways-u1-dsct-receptors",
@@ -1316,7 +1480,22 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "The dorsal spinocerebellar pathway starts in muscle spindles (muscle length) and Golgi tendon organs (tension), which supply unconscious proprioception to the cerebellum."
+  "explain": "The dorsal spinocerebellar pathway starts in muscle spindles (muscle length) and Golgi tendon organs (tension), which supply unconscious proprioception to the cerebellum.",
+  "parts": [
+   "Muscle spindles",
+   "Golgi tendon organs"
+  ],
+  "part_accept": {
+   "Muscle spindles": [
+    "muscle spindle",
+    "spindles"
+   ],
+   "Golgi tendon organs": [
+    "GTO",
+    "Golgi tendon organ",
+    "GTOs"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-dsct-fiber",
@@ -1331,7 +1510,7 @@
   "pathway": "dsct",
   "step": "fiber",
   "prompt": "Which fiber type carries dorsal spinocerebellar afferents?",
-  "answer": "A-alpha (Ia / Ib)",
+  "answer": "A-alpha",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1352,7 +1531,7 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "explain": "Muscle spindle and Golgi tendon organ afferents are the large Ia and Ib fibers, classed as A-alpha, which have the fastest conduction velocities."
+  "explain": "Muscle spindle and Golgi tendon organ afferents are the large Ia and Ib fibers, classed as A-alpha, which have the fastest conduction velocities. Ia / Ib."
  },
  {
   "slug": "pathways-u1-dsct-second-order",
@@ -1367,8 +1546,12 @@
   "pathway": "dsct",
   "step": "second-order",
   "prompt": "Where is the second-order neuron cell body of the dorsal spinocerebellar tract?",
-  "answer": "Clarke's nucleus (nucleus dorsalis) in the ipsilateral spinal cord",
-  "accept": [],
+  "answer": "Clarke's nucleus",
+  "accept": [
+   "nucleus dorsalis",
+   "Clarke's column",
+   "column of Clarke"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1387,7 +1570,8 @@
    "region:spinal-cord",
    "modality:sensory"
   ],
-  "structure": "column-of-clarke"
+  "structure": "column-of-clarke",
+  "explain": "In the ipsilateral spinal cord."
  },
  {
   "slug": "pathways-u1-dsct-levels",
@@ -1582,8 +1766,10 @@
   "pathway": "dsct",
   "step": "lesion",
   "prompt": "A lesion of the right dorsal spinocerebellar tract produces uncoordinated movement on which side?",
-  "answer": "Right (ipsilateral)",
-  "accept": [],
+  "answer": "Right",
+  "accept": [
+   "ipsilateral"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1617,7 +1803,7 @@
   "pathway": "sympathetic",
   "step": "preganglionic",
   "prompt": "Where are sympathetic preganglionic cell bodies located?",
-  "answer": "Lateral horn (intermediolateral column) of spinal cord levels T1-L2",
+  "answer": "Lateral horn, T1-L2",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1642,7 +1828,22 @@
    "region:spinal-cord",
    "modality:autonomic"
   ],
-  "structure": "lateral-horn"
+  "structure": "lateral-horn",
+  "parts": [
+   "Lateral horn",
+   "T1-L2"
+  ],
+  "part_accept": {
+   "Lateral horn": [
+    "intermediolateral column",
+    "IML",
+    "intermediolateral cell column"
+   ],
+   "T1-L2": [
+    "T1 to L2"
+   ]
+  },
+  "explain": "Intermediolateral column of the spinal cord."
  },
  {
   "slug": "pathways-u1-sympathetic-outflow",
@@ -1657,7 +1858,7 @@
   "pathway": "sympathetic",
   "step": "outflow",
   "prompt": "Sympathetic outflow is called what, in terms of spinal levels?",
-  "answer": "Thoracolumbar (T1-L2)",
+  "answer": "Thoracolumbar",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1675,7 +1876,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:autonomic"
-  ]
+  ],
+  "explain": "T1-L2."
  },
  {
   "slug": "pathways-u1-sympathetic-ganglia",
@@ -1690,7 +1892,7 @@
   "pathway": "sympathetic",
   "step": "ganglia",
   "prompt": "Where do sympathetic preganglionic axons synapse?",
-  "answer": "Paravertebral (sympathetic chain) or prevertebral ganglia",
+  "answer": "Paravertebral or prevertebral ganglia",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1709,7 +1911,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:autonomic"
-  ]
+  ],
+  "explain": "Paravertebral ganglia form the sympathetic chain."
  },
  {
   "slug": "pathways-u1-sympathetic-fibers",
@@ -1745,7 +1948,11 @@
    "region:spinal-cord",
    "modality:autonomic"
   ],
-  "explain": "Sympathetic ganglia lie close to the spinal cord (chain and prevertebral ganglia), so preganglionic fibers are short and postganglionic fibers must travel far to the target and are long. The parasympathetic system is the reverse."
+  "explain": "Sympathetic ganglia lie close to the spinal cord (chain and prevertebral ganglia), so preganglionic fibers are short and postganglionic fibers must travel far to the target and are long. The parasympathetic system is the reverse.",
+  "parts": [
+   "Short preganglionic",
+   "Long postganglionic"
+  ]
  },
  {
   "slug": "pathways-u1-sympathetic-transmitters",
@@ -1760,8 +1967,10 @@
   "pathway": "sympathetic",
   "step": "transmitters",
   "prompt": "Which transmitter do sympathetic postganglionic neurons release?",
-  "answer": "Norepinephrine (preganglionic releases ACh)",
-  "accept": [],
+  "answer": "Norepinephrine",
+  "accept": [
+   "noradrenaline"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1780,7 +1989,7 @@
    "region:spinal-cord",
    "modality:autonomic"
   ],
-  "explain": "Preganglionic neurons of both divisions release ACh onto nicotinic receptors. Most sympathetic postganglionic neurons release norepinephrine (sweat glands are a cholinergic exception)."
+  "explain": "Preganglionic neurons of both divisions release ACh onto nicotinic receptors. Most sympathetic postganglionic neurons release norepinephrine (sweat glands are a cholinergic exception). Preganglionic neurons release ACh (sweat glands are a cholinergic exception)."
  },
  {
   "slug": "pathways-u1-sympathetic-adrenal",
@@ -1900,7 +2109,36 @@
    "source:lecture",
    "region:brainstem",
    "modality:autonomic"
-  ]
+  ],
+  "parts": [
+   "CN III",
+   "CN VII",
+   "CN IX",
+   "CN X",
+   "S2-S4"
+  ],
+  "part_accept": {
+   "CN III": [
+    "III",
+    "3"
+   ],
+   "CN VII": [
+    "VII",
+    "7"
+   ],
+   "CN IX": [
+    "IX",
+    "9"
+   ],
+   "CN X": [
+    "X",
+    "10"
+   ],
+   "S2-S4": [
+    "sacral",
+    "S2 to S4"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-parasympathetic-outflow-name",
@@ -1947,7 +2185,7 @@
   "pathway": "parasympathetic",
   "step": "fibers",
   "prompt": "In the parasympathetic system, are preganglionic and postganglionic fibers short or long?",
-  "answer": "Long preganglionic, short postganglionic (ganglia near or in the organ)",
+  "answer": "Long preganglionic, short postganglionic",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1968,7 +2206,11 @@
    "region:brainstem",
    "modality:autonomic"
   ],
-  "explain": "Parasympathetic ganglia lie near or within the target organ, so preganglionic fibers are long and postganglionic fibers are short. This is the opposite of the sympathetic arrangement."
+  "explain": "Parasympathetic ganglia lie near or within the target organ, so preganglionic fibers are long and postganglionic fibers are short. This is the opposite of the sympathetic arrangement. Ganglia lie near or in the organ.",
+  "parts": [
+   "Long preganglionic",
+   "Short postganglionic"
+  ]
  },
  {
   "slug": "pathways-u1-parasympathetic-transmitters",
@@ -2051,7 +2293,7 @@
   "pathway": "umn-lmn",
   "step": "umn",
   "prompt": "Where is the cell body of an upper motor neuron of the corticospinal system?",
-  "answer": "Layer V of primary motor cortex (precentral gyrus)",
+  "answer": "Layer V of primary motor cortex",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2071,7 +2313,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "Precentral gyrus."
  },
  {
   "slug": "pathways-u1-umn-lmn-lmn",
@@ -2086,7 +2329,7 @@
   "pathway": "umn-lmn",
   "step": "lmn",
   "prompt": "Where are lower motor neuron cell bodies located?",
-  "answer": "Ventral horn of the spinal cord (lamina IX) or brainstem motor nuclei",
+  "answer": "Ventral horn or brainstem motor nuclei",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2105,7 +2348,8 @@
    "source:lecture",
    "region:spinal-cord",
    "modality:motor"
-  ]
+  ],
+  "explain": "Ventral horn of the spinal cord (lamina IX) or brainstem motor nuclei."
  },
  {
   "slug": "pathways-u1-umn-lmn-umn-lesion",
@@ -2120,7 +2364,7 @@
   "pathway": "umn-lmn",
   "step": "umn-lesion",
   "prompt": "Damage to upper motor neurons produces which kind of paralysis?",
-  "answer": "Spastic paralysis (rigidity: agonist and antagonist muscles contract together)",
+  "answer": "Spastic paralysis",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2138,7 +2382,8 @@
    "region:spinal-cord",
    "modality:motor"
   ],
-  "structure": "spastic-paralysis"
+  "structure": "spastic-paralysis",
+  "explain": "Rigidity: agonist and antagonist muscles contract together."
  },
  {
   "slug": "pathways-u1-umn-lmn-lmn-lesion",
@@ -2186,7 +2431,7 @@
   "pathway": "umn-lmn",
   "step": "alpha-gamma",
   "prompt": "What do alpha versus gamma motor neurons innervate?",
-  "answer": "Alpha: extrafusal skeletal muscle fibers; gamma: intrafusal fibers of the muscle spindle",
+  "answer": "Alpha: extrafusal fibers; gamma: intrafusal fibers",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2210,7 +2455,22 @@
    "region:spinal-cord",
    "modality:motor"
   ],
-  "explain": "Alpha motor neurons innervate extrafusal fibers, which generate force. Gamma motor neurons innervate the intrafusal fibers of the muscle spindle, keeping the spindle taut so it stays sensitive to stretch as the muscle contracts."
+  "explain": "Alpha motor neurons innervate extrafusal fibers, which generate force. Gamma motor neurons innervate the intrafusal fibers of the muscle spindle, keeping the spindle taut so it stays sensitive to stretch as the muscle contracts.",
+  "parts": [
+   "Alpha: extrafusal fibers",
+   "Gamma: intrafusal fibers"
+  ],
+  "part_accept": {
+   "Alpha: extrafusal fibers": [
+    "extrafusal",
+    "extrafusal skeletal muscle fibers"
+   ],
+   "Gamma: intrafusal fibers": [
+    "intrafusal",
+    "intrafusal fibers of the muscle spindle",
+    "muscle spindle fibers"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-umn-lmn-limb-plexus",
@@ -2225,7 +2485,7 @@
   "pathway": "umn-lmn",
   "step": "limb-plexus",
   "prompt": "Which spinal levels hold limb lower motor neurons for the arm and for the leg?",
-  "answer": "Arm C5-T1 (brachial plexus); leg L2-S3 (lumbosacral)",
+  "answer": "Arm C5-T1; leg L2-S3",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -2253,7 +2513,21 @@
    "region:spinal-cord",
    "modality:motor"
   ],
-  "explain": "Limb lower motor neurons are in the cervical and lumbosacral enlargements: arm motor neurons at C5-T1 form the brachial plexus, leg motor neurons at L2-S3 form the lumbosacral plexus. These levels hold extra motor neurons for the limbs."
+  "explain": "Limb lower motor neurons are in the cervical and lumbosacral enlargements: arm motor neurons at C5-T1 form the brachial plexus, leg motor neurons at L2-S3 form the lumbosacral plexus. These levels hold extra motor neurons for the limbs. Brachial plexus and lumbosacral plexus.",
+  "parts": [
+   "Arm C5-T1",
+   "Leg L2-S3"
+  ],
+  "part_accept": {
+   "Arm C5-T1": [
+    "C5-T1",
+    "C5 to T1"
+   ],
+   "Leg L2-S3": [
+    "L2-S3",
+    "L2 to S3"
+   ]
+  }
  },
  {
   "slug": "pathways-u1-stretch-reflex-arc",

@@ -13,7 +13,7 @@
   "facet": "function",
   "prompt": "Name one function of the insular cortex.",
   "format": "keywords",
-  "answer": "Taste (gustatory cortex), visceral sensation, pain, interoception",
+  "answer": "Taste",
   "accept": [],
   "keywords": [
    [
@@ -33,7 +33,8 @@
    "source:supplementary",
    "region:cerebrum",
    "theory:function"
-  ]
+  ],
+  "explain": "Gustatory cortex; also visceral sensation, pain and interoception."
  },
  {
   "slug": "theory-insular-cortex-supply",
@@ -81,8 +82,11 @@
   "facet": "connections",
   "prompt": "The genu of the corpus callosum connects which lobes?",
   "format": "keywords",
-  "answer": "The two frontal lobes (forceps minor)",
-  "accept": [],
+  "answer": "Frontal lobes",
+  "accept": [
+   "the two frontal lobes",
+   "two frontal lobes"
+  ],
   "keywords": [
    [
     "frontal"
@@ -96,7 +100,8 @@
    "source:supplementary",
    "region:white-matter",
    "theory:connections"
-  ]
+  ],
+  "explain": "The genu forms the forceps minor."
  },
  {
   "slug": "theory-splenium-of-corpus-callosum-connections",
@@ -112,8 +117,11 @@
   "facet": "connections",
   "prompt": "The splenium of the corpus callosum connects which lobes?",
   "format": "keywords",
-  "answer": "Occipital (and temporal) lobes (forceps major)",
-  "accept": [],
+  "answer": "Occipital lobes",
+  "accept": [
+   "occipital and temporal lobes",
+   "occipital (and temporal) lobes"
+  ],
   "keywords": [
    [
     "occipital",
@@ -128,7 +136,8 @@
    "source:supplementary",
    "region:white-matter",
    "theory:connections"
-  ]
+  ],
+  "explain": "Mainly the occipital (and some temporal) lobes, via the forceps major."
  },
  {
   "slug": "theory-splenium-of-corpus-callosum-lesion",
@@ -175,7 +184,7 @@
   "facet": "supply",
   "prompt": "Which artery supplies the body of the corpus callosum?",
   "format": "keywords",
-  "answer": "Pericallosal artery (from the anterior cerebral artery)",
+  "answer": "Pericallosal artery",
   "accept": [],
   "keywords": [
    [
@@ -192,7 +201,8 @@
    "source:supplementary",
    "region:white-matter",
    "theory:supply"
-  ]
+  ],
+  "explain": "From the anterior cerebral artery."
  },
  {
   "slug": "theory-caudate-nucleus-function",
@@ -208,7 +218,7 @@
   "facet": "function",
   "prompt": "Name one function of the caudate nucleus.",
   "format": "keywords",
-  "answer": "Motor and cognitive loops: planning, learning, procedural habit",
+  "answer": "Motor and cognitive loops",
   "accept": [],
   "keywords": [
    [
@@ -230,7 +240,8 @@
    "region:basal-ganglia",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Planning, learning and procedural habit."
  },
  {
   "slug": "theory-caudate-nucleus-lesion",
@@ -338,8 +349,12 @@
   "facet": "connections",
   "prompt": "Which ventricular horn lies medial to the head of the caudate?",
   "format": "keywords",
-  "answer": "Anterior (frontal) horn of the lateral ventricle",
-  "accept": [],
+  "answer": "Anterior horn of the lateral ventricle",
+  "accept": [
+   "frontal horn",
+   "anterior horn",
+   "frontal horn of the lateral ventricle"
+  ],
   "keywords": [
    [
     "anterior",
@@ -402,7 +417,7 @@
   "facet": "function",
   "prompt": "Name one function of the putamen.",
   "format": "keywords",
-  "answer": "Motor loop of the basal ganglia: selecting and scaling voluntary movement",
+  "answer": "Motor loop of the basal ganglia",
   "accept": [],
   "keywords": [
    [
@@ -420,7 +435,8 @@
    "region:basal-ganglia",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Selecting and scaling voluntary movement."
  },
  {
   "slug": "theory-putamen-supply",
@@ -532,8 +548,11 @@
   "facet": "lesion",
   "prompt": "Name a procedure targeting the globus pallidus for Parkinson disease.",
   "format": "keywords",
-  "answer": "Deep brain stimulation (or pallidotomy)",
-  "accept": [],
+  "answer": "Deep brain stimulation",
+  "accept": [
+   "pallidotomy",
+   "DBS"
+  ],
   "keywords": [
    [
     "deep brain",
@@ -588,7 +607,21 @@
    "region:basal-ganglia",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Caudate",
+   "Putamen",
+   "Globus pallidus"
+  ],
+  "part_accept": {
+   "Caudate": [
+    "caudate nucleus"
+   ],
+   "Globus pallidus": [
+    "pallidum",
+    "GP"
+   ]
+  }
  },
  {
   "slug": "theory-lentiform-nucleus-connections",
@@ -623,7 +656,17 @@
    "region:basal-ganglia",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Putamen",
+   "Globus pallidus"
+  ],
+  "part_accept": {
+   "Globus pallidus": [
+    "pallidum",
+    "GP"
+   ]
+  }
  },
  {
   "slug": "theory-lentiform-nucleus-supply",
@@ -668,7 +711,7 @@
   "facet": "supply",
   "prompt": "Which arteries supply the anterior limb of the internal capsule?",
   "format": "keywords",
-  "answer": "Lenticulostriate arteries (MCA), with the recurrent artery of Heubner (ACA)",
+  "answer": "Lenticulostriate arteries and recurrent artery of Heubner",
   "accept": [],
   "keywords": [
    [
@@ -684,7 +727,23 @@
    "source:supplementary",
    "region:white-matter",
    "theory:supply"
-  ]
+  ],
+  "parts": [
+   "Lenticulostriate arteries",
+   "Recurrent artery of Heubner"
+  ],
+  "part_accept": {
+   "Lenticulostriate arteries": [
+    "lenticulostriates",
+    "lenticulostriate"
+   ],
+   "Recurrent artery of Heubner": [
+    "Heubner",
+    "recurrent artery",
+    "medial striate artery"
+   ]
+  },
+  "explain": "The lenticulostriates arise from the MCA; the recurrent artery of Heubner from the ACA."
  },
  {
   "slug": "theory-anterior-limb-of-internal-capsule-connections",
@@ -720,7 +779,21 @@
    "source:supplementary",
    "region:white-matter",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Head of caudate",
+   "Lentiform nucleus"
+  ],
+  "part_accept": {
+   "Head of caudate": [
+    "caudate head",
+    "caudate"
+   ],
+   "Lentiform nucleus": [
+    "lentiform",
+    "putamen and globus pallidus"
+   ]
+  }
  },
  {
   "slug": "theory-genu-of-internal-capsule-passes",
@@ -802,8 +875,12 @@
   "facet": "lesion",
   "prompt": "A lacunar infarct of the posterior limb causes which deficit?",
   "format": "keywords",
-  "answer": "Contralateral weakness (pure motor hemiparesis) or sensory loss",
-  "accept": [],
+  "answer": "Contralateral weakness",
+  "accept": [
+   "contralateral pure motor hemiparesis",
+   "pure motor hemiparesis",
+   "contralateral sensory loss"
+  ],
   "keywords": [
    [
     "hemiparesis",
@@ -822,7 +899,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Pure motor hemiparesis, or pure sensory loss."
  },
  {
   "slug": "theory-posterior-limb-of-internal-capsule-connections",
@@ -858,7 +936,17 @@
    "source:supplementary",
    "region:white-matter",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Thalamus",
+   "Lentiform nucleus"
+  ],
+  "part_accept": {
+   "Lentiform nucleus": [
+    "lentiform",
+    "putamen and globus pallidus"
+   ]
+  }
  },
  {
   "slug": "theory-fornix-connections",
@@ -909,7 +997,7 @@
   "facet": "function",
   "prompt": "What is the function of the fornix?",
   "format": "keywords",
-  "answer": "Carries hippocampal output for memory (Papez circuit)",
+  "answer": "Carries hippocampal output for memory",
   "accept": [],
   "keywords": [
    [
@@ -927,7 +1015,8 @@
    "region:limbic",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "Part of the Papez circuit."
  },
  {
   "slug": "theory-fornix-lesion",
@@ -977,7 +1066,7 @@
   "facet": "connections",
   "prompt": "Where do the columns of the fornix terminate?",
   "format": "keywords",
-  "answer": "Mammillary bodies (and septal nuclei)",
+  "answer": "Mammillary bodies",
   "accept": [],
   "keywords": [
    [
@@ -993,7 +1082,8 @@
    "region:limbic",
    "modality:limbic",
    "theory:connections"
-  ]
+  ],
+  "explain": "Some fibres also reach the septal nuclei."
  },
  {
   "slug": "theory-crus-of-fornix-connections",
@@ -1009,8 +1099,11 @@
   "facet": "connections",
   "prompt": "The crus of the fornix is the continuation of which hippocampal fibre bundle?",
   "format": "keywords",
-  "answer": "The fimbria of the hippocampus",
-  "accept": [],
+  "answer": "Fimbria of the hippocampus",
+  "accept": [
+   "the fimbria of the hippocampus",
+   "fimbria"
+  ],
   "keywords": [
    [
     "fimbria"
@@ -1095,6 +1188,10 @@
    "region:diencephalon",
    "modality:visual",
    "theory:connections"
+  ],
+  "parts": [
+   "Optic chiasm",
+   "Anterior commissure"
   ]
  },
  {
@@ -1229,8 +1326,10 @@
   "facet": "function",
   "prompt": "Name one function of the posterior commissure.",
   "format": "keywords",
-  "answer": "Pupillary light reflex (consensual), upgaze",
-  "accept": [],
+  "answer": "Pupillary light reflex",
+  "accept": [
+   "upgaze"
+  ],
   "keywords": [
    [
     "pupil",
@@ -1249,7 +1348,8 @@
    "region:diencephalon",
    "modality:visual",
    "theory:function"
-  ]
+  ],
+  "explain": "The consensual response; also upgaze."
  },
  {
   "slug": "theory-posterior-commissure-lesion",
@@ -1298,8 +1398,11 @@
   "facet": "function",
   "prompt": "The cortical ribbon contains which part of neurons (grey matter)?",
   "format": "keywords",
-  "answer": "Neuronal cell bodies (grey matter)",
-  "accept": [],
+  "answer": "Neuronal cell bodies",
+  "accept": [
+   "grey matter",
+   "gray matter"
+  ],
   "keywords": [
    [
     "cell bodies",
@@ -1399,7 +1502,7 @@
   "facet": "function",
   "prompt": "Name one function of the nucleus accumbens.",
   "format": "keywords",
-  "answer": "Reward, motivation, addiction",
+  "answer": "Reward",
   "accept": [],
   "keywords": [
    [
@@ -1418,7 +1521,8 @@
    "region:limbic",
    "modality:limbic",
    "theory:function"
-  ]
+  ],
+  "explain": "Also motivation and addiction."
  },
  {
   "slug": "theory-nucleus-accumbens-connections",
@@ -1467,7 +1571,7 @@
   "facet": "function",
   "prompt": "What is the function of the subthalamic nucleus?",
   "format": "keywords",
-  "answer": "Excitatory drive to GPi/SNr (indirect pathway), inhibiting movement",
+  "answer": "Excitatory drive to the GPi and SNr",
   "accept": [],
   "keywords": [
    [
@@ -1486,7 +1590,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Part of the indirect pathway, inhibiting movement."
  },
  {
   "slug": "theory-subthalamic-nucleus-lesion",
@@ -1502,7 +1607,7 @@
   "facet": "lesion",
   "prompt": "A lesion of the subthalamic nucleus causes which movement disorder?",
   "format": "keywords",
-  "answer": "Hemiballismus (contralateral)",
+  "answer": "Hemiballismus",
   "accept": [],
   "keywords": [
    [
@@ -1519,7 +1624,8 @@
    "region:brainstem",
    "modality:motor",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Contralateral to the lesion."
  },
  {
   "slug": "theory-subthalamic-nucleus-embryology",
@@ -1563,7 +1669,7 @@
   "facet": "lesion",
   "prompt": "Where do the cerebellar tonsils herniate, and what do they compress?",
   "format": "keywords",
-  "answer": "Through the foramen magnum, compressing the medulla",
+  "answer": "Foramen magnum, compressing the medulla",
   "accept": [],
   "keywords": [
    [
@@ -1582,7 +1688,17 @@
    "region:cerebellum",
    "modality:motor",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Foramen magnum",
+   "Medulla"
+  ],
+  "part_accept": {
+   "Medulla": [
+    "medulla oblongata",
+    "brainstem"
+   ]
+  }
  },
  {
   "slug": "theory-cerebellar-tonsil-supply",
@@ -1598,10 +1714,11 @@
   "facet": "supply",
   "prompt": "Which artery supplies the cerebellar tonsil?",
   "format": "type",
-  "answer": "PICA (posterior inferior cerebellar artery)",
+  "answer": "Posterior inferior cerebellar artery",
   "accept": [
    "PICA",
-   "posterior inferior cerebellar"
+   "posterior inferior cerebellar",
+   "PICA (posterior inferior cerebellar artery)"
   ],
   "keywords": null,
   "choices": null,
@@ -1629,8 +1746,10 @@
   "facet": "function",
   "prompt": "What is the function of the flocculus?",
   "format": "keywords",
-  "answer": "Vestibulo-ocular reflex and eye movement control (vestibulocerebellum)",
-  "accept": [],
+  "answer": "Vestibulo-ocular reflex and eye movement control",
+  "accept": [
+   "vestibulocerebellum"
+  ],
   "keywords": [
    [
     "vestibulo",
@@ -1665,8 +1784,11 @@
   "facet": "function",
   "prompt": "What does the vermis control?",
   "format": "keywords",
-  "answer": "Axial (trunk) balance and posture",
-  "accept": [],
+  "answer": "Axial balance and posture",
+  "accept": [
+   "trunk balance and posture",
+   "axial (trunk) balance and posture"
+  ],
   "keywords": [
    [
     "trunk",
@@ -1701,7 +1823,7 @@
   "facet": "lesion",
   "prompt": "A vermis lesion causes which sign?",
   "format": "keywords",
-  "answer": "Truncal ataxia (wide-based gait)",
+  "answer": "Truncal ataxia",
   "accept": [],
   "keywords": [
    [
@@ -1718,7 +1840,8 @@
    "source:supplementary",
    "region:cerebellum",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Wide-based gait."
  },
  {
   "slug": "theory-vermis-connections",
@@ -1764,7 +1887,7 @@
   "facet": "function",
   "prompt": "What does the paravermis (intermediate zone) control?",
   "format": "keywords",
-  "answer": "Distal limb movements (ipsilateral)",
+  "answer": "Distal limb movements",
   "accept": [],
   "keywords": [
    [
@@ -1782,7 +1905,8 @@
    "source:supplementary",
    "region:cerebellum",
    "theory:function"
-  ]
+  ],
+  "explain": "Ipsilateral."
  },
  {
   "slug": "theory-paravermis-connections",
@@ -1798,7 +1922,7 @@
   "facet": "connections",
   "prompt": "Which deep cerebellar nuclei receive paravermis output?",
   "format": "keywords",
-  "answer": "Interposed nuclei (globose and emboliform)",
+  "answer": "Interposed nuclei",
   "accept": [],
   "keywords": [
    [
@@ -1816,7 +1940,8 @@
    "region:cerebellum",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "explain": "Globose and emboliform."
  },
  {
   "slug": "theory-cerebellar-lateral-hemisphere-function",
@@ -1832,7 +1957,7 @@
   "facet": "function",
   "prompt": "What does the lateral cerebellar hemisphere control?",
   "format": "keywords",
-  "answer": "Planning and coordination of skilled limb movement (motor planning)",
+  "answer": "Planning and coordination of skilled limb movement",
   "accept": [],
   "keywords": [
    [
@@ -1851,7 +1976,8 @@
    "region:cerebellum",
    "modality:motor",
    "theory:function"
-  ]
+  ],
+  "explain": "Motor planning."
  },
  {
   "slug": "theory-cerebellar-lateral-hemisphere-connections",
@@ -1897,7 +2023,7 @@
   "facet": "connections",
   "prompt": "Where do dentate nucleus axons project?",
   "format": "keywords",
-  "answer": "Contralateral red nucleus and VL thalamus via the superior cerebellar peduncle",
+  "answer": "Contralateral red nucleus and VL thalamus",
   "accept": [],
   "keywords": [
    [
@@ -1915,7 +2041,19 @@
    "region:cerebellum",
    "modality:motor",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Red nucleus",
+   "VL thalamus"
+  ],
+  "part_accept": {
+   "VL thalamus": [
+    "thalamus",
+    "ventrolateral thalamus",
+    "VL"
+   ]
+  },
+  "explain": "Via the superior cerebellar peduncle."
  },
  {
   "slug": "theory-dentate-nucleus-passes",
@@ -1961,7 +2099,7 @@
   "facet": "supply",
   "prompt": "Name one structure supplied by the vertebral arteries.",
   "format": "keywords",
-  "answer": "Medulla, cerebellum (PICA), spinal cord (anterior spinal)",
+  "answer": "Medulla",
   "accept": [],
   "keywords": [
    [
@@ -1981,7 +2119,8 @@
    "region:vessels",
    "modality:motor",
    "theory:supply"
-  ]
+  ],
+  "explain": "Also the cerebellum (via PICA) and the spinal cord (via the anterior spinal artery)."
  },
  {
   "slug": "theory-vertebral-artery-passes",
@@ -2057,7 +2196,7 @@
   "facet": "supply",
   "prompt": "Name one structure supplied by the basilar artery.",
   "format": "keywords",
-  "answer": "Pons, cerebellum, midbrain, occipital lobe (via PCA)",
+  "answer": "Pons",
   "accept": [],
   "keywords": [
    [
@@ -2077,7 +2216,8 @@
    "region:vessels",
    "modality:motor",
    "theory:supply"
-  ]
+  ],
+  "explain": "Also the cerebellum, the midbrain and the occipital lobe (via the PCA)."
  },
  {
   "slug": "theory-basilar-artery-lesion",
@@ -2155,7 +2295,7 @@
   "facet": "supply",
   "prompt": "Which structure does the superior cerebellar artery supply?",
   "format": "keywords",
-  "answer": "Superior cerebellum (and rostral pons)",
+  "answer": "Superior cerebellum",
   "accept": [],
   "keywords": [
    [
@@ -2171,7 +2311,8 @@
    "region:vessels",
    "modality:motor",
    "theory:supply"
-  ]
+  ],
+  "explain": "Also the rostral pons."
  },
  {
   "slug": "theory-superior-cerebellar-artery-connections",
@@ -2187,8 +2328,10 @@
   "facet": "connections",
   "prompt": "Which cranial nerve passes between the superior cerebellar artery and the posterior cerebral artery?",
   "format": "keywords",
-  "answer": "Oculomotor nerve (CN III)",
-  "accept": [],
+  "answer": "Oculomotor nerve",
+  "accept": [
+   "CN III"
+  ],
   "keywords": [
    [
     "oculomotor",
@@ -2223,7 +2366,7 @@
   "facet": "supply",
   "prompt": "What do the penetrating branches supply?",
   "format": "keywords",
-  "answer": "The brainstem",
+  "answer": "Brainstem",
   "accept": [],
   "keywords": [
    [
@@ -2254,7 +2397,7 @@
   "facet": "supply",
   "prompt": "Which structure do the pontine arteries supply?",
   "format": "type",
-  "answer": "The pons",
+  "answer": "Pons",
   "accept": [
    "pons"
   ],
@@ -2312,7 +2455,7 @@
   "facet": "supply",
   "prompt": "Name one structure supplied by the posterior cerebral artery.",
   "format": "keywords",
-  "answer": "Occipital lobe, inferior temporal lobe, thalamus",
+  "answer": "Occipital lobe",
   "accept": [],
   "keywords": [
    [
@@ -2330,7 +2473,8 @@
    "source:supplementary",
    "region:vessels",
    "theory:supply"
-  ]
+  ],
+  "explain": "Also the inferior temporal lobe and thalamus."
  },
  {
   "slug": "theory-posterior-cerebral-artery-lesion",
@@ -2346,7 +2490,7 @@
   "facet": "lesion",
   "prompt": "PCA infarction causes which visual deficit?",
   "format": "keywords",
-  "answer": "Contralateral homonymous hemianopia with macular sparing",
+  "answer": "Contralateral homonymous hemianopia",
   "accept": [],
   "keywords": [
    [
@@ -2365,7 +2509,8 @@
    "region:vessels",
    "modality:visual",
    "theory:lesion"
-  ]
+  ],
+  "explain": "With macular sparing."
  },
  {
   "slug": "theory-posterior-cerebral-artery-connections",
@@ -2381,7 +2526,7 @@
   "facet": "connections",
   "prompt": "The posterior cerebral artery arises from which artery?",
   "format": "keywords",
-  "answer": "Basilar artery (terminal branches)",
+  "answer": "Basilar artery",
   "accept": [],
   "keywords": [
    [
@@ -2396,7 +2541,8 @@
    "source:supplementary",
    "region:vessels",
    "theory:connections"
-  ]
+  ],
+  "explain": "Its terminal branches."
  },
  {
   "slug": "theory-posterior-communicating-artery-connections",
@@ -2432,7 +2578,21 @@
    "source:supplementary",
    "region:vessels",
    "theory:connections"
-  ]
+  ],
+  "parts": [
+   "Internal carotid artery",
+   "Posterior cerebral artery"
+  ],
+  "part_accept": {
+   "Internal carotid artery": [
+    "ICA",
+    "internal carotid"
+   ],
+   "Posterior cerebral artery": [
+    "PCA",
+    "posterior cerebral"
+   ]
+  }
  },
  {
   "slug": "theory-posterior-communicating-artery-lesion",
@@ -2448,8 +2608,10 @@
   "facet": "lesion",
   "prompt": "An aneurysm of the posterior communicating artery compresses which cranial nerve?",
   "format": "keywords",
-  "answer": "Oculomotor nerve (CN III)",
-  "accept": [],
+  "answer": "Oculomotor nerve",
+  "accept": [
+   "CN III"
+  ],
   "keywords": [
    [
     "oculomotor",
@@ -2572,7 +2734,7 @@
   "facet": "supply",
   "prompt": "Name one area supplied by the middle cerebral artery.",
   "format": "keywords",
-  "answer": "Lateral cortex: face and arm motor/sensory areas, language areas, basal ganglia (via lenticulostriates)",
+  "answer": "Lateral cortex",
   "accept": [],
   "keywords": [
    [
@@ -2595,7 +2757,8 @@
    "modality:motor",
    "modality:sensory",
    "theory:supply"
-  ]
+  ],
+  "explain": "Face and arm motor/sensory areas, language areas and the basal ganglia (via the lenticulostriates)."
  },
  {
   "slug": "theory-middle-cerebral-artery-lesion",
@@ -2611,7 +2774,7 @@
   "facet": "lesion",
   "prompt": "Left MCA stroke commonly causes which deficits?",
   "format": "keywords",
-  "answer": "Right face and arm weakness/sensory loss and aphasia",
+  "answer": "Right face and arm weakness and aphasia",
   "accept": [],
   "keywords": [
    [
@@ -2630,7 +2793,19 @@
    "region:vessels",
    "modality:sensory",
    "theory:lesion"
-  ]
+  ],
+  "parts": [
+   "Right face and arm weakness",
+   "Aphasia"
+  ],
+  "part_accept": {
+   "Right face and arm weakness": [
+    "right face and arm sensory loss",
+    "right hemiparesis",
+    "right arm and face weakness"
+   ]
+  },
+  "explain": "Weakness and sensory loss of the right face and arm, with aphasia (left MCA)."
  },
  {
   "slug": "theory-middle-cerebral-artery-connections",
@@ -2678,7 +2853,7 @@
   "facet": "supply",
   "prompt": "Which structures do the lenticulostriate arteries supply?",
   "format": "keywords",
-  "answer": "Basal ganglia (putamen, globus pallidus, caudate) and internal capsule",
+  "answer": "Basal ganglia and internal capsule",
   "accept": [],
   "keywords": [
    [
@@ -2698,7 +2873,20 @@
    "region:vessels",
    "modality:motor",
    "theory:supply"
-  ]
+  ],
+  "parts": [
+   "Basal ganglia",
+   "Internal capsule"
+  ],
+  "part_accept": {
+   "Basal ganglia": [
+    "putamen",
+    "globus pallidus",
+    "caudate",
+    "basal nuclei"
+   ]
+  },
+  "explain": "Putamen, globus pallidus and caudate."
  },
  {
   "slug": "theory-lenticulostriate-arteries-connections",
@@ -2744,7 +2932,7 @@
   "facet": "lesion",
   "prompt": "Occlusion of the lenticulostriate arteries causes what type of stroke?",
   "format": "keywords",
-  "answer": "Lacunar infarct (pure motor hemiparesis)",
+  "answer": "Lacunar infarct",
   "accept": [],
   "keywords": [
    [
@@ -2762,7 +2950,8 @@
    "region:vessels",
    "modality:motor",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Pure motor hemiparesis."
  },
  {
   "slug": "theory-anterior-cerebral-artery-supply",
@@ -2778,7 +2967,7 @@
   "facet": "supply",
   "prompt": "Which part of the homunculus does the anterior cerebral artery supply?",
   "format": "keywords",
-  "answer": "Leg and foot (medial frontal and parietal lobes)",
+  "answer": "Leg and foot",
   "accept": [],
   "keywords": [
    [
@@ -2796,7 +2985,8 @@
    "source:supplementary",
    "region:vessels",
    "theory:supply"
-  ]
+  ],
+  "explain": "The medial frontal and parietal lobes."
  },
  {
   "slug": "theory-anterior-cerebral-artery-lesion",
@@ -2875,7 +3065,7 @@
   "facet": "supply",
   "prompt": "The pericallosal artery runs along which structure?",
   "format": "keywords",
-  "answer": "The corpus callosum",
+  "answer": "Corpus callosum",
   "accept": [],
   "keywords": [
    [
@@ -2937,7 +3127,7 @@
   "facet": "supply",
   "prompt": "Which gyrus does the callosomarginal artery supply?",
   "format": "keywords",
-  "answer": "Cingulate gyrus (and paracentral lobule)",
+  "answer": "Cingulate gyrus",
   "accept": [],
   "keywords": [
    [
@@ -2954,7 +3144,8 @@
    "region:vessels",
    "modality:limbic",
    "theory:supply"
-  ]
+  ],
+  "explain": "Also the paracentral lobule."
  },
  {
   "slug": "theory-callosomarginal-artery-connections",
@@ -3000,8 +3191,11 @@
   "facet": "lesion",
   "prompt": "The anterior communicating artery is the most common site of what?",
   "format": "keywords",
-  "answer": "Berry (saccular) aneurysm",
-  "accept": [],
+  "answer": "Berry aneurysm",
+  "accept": [
+   "saccular aneurysm",
+   "berry (saccular) aneurysm"
+  ],
   "keywords": [
    [
     "aneurysm",
@@ -3033,8 +3227,13 @@
   "facet": "connections",
   "prompt": "The anterior communicating artery joins which two arteries?",
   "format": "keywords",
-  "answer": "The two anterior cerebral arteries",
-  "accept": [],
+  "answer": "Anterior cerebral arteries",
+  "accept": [
+   "the two anterior cerebral arteries",
+   "two anterior cerebral arteries",
+   "ACAs",
+   "ACA"
+  ],
   "keywords": [
    [
     "anterior cerebral",
@@ -3065,8 +3264,14 @@
   "facet": "supply",
   "prompt": "Name one artery that forms the circle of Willis.",
   "format": "keywords",
-  "answer": "ACA, AComA, ICA, PComA, PCA",
-  "accept": [],
+  "answer": "Anterior cerebral artery",
+  "accept": [
+   "ACA",
+   "AComA",
+   "ICA",
+   "PComA",
+   "PCA"
+  ],
   "keywords": [
    [
     "anterior cerebral",
@@ -3087,7 +3292,8 @@
    "source:supplementary",
    "region:vessels",
    "theory:supply"
-  ]
+  ],
+  "explain": "ACA, AComA, ICA, PComA and PCA."
  },
  {
   "slug": "theory-circle-of-willis-lesion",
@@ -3134,7 +3340,7 @@
   "facet": "function",
   "prompt": "What is the function of the circle of Willis?",
   "format": "keywords",
-  "answer": "Collateral blood flow between the anterior and posterior circulations",
+  "answer": "Collateral blood flow",
   "accept": [],
   "keywords": [
    [
@@ -3153,7 +3359,8 @@
    "source:supplementary",
    "region:vessels",
    "theory:function"
-  ]
+  ],
+  "explain": "Between the anterior and posterior circulations."
  },
  {
   "slug": "theory-anterior-spinal-artery-supply",
@@ -3231,7 +3438,7 @@
   "facet": "lesion",
   "prompt": "Anterior spinal artery occlusion spares which sensory pathway?",
   "format": "keywords",
-  "answer": "Dorsal columns (vibration, proprioception)",
+  "answer": "Dorsal columns",
   "accept": [],
   "keywords": [
    [
@@ -3249,7 +3456,8 @@
    "region:vessels",
    "modality:sensory",
    "theory:lesion"
-  ]
+  ],
+  "explain": "Vibration, proprioception."
  },
  {
   "slug": "theory-posterior-spinal-arteries-supply",
@@ -3265,7 +3473,7 @@
   "facet": "supply",
   "prompt": "The posterior spinal arteries supply which part of the cord?",
   "format": "keywords",
-  "answer": "Posterior one-third (dorsal columns)",
+  "answer": "Posterior one-third",
   "accept": [],
   "keywords": [
    [
@@ -3284,7 +3492,8 @@
    "source:supplementary",
    "region:vessels",
    "theory:supply"
-  ]
+  ],
+  "explain": "Dorsal columns."
  },
  {
   "slug": "theory-posterior-spinal-arteries-connections",
@@ -3332,8 +3541,10 @@
   "facet": "function",
   "prompt": "On CT, how does acute blood appear?",
   "format": "keywords",
-  "answer": "Hyperdense (bright)",
-  "accept": [],
+  "answer": "Hyperdense",
+  "accept": [
+   "bright"
+  ],
   "keywords": [
    [
     "hyperdense",
@@ -3365,7 +3576,7 @@
   "facet": "lesion",
   "prompt": "Which MRI sequence detects acute ischaemic stroke within minutes?",
   "format": "type",
-  "answer": "Diffusion-weighted imaging (DWI)",
+  "answer": "Diffusion-weighted imaging",
   "accept": [
    "DWI",
    "diffusion"
@@ -3395,8 +3606,10 @@
   "facet": "lesion",
   "prompt": "What shape is an epidural hematoma on CT?",
   "format": "keywords",
-  "answer": "Lens-shaped (biconvex)",
-  "accept": [],
+  "answer": "Lens-shaped",
+  "accept": [
+   "biconvex"
+  ],
   "keywords": [
    [
     "lens",

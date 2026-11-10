@@ -876,7 +876,9 @@
    "primary sensory cortex",
    "primary somatosensensory cortex",
    "S1",
-   "BA 3,1,2"
+   "BA 3",
+   "1",
+   "2"
   ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-0e0473809e2531625d6235e54feebfcc96c595a4.webp",

@@ -11,7 +11,7 @@
   },
   "vignette": "A patient has right face and arm weakness, right sensory loss and halting nonfluent speech with good comprehension.",
   "prompt": "Which artery is likely occluded and on which side?",
-  "answer": "Left middle cerebral artery (dominant hemisphere: Broca's aphasia)",
+  "answer": "Left middle cerebral artery",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -37,7 +37,8 @@
   "structures": [
    "middle-cerebral-artery"
   ],
-  "structure": "middle-cerebral-artery"
+  "structure": "middle-cerebral-artery",
+  "explain": "Dominant hemisphere: Broca's aphasia."
  },
  {
   "slug": "clinical-u3-stroke-mca-right",
@@ -51,7 +52,7 @@
   },
   "vignette": "A patient has left face and arm weakness, left sensory loss and ignores the left side of space.",
   "prompt": "Which artery and side?",
-  "answer": "Right middle cerebral artery (non-dominant hemisphere: hemineglect)",
+  "answer": "Right middle cerebral artery",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -77,7 +78,8 @@
   "structures": [
    "middle-cerebral-artery"
   ],
-  "structure": "middle-cerebral-artery"
+  "structure": "middle-cerebral-artery",
+  "explain": "Non-dominant hemisphere: hemineglect."
  },
  {
   "slug": "clinical-u3-stroke-aca",
@@ -91,7 +93,7 @@
   },
   "vignette": "A patient has contralateral leg weakness and sensory loss with urinary incontinence and apathy.",
   "prompt": "Which artery?",
-  "answer": "Anterior cerebral artery (medial frontal and parietal lobes)",
+  "answer": "Anterior cerebral artery",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -114,7 +116,8 @@
   "structures": [
    "anterior-cerebral-artery"
   ],
-  "structure": "anterior-cerebral-artery"
+  "structure": "anterior-cerebral-artery",
+  "explain": "Medial frontal and parietal lobes."
  },
  {
   "slug": "clinical-u3-stroke-pca",
@@ -128,7 +131,7 @@
   },
   "vignette": "A patient has a right homonymous hemianopia, trouble reading (alexia without agraphia) and prosopagnosia.",
   "prompt": "Which artery and side?",
-  "answer": "Left posterior cerebral artery (occipital lobe and inferior temporal lobe)",
+  "answer": "Left posterior cerebral artery",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -153,7 +156,8 @@
   "structures": [
    "posterior-cerebral-artery"
   ],
-  "structure": "posterior-cerebral-artery"
+  "structure": "posterior-cerebral-artery",
+  "explain": "Occipital lobe and inferior temporal lobe."
  },
  {
   "slug": "clinical-u3-stroke-lenticulostriate",
@@ -167,7 +171,7 @@
   },
   "vignette": "A hypertensive patient has pure motor hemiparesis of the left face, arm and leg from a small lacunar infarct.",
   "prompt": "Which small vessels and structures are involved?",
-  "answer": "Right lenticulostriate arteries (MCA): basal ganglia and internal capsule",
+  "answer": "Right lenticulostriate arteries; basal ganglia and internal capsule",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -195,7 +199,22 @@
    "lenticulostriate-arteries",
    "internal-capsule"
   ],
-  "structure": "lenticulostriate-arteries"
+  "structure": "lenticulostriate-arteries",
+  "parts": [
+   "Right lenticulostriate arteries",
+   "Basal ganglia and internal capsule"
+  ],
+  "part_accept": {
+   "Right lenticulostriate arteries": [
+    "lenticulostriate arteries",
+    "lenticulostriates"
+   ],
+   "Basal ganglia and internal capsule": [
+    "basal ganglia",
+    "internal capsule"
+   ]
+  },
+  "explain": "The lenticulostriates are MCA branches."
  },
  {
   "slug": "clinical-u3-stroke-watershed",
@@ -209,8 +228,14 @@
   },
   "vignette": "After cardiac arrest a patient has weakness of both shoulders and upper arms with preserved hands and legs ('man in a barrel').",
   "prompt": "Which kind of stroke?",
-  "answer": "Bilateral MCA-PCA watershed (border-zone) infarcts",
-  "accept": [],
+  "answer": "Bilateral watershed infarcts",
+  "accept": [
+   "border-zone infarcts",
+   "watershed",
+   "ACA-MCA watershed",
+   "MCA-PCA watershed",
+   "bilateral border-zone infarcts"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -228,7 +253,7 @@
    "theory:lesion"
   ],
   "structures": [],
-  "explain": "Border zones between the MCA and ACA or PCA territories are the last to receive blood when perfusion falls globally, as in cardiac arrest. Shoulder and upper arm cortex lies in the ACA-MCA watershed, so both proximal arms weaken while hands and legs are spared ('man in a barrel')."
+  "explain": "Border zones between the MCA and ACA or PCA territories are the last to receive blood when perfusion falls globally, as in cardiac arrest. Shoulder and upper arm cortex lies in the ACA-MCA watershed, so both proximal arms weaken while hands and legs are spared ('man in a barrel'). Border zones between the MCA and ACA or PCA territories are the last to receive blood when perfusion falls globally, as in cardiac arrest. The course slide (Lecture 18) shows the MCA-PCA border zone as the most common type; the 'man in a barrel' pattern (both proximal arms weak, hands and legs spared) is classically the ACA-MCA watershed."
  },
  {
   "slug": "clinical-u3-stroke-ischemic-types",
@@ -242,7 +267,7 @@
   },
   "vignette": "Name the two main causes of ischemic stroke.",
   "prompt": "Name both.",
-  "answer": "Thrombosis (e.g. atherosclerosis) and embolism (e.g. from atrial fibrillation)",
+  "answer": "Thrombosis and embolism",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -264,7 +289,17 @@
    "theory:lesion"
   ],
   "structures": [],
-  "explain": "Ischemic stroke is loss of blood supply to brain tissue. It results either from thrombosis (a clot forming in place on an atherosclerotic vessel) or embolism (a clot travelling from elsewhere, such as the heart in atrial fibrillation). Embolus: Greek embolos, plug or wedge."
+  "explain": "Ischemic stroke is loss of blood supply to brain tissue. It results either from thrombosis (a clot forming in place on an atherosclerotic vessel) or embolism (a clot travelling from elsewhere, such as the heart in atrial fibrillation). Embolus: Greek embolos, plug or wedge. Thrombosis (e.g. atherosclerosis) and embolism (e.g. from atrial fibrillation).",
+  "parts": [
+   "Thrombosis",
+   "Embolism"
+  ],
+  "part_accept": {
+   "Embolism": [
+    "embolus",
+    "embolic"
+   ]
+  }
  },
  {
   "slug": "clinical-u3-stroke-tpa",
@@ -278,8 +313,13 @@
   },
   "vignette": "A patient arrives 5 hours after a stroke; CT shows bleeding.",
   "prompt": "Why must CT be done before giving tPA?",
-  "answer": "tPA worsens a haemorrhagic stroke; CT rules out haemorrhage",
-  "accept": [],
+  "answer": "Rule out haemorrhage",
+  "accept": [
+   "CT rules out haemorrhage",
+   "rule out bleeding",
+   "exclude haemorrhage",
+   "tPA worsens a haemorrhagic stroke"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -298,7 +338,7 @@
    "theory:lesion"
   ],
   "structures": [],
-  "explain": "tPA (tissue plasminogen activator) dissolves clots, so it helps ischemic stroke but would worsen bleeding. CT is done first because it shows acute blood as bright white, ruling out hemorrhage before treatment."
+  "explain": "tPA (tissue plasminogen activator) dissolves clots, so it helps ischemic stroke but would worsen bleeding. CT is done first because it shows acute blood as bright white, ruling out hemorrhage before treatment. tPA dissolves clots and would worsen a haemorrhagic stroke; CT shows acute blood as bright white."
  },
  {
   "slug": "clinical-u3-bleed-epidural",
@@ -312,7 +352,7 @@
   },
   "vignette": "A man is hit on the side of the head, is briefly unconscious, then lucid, then deteriorates with a lemon-shaped bright area on CT.",
   "prompt": "Which bleed and which vessel?",
-  "answer": "Epidural haematoma; middle meningeal artery near the pterion",
+  "answer": "Epidural haematoma; middle meningeal artery",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -338,7 +378,23 @@
   "structures": [
    "pterion",
    "meningeal-blood-vessels"
-  ]
+  ],
+  "parts": [
+   "Epidural haematoma",
+   "Middle meningeal artery"
+  ],
+  "part_accept": {
+   "Epidural haematoma": [
+    "epidural hematoma",
+    "extradural haematoma",
+    "epidural"
+   ],
+   "Middle meningeal artery": [
+    "middle meningeal",
+    "MMA"
+   ]
+  },
+  "explain": "Near the pterion."
  },
  {
   "slug": "clinical-u3-bleed-subdural",
@@ -375,7 +431,21 @@
   ],
   "structures": [
    "subdural-space"
-  ]
+  ],
+  "parts": [
+   "Subdural haematoma",
+   "Torn bridging veins"
+  ],
+  "part_accept": {
+   "Subdural haematoma": [
+    "subdural hematoma",
+    "subdural"
+   ],
+   "Torn bridging veins": [
+    "bridging veins",
+    "torn veins"
+   ]
+  }
  },
  {
   "slug": "clinical-u3-bleed-sah",
@@ -389,7 +459,7 @@
   },
   "vignette": "A patient has a sudden 'worst headache of my life' with vomiting and blood in the sylvian fissures on CT.",
   "prompt": "Which bleed and likely cause?",
-  "answer": "Subarachnoid haemorrhage; ruptured berry aneurysm (often at communicating arteries)",
+  "answer": "Subarachnoid haemorrhage; ruptured berry aneurysm",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -412,7 +482,23 @@
   ],
   "structures": [
    "subarachnoid-space"
-  ]
+  ],
+  "parts": [
+   "Subarachnoid haemorrhage",
+   "Ruptured berry aneurysm"
+  ],
+  "part_accept": {
+   "Subarachnoid haemorrhage": [
+    "subarachnoid hemorrhage",
+    "SAH"
+   ],
+   "Ruptured berry aneurysm": [
+    "berry aneurysm",
+    "ruptured aneurysm",
+    "saccular aneurysm"
+   ]
+  },
+  "explain": "Often at the communicating arteries."
  },
  {
   "slug": "clinical-u3-bleed-berry-sites",
@@ -426,7 +512,7 @@
   },
   "vignette": "Where do berry aneurysms most commonly occur?",
   "prompt": "Name the common sites.",
-  "answer": "Anterior and posterior communicating arteries (circle of Willis branch points)",
+  "answer": "Anterior and posterior communicating arteries",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -450,7 +536,22 @@
   ],
   "structures": [
    "circle-of-willis"
-  ]
+  ],
+  "parts": [
+   "Anterior communicating artery",
+   "Posterior communicating artery"
+  ],
+  "part_accept": {
+   "Anterior communicating artery": [
+    "AComA",
+    "anterior communicating"
+   ],
+   "Posterior communicating artery": [
+    "PComA",
+    "posterior communicating"
+   ]
+  },
+  "explain": "Circle of Willis branch points."
  },
  {
   "slug": "clinical-u3-bleed-intracerebral",
@@ -464,7 +565,7 @@
   },
   "vignette": "A hypertensive patient has sudden loss of function and a bright pool within the basal ganglia on CT.",
   "prompt": "Which type of bleed?",
-  "answer": "Intracerebral haemorrhage (rupture of penetrating lenticulostriate vessels)",
+  "answer": "Intracerebral haemorrhage",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -489,7 +590,8 @@
   ],
   "structures": [
    "lenticulostriate-arteries"
-  ]
+  ],
+  "explain": "Rupture of penetrating lenticulostriate vessels."
  },
  {
   "slug": "clinical-u3-bleed-stroke-vs-bleed",
@@ -503,7 +605,7 @@
   },
   "vignette": "Which two intracranial bleeds are NOT considered strokes?",
   "prompt": "Name them.",
-  "answer": "Epidural and subdural haematoma (vessels do not supply the brain)",
+  "answer": "Epidural and subdural haematoma",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -523,7 +625,22 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "parts": [
+   "Epidural haematoma",
+   "Subdural haematoma"
+  ],
+  "part_accept": {
+   "Epidural haematoma": [
+    "epidural hematoma",
+    "epidural"
+   ],
+   "Subdural haematoma": [
+    "subdural hematoma",
+    "subdural"
+   ]
+  },
+  "explain": "The vessels involved do not supply the brain."
  },
  {
   "slug": "clinical-u3-herniation-uncal",
@@ -537,7 +654,7 @@
   },
   "vignette": "A patient with a large temporal haematoma has a blown right pupil.",
   "prompt": "Which structure herniates and which nerve is compressed?",
-  "answer": "Uncus (uncal herniation over the tentorium) compresses the oculomotor nerve",
+  "answer": "Uncus; oculomotor nerve",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -568,7 +685,19 @@
    "uncus",
    "tentorium-cerebelli"
   ],
-  "structure": "uncus"
+  "structure": "uncus",
+  "parts": [
+   "Uncus",
+   "Oculomotor nerve"
+  ],
+  "part_accept": {
+   "Oculomotor nerve": [
+    "CN III",
+    "III",
+    "oculomotor"
+   ]
+  },
+  "explain": "Uncal herniation over the tentorium compresses CN III."
  },
  {
   "slug": "clinical-u3-herniation-tonsillar",
@@ -582,7 +711,7 @@
   },
   "vignette": "A patient with raised ICP has hypertension, bradycardia and irregular breathing.",
   "prompt": "What is this triad and what is herniating?",
-  "answer": "Cushing's triad; cerebellar tonsils herniating through the foramen magnum",
+  "answer": "Cushing's triad; cerebellar tonsils",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -610,7 +739,21 @@
    "cerebellar-tonsil",
    "foramen-magnum"
   ],
-  "structure": "cerebellar-tonsil"
+  "structure": "cerebellar-tonsil",
+  "parts": [
+   "Cushing's triad",
+   "Cerebellar tonsils"
+  ],
+  "part_accept": {
+   "Cushing's triad": [
+    "Cushing triad"
+   ],
+   "Cerebellar tonsils": [
+    "tonsils",
+    "cerebellar tonsil"
+   ]
+  },
+  "explain": "The tonsils herniate through the foramen magnum."
  },
  {
   "slug": "clinical-u3-herniation-midline",
@@ -624,7 +767,7 @@
   },
   "vignette": "On CT a bleed on the right pushes the midline to the left.",
   "prompt": "What is this called?",
-  "answer": "Midline shift (mass effect)",
+  "answer": "Midline shift",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -643,7 +786,7 @@
    "theory:lesion"
   ],
   "structures": [],
-  "explain": "A space-occupying lesion such as a bleed adds volume inside the rigid skull and pushes the brain away from the lesion, shifting midline structures (septum pellucidum, third ventricle) toward the opposite side. This is mass effect and signals raised intracranial pressure."
+  "explain": "A space-occupying lesion such as a bleed adds volume inside the rigid skull and pushes the brain away from the lesion, shifting midline structures (septum pellucidum, third ventricle) toward the opposite side. This is mass effect and signals raised intracranial pressure. Mass effect."
  },
  {
   "slug": "clinical-u3-bg-parkinson",
@@ -684,7 +827,17 @@
   "structures": [
    "substantia-nigra"
   ],
-  "structure": "substantia-nigra"
+  "structure": "substantia-nigra",
+  "parts": [
+   "Substantia nigra pars compacta",
+   "Dopamine"
+  ],
+  "part_accept": {
+   "Substantia nigra pars compacta": [
+    "substantia nigra",
+    "SNc"
+   ]
+  }
  },
  {
   "slug": "clinical-u3-bg-huntington",
@@ -698,7 +851,7 @@
   },
   "vignette": "A 40-year-old with a family history has chorea and dementia.",
   "prompt": "Which structure degenerates?",
-  "answer": "Striatum (caudate and putamen)",
+  "answer": "Striatum",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -723,7 +876,8 @@
    "caudate-nucleus",
    "putamen"
   ],
-  "structure": "corpus-striatum"
+  "structure": "corpus-striatum",
+  "explain": "Caudate and putamen."
  },
  {
   "slug": "clinical-u3-bg-ballismus",
@@ -737,7 +891,7 @@
   },
   "vignette": "A stroke causes sudden violent flinging movements of the right arm.",
   "prompt": "Which nucleus is damaged and on which side?",
-  "answer": "Left subthalamic nucleus (hemiballismus, contralateral)",
+  "answer": "Left subthalamic nucleus",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -765,7 +919,8 @@
   "structures": [
    "subthalamic-nucleus"
   ],
-  "structure": "subthalamic-nucleus"
+  "structure": "subthalamic-nucleus",
+  "explain": "Hemiballismus, contralateral."
  },
  {
   "slug": "clinical-u3-limbic-hippocampus",
@@ -779,8 +934,12 @@
   },
   "vignette": "A patient cannot form new memories but recalls old ones.",
   "prompt": "Which structures are damaged?",
-  "answer": "Hippocampal formation (medial temporal lobe), mammillary bodies/fornix (anterograde amnesia)",
-  "accept": [],
+  "answer": "Hippocampal formation",
+  "accept": [
+   "mammillary bodies",
+   "fornix",
+   "medial temporal lobe"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -806,7 +965,8 @@
    "hippocampus",
    "fornix"
   ],
-  "structure": "hippocampus"
+  "structure": "hippocampus",
+  "explain": "Medial temporal lobe; also the mammillary bodies/fornix, giving anterograde amnesia."
  },
  {
   "slug": "clinical-u3-limbic-basalis",
@@ -893,7 +1053,7 @@
   },
   "vignette": "A tumour crosses the corpus callosum as a 'butterfly lesion'.",
   "prompt": "Name the tumour.",
-  "answer": "Glioblastoma multiforme (astrocyte origin)",
+  "answer": "Glioblastoma multiforme",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -915,7 +1075,7 @@
   "structures": [
    "corpus-callosum"
   ],
-  "explain": "Glioblastoma multiforme is an aggressive astrocyte-derived tumor that spreads along white matter tracts. Crossing the corpus callosum to the other hemisphere gives the 'butterfly' appearance on imaging. Multiforme: Latin 'many shapes', for its varied appearance."
+  "explain": "Glioblastoma multiforme is an aggressive astrocyte-derived tumor that spreads along white matter tracts. Crossing the corpus callosum to the other hemisphere gives the 'butterfly' appearance on imaging. Multiforme: Latin 'many shapes', for its varied appearance. Astrocyte origin."
  },
  {
   "slug": "clinical-u3-tumor-cerebellar",
@@ -998,7 +1158,7 @@
   },
   "vignette": "Name the three most common primary cancers that metastasise to the brain.",
   "prompt": "Name them.",
-  "answer": "Lung, breast and melanoma (also kidney, colon)",
+  "answer": "Lung, breast and melanoma",
   "accept": [],
   "require_side": false,
   "format": "keywords",
@@ -1022,7 +1182,20 @@
    "theory:lesion"
   ],
   "structures": [],
-  "explain": "Lung, breast and melanoma are the most common primary cancers to spread to the brain by the blood, usually seen as multiple lesions at the gray-white junction. Kidney and colon cancers are also common sources."
+  "explain": "Lung, breast and melanoma are the most common primary cancers to spread to the brain by the blood, usually seen as multiple lesions at the gray-white junction. Kidney and colon cancers are also common sources. Also kidney and colon.",
+  "parts": [
+   "Lung",
+   "Breast",
+   "Melanoma"
+  ],
+  "part_accept": {
+   "Lung": [
+    "lung cancer"
+   ],
+   "Breast": [
+    "breast cancer"
+   ]
+  }
  },
  {
   "slug": "clinical-u3-tumor-callosum",
@@ -1071,8 +1244,13 @@
   },
   "vignette": "How does an ischaemic stroke look on CT, and when does it show?",
   "prompt": "Describe it.",
-  "answer": "Dark (hypodense) area, visible in the long term rather than immediately",
-  "accept": [],
+  "answer": "Hypodense",
+  "accept": [
+   "dark",
+   "dark area",
+   "hypodense area",
+   "dark (hypodense) area"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1096,7 +1274,8 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "A dark area, visible in the long term rather than immediately."
  },
  {
   "slug": "clinical-u3-imaging-ct-blood",
@@ -1110,8 +1289,12 @@
   },
   "vignette": "How does acute blood appear on CT?",
   "prompt": "Describe it.",
-  "answer": "Bright white (hyperdense)",
-  "accept": [],
+  "answer": "Hyperdense",
+  "accept": [
+   "bright white",
+   "bright",
+   "hyperdense (bright)"
+  ],
   "require_side": false,
   "format": "keywords",
   "keywords": [
@@ -1129,6 +1312,7 @@
    "source:lecture",
    "theory:lesion"
   ],
-  "structures": []
+  "structures": [],
+  "explain": "Acute blood is bright white on CT."
  }
 ]

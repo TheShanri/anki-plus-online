@@ -1,7 +1,7 @@
 // One colour language for every pathway view (3D tracer v3 and the 2D diagrams).
-//   colour  = which NEURON in the chain (1st, 2nd, 3rd order; UMN/LMN for motor)
-//   position across the drawn midline = which SIDE (no side colours: one instance is shown by default,
-//   the mirrored instance for "both sides" is the same colours, dashed and dimmer)
+//   colour     = which NEURON in the chain (1st, 2nd, 3rd order; UMN/LMN for motor)
+//   line style = which SIDE: LEFT solid, RIGHT dashed (owner, 2026-11-09), always, in every view;
+//                plus position across the drawn midline. No side colours.
 // Okabe-Ito hues: distinguishable with the common colour-vision deficiencies, readable on dark and light themes.
 
 export const ORDER_COLORS = {

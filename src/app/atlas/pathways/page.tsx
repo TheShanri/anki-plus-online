@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { AtlasModes } from "@/components/atlas/AtlasModes";
 import { PathwayTracer } from "@/components/atlas/pathways/PathwayTracer";
+import { Tracer3 } from "@/components/atlas/pathways/v3/Tracer3";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { fetchAll, resolveCourse } from "@/lib/study/server";
 import type { CoursePathway, PathwayCard } from "@/lib/atlas/pathways";
@@ -11,7 +12,7 @@ export const metadata = { title: "Pathway tracer" };
 export const dynamic = "force-dynamic";
 
 /** Pick a pathway and watch its neurons light up in order in the 3D brain: 1st, 2nd, 3rd order, with the decussation marked. */
-export default async function PathwaysPage({ searchParams }: { searchParams: Promise<{ p?: string; side?: string; step?: string }> }) {
+export default async function PathwaysPage({ searchParams }: { searchParams: Promise<{ p?: string; side?: string; step?: string; limb?: string; v?: string }> }) {
   const sp = await searchParams;
   const [sb, user] = await Promise.all([createClient(), getAuthUser()]);
   if (!sb) return <PageShell title="Pathway tracer" kicker="Atlas"><p className="text-text-dim">Supabase is not configured.</p></PageShell>;
@@ -39,7 +40,11 @@ export default async function PathwaysPage({ searchParams }: { searchParams: Pro
     <section className="relative left-1/2 w-[min(1760px,calc(100vw-24px))] -translate-x-1/2">
       <h1 className="sr-only">Pathway tracer</h1>
       <AtlasModes />
-      <PathwayTracer courses={coursePathways as unknown as CoursePathway[]} cards={cards} initial={sp} />
+      {sp.v === "3" ? (
+        <Tracer3 courses={coursePathways as unknown as CoursePathway[]} cards={cards} courseSlug={course.slug} initial={sp} />
+      ) : (
+        <PathwayTracer courses={coursePathways as unknown as CoursePathway[]} cards={cards} initial={sp} />
+      )}
     </section>
   );
 }

@@ -1,0 +1,2684 @@
+{
+ "dcml:hand": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Hand: skin and muscle receptors",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (C7)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (pseudounipolar)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Fasciculus gracilis (legs, medial) / cuneatus (arms, lateral) in the dorsal funiculus",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Gracile / cuneate nucleus (synapse, same side)",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Gracile / cuneate nucleus",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Internal arcuate fibres cross: the sensory decussation · crosses the midline",
+   "cross": true,
+   "info": "p6",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Medial lemniscus (medulla, pons, midbrain; contralateral)",
+   "cross": false,
+   "info": "p7",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VPL nucleus of thalamus",
+   "cross": false,
+   "info": "n8",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "VPL nucleus of the thalamus (3rd-order cell bodies)",
+   "cross": false,
+   "info": "p9",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex, postcentral gyrus (BA 3,1,2)",
+   "cross": false,
+   "info": "p11",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex (BA 3,1,2)",
+   "cross": false,
+   "info": "n12",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "dcml:foot": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Foot: skin and muscle receptors",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (L5)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (pseudounipolar)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Fasciculus gracilis (legs, medial) / cuneatus (arms, lateral) in the dorsal funiculus",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Gracile / cuneate nucleus (synapse, same side)",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Gracile / cuneate nucleus",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Internal arcuate fibres cross: the sensory decussation · crosses the midline",
+   "cross": true,
+   "info": "p6",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Medial lemniscus (medulla, pons, midbrain; contralateral)",
+   "cross": false,
+   "info": "p7",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VPL nucleus of thalamus",
+   "cross": false,
+   "info": "n8",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "VPL nucleus of the thalamus (3rd-order cell bodies)",
+   "cross": false,
+   "info": "p9",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex, postcentral gyrus (BA 3,1,2)",
+   "cross": false,
+   "info": "p11",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex (BA 3,1,2)",
+   "cross": false,
+   "info": "n12",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "alst:hand": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Hand: free nerve endings",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (C7)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (A-delta and C fibres)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Dorsal root, Lissauer's (posterolateral) tract, dorsal horn",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Marginal zone / nucleus proprius",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Anterior white commissure: crosses near the level of entry · crosses the midline",
+   "cross": true,
+   "info": "p5",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Anterolateral (spinothalamic) tract: cord, then brainstem tegmentum",
+   "cross": false,
+   "info": "p6",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VPL nucleus of thalamus",
+   "cross": false,
+   "info": "n7",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "VPL nucleus of the thalamus (3rd-order cell bodies)",
+   "cross": false,
+   "info": "p8",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "cross": false,
+   "info": "p9",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex, postcentral gyrus (BA 3,1,2)",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex",
+   "cross": false,
+   "info": "n11",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "alst:foot": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Foot: free nerve endings",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (L5)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (A-delta and C fibres)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Dorsal root, Lissauer's (posterolateral) tract, dorsal horn",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Marginal zone / nucleus proprius",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Anterior white commissure: crosses near the level of entry · crosses the midline",
+   "cross": true,
+   "info": "p5",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Anterolateral (spinothalamic) tract: cord, then brainstem tegmentum",
+   "cross": false,
+   "info": "p6",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VPL nucleus of thalamus",
+   "cross": false,
+   "info": "n7",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "VPL nucleus of the thalamus (3rd-order cell bodies)",
+   "cross": false,
+   "info": "p8",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "cross": false,
+   "info": "p9",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex, postcentral gyrus (BA 3,1,2)",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex",
+   "cross": false,
+   "info": "n11",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "dsct:foot": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Foot: muscle spindle, golgi tendon organ",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (L5)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (Ia / Ib)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Dorsal root to Clarke's nucleus (base of the dorsal horn)",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Clarke's nucleus",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Dorsal spinocerebellar tract (lateral funiculus), no decussation",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Inferior cerebellar peduncle",
+   "cross": false,
+   "info": "p6",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Cerebellar cortex (same side)",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Ipsilateral cerebellar cortex (via the inferior cerebellar peduncle)",
+   "cross": false,
+   "info": "n8",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "trigeminal-discriminative": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Face skin (V1, V2, V3)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the ganglion",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Trigeminal ganglion",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Trigeminal nerve (V1, V2, V3) and ganglion",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Sensory root to the principal sensory nucleus (rostral pons)",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Principal sensory nucleus of V",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Second-order fibres cross in the pons · crosses the midline",
+   "cross": true,
+   "info": "p6",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Trigeminal lemniscus (joins the medial lemniscus)",
+   "cross": false,
+   "info": "p7",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VPM nucleus of thalamus",
+   "cross": false,
+   "info": "n8",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "VPM nucleus of the thalamus (3rd-order cell bodies)",
+   "cross": false,
+   "info": "p9",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex, postcentral gyrus (BA 3,1,2)",
+   "cross": false,
+   "info": "p11",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex (face area)",
+   "cross": false,
+   "info": "n12",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "trigeminal-pain": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Face skin (V1, V2, V3)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the ganglion",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Trigeminal ganglion (also geniculate, glossopharyngeal, vagal ganglia)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Trigeminal nerve and ganglion",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Spinal trigeminal tract and nucleus (pons to caudal medulla), same side",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Spinal trigeminal nucleus",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Second-order fibres cross just after the nucleus · crosses the midline",
+   "cross": true,
+   "info": "p6",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Trigeminothalamic tract (beside the anterolateral tract)",
+   "cross": false,
+   "info": "p7",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VPM nucleus of thalamus",
+   "cross": false,
+   "info": "n8",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "VPM nucleus of the thalamus (3rd-order cell bodies)",
+   "cross": false,
+   "info": "p9",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex, postcentral gyrus (BA 3,1,2)",
+   "cross": false,
+   "info": "p11",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary somatosensory cortex (face area)",
+   "cross": false,
+   "info": "n12",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "lcst": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Upper motor neuron (layer V, primary motor cortex)",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Primary motor cortex, precentral gyrus (layer V)",
+   "cross": false,
+   "info": "p1",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Corona radiata and internal capsule (posterior limb)",
+   "cross": false,
+   "info": "p2",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cerebral peduncle (midbrain)",
+   "cross": false,
+   "info": "p3",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Longitudinal pontine fibres (basis pontis)",
+   "cross": false,
+   "info": "p4",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Medullary pyramid",
+   "cross": false,
+   "info": "p5",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Pyramidal (motor) decussation, about 80 % of fibres cross · crosses the midline",
+   "cross": true,
+   "info": "p6",
+   "phys": "cross",
+   "branch": false,
+   "fork": {
+    "id": "f0",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Lateral corticospinal tract (lateral funiculus)",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f0",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Uncrossed fibres: anterior corticospinal tract",
+   "cross": false,
+   "info": "p8",
+   "phys": "c",
+   "branch": true,
+   "fork": {
+    "id": "f0",
+    "k": 0
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Alpha motor neuron (lower motor neuron)",
+   "cross": false,
+   "info": "n9",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral horn (lamina IX), ventral root, spinal nerve",
+   "cross": false,
+   "info": "p10",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Peripheral nerve to the muscle",
+   "cross": false,
+   "info": "p11",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Limb skeletal muscle",
+   "cross": false,
+   "info": "n12",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "acst": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Upper motor neuron (trunk motor cortex)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Pyramid, then anterior corticospinal tract (uncrossed in the medulla, bilateral termination)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Alpha motor neuron, medial ventral horn",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Medial ventral horn, ventral root",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Axial muscle",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "corticobulbar": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Upper motor neuron (lateral motor cortex)",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Lateral motor cortex (face area)",
+   "cross": false,
+   "info": "p1",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Internal capsule, genu",
+   "cross": false,
+   "info": "p2",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cerebral peduncle (medial part)",
+   "cross": false,
+   "info": "p3",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Basis pontis (corticobulbar fibres)",
+   "cross": false,
+   "info": "p4",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Fibres cross just above each cranial motor nucleus · crosses the midline",
+   "cross": true,
+   "info": "p5",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Cranial motor nucleus (lower motor neuron)",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Facial nucleus and facial nerve (example)",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Head and neck skeletal muscle",
+   "cross": false,
+   "info": "n8",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Cranial nerves to head and neck skeletal muscle",
+   "cross": false,
+   "info": "p9",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Jaw, tongue and pharynx",
+   "cross": false,
+   "info": "n10",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "corticopontocerebellar": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Layer V cortical neuron",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cerebral peduncle (corticopontine fibres)",
+   "cross": false,
+   "info": "p1",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Pontine nuclei",
+   "cross": false,
+   "info": "n2",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Transverse pontine fibres cross the midline · crosses the midline",
+   "cross": true,
+   "info": "p3",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Middle cerebellar peduncle",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Cerebellar cortex (hemisphere)",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Contralateral cerebellar cortex (via the middle cerebellar peduncle)",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "cerebellar": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Mossy fibres (pontine nuclei, DSCT, vestibular) and climbing fibres (inferior olive)",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Mossy fibres: pontine nuclei (crossed) via the middle cerebellar peduncle",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Climbing fibres: inferior olive (crossed) via the inferior cerebellar peduncle",
+   "cross": false,
+   "info": "p2",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Purkinje cell (inhibitory)",
+   "cross": false,
+   "info": "n3",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Cerebellar cortex: Purkinje cells",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Deep cerebellar nuclei (excitatory)",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Superior cerebellar peduncle",
+   "cross": false,
+   "info": "p6",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Decussation of the superior cerebellar peduncle (caudal midbrain) · crosses the midline",
+   "cross": true,
+   "info": "p7",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Contralateral red nucleus and VA/VL thalamus",
+   "cross": false,
+   "info": "p8",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Contralateral red nucleus and VA/VL thalamus",
+   "cross": false,
+   "info": "n9",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "visual": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Retina: nasal and temporal halves of each eye",
+   "cross": false,
+   "info": "b0",
+   "rel": "i",
+   "branch": false,
+   "view": "anterior"
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Optic nerves: both eyes run back to the chiasm",
+   "cross": false,
+   "info": "b1",
+   "phys": "i",
+   "branch": false,
+   "view": "top"
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Nasal fibres cross in the chiasm",
+   "cross": true,
+   "info": "b2",
+   "phys": "cross",
+   "branch": false,
+   "fork": {
+    "id": "chiasm",
+    "k": 0
+   },
+   "view": "top"
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Temporal fibres stay on the same side",
+   "cross": false,
+   "info": "b3",
+   "phys": "c",
+   "branch": true,
+   "fork": {
+    "id": "chiasm",
+    "k": 1
+   },
+   "view": "top"
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Optic tract (the opposite visual field of both eyes)",
+   "cross": false,
+   "info": "b4",
+   "phys": "c",
+   "branch": false,
+   "view": "top"
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Lateral geniculate nucleus",
+   "cross": false,
+   "info": "b5",
+   "rel": "c",
+   "branch": false,
+   "view": "top"
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Parietal route (lower field) to the cuneus",
+   "cross": false,
+   "info": "b6",
+   "phys": "c",
+   "branch": false,
+   "fork": {
+    "id": "rad",
+    "k": 0
+   },
+   "view": "left"
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Meyer's loop (upper field) to the lingual gyrus",
+   "cross": false,
+   "info": "b7",
+   "phys": "c",
+   "branch": true,
+   "fork": {
+    "id": "rad",
+    "k": 1
+   },
+   "view": "left"
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Primary visual cortex (V1): the calcarine fissure splits the field",
+   "cross": false,
+   "info": "b8",
+   "rel": "c",
+   "branch": false,
+   "view": "left"
+  }
+ ],
+ "rubrospinal": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Red nucleus (rostral midbrain tegmentum)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Red nucleus (rostral midbrain tegmentum); the axons cross to the contralateral side · crosses the midline",
+   "cross": true,
+   "info": "p1",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Rubrospinal tract (lateral funiculus, crossed)",
+   "cross": false,
+   "info": "p2",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "lower motor neurons of the contralateral upper limb (flexion)",
+   "cross": false,
+   "info": "n3",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "tectospinal": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Superior and inferior colliculi (tectum)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Tectum, dorsal tegmental decussation · crosses the midline",
+   "cross": true,
+   "info": "p1",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Tectospinal tract (near the midline)",
+   "cross": false,
+   "info": "p2",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "lower motor neurons at cervical and upper thoracic levels (neck and upper trunk muscles)",
+   "cross": false,
+   "info": "n3",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "reticulospinal": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Pontine and medullary reticular formation",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Reticular formation (mostly ipsilateral)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "lower motor neurons in the ventral horn",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "vestibulospinal": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Vestibular nuclei (caudal pons and rostral medulla)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Vestibular nuclei (caudal pons and rostral medulla), then the vestibulospinal tract",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "lower motor neurons in the ventral horn for axial muscles",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "umn-lmn": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "UMN: layer V motor cortex",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Motor cortex to the corticospinal tract",
+   "cross": false,
+   "info": "p1",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "LMN: ventral horn (lamina IX)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral horn, ventral root, muscle",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Peripheral nerve to the muscle",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Limb skeletal muscle",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "sympathetic": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Lateral horn T1-L2",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Intermediolateral column, ventral root",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Sympathetic ganglion",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Paravertebral / prevertebral ganglion, spinal nerves",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "smooth muscle, cardiac muscle, glands",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Long postganglionic fibres to the targets",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Heart, lungs, gut and glands",
+   "cross": false,
+   "info": "n6",
+   "rel": "m",
+   "branch": false
+  }
+ ],
+ "parasympathetic": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "CN III, VII, IX, X nuclei or S2-S4 lateral horn",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Brainstem nuclei and sacral intermediolateral cell column",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Ganglion near the organ",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Terminal ganglion",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "target organ",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Short postganglionic fibres to the target organs",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Heart, lungs, gut, glands and pupil",
+   "cross": false,
+   "info": "n6",
+   "rel": "m",
+   "branch": false
+  }
+ ],
+ "jaw-jerk": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Masseter and mandible",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Afferent fibres in CN V to the mesencephalic nucleus",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Mesencephalic nucleus of V",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Mesencephalic V (inside the CNS) to the motor nucleus of V",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "motor nucleus of V (monosynaptic)",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Motor root of V to the masseter",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Masseter contracts",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "pupillary": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Eye: light on the retina",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Optic nerve (CN II) from the retina",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Retinal ganglion cell, pretectal nucleus, Edinger-Westphal",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Optic nerve, pretectal nucleus, both Edinger-Westphal nuclei, CN III · crosses the midline",
+   "cross": true,
+   "info": "p3",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "CN III parasympathetics to the ciliary ganglion, then sphincter pupillae (the same pathway constricts the pupil in accommodation)",
+   "cross": false,
+   "info": "n4",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "CN III parasympathetics (ciliary ganglion) to the sphincter pupillae",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Both pupils constrict",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "corneal": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Cornea",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Ophthalmic division of CN V (V1) from the cornea",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Trigeminal ganglion (V1)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "CN V1, spinal trigeminal nucleus, bilateral facial nuclei · crosses the midline",
+   "cross": true,
+   "info": "p3",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "spinal trigeminal nucleus then bilateral facial nuclei",
+   "cross": false,
+   "info": "n4",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "gaze": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Frontal eye field (BA 8)",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "FEF, crossing to the contralateral PPRF, abducens nucleus, MLF to the contralateral oculomotor nucleus · crosses the midline",
+   "cross": true,
+   "info": "p1",
+   "phys": "cross",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "abducens nucleus, then MLF to contralateral oculomotor nucleus",
+   "cross": false,
+   "info": "n2",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Abducens to the lateral rectus, MLF to the contralateral medial rectus",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Lateral rectus and medial rectus",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "basal-ganglia": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Cortex (corticostriate)",
+   "cross": false,
+   "info": "n0",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cortex to striatum (caudate + putamen)",
+   "cross": false,
+   "info": "p1",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Striatum",
+   "cross": false,
+   "info": "n2",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Direct 'go' pathway: striatum inhibits the GPi, which disinhibits VA/VL thalamus and so excites the cortex",
+   "cross": false,
+   "info": "p3",
+   "phys": "c",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Indirect 'no-go' pathway: striatum inhibits the GPe, which disinhibits the STN; the STN excites the GPi",
+   "cross": false,
+   "info": "p4",
+   "phys": "c",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Substantia nigra pars compacta: dopamine to the striatum (D1 excites the direct pathway, D2 inhibits the indirect)",
+   "cross": false,
+   "info": "p5",
+   "phys": "c",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 1
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "GPi (inhibitory)",
+   "cross": false,
+   "info": "n6",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "GPi to VA/VL thalamus, then cortex",
+   "cross": false,
+   "info": "p7",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "VA/VL thalamus, then motor cortex",
+   "cross": false,
+   "info": "n8",
+   "rel": "c",
+   "branch": false
+  }
+ ],
+ "olfactory": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Olfactory epithelium",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Receptor axons gather into the olfactory nerve (CN I)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Olfactory receptor neuron",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Olfactory nerve (CN I) through the cribriform plate, olfactory bulb",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Mitral cell",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Olfactory tract to the olfactory cortex and amygdala (bypasses the thalamus)",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Olfactory tubercle, prepiriform cortex, amygdala",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "limbic-fornix": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Hippocampus",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Hippocampus, fornix (crus, body, column), mammillary bodies",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Mammillary bodies, septal nuclei, basal forebrain",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "limbic-amygdala": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Central nucleus of the amygdala",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Amygdala, stria terminalis, BNST and hypothalamus",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "BNST, hypothalamus, brainstem autonomic nuclei",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "limbic-septal": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Septal nuclei",
+   "cross": false,
+   "info": "n0",
+   "rel": "m",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Septal nuclei, stria medullaris thalami, habenula",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Habenula",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "reward": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Ventral tegmental area (dopaminergic)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "VTA, medial forebrain bundle, nucleus accumbens, prefrontal cortex",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Nucleus accumbens and prefrontal cortex",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "cochlear": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Cochlea",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cochlear nerve (CN VIII) from the cochlea",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Spiral ganglion (cochlear nerve, CN VIII)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cochlear nerve (CN VIII) to the cochlear nuclei",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Cochlear nuclei",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Cochlear nuclei, relaying up the brainstem to the inferior colliculus",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Inferior colliculus",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Inferior colliculus to the medial geniculate nucleus",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 3,
+   "caption": "Medial geniculate nucleus",
+   "cross": false,
+   "info": "n8",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 3,
+   "caption": "Medial geniculate, internal capsule, transverse temporal gyrus (primary auditory cortex)",
+   "cross": false,
+   "info": "p9",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 3,
+   "caption": "Primary auditory cortex (BA 41, 42)",
+   "cross": false,
+   "info": "n10",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "vestibular": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Vestibule and semicircular canals",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Vestibular nerve (CN VIII) from the labyrinth",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Vestibular ganglion (CN VIII)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Vestibular nerve (CN VIII) to the vestibular nuclei",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Direct input to the cerebellum through the inferior cerebellar peduncle (juxtarestiform body)",
+   "cross": false,
+   "info": "p4",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Vestibular nuclei",
+   "cross": false,
+   "info": "n5",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ascending MLF to the eye-movement nuclei (vestibulo-ocular reflex: the eyes move opposite to the head)",
+   "cross": false,
+   "info": "p6",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Vestibulospinal tract to the ventral horn (trunk muscles, righting)",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ascending to the thalamus (conscious perception of movement)",
+   "cross": false,
+   "info": "p8",
+   "phys": "i",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 1
+   }
+  }
+ ],
+ "solitary": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Tongue, carotid sinus, aortic arch and stomach wall",
+   "cross": false,
+   "info": "n0",
+   "rel": "m",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cranial nerves VII, IX and X to the solitary tract",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Peripheral ganglion of CN VII, IX or X",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Cranial nerve to the solitary tract and solitary nucleus",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Solitary nucleus",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the inferior salivatory nucleus",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Inferior salivatory nucleus",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the nucleus ambiguus",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Nucleus ambiguus",
+   "cross": false,
+   "info": "n8",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Nucleus ambiguus to the pharynx and larynx",
+   "cross": false,
+   "info": "p9",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Pharynx and larynx",
+   "cross": false,
+   "info": "n10",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the superior salivatory nucleus",
+   "cross": false,
+   "info": "p11",
+   "phys": "i",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 1
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Superior salivatory nucleus",
+   "cross": false,
+   "info": "n12",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 1
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the lateral horn (T1 to L2)",
+   "cross": false,
+   "info": "p13",
+   "phys": "i",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 2
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Lateral horn (T1 to L2)",
+   "cross": false,
+   "info": "n14",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 2
+   }
+  }
+ ],
+ "stretch-reflex:leg": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Muscle spindle (Ia afferent)",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (L4)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (muscle spindle Ia afferent)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Ia afferent: dorsal root, straight onto the alpha motor neuron in the ventral horn",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Alpha motor neuron (ventral horn)",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral root and spinal nerve to the muscle",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Peripheral nerve to the muscle",
+   "cross": false,
+   "info": "p6",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Skeletal muscle",
+   "cross": false,
+   "info": "n7",
+   "rel": "i",
+   "branch": false
+  }
+ ],
+ "withdrawal-reflex:hand": [
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Skin receptor",
+   "cross": false,
+   "info": "n0",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Peripheral nerve to the dorsal root ganglion (C7)",
+   "cross": false,
+   "info": "p1",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 0,
+   "caption": "Dorsal root ganglion (skin receptor)",
+   "cross": false,
+   "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 0,
+   "caption": "Dorsal root to the dorsal horn",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Interneuron(s)",
+   "cross": false,
+   "info": "n4",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Spinal interneurons (a local circuit, open to descending modulation)",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Alpha motor neuron (ventral horn)",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Ventral root and spinal nerve to the muscle",
+   "cross": false,
+   "info": "p7",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 2,
+   "caption": "Peripheral nerve to the muscle",
+   "cross": false,
+   "info": "p8",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 2,
+   "caption": "Skeletal muscle",
+   "cross": false,
+   "info": "n9",
+   "rel": "i",
+   "branch": false
+  }
+ ]
+}

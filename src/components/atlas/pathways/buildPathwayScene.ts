@@ -433,14 +433,14 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   idLayer2("nerve", n1?.ids, b1, "i");
 
   // 2 branch A: the nasal fibres cross in the chiasm
-  const b2 = beat({ kind: "path", neuron: 1, caption: "Branch 1: nasal fibres cross in the chiasm", cross: true, info: "", fit: [], view: "top", phys: "cross", fork: { id: "chiasm", k: 0 } }, sideFit(chPath), { ...course("Chiasm: the nasal fibres cross", 1, [["Fibres", "nasal retinal fibres (temporal visual field of that eye) cross to the opposite optic tract"], ["Crossing", cp.decussation]], { crossing: cp.decussation, loss: "bitemporal hemianopia" }), kind: "path" });
+  const b2 = beat({ kind: "path", neuron: 1, caption: "Nasal fibres cross in the chiasm", cross: true, info: "", fit: [], view: "top", phys: "cross", fork: { id: "chiasm", k: 0 } }, sideFit(chPath), { ...course("Chiasm: the nasal fibres cross", 1, [["Fibres", "nasal retinal fibres (temporal visual field of that eye) cross to the opposite optic tract"], ["Crossing", cp.decussation]], { crossing: cp.decussation, loss: "bitemporal hemianopia" }), kind: "path" });
   for (const f of SIDES) meshTube("chiasm", chPath, f, fieldCol(f), b2, 1, NASAL);
   idLayer2("chiasm", get("chiasm")?.ids, b2, "cross");
   marks.push({ key: "dec:chiasm", p: ["optic-chiasm", "m", 0.5] as WP, body: "R", kind: "dec", text: "Nasal fibres cross", color: colors.hi, beat: b2, info: `b${b2}` });
 
   // 3 branch B: the temporal fibres stay on their own side
   const stay: WP[] = [(n2Nerve[n2Nerve.length - 1] ?? nasalEnd) as WP, ["optic-chiasm", "c", 0.5] as WP, tractMid];
-  const b3 = beat({ kind: "path", neuron: 1, caption: "Branch 2: temporal fibres stay on the same side", info: "", fit: [], view: "top", phys: "c", branch: true, fork: { id: "chiasm", k: 1 } }, sideFit([...stay, ...(get("tract")?.path ?? [])]), { ...course("Chiasm: the temporal fibres stay", 1, [["Fibres", "temporal retinal fibres (nasal visual field of that eye) pass the chiasm without crossing"], ["Result", "each optic tract now carries the opposite visual field of both eyes"]]), kind: "path" });
+  const b3 = beat({ kind: "path", neuron: 1, caption: "Temporal fibres stay on the same side", info: "", fit: [], view: "top", phys: "c", branch: true, fork: { id: "chiasm", k: 1 } }, sideFit([...stay, ...(get("tract")?.path ?? [])]), { ...course("Chiasm: the temporal fibres stay", 1, [["Fibres", "temporal retinal fibres (nasal visual field of that eye) pass the chiasm without crossing"], ["Result", "each optic tract now carries the opposite visual field of both eyes"]]), kind: "path" });
   for (const f of SIDES) tubes.push({ key: `stay:${f}`, pts: stay, body: f, color: fieldCol(f), beat: b3, info: `b${b3}`, neuron: 1, width: 1, dx: -NASAL });
 
   // 4 optic tract
@@ -461,8 +461,8 @@ function buildVisualBeats(o: BuildOpts): BeatScene {
   const lgn: WP = ["lateral-geniculate-body", "c", 0.5, 0.01, 0.002, -0.014] as WP;
   const meyer: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.034, -0.012, 0.03], ["lateral-geniculate-body", "c", 0.5, 0.058, -0.02, -0.005], ["lateral-geniculate-body", "c", 0.5, 0.055, -0.02, -0.05], ["lingual-gyrus", "c", 0.5, 0, 0, 0], v1WP] as WP[];
   const parietal: WP[] = [lgnWP, lgn, ["lateral-geniculate-body", "c", 0.5, 0.036, 0.016, -0.02], ["lateral-geniculate-body", "c", 0.5, 0.04, 0.02, -0.055], ["cuneus", "c", 0.5, 0, 0, 0], v1WP] as WP[];
-  const b6 = beat({ kind: "path", neuron: 2, caption: "Branch 1: parietal route (lower field) to the cuneus", info: "", fit: [], view: "left", phys: "c", fork: { id: "rad", k: 0 } }, sideFit(parietal), { ...course("Optic radiations: the parietal route", 2, [["Tract", cp.neurons[2].tract], ["Route", "superior fibres run through the parietal lobe to the cuneus, above the calcarine fissure"], ["Carries", "the lower visual field"]], { loss: "inferior quadrantanopia" }), kind: "path" });
-  const b7 = beat({ kind: "path", neuron: 2, caption: "Branch 2: Meyer's loop (upper field) to the lingual gyrus", info: "", fit: [], view: "left", phys: "c", branch: true, fork: { id: "rad", k: 1 } }, sideFit(meyer), { ...course("Optic radiations: Meyer's loop", 2, [["Tract", cp.neurons[2].tract], ["Route", "inferior fibres loop forward through the temporal lobe, then back to the lingual gyrus below the calcarine fissure"], ["Carries", "the upper visual field"]], { loss: "superior quadrantanopia" }), kind: "path" });
+  const b6 = beat({ kind: "path", neuron: 2, caption: "Parietal route (lower field) to the cuneus", info: "", fit: [], view: "left", phys: "c", fork: { id: "rad", k: 0 } }, sideFit(parietal), { ...course("Optic radiations: the parietal route", 2, [["Tract", cp.neurons[2].tract], ["Route", "superior fibres run through the parietal lobe to the cuneus, above the calcarine fissure"], ["Carries", "the lower visual field"]], { loss: "inferior quadrantanopia" }), kind: "path" });
+  const b7 = beat({ kind: "path", neuron: 2, caption: "Meyer's loop (upper field) to the lingual gyrus", info: "", fit: [], view: "left", phys: "c", branch: true, fork: { id: "rad", k: 1 } }, sideFit(meyer), { ...course("Optic radiations: Meyer's loop", 2, [["Tract", cp.neurons[2].tract], ["Route", "inferior fibres loop forward through the temporal lobe, then back to the lingual gyrus below the calcarine fissure"], ["Carries", "the upper visual field"]], { loss: "superior quadrantanopia" }), kind: "path" });
   for (const f of SIDES) {
     meshTube("par", parietal, f, f === "L" ? pal.LL : pal.RL, b6);
     meshTube("meyer", meyer, f, f === "L" ? pal.LU : pal.RU, b7);

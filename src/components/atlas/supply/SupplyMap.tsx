@@ -49,6 +49,10 @@ const FLOW_TEXT: Record<string, string> = {
 
 const INFERIOR: [number, number, number] = [0, -1, 0.02];
 const LATERAL: [number, number, number] = [1, 0, 0];
+const ARTERY_GROUPS: { label: string; ids: string[] }[] = [
+  { label: "Anterior circulation (internal carotid)", ids: ["ica", "aca", "mca", "achor", "lenti"] },
+  { label: "Posterior circulation (vertebrobasilar)", ids: ["vert", "pontine", "sca", "aica", "pica", "pca", "pcomm", "asa", "psa"] },
+];
 const POSTERIOR_ARTS = new Set(["pca", "pcomm", "pontine", "sca", "aica", "pica", "vert", "asa", "psa"]);
 const DEFAULT_SEL = ["ica", "aca", "mca", "pca", "pcomm", "pontine", "vert"];
 const colorMap = new Map(ARTERIES.map((a) => [a.id, a.color]));
@@ -155,7 +159,8 @@ export function SupplyMap() {
       else if (k === "v") setVessels((v) => !v);
       else if (k === "m") setQuizOn(true);
       else if (k === "c") circle();
-      else if (k === "f") setAnimate((a) => !a);
+      else if (k === "f") setFrame((f) => ({ n: f.n + 1, dir: null }));
+      else if (k === "p") setAnimate((a) => !a);
       else if (k === "t") toggleTerritories();
       else if (k === "d") setDrawer((d) => !d);
     };
@@ -178,7 +183,7 @@ export function SupplyMap() {
         <button type="button" className={`btn ${cow ? "btn-primary" : ""}`} aria-pressed={cow} onClick={circle} title="Inferior view of the circle of Willis, flow on (C)">
           <Orbit size={14} aria-hidden /> Circle of Willis
         </button>
-        <button type="button" className="btn" aria-pressed={animate} onClick={() => setAnimate((a) => !a)} title="Flow arrows on / off (F)">
+        <button type="button" className="btn" aria-pressed={animate} onClick={() => setAnimate((a) => !a)} title="Flow arrows on / off (P)">
           {animate ? <Pause size={14} aria-hidden /> : <Play size={14} aria-hidden />} Flow
         </button>
         <button type="button" className="btn" aria-pressed={territories} onClick={toggleTerritories} title="Show the territory each selected artery supplies (T)">
@@ -213,16 +218,16 @@ export function SupplyMap() {
             tipText={tipText}
             onPickMesh={onPick}
             view="inferior"
-            toolbarExtra={<IconBtn label="Frame the selected vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} />}
+            toolbarExtra={<IconBtn label="Frame the selected vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />}
             brainOpacity={cow && !territories ? 0.035 : sel.size === 0 ? 0.28 : territories ? 0.1 : 0.12}
             overlay={
-              <div className="pointer-events-none absolute bottom-2 left-2 right-2 grid max-w-[520px] gap-1 text-xs text-text-dim">
+              <div className="pointer-events-none absolute bottom-16 left-2 right-2 grid max-w-[420px] gap-1 text-[11px] leading-snug text-text-dim">
                 {cow && (
                   <p className="rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1">
                     <strong className="text-text">Circle of Willis, seen from below.</strong> Arrows show blood flow: ICA to ACA and MCA; vertebral to basilar to PCA.
                   </p>
                 )}
-                {showComm && <p className="hidden rounded-sm sm:block border border-panel-border bg-panel-solid/90 px-2 py-1">{COMM_NOTE}</p>}
+                {showComm && <p className="hidden rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1 xl:block">{COMM_NOTE}</p>}
               </div>
             }
           >
@@ -240,25 +245,32 @@ export function SupplyMap() {
               Close
             </button>
           </div>
-          <ul className="grid gap-1" aria-label="Arteries">
-            {ARTERIES.map((a, i) => {
-              const on = sel.has(a.id);
-              return (
-                <li key={a.id}>
-                  <button
-                    type="button"
-                    aria-pressed={on}
-                    onClick={() => toggleArtery(a.id)}
-                    className={`flex w-full min-w-0 items-center gap-2 rounded-sm border px-2 py-1 text-left text-sm ${on ? "border-accent text-text" : "border-transparent text-text-dim hover:border-panel-border-hi"}`}
-                  >
-                    <Swatch color={a.color} />
-                    <span className="truncate">{a.name}</span>
-                    <span className="kbd ml-auto flex-none">{ARTERY_KEYS[i]}</span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="grid gap-1" aria-label="Arteries">
+            {ARTERY_GROUPS.map((g) => (
+              <div key={g.label} className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-1">
+                <p className="mt-1.5 font-mono text-[10px] uppercase tracking-wider text-text-faint">{g.label}</p>
+                {g.ids.map((id) => {
+                  const a = ARTERY.get(id);
+                  if (!a) return null;
+                  const on = sel.has(a.id);
+                  const i = ARTERIES.findIndex((x) => x.id === a.id);
+                  return (
+                    <button
+                      key={a.id}
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => toggleArtery(a.id)}
+                      className={`flex w-full min-w-0 items-center gap-2 rounded-sm border px-2 py-1 text-left text-sm ${on ? "border-accent text-text" : "border-transparent text-text-dim hover:border-panel-border-hi"}`}
+                    >
+                      <Swatch color={a.color} />
+                      <span className="truncate">{a.name}</span>
+                      <span className="kbd ml-auto flex-none">{ARTERY_KEYS[i]}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
@@ -311,7 +323,7 @@ export function SupplyMap() {
               <span className="kbd">c</span> circle
             </span>
             <span>
-              <span className="kbd">f</span> flow
+              <span className="kbd">p</span> flow, <span className="kbd">f</span> frame
             </span>
             <span>
               <span className="kbd">t</span> territories

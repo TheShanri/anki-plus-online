@@ -66,3 +66,19 @@ export const SUPP_SLUGS = new Set(["orbitofrontal", "mca-temporal", "mca-parieta
 /** The slides' flow statement for the two communicating arteries (Lab 16, "The Circle of Willis"). */
 export const COMM_NOTE =
   "Normally, with healthy and equal pressure on both sides, there is little flow in the communicating vessels. If a main vessel is occluded, the Circle of Willis can equalise flow, so the direction in AComm and PComm depends on the pressure difference. Here they are drawn two-way.";
+
+/** Margin labels (1-3 words) for every slug that is labelled outside the circle view. */
+export const SEG_SHORT: Record<string, string> = {
+  ...COW_LABEL,
+  pericallosal: "Pericallosal",
+  callosomarginal: "Callosomarginal",
+  "mca-m2": "MCA (insular)",
+  "lenticulostriate-prox": "Lenticulostriates",
+  "lenticulostriate-dist": "Lenticulostriates",
+  sca: "SCA",
+  aica: "AICA",
+  pica: "PICA",
+  "pontine-medial": "Pontine",
+  "pontine-lateral": "Pontine",
+  "anterior-spinal": "Ant. spinal",
+};

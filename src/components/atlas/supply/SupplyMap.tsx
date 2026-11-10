@@ -1,35 +1,41 @@
 "use client";
 
 import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Focus, Layers, Lock, Orbit, Pause, PanelRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Focus, Lock, PanelRight, Pause, Play, RotateCcw } from "lucide-react";
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
 import type { AtlasOverlay } from "../AtlasViewer";
-import { VesselLayer, type VesselState } from "./VesselLayer";
-import { COMM_NOTE, COW_SLUGS, SUPP_SLUGS, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
+import { VesselLayer, type SegStyle } from "./VesselLayer";
+import { TerritorySurface, type TerritoryShow } from "./TerritorySurface";
+import { VeinLayer } from "./VeinLayer";
+import { MarginLabels, createLabelBus, type LabelBus } from "./margin-labels";
+import { COMM_NOTE, COW_SLUGS, SEG_SHORT, SUPP_SLUGS, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { LazyAtlasViewer } from "./lazy";
 import { IconBtn } from "../ui/Toolbar";
-import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, TERRITORY_ARTERIES, artShort, unitArteries, type SupplyUnit } from "./supply-data";
+import { DeficitIcons } from "../pathways/deficits";
+import { SupplyQuiz } from "./SupplyQuiz";
+import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, OCCLUSION, TOUR, VEIN_STEPS, type Occlusion } from "./supply-guide";
+import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, artShort, unitArteries, type SupplyUnit } from "./supply-data";
 
+type Mode = "explore" | "tour" | "block" | "veins" | "bleeds";
+const MODES: { id: Mode; label: string }[] = [
+  { id: "explore", label: "Explore" },
+  { id: "tour", label: "Follow the blood" },
+  { id: "block", label: "Block a vessel" },
+  { id: "veins", label: "Drainage" },
+  { id: "bleeds", label: "Bleeds" },
+];
 type Selected = { kind: "unit"; unit: SupplyUnit } | { kind: "artery"; id: string } | null;
-
-function shuffle<T>(a: T[]): T[] {
-  const r = a.slice();
-  for (let i = r.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [r[i], r[j]] = [r[j], r[i]];
-  }
-  return r;
-}
+type ViewId = "inferior" | "left" | "midsagittal";
 
 function typing(e: KeyboardEvent): boolean {
   const t = e.target as HTMLElement | null;
   return !!t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
 }
-
 function Swatch({ color }: { color: string }) {
-  return <span aria-hidden="true" className="inline-block h-3 w-3 flex-none rounded-sm border border-panel-border" style={{ background: color }} />;
+  return <span aria-hidden="true" className="inline-block h-3 w-3 flex-none rounded-full border border-panel-border" style={{ background: color }} />;
 }
 
 const FLOW_TEXT: Record<string, string> = {
@@ -47,41 +53,85 @@ const FLOW_TEXT: Record<string, string> = {
   asa: "Both vertebrals give a branch that joins into one anterior spinal artery running down the cord.",
 };
 
-const INFERIOR: [number, number, number] = [0, -1, 0.02];
-const LATERAL: [number, number, number] = [1, 0, 0];
-/** "If this vessel is blocked": slide-level deficits only (lecture 16 slides 19, 25-26; lab 16; lecture 18 slide 26). */
-const DEFICIT: Record<string, string> = {
-  aca: "Contralateral leg weakness and sensory loss (lower extremity), and behavioural change (medial frontal lobe, cingulate gyrus, basal forebrain).",
-  mca: "Contralateral face and arm weakness and sensory loss, speech disturbance (Broca's area) and auditory deficits. Most ischemic strokes are here: 80 % of internal carotid flow goes to the MCA.",
-  pca: "Loss of vision (occipital lobe), thalamic and posterior limb of the internal capsule deficits, and damage to the inferior temporal 'what' pathway.",
-  lenti: "A lacunar infarct: motor, sensory and cognitive deficits from the basal ganglia and the anterior limb of the internal capsule.",
-  ica: "Often shows up as an MCA-territory stroke, because most of the internal carotid flow goes to the MCA.",
-  vert: "Brainstem and cerebellar damage; blockage of the basilar artery is often fatal.",
-  pontine: "Small penetrating branches: a blockage can hit cranial nerve nuclei, the reticular formation or cortical efferents in that part of the pons.",
-  asa: "A spinal cord lesion of the ventral half of the cord (both sides): both ventral horns, intermediate grey and part of each dorsal horn and lateral funiculus.",
-  psa: "A spinal cord lesion of a dorsal wedge on one side: much of the dorsal horn and the whole dorsal column on that side.",
-};
 const ARTERY_GROUPS: { label: string; ids: string[] }[] = [
-  { label: "Anterior circulation (internal carotid)", ids: ["ica", "aca", "mca", "achor", "lenti"] },
-  { label: "Posterior circulation (vertebrobasilar)", ids: ["vert", "pontine", "sca", "aica", "pica", "pca", "pcomm", "asa", "psa"] },
+  { label: "Anterior circulation", ids: ["ica", "aca", "mca", "achor", "lenti"] },
+  { label: "Posterior circulation", ids: ["vert", "pontine", "sca", "aica", "pica", "pca", "pcomm", "asa", "psa"] },
 ];
-const POSTERIOR_ARTS = new Set(["pca", "pcomm", "pontine", "sca", "aica", "pica", "vert", "asa", "psa"]);
 const DEFAULT_SEL = ["ica", "aca", "mca", "pca", "pcomm", "pontine", "vert"];
 const colorMap = new Map(ARTERIES.map((a) => [a.id, a.color]));
+const HIDDEN: SegStyle = { mode: "hidden", flow: false };
+const FAINT: SegStyle = { mode: "faint", flow: false };
+const BLOCK_RED = "#d1495b";
+const VEIN_BLUE = "#4f7cc4";
+const VIEWS: { id: ViewId; label: string }[] = [
+  { id: "inferior", label: "Inferior" },
+  { id: "left", label: "Lateral" },
+  { id: "midsagittal", label: "Medial" },
+];
+/** Mesh ids of the dural sinuses drawn in the drainage layer, by step id. */
+const SINUS_MESH: Record<string, string[]> = {
+  sss: ["superior-sagittal-sinus"],
+  straight: ["straight-sinus"],
+  transverse: ["transverse-sinus"],
+  sigmoid: ["sigmoid-sinus"],
+};
+const SLUG_ARTERY = (() => {
+  const m = new Map<string, string>(Object.entries(BLOCKABLE));
+  m.set("acom", "aca");
+  m.set("pcom", "pcomm");
+  m.set("basilar", "pontine");
+  return m;
+})();
+
+/** Groups the units supplied by the given arteries into overlays (one per artery; shells fainter). */
+const CORTEX_END = SUPPLY.units.findIndex((u) => u.name === "Corpus callosum");
+/** Cortical units are drawn by the soft territory skin; the viewer overlays only draw the deep structures. */
+function territoryOverlays(arteries: Set<string>, variant: string, opts: { opacity: number; shell: number; color?: string; side?: "L" | "R"; keyPrefix: string }): AtlasOverlay[] {
+  const groups = new Map<string, string[]>();
+  for (const [ui, u] of SUPPLY.units.entries()) {
+    if (ui < CORTEX_END) continue;
+    const a = unitArteries(u, variant)[0];
+    if (!arteries.has(a)) continue;
+    const key = u.shell ? `${a}~s` : a;
+    groups.set(key, [...(groups.get(key) ?? []), ...u.meshes]);
+  }
+  return [...groups].map(([key, ids]) => ({
+    key: `${opts.keyPrefix}${key}`,
+    ids,
+    color: opts.color ?? ARTERY.get(key.split("~")[0])?.color ?? "#999999",
+    opacity: key.endsWith("~s") ? opts.shell : opts.opacity,
+    side: opts.side,
+  }));
+}
+
+function stamp() {
+  const w = window as unknown as { __supplyT0?: number; __supplyFirst?: number };
+  w.__supplyT0 = performance.now();
+  w.__supplyFirst = undefined;
+}
 
 export function SupplyMap() {
+  const [mode, setMode] = useState<Mode>("explore");
   const [sel, setSel] = useState<Set<string>>(() => new Set(DEFAULT_SEL));
   const [cow, setCow] = useState(true);
   const [territories, setTerritories] = useState(false);
-  const [vessels, setVessels] = useState(true);
   const [animate, setAnimate] = useState(true);
   const [variant, setVariant] = useState("lab16");
   const [selected, setSelected] = useState<Selected>(null);
   const [quizOn, setQuizOn] = useState(false);
   const [drawer, setDrawer] = useState(true);
   const [flow, setFlow] = useState<FlowFile | null>(null);
-  const [frame, setFrame] = useState<{ n: number; dir: [number, number, number] | null }>({ n: 1, dir: INFERIOR });
+  const [frame, setFrame] = useState<{ n: number; dir: [number, number, number] | null }>({ n: 1, dir: [0, -1, 0.02] });
+  const [request, setRequest] = useState<{ n: number; view?: ViewId } | null>(null);
+  const [step, setStep] = useState(0);
+  const [vstep, setVstep] = useState(0);
+  const [blocked, setBlocked] = useState<string | null>(null); // segment name, e.g. "ica.l"
+  const [hover, setHover] = useState<string | null>(null);
+  /** Medial view: the left hemisphere is cut away (viewer cut at the midline) and seen from the left. */
+  const [medial, setMedial] = useState(false);
   const gate = useSupplementaryGate("supply");
+  const bus = useMemo<LabelBus>(() => createLabelBus(), []);
+  const veinBus = useMemo<LabelBus>(() => createLabelBus(), []);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -96,29 +146,129 @@ export function SupplyMap() {
     };
   }, []);
 
-  const stateOf = useCallback(
-    (name: string, seg: FlowSegment): VesselState => {
-      const slug = slugOf(name);
-      if (!vessels || (SUPP_SLUGS.has(slug) && !gate.open)) return "hidden";
-      if (sel.size === 0) return "idle";
-      if (sel.has(seg.artery) && (!cow || COW_SLUGS.has(slug))) return "selected";
-      return "faint";
-    },
-    [vessels, sel, cow, gate.open],
-  );
-  const sig = `${[...sel].sort().join(",")}|${cow}|${vessels}|${gate.open}`;
+  // ---- what is drawn, per mode
+  const tourSlugs = useMemo(() => {
+    const cur = new Set(TOUR[step].slugs);
+    const past = new Set(TOUR.slice(0, step).flatMap((s) => s.slugs));
+    return { cur, past };
+  }, [step]);
 
-  const overlays = useMemo<AtlasOverlay[]>(() => {
-    if (!territories) return [];
-    const groups = new Map<string, string[]>();
-    for (const u of SUPPLY.units) {
-      const a = unitArteries(u, variant)[0];
-      if (!sel.has(a)) continue;
-      const key = u.shell ? `${a}~s` : a;
-      groups.set(key, [...(groups.get(key) ?? []), ...u.meshes]);
+  const blockInfo = useMemo(() => {
+    if (!blocked || !flow) return null;
+    const seg = flow.segments[blocked];
+    if (!seg) return null;
+    const artery = BLOCKABLE[slugOf(blocked)];
+    const occ = artery ? OCCLUSION[artery] : undefined;
+    if (!occ) return null;
+    return { name: blocked, seg, artery, occ, reroute: occ.reroute?.(seg.side) ?? [] };
+  }, [blocked, flow]);
+
+  const starved = useMemo(() => {
+    const out = new Set<string>();
+    if (!blockInfo || !flow) return out;
+    for (const [n, s] of Object.entries(flow.segments)) {
+      let p = s.parent;
+      let guard = 0;
+      while (p && guard++ < 12) {
+        if (p === blockInfo.name) {
+          out.add(n);
+          break;
+        }
+        p = flow.segments[p]?.parent ?? null;
+      }
     }
-    return [...groups].map(([key, ids]) => ({ key, ids, color: ARTERY.get(key.split("~")[0])?.color ?? "#999999", opacity: key.endsWith("~s") ? 0.28 : 0.45 }));
-  }, [sel, territories, variant]);
+    return out;
+  }, [blockInfo, flow]);
+
+  const styleOf = useCallback(
+    (name: string, seg: FlowSegment): SegStyle => {
+      const slug = slugOf(name);
+      if (SUPP_SLUGS.has(slug) && !gate.open) return HIDDEN;
+      if (medial && seg.side === "l") return HIDDEN;
+      switch (mode) {
+        case "explore": {
+          if (sel.size === 0) return { mode: "idle", flow: false };
+          const on = sel.has(seg.artery) && (!cow || COW_SLUGS.has(slug));
+          return on ? { mode: "solid", flow: true } : FAINT;
+        }
+        case "tour":
+          return tourSlugs.cur.has(slug) || tourSlugs.past.has(slug) ? { mode: "solid", flow: true } : FAINT;
+        case "block": {
+          if (name === blocked) return { mode: "blocked", flow: false };
+          if (starved.has(name)) return { mode: "starved", flow: false };
+          const rr = blockInfo?.reroute.find((r) => r.slug === slug && (r.side === seg.side || r.side === "m"));
+          if (rr) return { mode: "solid", flow: true, dir: rr.dir, hot: true };
+          // communicating arteries carry little flow while the pressures are equal: no pulses until a vessel is blocked
+          if (seg.flow === "both") return { mode: "idle", flow: false };
+          return { mode: "idle", flow: true };
+        }
+        default:
+          return HIDDEN;
+      }
+    },
+    [mode, sel, cow, gate.open, tourSlugs, blocked, starved, blockInfo, medial],
+  );
+  const labelOf = useCallback(
+    (name: string, seg: FlowSegment): string | null => {
+      const slug = slugOf(name);
+      const t = SEG_SHORT[slug];
+      if (!t) return null;
+      if (mode === "block") {
+        if (name === blocked) return `${t} (blocked)`;
+        return blockInfo?.reroute.some((r) => r.slug === slug && (r.side === seg.side || r.side === "m")) ? t : null;
+      }
+      if (mode === "tour") return tourSlugs.cur.has(slug) ? t : null;
+      return t;
+    },
+    [mode, blocked, blockInfo, tourSlugs],
+  );
+  const sig = `${medial ? "m" : ""}|${mode}|${[...sel].sort().join(",")}|${cow}|${gate.open}|${step}|${blocked ?? ""}`;
+  const circle = (mode === "explore" && cow) || mode === "tour" || mode === "block";
+
+  // ---- territories as overlays
+  const overlays = useMemo<AtlasOverlay[]>(() => {
+    if (mode === "explore" || mode === "tour") {
+      const show = new Set<string>();
+      if (mode === "explore" && territories) sel.forEach((a) => show.add(a));
+      if (mode === "tour") (TOUR[step].territory ?? []).forEach((a) => show.add(a));
+      const out = territoryOverlays(show, variant, { opacity: 0.42, shell: 0.26, keyPrefix: "t:" });
+      if (hover && !show.has(hover) && hover !== "ica") out.push(...territoryOverlays(new Set([hover]), variant, { opacity: 0.3, shell: 0.18, keyPrefix: "h:" }));
+      return out;
+    }
+    if (mode === "block" && blockInfo) {
+      const side = blockInfo.seg.side === "l" ? "L" : blockInfo.seg.side === "r" ? "R" : undefined;
+      return territoryOverlays(new Set(blockInfo.occ.territory), variant, { opacity: 0.4, shell: 0.25, color: BLOCK_RED, side, keyPrefix: "b:" });
+    }
+    if (mode === "veins") {
+      const ids = new Set(VEIN_STEPS.slice(0, vstep + 1).flatMap((s) => s.ids));
+      const out: AtlasOverlay[] = [];
+      for (const [id, meshes] of Object.entries(SINUS_MESH)) if (ids.has(id)) out.push({ key: `v:${id}`, ids: meshes, color: VEIN_BLUE, opacity: VEIN_STEPS[vstep].ids.includes(id) ? 0.95 : 0.7 });
+      return out;
+    }
+    return [];
+  }, [mode, sel, territories, variant, step, hover, blockInfo, vstep]);
+
+  // cortical territories (soft skin): which arteries, how strongly, and in which colours
+  const { terr, terrColors, terrSide } = useMemo(() => {
+    const show: TerritoryShow[] = [];
+    let cols = colorMap;
+    let side: "L" | "R" | undefined;
+    if (mode === "explore" && territories) sel.forEach((a) => show.push({ artery: a, alpha: 1 }));
+    if (mode === "tour") (TOUR[step].territory ?? []).forEach((a) => show.push({ artery: a, alpha: 1 }));
+    if ((mode === "explore" || mode === "tour") && hover && !show.some((s) => s.artery === hover)) show.push({ artery: hover, alpha: 0.5 });
+    if (mode === "block" && blockInfo) {
+      blockInfo.occ.territory.forEach((a) => show.push({ artery: a, alpha: 1 }));
+      cols = new Map(["aca", "mca", "pca"].map((a) => [a, BLOCK_RED]));
+      side = blockInfo.seg.side === "l" ? "L" : blockInfo.seg.side === "r" ? "R" : undefined;
+    }
+    if (medial) side = "R";
+    return { terr: show, terrColors: cols, terrSide: side };
+  }, [mode, sel, territories, step, hover, blockInfo, medial]);
+
+  const veinIds = useMemo(() => (mode === "veins" ? new Set(VEIN_STEPS.slice(0, vstep + 1).flatMap((x) => x.ids)) : new Set<string>()), [mode, vstep]);
+  const veinCurrent = useMemo(() => (mode === "veins" ? VEIN_STEPS[vstep].ids : []), [mode, vstep]);
+
+  const brainOpacity = mode === "explore" ? (cow && !territories ? 0.035 : sel.size === 0 ? 0.28 : territories ? 0.05 : 0.12) : mode === "tour" ? ((TOUR[step].territory?.length ?? 0) > 0 ? 0.05 : 0.07) : mode === "block" ? 0.07 : mode === "veins" ? 0.1 : 0.2;
 
   const tipText = useCallback(
     (id: string, name: string) => {
@@ -131,33 +281,88 @@ export function SupplyMap() {
     const u = MESH_UNIT.get(id);
     if (u) setSelected({ kind: "unit", unit: u });
   }, []);
-  const onPickVessel = useCallback((artery: string) => setSelected({ kind: "artery", id: artery }), []);
+
+  const track = useCallback((slug: string) => trackAtlas({ type: "structure_viewed", slug, via: "3d" }), []);
+  const onPickVessel = useCallback(
+    (artery: string, name: string) => {
+      stamp();
+      if (mode === "block") {
+        if (BLOCKABLE[slugOf(name)]) {
+          setBlocked(name);
+          trackAtlas({ type: "supply_occlusion", artery: BLOCKABLE[slugOf(name)] });
+        }
+        return;
+      }
+      setSelected({ kind: "artery", id: artery });
+      if (ARTERY_STRUCTURE[artery]) track(ARTERY_STRUCTURE[artery]);
+    },
+    [mode, track],
+  );
 
   const toggleArtery = useCallback(
     (id: string) => {
+      stamp();
       const n = new Set(cow ? [] : sel);
       if (n.has(id)) n.delete(id);
       else n.add(id);
       setCow(false);
       setSel(n);
       setSelected({ kind: "artery", id });
+      if (ARTERY_STRUCTURE[id]) track(ARTERY_STRUCTURE[id]);
     },
-    [cow, sel],
+    [cow, sel, track],
   );
-  const circle = useCallback(() => {
+  const circleView = useCallback(() => {
+    stamp();
+    setMode("explore");
     setCow(true);
     setSel(new Set(DEFAULT_SEL));
     setTerritories(false);
-    setVessels(true);
     setSelected(null);
+    setFrame((f) => ({ n: f.n + 1, dir: [0, -1, 0.02] }));
   }, []);
   const clear = useCallback(() => {
+    if (mode === "block") {
+      setBlocked(null);
+      return;
+    }
+    stamp();
+    setMode("explore");
     setCow(false);
     setSel(new Set());
     setSelected(null);
+  }, [mode]);
+  const goMode = useCallback((m: Mode) => {
+    stamp();
+    setMode(m);
+    if (m === "tour") {
+      setStep(0);
+      trackAtlas({ type: "supply_tour_step", step: 1 });
+    }
+    if (m === "veins") {
+      setVstep(0);
+      trackAtlas({ type: "supply_drainage_step", step: 1 });
+    }
+    if (m === "bleeds") trackAtlas({ type: "supply_bleeds_opened" });
+    if (m === "block") setBlocked(null);
+    // switching mode is a deliberate change of scene: fit the new content once (selections never move the camera)
+    setFrame((f) => ({ n: f.n + 1, dir: m === "explore" ? [0, -1, 0.02] : null }));
   }, []);
-  const toggleTerritories = useCallback(() => {
-    setTerritories((t) => !t);
+  const gotoStep = useCallback((i: number) => {
+    stamp();
+    const n = Math.max(0, Math.min(TOUR.length - 1, i));
+    setStep(n);
+    trackAtlas({ type: "supply_tour_step", step: n + 1 });
+  }, []);
+  const gotoV = useCallback((i: number) => {
+    stamp();
+    const n = Math.max(0, Math.min(VEIN_STEPS.length - 1, i));
+    setVstep(n);
+    trackAtlas({ type: "supply_drainage_step", step: n + 1 });
+  }, []);
+  const askView = useCallback((view: ViewId) => {
+    setMedial(view === "midsagittal");
+    setRequest((r) => ({ n: (r?.n ?? 0) + 1, view: view === "midsagittal" ? "left" : view }));
   }, []);
 
   useEffect(() => {
@@ -165,20 +370,23 @@ export function SupplyMap() {
     const h = (e: KeyboardEvent) => {
       if (typing(e) || e.ctrlKey || e.metaKey || e.altKey) return;
       const k = e.key.toLowerCase();
+      if (mode === "tour" && (e.key === "ArrowRight" || e.key === "Enter")) return gotoStep(step + 1);
+      if (mode === "tour" && e.key === "ArrowLeft") return gotoStep(step - 1);
+      if (mode === "veins" && (e.key === "ArrowRight" || e.key === "Enter")) return gotoV(vstep + 1);
+      if (mode === "veins" && e.key === "ArrowLeft") return gotoV(vstep - 1);
       const i = ARTERY_KEYS.indexOf(k);
-      if (i >= 0 && i < ARTERIES.length) toggleArtery(ARTERIES[i].id);
+      if (mode === "explore" && i >= 0 && i < ARTERIES.length) toggleArtery(ARTERIES[i].id);
       else if (e.key === "Escape") clear();
-      else if (k === "v") setVessels((v) => !v);
       else if (k === "m") setQuizOn(true);
-      else if (k === "c") circle();
+      else if (k === "c") circleView();
       else if (k === "f") setFrame((f) => ({ n: f.n + 1, dir: null }));
       else if (k === "p") setAnimate((a) => !a);
-      else if (k === "t") toggleTerritories();
+      else if (k === "t" && mode === "explore") setTerritories((t) => !t);
       else if (k === "d") setDrawer((d) => !d);
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
-  }, [quizOn, toggleArtery, clear, circle, toggleTerritories]);
+  }, [quizOn, mode, step, vstep, toggleArtery, clear, circleView, gotoStep, gotoV]);
 
   if (quizOn)
     return (
@@ -187,32 +395,27 @@ export function SupplyMap() {
       </div>
     );
 
-  const plic = SUPPLY.units.find((u) => u.variants);
-  const showComm = cow || sel.has("pcomm");
+  const showComm = mode === "explore" && (cow || sel.has("pcomm"));
+  const caption = mode === "tour" ? TOUR[step] : mode === "veins" ? VEIN_STEPS[vstep] : null;
   return (
     <div className="relative flex h-[calc(100dvh-148px)] min-h-[560px] w-full min-w-0 flex-col overflow-hidden rounded-card border border-panel-border bg-bg-2">
-      <div className="flex flex-none flex-wrap items-center gap-1.5 border-b border-panel-border bg-panel px-2 py-1.5">
-        <button type="button" className={`btn ${cow ? "btn-primary" : ""}`} aria-pressed={cow} onClick={circle} title="Inferior view of the circle of Willis, flow on (C)">
-          <Orbit size={14} aria-hidden /> Circle of Willis
-        </button>
-        <button type="button" className="btn" aria-pressed={animate} onClick={() => setAnimate((a) => !a)} title="Flow arrows on / off (P)">
+      <div className="flex flex-none items-center gap-1.5 overflow-x-auto border-b border-panel-border bg-panel px-2 py-1.5">
+        <div role="tablist" aria-label="Blood supply modes" className="flex flex-none gap-1">
+          {MODES.map((m) => (
+            <button key={m.id} type="button" role="tab" aria-selected={mode === m.id} className={`btn flex-none ${mode === m.id ? "btn-primary" : ""}`} onClick={() => goMode(m.id)}>
+              {m.label}
+            </button>
+          ))}
+        </div>
+        <span className="ml-auto" />
+        <button type="button" className="btn flex-none" aria-pressed={animate} onClick={() => setAnimate((a) => !a)} title="Blood flow on / off (P)">
           {animate ? <Pause size={14} aria-hidden /> : <Play size={14} aria-hidden />} Flow
         </button>
-        <button type="button" className="btn" aria-pressed={territories} onClick={toggleTerritories} title="Show the territory each selected artery supplies (T)">
-          <Layers size={14} aria-hidden /> Territories {territories ? "on" : "off"}
+        <button type="button" className="btn flex-none" onClick={() => setQuizOn(true)} title="Quiz (M)">
+          Quiz
         </button>
-        <button type="button" className="btn" aria-pressed={vessels} onClick={() => setVessels((v) => !v)} title="Artery meshes (V)">
-          Vessels {vessels ? "on" : "off"}
-        </button>
-        <button type="button" className="btn" onClick={clear} title="Clear the selection (Esc)">
-          Clear
-        </button>
-        <span className="ml-auto" />
-        <button type="button" className="btn" onClick={() => setQuizOn(true)} title="Quiz (M)">
-          Quiz: which artery?
-        </button>
-        <button type="button" className="btn" aria-pressed={drawer} onClick={() => setDrawer((d) => !d)} title="Territory list (D)">
-          <PanelRight size={14} aria-hidden /> Arteries
+        <button type="button" className="btn flex-none" aria-pressed={drawer} onClick={() => setDrawer((d) => !d)} title="Panel (D)">
+          <PanelRight size={14} aria-hidden /> Panel
         </button>
       </div>
 
@@ -230,122 +433,123 @@ export function SupplyMap() {
             tipText={tipText}
             onPickMesh={onPick}
             view="inferior"
-            toolbarExtra={<IconBtn label="Frame the selected vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />}
-            brainOpacity={cow && !territories ? 0.035 : sel.size === 0 ? 0.28 : territories ? 0.1 : 0.12}
+            request={request}
+            cut={medial ? { axis: "x", position: 0 } : undefined}
+            toolbarExtra={<IconBtn label="Frame the shown vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />}
+            brainOpacity={brainOpacity}
             overlay={
-              <div className="pointer-events-none absolute bottom-16 left-2 right-2 grid max-w-[420px] gap-1 text-[11px] leading-snug text-text-dim">
-                {cow && (
-                  <p className="rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1">
-                    <strong className="text-text">Circle of Willis, seen from below.</strong> Arrows show blood flow: ICA to ACA and MCA; vertebral to basilar to PCA.
-                  </p>
+              <div className="pointer-events-none absolute inset-0">
+                <MarginLabels bus={bus} />
+                <MarginLabels bus={veinBus} />
+                {caption && (
+                  <div className="pointer-events-auto absolute left-2 right-2 top-2 rounded-card border border-panel-border bg-panel-solid/95 px-3 py-2 text-[13px] leading-snug shadow-sm lg:hidden">
+                    <strong className="text-text">{caption.title}.</strong> <span className="text-text-dim">{caption.text}</span>
+                    <span className="mt-1.5 flex items-center gap-2">
+                      <button type="button" className="btn" onClick={() => (mode === "tour" ? gotoStep(step - 1) : gotoV(vstep - 1))} aria-label="Previous step">
+                        <ChevronLeft size={14} aria-hidden />
+                      </button>
+                      <span className="font-mono text-xs text-text-dim">
+                        {(mode === "tour" ? step : vstep) + 1} / {mode === "tour" ? TOUR.length : VEIN_STEPS.length}
+                      </span>
+                      <button type="button" className="btn btn-primary" onClick={() => (mode === "tour" ? gotoStep(step + 1) : gotoV(vstep + 1))}>
+                        Next <ChevronRight size={14} aria-hidden />
+                      </button>
+                    </span>
+                  </div>
                 )}
-                {showComm && <p className="hidden rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1 xl:block">{COMM_NOTE}</p>}
+                <div className="pointer-events-auto absolute bottom-16 left-2 flex gap-1" role="group" aria-label="Camera view">
+                  {VIEWS.map((v) => (
+                    <button key={v.id} type="button" className="btn !px-2 !py-1 text-xs" onClick={() => askView(v.id)}>
+                      {v.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             }
           >
-            <VesselLayer flow={flow} colors={colorMap} stateOf={stateOf} sig={sig} animate={animate} labelSlugs={cow ? COW_SLUGS : null} onPick={onPickVessel} frame={frame} pad={territories ? 0.03 : 0} />
+            <TerritorySurface show={terr} colors={terrColors} variant={variant} side={terrSide} />
+            <VeinLayer ids={veinIds} current={veinCurrent} animate={animate} bus={veinBus} />
+            <VesselLayer
+              flow={flow}
+              colors={colorMap}
+              styleOf={styleOf}
+              sig={sig}
+              animate={animate}
+              labelOf={labelOf}
+              bus={bus}
+              circle={circle}
+              onPick={onPickVessel}
+              onHover={setHover}
+              frame={frame}
+              pad={territories || mode === "tour" ? 0.03 : 0}
+              topInset={caption ? 104 : 18}
+            />
           </LazyAtlasViewer>
         </div>
 
         <aside
-          className={`${drawer ? "flex" : "hidden"} absolute inset-0 z-30 min-h-0 flex-col gap-3 overflow-y-auto bg-panel-solid p-3 lg:static lg:inset-auto lg:z-auto lg:w-[340px] lg:flex-none lg:border-l lg:border-panel-border`}
-          aria-label="Arteries"
+          className={`${drawer ? "flex" : "hidden"} absolute inset-0 z-30 min-h-0 flex-col gap-3 overflow-y-auto bg-panel-solid p-3 lg:static lg:inset-auto lg:z-auto lg:w-[350px] lg:flex-none lg:border-l lg:border-panel-border`}
+          aria-label="Blood supply panel"
         >
-          <div className="flex items-center gap-2">
-            <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">Arterial territories</h2>
-            <button type="button" className="btn ml-auto lg:hidden" onClick={() => setDrawer(false)}>
+          <div className="flex items-center gap-2 lg:hidden">
+            <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">{MODES.find((m) => m.id === mode)?.label}</h2>
+            <button type="button" className="btn ml-auto" onClick={() => setDrawer(false)}>
               Close
             </button>
           </div>
-          <div className="grid gap-1" aria-label="Arteries">
-            {ARTERY_GROUPS.map((g) => (
-              <div key={g.label} className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-1">
-                <p className="mt-1.5 font-mono text-[10px] uppercase tracking-wider text-text-faint">{g.label}</p>
-                {g.ids.map((id) => {
-                  const a = ARTERY.get(id);
-                  if (!a) return null;
-                  const on = sel.has(a.id);
-                  const i = ARTERIES.findIndex((x) => x.id === a.id);
-                  return (
-                    <button
-                      key={a.id}
-                      type="button"
-                      aria-pressed={on}
-                      onClick={() => toggleArtery(a.id)}
-                      className={`flex w-full min-w-0 items-center gap-2 rounded-sm border px-2 py-1 text-left text-sm ${on ? "border-accent text-text" : "border-transparent text-text-dim hover:border-panel-border-hi"}`}
-                    >
-                      <Swatch color={a.color} />
-                      <span className="truncate">{a.name}</span>
-                      <span className="kbd ml-auto flex-none">{ARTERY_KEYS[i]}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              className="btn"
-              onClick={() => {
+
+          {mode === "explore" && (
+            <ExplorePanel
+              sel={sel}
+              cow={cow}
+              territories={territories}
+              onToggle={toggleArtery}
+              onCircle={circleView}
+              onClear={clear}
+              onAll={() => {
+                stamp();
                 setCow(false);
                 setSel(new Set(ARTERIES.map((a) => a.id)));
               }}
-            >
-              All on
-            </button>
-            <button type="button" className="btn" onClick={clear}>
-              All off
-            </button>
-          </div>
-          <p className="text-xs text-text-faint">
-            Selected arteries are solid and carry moving arrows (proximal to distal). Turn on Territories to see what each supplies, see-through in the same colour; everything else fades back. The anterior choroidal artery has no mesh in the atlas; its territory is still coloured.
-          </p>
-
-          <div className="grid gap-1.5">
-            {gate.asking ? (
-              <SupplementaryHeadsUp what="Small cortical branches (orbitofrontal, temporal, parietal, central and precentral sulcus, frontal callosomarginal, PCA cortical)" onConfirm={gate.confirm} onCancel={gate.cancel} />
-            ) : (
-              <button type="button" className="btn justify-start" aria-pressed={gate.open} onClick={() => (gate.open ? gate.lock() : gate.request())}>
-                <Lock size={14} aria-hidden /> {gate.open ? "Hide" : "Show"} small cortical branches (beyond the slides)
-              </button>
-            )}
-          </div>
-
-          {plic && (
-            <div className="grid gap-2">
-              <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">Open question: {SUPPLY.decisions[0]?.title}</h2>
-              <div className="flex flex-wrap gap-2" role="group" aria-label="Reading of the posterior limb of the internal capsule">
-                {plic.variants!.map((v) => (
-                  <button key={v.id} type="button" aria-pressed={variant === v.id} onClick={() => setVariant(v.id)} className={`btn ${variant === v.id ? "btn-primary" : ""}`}>
-                    {v.label}
-                  </button>
-                ))}
-              </div>
-              <p className="text-xs text-text-dim">{SUPPLY.decisions[0]?.text}</p>
-            </div>
+              onTerritories={() => setTerritories((t) => !t)}
+              gate={gate}
+              variant={variant}
+              setVariant={setVariant}
+              selected={selected}
+              onUnit={(u) => setSelected({ kind: "unit", unit: u })}
+              showComm={showComm}
+            />
           )}
+          {mode === "tour" && <TourPanel step={step} goto={gotoStep} askView={askView} />}
+          {mode === "block" && <BlockPanel info={blockInfo} blocked={blocked} onClear={() => setBlocked(null)} />}
+          {mode === "veins" && <VeinPanel step={vstep} goto={gotoV} />}
+          {mode === "bleeds" && <BleedsPanel />}
 
-          <InfoPanel selected={selected} variant={variant} onUnit={(u) => setSelected({ kind: "unit", unit: u })} />
-          <p className="help-line">
+          <p className="help-line mt-auto">
             <span>
-              <span className="kbd">1</span>-<span className="kbd">r</span> toggle an artery
+              <span className="kbd">f</span> frame
             </span>
             <span>
-              <span className="kbd">c</span> circle
+              <span className="kbd">p</span> flow
             </span>
-            <span>
-              <span className="kbd">p</span> flow, <span className="kbd">f</span> frame
-            </span>
-            <span>
-              <span className="kbd">t</span> territories
-            </span>
-            <span>
-              <span className="kbd">v</span> vessels
-            </span>
-            <span>
-              <span className="kbd">m</span> quiz
-            </span>
+            {mode === "explore" && (
+              <>
+                <span>
+                  <span className="kbd">1</span>-<span className="kbd">r</span> artery
+                </span>
+                <span>
+                  <span className="kbd">t</span> territories
+                </span>
+                <span>
+                  <span className="kbd">c</span> circle
+                </span>
+              </>
+            )}
+            {(mode === "tour" || mode === "veins") && (
+              <span>
+                <span className="kbd">&larr;</span> <span className="kbd">&rarr;</span> step
+              </span>
+            )}
             <span>
               <span className="kbd">Esc</span> clear
             </span>
@@ -356,11 +560,290 @@ export function SupplyMap() {
   );
 }
 
+/* ---------------- panels ---------------- */
+
+function StudyLink({ artery }: { artery: string }) {
+  const slug = ARTERY_STRUCTURE[artery];
+  if (!slug) return null;
+  return (
+    <Link className="btn" href={`/study/run?scope=${encodeURIComponent(`structure:${slug}`)}`}>
+      Study these cards
+    </Link>
+  );
+}
+
+function ExplorePanel(p: {
+  sel: Set<string>;
+  cow: boolean;
+  territories: boolean;
+  onToggle: (id: string) => void;
+  onCircle: () => void;
+  onClear: () => void;
+  onAll: () => void;
+  onTerritories: () => void;
+  gate: ReturnType<typeof useSupplementaryGate>;
+  variant: string;
+  setVariant: (v: string) => void;
+  selected: Selected;
+  onUnit: (u: SupplyUnit) => void;
+  showComm: boolean;
+}) {
+  const plic = SUPPLY.units.find((u) => u.variants);
+  return (
+    <>
+      <div className="flex flex-wrap gap-1.5">
+        <button type="button" className={`btn ${p.cow ? "btn-primary" : ""}`} aria-pressed={p.cow} onClick={p.onCircle} title="Inferior view of the circle of Willis (C)">
+          Circle of Willis
+        </button>
+        <button type="button" className="btn" aria-pressed={p.territories} onClick={p.onTerritories} title="Show the territory each selected artery supplies (T)">
+          Territories {p.territories ? "on" : "off"}
+        </button>
+        <button type="button" className="btn" onClick={p.onAll}>
+          All
+        </button>
+        <button type="button" className="btn" onClick={p.onClear} title="Clear (Esc)">
+          None
+        </button>
+      </div>
+      <div className="grid gap-0.5" aria-label="Arteries">
+        {ARTERY_GROUPS.map((g) => (
+          <div key={g.label} className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-0.5">
+            <p className="mt-1.5 font-mono text-[10px] uppercase tracking-wider text-text-faint">{g.label}</p>
+            {g.ids.map((id) => {
+              const a = ARTERY.get(id);
+              if (!a) return null;
+              const on = p.sel.has(a.id);
+              const i = ARTERIES.findIndex((x) => x.id === a.id);
+              return (
+                <button
+                  key={a.id}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => p.onToggle(a.id)}
+                  className={`flex w-full min-w-0 items-center gap-2 rounded-sm border px-2 py-1 text-left text-[13px] ${on ? "border-accent text-text" : "border-transparent text-text-dim hover:border-panel-border-hi"}`}
+                >
+                  <Swatch color={a.color} />
+                  <span className="truncate">{a.name}</span>
+                  <span className="kbd ml-auto flex-none">{ARTERY_KEYS[i]}</span>
+                </button>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+      <p className="text-xs text-text-faint">
+        Selected arteries are solid with pulses running the way the blood flows. Turn on Territories to see what each supplies; everything else fades back. The anterior choroidal artery has no vessel mesh; its territory is still coloured.
+      </p>
+      {p.showComm && <p className="rounded-sm border border-panel-border px-2 py-1.5 text-xs text-text-dim">{COMM_NOTE}</p>}
+
+      <InfoPanel selected={p.selected} variant={p.variant} onUnit={p.onUnit} />
+
+      <div className="grid gap-1.5">
+        {p.gate.asking ? (
+          <SupplementaryHeadsUp what="Small cortical branches (orbitofrontal, temporal, parietal, central and precentral sulcus, frontal callosomarginal, PCA cortical)" onConfirm={p.gate.confirm} onCancel={p.gate.cancel} />
+        ) : (
+          <button type="button" className="btn justify-start" aria-pressed={p.gate.open} onClick={() => (p.gate.open ? p.gate.lock() : p.gate.request())}>
+            <Lock size={14} aria-hidden /> {p.gate.open ? "Hide" : "Show"} small cortical branches (beyond the slides)
+          </button>
+        )}
+      </div>
+
+      {plic && (
+        <div className="grid gap-2">
+          <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">Open question: {SUPPLY.decisions[0]?.title}</h2>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Reading of the posterior limb of the internal capsule">
+            {plic.variants!.map((v) => (
+              <button key={v.id} type="button" aria-pressed={p.variant === v.id} onClick={() => p.setVariant(v.id)} className={`btn ${p.variant === v.id ? "btn-primary" : ""}`}>
+                {v.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-text-dim">{SUPPLY.decisions[0]?.text}</p>
+        </div>
+      )}
+    </>
+  );
+}
+
+function StepCard({ n, total, title, text, src, onPrev, onNext, extra }: { n: number; total: number; title: string; text: string; src: string; onPrev: () => void; onNext: () => void; extra?: React.ReactNode }) {
+  return (
+    <div className="panel grid gap-2" aria-live="polite">
+      <div className="flex items-center gap-1.5" aria-hidden>
+        {Array.from({ length: total }, (_, i) => (
+          <span key={i} className={`h-1.5 flex-1 rounded-full ${i < n ? "bg-accent" : "bg-panel-border"}`} />
+        ))}
+      </div>
+      <p className="eyebrow">
+        Step {n} of {total}
+      </p>
+      <h2 className="font-display text-base text-accent">{title}</h2>
+      <p className="text-sm">{text}</p>
+      {extra}
+      <p className="text-xs text-text-faint">{src}</p>
+      <div className="flex gap-2">
+        <button type="button" className="btn" onClick={onPrev} disabled={n <= 1}>
+          <ChevronLeft size={14} aria-hidden /> Back
+        </button>
+        <button type="button" className="btn btn-primary" onClick={onNext} disabled={n >= total}>
+          Next <ChevronRight size={14} aria-hidden />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function TourPanel({ step, goto, askView }: { step: number; goto: (i: number) => void; askView: (v: ViewId) => void }) {
+  const s = TOUR[step];
+  const shown = useMemo(() => {
+    const ids = new Set<string>();
+    for (const t of TOUR.slice(0, step + 1)) for (const sl of t.slugs) {
+      const a = SLUG_ARTERY.get(sl);
+      if (a) ids.add(a);
+    }
+    return [...ids];
+  }, [step]);
+  const viewLabel = s.view === "lateral" ? "lateral" : s.view === "medial" ? "medial" : "inferior";
+  const viewId: ViewId = s.view === "lateral" ? "left" : s.view === "medial" ? "midsagittal" : "inferior";
+  return (
+    <>
+      <StepCard
+        n={step + 1}
+        total={TOUR.length}
+        title={s.title}
+        text={s.text}
+        src={s.src}
+        onPrev={() => goto(step - 1)}
+        onNext={() => goto(step + 1)}
+        extra={
+          s.view ? (
+            <button type="button" className="btn justify-self-start" onClick={() => askView(viewId)}>
+              Show the {viewLabel} view
+            </button>
+          ) : null
+        }
+      />
+      <ColourKey ids={shown} />
+      {step === TOUR.length - 1 && (
+        <button type="button" className="btn justify-self-start" onClick={() => goto(0)}>
+          <RotateCcw size={14} aria-hidden /> Start again
+        </button>
+      )}
+    </>
+  );
+}
+
+function ColourKey({ ids }: { ids: string[] }) {
+  if (!ids.length) return null;
+  return (
+    <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-text-dim" aria-label="Colour key">
+      {ids.map((id) => {
+        const a = ARTERY.get(id);
+        return a ? (
+          <li key={id} className="flex items-center gap-1.5">
+            <Swatch color={a.color} />
+            {a.short}
+          </li>
+        ) : null;
+      })}
+    </ul>
+  );
+}
+
+function BlockPanel({ info, blocked, onClear }: { info: { name: string; seg: FlowSegment; artery: string; occ: Occlusion } | null; blocked: string | null; onClear: () => void }) {
+  if (!info) {
+    return (
+      <div className="panel grid gap-2" aria-live="polite">
+        <h2 className="font-display text-base text-accent">Block a vessel</h2>
+        <p className="text-sm">{blocked ? "That vessel is not one the slides teach as a site of blockage." : "Click an artery in the 3D view to block it. Its territory dims, and the slides' consequences appear here."}</p>
+        <p className="text-xs text-text-dim">Blockable: ICA, ACA, MCA, PCA, vertebral, basilar, pontine branches, lenticulostriates, SCA, AICA, PICA, anterior spinal.</p>
+        <p className="text-xs text-text-faint">The anterior and posterior communicating arteries carry little flow while the pressures are equal; they light up when a main vessel is blocked.</p>
+      </div>
+    );
+  }
+  const a = ARTERY.get(info.artery);
+  const side = info.seg.side === "l" ? "Left " : info.seg.side === "r" ? "Right " : "";
+  return (
+    <div className="panel grid gap-2.5" aria-live="polite">
+      <h2 className="flex items-center gap-2 font-display text-base text-accent">
+        <Swatch color={BLOCK_RED} />
+        {side}
+        {a?.name ?? info.name} blocked
+      </h2>
+      <div className="rounded-sm border border-again/40 bg-again/5 px-2 py-1.5 text-sm">
+        <span className="eyebrow text-again">What the slides predict </span>
+        <span className="mt-1 flex items-start gap-2">
+          <DeficitIcons text={info.occ.deficit} />
+          <span>{info.occ.deficit}</span>
+        </span>
+      </div>
+      <p className="text-sm text-text-dim">
+        <span className="eyebrow">Collateral flow </span>
+        {info.occ.collateral}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        <StudyLink artery={info.artery} />
+        <button type="button" className="btn" onClick={onClear}>
+          Unblock
+        </button>
+      </div>
+      <p className="text-xs text-text-faint">Click another vessel to block it instead. Pulses on the communicating arteries show the direction the blood would take.</p>
+    </div>
+  );
+}
+
+function VeinPanel({ step, goto }: { step: number; goto: (i: number) => void }) {
+  const s = VEIN_STEPS[step];
+  return (
+    <>
+      <StepCard n={step + 1} total={VEIN_STEPS.length} title={s.title} text={s.text} src={s.src} onPrev={() => goto(step - 1)} onNext={() => goto(step + 1)} />
+      <div className="text-xs text-text-dim">
+        <p className="flex items-center gap-1.5">
+          <Swatch color={VEIN_BLUE} /> Dural sinuses, between the meningeal and periosteal layers of the dura.
+        </p>
+        <p className="mt-1">Path: deep and superficial cerebral veins, dural sinuses, internal jugular vein, heart.</p>
+      </div>
+      <Link className="btn justify-self-start" href={`/study/run?scope=${encodeURIComponent("structure:dural-venous-sinuses")}`}>
+        Study these cards
+      </Link>
+    </>
+  );
+}
+
+const BLEED_VIEW: Record<string, string> = { Epidural: "epidural-space", Subdural: "subdural-space", Subarachnoid: "subarachnoid-space" };
+function BleedsPanel() {
+  return (
+    <div className="panel grid gap-2.5">
+      <h2 className="font-display text-base text-accent">Where each bleed sits</h2>
+      <p className="text-sm text-text-dim">From the skull inwards: skull, dura (the epidural space lies outside it), the subdural space, arachnoid, the subarachnoid space (CSF and the cerebral vessels), then the brain.</p>
+      <ul className="grid gap-2">
+        {BLEEDS.map((b) => (
+          <li key={b.name} className="rounded-sm border border-panel-border px-2 py-1.5 text-sm">
+            <p className="flex flex-wrap items-baseline gap-2">
+              <strong>{b.name}</strong>
+              <span className={`text-[11px] uppercase tracking-wider ${b.stroke ? "text-again" : "text-text-faint"}`}>{b.stroke ? "stroke" : "not a stroke"}</span>
+              {BLEED_VIEW[b.name] && (
+                <Link className="ml-auto text-xs text-accent underline-offset-2 hover:underline" href={`/atlas?s=${BLEED_VIEW[b.name]}`}>
+                  See it in Explore
+                </Link>
+              )}
+            </p>
+            <p className="text-text-dim">
+              {b.vessel}. {b.where}. {b.shape}.
+            </p>
+            <p className="text-xs text-text-faint">{b.note}</p>
+          </li>
+        ))}
+      </ul>
+      <p className="text-xs text-text-faint">Lecture 18, slides 8-19. The meningeal layers are drawn in the Explore atlas.</p>
+    </div>
+  );
+}
+
 function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant: string; onUnit: (u: SupplyUnit) => void }) {
   if (!selected) {
     return (
       <div className="panel text-sm text-text-dim" aria-live="polite">
-        Click a coloured structure or an artery in the 3D view, or an artery in the legend.
+        Click a vessel or a coloured structure in the 3D view, or an artery in the list.
       </div>
     );
   }
@@ -369,6 +852,7 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
     if (!a) return null;
     const primary = SUPPLY.units.filter((u) => unitArteries(u, variant)[0] === a.id);
     const also = SUPPLY.units.filter((u) => unitArteries(u, variant).slice(1).includes(a.id));
+    const occ = OCCLUSION[a.id];
     return (
       <div className="panel grid gap-2" aria-live="polite">
         <h2 className="flex items-center gap-2 font-display text-base text-accent">
@@ -376,10 +860,13 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
           {a.name}
         </h2>
         <p className="text-sm">{a.territory}</p>
-        {DEFICIT[a.id] && (
-          <p className="rounded-sm border border-again/40 bg-again/5 px-2 py-1 text-sm">
-            <span className="eyebrow text-again">If blocked </span>
-            {DEFICIT[a.id]}
+        {occ && (
+          <p className="flex items-start gap-2 rounded-sm border border-again/40 bg-again/5 px-2 py-1 text-sm">
+            <DeficitIcons text={occ.deficit} />
+            <span>
+              <span className="eyebrow text-again">If blocked </span>
+              {occ.deficit}
+            </span>
           </p>
         )}
         {FLOW_TEXT[a.id] && (
@@ -412,6 +899,7 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
             </p>
           </div>
         )}
+        <StudyLink artery={a.id} />
       </div>
     );
   }
@@ -448,121 +936,11 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
           ))}
         </ul>
       )}
-    </div>
-  );
-}
-
-/* ---------- quiz: which artery supplies this? ---------- */
-type Q = { unit: SupplyUnit; picked: string | null };
-
-function SupplyQuiz({ onExit }: { onExit: () => void }) {
-  const pool = useMemo(() => SUPPLY.units.filter((u) => !u.variants && u.arteries[0] !== "ica" && !u.shell), []);
-  const [order, setOrder] = useState(() => shuffle(pool));
-  const [i, setI] = useState(0);
-  const [q, setQ] = useState<Q>({ unit: order[0], picked: null });
-  const [right, setRight] = useState(0);
-  const [done, setDone] = useState(0);
-
-  const answer = useCallback(
-    (id: string) => {
-      if (q.picked) return;
-      setQ({ ...q, picked: id });
-      setDone((d) => d + 1);
-      if (q.unit.arteries.includes(id)) setRight((r) => r + 1);
-      trackAtlas({ type: "supply_answer", slug: q.unit.slug ?? "", correct: q.unit.arteries.includes(id), artery: id });
-    },
-    [q],
-  );
-  const next = useCallback(() => {
-    let o = order;
-    let n = i + 1;
-    if (n >= o.length) {
-      o = shuffle(pool);
-      setOrder(o);
-      n = 0;
-    }
-    setI(n);
-    setQ({ unit: o[n], picked: null });
-  }, [order, i, pool]);
-
-  useEffect(() => {
-    const h = (e: KeyboardEvent) => {
-      if (typing(e) || e.ctrlKey || e.metaKey || e.altKey) return;
-      if (q.picked) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          next();
-        }
-        return;
-      }
-      const k = ARTERY_KEYS.indexOf(e.key.toLowerCase());
-      if (k >= 0 && k < TERRITORY_ARTERIES.length) answer(TERRITORY_ARTERIES[k].id);
-      else if (e.key === "Escape") onExit();
-    };
-    window.addEventListener("keydown", h);
-    return () => window.removeEventListener("keydown", h);
-  }, [q.picked, answer, next, onExit]);
-
-  const u = q.unit;
-  const correct = q.picked ? u.arteries.includes(q.picked) : null;
-  return (
-    <div className="grid gap-3">
-      <div className="flex flex-wrap items-center gap-3 font-mono text-sm">
-        <span>question {done + (q.picked ? 0 : 1)}</span>
-        <span className="text-good">
-          {right} / {done} correct
-        </span>
-        <button type="button" className="btn ml-auto" onClick={onExit}>
-          Back to the map
-        </button>
-      </div>
-      <LazyAtlasViewer key={u.name} structureIds={u.meshes} mode="focus" label={q.picked ? u.name : ""} quiz={!q.picked} height={480} />
-      <div className="panel grid gap-3">
-        <p className="text-sm text-text-dim">Which artery supplies the highlighted structure?</p>
-        <div className="choice-grid">
-          {TERRITORY_ARTERIES.map((a, k) => {
-            const isRight = !!q.picked && u.arteries.includes(a.id);
-            const isPicked = q.picked === a.id;
-            return (
-              <button
-                key={a.id}
-                type="button"
-                disabled={!!q.picked}
-                onClick={() => answer(a.id)}
-                className={`choice-btn flex items-center gap-2 ${isPicked ? "picked" : ""} ${isRight ? "border-good" : isPicked ? "border-again" : ""}`}
-              >
-                <span className="kbd flex-none">{ARTERY_KEYS[k]}</span>
-                <span>{a.name}</span>
-              </button>
-            );
-          })}
-        </div>
-        {q.picked && (
-          <div className="grid gap-1.5" aria-live="polite">
-            <p className={correct ? "text-good" : "text-again"}>
-              {correct ? (u.arteries[0] === q.picked ? "Correct." : "Correct (a secondary supply).") : "Not quite."} {u.name}: {artShort(u.arteries)}.
-            </p>
-            {u.course && <p className="text-sm text-text-dim">Course note: {u.course}</p>}
-            {u.note && <p className="text-sm text-text-dim">{u.note}</p>}
-            <div>
-              <button type="button" className="btn btn-primary" onClick={next}>
-                Next <span className="kbd">Enter</span>
-              </button>
-            </div>
-          </div>
-        )}
-        <p className="help-line">
-          <span>
-            <span className="kbd">1</span>-<span className="kbd">e</span> answer
-          </span>
-          <span>
-            <span className="kbd">Enter</span> next
-          </span>
-          <span>
-            <span className="kbd">Esc</span> back
-          </span>
-        </p>
-      </div>
+      {u.slug && (
+        <Link className="btn justify-self-start" href={`/study/run?scope=${encodeURIComponent(`structure:${u.slug}`)}`}>
+          Study these cards
+        </Link>
+      )}
     </div>
   );
 }

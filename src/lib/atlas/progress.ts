@@ -13,6 +13,10 @@ export type AtlasEvent =
   | { type: "lesion_case"; caseId: string; correct: boolean }
   | { type: "slice_match_round"; errorMm: number }
   | { type: "supply_answer"; slug: string; correct: boolean; artery?: string }
+  | { type: "supply_tour_step"; step: number }
+  | { type: "supply_occlusion"; artery: string }
+  | { type: "supply_drainage_step"; step: number }
+  | { type: "supply_bleeds_opened" }
   | { type: "brainstem_level_viewed"; level: string; style: string }
   | { type: "brainstem_label"; level: string; slug: string; correct: boolean }
   | { type: "memory_map_opened" };

@@ -2,41 +2,53 @@
 
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { useThree, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { loadAtlasModel } from "../ui/modelCache";
-import { COW_LABEL, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
+import { slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
+import { layoutLabels, type LabelBus, type RawLabel } from "./margin-labels";
 
-export type VesselState = "selected" | "faint" | "idle" | "hidden";
-
+/** How one segment is drawn. solid: selected, opaque. idle: nothing selected, soft. faint: context. blocked: occluded. starved: downstream of a block. */
+export type SegMode = "solid" | "idle" | "faint" | "blocked" | "starved" | "hidden";
+export type SegStyle = {
+  mode: SegMode;
+  /** pulses run along it */
+  flow: boolean;
+  /** pulse direction along the stored line */
+  dir?: 1 | -1;
+  /** brighter pulses (a rerouted vessel) */
+  hot?: boolean;
+};
 type Props = {
   flow: FlowFile | null;
-  /** Colour of each artery id (supply-map). */
   colors: Map<string, string>;
-  /** How each segment (node name) is drawn. */
-  stateOf: (name: string, seg: FlowSegment) => VesselState;
-  /** A change of this key re-applies the states. */
+  styleOf: (name: string, seg: FlowSegment) => SegStyle;
+  /** A change of this key re-applies the styles. */
   sig: string;
-  /** Moving arrows on the selected vessels (false: static arrows). */
   animate: boolean;
-  /** Short labels at the middle of these slugs (Circle of Willis view). */
-  labelSlugs: Set<string> | null;
+  /** Text of the margin label of a segment (null: none). */
+  labelOf: (name: string, seg: FlowSegment) => string | null;
+  bus: LabelBus;
+  /** Circle view: only the top of the long carotids and vertebrals is drawn. */
+  circle: boolean;
   onPick: (artery: string, name: string) => void;
-  /** Re-aims the camera at the selected vessels. `dir` (camera direction from the target) applies once per `n`; otherwise the current direction is kept. */
+  onHover: (artery: string | null) => void;
   frame: { n: number; dir: [number, number, number] | null };
-  /** Extra room around the framed vessels (metres), e.g. when territories are shown. */
   pad: number;
+  /** Pixels kept clear at the top for a caption band. */
+  topInset?: number;
 };
 
-/** three.js removes . [ ] : / from node names ("aca.l" becomes "acal"). */
-const clean = (n: string) => n.replace(/[[\].:/]/g, "");
-const GREY = "#9aa0a6";
-const SPEED = 0.034; // metres per second along the vessel
-const SPACING = 0.009; // metres between arrows
+const GREY = "#8a9099";
+const SPEED = 0.03; // metres per second
+const SPACING = 0.0085; // metres between pulses
 const FPS = 30;
+const RADIAL = 10;
+/** Where along the longest line a segment's label anchors (0 start - 1 end). */
+const ANCHOR_AT: Record<string, number> = { aca: 0.25, vertebral: 0.9, ica: 0.88, pericallosal: 0.45, callosomarginal: 0.5, pca: 0.55, sca: 0.55, aica: 0.6, pica: 0.4, "anterior-spinal": 0.5, "lenticulostriate-prox": 0.5 };
+const CIRCLE_SLUGS = ["ica", "aca", "acom", "mca-m1", "pcom", "pca", "basilar", "vertebral"];
 
-type Line = { pts: THREE.Vector3[]; cum: number[]; len: number };
-function makeLine(flat: number[]): Line {
+export type Line = { pts: THREE.Vector3[]; cum: number[]; len: number };
+export function makeLine(flat: number[]): Line {
   const pts: THREE.Vector3[] = [];
   for (let i = 0; i + 2 < flat.length; i += 3) pts.push(new THREE.Vector3(flat[i], flat[i + 1], flat[i + 2]));
   const cum = [0];
@@ -45,6 +57,12 @@ function makeLine(flat: number[]): Line {
 }
 const _p = new THREE.Vector3();
 const _t = new THREE.Vector3();
+/** Point and unit tangent at arc length s along a line. */
+export function pointAt(l: Line, s: number, p: THREE.Vector3, t: THREE.Vector3) {
+  at(l, s);
+  p.copy(_p);
+  t.copy(_t);
+}
 function at(l: Line, s: number) {
   let i = 1;
   while (i < l.cum.length - 1 && l.cum[i] < s) i++;
@@ -56,135 +74,176 @@ function at(l: Line, s: number) {
   _t.copy(b).sub(a).normalize();
 }
 
-function applyState(mesh: THREE.Mesh, st: VesselState, col: string, get: (key: string, color: string, opacity: number, solid: boolean) => THREE.MeshStandardMaterial, planes: THREE.Plane[]) {
-  mesh.visible = st !== "hidden";
-  if (st === "selected") {
-    mesh.material = get("s" + col, col, 1, true);
-    mesh.renderOrder = 6;
-  } else if (st === "idle") {
-    mesh.material = get("i" + col, col, 0.7, false);
-    mesh.renderOrder = 4;
-  } else {
-    mesh.material = get("f", GREY, 0.2, false);
-    mesh.renderOrder = 3;
+/** A smooth tube along each polyline that narrows from r0 to r1, with rounded ends. */
+export function taperedTube(flats: number[][], r0: number, r1: number): THREE.BufferGeometry {
+  const pos: number[] = [];
+  const idx: number[] = [];
+  for (const flat of flats) {
+    const raw = makeLine(flat);
+    if (raw.pts.length < 2 || raw.len < 0.0008) continue;
+    const curve = new THREE.CatmullRomCurve3(raw.pts, false, "centripetal");
+    const n = Math.min(90, Math.max(4, Math.round(raw.len / 0.0011)));
+    const pts = curve.getSpacedPoints(n);
+    const tan: THREE.Vector3[] = pts.map((p, i) => (i === 0 ? pts[1].clone().sub(p) : i === n ? p.clone().sub(pts[n - 1]) : pts[i + 1].clone().sub(pts[i - 1])).normalize());
+    let nrm = new THREE.Vector3(1, 0, 0);
+    if (Math.abs(tan[0].dot(nrm)) > 0.9) nrm = new THREE.Vector3(0, 0, 1);
+    nrm = nrm.sub(tan[0].clone().multiplyScalar(nrm.dot(tan[0]))).normalize();
+    const base = pos.length / 3;
+    const bin = new THREE.Vector3();
+    for (let i = 0; i <= n; i++) {
+      if (i > 0) nrm = nrm.sub(tan[i].clone().multiplyScalar(nrm.dot(tan[i]))).normalize(); // parallel transport
+      bin.crossVectors(tan[i], nrm).normalize();
+      const r = r0 + (r1 - r0) * (i / n);
+      for (let k = 0; k < RADIAL; k++) {
+        const a = (k / RADIAL) * Math.PI * 2;
+        const c = Math.cos(a) * r;
+        const s = Math.sin(a) * r;
+        pos.push(pts[i].x + c * nrm.x + s * bin.x, pts[i].y + c * nrm.y + s * bin.y, pts[i].z + c * nrm.z + s * bin.z);
+      }
+    }
+    for (let i = 0; i < n; i++)
+      for (let k = 0; k < RADIAL; k++) {
+        const a = base + i * RADIAL + k;
+        const b = base + i * RADIAL + ((k + 1) % RADIAL);
+        const c = a + RADIAL;
+        const d = b + RADIAL;
+        idx.push(a, c, b, b, c, d);
+      }
+    const cap = (ringStart: number, p: THREE.Vector3, t: THREE.Vector3, r: number, flip: boolean) => {
+      const pole = pos.length / 3;
+      pos.push(p.x + t.x * r * 0.7, p.y + t.y * r * 0.7, p.z + t.z * r * 0.7);
+      for (let k = 0; k < RADIAL; k++) {
+        const a = ringStart + k;
+        const b = ringStart + ((k + 1) % RADIAL);
+        if (flip) idx.push(a, b, pole);
+        else idx.push(b, a, pole);
+      }
+    };
+    cap(base, pts[0], tan[0].clone().negate(), r0, true);
+    cap(base + n * RADIAL, pts[n], tan[n], r1, false);
   }
-  (mesh.material as THREE.Material).clippingPlanes = planes;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  g.setIndex(idx);
+  g.computeVertexNormals();
+  return g;
 }
 
-type Particle = { line: Line; seg: string; phase: number; dir: 1 | -1; r: number; artery: string; fwdStatic: number };
+/** The part of a polyline above y = yMin (the crossing point is interpolated), or null when none is left. */
+function clipFlat(flat: number[], yMin: number): number[] | null {
+  if (!Number.isFinite(yMin)) return flat;
+  const out: number[] = [];
+  const n = flat.length / 3;
+  for (let i = 0; i < n; i++) {
+    const y = flat[i * 3 + 1];
+    if (y >= yMin) {
+      if (i > 0 && flat[(i - 1) * 3 + 1] < yMin) {
+        const y0 = flat[(i - 1) * 3 + 1];
+        const u = (yMin - y0) / (y - y0);
+        for (let k = 0; k < 3; k++) out.push(flat[(i - 1) * 3 + k] + (flat[i * 3 + k] - flat[(i - 1) * 3 + k]) * u);
+      }
+      out.push(flat[i * 3], y, flat[i * 3 + 2]);
+    } else if (i > 0 && flat[(i - 1) * 3 + 1] >= yMin) {
+      const y0 = flat[(i - 1) * 3 + 1];
+      const u = (yMin - y0) / (y - y0);
+      for (let k = 0; k < 3; k++) out.push(flat[(i - 1) * 3 + k] + (flat[i * 3 + k] - flat[(i - 1) * 3 + k]) * u);
+    }
+  }
+  return out.length >= 6 ? out : null;
+}
 
-/** The real artery meshes (one node per segment) plus arrows that run proximal to distal along each selected one. */
-export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, onPick, frame, pad }: Props) {
-  const [root, setRoot] = useState<THREE.Group | null>(null);
+type Rec = {
+  name: string;
+  seg: FlowSegment;
+  /** the lines actually drawn (circle view trims the long vessels) */
+  lines: number[][];
+  /** a few points along every line, for the label margins */
+  samples: THREE.Vector3[];
+  mesh: THREE.Mesh;
+  mat: THREE.MeshStandardMaterial;
+  cur: { op: number; col: THREE.Color; em: number };
+  tgt: { op: number; col: THREE.Color; em: number; solid: boolean };
+  style: SegStyle;
+  anchor: THREE.Vector3 | null;
+};
+type Particle = { rec: Rec; line: Line; phase: number; r: number; fwdStatic: number; alt: 1 | -1 };
+
+const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
+
+/** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
+export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, topInset = 18 }: Props) {
   const invalidate = useThree((s) => s.invalidate);
+  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+  const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
+  const size = useThree((s) => s.size);
   const reduced = useMemo(() => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches, []);
 
-  useEffect(() => {
-    let alive = true;
-    loadAtlasModel("arteries.glb")
-      .then((g) => alive && setRoot(g))
-      .catch(() => undefined);
-    return () => {
-      alive = false;
-    };
-  }, []);
-
-  // one material per (artery, state); shared so a state change is a pointer swap
-  const mats = useMemo(() => {
-    const m = new Map<string, THREE.MeshStandardMaterial>();
-    const get = (key: string, color: string, opacity: number, solid: boolean) => {
-      let x = m.get(key);
-      if (!x) {
-        x = new THREE.MeshStandardMaterial({
-          color,
-          roughness: 0.45,
-          metalness: 0,
-          emissive: solid ? new THREE.Color(color).multiplyScalar(0.28) : new THREE.Color(0),
-          transparent: !solid,
-          opacity,
-          depthWrite: solid,
-        });
-        m.set(key, x);
-      }
-      return x;
-    };
-    return { get, all: m };
-  }, []);
-  useEffect(() => () => mats.all.forEach((x) => x.dispose()), [mats]);
-
-  // circle view: only the top of the long vessels (carotids, vertebrals) is drawn, so the ring is not buried under their length
+  // circle view: only the top of the long vessels is drawn, so the ring is not buried under their length
   const yMin = useMemo(() => {
-    if (!flow || !labelSlugs) return -Infinity;
+    if (!flow || !circle) return -Infinity;
     let top = -Infinity;
     for (const [name, seg] of Object.entries(flow.segments)) {
-      if (!labelSlugs.has(slugOf(name))) continue;
+      if (!CIRCLE_SLUGS.includes(slugOf(name))) continue;
       for (const flat of seg.lines) for (let i = 1; i < flat.length; i += 3) top = Math.max(top, flat[i]);
     }
     return top - 0.075;
-  }, [flow, labelSlugs]);
-  const clipPlanes = useMemo(() => (Number.isFinite(yMin) ? [new THREE.Plane(new THREE.Vector3(0, 1, 0), -yMin)] : []), [yMin]);
-  useEffect(() => {
-    mats.all.forEach((m) => {
-      m.clippingPlanes = clipPlanes;
-      m.needsUpdate = true;
-    });
-    invalidate();
-  }, [clipPlanes, mats, invalidate, root, sig]);
-  const byClean = useMemo(() => new Map(Object.keys(flow?.segments ?? {}).map((k) => [clean(k), k])), [flow]);
-  const segMeshes = useMemo(() => {
-    const r: { mesh: THREE.Mesh; name: string }[] = [];
-    root?.traverse((o) => {
-      const mesh = o as THREE.Mesh;
-      if (mesh.isMesh) r.push({ mesh, name: byClean.get(clean(mesh.name)) ?? "" });
-    });
-    return r;
-  }, [root, byClean]);
+  }, [flow, circle]);
 
-  useEffect(() => {
-    if (!flow) return;
-    for (const { mesh, name } of segMeshes) {
-      const seg = flow.segments[name];
-      const st: VesselState = seg ? stateOf(name, seg) : "hidden";
-      const col = (seg && colors.get(seg.artery)) || GREY;
-      applyState(mesh, st, col, mats.get, clipPlanes);
-    }
-    invalidate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [segMeshes, flow, sig, colors, mats, invalidate, clipPlanes]);
-
-  // ---- arrows
-  const particles = useMemo<Particle[]>(() => {
-    if (!flow) return [];
-    const out: Particle[] = [];
+  // ---- geometry: built once per flow file
+  const built = useMemo(() => {
+    if (!flow) return null;
+    const group = new THREE.Group();
+    const recs = new Map<string, Rec>();
     for (const [name, seg] of Object.entries(flow.segments)) {
-      if (stateOf(name, seg) !== "selected") continue;
-      for (const flat of seg.lines) {
+      const slug = slugOf(name);
+      const r0 = Math.max(seg.radius * 0.8, 0.00024);
+      const r1 = r0 * (TRUNKS.has(slug) ? 0.88 : 0.62);
+      const lines0 = seg.lines.map((l) => clipFlat(l, yMin)).filter((l): l is number[] => !!l);
+      const geo = taperedTube(lines0, r0, r1);
+      const mat = new THREE.MeshStandardMaterial({ color: GREY, roughness: 0.42, metalness: 0.04, transparent: true, opacity: 0, depthWrite: false });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.name = name;
+      mesh.visible = false;
+      group.add(mesh);
+      const lines = lines0.map(makeLine).sort((a, b) => b.len - a.len);
+      const samples: THREE.Vector3[] = [];
+      for (const l of lines0) for (let i = 0; i + 2 < l.length; i += 9) samples.push(new THREE.Vector3(l[i], l[i + 1], l[i + 2]));
+      let anchor: THREE.Vector3 | null = null;
+      if (lines[0]) {
+        at(lines[0], lines[0].len * (ANCHOR_AT[slug] ?? 0.5));
+        anchor = _p.clone();
+      }
+      recs.set(name, { name, seg, lines: lines0, samples, mesh, mat, cur: { op: 0, col: new THREE.Color(GREY), em: 0 }, tgt: { op: 0, col: new THREE.Color(GREY), em: 0, solid: false }, style: { mode: "hidden", flow: false }, anchor });
+    }
+    return { group, recs };
+  }, [flow, yMin]);
+  useEffect(
+    () => () => {
+      built?.recs.forEach((r) => {
+        r.mesh.geometry.dispose();
+        r.mat.dispose();
+      });
+    },
+    [built],
+  );
+
+  // ---- pulses: built once for every line; each frame only the active segments place theirs
+  const particles = useMemo<Particle[]>(() => {
+    if (!built) return [];
+    const out: Particle[] = [];
+    for (const rec of built.recs.values()) {
+      for (const flat of rec.lines) {
         const line = makeLine(flat);
-        if (line.len < 0.002) continue;
+        if (line.len < 0.004) continue;
         const n = Math.max(1, Math.round(line.len / SPACING));
-        for (let k = 0; k < n; k++) {
-          out.push({
-            line,
-            seg: name,
-            phase: (k / n) * line.len,
-            dir: seg.flow === "both" && k % 2 === 1 ? -1 : 1,
-            r: seg.radius,
-            artery: seg.artery,
-            fwdStatic: (k + 0.5) / n,
-          });
-        }
+        for (let k = 0; k < n; k++) out.push({ rec, line, phase: (k / n) * line.len, r: rec.seg.radius, fwdStatic: (k + 0.5) / n, alt: k % 2 ? -1 : 1 });
       }
     }
     return out;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flow, sig]);
-
+  }, [built]);
   const inst = useRef<THREE.InstancedMesh>(null);
-  const geo = useMemo(() => {
-    const g = new THREE.ConeGeometry(1, 6, 6, 1);
-    return g;
-  }, []);
-  const mat = useMemo(() => new THREE.MeshBasicMaterial({ color: "#ffffff", toneMapped: false, depthTest: false, transparent: true, opacity: 0.92 }), []);
+  const geo = useMemo(() => new THREE.ConeGeometry(1, 5, 7, 1), []);
+  const mat = useMemo(() => new THREE.MeshBasicMaterial({ color: "#ffffff", toneMapped: false, depthTest: false, transparent: true, opacity: 0.9 }), []);
   useEffect(
     () => () => {
       geo.dispose();
@@ -192,54 +251,185 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
     },
     [geo, mat],
   );
-
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const up = useMemo(() => new THREE.Vector3(0, 1, 0), []);
+  const tmpC = useMemo(() => new THREE.Color(), []);
+  const white = useMemo(() => new THREE.Color("#ffffff"), []);
+
+  const needsPulses = useRef(false);
   const placeAll = (time: number) => {
     const im = inst.current;
     if (!im) return;
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
+      const st = p.rec.style;
+      const op = p.rec.cur.op;
+      if (!st.flow || op < 0.2 || (st.mode !== "solid" && st.mode !== "idle")) {
+        dummy.scale.setScalar(0);
+        dummy.updateMatrix();
+        im.setMatrixAt(i, dummy.matrix);
+        continue;
+      }
       const L = p.line.len;
-      let s: number;
-      if (animate && !reduced) s = (((p.phase + time * SPEED) % L) + L) % L;
-      else s = p.fwdStatic * L;
-      if (p.dir === -1 && animate && !reduced) s = L - s;
+      const moving = animate && !reduced;
+      const dir = st.dir ?? (p.rec.seg.flow === "both" ? p.alt : 1); // communicating arteries: two-way unless told
+      let s = moving ? (((p.phase + time * SPEED * (0.75 + 0.25 * Math.min(1, p.r / 0.0016))) % L) + L) % L : p.fwdStatic * L;
+      if (dir === -1) s = L - s;
       at(p.line, s);
       const u = s / L;
-      const env = 0.55 + 0.45 * Math.sin(Math.PI * u); // arrows swell mid-vessel and thin at the ends
-      const r = (_p.y < yMin ? 0 : Math.max(p.r * 0.34, 0.00028)) * env; // a slim dash, about a third of the vessel radius
+      const env = 0.5 + 0.5 * Math.sin(Math.PI * u);
+      const r = Math.max(p.r * 0.3, 0.00022) * env * Math.min(1, (op - 0.2) / 0.5);
       dummy.position.copy(_p);
-      dummy.quaternion.setFromUnitVectors(up, p.dir === 1 ? _t : _t.negate());
-      dummy.scale.set(r, r, r);
+      dummy.quaternion.setFromUnitVectors(up, dir === 1 ? _t : _t.negate());
+      dummy.scale.setScalar(r);
       dummy.updateMatrix();
       im.setMatrixAt(i, dummy.matrix);
+      tmpC.set(colors.get(p.rec.seg.artery) ?? "#ffffff").lerp(white, st.hot ? 0.95 : 0.7);
+      im.setColorAt(i, tmpC);
     }
     im.instanceMatrix.needsUpdate = true;
+    if (im.instanceColor) im.instanceColor.needsUpdate = true;
+    if (!(animate && !reduced)) needsPulses.current = false;
   };
 
+  // ---- margin labels: project the anchors, push the labels to the left and right margins, hand them to the DOM painter
+  const v = useMemo(() => new THREE.Vector3(), []);
+  const lastKey = useRef("");
+  const projectLabels = () => {
+    if (!built || !bus.ready()) return;
+    const w = size.width;
+    const h = size.height;
+    const items: RawLabel[] = [];
+    for (const rec of built.recs.values()) {
+      if (!rec.anchor || rec.cur.op < 0.5 || (rec.style.mode !== "solid" && rec.style.mode !== "blocked")) continue;
+      const text = labelOf(rec.name, rec.seg);
+      if (!text) continue;
+      v.copy(rec.anchor).project(camera);
+      if (v.z > 1) continue;
+      items.push({ id: rec.name, text, x: (v.x * 0.5 + 0.5) * w, y: (-v.y * 0.5 + 0.5) * h, color: rec.style.mode === "blocked" ? "#d1495b" : (colors.get(rec.seg.artery) ?? GREY), mark: rec.style.mode === "blocked" });
+    }
+    let minX = Infinity;
+    let maxX = -Infinity;
+    for (const rec of built.recs.values()) {
+      if (rec.cur.op < 0.3 || rec.style.mode === "faint" || rec.style.mode === "hidden") continue;
+      for (const sp of rec.samples) {
+        v.copy(sp).project(camera);
+        const x = (v.x * 0.5 + 0.5) * w;
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+      }
+    }
+    const out = layoutLabels(items, w, h, topInset, Number.isFinite(minX) ? { minX, maxX } : undefined);
+    const key = out.map((o) => `${o.id}:${Math.round(o.x)}:${Math.round(o.y)}:${Math.round(o.ly)}:${Math.round(o.lx)}`).join("|") + `|${w}x${h}`;
+    if (key === lastKey.current) return;
+    lastKey.current = key;
+    bus.emit(out, w, h);
+  };
+  useEffect(
+    () => () => {
+      bus.emit([], 0, 0);
+    },
+    [bus],
+  );
+
+  // ---- targets from the styles (cheap: the frame loop eases every segment toward them)
   useEffect(() => {
-    const im = inst.current;
-    if (!im) return;
-    const c = new THREE.Color();
-    particles.forEach((p, i) => {
-      c.set(colors.get(p.artery) ?? "#ffffff").lerp(new THREE.Color("#ffffff"), 0.72);
-      im.setColorAt(i, c);
-    });
-    if (im.instanceColor) im.instanceColor.needsUpdate = true;
-    im.count = particles.length;
-    placeAll(performance.now() / 1000);
+    if (!built) return;
+    const red = new THREE.Color("#d1495b");
+    const grey = new THREE.Color(GREY);
+    const starved = new THREE.Color("#6b7280");
+    for (const rec of built.recs.values()) {
+      const st = styleOf(rec.name, rec.seg);
+      rec.style = st;
+      const col = new THREE.Color(colors.get(rec.seg.artery) ?? GREY);
+      let op = 0;
+      let em = 0;
+      let c = col;
+      let solid = false;
+      switch (st.mode) {
+        case "solid":
+          op = 1;
+          em = 0.16;
+          solid = true;
+          break;
+        case "idle":
+          op = 0.62;
+          break;
+        case "faint":
+          op = 0.1;
+          c = grey;
+          break;
+        case "blocked":
+          op = 1;
+          em = 0.3;
+          c = red;
+          solid = true;
+          break;
+        case "starved":
+          op = 0.3;
+          c = starved;
+          break;
+        default:
+          op = 0;
+      }
+      rec.tgt = { op, col: c, em, solid };
+      rec.mesh.userData.pick = st.mode !== "hidden" && st.mode !== "faint";
+    }
+    needsPulses.current = true;
+    lastKey.current = "";
     invalidate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [particles, colors, animate]);
+  }, [built, sig, colors]);
 
-  useFrame(() => {
-    if (animate && !reduced && particles.length) placeAll(performance.now() / 1000);
+  useFrame((_, dt) => {
+    if (!built) return;
+    const k = 1 - Math.exp(-Math.min(dt, 0.1) * 9);
+    let moving = false;
+    for (const rec of built.recs.values()) {
+      const c = rec.cur;
+      const t = rec.tgt;
+      if (Math.abs(c.op - t.op) > 0.004 || Math.abs(c.em - t.em) > 0.004 || Math.abs(c.col.r - t.col.r) + Math.abs(c.col.g - t.col.g) + Math.abs(c.col.b - t.col.b) > 0.006) {
+        c.op += (t.op - c.op) * k;
+        c.em += (t.em - c.em) * k;
+        c.col.lerp(t.col, k);
+        moving = true;
+      } else {
+        c.op = t.op;
+        c.em = t.em;
+        c.col.copy(t.col);
+      }
+      const m = rec.mat;
+      m.color.copy(c.col);
+      m.emissive.copy(c.col).multiplyScalar(c.em);
+      m.opacity = c.op;
+      // opaque once solid and settled (correct depth sorting for the selected vessels)
+      const opaque = t.solid && c.op > 0.985;
+      if (m.transparent === opaque) {
+        m.transparent = !opaque;
+        m.needsUpdate = true;
+      }
+      m.depthWrite = opaque || c.op > 0.55;
+      rec.mesh.visible = c.op > 0.004;
+      rec.mesh.renderOrder = t.solid ? 6 : t.op > 0.3 ? 4 : 3;
+    }
+    // latency probe (click-to-first-frame and click-to-settled); the page sets window.__supplyT0 on a click
+    const w = window as unknown as { __supplyT0?: number; __supplyFirst?: number; __supplyMs?: number };
+    if (w.__supplyT0) {
+      const now = performance.now();
+      if (w.__supplyFirst === undefined) w.__supplyFirst = now - w.__supplyT0;
+      if (!moving) {
+        w.__supplyMs = now - w.__supplyT0;
+        w.__supplyT0 = 0;
+      }
+    }
+    if (moving) invalidate();
+    if (moving || (animate && !reduced) || needsPulses.current) placeAll(performance.now() / 1000);
+    projectLabels();
   });
 
-  // ticks the on-demand render loop while arrows are moving and the page is visible
+  // ticks the on-demand render loop while pulses are moving and the page is visible
   useEffect(() => {
-    if (!animate || reduced || !particles.length) return;
+    if (!animate || reduced) return;
     let timer = 0;
     const start = () => {
       if (!timer) timer = window.setInterval(invalidate, 1000 / FPS);
@@ -255,74 +445,13 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
       document.removeEventListener("visibilitychange", vis);
       stop();
     };
-  }, [animate, reduced, particles.length, invalidate]);
+  }, [animate, reduced, invalidate]);
+  useEffect(() => {
+    needsPulses.current = true;
+    invalidate();
+  }, [animate, invalidate]);
 
-  // one label per vessel per side, pushed outward from the circle on a short leader line
-  const { labels, leaders } = useMemo(() => {
-    const out: { key: string; text: string; pos: THREE.Vector3 }[] = [];
-    const segs: number[] = [];
-    if (!flow || !labelSlugs) return { labels: out, leaders: new Float32Array(0) };
-    const mids: { name: string; slug: string; p: THREE.Vector3 }[] = [];
-    for (const [name, seg] of Object.entries(flow.segments)) {
-      const slug = slugOf(name);
-      if (!labelSlugs.has(slug) || !COW_LABEL[slug] || stateOf(name, seg) !== "selected") continue;
-      const line = seg.lines.map(makeLine).sort((a, b) => b.len - a.len)[0];
-      if (!line) continue;
-      at(line, line.len * (slug === "aca" ? 0.2 : slug === "vertebral" ? 0.93 : slug === "ica" ? 0.9 : 0.5));
-      mids.push({ name, slug, p: _p.clone() });
-    }
-    const cx = mids.reduce((a, m) => a + m.p.x, 0) / (mids.length || 1);
-    const cz = mids.reduce((a, m) => a + m.p.z, 0) / (mids.length || 1);
-    // start outward from the circle, then push apart until no two labels are closer than a minimum gap
-    const pts = mids.map((m) => {
-      let dx = m.p.x - cx;
-      let dz = m.p.z - cz;
-      if (m.slug === "acom") [dx, dz] = [0, 1];
-      else if (m.slug === "basilar") [dx, dz] = [-1, -0.2];
-      const l = Math.hypot(dx, dz) || 1;
-      const off = m.slug === "acom" ? 0.012 : 0.02;
-      return { x: m.p.x + (dx / l) * off, z: m.p.z + (dz / l) * off };
-    });
-    const GX = 0.011;
-    const GZ = 0.0065;
-    for (let it = 0; it < 60; it++) {
-      for (let i = 0; i < pts.length; i++)
-        for (let j = i + 1; j < pts.length; j++) {
-          const ox = GX - Math.abs(pts[i].x - pts[j].x);
-          const oz = GZ - Math.abs(pts[i].z - pts[j].z);
-          if (ox > 0 && oz > 0) {
-            // separate along the axis that needs the smaller move
-            if (oz / GZ < ox / GX) {
-              const d = (pts[i].z >= pts[j].z ? 1 : -1) * (oz / 2 + 0.0002);
-              pts[i].z += d;
-              pts[j].z -= d;
-            } else {
-              const d = (pts[i].x >= pts[j].x ? 1 : -1) * (ox / 2 + 0.0002);
-              pts[i].x += d;
-              pts[j].x -= d;
-            }
-          }
-        }
-    }
-    mids.forEach((m, i) => {
-      const pos = new THREE.Vector3(pts[i].x, m.p.y, pts[i].z);
-      out.push({ key: m.name, text: COW_LABEL[m.slug], pos });
-      segs.push(m.p.x, m.p.y, m.p.z, pos.x, pos.y, pos.z);
-    });
-    return { labels: out, leaders: new Float32Array(segs) };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flow, labelSlugs, sig]);
-  const leaderGeo = useMemo(() => {
-    const g = new THREE.BufferGeometry();
-    g.setAttribute("position", new THREE.BufferAttribute(leaders, 3));
-    return g;
-  }, [leaders]);
-  useEffect(() => () => leaderGeo.dispose(), [leaderGeo]);
-
-  // ---- camera: fit the selected vessels (from their centrelines); keep the viewing direction unless asked
-  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
-  const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
-  const size = useThree((s) => s.size);
+  // ---- camera: fit the visible vessels (from their centrelines); keep the viewing direction unless asked
   const moved = useRef(false);
   const lastN = useRef(-1);
   const framed = useRef(false);
@@ -336,29 +465,27 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
     return () => controls.removeEventListener("start", onStart);
   }, [controls]);
   useEffect(() => {
-    if (!flow || !controls) return;
+    if (!flow || !controls || !built) return;
     const box = new THREE.Box3();
     let any = false;
-    // the circle sits in a thin slab; the long vertebrals and carotids below it must not push the camera back
-    for (const [name, seg] of Object.entries(flow.segments)) {
-      const st = stateOf(name, seg);
-      if (st !== "selected" && st !== "idle") continue;
-      for (const flat of seg.lines)
+    for (const name of Object.keys(flow.segments)) {
+      const m = built.recs.get(name)?.style.mode;
+      if (m !== "solid" && m !== "idle" && m !== "blocked" && m !== "starved") continue;
+      for (const flat of built.recs.get(name)?.lines ?? [])
         for (let i = 0; i + 2 < flat.length; i += 3) {
-          if (flat[i + 1] < yMin) continue;
           box.expandByPoint(_p.set(flat[i], flat[i + 1], flat[i + 2]));
           any = true;
         }
     }
     if (!any) return;
-    box.expandByScalar((labelSlugs ? 0.022 : 0.008) + pad);
+    box.expandByScalar((circle ? 0.022 : 0.008) + pad);
     const fresh = lastN.current !== frame.n;
     if (fresh) {
       dirRef.current = frame.dir ?? dirRef.current;
       moved.current = false;
     }
     lastN.current = frame.n;
-    // Keep the student's view: after the first framing the camera only moves on an explicit Frame (frame.n changes), never on a selection change.
+    // The camera only moves on an explicit Frame (frame.n changes), never on a selection change.
     if (!fresh && framed.current) return;
     framed.current = true;
     const apply = () => {
@@ -373,12 +500,13 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
       const inv = probe.matrixWorld.clone().invert();
       const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
       const aspect = size.width > 4 && size.height > 4 ? size.width / size.height : 1.5;
+      const marginX = size.width > 700 ? 1.3 : 1.12; // leave the side margins to the labels
       let D = 0.03;
       for (let i = 0; i < 8; i++) {
         const corner = new THREE.Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);
         const a = corner.clone().sub(c).dot(dir);
-        const v = corner.applyMatrix4(inv);
-        D = Math.max(D, (Math.abs(v.x) / (tanV * aspect)) * 1.12 + a, (Math.abs(v.y) / tanV) * 1.12 + a);
+        const vv = corner.applyMatrix4(inv);
+        D = Math.max(D, (Math.abs(vv.x) / (tanV * aspect)) * marginX + a, (Math.abs(vv.y) / tanV) * 1.18 + a);
       }
       camera.position.copy(c).addScaledVector(dir, D);
       camera.up.set(0, 1, 0);
@@ -387,75 +515,48 @@ export function VesselLayer({ flow, colors, stateOf, sig, animate, labelSlugs, o
       controls.update();
       invalidate();
     };
-    // the viewer fits its own camera when it mounts and resizes; re-apply after it settles
     const ts = [0, 150, 500, 1000, 2000, 3500, 6000].map((ms) => window.setTimeout(apply, ms));
     return () => ts.forEach((t) => window.clearTimeout(t));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flow, controls, frame, sig, pad, size.width, size.height, yMin]);
+  }, [flow, controls, built, frame, sig, pad, size.width, size.height, yMin]);
 
+  const hovered = useRef<string | null>(null);
+  const pickOf = (o: THREE.Object3D) => {
+    const rec = built?.recs.get(o.name);
+    return rec && rec.mesh.userData.pick ? rec : null;
+  };
   return (
     <group>
-      {root && (
+      {built && (
         <primitive
-          object={root}
+          object={built.group}
           onClick={(e: { stopPropagation: () => void; object: THREE.Object3D }) => {
-            const key = byClean.get(clean(e.object.name));
-            const seg = key ? flow?.segments[key] : undefined;
-            if (key && seg && stateOf(key, seg) !== "hidden") {
+            const rec = pickOf(e.object);
+            if (rec) {
               e.stopPropagation();
-              onPick(seg.artery, key);
+              onPick(rec.seg.artery, rec.name);
+            }
+          }}
+          onPointerOver={(e: { stopPropagation: () => void; object: THREE.Object3D }) => {
+            const rec = pickOf(e.object);
+            if (!rec) return;
+            e.stopPropagation();
+            if (hovered.current !== rec.seg.artery) {
+              hovered.current = rec.seg.artery;
+              onHover(rec.seg.artery);
+              document.body.style.cursor = "pointer";
+            }
+          }}
+          onPointerOut={() => {
+            if (hovered.current) {
+              hovered.current = null;
+              onHover(null);
+              document.body.style.cursor = "";
             }
           }}
         />
       )}
       <instancedMesh ref={inst} args={[geo, mat, Math.max(1, particles.length)]} frustumCulled={false} renderOrder={9} raycast={() => null} key={particles.length} />
-      {leaders.length > 0 && (
-        <lineSegments geometry={leaderGeo} renderOrder={8} raycast={() => null}>
-          <lineBasicMaterial color="#cbd5e1" transparent opacity={0.8} depthTest={false} />
-        </lineSegments>
-      )}
-      {labels.map((l) => (
-        <LabelSprite key={l.key} text={l.text} pos={l.pos} />
-      ))}
     </group>
-  );
-}
-
-/** A flat text label that keeps its on-screen size (a sprite, so no DOM is added or removed while the selection changes). */
-function LabelSprite({ text, pos }: { text: string; pos: THREE.Vector3 }) {
-  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
-  const size = useThree((s) => s.size);
-  const { tex, ratio } = useMemo(() => {
-    const dpr = 2;
-    const h = 22 * dpr;
-    const c = document.createElement("canvas");
-    const g = c.getContext("2d")!;
-    const font = `${11 * dpr}px ui-monospace, Menlo, Consolas, monospace`;
-    g.font = font;
-    const w = Math.ceil(g.measureText(text).width + 14 * dpr);
-    c.width = w;
-    c.height = h;
-    g.font = font;
-    g.fillStyle = "rgba(255,255,255,0.94)";
-    g.strokeStyle = "rgba(90,100,115,0.9)";
-    g.lineWidth = 1.5;
-    g.beginPath();
-    g.roundRect(1, 1, w - 2, h - 2, 5 * dpr);
-    g.fill();
-    g.stroke();
-    g.fillStyle = "#1f2937";
-    g.textBaseline = "middle";
-    g.textAlign = "center";
-    g.fillText(text, w / 2, h / 2 + 1);
-    const t = new THREE.CanvasTexture(c);
-    t.colorSpace = THREE.SRGBColorSpace;
-    return { tex: t, ratio: w / h };
-  }, [text]);
-  useEffect(() => () => tex.dispose(), [tex]);
-  const sy = (22 / Math.max(size.height, 1)) * 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
-  return (
-    <sprite position={pos} scale={[sy * ratio, sy, 1]} renderOrder={10} raycast={() => null}>
-      <spriteMaterial map={tex} sizeAttenuation={false} depthTest={false} transparent toneMapped={false} />
-    </sprite>
   );
 }

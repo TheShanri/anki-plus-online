@@ -52,6 +52,8 @@ export interface MapPathway {
 export interface Effect {
   side: "same" | "opp" | "both";
   text: string;
+  /** Only at these cord levels (e.g. the cape of a cervical syrinx); all levels when omitted. */
+  cord?: CordLevel[];
 }
 export interface Site {
   id: string;
@@ -269,8 +271,9 @@ export function predictLesion(input: LesionInput, course: Map<string, CoursePath
     });
   }
   // merge hits of the same pathway for the list, keeping the first stretch as the headline
-  const effects = (site.effects ?? []).map((e) => ({
-    ...e,
+  const effects = (site.effects ?? []).filter((e) => !e.cord || (!!cord && e.cord.includes(cord))).map((e) => ({
+    side: e.side,
+    text: e.text,
     sides: (e.side === "both" ? ["L", "R"] : e.side === "same" ? lesionSides : lesionSides.map(opp)) as Side[],
   }));
   const hitSlugs = new Set(hits.map((h) => h.pathway));

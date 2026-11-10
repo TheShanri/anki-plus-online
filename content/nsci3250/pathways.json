@@ -95,7 +95,7 @@
     "order": 1,
     "cell_body": "dorsal root ganglion",
     "tract": "A-alpha (Ia/Ib) from muscle spindles and Golgi tendon organs, medial DREZ",
-    "synapse": "Clarke's nucleus (C8-L2), ipsilateral",
+    "synapse": "Clarke's nucleus (C8-L3; Lecture 5: C8-L2), ipsilateral",
     "level": "level of entry",
     "decussates": false
    },
@@ -474,7 +474,7 @@
   "decussation": "Crosses to the contralateral side (projects to the contralateral upper limb); the level of crossing is not named in the slides",
   "lesion": {
    "below_decussation": "UMN effects",
-   "above": "decorticate/decerebrate posturing"
+   "above": "lesion above the red nucleus: decorticate posture; below it: decerebrate"
   },
   "sources": [
    "lecture-10",
@@ -498,8 +498,8 @@
   ],
   "decussation": "Not stated in the slides",
   "lesion": {
-   "below_decussation": "UMN effects",
-   "above": "decorticate/decerebrate posturing"
+   "below_decussation": "n/a",
+   "above": "n/a"
   },
   "sources": [
    "lecture-10",
@@ -523,8 +523,8 @@
   ],
   "decussation": "Not stated in the slides",
   "lesion": {
-   "below_decussation": "UMN effects",
-   "above": "decorticate/decerebrate posturing"
+   "below_decussation": "n/a",
+   "above": "n/a"
   },
   "sources": [
    "lecture-10",
@@ -548,8 +548,8 @@
   ],
   "decussation": "Not stated in the slides",
   "lesion": {
-   "below_decussation": "UMN effects",
-   "above": "decorticate/decerebrate posturing"
+   "below_decussation": "n/a",
+   "above": "n/a"
   },
   "sources": [
    "lecture-10",
@@ -1052,7 +1052,7 @@
     "cell_body": "peripheral ganglion of CN VII, IX or X (cell bodies outside the brainstem)",
     "tract": "cranial nerve to the solitary tract",
     "synapse": "solitary nucleus: rostral part for taste, caudal part for cardiovascular, respiratory and GI input",
-    "level": "rostral medulla",
+    "level": "medulla (rostral part: taste; caudal part: visceral)",
     "decussates": false
    },
    {

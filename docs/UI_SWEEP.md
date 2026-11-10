@@ -24,3 +24,16 @@ Shots: `_atlas/ui_sweep/before/` and `_atlas/ui_sweep/after/`.
 | Home/Mock practical panel left-aligned with empty right side at 1440 | not fixed (intentional reading width) |
 
 Not reached: staff dashboard, admin review tool, boss fight, summary, multi-part answers, follow-ups, exam mode run (test account / time; headless shots are slow). Synthwave effect cost not measured.
+
+## Round 2
+
+| Item | Status |
+|---|---|
+| Mock practical left-aligned with empty right side (1440) | fixed: setup beside recent attempts, or a "How a practical works" panel when none |
+| Profile single narrow column at 1024+ | fixed: profile and password side by side from 1024 |
+| Run summary and "Study more" | reached and viewed (before/run_multi_uvm_1440.png), no defects |
+| Synthwave frame times (home, study run, effects on vs `data-effects="off"`) | measured: p50 16.6 ms, p95 16.8 ms either way (one 116 ms load spike on the run page); no effect changes needed |
+| Focus rings | reviewed in CSS: global `:focus-visible` outline plus ring on buttons, inputs, switches, theme cards, chips; no gaps found. Not clicked through by keyboard on every page |
+| 768x1024 / 1024x768 | production 768 shots of home, study viewed (before/prod_*_768.png): fine, with "Atlas quiz" wrapping alone onto a second toolbar row (left). Dev-server shots at those sizes caught loading skeletons (the skeleton looks right) |
+| Multi-part answer, follow-up, boss fight, parking lot | not reached: theory/multi-part cards and bosses are gated on mastery, which the fresh probe account lacks; auto-play via `__ankiEngine` only produced first-look pin cards |
+| Staff dashboard, admin review | not reachable: the probe is a student, and promoting it was blocked by the permission check, so I did not do it |

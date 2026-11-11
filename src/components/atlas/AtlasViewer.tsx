@@ -578,6 +578,7 @@ function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: TH
       const q = quads.current[i];
       if (!q) return;
       p.pl.projectPoint(centre, q.position);
+      q.position.addScaledVector(p.pl.normal, CAP_DEPTH);
       q.lookAt(q.position.clone().add(p.pl.normal));
     });
   });
@@ -598,6 +599,8 @@ function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: TH
 }
 
 const CAP_SCALE = 0.985;
+/** The section face sits this far behind the cut plane, so anything lying on or just behind the plane (medial cortex, deep structures) stays in front of it. */
+const CAP_DEPTH = 0.012;
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 const INFLATE = { value: 0 };
@@ -605,6 +608,12 @@ function inflate(m: THREE.MeshStandardMaterial) {
   m.onBeforeCompile = (s) => {
     s.uniforms.uInflate = INFLATE;
     s.vertexShader = "uniform float uInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uInflate;");
+  };
+  const prev = m.onBeforeCompile;
+  m.onBeforeCompile = (s, r) => {
+    prev.call(m, s, r);
+    // a cut mesh shows its inside: flat, in its own colour, so a section reads as solid tissue of that structure
+    s.fragmentShader = s.fragmentShader.replace("#include <opaque_fragment>", "if (!gl_FrontFacing) outgoingLight = diffuseColor.rgb * 0.93;\n#include <opaque_fragment>");
   };
   m.customProgramCacheKey = () => "atlas-inflate";
 }
@@ -620,7 +629,7 @@ function buildGrossMats(look: Look): Record<string, THREE.MeshStandardMaterial> 
     inflate(out[g]);
   }
   // meshes that are not on the syllabus: a desaturated, slightly lighter warm grey-pink (still "part of the brain"); the lock shows on hover
-  out.locked = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#b3a9aa" : "#d0b6ab", vertexColors: true, roughness: 0.7, metalness: 0 });
+  out.locked = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#b8a9ab" : "#d8b8ab", vertexColors: true, roughness: 0.7, metalness: 0 });
   inflate(out.locked);
   return out;
 }
@@ -687,7 +696,7 @@ function configureGross(
     m.side = planes.length || k === "brainstem" ? THREE.DoubleSide : THREE.FrontSide;
     m.needsUpdate = true;
   }
-  styleHull(hull, look === "regions" ? "#3a3646" : "#6a4e46", solid && op >= 1);
+  styleHull(hull, look === "regions" ? "#3a3646" : "#6a4e46", solid && op >= 1 && planes.length === 0); // outlines are off while cut: their back faces would show through the section
   setInflate(solid && op >= 1);
   hull.clippingPlanes = [...planes, MEDULLA_CUT];
   hull.needsUpdate = true;

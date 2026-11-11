@@ -3,7 +3,7 @@
 import { randomBytes } from "node:crypto";
 import { createClient as createPlainClient } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
-import { newJoinCode } from "@/lib/auth";
+import { newJoinCode, roleChangeError } from "@/lib/auth";
 import { courseRole, isProfRole, isStaffRole } from "@/lib/auth/guard";
 import { SITE_URL, SUPABASE_KEY, SUPABASE_URL } from "@/lib/env";
 import { getViewer } from "@/lib/session";
@@ -85,19 +85,13 @@ export async function setMemberRole(courseId: string, userId: string, role: "stu
   const viewer = await getViewer();
   const admin = createAdminClient();
   if (!viewer || !admin) return fail("Please log in again.");
-  const mine = await courseRole(viewer, courseId);
-  if (!isProfRole(mine)) return fail("Only the professor can change roles.");
-  if (role === "professor" && mine !== "admin") return fail("Only the site admin can make someone a professor.");
-  if (userId === viewer.id && viewer.role !== "admin") return fail("You cannot change your own role.");
-
-  const { data: target } = await admin
-    .from("enrollments")
-    .select("role")
-    .eq("user_id", userId)
-    .eq("course_id", courseId)
-    .maybeSingle();
-  if (!target) return fail("That person is not in this course.");
-  if (target.role === "professor" && mine !== "admin") return fail("Only the site admin can change a professor.");
+  const [mine, { data: target }] = await Promise.all([
+    courseRole(viewer, courseId),
+    admin.from("enrollments").select("role").eq("user_id", userId).eq("course_id", courseId).maybeSingle(),
+  ]);
+  // `role` comes from the client: an unchecked "admin" here made a course admin, who passes every professor check
+  const refused = roleChangeError({ mine, self: userId === viewer.id, siteAdmin: viewer.role === "admin", target: (target?.role as string | undefined) ?? null, role });
+  if (refused) return fail(refused);
 
   const { error } = await admin.from("enrollments").update({ role }).eq("user_id", userId).eq("course_id", courseId);
   if (error) return fail("Could not change the role.");

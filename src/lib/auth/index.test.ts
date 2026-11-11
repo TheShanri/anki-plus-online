@@ -1,6 +1,25 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { joinCodeKey, newJoinCode, safeNext } from "./index.ts";
+import { joinCodeKey, newJoinCode, roleChangeError, safeNext } from "./index.ts";
+
+test("roleChangeError: a professor cannot hand out (or take away) an admin enrolment", () => {
+  const prof = { mine: "professor", self: false, siteAdmin: false };
+  // the server action's role argument comes from the client; "admin" passed the old checks
+  assert.notEqual(roleChangeError({ ...prof, target: "student", role: "admin" }), null);
+  assert.notEqual(roleChangeError({ ...prof, target: "student", role: "owner" }), null);
+  assert.notEqual(roleChangeError({ ...prof, target: "admin", role: "student" }), null);
+  // what a professor may do
+  assert.equal(roleChangeError({ ...prof, target: "student", role: "ta" }), null);
+  assert.equal(roleChangeError({ ...prof, target: "ta", role: "student" }), null);
+  // professor-level changes stay with the site admin
+  assert.notEqual(roleChangeError({ ...prof, target: "ta", role: "professor" }), null);
+  assert.notEqual(roleChangeError({ ...prof, target: "professor", role: "student" }), null);
+  assert.equal(roleChangeError({ mine: "admin", self: false, siteAdmin: true, target: "ta", role: "professor" }), null);
+  // TAs and students change nothing; nobody but the site admin changes their own role; members only
+  assert.notEqual(roleChangeError({ mine: "ta", self: false, siteAdmin: false, target: "student", role: "ta" }), null);
+  assert.notEqual(roleChangeError({ ...prof, self: true, target: "professor", role: "ta" }), null);
+  assert.notEqual(roleChangeError({ ...prof, target: null, role: "ta" }), null);
+});
 
 test("safeNext: same-site paths pass", () => {
   assert.equal(safeNext("/study"), "/study");

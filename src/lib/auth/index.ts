@@ -52,6 +52,25 @@ export function joinCodeKey(code: string): string {
   return String(code ?? "").trim().toUpperCase();
 }
 
+/** Roles a course member can be given from the staff page (an `admin` enrolment is never set or changed there). */
+export const SETTABLE_COURSE_ROLES = ["student", "ta", "professor"] as const;
+export type SettableCourseRole = (typeof SETTABLE_COURSE_ROLES)[number];
+
+/**
+ * Why a staff-page role change is refused, or null when it is allowed. `mine` is the caller's role in the course
+ * ("admin" for the site admin), `target` the member's current enrolment role (null: not in the course). The role
+ * arrives from the client (a server action argument), so it is checked here, not trusted from the type.
+ */
+export function roleChangeError(o: { mine: string | null; self: boolean; siteAdmin: boolean; target: string | null; role: unknown }): string | null {
+  if (o.mine !== "professor" && o.mine !== "admin") return "Only the professor can change roles.";
+  if (!SETTABLE_COURSE_ROLES.includes(o.role as SettableCourseRole)) return "Unknown role.";
+  if (o.role === "professor" && o.mine !== "admin") return "Only the site admin can make someone a professor.";
+  if (o.self && !o.siteAdmin) return "You cannot change your own role.";
+  if (o.target === null) return "That person is not in this course.";
+  if ((o.target === "professor" || o.target === "admin") && o.mine !== "admin") return "Only the site admin can change a professor.";
+  return null;
+}
+
 /** A fresh join code: five letters, a dash, three letters (no 0/O, 1/I). */
 export function newJoinCode(): string {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";

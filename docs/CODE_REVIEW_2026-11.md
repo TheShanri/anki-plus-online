@@ -143,3 +143,64 @@ on to the runner's `window` keydown listener (React's root listener runs first).
 Esc in the box submitted the card and then, now in the reveal, skipped its retype, and Enter on a right answer went
 straight past the reveal. Fix: the window listener ignores events already `defaultPrevented`
 (`StudyRunner.tsx`). Not covered by a unit test (no DOM harness); proven by the event order.
+
+### High: a professor could create a course "admin" (and so make professors)
+`setMemberRole` in `src/app/staff/actions.ts` typed `role` as student/ta/professor but never checked it. A server
+action takes whatever the client sends, and `app_role` includes `admin`. A professor could set any member's
+enrolment to `admin`; `courseRole()` then returns "admin" for that member, who passes the "only the site admin can
+make someone a professor" check. A professor could also change an existing `admin` enrolment.
+- Fix: `roleChangeError()` in `src/lib/auth/index.ts` (pure): only student/ta/professor can be set, and only the
+  site admin changes professor or admin enrolments. The action uses it.
+- Test: `src/lib/auth/index.test.ts` ("roleChangeError: ..."). Live DB: enrolments are 3 students and 1 admin (the
+  owner); no role was changed.
+
+### Medium: daily limits overshot: every follow-up batch handed out the whole remainder again
+`buildStudyPayload` computed `newLeft = newPerDay - newDoneToday` from stored answers only. The client fetches the
+next batch when fewer than 8 cards are queued; the new cards still queued (and answers not stored yet) were in
+`?exclude=` but not counted. With 20 new a day: the first batch has 20 new cards, the fetch after 13 answers gets 7
+more on top of the 7 still queued, 27 in all (and "Study more" overshoots the same way). Same for reviews.
+- Fix: `dailyLeft()` in `src/lib/study/limits.ts`: cards the client holds of the same kind (new / review, by the
+  server's state) count against the limit; `server.ts` uses it for both limits.
+- Test: `src/lib/study/limits.test.ts`.
+
+### Medium: the "Study more" button reloaded the same empty queue
+Commit 8764d55 made "Study more" add 10 new cards past today's limit (`?more=`), but only the Enter key got it; the
+button was a link to `/study/run?scope=...` plus a reload (no `more`, no `course`), i.e. the same queue that had
+just run out. Fix: both use `studyMoreUrl()` (`src/lib/study/scope.ts`, test in `scope.test.ts`), and the button
+first lets the last answers land (`sync.drain`, at most 3 s) since the new batch is built from stored answers.
+
+### Medium: mock practical: a failed "finish" request lost the last station's answer
+`PracticalRunner.finish()` set `finishing` back to false on an error. The runner then showed the last station
+again with a fresh timer (the error text and the "Try again" button were only rendered while finishing, so never
+shown). Moving on stored that station a second time with an empty answer (`cur` was already reset), and the server
+keeps the last entry per card, so the real answer was replaced by "". Fix: stay on the scoring screen with the error
+and "Try again" (`PracticalRunner.tsx`); `advance()` also ignores a second call for the same station (the timer and
+Enter in the same moment). No unit test (component); the sequence follows from the code.
+
+### Medium: feedback / bug report requests that returned 500
+- `app_state` was stored as `JSON.parse(JSON.stringify(appState).slice(0, 6000))`: any state longer than 6000
+  characters is cut mid-token and `JSON.parse` throws, after the screenshot was already uploaded (left orphaned).
+  Fix: `clampState()` keeps the fields that fit. Test: `src/lib/bugs/clean.test.ts` (asserts the old expression
+  throws).
+- `body.type in FEEDBACK_TYPES` is true for "toString", "constructor", "__proto__" (then a 500 from the check
+  constraint); a JSON body of `null` threw a TypeError. Fix: `ownKey()`, `bodyObject()`; same test file.
+- `FeedbackWidget`: a second report sent within the first one's 60 s overwrote `after`: the first report's "after"
+  logs were never sent, its listener kept collecting for the rest of the visit, and its timer later cut the second
+  report's capture short. Fix: `send()` finishes the previous capture first. The done toast read a stale `failed`.
+
+### Medium (migration proposed, not applied): students can write their own mock practical score
+`practical_attempts_own` is `for all ... user_id = auth.uid()`, so a student can PATCH `score`/`max_score`/
+`finished_at` on their own attempt over the REST API, skipping the server's grading; staff see these scores.
+- Code (done): `/api/practical/finish` writes the graded fields with the service role (the attempt is read first
+  through the student's RLS, so it is theirs).
+- Migration (waiting for approval): `supabase/proposed/0091_practical_attempts_lock.sql`, a trigger that keeps
+  graded fields from client writes and checks course membership on insert.
+
+### Medium (migration proposed, not applied): TAs can change course settings and the join code directly
+`courses_staff_update` lets any course staff (TAs too) update `courses` through the REST API with their own token:
+`join_code`, `settings.allowed_email_domains` (the join gate), `code`, `slug` (the media path key). SPEC gives these
+to the professor, and the server actions check it, but RLS allows more. No app code updates `courses` with a user
+token. Migration (waiting for approval): `supabase/proposed/0090_courses_update_professors.sql`.
+
+Proposed migrations live in `supabase/proposed/` so `node scripts/db.mjs migrate` (run by any agent) cannot apply
+them by accident. Move a file into `supabase/migrations/` to approve it.

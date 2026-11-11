@@ -5,6 +5,7 @@ import { fetchAll, fetchRowsByIds } from "@/lib/study/server";
 import { toStudyCard, type CardRow } from "@/lib/study/types";
 import { readSpelling, scoreStation, type StationDraw } from "@/lib/study/practical";
 import { buildKnownNames } from "@/lib/study/grade";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const dynamic = "force-dynamic";
 
@@ -65,7 +66,10 @@ export async function POST(req: NextRequest) {
       followupPoints: s.followupVerdicts.map((v) => v.points),
     };
   });
-  const { error } = await sb
+  // The graded fields are written with the service role (the attempt was read above through the student's RLS, so it
+  // is theirs): supabase/proposed/0091 stops students writing their own score directly.
+  const writer = createAdminClient() ?? sb;
+  const { error } = await writer
     .from("practical_attempts")
     .update({ stations, score, max_score: max, finished_at: new Date().toISOString(), active_ms: p.data.activeMs })
     .eq("id", attempt.id)

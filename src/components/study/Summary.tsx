@@ -6,9 +6,9 @@ import { ArrowLeft, CheckCheck, FastForward, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui";
 import type { StudyEngine } from "@/lib/study/engine";
 import type { AnswerSync } from "@/lib/study/sync";
+import { studyMoreUrl } from "@/lib/study/scope";
 
 export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngine; scope: string; sync: AnswerSync; syncState: { pending: number; error: string | null } }) {
-  void sync;
   const s = engine.stats;
   const mins = Math.max(1, Math.round((engine.deps.now() - s.startedAt) / 60000));
   const acc = s.graded ? Math.round((s.correct / s.graded) * 100) : null;
@@ -31,16 +31,11 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
     }
     setParked([]);
   };
-  // "Study more" past today's limits: 10 more new cards on top of whatever extra this session already had
-  const more = () => {
-    if (sprint) return engine.moreRound();
-    const cur = new URLSearchParams(window.location.search);
-    const extra = (Number(cur.get("more")) || 0) + 10;
-    const q = new URLSearchParams({ scope, more: String(extra) });
-    const course = cur.get("course");
-    if (course) q.set("course", course);
-    router.push(`/study/run?${q}`);
-  };
+  // "Study more" past today's limits: 10 more new cards on top of whatever extra this session already had. The
+  // button and Enter both use it (the button used to reload the same URL, i.e. the same empty queue).
+  // The new batch is built from the stored answers, so let the last ones land first (a few seconds at most).
+  const studyMore = () => void sync.drain(3000).then(() => router.push(studyMoreUrl(window.location.search, scope)));
+  const more = () => (sprint ? engine.moreRound() : studyMore());
   // ANKI+ done screen keys: Enter keeps going, Esc goes back
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -101,7 +96,7 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
         {syncState.pending > 0 && <p className="v-notes" style={{ marginTop: 8 }}>Saving {syncState.pending} answer{syncState.pending === 1 ? "" : "s"}…{syncState.error ? ` ${syncState.error}` : ""}</p>}
         <div className="btn-row" style={{ marginTop: 16 }}>
           {sprint && <Button variant="primary" icon={RotateCcw} onClick={() => engine.moreRound()}>One more round</Button>}
-          <Link className="btn btn-primary" href={`/study/run?scope=${encodeURIComponent(scope)}`} onClick={() => setTimeout(() => window.location.reload(), 0)}><FastForward aria-hidden />Study more</Link>
+          <Button variant="primary" icon={FastForward} onClick={studyMore}>Study more</Button>
           <Link className="btn btn-ghost" href="/study"><ArrowLeft aria-hidden />Back to study</Link>
         </div>
         <p className="help-line" style={{ marginTop: 10 }}>

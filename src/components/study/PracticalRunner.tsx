@@ -97,21 +97,28 @@ function PracticalRun({ started }: { started: Started }) {
   const fields = station ? 1 + station.followups.length : 0;
 
   const finish = useCallback(async () => {
+    if (!finishing) emit("practical_end", {});
     setFinishing(true);
-    emit("practical_end", {});
+    setErr(null);
     try {
-      const r = await fetch("/api/practical/finish", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ attemptId, answers: answers.current, activeMs: Math.min(Date.now() - startedAt.current, 3 * 3_600_000) }) });
-      const j = await r.json();
+      const r = await fetch("/api/practical/finish", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ attemptId, answers: answers.current, activeMs: Math.min(activeMs.current || Date.now() - startedAt.current, 3 * 3_600_000) }) });
+      const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error ?? "Could not score");
       router.push(`/practical/results/${j.id}`);
     } catch (e) {
-      setErr((e as Error).message);
-      setFinishing(false);
+      // Stay on the scoring screen with "Try again": every station is answered. Going back (finishing = false)
+      // showed the last station again with a fresh timer, and moving on from it stored that station a second
+      // time with an empty answer, which replaced the real one.
+      setErr((e as Error).message || "Could not score");
     }
-  }, [attemptId, router]);
+  }, [attemptId, router, finishing]);
 
+  // one answer per station: the timer and an Enter in the same moment both call advance() for the same station
+  const advancedFor = useRef(-1);
   const advance = useCallback(
     (timedOut: boolean) => {
+      if (advancedFor.current === idx) return;
+      advancedFor.current = idx;
       const s = stations[idx];
       answers.current.push({ cardId: s.pin.id, typed: cur.current.typed, followups: s.followups.map((_, i) => cur.current.fu[i] ?? ""), timedOut });
       activeMs.current = Date.now() - startedAt.current;

@@ -4,6 +4,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { CardStateRow } from "../fsrs.ts";
 import { readLearnerSettings, type LearnerSettings } from "./settings.ts";
 import { buildQueue, solidStructures, phaseOf } from "./queue.ts";
+import { dailyLeft } from "./limits.ts";
 import { toStudyCard, type CardRow, type LadderRow, type StructureLite, type StudyCard, type StudyPayload } from "./types.ts";
 import { activeSpots, type PatternRow, type TrapRow, type TrapSpot, ARM_AT } from "./traps.ts";
 export type { StudyPayload };
@@ -259,8 +260,10 @@ export async function buildStudyPayload(
   // daily counts
   const newDoneToday = newDone.count ?? 0;
   const reviewsDoneToday = revDone.count ?? 0;
-  const newLeft = Math.max(0, learner.study.newPerDay + Math.max(0, Math.min(200, o.extraNew ?? 0)) - newDoneToday);
-  const reviewsLeft = Math.max(0, learner.study.reviewsPerDay - reviewsDoneToday);
+  // cards the client still holds (queued, or answered but not stored yet) count against today's limits too
+  const held = { excluded: o.exclude, courseCards: new Set(idx.cards.map((c) => c.id)), states: idx.states, now };
+  const newLeft = dailyLeft({ ...held, kind: "new", perDay: learner.study.newPerDay, extra: o.extraNew, doneToday: newDoneToday });
+  const reviewsLeft = dailyLeft({ ...held, kind: "review", perDay: learner.study.reviewsPerDay, doneToday: reviewsDoneToday });
 
   // scope
   const topicSet = scopeTopicIds(idx, o.scope);

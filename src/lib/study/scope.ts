@@ -38,6 +38,17 @@ export function parseScope(s: string | null | undefined): Scope {
   return { type: "all" };
 }
 
+/** "Study more" on the done screen: the same scope (and course) with 10 more new cards than this session had past
+ *  today's limit. `search` is the current page's query string. */
+export function studyMoreUrl(search: string, scope: string): string {
+  const cur = new URLSearchParams(search);
+  const extra = (Number(cur.get("more")) || 0) + 10;
+  const q = new URLSearchParams({ scope, more: String(extra) });
+  const course = cur.get("course");
+  if (course) q.set("course", course);
+  return `/study/run?${q}`;
+}
+
 /** Scopes that pick cards by content rather than by topic: they ignore the topic filter. */
 export function isContentScope(s: Scope): boolean {
   return s.type === "structure" || s.type === "structures" || s.type === "tag" || s.type === "bslevel" || s.type === "bsregion" || s.type === "bsall";

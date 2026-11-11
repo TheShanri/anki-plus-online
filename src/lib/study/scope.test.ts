@@ -1,6 +1,16 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parseScope, isContentScope } from "./scope.ts";
+import { parseScope, isContentScope, studyMoreUrl } from "./scope.ts";
+
+test("studyMoreUrl: 10 more new cards each time, same scope and course", () => {
+  const first = new URL(studyMoreUrl("?scope=unit%3Au2&course=NSCI3250A", "unit:u2"), "https://x");
+  assert.equal(first.pathname, "/study/run");
+  assert.equal(first.searchParams.get("scope"), "unit:u2");
+  assert.equal(first.searchParams.get("more"), "10");
+  assert.equal(first.searchParams.get("course"), "NSCI3250A");
+  // pressed again on the next done screen: 20 (the page key changes, so a fresh session loads)
+  assert.equal(new URL(studyMoreUrl(first.search, "unit:u2"), "https://x").searchParams.get("more"), "20");
+});
 
 test("parseScope: the existing scopes are unchanged", () => {
   assert.deepEqual(parseScope(null), { type: "all" });

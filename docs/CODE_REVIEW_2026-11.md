@@ -202,5 +202,47 @@ Enter in the same moment). No unit test (component); the sequence follows from t
 to the professor, and the server actions check it, but RLS allows more. No app code updates `courses` with a user
 token. Migration (waiting for approval): `supabase/proposed/0090_courses_update_professors.sql`.
 
+### Low-medium: a study-settings change could drop another one made at the same moment
+`PATCH /api/study/settings` read the whole `user_settings.settings` document, merged, and upserted it back. Two
+quick toggles from the gear, or a toggle next to a theme save (the theme RPC 0041 merges atomically so that it
+"cannot clobber the engine's keys"), read the same document, and the later write dropped the other change, theme and
+UI prefs included. Fix: the write is a compare-and-set on `updated_at` (re-read and retry, at most 4 times; 409
+after). Checked on the live DB with a test user (created and deleted): after a theme save in between, the stale
+write matches 0 rows and the retry keeps `theme` and `ui`. No unit test (route; the merge itself is tested).
+
 Proposed migrations live in `supabase/proposed/` so `node scripts/db.mjs migrate` (run by any agent) cannot apply
 them by accident. Move a file into `supabase/migrations/` to approve it.
+
+## Performance
+
+Measured with `node --conditions=react-server scripts/bench-queue.mjs [runs]` (new): it builds the study queue with
+the real `buildStudyPayload` as a test student (created and deleted by the script) against the live database, from
+this machine (so absolute times include ~100-300 ms per round trip to Supabase; on Vercel each round trip is far
+shorter, the number of sequential round trips is what carries over). `BENCH_TRACE=1` prints each request's start/end.
+A/B runs were interleaved (old = `server.ts` of 08296a9, kept beside it for the run, then deleted).
+
+| first batch (new student, warm) | before | after |
+|---|---|---|
+| sequential round trips | 4 | 3 |
+| median of 5 runs, 3 interleaved rounds | 1174 / 1160 / 957 ms | 879 / 862 / 768 ms |
+| Supabase requests | 12 | 12 |
+| payload | 71.7 KB (11.9 KB gzip) | same |
+
+- The student's own notes (`mnemonics`) were a fourth round trip after the cards; they now load with the cards
+  (only explicit follow-up cards, rare, need a second look). `server.ts`.
+- Follow-up batch with the first batch still queued: before 10 requests, 29.4 KB, ~730-870 ms, and it handed out a
+  second set of new cards (the daily-limit bug above); after 7 requests, 1 KB, ~340-430 ms, no new cards.
+- Payload: 43 KB of the 72 KB first batch is `names` (every structure name, for "that is another structure"),
+  sent once per session; 12 KB gzipped in all. Left as is.
+- Study page JavaScript: `Reveal.tsx` imported `@/lib/atlas/catalog` statically, which pulls `atlas-links.json` and
+  `atlas-skull.json` (70 KB minified, 8.7 KB gzip) into the study route only to decide whether to show "View in the
+  atlas". It is now imported on the first reveal (`useAtlasTarget`). No other static import of it on the study,
+  home or settings paths. three.js, NiiVue and modern-screenshot are only loaded dynamically outside the atlas.
+  (No `next build` here, so no bundle-analyzer numbers.)
+- Indexes: every hot query has one (`card_states`/`card_ladder` by user, `review_logs (user_id, reviewed_at)`,
+  `cards (course_id, status, position)`, `mnemonics (user_id, card_id)` unique, `card_traps (user_id, card_id)`).
+  The database is small (3 students); latency is round trips, not query plans. No index migration proposed.
+
+## Hygiene
+- Scan of `src`, `scripts`, `supabase` (391 text files): all valid UTF-8, no control or invisible characters
+  (U+0000-001F except tab/newline/CR, U+007F, U+200B-200F, U+2028/2029, U+202A-202E, U+2060, U+FEFF).

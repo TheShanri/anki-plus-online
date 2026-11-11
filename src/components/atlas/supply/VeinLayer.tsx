@@ -76,6 +76,19 @@ function orient(id: string, f: number[]): number[] {
   return f;
 }
 
+/** New instanced meshes start with identity matrices (a 1 m cone at the origin) until the first frame places them: hide them at once. */
+function initInstances(ref: { current: THREE.InstancedMesh | null }) {
+  return (m: THREE.InstancedMesh | null) => {
+    // eslint-disable-next-line react-hooks/immutability
+    ref.current = m;
+    if (!m || m.userData.zeroed) return;
+    m.userData.zeroed = true;
+    const z = new THREE.Matrix4().makeScale(0, 0, 0);
+    for (let i = 0; i < m.count; i++) m.setMatrixAt(i, z);
+    m.instanceMatrix.needsUpdate = true;
+  };
+}
+
 export function VeinLayer({ ids, current, animate, bus }: { ids: Set<string>; current: string[]; animate: boolean; bus: LabelBus }) {
   const invalidate = useThree((s) => s.invalidate);
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
@@ -308,7 +321,7 @@ export function VeinLayer({ ids, current, animate, bus }: { ids: Set<string>; cu
   return (
     <group>
       <primitive object={tubes.g} raycast={() => null} />
-      <instancedMesh ref={inst} args={[geo, mat, Math.max(1, parts.length)]} frustumCulled={false} renderOrder={9} raycast={() => null} key={parts.length} />
+      <instancedMesh ref={initInstances(inst)} args={[geo, mat, Math.max(1, parts.length)]} frustumCulled={false} renderOrder={9} raycast={() => null} key={parts.length} />
     </group>
   );
 }

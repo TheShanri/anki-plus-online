@@ -28,7 +28,7 @@ const MODES: { id: Mode; label: string; short: string }[] = [
   { id: "bleeds", label: "Bleeds", short: "Bleeds" },
 ];
 type Selected = { kind: "unit"; unit: SupplyUnit } | { kind: "artery"; id: string } | null;
-type ViewId = "inferior" | "left" | "midsagittal";
+type ViewId = "inferior" | "left" | "midsagittal" | "superior" | "posterior";
 
 function typing(e: KeyboardEvent): boolean {
   const t = e.target as HTMLElement | null;
@@ -60,7 +60,7 @@ const ARTERY_GROUPS: { label: string; ids: string[] }[] = [
 const DEFAULT_SEL = ["ica", "aca", "mca", "pca", "pcomm", "pontine", "vert"];
 const colorMap = new Map(ARTERIES.map((a) => [a.id, a.color]));
 /** What a selected artery supplies, for the territory layers (the ICA feeds the ACA and MCA). */
-const terrOf = (a: string) => (a === "ica" ? ["aca", "mca"] : [a]);
+const terrOf = (a: string) => (a === "ica" ? ["aca", "mca"] : a === "vert" ? ["vert", "pica", "asa"] : [a]);
 const HIDDEN: SegStyle = { mode: "hidden", flow: false };
 const FAINT: SegStyle = { mode: "faint", flow: false };
 const BLOCK_RED = "#d1495b";
@@ -69,7 +69,20 @@ const VIEWS: { id: ViewId; label: string }[] = [
   { id: "inferior", label: "Inferior" },
   { id: "left", label: "Lateral" },
   { id: "midsagittal", label: "Medial" },
+  { id: "superior", label: "Superior" },
+  { id: "posterior", label: "Posterior" },
 ];
+/** Territories that sit mostly on a surface the default Inferior view cannot see: a hint and a button, never an automatic camera move. */
+const VIEW_HINT: Record<string, { view: ViewId; text: string }> = {
+  sca: { view: "superior", text: "Mostly on the top of the cerebellum: view from Superior." },
+  pica: { view: "inferior", text: "Mostly on the underside of the cerebellum (Inferior view); the Posterior view shows its back." },
+  aica: { view: "inferior", text: "The flocculus and the anterior inferior cerebellum: Inferior view." },
+  pca: { view: "inferior", text: "Inferior temporal and occipital lobes show best from Inferior; the occipital pole from Posterior." },
+};
+/** Cerebellar surface units: drawn solid so that only the surface facing the camera shows (nothing behind shows through). */
+const CEREBELLAR = new Set(["Superior cerebellar hemisphere", "Inferior cerebellar hemisphere", "Superior and posterior vermis", "Inferior vermis (pyramis, uvula, nodule)", "Cerebellar tonsil", "Flocculus"]);
+const CEREBELLAR_ARTERIES = new Set(["sca", "aica", "pica"]);
+const CEREBELLUM_NEUTRAL = "#a89b97";
 /** Mesh ids of the dural sinuses drawn in the drainage layer, by step id. */
 const SINUS_MESH: Record<string, string[]> = {
   sss: ["superior-sagittal-sinus"],
@@ -90,20 +103,29 @@ const CORTEX_END = SUPPLY.units.findIndex((u) => u.name === "Corpus callosum");
 /** Cortical units are drawn by the soft territory skin; the viewer overlays only draw the deep structures. */
 function territoryOverlays(arteries: Set<string>, variant: string, opts: { opacity: number; shell: number; color?: string; side?: "L" | "R"; keyPrefix: string }): AtlasOverlay[] {
   const groups = new Map<string, string[]>();
+  const neutral: string[] = [];
+  const cerebellar = [...arteries].some((a) => CEREBELLAR_ARTERIES.has(a));
   for (const [ui, u] of SUPPLY.units.entries()) {
     if (ui < CORTEX_END) continue;
     const a = unitArteries(u, variant)[0];
-    if (!arteries.has(a)) continue;
-    const key = u.shell ? `${a}~s` : a;
+    const cb = CEREBELLAR.has(u.name);
+    if (!arteries.has(a)) {
+      if (cb && cerebellar) neutral.push(...u.meshes);
+      continue;
+    }
+    const key = cb ? `${a}~c` : u.shell ? `${a}~s` : a;
     groups.set(key, [...(groups.get(key) ?? []), ...u.meshes]);
   }
-  return [...groups].map(([key, ids]) => ({
+  const out = [...groups].map(([key, ids]) => ({
     key: `${opts.keyPrefix}${key}`,
     ids,
     color: opts.color ?? ARTERY.get(key.split("~")[0])?.color ?? "#999999",
-    opacity: key.endsWith("~s") ? opts.shell : opts.opacity,
+    // cerebellar surfaces are solid (depth-correct); deep structures sit inside a translucent brain, so they need a stronger tint
+    opacity: key.endsWith("~c") ? 0.92 : key.endsWith("~s") ? Math.max(opts.shell, 0.4) : Math.max(opts.opacity, 0.7),
     side: opts.side,
   }));
+  if (neutral.length) out.push({ key: `${opts.keyPrefix}cb~n`, ids: neutral, color: CEREBELLUM_NEUTRAL, opacity: 0.92, side: opts.side });
+  return out;
 }
 
 function stamp() {
@@ -275,9 +297,8 @@ export function SupplyMap() {
   const veinIds = useMemo(() => (mode === "veins" ? new Set(VEIN_STEPS.slice(0, vstep + 1).flatMap((x) => x.ids)) : new Set<string>()), [mode, vstep]);
   const veinCurrent = useMemo(() => (mode === "veins" ? VEIN_STEPS[vstep].ids : []), [mode, vstep]);
 
-  const boOverride = typeof window !== "undefined" ? Number(new URLSearchParams(window.location.search).get("bo")) : 0;
   // a matte brain with visible gyri and a crisp edge (about 0.55), so the territory skin and the vessels read on it; the sinuses sit outside it
-  const brainOpacity = boOverride > 0 ? boOverride : mode === "veins" ? 0.32 : 0.55;
+  const brainOpacity = mode === "veins" ? 0.32 : 0.55;
 
   const tipText = useCallback(
     (id: string, name: string) => {
@@ -535,6 +556,7 @@ export function SupplyMap() {
               onUnit={(u) => setSelected({ kind: "unit", unit: u })}
               showComm={showComm}
               noMesh={noMesh}
+              onView={askView}
               onHover={setHover}
             />
           )}
@@ -606,6 +628,7 @@ function ExplorePanel(p: {
   onUnit: (u: SupplyUnit) => void;
   showComm: boolean;
   noMesh: Set<string>;
+  onView: (v: ViewId) => void;
   onHover: (id: string | null) => void;
 }) {
   const plic = SUPPLY.units.find((u) => u.variants);
@@ -661,7 +684,7 @@ function ExplorePanel(p: {
       </p>
       {p.showComm && <p className="rounded-sm border border-panel-border px-2 py-1.5 text-xs text-text-dim">{COMM_NOTE}</p>}
 
-      <InfoPanel selected={p.selected} variant={p.variant} onUnit={p.onUnit} />
+      <InfoPanel selected={p.selected} variant={p.variant} onUnit={p.onUnit} onView={p.onView} />
 
       <div className="grid gap-1.5">
         {p.gate.asking ? (
@@ -886,7 +909,7 @@ function BleedsPanel() {
   );
 }
 
-function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant: string; onUnit: (u: SupplyUnit) => void }) {
+function InfoPanel({ selected, variant, onUnit, onView }: { selected: Selected; variant: string; onUnit: (u: SupplyUnit) => void; onView: (v: ViewId) => void }) {
   if (!selected) {
     return (
       <div className="panel text-sm text-text-dim" aria-live="polite">
@@ -907,6 +930,14 @@ function InfoPanel({ selected, variant, onUnit }: { selected: Selected; variant:
           {a.name}
         </h2>
         <p className="text-sm">{a.territory}</p>
+        {VIEW_HINT[a.id] && (
+          <p className="flex flex-wrap items-center gap-2 text-xs text-text-dim">
+            {VIEW_HINT[a.id].text}
+            <button type="button" className="btn !px-2 !py-0.5 text-xs" onClick={() => onView(VIEW_HINT[a.id].view)}>
+              {VIEWS.find((v) => v.id === VIEW_HINT[a.id].view)?.label} view
+            </button>
+          </p>
+        )}
         {occ && (
           <p className="flex items-start gap-2 rounded-sm border border-again/40 bg-again/5 px-2 py-1 text-sm">
             <DeficitIcons text={occ.deficit} />

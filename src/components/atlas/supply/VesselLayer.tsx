@@ -170,6 +170,19 @@ type Rec = {
 type Particle = { rec: Rec; line: Line; phase: number; r: number; fwdStatic: number; alt: 1 | -1 };
 
 const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.066, 1.56, -0.088), new THREE.Vector3(0.066, 1.7, 0.086));
+/** New instanced meshes start with identity matrices (a 1 m cone at the origin) until the first frame places them: hide them at once. */
+function initInstances(ref: { current: THREE.InstancedMesh | null }) {
+  return (m: THREE.InstancedMesh | null) => {
+    // eslint-disable-next-line react-hooks/immutability
+    ref.current = m;
+    if (!m || m.userData.zeroed) return;
+    m.userData.zeroed = true;
+    const z = new THREE.Matrix4().makeScale(0, 0, 0);
+    for (let i = 0; i < m.count; i++) m.setMatrixAt(i, z);
+    m.instanceMatrix.needsUpdate = true;
+  };
+}
+
 const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
 
 /** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
@@ -570,7 +583,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
           }}
         />
       )}
-      <instancedMesh ref={inst} args={[geo, mat, Math.max(1, particles.length)]} frustumCulled={false} renderOrder={9} raycast={() => null} key={particles.length} />
+      <instancedMesh ref={initInstances(inst)} args={[geo, mat, Math.max(1, particles.length)]} frustumCulled={false} renderOrder={9} raycast={() => null} key={particles.length} />
     </group>
   );
 }

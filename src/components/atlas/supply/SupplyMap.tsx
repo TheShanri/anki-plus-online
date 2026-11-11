@@ -59,6 +59,8 @@ const ARTERY_GROUPS: { label: string; ids: string[] }[] = [
 ];
 const DEFAULT_SEL = ["ica", "aca", "mca", "pca", "pcomm", "pontine", "vert"];
 const colorMap = new Map(ARTERIES.map((a) => [a.id, a.color]));
+/** What a selected artery supplies, for the territory layers (the ICA feeds the ACA and MCA). */
+const terrOf = (a: string) => (a === "ica" ? ["aca", "mca"] : [a]);
 const HIDDEN: SegStyle = { mode: "hidden", flow: false };
 const FAINT: SegStyle = { mode: "faint", flow: false };
 const BLOCK_RED = "#d1495b";
@@ -114,7 +116,7 @@ export function SupplyMap() {
   const [mode, setMode] = useState<Mode>("explore");
   const [sel, setSel] = useState<Set<string>>(() => new Set(DEFAULT_SEL));
   const [cow, setCow] = useState(true);
-  const [territories, setTerritories] = useState(false);
+  const [territories, setTerritories] = useState(true);
   const [animate, setAnimate] = useState(true);
   const [variant, setVariant] = useState("lab16");
   const [selected, setSelected] = useState<Selected>(null);
@@ -130,6 +132,11 @@ export function SupplyMap() {
   /** Medial view: the left hemisphere is cut away (viewer cut at the midline) and seen from the left. */
   const [medial, setMedial] = useState(false);
   const gate = useSupplementaryGate("supply");
+  const noMesh = useMemo(() => {
+    if (!flow) return new Set<string>();
+    const has = new Set(Object.values(flow.segments).map((x) => x.artery));
+    return new Set(ARTERIES.map((a) => a.id).filter((id) => !has.has(id)));
+  }, [flow]);
   const bus = useMemo<LabelBus>(() => createLabelBus(), []);
   const veinBus = useMemo<LabelBus>(() => createLabelBus(), []);
 
@@ -229,7 +236,7 @@ export function SupplyMap() {
   const overlays = useMemo<AtlasOverlay[]>(() => {
     if (mode === "explore" || mode === "tour") {
       const show = new Set<string>();
-      if (mode === "explore" && territories) sel.forEach((a) => show.add(a));
+      if (mode === "explore" && territories && !cow) sel.forEach((a) => terrOf(a).forEach((t) => show.add(t)));
       if (mode === "tour") (TOUR[step].territory ?? []).forEach((a) => show.add(a));
       const out = territoryOverlays(show, variant, { opacity: 0.42, shell: 0.26, keyPrefix: "t:" });
       if (hover && !show.has(hover) && hover !== "ica") out.push(...territoryOverlays(new Set([hover]), variant, { opacity: 0.3, shell: 0.18, keyPrefix: "h:" }));
@@ -246,14 +253,14 @@ export function SupplyMap() {
       return out;
     }
     return [];
-  }, [mode, sel, territories, variant, step, hover, blockInfo, vstep]);
+  }, [mode, sel, territories, cow, variant, step, hover, blockInfo, vstep]);
 
   // cortical territories (soft skin): which arteries, how strongly, and in which colours
   const { terr, terrColors, terrSide } = useMemo(() => {
     const show: TerritoryShow[] = [];
     let cols = colorMap;
     let side: "L" | "R" | undefined;
-    if (mode === "explore" && territories) sel.forEach((a) => show.push({ artery: a, alpha: 1 }));
+    if (mode === "explore" && territories && !cow) sel.forEach((a) => terrOf(a).forEach((t) => show.push({ artery: t, alpha: 1 })));
     if (mode === "tour") (TOUR[step].territory ?? []).forEach((a) => show.push({ artery: a, alpha: 1 }));
     if ((mode === "explore" || mode === "tour") && hover && !show.some((s) => s.artery === hover)) show.push({ artery: hover, alpha: 0.5 });
     if (mode === "block" && blockInfo) {
@@ -263,12 +270,14 @@ export function SupplyMap() {
     }
     if (medial) side = "R";
     return { terr: show, terrColors: cols, terrSide: side };
-  }, [mode, sel, territories, step, hover, blockInfo, medial]);
+  }, [mode, sel, territories, cow, step, hover, blockInfo, medial]);
 
   const veinIds = useMemo(() => (mode === "veins" ? new Set(VEIN_STEPS.slice(0, vstep + 1).flatMap((x) => x.ids)) : new Set<string>()), [mode, vstep]);
   const veinCurrent = useMemo(() => (mode === "veins" ? VEIN_STEPS[vstep].ids : []), [mode, vstep]);
 
-  const brainOpacity = mode === "explore" ? (cow && !territories ? 0.035 : sel.size === 0 ? 0.28 : territories ? 0.05 : 0.12) : mode === "tour" ? ((TOUR[step].territory?.length ?? 0) > 0 ? 0.05 : 0.07) : mode === "block" ? 0.07 : mode === "veins" ? 0.1 : 0.2;
+  const boOverride = typeof window !== "undefined" ? Number(new URLSearchParams(window.location.search).get("bo")) : 0;
+  // a matte brain with visible gyri and a crisp edge (about 0.55), so the territory skin and the vessels read on it; the sinuses sit outside it
+  const brainOpacity = boOverride > 0 ? boOverride : mode === "veins" ? 0.32 : 0.55;
 
   const tipText = useCallback(
     (id: string, name: string) => {
@@ -406,9 +415,9 @@ export function SupplyMap() {
   return (
     <div className="relative flex h-[calc(100dvh-148px)] min-h-[560px] w-full min-w-0 flex-col overflow-hidden rounded-card border border-panel-border bg-bg-2">
       <div className="flex flex-none flex-wrap items-center gap-1.5 border-b border-panel-border bg-panel px-2 py-1.5">
-        <div role="tablist" aria-label="Blood supply modes" className="flex flex-none gap-1">
+        <div role="tablist" aria-label="Blood supply modes" className="flex flex-none gap-1 max-sm:gap-0.5">
           {MODES.map((m) => (
-            <button key={m.id} type="button" role="tab" aria-selected={mode === m.id} className={`btn flex-none ${mode === m.id ? "btn-primary" : ""}`} onClick={() => goMode(m.id)}>
+            <button key={m.id} type="button" role="tab" aria-selected={mode === m.id} className={`btn flex-none max-sm:!px-2.5 ${mode === m.id ? "btn-primary" : ""}`} onClick={() => goMode(m.id)}>
               <span className="sm:hidden">{m.short}</span>
               <span className="hidden sm:inline">{m.label}</span>
             </button>
@@ -525,6 +534,7 @@ export function SupplyMap() {
               selected={selected}
               onUnit={(u) => setSelected({ kind: "unit", unit: u })}
               showComm={showComm}
+              noMesh={noMesh}
               onHover={setHover}
             />
           )}
@@ -595,6 +605,7 @@ function ExplorePanel(p: {
   selected: Selected;
   onUnit: (u: SupplyUnit) => void;
   showComm: boolean;
+  noMesh: Set<string>;
   onHover: (id: string | null) => void;
 }) {
   const plic = SUPPLY.units.find((u) => u.variants);
@@ -637,6 +648,7 @@ function ExplorePanel(p: {
                 >
                   <Swatch color={a.color} />
                   <span className="truncate">{a.name}</span>
+                  {p.noMesh.has(a.id) && <span className="flex-none rounded-sm border border-panel-border px-1 text-[10px] text-text-faint" title="The model has no vessel mesh for this artery; its territory is still shown">no 3D vessel</span>}
                   <span className="kbd ml-auto flex-none">{ARTERY_KEYS[i]}</span>
                 </button>
               );
@@ -645,7 +657,7 @@ function ExplorePanel(p: {
         ))}
       </div>
       <p className="text-xs text-text-faint">
-        Selected arteries are solid with pulses running the way the blood flows. Turn on Territories to see what each supplies; everything else fades back. The anterior choroidal artery has no vessel mesh; its territory is still coloured.
+        Selected arteries are solid with pulses running the way the blood flows. Turn on Territories to see what each supplies; everything else fades back. Arteries marked &ldquo;no 3D vessel&rdquo; have no mesh in the model; their territory is still coloured.
       </p>
       {p.showComm && <p className="rounded-sm border border-panel-border px-2 py-1.5 text-xs text-text-dim">{COMM_NOTE}</p>}
 

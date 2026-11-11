@@ -161,6 +161,7 @@ type Rec = {
   samples: THREE.Vector3[];
   mesh: THREE.Mesh;
   mat: THREE.MeshStandardMaterial;
+  outline: THREE.Mesh;
   cur: { op: number; col: THREE.Color; em: number };
   tgt: { op: number; col: THREE.Color; em: number; solid: boolean };
   style: SegStyle;
@@ -168,6 +169,7 @@ type Rec = {
 };
 type Particle = { rec: Rec; line: Line; phase: number; r: number; fwdStatic: number; alt: 1 | -1 };
 
+const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.072, 1.56, -0.09), new THREE.Vector3(0.072, 1.7, 0.088));
 const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
 
 /** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
@@ -196,12 +198,17 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
     const recs = new Map<string, Rec>();
     for (const [name, seg] of Object.entries(flow.segments)) {
       const slug = slugOf(name);
-      const r0 = Math.max(seg.radius * 0.8, 0.00024);
+      const r0 = Math.max(seg.radius * (seg.radius > 0.0012 ? 0.85 : 1.15), 0.00042);
       const r1 = r0 * (TRUNKS.has(slug) ? 0.88 : 0.62);
       const lines0 = seg.lines.map((l) => clipFlat(l, yMin)).filter((l): l is number[] => !!l);
       const geo = taperedTube(lines0, r0, r1);
       const mat = new THREE.MeshStandardMaterial({ color: GREY, roughness: 0.42, metalness: 0.04, transparent: true, opacity: 0, depthWrite: false });
       const mesh = new THREE.Mesh(geo, mat);
+      const omat = new THREE.MeshBasicMaterial({ color: "#161a22", side: THREE.BackSide, transparent: true, opacity: 0, depthWrite: false });
+      const outline = new THREE.Mesh(taperedTube(lines0, r0 * 1.12 + 0.00007, r1 * 1.12 + 0.00007), omat);
+      outline.raycast = () => null;
+      outline.visible = false;
+      group.add(outline);
       mesh.name = name;
       mesh.visible = false;
       group.add(mesh);
@@ -213,7 +220,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
         at(lines[0], lines[0].len * (ANCHOR_AT[slug] ?? 0.5));
         anchor = _p.clone();
       }
-      recs.set(name, { name, seg, lines: lines0, samples, mesh, mat, cur: { op: 0, col: new THREE.Color(GREY), em: 0 }, tgt: { op: 0, col: new THREE.Color(GREY), em: 0, solid: false }, style: { mode: "hidden", flow: false }, anchor });
+      recs.set(name, { name, seg, lines: lines0, samples, mesh, mat, outline, cur: { op: 0, col: new THREE.Color(GREY), em: 0 }, tgt: { op: 0, col: new THREE.Color(GREY), em: 0, solid: false }, style: { mode: "hidden", flow: false }, anchor });
     }
     return { group, recs };
   }, [flow, yMin]);
@@ -222,6 +229,8 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
       built?.recs.forEach((r) => {
         r.mesh.geometry.dispose();
         r.mat.dispose();
+        r.outline.geometry.dispose();
+        (r.outline.material as THREE.Material).dispose();
       });
     },
     [built],
@@ -349,14 +358,14 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
       switch (st.mode) {
         case "solid":
           op = 1;
-          em = 0.16;
+          em = 0.3;
           solid = true;
           break;
         case "idle":
           op = 0.62;
           break;
         case "faint":
-          op = 0.1;
+          op = 0.3;
           c = grey;
           break;
         case "blocked":
@@ -411,6 +420,10 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
       m.depthWrite = opaque || c.op > 0.55;
       rec.mesh.visible = c.op > 0.004;
       rec.mesh.renderOrder = t.solid ? 6 : t.op > 0.3 ? 4 : 3;
+      const om = rec.outline.material as THREE.MeshBasicMaterial;
+      om.opacity = rec.style.mode === "faint" || rec.style.mode === "hidden" ? 0 : c.op * 0.5;
+      rec.outline.visible = om.opacity > 0.01 && rec.mesh.visible;
+      rec.outline.renderOrder = rec.mesh.renderOrder - 0.5;
     }
     // latency probe (click-to-first-frame and click-to-settled); the page sets window.__supplyT0 on a click
     const w = window as unknown as { __supplyT0?: number; __supplyFirst?: number; __supplyMs?: number };
@@ -479,6 +492,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
     }
     if (!any) return;
     box.expandByScalar((circle ? 0.022 : 0.008) + pad);
+    box.union(BRAIN_BOX); // the whole brain always fits the canvas (the camera frames the brain, not the selection)
     const fresh = lastN.current !== frame.n;
     if (fresh) {
       dirRef.current = frame.dir ?? dirRef.current;
@@ -500,13 +514,13 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
       const inv = probe.matrixWorld.clone().invert();
       const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
       const aspect = size.width > 4 && size.height > 4 ? size.width / size.height : 1.5;
-      const marginX = size.width > 700 ? 1.3 : 1.12; // leave the side margins to the labels
+      const marginX = size.width > 700 ? 1.22 : 1.08; // leave the side margins to the labels
       let D = 0.03;
       for (let i = 0; i < 8; i++) {
         const corner = new THREE.Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);
         const a = corner.clone().sub(c).dot(dir);
         const vv = corner.applyMatrix4(inv);
-        D = Math.max(D, (Math.abs(vv.x) / (tanV * aspect)) * marginX + a, (Math.abs(vv.y) / tanV) * 1.18 + a);
+        D = Math.max(D, (Math.abs(vv.x) / (tanV * aspect)) * marginX + a, (Math.abs(vv.y) / tanV) * 1.08 + a);
       }
       camera.position.copy(c).addScaledVector(dir, D);
       camera.up.set(0, 1, 0);

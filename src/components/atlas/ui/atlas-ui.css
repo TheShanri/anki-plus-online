@@ -5,6 +5,7 @@
   background: color-mix(in srgb, var(--panel-solid, var(--bg-2)) 88%, transparent); backdrop-filter: blur(6px);
   box-shadow: var(--shadow-card);
 }
+.atl-narrow .atl-div { display: none; }
 .atl-grp { display: inline-flex; align-items: center; gap: 1px; }
 .atl-div { width: 1px; align-self: stretch; margin: 3px 3px; background: var(--panel-border); flex: none; }
 .atl-btn {

@@ -42,11 +42,11 @@ export function frameBox(brain: THREE.Box3, target: THREE.Box3 | null): THREE.Bo
   const tc = target.getCenter(new THREE.Vector3());
   const big = Math.max(ts.x / bs.x, ts.y / bs.y, ts.z / bs.z);
   if (big > 0.6) return brain.clone();
-  // context: at least 54% of the brain around the centre on every axis, or 1.7x the target, whichever is larger
+  // context: at least 76% of the brain around the centre on every axis, or 1.7x the target, whichever is larger
   const half = new THREE.Vector3(
-    Math.max(ts.x * 0.85, bs.x * 0.27),
-    Math.max(ts.y * 0.85, bs.y * 0.27),
-    Math.max(ts.z * 0.85, bs.z * 0.27),
+    Math.max(ts.x * 0.85, bs.x * 0.38),
+    Math.max(ts.y * 0.85, bs.y * 0.38),
+    Math.max(ts.z * 0.85, bs.z * 0.38),
   );
   const out = new THREE.Box3(tc.clone().sub(half), tc.clone().add(half));
   return out;

@@ -2094,6 +2094,9 @@ export default function AtlasViewer({
     };
   }, [cutNow, deep, deepFailed, index]);
   const deepLoading = cutNow && !deep && !deepFailed;
+  const [keyOpen, setKeyOpen] = useState(true);
+  // a narrow viewer (info panel open) drops the view name and the dividers so the bar stays on one row
+  const narrow = (Number(sizeKey.split("x")[0]) || 9999) < 880;
 
   const resolved = useMemo(() => (index ? resolveStructureIds(index, structureIds) : []), [index, structureIds]);
   const key = resolved.join(",") + "|" + mode;
@@ -2156,6 +2159,35 @@ export default function AtlasViewer({
     if (!ctxBox) return ax === "x" ? [-0.08, 0.08] : ax === "y" ? [1.53, 1.68] : [-0.11, 0.1];
     return [ctxBox.min[ax], ctxBox.max[ax]];
   }, [ctxBox, clip.axis]);
+  /** The deep structures a section shows: those the plane cuts, or that lie within 12 mm behind it. */
+  const sectionKey = useMemo(() => {
+    if (!cutNow || !deep || !index) return [] as { id: string; name: string; colour: string }[];
+    const planes: THREE.Plane[] = [];
+    if (view === "midsagittal" && !multi) planes.push(new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0));
+    if (clip.axis !== "off") {
+      const pl = new THREE.Plane();
+      cutPlane(clip.axis, clipRange[0] + clip.t * (clipRange[1] - clipRange[0]), clip.flip, pl);
+      planes.push(pl);
+    }
+    const out: { id: string; name: string; colour: string }[] = [];
+    for (const [id, colour] of DEEP) {
+      const e = index.structures[id];
+      if (!e?.bbox) continue;
+      const [a, b] = e.bbox;
+      const ok = planes.every((pl) => {
+        let dmin = Infinity;
+        let dmax = -Infinity;
+        for (const x of [a[0], b[0]]) for (const y of [a[1], b[1]]) for (const z of [a[2], b[2]]) {
+          const d = pl.normal.x * x + pl.normal.y * y + pl.normal.z * z + pl.constant;
+          dmin = Math.min(dmin, d);
+          dmax = Math.max(dmax, d);
+        }
+        return dmax >= 0 && dmin <= 0.012;
+      });
+      if (ok) out.push({ id, name: e.name, colour });
+    }
+    return out;
+  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange]);
   const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
@@ -2180,10 +2212,11 @@ export default function AtlasViewer({
     if (axis === "off") return setClip((c) => ({ ...c, axis }));
     const lo = ctxBox ? ctxBox.min[axis] : axis === "x" ? -0.08 : axis === "y" ? 1.53 : -0.11;
     const hi = ctxBox ? ctxBox.max[axis] : axis === "x" ? 0.08 : axis === "y" ? 1.68 : 0.1;
-    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? 0.012 : axis === "y" ? 1.625 : (lo + hi) / 2; // coronal: the anterior commissure and basal ganglia; transverse: the thalamus
+    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? 0.012 : axis === "y" ? 1.625 : axis === "x" ? -0.02 : (lo + hi) / 2; // coronal: the anterior commissure and basal ganglia; transverse: the thalamus
     setClip({ axis, t: Math.min(1, Math.max(0, (c - lo) / (hi - lo))), flip: false });
     if (axis === "y") setViewUser("superior");
     else if (axis === "z") setViewUser("anterior");
+    else if (axis === "x") setViewUser("left");
     trackAtlas({ type: "cut_used", plane: CLIP_AXES.find((a) => a.id === axis)?.plane ?? axis });
   }
   const toggleAxis = (axis: ClipAxis) => (clip.axis === axis ? pickAxis("off") : pickAxis(axis));
@@ -2606,6 +2639,23 @@ export default function AtlasViewer({
             {latin && <span className="hidden text-xs italic text-text-dim sm:inline">{latin}</span>}
           </div>
         )}
+        {sectionKey.length > 0 && !multi && (
+          <div className="atl-chip pointer-events-auto flex-col items-stretch gap-1 !py-1.5" role="group" aria-label="Colour key for the section">
+            <button type="button" className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-text-dim" onClick={() => setKeyOpen((o) => !o)} aria-expanded={keyOpen}>
+              {keyOpen ? <ChevronDown size={11} aria-hidden /> : <ChevronUp size={11} aria-hidden />} Section key
+            </button>
+            {keyOpen && (
+              <ul className="grid gap-0.5 text-[11px] text-text">
+                {sectionKey.map((k) => (
+                  <li key={k.id} className="flex items-center gap-1.5">
+                    <span className="inline-block h-2.5 w-2.5 shrink-0 rounded-sm border border-panel-border" style={{ background: k.colour }} aria-hidden />
+                    {k.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
         {approximate && <div className="atl-chip w-fit border-hard font-mono text-[10px] uppercase tracking-widest text-hard">Approximate location</div>}
       </div>
 
@@ -2658,14 +2708,14 @@ export default function AtlasViewer({
             <IconBtn label="Flip the cut side" icon={<FlipHorizontal2 />} onClick={() => setClip((c) => ({ ...c, flip: !c.flip }))} />
           </div>
         )}
-        <div ref={barRef} className="atl-bar pointer-events-auto" role="toolbar" aria-label="3D view controls">
+        <div ref={barRef} className={`atl-bar pointer-events-auto${narrow ? " atl-narrow" : ""}`} role="toolbar" aria-label="3D view controls">
           <IconBtn label={barOpen ? "Hide controls" : "Show controls"} icon={barOpen ? <ChevronDown /> : <ChevronUp />} onClick={() => setBarOpen((o) => !o)} />
           {barOpen && (
             <>
               <Divider />
               {!multi && (
                 <Group label="View">
-                  <Popover trigger={({ open, toggle }) => <IconBtn label="Camera view" keys="1-7" icon={<Orbit />} text={VIEW_SHORT[view]} on={open} onClick={toggle} />}>
+                  <Popover trigger={({ open, toggle }) => <IconBtn label="Camera view" keys="1-7" icon={<Orbit />} text={narrow ? undefined : VIEW_SHORT[view]} on={open} onClick={toggle} />}>
                     {(close) =>
                       VIEWS.filter((v) => !v.hidden).map((v) => (
                         <MenuItem

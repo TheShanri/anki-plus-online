@@ -2,6 +2,7 @@
 //   node --import ./tools/pathways/v3/lib/register.mjs tools/pathways/v3/build.mjs [slug ...]   (all pathways when none given)
 // Inputs: _atlas/pw3_raw/beats.json (dump-beats.mjs), _atlas/pw3_raw/nerves.json + body.glb (export_v3.py), public/atlas/*.
 // Output: public/pathways/v3/<slug>[-<limb>].json. The build fails (exit 1) when validate.mjs finds any fibre outside its host.
+import { setPriority } from "node:os";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
@@ -9,6 +10,9 @@ import { ROOT } from "./lib/geom.mjs";
 import { PROXIES, TUBES } from "./lib/fibre.mjs";
 import { curveByKey } from "./lib/nerves.mjs";
 import { loadSpecs } from "./spec/index.mjs";
+try {
+  setPriority(19); // idle priority: the build and the validator never compete with interactive work
+} catch {}
 
 const BEATS = JSON.parse(readFileSync(join(ROOT, "_atlas/pw3_raw/beats.json"), "utf8"));
 const OUT = join(ROOT, "public/pathways/v3");

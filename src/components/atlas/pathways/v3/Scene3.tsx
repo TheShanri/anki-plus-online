@@ -129,7 +129,7 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
     view = { dir: [0.62 * sx, 0.22, -0.75], up: [0, 1, 0] };
   } else view = VIEW_DEFS.posterior;
   // the cut opens the vertebral column along the cord
-  const cordBeat = box.max.y < 1.552 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.03;
+  const cordBeat = box.min.y < 1.548 && box.max.y < 1.575 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.03;
   const wantCut = bi !== null ? data.beats[bi].cut : undefined;
   const cc = box.getCenter(new THREE.Vector3());
   const cut: Stage["cut"] =
@@ -138,7 +138,11 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
       : wantCut
         ? { axis: wantCut, pos: wantCut === "x" ? 0.0006 * (view.dir[0] >= 0 ? 1 : -1) : cc[wantCut], flip: view.dir[wantCut === "x" ? 0 : wantCut === "y" ? 1 : 2] < 0 }
         : cordBeat
-          ? { axis: "x", pos: 0.0006 * (view.dir[0] >= 0 ? 1 : -1), flip: view.dir[0] < 0 }
+          ? // open the vertebral column on the camera's side: a coronal cut through the cord for front / back views, sagittal
+            // (just past the midline) for side views; the cord and roots are hosts and are never cut
+            Math.abs(view.dir[2]) >= Math.abs(view.dir[0])
+            ? { axis: "z", pos: cc.z, flip: view.dir[2] < 0 }
+            : { axis: "x", pos: 0.0006 * (view.dir[0] >= 0 ? 1 : -1), flip: view.dir[0] < 0 }
           : { axis: null, pos: 0, flip: false };
   return { box: box.expandByScalar(Math.max(0.003, box.getSize(new THREE.Vector3()).length() * 0.06)), view, cut };
 }

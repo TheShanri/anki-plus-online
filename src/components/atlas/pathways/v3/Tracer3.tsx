@@ -133,7 +133,6 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   const [hoverKey, setHoverKey] = useState<string | null>(null);
   const [openKey, setOpenKey] = useState<string | null>(null);
   const [barOpen, setBarOpen] = useState(true);
-  const [railBig, setRailBig] = useState(false);
   const [data, setData] = useState<{ key: string; d: V3Data } | null>(null);
   const [dataErr, setDataErr] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
@@ -402,7 +401,8 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   const visual = !!mp.visual;
   const order = Math.min(4, (beat?.neuron ?? 0) + 1) as 1 | 2 | 3 | 4;
   const badge = /lcst|acst|corticobulbar|umn-lmn/.test(slug) ? (order === 1 ? "UMN" : "LMN") : `${ORDINAL[order]}`;
-  // which side the signal is on now (the physical side of the focused fibre at the end of this beat)
+  // which side the signal is on now: the physical side of the focused fibre at the end of this beat, and whether that is the
+  // same side as the stimulus / limb (the body side the user picked) or the opposite one
   const sideNow = useMemo(() => {
     if (!d || all) return null;
     const x = d.beats[cur]?.[primary];
@@ -410,8 +410,17 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
     const p = x.f.length ? x.f[x.f.length - 1].pts.slice(-3) : (x.soma ?? x.syn ?? x.start)?.p;
     if (!p) return null;
     const px = p[0];
-    return Math.abs(px) < 0.0006 ? "Midline" : px > 0 ? "Left" : "Right";
+    if (Math.abs(px) < 0.0006) return { phys: null, rel: "mid" as const };
+    const phys: Side = px > 0 ? "L" : "R";
+    return { phys, rel: phys === primary ? ("same" as const) : ("opp" as const) };
   }, [d, cur, primary, all]);
+  const sideText = (() => {
+    if (!sideNow) return null;
+    if (sideNow.rel === "mid") return "Crossing the midline";
+    const rel = sideNow.rel === "same" ? `same side as the ${noun}` : `opposite the ${noun}`;
+    if (sideMode === "both") return `Each side: ${rel}`;
+    return `${sideNow.phys === "L" ? "Left" : "Right"} side, ${rel}`;
+  })();
   const inset = useMemo(() => (d && !all ? insetFor(d, cur, primary, sideAlpha) : null), [d, cur, primary, all, sideAlpha]);
   const [pulseKey, setPulseKey] = useState(0);
   useEffect(() => setPulseKey((k) => k + 1), [cur]);
@@ -665,12 +674,14 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
                   {badge}
                 </span>
                 <h2 className="font-display text-lg leading-tight">{withGate(copy.title)}</h2>
-                {sideNow && (
-                  <span className="chip" title="Where the signal is now">
-                    <svg width="18" height="6" aria-hidden className="mr-1 inline-block align-middle">
-                      <line x1="0" y1="3" x2="18" y2="3" stroke="currentColor" strokeWidth="2.4" strokeDasharray={primary === "R" ? "5 3" : undefined} />
-                    </svg>
-                    {sideNow === "Midline" ? "Crossing the midline" : `${sideNow} side`}
+                {sideText && (
+                  <span className="chip" title="Which side the signal is on now">
+                    {sideMode !== "both" && (
+                      <svg width="18" height="6" aria-hidden className="mr-1 inline-block align-middle">
+                        <line x1="0" y1="3" x2="18" y2="3" stroke="currentColor" strokeWidth="2.4" strokeDasharray={primary === "R" ? "5 3" : undefined} />
+                      </svg>
+                    )}
+                    {sideText}
                     {copy.where ? ` · ${copy.where}` : ""}
                   </span>
                 )}
@@ -718,13 +729,11 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
       </div>
 
       {/* side rail: the textbook diagram (synced both ways), then the neuron in detail */}
-      <aside className={`grid min-w-0 content-start gap-3 lg:flex-none lg:overflow-y-auto ${railBig ? "lg:w-[520px]" : "lg:w-[380px]"}`} aria-label="Diagram and notes">
+      <aside className="pw3-rail grid min-w-0 content-start gap-3 lg:w-[392px] lg:flex-none lg:overflow-y-auto" aria-label="Diagram and notes">
+        <style>{`@media (max-width:1023px){.pw3-rail .pwd-fitbox{height:min(68dvh,560px)}}`}</style>
         <div className="panel grid gap-1 p-2">
-          <div className="flex items-center gap-2">
-            <p className="eyebrow min-w-0 flex-1">{cp.name}</p>
-            <IconButton label={railBig ? "Narrow the diagram" : "Widen the diagram"} icon={railBig ? <Minimize2 size={14} /> : <Maximize2 size={14} />} onClick={() => setRailBig((v) => !v)} size={26} tip="bottom" />
-          </div>
-          <div className="min-h-[300px] max-lg:min-h-[64dvh] lg:min-h-[520px]">
+          <p className="eyebrow min-w-0">{cp.name}: the textbook diagram</p>
+          <div className="min-h-[300px] lg:h-[560px]">
             <Schematic slug={slug} beats={bs.beats} cur={curBeat} reveal={reveal} hoverKey={hoverKey} onHover={setHoverKey} onPick={(k) => setOpenKey(k)} reduced={reduced} sideAlpha={sideAlpha} />
           </div>
         </div>

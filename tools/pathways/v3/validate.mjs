@@ -3,11 +3,15 @@
 // every cell body and synapse sits inside its nucleus, every crossing happens inside the decussation structure at the
 // slide's level, and every nucleus proxy lies inside its parent structure.
 //   node tools/pathways/v3/validate.mjs [slug ...]        exit 1 on any failure; prints one line per pathway
+import { setPriority } from "node:os";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, atlasMeshes, nodeMesh } from "./lib/geom.mjs";
 import { Curve } from "./lib/nerves.mjs";
 import { partMesh, partMeshMirrored } from "./lib/fibre.mjs";
+try {
+  setPriority(19); // idle priority: the build and the validator never compete with interactive work
+} catch {}
 
 const DIR = join(ROOT, "public/pathways/v3");
 const BODY = existsSync(join(DIR, "body.glb")) ? join(DIR, "body.glb") : join(ROOT, "_atlas/pw3_raw/body.glb");

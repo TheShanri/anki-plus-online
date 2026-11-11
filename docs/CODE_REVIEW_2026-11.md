@@ -246,3 +246,76 @@ A/B runs were interleaved (old = `server.ts` of 08296a9, kept beside it for the 
 ## Hygiene
 - Scan of `src`, `scripts`, `supabase` (391 text files): all valid UTF-8, no control or invisible characters
   (U+0000-001F except tab/newline/CR, U+007F, U+200B-200F, U+2028/2029, U+202A-202E, U+2060, U+FEFF).
+
+## Migrations waiting for approval (written, NOT applied)
+In `supabase/proposed/` (outside `supabase/migrations/`, so `node scripts/db.mjs migrate` skips them). To approve:
+move the file into `supabase/migrations/` and run `node scripts/db.mjs migrate`. Both are additive and change no rows.
+1. `0090_courses_update_professors.sql`: `courses` updates by course professors (and the admin) only, not TAs.
+   The app is unaffected: every course write is a server action with the service role.
+2. `0091_practical_attempts_lock.sql`: a trigger keeps the graded fields of `practical_attempts` (score, max_score,
+   finished_at, stations, ...) from writes with a student's token, and checks course membership on insert. Needs
+   commit 67bcf4e deployed first (the finish route writes the grade with the service role).
+
+## Found, not fixed (ranked)
+- **Medium, achievements lost update** (`src/lib/achievements/server.ts` processBatch/saveState): counts are read,
+  incremented in memory and upserted as absolute values, so two batches at once (the pagehide beacon next to a fetch,
+  or two tabs) lose increments and XP. If one of the three upserts fails, the event ids are rolled back and the
+  retry counts the stats that did commit twice. Needs an increment in SQL (an RPC, so a migration). Not proven by a
+  test.
+- **Low-medium, TTS button states** (`src/lib/tts/player.ts`, `SpeakButton.tsx`): a `speak()` superseded by another
+  speak or `stop()` returns without calling its `onState("idle")`, so that button keeps its spinner; the shared
+  `audio.onpause` is reassigned to the next caller before the old clip's pause event fires, so the old button stays
+  "playing" (its next click stops instead of playing); any SpeakButton unmounting calls the global `stop()`, which
+  can cut the automatic read-aloud. Cosmetic; fix sketched (keep one `active {id, onState}`, settle it on stop/next
+  speak, release only one's own clip on unmount).
+- **Low-medium, achievements client** (`src/lib/achievements/client.ts`): a batch answered 500 is retried forever
+  and blocks every later event; `authFailed` stays set until a reload or an `online` event.
+- **Low, heartbeat minutes** (`/api/study/heartbeat`, `engine_heartbeat`): each request may add up to 120 s, with no
+  cap against wall time, so a client can inflate its own active minutes (shown to staff); `p_course` is not checked
+  against the caller's enrolments. Needs an RPC change (migration).
+- **Low, feedback**: the routes accept anonymous callers (SPEC: every page, every role) with an in-memory,
+  per-instance rate limit; `sendBeacon` of the after-logs ignores its return value (payloads over 64 KB are dropped
+  silently); the append route is select-then-update (racy, but token-protected).
+- **Low, RLS**: a student can clear their own `profiles.extra.must_change_password` (profiles_update_own); a student
+  can change `course_id`/`card_id` of their own mnemonic (mnemonics_own_update). No data of others is exposed.
+- **Low, answer sync across tabs**: two tabs share one localStorage key and each saves its own queue over the
+  other's. Answers still go out from memory (the server is idempotent); only the crash-safety copy can be lost.
+- **Low, ladder on choice/true-false cards**: on a wrong pick the server resets the clean streak (`ladderWrite`), the
+  engine keeps it locally until the session ends.
+- **Low, API error text**: several routes return Postgres `error.message` to the client.
+- Checked, not a bug: `evaluate()` in `src/lib/achievements/engine.ts` defaults to the UTC day, but the snapshot only
+  uses the best streak, which does not depend on today.
+
+## Chosen not to change
+- The answer replay re-applies only the card state, not the lost attempt's ladder and trap writes (their inputs are
+  not stored in the log).
+- `reviewsLeft` counts learning steps (`state_before != 0`) against the review limit: looks like an owner choice.
+- The 43 KB `names` map in the first batch (needed for grading feedback, 12 KB gzip in all).
+- Staff RLS reads of `study_sessions`, `user_achievements`, `profiles` per student: the app does not use them for
+  item-level data, and the SPEC's summaries include sessions; owner decision.
+
+## For the atlas agents (not touched)
+- `supabase/migrations/0080_atlas_progress.sql`: policies `atlas_seen_staff_read` and `atlas_stats_staff_read` give
+  TAs and professors item-level atlas rows per student (which structures a student opened, counts, dates), against
+  the SPEC's "summaries only". Suggest dropping them and exposing an aggregate function.
+- `src/lib/atlas/catalog.ts` imports two JSON files (70 KB) at module level; the study page now imports it lazily.
+
+## Not reviewed
+- `scripts/seed.mjs` (the content seed) and `scripts/**` other than `db.mjs` and `perf-probe.mjs`.
+- The admin content-review tool (`ReviewRunner`, `CardPreview`, `/admin/review`), the staff dashboard components
+  (`Dashboard.tsx`, `Charts.tsx`, `Members.tsx`) beyond the RLS and server-action checks, `src/lib/home/data.ts`,
+  `/profile` and `/course` pages.
+- Grading internals (`grade.ts`, `typer.ts`, `variants.ts`, `parts.ts`, `traps.ts`, `trapguard.ts`) beyond the
+  fixes listed above from the first pass.
+- No headless UI check of the keyboard fix, the Study more button or the practical retry screen (daytime limits).
+- eslint over the whole in-scope tree: the full run was cut off; every file changed in this review lints clean.
+
+## Next to review
+1. Achievements lost update (SQL increment RPC) and the heartbeat cap: both need a small migration.
+2. TTS player button states (sketch above).
+3. `scripts/seed.mjs` (idempotency, what it deletes), then the admin review tool.
+
+## Commits (this review)
+77ae620, b1fbead (first pass); 08296a9 (study sync), e07e757 (staff roles), c8f2bb7 (daily limits, Study more,
+practical retry), 91cdd33 (feedback routes and widget), 67bcf4e (practical grade with the service role, proposed
+migrations), e48063c (queue round trip, lazy atlas catalog, bench script), 7003bd2 (settings compare-and-set).

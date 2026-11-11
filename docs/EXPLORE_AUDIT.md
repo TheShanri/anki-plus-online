@@ -33,3 +33,12 @@ tools/atlas/optimize_fill.sh      # meshopt, named nodes kept (--join false --fl
 See the list below; each item is marked done or open.
 
 (Audit list is filled in as it is walked.)
+
+### Student audit status (not walked yet)
+
+Open: cold-load loader (sits at 50% on "Starting the 3D viewer" in dev), search/select flow, neighbours, multi-view, 3D/MRI switch, skull layer auto on/off, locked regions and the stale "curious" card after its layer is hidden, labels, keyboard, 390x844 pass. Mobile first look (390x844) is clean: icon-only mode tabs, brain framed, toolbar collapsed behind the chevron.
+
+### Known remaining gaps
+
+- A few pinholes at the orbital roof (context shell), and the medial frontal window in the X-ray look and in translucent context mode (no cap there).
+- /atlas/supply Lateral shows a large pale-blue quad. Reproduced with `CutCap` disabled and `brainfill.glb` not loaded (supply does not pass `solidCuts`), so it comes from the supply scene, not from the cap.

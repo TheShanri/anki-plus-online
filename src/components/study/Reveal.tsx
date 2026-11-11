@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { atlasTargetForSlug } from "@/lib/atlas/catalog";
 import type { StudyEngine, Current } from "@/lib/study/engine";
 import type { Grade } from "@/lib/fsrs";
 import type { DiffOp } from "@/lib/study/text";
@@ -13,9 +12,30 @@ import { SpeakButton } from "@/components/tts/SpeakButton";
 // the atlas opens in a modal over the card (loaded on first use), so the session is never left
 const AtlasPeek = dynamic(() => import("@/components/atlas/AtlasPeek"), { ssr: false });
 
+// Which structures the atlas can show comes from ~70 KB of atlas JSON: loaded on the first reveal instead of with
+// the study page's own JavaScript.
+let catalog: Promise<typeof import("@/lib/atlas/catalog")> | null = null;
+function useAtlasTarget(slug: string): boolean {
+  const [known, setKnown] = useState<{ slug: string; has: boolean } | null>(null);
+  useEffect(() => {
+    let live = true;
+    (catalog ??= import("@/lib/atlas/catalog")).then(
+      (m) => live && setKnown({ slug, has: !!m.atlasTargetForSlug(slug) }),
+      () => {
+        catalog = null;
+      },
+    );
+    return () => {
+      live = false;
+    };
+  }, [slug]);
+  return known?.slug === slug && known.has;
+}
+
 function AtlasButton({ slug, name }: { slug: string; name: string }) {
   const [open, setOpen] = useState(false);
-  if (!atlasTargetForSlug(slug)) return null;
+  const has = useAtlasTarget(slug);
+  if (!has) return null;
   return (
     <>
       <button type="button" className="text-accent-2 underline-offset-2 hover:underline" onClick={() => setOpen(true)}>

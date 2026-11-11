@@ -336,9 +336,13 @@ export async function buildStudyPayload(
   const theoryIds = o.scope.type === "weak" ? [] : idx.cards.filter((c) => c.kind === "theory" && c.structure_id && structIds.has(c.structure_id)).map((c) => c.id);
   type StructRow = { id: string; slug: string; canonical_name: string; synonyms: string[]; region: string | null; info: StructureLite["info"] };
   const STRUCT_COLS = "id, slug, canonical_name, synonyms, region, info";
-  const [firstRows, structFirst] = await Promise.all([
-    fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", [...new Set([...ids, ...theoryIds])]),
+  const firstIds = [...new Set([...ids, ...theoryIds])];
+  type NoteRow = { card_id: string; body: string };
+  // the student's own notes load with the cards (one round trip less); only explicit follow-ups need a second look
+  const [firstRows, structFirst, notesFirst] = await Promise.all([
+    fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", firstIds),
     fetchRowsByIds<StructRow>(sb, "structures", STRUCT_COLS, [...structIds]),
+    fetchRowsByIds<NoteRow>(sb, "mnemonics", "card_id, body", firstIds, "card_id", { user_id: userId }),
   ]);
   // explicit follow-up cards named by the batch's pins (practical exam stems), resolved by slug
   const slugToId = new Map(idx.cards.map((c) => [c.slug, c.id]));
@@ -357,12 +361,13 @@ export async function buildStudyPayload(
 
   const haveStruct = new Set(structFirst.map((r) => r.id));
   const moreStructIds = [...new Set(cards.map((c) => c.structureId).filter((x): x is string => !!x && !haveStruct.has(x)))];
-  const [structMore, noteRows, [trapRowsAll, patRows], names] = await Promise.all([
+  const [structMore, notesMore, [trapRowsAll, patRows], names] = await Promise.all([
     moreStructIds.length ? fetchRowsByIds<StructRow>(sb, "structures", STRUCT_COLS, moreStructIds) : Promise.resolve([] as StructRow[]),
-    fetchRowsByIds<{ card_id: string; body: string }>(sb, "mnemonics", "card_id, body", allIds, "card_id", { user_id: userId }),
+    extraRows.length ? fetchRowsByIds<NoteRow>(sb, "mnemonics", "card_id, body", extraRows.map((r) => r.id), "card_id", { user_id: userId }) : Promise.resolve([] as NoteRow[]),
     trapsP,
     namesP,
   ]);
+  const noteRows = [...notesFirst, ...notesMore];
   const structures: Record<string, StructureLite> = {};
   for (const s of [...structFirst, ...structMore]) structures[s.id] = { id: s.id, slug: s.slug, name: s.canonical_name, synonyms: s.synonyms ?? [], region: s.region, info: s.info ?? {} };
 

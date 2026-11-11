@@ -12,7 +12,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Peripheral nerve to the dorsal root ganglion (C7)",
+   "caption": "Peripheral nerve to the dorsal root ganglion (C8)",
    "cross": false,
    "info": "p1",
    "phys": "i",
@@ -93,7 +93,7 @@
   {
    "kind": "path",
    "neuron": 2,
-   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "caption": "Internal capsule (thalamocortical fibres)",
    "cross": false,
    "info": "p10",
    "phys": "c",
@@ -212,7 +212,7 @@
   {
    "kind": "path",
    "neuron": 2,
-   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "caption": "Internal capsule (thalamocortical fibres)",
    "cross": false,
    "info": "p10",
    "phys": "c",
@@ -250,7 +250,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Peripheral nerve to the dorsal root ganglion (C7)",
+   "caption": "Peripheral nerve to the dorsal root ganglion (C8)",
    "cross": false,
    "info": "p1",
    "phys": "i",
@@ -322,7 +322,7 @@
   {
    "kind": "path",
    "neuron": 2,
-   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "caption": "Internal capsule (thalamocortical fibres)",
    "cross": false,
    "info": "p9",
    "phys": "c",
@@ -432,7 +432,7 @@
   {
    "kind": "path",
    "neuron": 2,
-   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "caption": "Internal capsule (thalamocortical fibres)",
    "cross": false,
    "info": "p9",
    "phys": "c",
@@ -634,7 +634,7 @@
   {
    "kind": "path",
    "neuron": 2,
-   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "caption": "Internal capsule (thalamocortical fibres)",
    "cross": false,
    "info": "p10",
    "phys": "c",
@@ -681,7 +681,7 @@
   {
    "kind": "node",
    "neuron": 0,
-   "caption": "Trigeminal ganglion (also geniculate, glossopharyngeal, vagal ganglia)",
+   "caption": "Trigeminal ganglion",
    "cross": false,
    "info": "n2",
    "rel": "i",
@@ -753,7 +753,7 @@
   {
    "kind": "path",
    "neuron": 2,
-   "caption": "Internal capsule, posterior limb (thalamocortical fibres)",
+   "caption": "Internal capsule (thalamocortical fibres)",
    "cross": false,
    "info": "p10",
    "phys": "c",
@@ -800,7 +800,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Corona radiata and internal capsule (posterior limb)",
+   "caption": "Corona radiata and internal capsule",
    "cross": false,
    "info": "p2",
    "phys": "c",
@@ -987,7 +987,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Cerebral peduncle (medial part)",
+   "caption": "Cerebral peduncle",
    "cross": false,
    "info": "p3",
    "phys": "c",
@@ -1373,7 +1373,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Tectum, dorsal tegmental decussation · crosses the midline",
+   "caption": "Tectum (superior and inferior colliculi); the axons cross · crosses the midline",
    "cross": true,
    "info": "p1",
    "phys": "cross",
@@ -1411,7 +1411,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Reticular formation (mostly ipsilateral)",
+   "caption": "Reticular formation (pontine and medullary)",
    "cross": false,
    "info": "p1",
    "phys": "i",
@@ -2010,7 +2010,7 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "Olfactory tract to the olfactory cortex and amygdala (bypasses the thalamus)",
+   "caption": "Olfactory tract to the olfactory tubercle and prepiriform cortex (bypasses the thalamus)",
    "cross": false,
    "info": "p5",
    "phys": "i",
@@ -2019,7 +2019,7 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "Olfactory tubercle, prepiriform cortex, amygdala",
+   "caption": "Olfactory tubercle and prepiriform cortex",
    "cross": false,
    "info": "n6",
    "rel": "i",
@@ -2602,7 +2602,7 @@
   {
    "kind": "path",
    "neuron": 0,
-   "caption": "Peripheral nerve to the dorsal root ganglion (C7)",
+   "caption": "Peripheral nerve to the dorsal root ganglion (C8)",
    "cross": false,
    "info": "p1",
    "phys": "i",

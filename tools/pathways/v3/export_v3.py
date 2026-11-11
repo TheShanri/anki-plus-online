@@ -147,6 +147,16 @@ for sd, S in ((".l", "L"), (".r", "R")):
     groups.append(group(f"muscle_calf_{S}", pick(CALF, side=sd), 900))
     groups.append(group(f"bones_hip_{S}", pick(r"^Hip bone", side=sd), 1500))
 groups.append(group("bones_sacrum", pick(r"^(Sacrum|Coccyx)$"), 1500))
+# targets of the cranial and axial motor pathways (corneal blink, corticobulbar, tectospinal, anterior corticospinal)
+FACE = r"^(Orbicularis oculi|Zygomaticus major|Orbicularis oris|Buccinator|Depressor anguli oris|Frontalis|Occipitofrontalis)"
+NECK = r"^(Sternocleidomastoid muscle|Splenius capitis|Trapezius)"
+BACK = r"^(Iliocostalis|Longissimus|Spinalis|Erector spinae|Multifidus)"
+for sd, S in ((".l", "L"), (".r", "R")):
+    groups.append(group(f"muscle_face_{S}", pick(FACE, side=sd), 900))
+    groups.append(group(f"muscle_eyelid_{S}", pick(r"^(Orbital|Palpebral) part of orbicularis oculi", side=sd), 900))
+    groups.append(group(f"iris_{S}", pick(r"^Iris", side=sd), 900))
+    groups.append(group(f"muscle_neck_{S}", pick(NECK, side=sd), 900))
+    groups.append(group(f"muscle_back_{S}", pick(BACK, side=sd), 900))
 groups = [g for g in groups if g]
 
 bpy.ops.object.select_all(action="DESELECT")

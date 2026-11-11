@@ -8,12 +8,14 @@ import { spawnSync } from "node:child_process";
 import { ROOT } from "./lib/geom.mjs";
 import { PROXIES, TUBES } from "./lib/fibre.mjs";
 import { curveByKey } from "./lib/nerves.mjs";
-import { ALL } from "./spec/index.mjs";
+import { loadSpecs } from "./spec/index.mjs";
 
 const BEATS = JSON.parse(readFileSync(join(ROOT, "_atlas/pw3_raw/beats.json"), "utf8"));
 const OUT = join(ROOT, "public/pathways/v3");
 mkdirSync(OUT, { recursive: true });
 const want = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+const ALL = await loadSpecs(want);
+for (const w of want) if (!ALL[w]) console.error(`no spec for ${w}`);
 const r5 = (v) => Math.round(v * 1e5) / 1e5;
 const fails = [];
 

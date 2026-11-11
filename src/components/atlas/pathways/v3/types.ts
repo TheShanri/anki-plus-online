@@ -52,6 +52,10 @@ export interface V3Beat {
   info: string;
   kind: "node" | "path";
   caption: string;
+  /** the spec's canonical camera for this beat (a VIEW_DEFS name), when the automatic choice would be wrong */
+  view?: "anterior" | "posterior" | "left" | "right" | "superior" | "inferior" | "oblique";
+  /** the spec's section cut for this beat (axis through the beat's centre, or none) */
+  cut?: "x" | "y" | "z" | "off";
   L?: V3SideBeat;
   R?: V3SideBeat;
 }

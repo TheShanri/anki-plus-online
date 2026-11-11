@@ -119,7 +119,9 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
   const cross = bi !== null && !!(data.beats[bi].L?.cross || data.beats[bi].R?.cross);
   let view: ViewDef;
   const focus: Side | null = sides.length === 1 ? sides[0] : null;
-  if (data.slug === "visual" || data.slug === "pupillary") view = VIEW_DEFS.superior;
+  const want = bi !== null ? data.beats[bi].view : undefined;
+  if (want && VIEW_DEFS[want]) view = VIEW_DEFS[want];
+  else if (data.slug === "visual" || data.slug === "pupillary") view = VIEW_DEFS.superior;
   else if (cross) view = VIEW_DEFS.posterior;
   else if (node && prev) view = prev.view;
   else if (s2.y > 1.5 * Math.max(s2.x, s2.z)) {
@@ -128,7 +130,16 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
   } else view = VIEW_DEFS.posterior;
   // the cut opens the vertebral column along the cord
   const cordBeat = box.max.y < 1.552 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.03;
-  const cut: Stage["cut"] = cordBeat ? { axis: "x", pos: 0.0006 * (view.dir[0] >= 0 ? 1 : -1), flip: view.dir[0] < 0 } : { axis: null, pos: 0, flip: false };
+  const wantCut = bi !== null ? data.beats[bi].cut : undefined;
+  const cc = box.getCenter(new THREE.Vector3());
+  const cut: Stage["cut"] =
+    wantCut === "off"
+      ? { axis: null, pos: 0, flip: false }
+      : wantCut
+        ? { axis: wantCut, pos: wantCut === "x" ? 0.0006 * (view.dir[0] >= 0 ? 1 : -1) : cc[wantCut], flip: view.dir[wantCut === "x" ? 0 : wantCut === "y" ? 1 : 2] < 0 }
+        : cordBeat
+          ? { axis: "x", pos: 0.0006 * (view.dir[0] >= 0 ? 1 : -1), flip: view.dir[0] < 0 }
+          : { axis: null, pos: 0, flip: false };
   return { box: box.expandByScalar(Math.max(0.003, box.getSize(new THREE.Vector3()).length() * 0.06)), view, cut };
 }
 

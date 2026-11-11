@@ -233,16 +233,16 @@ export interface LevelCfg {
 }
 export const LEVELS: Record<string, LevelCfg> = {
   dcml: {
-    drg: { hand: "C7", foot: "L5" },
-    verts: { hand: ["bone_C6", "bone_C7"], foot: ["bone_L4", "bone_L5", "bone_sacrum"] },
-    range: { hand: "C6 to C8 (shown at C7)", foot: "L4 to S1 (shown at L5)" },
+    drg: { hand: "C8", foot: "L5" },
+    verts: { hand: ["bone_C7", "bone_T1"], foot: ["bone_L4", "bone_L5", "bone_sacrum"] },
+    range: { hand: "C6 to C8 (shown at C8: the little finger, ulnar nerve)", foot: "L4 to S1 (shown at L5)" },
     rewrite: { dc: [1] },
     rise: ["dc"],
   },
   alst: {
-    drg: { hand: "C7", foot: "L5" },
-    verts: { hand: ["bone_C6", "bone_C7"], foot: ["bone_L4", "bone_L5", "bone_sacrum"] },
-    range: { hand: "C6 to C8 (shown at C7)", foot: "L4 to S1 (shown at L5)" },
+    drg: { hand: "C8", foot: "L5" },
+    verts: { hand: ["bone_C7", "bone_T1"], foot: ["bone_L4", "bone_L5", "bone_sacrum"] },
+    range: { hand: "C6 to C8 (shown at C8: the little finger, ulnar nerve)", foot: "L4 to S1 (shown at L5)" },
     rewrite: { root: "all", awc: "all", tract: [0] },
     rise: ["tract"],
   },
@@ -262,9 +262,9 @@ export const LEVELS: Record<string, LevelCfg> = {
     rise: [],
   },
   "withdrawal-reflex": {
-    drg: { hand: "C7" },
-    verts: { hand: ["bone_C6", "bone_C7"] },
-    range: { hand: "C6 to C8 (shown at C7)" },
+    drg: { hand: "C8" },
+    verts: { hand: ["bone_C7", "bone_T1"] },
+    range: { hand: "C6 to C8 (shown at C8: the little finger, ulnar nerve)" },
     rewrite: { root: "all", int: "all", lmn: "all" },
     rise: [],
   },

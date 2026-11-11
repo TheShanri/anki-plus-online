@@ -29,7 +29,7 @@ import type { CamState } from "./ui/translate";
 
 const Loading = ({ what }: { what: string }) => (
   <div className="relative h-full min-h-[240px]">
-    <AtlasLoader label={`Loading the ${what}`} stages={[{ id: "code", label: `Starting the ${what}`, state: "active" }]} />
+    <AtlasLoader label={`Loading the ${what}`} progress={0.04} stages={[{ id: "code", label: `Starting the ${what}`, state: "active" }]} />
   </div>
 );
 const AtlasViewer = dynamic(() => import("./AtlasViewer"), { ssr: false, loading: () => <Loading what="3D viewer" /> });
@@ -375,6 +375,17 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     gate.lock();
   }, [gate]);
 
+  // a bone card that is not a course structure goes away with the layer it belongs to
+  const onLayerChange = useCallback(
+    (on: boolean) => {
+      if (on || !curiousNode) return;
+      setCuriousNode(null);
+      setUnlocked(null);
+      setLockedPick(null);
+    },
+    [curiousNode],
+  );
+
   function pick(key: string) {
     const it = byKey.get(key);
     if (it && !it.group && !onSyllabus(it)) return touchLocked(it.meshIds[0], it.name);
@@ -614,6 +625,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 overlays={overlays3d}
                 onPickMesh={pickMesh}
                 onPickNothing={unlocked || lockedPick ? relock : undefined}
+                onLayerChange={onLayerChange}
                 hoverKey={hoverKey}
                 onHoverKey={setHoverKey}
                 shortcuts

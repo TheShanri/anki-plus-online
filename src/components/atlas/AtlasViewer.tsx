@@ -89,6 +89,8 @@ export type AtlasViewerProps = {
   onUserView?: (view: ViewName) => void;
   /** A click (not a drag) landed on empty space. */
   onPickNothing?: () => void;
+  /** The skull and spine layer was switched on or off (by the toolbar, the K key or the auto rule). */
+  onLayerChange?: (on: boolean) => void;
   /** Skull & spine layer: true when the selection is a skull or spine structure (on), false for brain structures (off). The toolbar toggle overrides this until the type changes. */
   layerAuto?: boolean;
   /** Extra three.js content drawn inside the Canvas in the same world space as gross.glb (also in every multi-view pane). Children may call invalidate()/useFrame themselves while animating (the frameloop stays on demand). */
@@ -1713,6 +1715,7 @@ export default function AtlasViewer({
   autoReveal = false,
   onUserView,
   onPickNothing,
+  onLayerChange,
   onCameraState,
   children,
   brainOpacity: brainOpacityProp,
@@ -1790,6 +1793,9 @@ export default function AtlasViewer({
   // skull & spine layer: automatic from the selection type, with a manual override that holds until the type changes
   const [layerOv, setLayerOv] = useState<{ auto: boolean; v: boolean } | null>(null);
   const layerOn = layerOv && layerOv.auto === layerAuto ? layerOv.v : layerAuto;
+  useEffect(() => {
+    onLayerChange?.(layerOn);
+  }, [layerOn, onLayerChange]);
   const brainOpacity = brainOpacityProp ?? (skull && layerOn ? 0.22 : undefined);
   const [layerGroups, setLayerGroups] = useState<THREE.Group[]>([]);
   const [layerMissing, setLayerMissing] = useState(false);

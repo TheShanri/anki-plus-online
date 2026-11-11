@@ -34,11 +34,27 @@ See the list below; each item is marked done or open.
 
 (Audit list is filled in as it is walked.)
 
-### Student audit status (not walked yet)
+### Student audit status
 
-Open: cold-load loader (sits at 50% on "Starting the 3D viewer" in dev), search/select flow, neighbours, multi-view, 3D/MRI switch, skull layer auto on/off, locked regions and the stale "curious" card after its layer is hidden, labels, keyboard, 390x844 pass. Mobile first look (390x844) is clean: icon-only mode tabs, brain framed, toolbar collapsed behind the chevron.
+Walked so far (1440x900 unless noted):
+
+| Item | Finding | Status |
+| --- | --- | --- |
+| Cold load | The dynamic-import fallback showed a fake 50% bar on "Starting the 3D viewer", then the real loader restarted near 10%: the bar went backwards. | fixed: fallback bar starts at 4% |
+| Cold load, mobile | 390x844 layout is clean: icon-only mode tabs, brain framed, toolbar collapsed behind the chevron | ok |
+| Navigator + search | Opens beside the viewer with a search box, region filter and availability icons | ok |
+| Select | Selecting keeps the viewing direction (Lateral R stayed Lateral R), eased move settles inside 0.5 s | ok (retested in the browser) |
+| Select, framing | A small deep structure (amygdala) frames with the brain so close that the context is cropped | open: widen the context margin for deep structures |
+| Toolbar with the info panel open | The toolbar wraps to two rows and the layout icons drop to the bottom-left | open: collapse the groups into the chevron bar at narrow widths |
+| Stale "curious" card | A skull bone card stayed open after the skull layer was hidden | fixed: the viewer reports layer changes (`onLayerChange`), the card closes |
+| Midsagittal | Section face is 12 mm behind the plane: medial cortex, brainstem and cerebellum folia stay visible, only the callosal/thalamic window is filled; cut meshes show their inside flat in their own colour | fixed |
+| Outlines while cut | Dark hull back faces showed through sections | fixed: outlines off while a cut is active |
+| Locked tint | Locked meshes read as grey patches | softened toward the cortex tint |
+
+Not walked yet: multi-view (2x2) at both sizes, MRI switch and modality memory, skull layer auto on/off, "Oh, I'm just curious" flow end to end, labels, keyboard tour beyond V/B/R/X/1-7/C/T/F, lock view button, theme variants.
 
 ### Known remaining gaps
 
+- Surface spots in `_atlas/explore_shots/c1/sheet_b.png`: the grey parietal patch with a dark centre (Lateral R) is a mesh with a normal singularity from `smoothGeometry`; the pale blobs (Anterior, Superior) are locked meshes. Not rebuilt at source yet.
 - A few pinholes at the orbital roof (context shell), and the medial frontal window in the X-ray look and in translucent context mode (no cap there).
 - /atlas/supply Lateral shows a large pale-blue quad. Reproduced with `CutCap` disabled and `brainfill.glb` not loaded (supply does not pass `solidCuts`), so it comes from the supply scene, not from the cap.

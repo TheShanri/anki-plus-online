@@ -527,28 +527,34 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
   });
 }
 
+/** The brain fill as plain world-space geometry: the glb is quantised (normalised-integer positions plus a node scale and offset), so both are baked into floats. */
+function bakeFill(fill: THREE.Object3D): THREE.BufferGeometry | null {
+  const gs: THREE.BufferGeometry[] = [];
+  fill.updateWorldMatrix(true, true);
+  fill.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh) return;
+    const src = m.geometry.getAttribute("position");
+    const f = new Float32Array(src.count * 3);
+    for (let i = 0; i < src.count; i++) {
+      f[i * 3] = src.getX(i);
+      f[i * 3 + 1] = src.getY(i);
+      f[i * 3 + 2] = src.getZ(i);
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(f, 3));
+    if (m.geometry.index) g.setIndex(m.geometry.index.clone());
+    gs.push(g.applyMatrix4(m.matrixWorld));
+  });
+  const out = gs[0] ?? null;
+  out?.computeVertexNormals();
+  return out;
+}
+
 /** Solid cut faces: the watertight brain solid is stencil-counted behind each active cut plane, and a plane-sized quad paints where the count is odd. */
 function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: THREE.Plane[]; centre: THREE.Vector3; color: string }) {
   const geo = useMemo(() => {
-    // the glb is quantised: positions are normalised integers and the node carries the scale and offset; bake both into floats
-    const gs: THREE.BufferGeometry[] = [];
-    fill.updateWorldMatrix(true, true);
-    fill.traverse((o) => {
-      const m = o as THREE.Mesh;
-      if (!m.isMesh) return;
-      const src = m.geometry.getAttribute("position");
-      const f = new Float32Array(src.count * 3);
-      for (let i = 0; i < src.count; i++) {
-        f[i * 3] = src.getX(i);
-        f[i * 3 + 1] = src.getY(i);
-        f[i * 3 + 2] = src.getZ(i);
-      }
-      const g = new THREE.BufferGeometry();
-      g.setAttribute("position", new THREE.BufferAttribute(f, 3));
-      if (m.geometry.index) g.setIndex(m.geometry.index.clone());
-      gs.push(g.applyMatrix4(m.matrixWorld));
-    });
-    return gs[0] ?? null;
+    return bakeFill(fill);
   }, [fill]);
   const quads = useRef<(THREE.Mesh | null)[]>([]);
   const S = CAP_SCALE;
@@ -560,7 +566,7 @@ function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: TH
       const back = new THREE.MeshBasicMaterial({ ...base, side: THREE.BackSide, stencilFail: THREE.IncrementWrapStencilOp, stencilZFail: THREE.IncrementWrapStencilOp, stencilZPass: THREE.IncrementWrapStencilOp });
       const front = new THREE.MeshBasicMaterial({ ...base, side: THREE.FrontSide, stencilFail: THREE.DecrementWrapStencilOp, stencilZFail: THREE.DecrementWrapStencilOp, stencilZPass: THREE.DecrementWrapStencilOp });
       const cap = new THREE.MeshStandardMaterial({
-        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, clippingPlanes: others,
+        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: others,
         stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp,
       });
       return { pl, back, front, cap };
@@ -580,9 +586,9 @@ function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: TH
     <>
       {parts.map((p, i) => (
         <group key={i}>
-          <mesh geometry={geo} material={p.back} renderOrder={20 + i * 3} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
-          <mesh geometry={geo} material={p.front} renderOrder={21 + i * 3} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
-          <mesh ref={(m) => { quads.current[i] = m; }} material={p.cap} renderOrder={22 + i * 3} raycast={() => undefined}>
+          <mesh geometry={geo} material={p.back} renderOrder={0.1 + i * 0.01} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
+          <mesh geometry={geo} material={p.front} renderOrder={0.2 + i * 0.01} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
+          <mesh ref={(m) => { quads.current[i] = m; }} material={p.cap} renderOrder={0.5 + i * 0.01} raycast={() => undefined}>
             <planeGeometry args={[0.6, 0.6]} />
           </mesh>
         </group>
@@ -716,6 +722,64 @@ function tagGross(root: THREE.Object3D, structures: Record<string, AtlasEntry>):
     byId.set(n.name, m);
   });
   return byId;
+}
+
+/** Colours a backer geometry (world metres) vertex by vertex with the tint of the nearest gross mesh, so a gap between gyral patches shows the neighbouring lobe's colour instead of a dark shell. */
+function tintByNearest(geo: THREE.BufferGeometry, matrix: THREE.Matrix4, gross: THREE.Object3D, structures: Record<string, AtlasEntry>, look: Look): THREE.BufferGeometry {
+  const CELL = 0.005;
+  const key = (x: number, y: number, z: number) => `${Math.floor(x / CELL)},${Math.floor(y / CELL)},${Math.floor(z / CELL)}`;
+  const tints = GROUPS.map((g) => new THREE.Color(look === "regions" ? LOBE_TINT[g] : (BRAIN_TINT[g] ?? CORTEX_TINT)));
+  const cells = new Map<string, number[]>();
+  const pts: number[] = [];
+  const gi: number[] = [];
+  const v = new THREE.Vector3();
+  gross.updateWorldMatrix(true, true);
+  eachMesh(gross, (m) => {
+    let n: THREE.Object3D | null = m;
+    while (n && !structures[n.name]) n = n.parent;
+    if (!n) return;
+    const gidx = Math.max(0, GROUPS.indexOf(groupOf(structures[n.name])));
+    const pos = m.geometry.getAttribute("position");
+    for (let i = 0; i < pos.count; i += 3) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld);
+      const k = key(v.x, v.y, v.z);
+      const c = cells.get(k);
+      const id = gi.length;
+      pts.push(v.x, v.y, v.z);
+      gi.push(gidx);
+      if (c) c.push(id);
+      else cells.set(k, [id]);
+    }
+  });
+  const g = geo.clone();
+  const pos = g.getAttribute("position");
+  const col = new Float32Array(pos.count * 3);
+  const fb = new THREE.Color(CORTEX_TINT);
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i).applyMatrix4(matrix);
+    let best = -1;
+    let bd = Infinity;
+    for (let r = 1; r <= 3 && best < 0; r++) {
+      const cx = Math.floor(v.x / CELL), cy = Math.floor(v.y / CELL), cz = Math.floor(v.z / CELL);
+      for (let dx = -r; dx <= r; dx++) for (let dy = -r; dy <= r; dy++) for (let dz = -r; dz <= r; dz++) {
+        const c = cells.get(`${cx + dx},${cy + dy},${cz + dz}`);
+        if (!c) continue;
+        for (const id of c) {
+          const d = (pts[id * 3] - v.x) ** 2 + (pts[id * 3 + 1] - v.y) ** 2 + (pts[id * 3 + 2] - v.z) ** 2;
+          if (d < bd) {
+            bd = d;
+            best = id;
+          }
+        }
+      }
+    }
+    const t = best >= 0 ? tints[gi[best]] : fb;
+    col[i * 3] = t.r;
+    col[i * 3 + 1] = t.g;
+    col[i * 3 + 2] = t.b;
+  }
+  g.setAttribute("color", new THREE.BufferAttribute(col, 3));
+  return g;
 }
 
 const stalkCache = new WeakMap<THREE.BufferGeometry, THREE.BufferGeometry>();
@@ -1371,8 +1435,8 @@ function Scene({
   // fills the holes between the gross meshes: a dark cortex-coloured shell behind them (solid brain only)
   const backMat = useMemo(
     () =>
-      new THREE.MeshStandardMaterial({ color: look === "regions" ? "#7a7484" : "#8f6c62", roughness: 1, metalness: 0, polygonOffset: true, polygonOffsetFactor: 4, polygonOffsetUnits: 4 }),
-    [look],
+      new THREE.MeshStandardMaterial({ color: "#d8d8d8", vertexColors: true, roughness: 0.9, metalness: 0, polygonOffset: true, polygonOffsetFactor: 4, polygonOffsetUnits: 4 }),
+    [],
   );
   useEffect(() => () => backMat.dispose(), [backMat]);
   const backer = useMemo(() => {
@@ -1385,6 +1449,7 @@ function Scene({
       if (m.isMesh) {
         m.updateMatrix();
         m.geometry = withoutStalk(m.geometry, m.matrix);
+        if (gross) m.geometry = tintByNearest(m.geometry, m.matrix, gross, structures, look);
         m.material = backMat;
         m.raycast = () => undefined;
       }
@@ -1393,7 +1458,7 @@ function Scene({
     g.scale.setScalar(0.985); // a little inward of the gyri
     g.position.copy(centre).multiplyScalar(1 - 0.985);
     return g;
-  }, [loaded.ctx, backMat, centre]);
+  }, [loaded.ctx, backMat, centre, gross, structures, look]);
 
   const ovlRoot = useMemo(() => {
     const root = new THREE.Group();
@@ -1410,7 +1475,7 @@ function Scene({
     eachMesh(ovlRoot, (m) => {
       const k = m.userData.k as number;
       m.material = ovlMats[k];
-      m.renderOrder = (loaded.ovl[k]?.opacity ?? 1) < 0.9 ? 3 : 0; // translucent territories draw after the solid parts
+      m.renderOrder = (loaded.ovl[k]?.opacity ?? 1) < 0.9 ? 3 : 1; // translucent territories draw after the solid parts
     });
     invalidate();
   }, [ovlRoot, ovlMats, loaded.ovl, invalidate]);

@@ -48,6 +48,9 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
       d.chipR.style.right = leftOnRight ? "auto" : "6px";
     }
     const gut: Record<"l" | "r", { key: string; ay: number; ax: number; h: number; w: number }[]> = { l: [], r: [] };
+    // below the legend (top left) on wide screens; on phones the legend is folded into a button
+    const top0 = W < 640 ? 44 : obstacleTop;
+    let top = top0;
     for (const it of sorted) {
       const el = d.tags.get(it.key);
       const ln = d.lines.get(it.key);
@@ -63,13 +66,31 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
       }
       const ax = (_p.x * 0.5 + 0.5) * W;
       const ay = (-_p.y * 0.5 + 0.5) * H;
+      el.style.maxWidth = `${Math.round(Math.min(it.prio === 3 ? 320 : 200, W * (it.prio === 3 ? 0.62 : 0.42)))}px`;
+      if (it.prio === 3) {
+        // the crossing callout: a banner at the top centre, its leader line down to the crossing
+        const w = el.offsetWidth || 200, h = el.offsetHeight || 20;
+        const x = (W - w) / 2;
+        el.style.visibility = "visible";
+        el.style.transform = `translate(${x.toFixed(1)}px,${top.toFixed(1)}px)`;
+        ln.setAttribute("x1", (W / 2).toFixed(1));
+        ln.setAttribute("y1", (top + h).toFixed(1));
+        ln.setAttribute("x2", ax.toFixed(1));
+        ln.setAttribute("y2", ay.toFixed(1));
+        ln.style.visibility = "visible";
+        dot.setAttribute("cx", ax.toFixed(1));
+        dot.setAttribute("cy", ay.toFixed(1));
+        dot.style.visibility = "visible";
+        top += h + 6;
+        continue;
+      }
       const side = ax < W / 2 ? "l" : "r";
       gut[side].push({ key: it.key, ay, ax, h: el.offsetHeight || 20, w: el.offsetWidth || 90 });
     }
     for (const side of ["l", "r"] as const) {
       const list = gut[side].sort((a, b) => a.ay - b.ay);
       // stack without overlaps between the toolbar band at the top and the controls at the bottom
-      let y = obstacleTop;
+      let y = top;
       const placed: number[] = [];
       for (const it of list) {
         const want = Math.max(y, it.ay - it.h / 2);
@@ -79,7 +100,7 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
       // pull back up if the stack overflows the bottom
       let over = y - 4 - (H - obstacleBottom);
       for (let i = list.length - 1; i >= 0 && over > 0; i--) {
-        const room = i === 0 ? placed[0] - obstacleTop : placed[i] - (placed[i - 1] + list[i - 1].h + 4);
+        const room = i === 0 ? placed[0] - top : placed[i] - (placed[i - 1] + list[i - 1].h + 4);
         const m = Math.min(room, over);
         for (let j = i; j < list.length; j++) placed[j] -= m;
         over -= m;
@@ -88,7 +109,7 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
         const el = d.tags.get(it.key)!;
         const ln = d.lines.get(it.key)!;
         const dot = d.dots.get(it.key)!;
-        const x = side === "l" ? 30 : W - it.w - 30;
+        const x = side === "l" ? (W < 520 ? 6 : 30) : W - it.w - (W < 520 ? 6 : 30);
         const yy = placed[i];
         el.style.visibility = "visible";
         el.style.transform = `translate(${x.toFixed(1)}px,${yy.toFixed(1)}px)`;

@@ -86,22 +86,35 @@ interface Stage {
 }
 /** The camera box, the canonical view and the auto cut of a beat. */
 function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha: { L: number; R: number }, prev: Stage | null): Stage {
-  const box = new THREE.Box3();
-  const sides = (["L", "R"] as Side[]).filter((s) => sideAlpha[s] > 0.5);
+  let sides = (["L", "R"] as Side[]).filter((s) => sideAlpha[s] > 0.5);
   const beats = bi === null ? data.beats.map((_, i) => i) : [bi];
-  for (const f of fibres) if (beats.includes(f.beat) && sides.includes(f.side)) f.pts.forEach((p) => box.expandByPoint(p));
-  for (const i of beats)
-    for (const s of sides) {
-      const x = data.beats[i]?.[s];
-      for (const m of [x?.soma, x?.syn, x?.start, x?.cross]) if (m) box.expandByPoint(v3(m.p));
-    }
   const node = bi !== null && data.beats[bi].kind === "node";
+  const boxOf = (ss: Side[]) => {
+    const b = new THREE.Box3();
+    const marks: THREE.Vector3[] = [];
+    for (const i of beats)
+      for (const s of ss) {
+        const x = data.beats[i]?.[s];
+        for (const m of [x?.soma, x?.syn, x?.start, x?.cross]) if (m) marks.push(v3(m.p));
+      }
+    marks.forEach((p) => b.expandByPoint(p));
+    for (const f of fibres) if (beats.includes(f.beat) && ss.includes(f.side)) f.pts.forEach((p) => b.expandByPoint(p));
+    // a node frames its stop; the end of the incoming fibre near it stays in view (not the whole limb behind it)
+    if (node && bi !== null && bi > 0 && marks.length)
+      for (const f of fibres) if (f.beat === bi - 1 && ss.includes(f.side)) f.pts.forEach((p) => marks.some((m) => m.distanceTo(p) < 0.03) && b.expandByPoint(p));
+    return b;
+  };
+  let box = boxOf(sides);
+  // both sides drawn but far apart (two hands, two feet, two eyes' muscles): frame the left one; the right one mirrors it
+  if (sides.length === 2 && bi !== null && !data.beats[bi].L?.cross) {
+    const bl = boxOf(["L"]), br = boxOf(["R"]);
+    if (!bl.isEmpty() && !br.isEmpty() && bl.getCenter(new THREE.Vector3()).distanceTo(br.getCenter(new THREE.Vector3())) > 0.12 && Math.min(bl.min.x, -br.max.x) > 0.04) {
+      box = bl;
+      sides = ["L"];
+    }
+  }
   if (box.isEmpty() && prev) return prev;
   if (box.isEmpty()) box.set(new THREE.Vector3(-0.05, 1.55, -0.08), new THREE.Vector3(0.05, 1.7, 0.08));
-  // a node frames its stop with some room; the incoming fibre end stays in view
-  if (node && bi !== null && bi > 0) {
-    for (const f of fibres) if (f.beat === bi - 1 && sides.includes(f.side)) f.pts.slice(-Math.ceil(f.pts.length * 0.35)).forEach((p) => box.expandByPoint(p));
-  }
   const size = box.getSize(new THREE.Vector3());
   const minS = node ? 0.032 : 0.028;
   const c = box.getCenter(new THREE.Vector3());
@@ -129,15 +142,22 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
     view = { dir: [0.62 * sx, 0.22, -0.75], up: [0, 1, 0] };
   } else view = VIEW_DEFS.posterior;
   // the cut opens the vertebral column along the cord
-  const cordBeat = box.min.y < 1.548 && box.max.y < 1.575 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.03;
+  const cordBeat = box.min.y < 1.548 && box.max.y < 1.575 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.05;
   const wantCut = bi !== null ? data.beats[bi].cut : undefined;
+  const headBeat = box.min.y > 1.536 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.08 && box.min.z > -0.11;
   const cc = box.getCenter(new THREE.Vector3());
   const cut: Stage["cut"] =
     wantCut === "off"
       ? { axis: null, pos: 0, flip: false }
       : wantCut
         ? { axis: wantCut, pos: wantCut === "x" ? 0.0006 * (view.dir[0] >= 0 ? 1 : -1) : cc[wantCut], flip: view.dir[wantCut === "x" ? 0 : wantCut === "y" ? 1 : 2] < 0 }
-        : cordBeat
+        : headBeat
+          ? // inside the head: the brain context becomes clay, cut through the beat on the camera's side (a cutaway bowl
+            // behind the fibres, never fog in front of them)
+            ((ax: "x" | "y" | "z") => ({ axis: ax, pos: ax === "x" && Math.abs(cc.x) < 0.012 ? 0.0006 * (view.dir[0] >= 0 ? 1 : -1) : cc[ax], flip: view.dir[ax === "x" ? 0 : ax === "y" ? 1 : 2] < 0 }))(
+              Math.abs(view.dir[1]) > Math.max(Math.abs(view.dir[0]), Math.abs(view.dir[2])) ? "y" : Math.abs(view.dir[2]) >= Math.abs(view.dir[0]) ? "z" : "x",
+            )
+          : cordBeat
           ? // open the vertebral column on the camera's side: a coronal cut through the cord for front / back views, sagittal
             // (just past the midline) for side views; the cord and roots are hosts and are never cut
             Math.abs(view.dir[2]) >= Math.abs(view.dir[0])
@@ -355,7 +375,11 @@ export default function Scene3(p: Scene3Props) {
           const key = `r:${st.key}`;
           if (seen.has(st.name)) continue;
           seen.add(st.name);
-          const at = st.carve ? v3(st.carve.p) : x.soma ? v3(x.soma.p) : x.syn ? v3(x.syn.p) : null;
+          let at = st.carve ? v3(st.carve.p) : x.soma ? v3(x.soma.p) : x.syn ? v3(x.syn.p) : null;
+          for (let k = bi - 1; !at && k >= 0 && k >= bi - 2; k--) {
+            const y = p.data.beats[k]?.[s];
+            if (y?.syn) at = v3(y.syn.p);
+          }
           const g = p.data.geo[st.key];
           const pos = at ?? (g && g.kind === "proxy" ? v3(g.c) : null);
           if (pos) out.push({ key, text: shortName(st.name), at: pos, prio: bi === p.cur ? 2 : 1 });
@@ -583,28 +607,30 @@ export default function Scene3(p: Scene3Props) {
         {layers.map((l) => {
           const g = geos[l.key];
           if (!g) return null;
-          const shown = l.style === "ghost" || l.style === "clay" || revealedBeat(l.beat);
+          // with a section cut the brain is opaque clay, opened on the camera's side; without one it is the rim-only ghost
+          const style: LayerStyle = l.key === "ctx:brain" && cutAxis ? "clay" : l.style;
+          const shown = style === "ghost" || style === "clay" || revealedBeat(l.beat);
           if (!shown) return null;
           const half = l.half;
           const sideDim = half ? p.sideAlpha[half] : 1;
           const isCurStop = curStops.has(l.key);
           const isCurHost = curHosts.has(l.key);
-          const color = l.style === "region" ? (isCurStop ? pal.regionCurrent : pal.regionFill) : l.style === "host" ? pal.host : l.style === "ghost" ? pal.ghost : pal.clay;
+          const color = style === "region" ? (isCurStop ? pal.regionCurrent : pal.regionFill) : style === "host" ? pal.host : style === "ghost" ? pal.ghost : pal.clay;
           return (
             <Layer
               key={l.key}
               geo={g}
-              style={l.style}
+              style={style}
               color={color}
-              ink={l.style === "region" ? pal.regionOutline : pal.ink}
-              planes={l.style === "clay" || l.style === "ghost" ? planes : []}
+              ink={style === "region" ? pal.regionOutline : pal.ink}
+              planes={style === "clay" || style === "ghost" ? planes : []}
               half={half}
               current={isCurStop || isCurHost}
               hover={!!l.pick && isHover(l.pick)}
-              dim={l.style === "ghost" ? 1 : sideDim < 0.5 ? 0.35 : 1}
+              dim={style === "ghost" ? 1 : sideDim < 0.5 ? 0.35 : 1}
               accent={p.accent}
               pickKey={l.pick}
-              name={l.style === "region" ? shortName(l.name) : names[l.key.replace(/^h:/, "")]}
+              name={style === "region" ? shortName(l.name) : names[l.key.replace(/^h:/, "")]}
               onPick={(k) => p.onPick(k)}
               onHover={onLayerHover}
             />
@@ -647,7 +673,7 @@ export default function Scene3(p: Scene3Props) {
             onHover={p.onHover}
           />
         ))}
-        <LabelUpdater items={labelItems} dom={labelDom} enabled={p.labels && !p.multi} obstacleTop={52} obstacleBottom={64} />
+        <LabelUpdater items={labelItems} dom={labelDom} enabled={p.labels && !p.multi} obstacleTop={92} obstacleBottom={64} />
       </Canvas>
 
       {/* interaction layer: one cell, or the 2x2 multi-view grid (anterior, lateral, superior, free orbit), as in Explore */}

@@ -26,7 +26,7 @@ import { VIEW_LABELS, type ViewName } from "./rig";
 import type { CutState } from "./Scene3";
 import { beatCopy, NEXT_PREFIX } from "./copy";
 import { insetFor } from "./insetMap";
-import { BrainstemInset, CordInset } from "./insets";
+import { BrainstemInset, CordInset, preloadPlate } from "./insets";
 import { slugForStop } from "./structureSlugs";
 import "@/components/atlas/ui/atlas-ui.css";
 
@@ -141,6 +141,13 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
   const [hoverKey, setHoverKey] = useState<string | null>(null);
   const [openKey, setOpenKey] = useState<string | null>(null);
   const [barOpen, setBarOpen] = useState(true);
+  const [keyOpen, setKeyOpen] = useState(true);
+  useEffect(() => {
+    if (window.matchMedia("(max-width: 639px)").matches) {
+      setBarOpen(false);
+      setKeyOpen(false);
+    }
+  }, []);
   const [data, setData] = useState<{ key: string; d: V3Data } | null>(null);
   const [dataErr, setDataErr] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
@@ -431,6 +438,13 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
     return `${sideNow.phys === "L" ? "Left" : "Right"} side, ${rel}`;
   })();
   const inset = useMemo(() => (d && !all ? insetFor(d, cur, primary, sideAlpha) : null), [d, cur, primary, all, sideAlpha]);
+  useEffect(() => {
+    if (!d) return;
+    for (let i = 0; i < d.beats.length; i++) {
+      const s = insetFor(d, i, primary, sideAlpha);
+      if (s?.kind === "brainstem") preloadPlate(s.level);
+    }
+  }, [d, primary, sideAlpha]);
   const [pulseKey, setPulseKey] = useState(0);
   useEffect(() => setPulseKey((k) => k + 1), [cur]);
   const [accent, setAccent] = useState("#22d3ee");
@@ -533,7 +547,22 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
           {loadNote && <p role="status" className="absolute bottom-16 left-2 z-10 max-w-sm rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1 text-[11px] text-text-dim">{loadNote}</p>}
 
           {/* legend: colour = neuron, line style = side */}
-          {loaded && !multi && <Legend visual={visual} motor={/lcst|acst|corticobulbar|umn-lmn/.test(slug)} n={n} />}
+          {loaded && !multi && keyOpen && <Legend visual={visual} motor={/lcst|acst|corticobulbar|umn-lmn/.test(slug)} n={n} onClose={() => setKeyOpen(false)} />}
+          {loaded && !multi && !keyOpen && (
+            <button type="button" onClick={() => setKeyOpen(true)} className="absolute left-2 top-2 z-10 rounded-sm border border-panel-border bg-panel-solid/92 px-2 py-1 text-[11px] text-text" aria-label="Show the colour and line key">
+              Key
+            </button>
+          )}
+          {/* phones: the beat's title and side stay on screen with the scene (the four answers at a glance) */}
+          {loaded && !all && copy && (
+            <div className="pointer-events-none absolute inset-x-12 top-2 z-10 flex flex-col items-center gap-0.5 text-center sm:hidden" aria-hidden>
+              <span className="rounded-sm bg-panel-solid/92 px-2 py-0.5 text-[12px] font-semibold leading-tight text-text">
+                <span className="mr-1 rounded-sm px-1 font-mono text-[10px]" style={{ background: visual ? FIELD_COLORS.leftUpper : ORDER_COLORS[order], color: "#111" }}>{badge}</span>
+                {stripGate(copy.title)}
+              </span>
+              {sideText && <span className="rounded-sm bg-panel-solid/85 px-1.5 text-[10.5px] leading-tight text-text-dim">{sideText}</span>}
+            </div>
+          )}
 
           {/* section inset for cord and brainstem beats */}
           {loaded && inset && !multi && (
@@ -837,7 +866,12 @@ function regionNameOf(d: V3Data, key: string): string | null {
   return g ? g.name : k.startsWith("a:") ? k.slice(2).split("@")[0].replace(/^mni-/, "").replace(/-/g, " ") : null;
 }
 
-function Legend({ visual, motor, n }: { visual: boolean; motor: boolean; n: number }) {
+/** Plain text of a copy string (the ‹ › gate marks dropped with their content). */
+function stripGate(s: string) {
+  return s.replace(/‹[^›]*›/g, "").replace(/s{2,}/g, " ").trim();
+}
+
+function Legend({ visual, motor, n, onClose }: { visual: boolean; motor: boolean; n: number; onClose: () => void }) {
   const rows = visual
     ? [
         ["Left visual field", FIELD_COLORS.leftUpper],
@@ -845,7 +879,10 @@ function Legend({ visual, motor, n }: { visual: boolean; motor: boolean; n: numb
       ]
     : Array.from({ length: Math.min(4, n) }, (_, i) => [motor ? (i === 0 ? "Upper motor neuron" : "Lower motor neuron") : `${ORDINAL[i + 1]}-order neuron`, ORDER_COLORS[(i + 1) as 1 | 2 | 3 | 4]]);
   return (
-    <div className="pointer-events-none absolute left-2 top-2 z-10 grid gap-1 rounded-sm border border-panel-border bg-panel-solid/92 px-2 py-1.5 text-[11px] leading-none text-text">
+    <div className="absolute left-2 top-2 z-10 grid gap-1 rounded-sm border border-panel-border bg-panel-solid/92 py-1.5 pl-2 pr-6 text-[11px] leading-none text-text">
+      <button type="button" onClick={onClose} className="absolute right-0.5 top-0.5 rounded-sm p-0.5 text-text-dim hover:text-text" aria-label="Hide the key">
+        <X size={12} aria-hidden />
+      </button>
       {rows.map(([t, c]) => (
         <span key={t} className="flex items-center gap-1.5">
           <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="#111" strokeWidth="5" strokeLinecap="round" /><line x1="1" y1="4" x2="21" y2="4" stroke={c} strokeWidth="2.8" strokeLinecap="round" /></svg>

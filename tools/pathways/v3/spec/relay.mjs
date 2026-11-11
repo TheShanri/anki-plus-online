@@ -42,7 +42,7 @@ export async function thalamocortical(side, nucleusId, target) {
   const cap = new Fibre(3).from(plic, "a:mni-posterior-limb-of-internal-capsule");
   await cap.routeTo(["a:mni-posterior-limb-of-internal-capsule"], capTop, { sgn: s, minX: 0.002, h: 0.0004 });
   const cor = new Fibre(3).from(capTop, "a:mni-posterior-limb-of-internal-capsule");
-  await cor.routeTo(["a:mni-posterior-limb-of-internal-capsule", "a:white-matter-of-telencephalon", `a:${CORTEX[target][0]}`], goal, { sgn: s, minX: 0.002, h: 0.0008, spread: 0.2 });
+  await cor.routeTo(["a:mni-posterior-limb-of-internal-capsule", "a:white-matter-of-telencephalon", `a:${CORTEX[target][0]}`], goal, { sgn: s, minX: 0.002, h: 0.0008, spread: 0.2, smooth: 14 });
   return { n, leave, cap, cor, goal };
 }
 
@@ -149,7 +149,7 @@ export async function corticofugal(cx, target, opt = {}) {
   const leave = new Fibre(1).from(soma, gyrus);
   await leave.routeTo([gyrus, WM], under, { sgn: s, minX: 0.002, h: 0.0006, spread: 0.25 });
   const capsule = new Fibre(1).from(under, WM);
-  await capsule.routeTo([WM, IC], cap, { sgn: s, minX: 0.002, h: 0.0006, spread: 0.2 });
+  await capsule.routeTo([WM, IC], cap, { sgn: s, minX: 0.002, h: 0.0006, spread: 0.2, smooth: 12 });
   await capsule.routeTo([IC], capLow, { sgn: s, minX: 0.002, h: 0.0004 });
   // the MNI capsule and the Z-Anatomy peduncle leave a seam of ~2-3 mm where the capsule continues into the crus cerebri
   const pedTop = await insideNear("a:base-of-peduncle", [capLow[0] * 0.85, 1.6155, capLow[2]], 0.006);

@@ -84,9 +84,13 @@ interface Plate {
   ink?: string;
   outline?: string;
   mid?: number;
-  regions: { id: string; slugs: string[]; d: string; c: [number, number]; side?: "L" | "R" }[];
+  regions: { id: string; slugs: string[]; d: string; c: [number, number]; side?: "L" | "R" | "M" }[];
+  /** fibre bundles drawn as strokes (internal arcuate fibres, nerve rootlets, transverse pontine fibres) */
+  fibres?: { id: string; slug: string; side: "L" | "R"; d: string }[];
 }
 const plates = new Map<string, Promise<Plate | null>>();
+/** Fetches a level's plate ahead of its beat (behind the loader), so the inset never shows an empty section. */
+export const preloadPlate = (level: string) => void loadPlate(level);
 function loadPlate(level: string) {
   let p = plates.get(level);
   if (!p) {
@@ -146,7 +150,7 @@ export function BrainstemInset({ level, structures = [], side = "both", pulseKey
   const dot = (slug: string, s: "L" | "R") => {
     const rs = p?.regions.filter((r) => r.slugs.includes(slug)) ?? [];
     const mid = p?.mid ?? W / 2;
-    const want = rs.filter((r) => (r.side ? r.side === s : s === "L" ? r.c[0] < mid : r.c[0] >= mid));
+    const want = rs.filter((r) => (r.side && r.side !== "M" ? r.side === s : s === "L" ? r.c[0] < mid : r.c[0] >= mid));
     const r = want[0] ?? rs[0];
     if (r) return r.c;
     const f = BS_FALLBACK[slug] ?? [0.3, 0.5];
@@ -169,6 +173,9 @@ export function BrainstemInset({ level, structures = [], side = "both", pulseKey
           .map((r) => (
             <path key={r.id} d={r.d} fill="color-mix(in srgb, var(--accent) 50%, transparent)" stroke="var(--accent)" strokeWidth="4" onClick={() => onPick?.(r.slugs[0])} style={{ cursor: onPick ? "pointer" : undefined }} />
           ))}
+        {p?.fibres?.filter((fb) => structures.includes(fb.slug)).map((fb) => (
+          <path key={fb.id} d={fb.d} fill="none" stroke="var(--accent)" strokeWidth="9" strokeLinecap="round" opacity="0.9" />
+        ))}
         <line x1={W / 2} y1={0} x2={W / 2} y2={H} stroke="#E5484D" strokeWidth="4" strokeDasharray="14 12" />
         {structures.slice(0, 1).map((st) =>
           sides.map((s) => {

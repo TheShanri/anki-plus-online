@@ -62,18 +62,19 @@ const SEGS = Object.entries((ANCH as unknown as { spine: Record<string, number[]
   .map(([k, v]) => [k.slice(5), v[1]] as const);
 
 function levelOf(y: number): { kind: "cord" | "brainstem"; level: string } | null {
-  if (y < 1.5452) {
+  if (y < 1.5395) {
     let best = SEGS[0];
     for (const s of SEGS) if (Math.abs(s[1] - y) < Math.abs(best[1] - y)) best = s;
     return { kind: "cord", level: best[0] };
   }
-  if (y < 1.55) return { kind: "brainstem", level: "medulla-caudal" };
-  if (y < 1.5605) return { kind: "brainstem", level: "medulla-mid" };
-  if (y < 1.5795) return { kind: "brainstem", level: "medulla-rostral" };
-  if (y < 1.588) return { kind: "brainstem", level: "pons-caudal" };
-  if (y < 1.6025) return { kind: "brainstem", level: "pons-mid" };
-  if (y < 1.6095) return { kind: "brainstem", level: "midbrain-ic" };
-  if (y < 1.618) return { kind: "brainstem", level: "midbrain-sc" };
+  // plate slugs keep their old names; the course's level names are in brainstem-levels.json
+  if (y < 1.5465) return { kind: "brainstem", level: "medulla-caudal" }; // brainstem / spinal cord transition (motor decussation)
+  if (y < 1.558) return { kind: "brainstem", level: "medulla-mid" }; // caudal medulla (gracile and cuneate nuclei, internal arcuate fibres)
+  if (y < 1.5765) return { kind: "brainstem", level: "medulla-rostral" }; // rostral medulla (olive)
+  if (y < 1.588) return { kind: "brainstem", level: "pons-caudal" }; // caudal pons (facial and abducens)
+  if (y < 1.6015) return { kind: "brainstem", level: "pons-mid" }; // rostral pons (trigeminal level)
+  if (y < 1.609) return { kind: "brainstem", level: "midbrain-ic" }; // caudal midbrain (inferior colliculus)
+  if (y < 1.618) return { kind: "brainstem", level: "midbrain-sc" }; // rostral midbrain (superior colliculus)
   return null;
 }
 

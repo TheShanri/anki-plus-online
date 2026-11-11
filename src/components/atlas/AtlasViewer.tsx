@@ -603,6 +603,32 @@ function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: TH
 const CAP_SCALE = 0.985;
 /** The section face sits this far behind the cut plane, so anything lying on or just behind the plane (medial cortex, deep structures) stays in front of it. */
 const CAP_DEPTH = 0.012;
+/** Deep structures drawn inside a cut or the midsagittal view (loaded on the first cut): name, colour. Ventricles are dark spaces, white-matter tracts ivory; the pale section face is the white matter between them. */
+const DEEP: [id: string, colour: string][] = [
+  ["corpus-callosum", "#efe6d6"],
+  ["fornix", "#e6d3a8"],
+  ["septum-pellucidum", "#d8cde0"],
+  ["anterior-commissure", "#f1e4b8"],
+  ["mni-internal-capsule", "#f4ecda"],
+  ["caudate-nucleus", "#7fa6c9"],
+  ["putamen", "#c98f8f"],
+  ["globus-pallidus", "#e2b46c"],
+  ["thalamus", "#c3a0d6"],
+  ["hypothalamus", "#e5996a"],
+  ["hippocampus", "#7fc2a0"],
+  ["amygdaloid-body", "#d46a6a"],
+  ["lateral-ventricle", "#46546f"],
+  ["third-ventricle", "#46546f"],
+  ["fourth-ventricle", "#46546f"],
+];
+/** A cut mesh shows its inside flat in its own colour, so a section through a closed structure reads as solid tissue. */
+function flatInside(m: THREE.MeshStandardMaterial) {
+  m.onBeforeCompile = (s) => {
+    s.fragmentShader = s.fragmentShader.replace("#include <opaque_fragment>", "if (!gl_FrontFacing) outgoingLight = diffuseColor.rgb * 0.95;\n#include <opaque_fragment>");
+  };
+  m.customProgramCacheKey = () => "atlas-flat-inside";
+}
+
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 const INFLATE = { value: 0 };
@@ -1157,6 +1183,7 @@ function Scene({
   loaded,
   gross,
   fill,
+  deep,
   structures,
   look,
   solid,
@@ -1204,6 +1231,7 @@ function Scene({
   loaded: Loaded;
   gross: THREE.Group | null;
   fill: THREE.Group | null;
+  deep: { id: string; g: THREE.Group }[] | null;
   structures: Record<string, AtlasEntry>;
   look: Look;
   solid: boolean;
@@ -1248,6 +1276,16 @@ function Scene({
   const accentHull = useMemo(() => makeHull("#" + accent.clone().multiplyScalar(1.15).getHexString(), 0.0024), [accent]);
   const grossHull = useMemo(() => makeHull("#6a4e46", 0.0008), []);
   const grossMats = useMemo(() => buildGrossMats(look), [look]);
+  const deepMats = useMemo(() => {
+    const out: Record<string, THREE.MeshStandardMaterial> = {};
+    for (const [id, c] of DEEP) {
+      const m = new THREE.MeshStandardMaterial({ color: c, roughness: 0.6, metalness: 0, side: THREE.DoubleSide });
+      flatInside(m);
+      out[id] = m;
+    }
+    return out;
+  }, []);
+  useEffect(() => () => Object.values(deepMats).forEach((m) => m.dispose()), [deepMats]);
   const hoverMat = useMemo(
     () =>
       new THREE.MeshBasicMaterial({ color: hoverColor, transparent: true, opacity: 0.55, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }),
@@ -1548,21 +1586,41 @@ function Scene({
       setPlanes(m, sd ? [...own, sidePlanes[sd]] : own, true);
     });
     setPlanes(backMat, gp);
+    Object.values(deepMats).forEach((m) => setPlanes(m, gp, true));
     setPlanes(boneMat, gp, true);
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, boneMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, boneMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
   const grossOn = showCtx && look !== "xray" && !!gross;
+  const deepRoot = useMemo(() => {
+    if (!deep) return null;
+    const root = new THREE.Group();
+    for (const { id, g } of deep) {
+      if (hiddenIds.has(id)) continue; // a selected structure is drawn by its own layer
+      const c = g.clone(true);
+      c.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        m.material = deepMats[id];
+        m.userData.gid = id;
+        m.userData.deep = true;
+        m.renderOrder = 1;
+      });
+      root.add(c);
+    }
+    return root;
+  }, [deep, deepMats, hiddenIds]);
   useEffect(() => {
     setGrossVisible(grossById, grossOn, hiddenIds);
     const list: THREE.Mesh[] = [];
     eachMesh(targetRoot, (m) => list.push(m));
     eachMesh(ovlRoot, (m) => list.push(m));
     if (grossOn && solid) for (const [id, m] of grossById) if (!hiddenIds.has(id)) list.push(m);
+    if (deepRoot) eachMesh(deepRoot, (m) => list.push(m));
     for (const r of layerRoots)
       r.traverse((o) => {
         const m = o as THREE.Mesh;
@@ -1574,7 +1632,7 @@ function Scene({
     });
     pickables.current = list;
     invalidate();
-  }, [grossById, grossOn, solid, hiddenIds, targetRoot, ovlRoot, layerRoots, skullGroup, invalidate]);
+  }, [grossById, grossOn, solid, hiddenIds, targetRoot, ovlRoot, deepRoot, layerRoots, skullGroup, invalidate]);
 
   // hover highlight: a pooled tinted copy of the hovered mesh(es), parented to the source so transforms follow
   const pool = useMemo(
@@ -1606,19 +1664,22 @@ function Scene({
       if (m && m.visible) {
         list.push(m);
         grossHover = true;
+      } else if (deepRoot) {
+        eachMesh(deepRoot, (d) => d.userData.gid === hover.id && list.push(d));
+        grossHover = list.length > 0;
       }
     }
     setPickPlanes(hoverMat, grossHover ? grossPlanes.current : ownPlanes.current);
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, layerRoots, perMesh, invalidate]);
+  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, layerRoots, perMesh, invalidate]);
 
   // how much of the target can be seen from a direction (rays from the camera to sample points, blocked by the solid brain)
   useEffect(() => {
     const ray = new THREE.Raycaster();
     probeRef.current = (dir, mid) => {
-      const shell = pickables.current.filter((m) => m.userData.gid !== undefined && m.visible);
+      const shell = pickables.current.filter((m) => m.userData.gid !== undefined && !m.userData.deep && m.visible);
       if (!shell.length || !solid || !grossOn) return 1;
       targetRoot.updateMatrixWorld(true);
       const pts: THREE.Vector3[] = [];
@@ -1674,6 +1735,7 @@ function Scene({
       ))}
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
+      {deepRoot && grossOn && solid && (brainOpacity ?? 1) >= 1 && <primitive object={deepRoot} />}
       {fill && capPlanes.length > 0 && grossOn && (brainOpacity ?? 1) >= 1 && <CutCap fill={fill} planes={capPlanes} centre={centre} color={look === "regions" ? "#cfc6c9" : "#dcc3b6"} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
@@ -1734,6 +1796,8 @@ export default function AtlasViewer({
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   const [gross, setGross] = useState<THREE.Group | null>(null);
   const [fill, setFill] = useState<THREE.Group | null>(null);
+  const [deep, setDeep] = useState<{ id: string; g: THREE.Group }[] | null>(null);
+  const [deepFailed, setDeepFailed] = useState(false);
   const [showCtx, setShowCtx] = useState(true);
   const [grossProg, setGrossProg] = useState<Prog>({ loaded: 0, total: 0 });
   const [warmed, setWarmed] = useState(false);
@@ -2017,6 +2081,19 @@ export default function AtlasViewer({
       alive = false;
     };
   }, [look, fill, solidCuts]);
+  // the deep structures a section passes through: fetched the first time a cut or the midsagittal view is used
+  const cutNow = solidCuts && look !== "xray" && (clip.axis !== "off" || (view === "midsagittal" && !multi));
+  useEffect(() => {
+    if (!cutNow || deep || deepFailed || !index) return;
+    let alive = true;
+    Promise.all(DEEP.filter(([id]) => index.structures[id]?.file).map(([id]) => loadAtlasModel(index.structures[id].file as string).then((g) => ({ id, g }))))
+      .then((r) => alive && setDeep(r))
+      .catch(() => alive && setDeepFailed(true));
+    return () => {
+      alive = false;
+    };
+  }, [cutNow, deep, deepFailed, index]);
+  const deepLoading = cutNow && !deep && !deepFailed;
 
   const resolved = useMemo(() => (index ? resolveStructureIds(index, structureIds) : []), [index, structureIds]);
   const key = resolved.join(",") + "|" + mode;
@@ -2103,8 +2180,10 @@ export default function AtlasViewer({
     if (axis === "off") return setClip((c) => ({ ...c, axis }));
     const lo = ctxBox ? ctxBox.min[axis] : axis === "x" ? -0.08 : axis === "y" ? 1.53 : -0.11;
     const hi = ctxBox ? ctxBox.max[axis] : axis === "x" ? 0.08 : axis === "y" ? 1.68 : 0.1;
-    const c = box ? box.getCenter(new THREE.Vector3())[axis] : (lo + hi) / 2;
+    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? 0.012 : axis === "y" ? 1.625 : (lo + hi) / 2; // coronal: the anterior commissure and basal ganglia; transverse: the thalamus
     setClip({ axis, t: Math.min(1, Math.max(0, (c - lo) / (hi - lo))), flip: false });
+    if (axis === "y") setViewUser("superior");
+    else if (axis === "z") setViewUser("anterior");
     trackAtlas({ type: "cut_used", plane: CLIP_AXES.find((a) => a.id === axis)?.plane ?? axis });
   }
   const toggleAxis = (axis: ClipAxis) => (clip.axis === axis ? pickAxis("off") : pickAxis(axis));
@@ -2406,6 +2485,7 @@ export default function AtlasViewer({
             loaded={shown}
             gross={gross}
             fill={fill}
+            deep={cutNow ? deep : null}
             structures={index.structures}
             look={look}
             solid={solid}
@@ -2548,6 +2628,10 @@ export default function AtlasViewer({
             ["labels", "Placing labels", !!current && warmed],
           ])}
         />
+      ) : deepLoading ? (
+        <div className="atl-chip pointer-events-none absolute bottom-16 left-1/2 -translate-x-1/2 font-mono text-[11px] uppercase tracking-wider text-text-dim" role="status">
+          Loading deep structures...
+        </div>
       ) : !current && !indexError ? (
         <div className="atl-chip pointer-events-none absolute bottom-16 left-1/2 -translate-x-1/2 font-mono text-[11px] uppercase tracking-wider text-text-dim" role="status">
           Loading...

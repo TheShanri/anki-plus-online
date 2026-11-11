@@ -55,6 +55,10 @@ fc = ndi.binary_closing(np.pad(fc, 8), np.ones((1, 1, 9), bool))[8:-8, 8:-8, 8:-
 dist = ndi.distance_transform_edt(~(cortex | rest)) * P
 fr = ndi.binary_fill_holes(ndi.binary_closing(np.pad(rest, 6), (np.mgrid[-4:5, -4:5, -4:5] ** 2).sum(0) <= 16)[6:-6, 6:-6, 6:-6])
 f = ndi.binary_fill_holes(fc | fr)
+# 2D hole filling along every axis closes the remaining internal voids (a section must be solid all through)
+for ax in range(3):
+    b = np.moveaxis(f, ax, 0)
+    f = f | np.moveaxis(np.stack([ndi.binary_fill_holes(s) for s in b]), 0, ax)
 np.save(os.path.join(F, "fill.npy"), f)
 # smooth + mesh
 g = ndi.gaussian_filter(f.astype(np.float32), 2.0)

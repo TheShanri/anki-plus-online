@@ -95,6 +95,8 @@ export type AtlasViewerProps = {
   children?: React.ReactNode;
   /** Opacity of the base brain (everything not in an overlay), 0-1, e.g. 0.12. Below 1 the brain is drawn translucent with depthWrite off, so solid vessels inside it render correctly. */
   brainOpacity?: number;
+  /** Explore only: cuts show a solid, brain-coloured section instead of a hollow shell (loads the small brainfill.glb). Off for embedders that draw their own content. */
+  solidCuts?: boolean;
   /** node-name prefix -> structure slug for the skull and spine layer meshes (picking); names by slug / node. */
   skullNodes?: { prefix: string; slug: string }[];
   skullNames?: Record<string, string>;
@@ -525,8 +527,72 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
   });
 }
 
+/** Solid cut faces: the watertight brain solid is stencil-counted behind each active cut plane, and a plane-sized quad paints where the count is odd. */
+function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: THREE.Plane[]; centre: THREE.Vector3; color: string }) {
+  const geo = useMemo(() => {
+    // the glb is quantised: positions are normalised integers and the node carries the scale and offset; bake both into floats
+    const gs: THREE.BufferGeometry[] = [];
+    fill.updateWorldMatrix(true, true);
+    fill.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      const src = m.geometry.getAttribute("position");
+      const f = new Float32Array(src.count * 3);
+      for (let i = 0; i < src.count; i++) {
+        f[i * 3] = src.getX(i);
+        f[i * 3 + 1] = src.getY(i);
+        f[i * 3 + 2] = src.getZ(i);
+      }
+      const g = new THREE.BufferGeometry();
+      g.setAttribute("position", new THREE.BufferAttribute(f, 3));
+      if (m.geometry.index) g.setIndex(m.geometry.index.clone());
+      gs.push(g.applyMatrix4(m.matrixWorld));
+    });
+    return gs[0] ?? null;
+  }, [fill]);
+  const quads = useRef<(THREE.Mesh | null)[]>([]);
+  const S = CAP_SCALE;
+  const parts = useMemo(() => {
+    if (!geo) return [];
+    return planes.map((pl, i) => {
+      const others = planes.filter((_, j) => j !== i);
+      const base = { colorWrite: false, depthWrite: false, depthTest: false, stencilWrite: true, stencilFunc: THREE.AlwaysStencilFunc, clippingPlanes: planes } as const;
+      const back = new THREE.MeshBasicMaterial({ ...base, side: THREE.BackSide, stencilFail: THREE.IncrementWrapStencilOp, stencilZFail: THREE.IncrementWrapStencilOp, stencilZPass: THREE.IncrementWrapStencilOp });
+      const front = new THREE.MeshBasicMaterial({ ...base, side: THREE.FrontSide, stencilFail: THREE.DecrementWrapStencilOp, stencilZFail: THREE.DecrementWrapStencilOp, stencilZPass: THREE.DecrementWrapStencilOp });
+      const cap = new THREE.MeshStandardMaterial({
+        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, clippingPlanes: others,
+        stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp,
+      });
+      return { pl, back, front, cap };
+    });
+  }, [geo, planes, color]);
+  useEffect(() => () => parts.forEach((p) => [p.back, p.front, p.cap].forEach((m) => m.dispose())), [parts]);
+  useFrame(() => {
+    parts.forEach((p, i) => {
+      const q = quads.current[i];
+      if (!q) return;
+      p.pl.projectPoint(centre, q.position);
+      q.lookAt(q.position.clone().add(p.pl.normal));
+    });
+  });
+  if (!geo) return null;
+  return (
+    <>
+      {parts.map((p, i) => (
+        <group key={i}>
+          <mesh geometry={geo} material={p.back} renderOrder={20 + i * 3} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
+          <mesh geometry={geo} material={p.front} renderOrder={21 + i * 3} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
+          <mesh ref={(m) => { quads.current[i] = m; }} material={p.cap} renderOrder={22 + i * 3} raycast={() => undefined}>
+            <planeGeometry args={[0.6, 0.6]} />
+          </mesh>
+        </group>
+      ))}
+    </>
+  );
+}
+
+const CAP_SCALE = 0.985;
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
-const BACKER_SCALE = 0.975;
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 const INFLATE = { value: 0 };
 function inflate(m: THREE.MeshStandardMaterial) {
@@ -1310,20 +1376,6 @@ function Scene({
   );
   useEffect(() => () => backMat.dispose(), [backMat]);
   const backer = useMemo(() => {
-    if (fill) {
-      // the watertight brain solid: nothing can show through a crack, a missing medial wall or an open orbital surface
-      const g = fill.clone(true);
-      g.traverse((o) => {
-        const m = o as THREE.Mesh;
-        if (m.isMesh) {
-          m.material = backMat;
-          m.raycast = () => undefined;
-        }
-      });
-      g.scale.setScalar(BACKER_SCALE);
-      g.position.copy(centre).multiplyScalar(1 - BACKER_SCALE);
-      return g;
-    }
     if (!loaded.ctx) return null;
     const g = loaded.ctx.clone(true);
     const drop: THREE.Object3D[] = [];
@@ -1341,7 +1393,7 @@ function Scene({
     g.scale.setScalar(0.985); // a little inward of the gyri
     g.position.copy(centre).multiplyScalar(1 - 0.985);
     return g;
-  }, [fill, loaded.ctx, backMat, centre]);
+  }, [loaded.ctx, backMat, centre]);
 
   const ovlRoot = useMemo(() => {
     const root = new THREE.Group();
@@ -1400,6 +1452,7 @@ function Scene({
     invalidate();
   }, [targetRoot, loaded.ctx, hiMat, ctxMat, invalidate]);
 
+  const capPlanes = useMemo(() => [...(midsagittal ? [clipPlane] : []), ...(clip.axis !== "off" ? [cutP] : [])], [midsagittal, clip.axis, clipPlane, cutP]);
   // cut planes
   useEffect(() => {
     const gp: THREE.Plane[] = [];
@@ -1545,6 +1598,7 @@ function Scene({
       ))}
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
+      {fill && capPlanes.length > 0 && grossOn && (brainOpacity ?? 1) >= 1 && <CutCap fill={fill} planes={capPlanes} centre={centre} color={look === "regions" ? "#cfc6c9" : "#dcc3b6"} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
       {guides.map((g, i) => (
@@ -1588,6 +1642,7 @@ export default function AtlasViewer({
   onCameraState,
   children,
   brainOpacity: brainOpacityProp,
+  solidCuts = false,
   skull = null,
   skullNodes = EMPTY_NODES,
   skullNames = EMPTY_NAMES,
@@ -1867,14 +1922,21 @@ export default function AtlasViewer({
     loadAtlasModel("gross.glb", (p) => alive && setGrossProg(p))
       .then((g) => alive && setGross(g))
       .catch(() => undefined);
-    // the closed brain solid behind the gyri (small; the viewer falls back to the context shell without it)
+    return () => {
+      alive = false;
+    };
+  }, [look, gross]);
+  // the closed brain solid (small): stencil-capped cut faces; without it a cut shows the hollow shell
+  useEffect(() => {
+    if (!solidCuts || look === "xray" || fill) return;
+    let alive = true;
     loadAtlasModel("brainfill.glb")
       .then((g) => alive && setFill(g))
       .catch(() => undefined);
     return () => {
       alive = false;
     };
-  }, [look, gross]);
+  }, [look, fill, solidCuts]);
 
   const resolved = useMemo(() => (index ? resolveStructureIds(index, structureIds) : []), [index, structureIds]);
   const key = resolved.join(",") + "|" + mode;
@@ -2257,7 +2319,7 @@ export default function AtlasViewer({
         frameloop="demand"
         dpr={[1, 1.5]}
         camera={{ fov: 35, near: 0.01, far: 6, position: [0.5, 1.605, -0.01] }}
-        gl={{ antialias: true, powerPreference: "low-power" }}
+        gl={{ antialias: true, stencil: solidCuts, powerPreference: "low-power" }}
       >
         {shown && index && (
           <Scene

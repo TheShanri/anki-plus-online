@@ -618,6 +618,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 onHoverKey={setHoverKey}
                 shortcuts
                 multiview
+                solidCuts
                 neighbors={neighbors}
                 onToggleNeighbors={() => setNeighbors((n) => !n)}
                 syllabus={SYLLABUS}

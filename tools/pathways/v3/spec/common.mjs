@@ -169,6 +169,13 @@ export function synth(f, id, name, pts, r, why) {
   return key;
 }
 
+/** A seam between two atlas meshes that meet in the body but not in the model (a few mm): validated like a tube, not drawn. */
+export function seam(f, id, name, pts, r, why) {
+  const key = tube(id, name, [f.end, ...pts], r, why, true);
+  for (const p of pts) f.lineTo(p, key, 0.0005);
+  return key;
+}
+
 /* ------------------------------------------------------------------ spinal levels */
 const LEVEL_ORDER = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "L1", "L2", "L3", "L4", "L5", "S1", "S2", "S3", "S4", "S5"];
 export const cordY = (seg) => SPINE[`cord_${seg}`][1];

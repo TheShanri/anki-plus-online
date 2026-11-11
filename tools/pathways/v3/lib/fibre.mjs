@@ -1,9 +1,9 @@
 // Fibre builder for the v3 pathway build: every sample of a fibre records the host structure it runs in, so the
 // validator can check it (atlas mesh, Z-Anatomy nerve curve, nucleus proxy, part mesh, or a flagged synthetic tube).
-import { atlasMesh, atlasMeshes, nodeMesh, route, sliceCentre, resample, ROOT } from "./geom.mjs";
+import { atlasMesh, atlasMeshes, nodeMesh, route, sliceCentre, resample, ROOT, TriMesh } from "./geom.mjs";
 import { curveByKey, dist } from "./nerves.mjs";
 import { join } from "node:path";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 
 /* ------------------------------------------------------------------ hosts */
 export const PROXIES = new Map(); // id -> { id, name, parent, c:[x,y,z], r:[rx,ry,rz] }
@@ -14,8 +14,8 @@ export function proxy(id, name, parent, c, r) {
   PROXIES.set(id, { id, name, parent, c, r });
   return `p:${id}`;
 }
-export function tube(id, name, pts, r, why) {
-  TUBES.set(id, { id, name, pts, r, why });
+export function tube(id, name, pts, r, why, hidden = false) {
+  TUBES.set(id, { id, name, pts, r, why, hidden });
   return `t:${id}`;
 }
 const inEllipsoid = (q, p, tol = 0) => {
@@ -50,8 +50,40 @@ export async function partMesh(file, node) {
   }
   return m;
 }
+/** The mirror image (x -> -x) of a part node: Z-Anatomy parts of paired organs exist on the left side only. */
+const MIRRORED = new Map();
+export async function partMeshMirrored(file, node) {
+  const k = `${file}/${node}`;
+  if (MIRRORED.has(k)) return MIRRORED.get(k);
+  const m = await partMesh(file, node);
+  const t = new Float32Array(m.tris);
+  for (let i = 0; i < t.length; i += 3) t[i] = -t[i];
+  const out = new TriMesh(t, node + "@mirror");
+  MIRRORED.set(k, out);
+  return out;
+}
+/** A point inside a mesh host as close as possible to p (the point itself when inside): shells of growing radius. */
+export async function insideNear(key, p, maxR = 0.02, nearest = false) {
+  const h = await hostOf(key);
+  if (h.test(p)) return p.slice();
+  for (let r = 0.0002; r <= maxR; r *= 1.25) {
+    let best = null;
+    for (let k = 0; k < 400; k++) {
+      const th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+      const q = [p[0] + r * Math.sin(ph) * Math.cos(th), p[1] + r * Math.sin(ph) * Math.sin(th), p[2] + r * Math.cos(ph)];
+      if (!h.test(q)) continue;
+      if (nearest) return q;
+      const d = h.meshes ? Math.min(...h.meshes.map((m) => m.dist(q, 0.004))) : 0;
+      if (!best || d > best.d) best = { q, d };
+    }
+    if (best) return best.q;
+  }
+  throw new Error(`insideNear ${key}: nothing inside within ${maxR} m of ${p.map((v) => v.toFixed(4))}`);
+}
+/** The body context (skin, limb bones, muscles): the same optimised file the app draws and the validator checks. */
 export async function bodyMesh(node) {
-  return nodeMesh(join(ROOT, "_atlas/pw3_raw/body.glb"), node);
+  const pub = join(ROOT, "public/pathways/v3/body.glb");
+  return nodeMesh(existsSync(pub) ? pub : join(ROOT, "_atlas/pw3_raw/body.glb"), node);
 }
 
 /** Resolves a host key to an inside test (with a tolerance in metres) and, for meshes, the TriMesh. */
@@ -66,9 +98,9 @@ export async function hostOf(key) {
     const m = await bodyMesh(id);
     return { kind, meshes: [m], test: (p, tol = 0) => m.inside(p) || (tol > 0 && m.dist(p, tol * 2) <= tol) };
   }
-  if (kind === "part") {
+  if (kind === "part" || kind === "pr") {
     const [file, node] = id.split("/");
-    const m = await partMesh(file, node);
+    const m = kind === "pr" ? await partMeshMirrored(file, node) : await partMesh(file, node);
     return { kind, meshes: [m], test: (p, tol = 0) => m.inside(p) || (tol > 0 && m.dist(p, tol * 2) <= tol) };
   }
   if (kind === "n") {
@@ -150,12 +182,40 @@ export class Fibre {
     for (let k = 0; k <= n; k++) {
       const y = y0 + ((y1 - y0) * k) / n;
       const c = sliceCentre(m, Math.min(m.hi[1] - 0.0003, Math.max(m.lo[1] + 0.0003, y)), sgn, pref, 0.3, near, 0.6);
+      // a level where the tract mesh is degenerate (segment seams) can put the centre far off: skip it
+      if (c && near && Math.hypot(c.p[0] - near[0], c.p[2] - near[1]) > 0.0022) continue;
       if (c) {
         pts.push(c.p);
         near = [c.p[0], c.p[2]];
       }
     }
-    return this.add(pts, `a:${tract}`);
+    // a skipped level leaves a longer step: resample to 1 mm (the tract is a near-vertical tube, the chords stay inside)
+    return this.add(resample(pts, 0.001), `a:${tract}`);
+  }
+  /** From the current end (a nerve's tip, just outside a mesh) straight into the mesh: the short step belongs to both hosts. */
+  async enter(meshKey, maxR = 0.01, depth = 0.0015) {
+    const q1 = await insideNear(meshKey, this.end, maxR, true);
+    const prev = this.seg[this.seg.length - 1][1].replace(/^u:/, "");
+    const gap = dist(this.end, q1);
+    if (gap > 0.0006) {
+      // the curve stops short of the mesh it supplies (Z-Anatomy ends nerves at the surface): a flagged, undrawn seam
+      const id = `enter-${meshKey.replace(/[^a-z0-9]+/gi, "-")}-${this.end.map((v) => Math.round(v * 1e4)).join("_")}`;
+      const key = tube(id, "Nerve ending into its target", [this.end, q1], Math.max(0.0005, gap * 0.5), "the nerve curve ends short of the target mesh", true);
+      this.lineTo(q1, `u:${key}|${meshKey}`, 0.0003);
+    } else this.lineTo(q1, `u:${prev}|${meshKey}`, 0.0003);
+    // then a little deeper, in the same direction, while it stays inside
+    const h = await hostOf(meshKey);
+    const d = [q1[0] - this.pts[Math.max(0, this.pts.length - 2)][0], q1[1] - this.pts[Math.max(0, this.pts.length - 2)][1], q1[2] - this.pts[Math.max(0, this.pts.length - 2)][2]];
+    const l = Math.hypot(...d) || 1;
+    let q2 = q1;
+    for (let t = depth; t > 0.0002; t *= 0.6) {
+      const c = [q1[0] + (d[0] / l) * t, q1[1] + (d[1] / l) * t, q1[2] + (d[2] / l) * t];
+      if (h.test(c)) {
+        q2 = c;
+        break;
+      }
+    }
+    return q2 === q1 ? this : this.lineTo(q2, meshKey, 0.0004);
   }
   lineTo(p, host, step = 0.0008) {
     const a = this.end;

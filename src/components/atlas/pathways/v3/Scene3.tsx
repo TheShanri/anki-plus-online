@@ -167,7 +167,8 @@ export default function Scene3(p: Scene3Props) {
           for (const [, h] of f.seg)
             for (const k of hostParts(h)) {
               const base = k.split("@")[0];
-              if (seen.has(k) || NOT_DRAWN.has(base) || k.startsWith("p:")) continue;
+              const gk = p.data.geo[k];
+              if (seen.has(k) || NOT_DRAWN.has(base) || k.startsWith("p:") || (gk?.kind === "tube" && gk.hidden)) continue;
               seen.add(k);
               out.push({ key: `h:${k}`, style: "host", geo: hostGeometry(base, p.data.geo), half: k.includes("@") ? (k.split("@")[1] as Side) : undefined, name: k, pick: `h:${k}`, beat: bi });
             }
@@ -524,7 +525,7 @@ export default function Scene3(p: Scene3Props) {
     for (const l of layers) {
       const k = l.key.replace(/^h:/, "");
       const g = p.data.geo[k];
-      if (!l.key.startsWith("h:") || !g || (g.kind !== "nerve" && g.kind !== "tube")) continue;
+      if (!l.key.startsWith("h:") || !g || (g.kind !== "nerve" && g.kind !== "tube") || (g.kind === "tube" && g.hidden)) continue;
       const pts: THREE.Vector3[] = [];
       for (let i = 0; i < g.pts.length; i += 3) pts.push(v3(g.pts, i));
       out.push({ key: k, pts, beat: l.beat ?? 0 });

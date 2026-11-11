@@ -63,7 +63,7 @@ for (const [slug, spec] of Object.entries(ALL)) {
         geo[h] = { kind: "nerve", name: id.split("#")[0].replace(/\.[lr]$/, ""), pts: c.pts.flat().map(r5), r: c.r.map((v) => r5(v)) };
       } else if (kind === "t") {
         const t = TUBES.get(id);
-        geo[h] = { kind: "tube", name: t.name, pts: t.pts.flat().map(r5), r: r5(t.r), synthetic: t.why };
+        geo[h] = { kind: "tube", name: t.name, pts: t.pts.flat().map(r5), r: r5(t.r), synthetic: t.why, ...(t.hidden ? { hidden: true } : {}) };
       } else if (kind === "p") {
         const q = PROXIES.get(id);
         geo[h] = { kind: "proxy", name: q.name, parent: q.parent, c: q.c.map(r5), r: q.r };

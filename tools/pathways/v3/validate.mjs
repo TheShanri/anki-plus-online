@@ -7,7 +7,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, atlasMeshes, nodeMesh } from "./lib/geom.mjs";
 import { Curve } from "./lib/nerves.mjs";
-import { partMesh } from "./lib/fibre.mjs";
+import { partMesh, partMeshMirrored } from "./lib/fibre.mjs";
 
 const DIR = join(ROOT, "public/pathways/v3");
 const BODY = existsSync(join(DIR, "body.glb")) ? join(DIR, "body.glb") : join(ROOT, "_atlas/pw3_raw/body.glb");
@@ -44,9 +44,9 @@ async function tester(key, geo) {
     const ms = await atlasMeshes(id.split("@")[0]);
     const thin = ms.every((m) => Math.min(m.hi[0] - m.lo[0], m.hi[2] - m.lo[2]) < 0.004);
     t = meshTest(ms, thin);
-  } else if (kind === "part") {
+  } else if (kind === "part" || kind === "pr") {
     const [file, node] = id.split("/");
-    t = meshTest([await partMesh(file, node)], false);
+    t = meshTest([kind === "pr" ? await partMeshMirrored(file, node) : await partMesh(file, node)], false);
   } else if (kind === "b") {
     t = meshTest([await nodeMesh(BODY, id)], false);
   } else if (kind === "n") {

@@ -182,9 +182,25 @@ export function hostGeometry(key: HostKey, geo: Record<string, V3Geo>): Promise<
       const parts = await Promise.all(ids.map((k) => loadGlb(`/atlas/${ix.structures[k].file}`).then((s) => (s ? merge(s, () => true) : null))));
       return mergeGeos(parts.filter((x): x is THREE.BufferGeometry => !!x));
     });
-  } else if (kind === "part") {
+  } else if (kind === "part" || kind === "pr") {
+    // pr: the mirror image (x -> -x) of a part node (paired organs exist on the left side only)
     const [file, node] = id.split("/");
-    p = Promise.all([loadGlb(`/pathways/${file}.glb`), partOffsets()]).then(([s, off]) => (s ? merge(s, (n) => n === node || n.startsWith(node + "_") || n.startsWith(node + "."), off[file]?.worldOffset) : null));
+    p = Promise.all([loadGlb(`/pathways/${file}.glb`), partOffsets()]).then(([s, off]) => {
+      const g = s ? merge(s, (n) => n === node || n.startsWith(node + "_") || n.startsWith(node + "."), off[file]?.worldOffset) : null;
+      if (g && kind === "pr") {
+        g.scale(-1, 1, 1);
+        const ix = g.getIndex();
+        if (ix) for (let i = 0; i < ix.count; i += 3) {
+          const a = ix.getX(i + 1);
+          ix.setX(i + 1, ix.getX(i + 2));
+          ix.setX(i + 2, a);
+        }
+        g.computeVertexNormals();
+        g.computeBoundingBox();
+        g.computeBoundingSphere();
+      }
+      return g;
+    });
   } else if (kind === "b") {
     p = loadGlb("/pathways/v3/body.glb").then((s) => (s ? merge(s, (n) => n === id || n.startsWith(id + ".") || n.startsWith(id + "_")) : null));
   } else if (g?.kind === "nerve") {

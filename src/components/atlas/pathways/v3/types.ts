@@ -57,7 +57,7 @@ export interface V3Beat {
 }
 export type V3Geo =
   | { kind: "nerve"; name: string; pts: number[]; r: number[] }
-  | { kind: "tube"; name: string; pts: number[]; r: number; synthetic: string }
+  | { kind: "tube"; name: string; pts: number[]; r: number; synthetic: string; hidden?: boolean }
   | { kind: "proxy"; name: string; parent: string; c: [number, number, number]; r: [number, number, number] };
 
 export interface V3Data {

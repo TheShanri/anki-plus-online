@@ -1,6 +1,7 @@
 // Relays shared by several pathways: the thalamocortical radiation (thalamus -> internal capsule -> corona radiata -> cortex),
 // the corticofugal descent (motor cortex -> capsule -> peduncle -> basis pontis -> pyramid), the limb chains and the cord.
-import { Fibre, nuc, inSlice, cortexPoint, chain, synth, drgAt, rootCurve, caudaPath, cordY, sgnOf, atlasMeshes, dist } from "./common.mjs";
+import { Fibre, nuc, inSlice, cortexPoint, chain, synth, seam, drgAt, rootCurve, caudaPath, cordY, sgnOf, atlasMeshes, dist } from "./common.mjs";
+import { insideNear } from "../lib/fibre.mjs";
 import { atlasMesh, sliceCentre } from "../lib/geom.mjs";
 import { splines } from "../lib/nerves.mjs";
 
@@ -106,3 +107,101 @@ export async function tractRun(f, tract, side, y0, y1, pref = null) {
 }
 export const CORD_TOP = 1.5438;
 export { cordY, drgAt, nuc, inSlice, sliceCentre, atlasMesh, atlasMeshes, dist, Fibre };
+
+/* ------------------------------------------------------------------ joining fibres */
+/** One fibre made of several consecutive pieces (beats that the beat model draws as one stretch). */
+export function joinFibres(order, parts, tag = "") {
+  const f = new Fibre(order, tag);
+  for (const p of parts) {
+    const pts = [];
+    for (let i = 0; i < p.pts.length; i++) pts.push(p.pts[i]);
+    p.seg.forEach(([start, host], k) => {
+      const end = k + 1 < p.seg.length ? p.seg[k + 1][0] : p.pts.length;
+      f.add(pts.slice(start, end), host);
+    });
+  }
+  return f;
+}
+
+/* ------------------------------------------------------------------ corticofugal descent */
+/**
+ * The upper motor neuron's descent from a cortex target (CORTEX key) on side `cx` (the cortex side), split into the stretches
+ * the beat model uses: leave (layer V into the white matter), capsule (corona radiata and internal capsule), peduncle
+ * (base of the cerebral peduncle), pons (longitudinal fibres of the basis pontis), pyramid (medullary pyramid).
+ * Each piece is its own Fibre (order 1), continuing from the end of the previous one.
+ */
+export async function corticofugal(cx, target, opt = {}) {
+  const s = sgnOf(cx);
+  const soma = await cortex(target, cx);
+  const gyrus = `a:${CORTEX[target][0]}`;
+  const WM = "a:white-matter-of-telencephalon";
+  const IC = "a:mni-internal-capsule";
+  const cap = await inSlice("mni-internal-capsule", cx, 1.6255, opt.capPref ?? [0.55, 0.62]);
+  const capLow = await inSlice("mni-internal-capsule", cx, 1.6195, [0.5, 0.6]);
+  const ped = await inSlice("base-of-peduncle", cx, 1.6075, [0.5, 0.7]);
+  const pedLow = await inSlice("base-of-peduncle", cx, 1.6035, [0.35, 0.8]);
+  const pons = await inSlice("mni-longitudinal-fibers-of-the-pons", cx, 1.585, [0.4, 0.7]);
+  const ponsLow = await inSlice("mni-longitudinal-fibers-of-the-pons", cx, 1.5785, [0.4, 0.7]);
+  const pyr = await inSlice("pyramid-of-medulla-oblongata", cx, 1.5705, [0.4, 0.6]);
+  const pyrLow = await inSlice("pyramid-of-medulla-oblongata", cx, 1.5632, [0.4, 0.6]);
+  // layer V cell body, then a short run down into the white matter under the gyrus
+  const under = await insideNear(WM, [soma[0] * 0.86, soma[1] - 0.008, soma[2]], 0.012);
+  const leave = new Fibre(1).from(soma, gyrus);
+  await leave.routeTo([gyrus, WM], under, { sgn: s, minX: 0.002, h: 0.0006, spread: 0.25 });
+  const capsule = new Fibre(1).from(under, WM);
+  await capsule.routeTo([WM, IC], cap, { sgn: s, minX: 0.002, h: 0.0006, spread: 0.2 });
+  await capsule.routeTo([IC], capLow, { sgn: s, minX: 0.002, h: 0.0004 });
+  // the MNI capsule and the Z-Anatomy peduncle leave a seam of ~2-3 mm where the capsule continues into the crus cerebri
+  const pedTop = await insideNear("a:base-of-peduncle", [capLow[0] * 0.85, 1.6155, capLow[2]], 0.006);
+  const peduncle = new Fibre(1).from(capLow, IC);
+  seam(peduncle, `ic-crus-${cx}`, "Internal capsule into the cerebral peduncle", [[(capLow[0] + pedTop[0]) / 2, (capLow[1] + pedTop[1]) / 2, (capLow[2] + pedTop[2]) / 2], pedTop], 0.0012, "the internal capsule (MNI) and the peduncle (Z-Anatomy) meshes do not touch: a 2-3 mm seam");
+  await peduncle.routeTo(["a:base-of-peduncle"], ped, { sgn: s, minX: 0.001, h: 0.0003, label: "peduncle" });
+  await peduncle.routeTo(["a:base-of-peduncle"], pedLow, { sgn: s, minX: 0.001, h: 0.0003 });
+  const basis = new Fibre(1).from(pedLow, "a:base-of-peduncle");
+  await basis.routeTo(["a:base-of-peduncle", "a:mni-longitudinal-fibers-of-the-pons", "a:pons"], pons, { sgn: s, minX: 0.0008, h: 0.0003 });
+  await basis.routeTo(["a:mni-longitudinal-fibers-of-the-pons"], ponsLow, { sgn: s, minX: 0.0008, h: 0.0003 });
+  const pyramid = new Fibre(1).from(ponsLow, "a:mni-longitudinal-fibers-of-the-pons");
+  await pyramid.routeTo(["a:mni-longitudinal-fibers-of-the-pons", "a:pons", "a:medulla-oblongata", "a:pyramid-of-medulla-oblongata"], pyr, { sgn: s, minX: 0.0006, h: 0.0003 });
+  await pyramid.routeTo(["a:pyramid-of-medulla-oblongata"], pyrLow, { sgn: s, minX: 0.0006, h: 0.0003 });
+  return { soma, leave, capsule, peduncle, basis, pyramid, gyrus };
+}
+
+/** Motor decussation: from the pyramid's lower end across the midline (caudal medulla) into the lateral corticospinal tract. */
+export const MOTOR_X = { y: 1.5455, yMax: 1.552, level: "caudal medulla (motor decussation)" };
+export async function motorDecussation(from, cx) {
+  const s = sgnOf(cx);
+  const O = cx === "L" ? "R" : "L";
+  const zc = (await inSlice("medulla-oblongata", "M", MOTOR_X.y, [0, 0.55]))[2];
+  const cross = [0, MOTOR_X.y, zc];
+  const lcstTop = await inSlice("lateral-corticospinal-tract", O, 1.5432);
+  const f = new Fibre(1).from(from, "a:pyramid-of-medulla-oblongata");
+  const mid = await inSlice("medulla-oblongata", cx, MOTOR_X.y + 0.004, [0.2, 0.6]);
+  await f.routeTo(["a:pyramid-of-medulla-oblongata", "a:medulla-oblongata"], mid, { sgn: s, minX: 0.0004, h: 0.0003 });
+  await f.routeTo(["a:medulla-oblongata"], cross, { h: 0.0003 });
+  await f.routeTo(["a:medulla-oblongata", "a:white-matter-of-spinal-cord", "a:lateral-corticospinal-tract"], lcstTop, { sgn: -s, minX: 0.0003, h: 0.0003 });
+  return { f, cross };
+}
+
+/* ------------------------------------------------------------------ lower motor neuron out */
+/** Alpha motor neuron in the ventral horn at a segment: the most interior point of the lateral (limb) or medial (axial) column. */
+export async function lmnAt(seg, side, column = "lateral") {
+  const y = cordY(seg);
+  return inSlice("anterior-horn-of-spinal-cord", side, y, column === "lateral" ? [0.85, 0.7] : [0.2, 0.85], 1.2);
+}
+/** From a descending tract (or the dorsal root) into the ventral horn, ending on the motor neuron (the synapse). */
+export async function intoHorn(f, hosts, lmn, side) {
+  await f.routeTo([...hosts, "a:white-matter-of-spinal-cord", "a:anterior-horn-of-spinal-cord"], lmn, { sgn: sgnOf(side), minX: 0.0003, h: 0.00025 });
+  return f;
+}
+/** Motor neuron cell body -> out of the horn -> the real ventral root (C2-L2) or the synthetic cauda equina root -> the ganglion level. */
+export async function lmnOut(lmn, seg, side) {
+  const f = new Fibre(2).from(lmn, "a:anterior-horn-of-spinal-cord");
+  const c = rootCurve("ventral", seg, side);
+  if (c) {
+    // to the cord surface where the root leaves (the root mesh starts ~0.5 mm outside the cord mesh), then along the root
+    const exit = await insideNear("a:white-matter-of-spinal-cord", c.a, 0.003);
+    await f.routeTo(["a:anterior-horn-of-spinal-cord", "a:white-matter-of-spinal-cord"], exit, { sgn: sgnOf(side), minX: 0.0003, h: 0.00025, snap: 0.003 });
+    f.curve(c, 0, c.length);
+  } else await ventralRootOut(f, seg, side);
+  return f;
+}

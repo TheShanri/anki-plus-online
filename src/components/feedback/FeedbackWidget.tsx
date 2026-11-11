@@ -59,7 +59,6 @@ export function FeedbackWidget() {
   const [attach, setAttach] = useState(true);
   const [card, setCard] = useState<{ id: string; slug: string } | null>(null);
   const [note, setNote] = useState("");
-  const [failed, setFailed] = useState(false);
   const shot = useRef<Promise<string | null> | null>(null);
   const after = useRef<{ id: string; token: string; stop: () => ReturnType<ReturnType<typeof captureAfter>["stop"]>; timer: number } | null>(null);
   const first = useRef(true);
@@ -94,7 +93,6 @@ export function FeedbackWidget() {
     setType(t === "bug" && !c ? "bug" : t);
     setAttach(t === "bug");
     setText("");
-    setFailed(false);
     setPhase("open");
   }, [phase]);
 
@@ -115,8 +113,12 @@ export function FeedbackWidget() {
 
   async function send() {
     setPhase("sending");
+    // A second report inside the first one's 60 s: send the first one's "after" logs now. Overwriting `after` lost
+    // them, left their listener collecting for the rest of the visit, and the first timer then cut the second short.
+    finishAfter();
     const screenshot = attach ? await shot.current : null;
     const cap = captureAfter();
+    let sent = false;
     try {
       const res = await fetch("/api/feedback", {
         method: "POST",
@@ -140,14 +142,13 @@ export function FeedbackWidget() {
         after.current = { id, token, stop: cap.stop, timer };
       } else cap.stop();
       setNote(emailed ? "Thanks! We got it. A copy is in your inbox." : "Thanks! We got it.");
-      setFailed(false);
+      sent = true;
     } catch {
       cap.stop();
       setNote("It could not be sent. Please try again in a moment.");
-      setFailed(true);
     }
     setPhase("done");
-    window.setTimeout(() => setPhase((p) => (p === "done" ? "idle" : p)), failed ? 6000 : 7000);
+    window.setTimeout(() => setPhase((p) => (p === "done" ? "idle" : p)), sent ? 7000 : 6000);
   }
 
   const current = TYPES.find((t) => t.id === type)!;

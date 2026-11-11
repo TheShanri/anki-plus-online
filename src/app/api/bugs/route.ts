@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { cleanLogs } from "@/lib/bugs/clean";
+import { bodyObject, clampState, cleanLogs } from "@/lib/bugs/clean";
 import { getViewer } from "@/lib/session";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
   let body: Record<string, unknown>;
   try {
-    body = await req.json();
+    body = bodyObject(await req.json());
   } catch {
     return NextResponse.json({ error: "Bad request." }, { status: 400 });
   }
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
       route: String(body.route ?? "").slice(0, 300),
       description: String(body.description ?? "").slice(0, 500) || null,
       user_agent: String(body.userAgent ?? "").slice(0, 300),
-      app_state: typeof body.appState === "object" && body.appState ? JSON.parse(JSON.stringify(body.appState).slice(0, 6000)) : {},
+      app_state: clampState(body.appState),
       logs_before: cleanLogs(body.logsBefore),
       screenshot_path: screenshotPath,
     })

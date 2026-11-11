@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { cleanLogs } from "@/lib/bugs/clean";
+import { bodyObject, clampState, cleanLogs, ownKey } from "@/lib/bugs/clean";
 import { FEEDBACK_TYPES, sendFeedbackEmails, type FeedbackType } from "@/lib/auth/mail";
 import { getViewer } from "@/lib/session";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -24,12 +24,12 @@ export async function POST(req: Request) {
 
   let body: Record<string, unknown>;
   try {
-    body = await req.json();
+    body = bodyObject(await req.json());
   } catch {
     return NextResponse.json({ error: "Bad request." }, { status: 400 });
   }
 
-  const type: FeedbackType = typeof body.type === "string" && body.type in FEEDBACK_TYPES ? (body.type as FeedbackType) : "other";
+  const type: FeedbackType = ownKey(FEEDBACK_TYPES, body.type, "other");
   const message = String(body.message ?? "").trim().slice(0, 2000);
   if (!message && type !== "bug") return NextResponse.json({ error: "Please write a few words." }, { status: 400 });
 
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
       card_id: cardId,
       card_slug: cardSlug,
       user_agent: String(body.userAgent ?? "").slice(0, 300),
-      app_state: typeof body.appState === "object" && body.appState ? JSON.parse(JSON.stringify(body.appState).slice(0, 6000)) : {},
+      app_state: clampState(body.appState),
       logs_before: cleanLogs(body.logsBefore),
       screenshot_path: screenshotPath,
     })

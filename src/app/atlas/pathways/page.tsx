@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { AtlasModes } from "@/components/atlas/AtlasModes";
-import { PathwayTracer } from "@/components/atlas/pathways/PathwayTracer";
-import { Tracer3 } from "@/components/atlas/pathways/v3/Tracer3";
+import { PathwayHub } from "@/components/atlas/pathways/PathwayHub";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { fetchAll, resolveCourse } from "@/lib/study/server";
 import type { CoursePathway, PathwayCard } from "@/lib/atlas/pathways";
@@ -40,11 +39,8 @@ export default async function PathwaysPage({ searchParams }: { searchParams: Pro
     <section className="relative left-1/2 w-[min(1760px,calc(100vw-24px))] -translate-x-1/2">
       <h1 className="sr-only">Pathway tracer</h1>
       <AtlasModes />
-      {sp.v === "3" ? (
-        <Tracer3 courses={coursePathways as unknown as CoursePathway[]} cards={cards} courseSlug={course.slug} initial={sp} />
-      ) : (
-        <PathwayTracer courses={coursePathways as unknown as CoursePathway[]} cards={cards} initial={sp} />
-      )}
+      {/* v3 for the pathways it has shipped, v2 for the rest (?v=2 / ?v=3 pins one version) */}
+      <PathwayHub courses={coursePathways as unknown as CoursePathway[]} cards={cards} courseSlug={course.slug} initial={sp} />
     </section>
   );
 }

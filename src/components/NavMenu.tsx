@@ -45,10 +45,6 @@ export function NavMenu({ links, children }: { links: NavLinkItem[]; children?: 
                     e.preventDefault();
                     setOpen(false);
                     window.dispatchEvent(new Event(OPEN_ATLAS_EVENT));
-                  } else if (path.startsWith("/atlas/pathways") && !on && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
-                    // the client transition never commits from the pathway tracer (see AtlasModes): leave by a full navigation
-                    e.preventDefault();
-                    window.location.assign(l.href);
                   }
                 }}
               >

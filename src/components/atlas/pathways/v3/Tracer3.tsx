@@ -51,6 +51,14 @@ const SIDE_NOUN: Record<string, string> = {
   "umn-lmn": "limb", vestibulospinal: "body", reticulospinal: "body", "trigeminal-discriminative": "face", "trigeminal-pain": "face", gaze: "gaze",
 };
 const sideNoun = (slug: string) => SIDE_NOUN[slug] ?? "body";
+/** What "same side" is measured against in the side chip: the stimulus for sensory pathways, the target for motor ones. */
+const REL_NOUN: Record<string, string> = {
+  lcst: "limb", acst: "muscles", "umn-lmn": "limb", rubrospinal: "limb", tectospinal: "muscles", reticulospinal: "muscles", vestibulospinal: "muscles",
+  corticobulbar: "face muscles", "stretch-reflex": "limb", "withdrawal-reflex": "limb", visual: "visual field", gaze: "eyes' turn", cochlear: "ear", vestibular: "ear",
+  cerebellar: "cerebellum", corticopontocerebellar: "cortex", "basal-ganglia": "cortex", sympathetic: "organ", parasympathetic: "organ", reward: "VTA",
+  "limbic-fornix": "hippocampus", "limbic-amygdala": "amygdala", "limbic-septal": "septal nuclei", olfactory: "nostril", pupillary: "lit eye", "jaw-jerk": "muscle",
+};
+const relNoun = (slug: string) => REL_NOUN[slug] ?? "stimulus";
 
 function hash(s: string) {
   let h = 2166136261;
@@ -108,7 +116,7 @@ const NAMED_SITE = /syndrome|locked-in|wallenberg|weber|brown|parkinson|huntingt
 const meaningful = (s?: string) => !!s && !/^\s*(n\/a|none|not stated|not taught|see specific)/i.test(s) && s.trim().length > 1;
 type Answered = Record<string, "right" | "wrong">;
 
-export function Tracer3({ courses, cards, courseSlug, initial }: { courses: CoursePathway[]; cards: PathwayCard[]; courseSlug: string; initial: { p?: string; side?: string; step?: string; limb?: string } }) {
+export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { courses: CoursePathway[]; cards: PathwayCard[]; courseSlug: string; initial: { p?: string; side?: string; step?: string; limb?: string }; onSwitch?: (slug: string, limb?: string) => boolean }) {
   const bySlug = useMemo(() => new Map(courses.map((c) => [c.slug, c])), [courses]);
   const groups = useMemo<PickerGroup[]>(
     () => GROUPS.map((g) => ({ title: g.title, items: g.slugs.filter((s) => bySlug.has(s) && PATHWAY_MAP[s]).map((s) => ({ slug: s, name: bySlug.get(s)!.name })) })).filter((g) => g.items.length),
@@ -232,6 +240,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   );
   const choose = useCallback(
     (s: string) => {
+      if (s !== slug && onSwitch?.(s)) return; // a pathway still on v2: the page swaps the tracer
       setSlug(s);
       setStep(0);
       setAll(false);
@@ -244,7 +253,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
       setReady(false);
       visited.current = new Set();
     },
-    [resetStepUi],
+    [resetStepUi, slug, onSwitch],
   );
   useEffect(() => {
     (window as unknown as { __pwChoose?: (s: string, limb?: string) => void }).__pwChoose = (s: string, limb?: string) => {
@@ -417,7 +426,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   const sideText = (() => {
     if (!sideNow) return null;
     if (sideNow.rel === "mid") return "Crossing the midline";
-    const rel = sideNow.rel === "same" ? `same side as the ${noun}` : `opposite the ${noun}`;
+    const rel = sideNow.rel === "same" ? `same side as the ${relNoun(slug)}` : `opposite the ${relNoun(slug)}`;
     if (sideMode === "both") return `Each side: ${rel}`;
     return `${sideNow.phys === "L" ? "Left" : "Right"} side, ${rel}`;
   })();

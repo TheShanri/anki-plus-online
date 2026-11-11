@@ -146,10 +146,13 @@ export function PathwayTracer({
   courses,
   cards,
   initial,
+  onSwitch,
 }: {
   courses: CoursePathway[];
   cards: PathwayCard[];
   initial: { p?: string; side?: string; step?: string };
+  /** asked before switching pathway: true = the page swaps in the v3 tracer for that pathway */
+  onSwitch?: (slug: string) => boolean;
 }) {
   const bySlug = useMemo(() => new Map(courses.map((c) => [c.slug, c])), [courses]);
   const groups = useMemo<PickerGroup[]>(
@@ -264,6 +267,7 @@ export function PathwayTracer({
   );
   const choose = useCallback(
     (s: string) => {
+      if (s !== slug && onSwitch?.(s)) return;
       setSlug(s);
       setStep(0);
       setAll(false);
@@ -276,7 +280,7 @@ export function PathwayTracer({
       setLoad({ done: 0, total: 0 });
       visited.current = new Set();
     },
-    [resetStepUi],
+    [resetStepUi, slug, onSwitch],
   );
 
   // the loader always ends: after 15 s the scene is shown anyway and the note names what is still missing

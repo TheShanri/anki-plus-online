@@ -2,6 +2,14 @@
 
 Running note for whoever continues (design and done bar: `docs/PATHWAY_V3.md`). Updated at each milestone.
 
+## Shipped (v3 live on /atlas/pathways; every other pathway still shows v2)
+The list lives in `src/components/atlas/pathways/v3/shipped.ts` (`V3_SHIPPED`); keep this section in step with it.
+A pathway ships when its spec builds, the validator is green, and its per-beat contact sheets (1440x900 and 390x844,
+`_atlas/pw3_shots/<slug>/`) were looked at and checked against the slides.
+- (none yet; DCML is next)
+
+Order (owner, 2026-11-11): DCML, ALS, LCST, visual, corticobulbar, then the rest in the order of the course units.
+
 ## Where things are
 - UI: `src/components/atlas/pathways/v3/` (Tracer3 = page shell, Scene3 = 3D scene, fibres/layers/labels/rig/insets).
   `/atlas/pathways?v=3` opens v3; v2 (`PathwayTracer.tsx`) is still the default until the switch-over.
@@ -36,6 +44,12 @@ commits while pending. Commit 6c4494a.
 ## Done
 - ff51db6 checkpoint of the inherited WIP (scene renders, DCML hand/foot data validates).
 - 6c4494a navigation root cause + `navtest.mjs`.
+
+## Page wiring
+`/atlas/pathways` renders `PathwayHub`: v3 (`Tracer3`) for shipped slugs, v2 (`PathwayTracer`) for the rest, one picker and
+one URL scheme; picking a pathway of the other version swaps the tracer in place. `?v=3` / `?v=2` pins a version.
+The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
+3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
 ## Next
 - Specs for the remaining 33 pathway variants (only DCML exists), validator green for all.

@@ -169,7 +169,7 @@ type Rec = {
 };
 type Particle = { rec: Rec; line: Line; phase: number; r: number; fwdStatic: number; alt: 1 | -1 };
 
-const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.072, 1.56, -0.09), new THREE.Vector3(0.072, 1.7, 0.088));
+const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.066, 1.56, -0.088), new THREE.Vector3(0.066, 1.7, 0.086));
 const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
 
 /** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
@@ -514,7 +514,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
       const inv = probe.matrixWorld.clone().invert();
       const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
       const aspect = size.width > 4 && size.height > 4 ? size.width / size.height : 1.5;
-      const marginX = size.width > 700 ? 1.22 : 1.08; // leave the side margins to the labels
+      const marginX = size.width > 700 ? 1.2 : 0.98; // leave the side margins to the labels
       let D = 0.03;
       for (let i = 0; i < 8; i++) {
         const corner = new THREE.Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);

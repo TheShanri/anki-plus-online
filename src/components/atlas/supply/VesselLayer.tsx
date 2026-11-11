@@ -173,7 +173,6 @@ const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.066, 1.56, -0.088), new TH
 /** New instanced meshes start with identity matrices (a 1 m cone at the origin) until the first frame places them: hide them at once. */
 function initInstances(ref: { current: THREE.InstancedMesh | null }) {
   return (m: THREE.InstancedMesh | null) => {
-    // eslint-disable-next-line react-hooks/immutability
     ref.current = m;
     if (!m || m.userData.zeroed) return;
     m.userData.zeroed = true;

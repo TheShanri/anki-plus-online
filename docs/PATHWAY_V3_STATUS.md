@@ -6,7 +6,15 @@ Running note for whoever continues (design and done bar: `docs/PATHWAY_V3.md`). 
 The list lives in `src/components/atlas/pathways/v3/shipped.ts` (`V3_SHIPPED`); keep this section in step with it.
 A pathway ships when its spec builds, the validator is green, and its per-beat contact sheets (1440x900 and 390x844,
 `_atlas/pw3_shots/<slug>/`) were looked at and checked against the slides.
-- (none yet; DCML is next)
+- dcml (hand, foot): shipped 2026-11-12. Validator green (hand 2174 samples, foot 3763; 2 crossings each, internal
+  arcuate fibres in the caudal medulla). Sheets `_atlas/pw3_shots/dcml-{hand,foot}/sheet-*.png` checked against lecture 5
+  slides 17-18 (cuneate lateral / gracile medial, ipsilateral nucleus, contralateral VPL and S1, internal capsule).
+- alst (hand, foot): shipped 2026-11-12. Validator green (hand 2162, foot 3736; crossing in the anterior white commissure
+  near the level of entry). Sheets `_atlas/pw3_shots/alst-{hand,foot}/` checked against lecture 5 slides 21-23 (marginal
+  zone / substantia gelatinosa onto nucleus proprius, ventral white commissure, anterior/lateral funiculi, VPL, internal
+  capsule, BA 3,1,2); Lissauer's tract only behind Supplementary.
+- Next: LCST (helper, motor.mjs), visual (one eye sample left), corticobulbar (helper), then u1: dsct (spec written),
+  sympathetic, parasympathetic, stretch and withdrawal reflexes.
 
 Order (owner, 2026-11-11): DCML, ALS, LCST, visual, corticobulbar, then the rest in the order of the course units.
 

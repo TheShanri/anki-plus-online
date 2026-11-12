@@ -426,7 +426,8 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
     const p = x.f.length ? x.f[x.f.length - 1].pts.slice(-3) : (x.soma ?? x.syn ?? x.start)?.p;
     if (!p) return null;
     const px = p[0];
-    if (Math.abs(px) < 0.0006) return { phys: null, rel: "mid" as const };
+    // "crossing" only on a crossing beat (in the conus the cord itself is narrower than that margin)
+    if (Math.abs(px) < 0.0006 && (x.cross || px === 0)) return { phys: null, rel: "mid" as const };
     const phys: Side = px > 0 ? "L" : "R";
     return { phys, rel: phys === primary ? ("same" as const) : ("opp" as const) };
   }, [d, cur, primary, all]);

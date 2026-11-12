@@ -26,7 +26,9 @@ import { VIEW_LABELS, type ViewName } from "./rig";
 import type { CutState } from "./Scene3";
 import { beatCopy, NEXT_PREFIX } from "./copy";
 import { insetFor } from "./insetMap";
-import { BrainstemInset, CordInset, preloadPlate } from "./insets";
+import { CordInset } from "./insets";
+import { loadPlate as preloadPlate } from "@/components/atlas/brainstem/plate/load";
+import { BrainstemRef } from "@/components/atlas/brainstem/BrainstemRef";
 import { slugForStop } from "./structureSlugs";
 import "@/components/atlas/ui/atlas-ui.css";
 
@@ -443,7 +445,7 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
     if (!d) return;
     for (let i = 0; i < d.beats.length; i++) {
       const s = insetFor(d, i, primary, sideAlpha);
-      if (s?.kind === "brainstem") preloadPlate(s.level);
+      if (s?.kind === "brainstem") void preloadPlate(s.level);
     }
   }, [d, primary, sideAlpha]);
   const [pulseKey, setPulseKey] = useState(0);
@@ -571,7 +573,7 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
               {inset.kind === "cord" ? (
                 <CordInset level={inset.level} structures={inset.structures} side={inset.side} pulseKey={pulseKey} compact />
               ) : (
-                <BrainstemInset level={inset.level} structures={inset.structures} side={inset.side} pulseKey={pulseKey} compact onPick={(s) => setOpenKey(`bs:${s}`)} />
+                <BrainstemRef level={inset.level} structures={inset.structures} side={inset.side} pulseKey={pulseKey} compact onPick={(s) => setOpenKey(`bs:${s}`)} />
               )}
             </div>
           )}

@@ -170,7 +170,9 @@ export class Fibre {
     for (const k of hosts) tests.push((await hostOf(k)).test);
     const ok = (q) => tests.some((t) => t(q));
     for (let i = 1; i < pts.length; i++) pts[i] = nudgeInside(pts[i], ok);
-    return this.add(pts.slice(1), hosts.length === 1 ? hosts[0] : `u:${hosts.join("|")}`);
+    // a sample still outside after the nudge (a grazed wall) is dropped when its neighbours keep the step under 2.5 mm
+    const kept = pts.filter((q, i) => i === 0 || i === pts.length - 1 || ok(q) || dist(pts[i - 1], pts[i + 1]) > 0.0025);
+    return this.add(kept.slice(1), hosts.length === 1 ? hosts[0] : `u:${hosts.join("|")}`);
   }
   /** A run through a cord tract: the most interior point of the tract's half cross-section every `step` metres of height. */
   async cord(tract, y0, y1, sgn, pref = null, step = 0.002) {

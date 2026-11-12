@@ -20,7 +20,7 @@ export function limbStart(side, limb) {
   const drg = drgAt(seg, side);
   nerve.lineTo(drg, hand ? "a:spinal-ganglion" : "part:spine/nerve_drg");
   const gHost = hand ? "a:spinal-ganglion" : "part:spine/nerve_drg";
-  return { seg, tip, nerve, drg, gHost, skinStop: carve("b:skin", tip, hand ? 0.012 : 0.02, hand ? "Little finger skin" : "Big toe skin"), drgStop: carve(gHost, drg, 0.004, `DRG ${seg}`) };
+  return { seg, tip, nerve, drg, gHost, skinStop: carve("b:skin", tip, hand ? 0.0055 : 0.008, hand ? "Little finger skin" : "Big toe skin"), drgStop: carve(gHost, drg, 0.004, `DRG ${seg}`) };
 }
 
 export const dcml = {

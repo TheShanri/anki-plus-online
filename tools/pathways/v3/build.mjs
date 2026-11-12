@@ -33,6 +33,10 @@ for (const [slug, spec] of Object.entries(ALL)) {
       continue;
     }
     const t0 = Date.now();
+    // a seeded random (cortexPoint and insideNear sample at random): the same spec always builds the same data
+    let seed = 0x2f6b;
+    for (const ch of key) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+    Math.random = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
     const sides = {};
     try {
       for (const side of ["L", "R"]) sides[side] = await spec.build(side, limb);

@@ -1,5 +1,4 @@
--- PROPOSED (code review 2026-11, docs/CODE_REVIEW_2026-11.md). NOT APPLIED. Kept outside supabase/migrations so
--- `node scripts/db.mjs migrate` does not pick it up; move it there once the owner approves.
+-- Code review 2026-11 (docs/CODE_REVIEW_2026-11.md); approved by the owner 2026-11-11.
 --
 -- Course settings and the join code belong to the professor (SPEC: TAs read summaries and reset passwords). The
 -- policy courses_staff_update let any course staff, TAs included, PATCH /rest/v1/courses directly with their own

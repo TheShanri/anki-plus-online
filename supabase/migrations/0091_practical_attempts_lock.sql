@@ -1,5 +1,4 @@
--- PROPOSED (code review 2026-11, docs/CODE_REVIEW_2026-11.md). NOT APPLIED. Kept outside supabase/migrations so
--- `node scripts/db.mjs migrate` does not pick it up; move it there once the owner approves.
+-- Code review 2026-11 (docs/CODE_REVIEW_2026-11.md); approved by the owner 2026-11-11.
 --
 -- practical_attempts_own is `for all ... using (user_id = auth.uid())`, so a student can PATCH their own attempt
 -- (score, max_score, finished_at, stations) or insert a finished one, skipping the server's grading in

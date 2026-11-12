@@ -293,6 +293,44 @@ PATHWAYS["basal-ganglia"] = basalGanglia;
 
 /* ------------------------------------------------------------------ limbic tracts and the reward pathway */
 // Lecture 15 slides 17-18, 23, 25-26, lab 14, Lecture 2 slide 33. One side throughout (`side`).
+/** A route that, when the atlas meshes do not touch (a gap of a few mm), crosses the gap by a hidden, validated seam into the
+ * nearest tissue of `into` first. */
+async function routeGap(f, hosts, goal, into, o, tag) {
+  try {
+    await f.routeTo(hosts, goal, o);
+  } catch {
+    const nearestIn = async (key, to) => {
+      const h = await hostOf(key);
+      let v = null;
+      for (const m of h.meshes)
+        for (let i = 0; i < m.tris.length; i += 3) {
+          if (m.tris[i] * Math.sign(to[0] || 1) <= 0) continue;
+          const d = Math.hypot(m.tris[i] - to[0], m.tris[i + 1] - to[1], m.tris[i + 2] - to[2]);
+          if (!v || d < v.d) v = { d, p: [m.tris[i], m.tris[i + 1], m.tris[i + 2]] };
+        }
+      // a point a little inside the surface (a vertex itself sits on it), the deepest of a small ball's samples
+      let best = null;
+      for (let k = 0; k < 600; k++) {
+        const q = v.p.map((c) => c + (Math.random() * 2 - 1) * 0.0007);
+        if (!h.test(q)) continue;
+        const d = Math.min(...h.meshes.map((m) => m.dist(q, 0.004)));
+        if (!best || d > best.d) best = { q, d };
+      }
+      return best ? best.q : insideNear(key, v.p, 0.004);
+    };
+    // as far as the current tissue reaches toward the goal, then across the gap into the target's tissue
+    const here = f.seg[f.seg.length - 1][1].replace(/^u:/, "").split("|").filter((k) => k.startsWith("a:"));
+    const cur = here[here.length - 1];
+    if (cur) {
+      const exit = await nearestIn(cur, goal);
+      await f.routeTo(hosts.filter((k) => k !== into), exit, o);
+    }
+    const q = await nearestIn(into, f.end);
+    const gap = dist(q, f.end);
+    seam(f, tag, "Across a gap between atlas meshes", [q], Math.max(0.0008, gap * 0.4), `the ${cur ?? "source"} and ${into} meshes do not touch (${(gap * 1000).toFixed(1)} mm)`);
+    await f.routeTo(hosts, goal, o);
+  }
+}
 /** Through a chain of waypoints, each moved to the most interior spot of `id` near it, routing inside the hosts. */
 async function via(f, id, side, pts, hosts, o = {}) {
   const s = sgnOf(side);
@@ -325,14 +363,15 @@ export const limbicAmygdala = {
   async build(side) {
     const s = sgnOf(side);
     const am = await centreIn("amygdaloid-body", side);
-    const bnst = await nuc("bnst", side);
     const hyp = await insideNear("a:hypothalamus", [s * 0.004, 1.612, 0.012], 0.006);
     const f = new Fibre(1).from(am, "a:amygdaloid-body");
     // the stria terminalis arches back and up along the tail and body of the caudate, then forward and down to the BNST
-    await via(f, "stria-terminalis", side, [[0.026, 1.614, -0.004], [0.024, 1.624, -0.02], [0.016, 1.635, -0.014], [0.01, 1.637, 0.0], [0.007, 1.628, 0.012]], ["a:amygdaloid-body", "a:stria-terminalis"]);
-    await f.routeTo(["a:stria-terminalis", "a:septal-nuclei", bnst.key, "a:white-matter-of-telencephalon"], bnst.c, { sgn: s, minX: 0.0004, h: 0.0003, smooth: 6 });
+    await via(f, "stria-terminalis", side, [[0.0255, 1.6148, -0.0055], [0.024, 1.624, -0.02], [0.016, 1.635, -0.014], [0.01, 1.637, 0.0], [0.007, 1.628, 0.012]], ["a:amygdaloid-body", "a:stria-terminalis"]);
+    // the bed nucleus of the stria terminalis: at the stria's anterior end (an ellipsoid inside the stria mesh)
+    const bnst = await fitProxyC(`bnst-${side}`, "BNST", "a:stria-terminalis", f.end, [0.0012, 0.0012, 0.0012], 0.002);
+    await f.routeTo(["a:stria-terminalis", bnst.key], bnst.c, { sgn: s, minX: 0.0004, h: 0.0002 });
     const h = new Fibre(1).from(bnst.c, bnst.key);
-    await h.routeTo([bnst.key, "a:septal-nuclei", "a:hypothalamus", "a:white-matter-of-telencephalon"], hyp, { sgn: s, minX: 0.0004, h: 0.0003, smooth: 6 });
+    await routeGap(h, [bnst.key, "a:stria-terminalis", "a:hypothalamus", "a:white-matter-of-telencephalon"], hyp, "a:hypothalamus", { sgn: s, minX: 0.0004, h: 0.0003, smooth: 6 }, `bnst-hyp-${side}`);
     return [
       B({ soma: soma(am, "a:amygdaloid-body", 1), stops: [atlasStop("amygdaloid-body", side, "Amygdala (central nucleus)")] }),
       B({ f: [joinFibres(1, [f, h]).json()], syn: soma(hyp, "a:hypothalamus", 1) }),
@@ -346,11 +385,39 @@ export const limbicSeptal = {
   async build(side) {
     const s = sgnOf(side);
     const sep = await centreIn("septal-nuclei", side);
-    const hb = await centreIn("habenula", side);
+    const hb = (await centreIn("habenula", side)).slice();
     const f = new Fibre(1).from(sep, "a:septal-nuclei");
     // back along the dorsomedial edge of the thalamus in the stria medullaris thalami to the habenula
-    await via(f, "stria-medullaris-thalami", side, [[0.004, 1.622, 0.008], [0.005, 1.627, -0.002], [0.004, 1.624, -0.012]], ["a:septal-nuclei", "a:stria-medullaris-thalami", "a:white-matter-of-telencephalon"]);
-    await f.routeTo(["a:stria-medullaris-thalami", "a:habenula"], hb, { sgn: s, minX: 0.0004, h: 0.0002 });
+    // back along the dorsomedial edge of the thalamus in the stria medullaris thalami to the habenula (the SM lies on the
+    // thalamus: where the atlas SM mesh is interrupted the fibre runs in the thalamus's edge beside it)
+    const H = ["a:septal-nuclei", "a:fornix", "a:stria-medullaris-thalami", "a:thalamus", "a:habenula"];
+    const sm0 = await insideNear("a:stria-medullaris-thalami", [s * 0.004, 1.622, 0.008], 0.006);
+    await routeGap(f, H, sm0, "a:stria-medullaris-thalami", { sgn: s, minX: 0.0003, h: 0.0002 }, `sep-sm-${side}`);
+    for (const p of [[0.005, 1.627, -0.002], [0.004, 1.624, -0.012]]) {
+      const q = await insideNear("a:stria-medullaris-thalami", [p[0] * s, p[1], p[2]], 0.006);
+      await f.routeTo(H, q, { sgn: s, minX: 0.0003, h: 0.0002, smooth: 6 });
+    }
+    // the habenula sits 1-2 mm off the atlas thalamus: end on the habenula's thalamic face, across a hidden seam
+    const hbH = await hostOf("a:habenula");
+    const thH = await hostOf("a:thalamus");
+    let face = null;
+    for (let k = 0; k < 5000; k++) {
+      const q = [s * (0.0005 + Math.random() * 0.0035), 1.6167 + Math.random() * 0.004, -0.0208 + Math.random() * 0.005];
+      if (!hbH.test(q)) continue;
+      const t = Math.min(...thH.meshes.map((m) => m.dist(q, 0.02)));
+      if (!face || t < face.t) face = { q, t };
+    }
+    let exit = null;
+    for (const m of thH.meshes)
+      for (let i = 0; i < m.tris.length; i += 3) {
+        if (m.tris[i] * s <= 0) continue;
+        const d = Math.hypot(m.tris[i] - face.q[0], m.tris[i + 1] - face.q[1], m.tris[i + 2] - face.q[2]);
+        if (!exit || d < exit.d) exit = { d, p: [m.tris[i], m.tris[i + 1], m.tris[i + 2]] };
+      }
+    const thExit = await insideNear("a:thalamus", exit.p, 0.003);
+    await f.routeTo(H, thExit, { sgn: s, minX: 0.0003, h: 0.0002 });
+    seam(f, `th-hb-${side}`, "Thalamus edge onto the habenula", [face.q], 0.0012, `the atlas thalamus and habenula meshes do not touch (${(face.t * 1000).toFixed(1)} mm)`);
+    hb.splice(0, 3, ...face.q);
     return [
       B({ soma: soma(sep, "a:septal-nuclei", 1), stops: [atlasStop("septal-nuclei", side, "Septal nuclei")] }),
       B({ f: [f.json()], syn: soma(hb, "a:habenula", 1) }),
@@ -369,10 +436,11 @@ export const reward = {
     // the medial forebrain bundle: forward through the lateral hypothalamus to the nucleus accumbens; on to the prefrontal cortex
     const f = new Fibre(1).from(vta.c, vta.key);
     await f.routeTo([vta.key, "a:midbrain", "a:hypothalamus"], await insideNear("a:hypothalamus", [s * 0.006, 1.612, 0.006], 0.005), { sgn: s, minX: 0.0008, h: 0.0003, smooth: 6 });
-    await f.routeTo(["a:hypothalamus", "a:white-matter-of-telencephalon", "a:mni-nucleus-accumbens", "a:basal-forebrain"], nac, { sgn: s, minX: 0.0008, h: 0.0003, smooth: 6 });
-    const p = new Fibre(1).from(f.pts[Math.floor(f.pts.length * 0.8)], f.seg.filter(([i]) => i <= Math.floor(f.pts.length * 0.8)).pop()[1]);
-    await p.routeTo(["a:hypothalamus", "a:white-matter-of-telencephalon", "a:mni-nucleus-accumbens", "a:basal-forebrain", "a:orbital-gyri"], pfc, { sgn: s, minX: 0.0008, h: 0.0004, smooth: 8 });
-    const toPfc = joinFibres(1, [{ pts: f.pts.slice(0, Math.floor(f.pts.length * 0.8) + 1), seg: f.seg.filter(([i]) => i <= Math.floor(f.pts.length * 0.8)) }, p]);
+    await routeGap(f, ["a:hypothalamus", "a:white-matter-of-telencephalon", "a:mni-nucleus-accumbens", "a:basal-forebrain"], nac, "a:mni-nucleus-accumbens", { sgn: s, minX: 0.0008, h: 0.0003, smooth: 6 }, `mfb-nac-${side}`);
+    // a branch on from the accumbens to the prefrontal cortex (orbital surface)
+    const p = new Fibre(1).from(nac, "a:mni-nucleus-accumbens");
+    await routeGap(p, ["a:mni-nucleus-accumbens", "a:caudate-nucleus", "a:putamen", "a:white-matter-of-telencephalon", "a:straight-gyrus-gyrus-rectus", "a:orbital-gyri"], pfc, "a:orbital-gyri", { sgn: s, minX: 0.0008, h: 0.0004, smooth: 8 }, `mfb-pfc-${side}`);
+    const toPfc = joinFibres(1, [f, p]);
     return [
       B({ soma: soma(vta.c, vta.key, 1), stops: [proxyStop(vta)] }),
       B({ f: [f.json(), toPfc.json()], syn: soma(nac, "a:mni-nucleus-accumbens", 1) }),

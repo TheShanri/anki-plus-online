@@ -444,3 +444,59 @@ export const vestibular = {
 
 export const PATHWAYS = { visual, pupillary, gaze, cochlear, vestibular };
 export { dist, nuc };
+
+/* ------------------------------------------------------------------ olfactory pathway */
+// Lecture 15 slides 11-15: bipolar receptor neurons in the olfactory epithelium, axons (CN I) through the cribriform plate to
+// the mitral cells of the olfactory bulb; the olfactory tract to the olfactory tubercle and prepiriform cortex, bypassing the
+// thalamus. Z-Anatomy: the olfactory nerve mesh is the bulb and tract; its curves are the tract (spline 1), the striae
+// (spline 0) and the fila olfactoria (the short splines down through the cribriform plate). `side` = the nostril.
+export const olfactory = {
+  async build(side) {
+    const s = sgnOf(side);
+    const ON = "a:olfactory-nerve-i";
+    const tract = curve("Olfactory nerve (I)", side, 1);
+    const stria = curve("Olfactory nerve (I)", side, 0);
+    const fil = curve("Olfactory nerve (I)", side, 6);
+    // 0-2 the receptor neuron in the epithelium (the lower end of a filament) and its axon up through the cribriform plate
+    const rec = fil.b.slice();
+    const f1 = new Fibre(1).from(rec, `n:${fil.key}`);
+    f1.curve(fil, fil.length, 0);
+    // 3 into the bulb: the synapse on a mitral cell (inside the bulb, where the filaments join it)
+    const mitral = await insideNear(ON, [fil.a[0] + s * 0.0005, fil.a[1] + 0.0008, fil.a[2]], 0.003);
+    const f3 = new Fibre(1).from(f1.end, `n:${fil.key}`);
+    f3.lineTo(mitral, `u:n:${fil.key}|${ON}`, 0.0003);
+    // 5 the mitral cell axon back along the olfactory tract, out by the lateral stria to the prepiriform cortex (uncus); a branch
+    // to the olfactory tubercle (anterior perforated substance) where the tract divides
+    const f5 = new Fibre(2).from(mitral, ON);
+    const sM = tract.nearest(mitral).s;
+    f5.lineTo(tract.at(sM).p, `u:${ON}|n:${tract.key}`, 0.0003);
+    f5.curve(tract, sM, 0.004);
+    const split = f5.end.slice();
+    const j = stria.nearest(split);
+    seam(f5, `olf-stria-${side}`, "Olfactory tract into the lateral stria", [j.q], 0.001, "the tract and stria curves of the olfactory nerve meet a few mm apart");
+    f5.curve(stria, j.s, stria.nearest([s * 0.03, 1.607, 0.02]).s);
+    const pp = await cortexPoint("medial-occipitotemporal-gyrus-parahippocampal", side, [0.021, 1.603, 0.016]);
+    const into = await insideNear("a:medial-occipitotemporal-gyrus-parahippocampal", f5.end, 0.015, true);
+    seam(f5, `olf-cx-${side}`, "Lateral olfactory stria onto the cortex", [into], 0.0012, "the olfactory stria curve ends at the brain's surface");
+    await f5.routeTo([WM, "a:medial-occipitotemporal-gyrus-parahippocampal", "a:temporal-pole", "a:amygdaloid-body"], pp, { sgn: s, minX: 0.003, h: 0.0003, smooth: 6 });
+    // the olfactory tubercle (anterior perforated substance) has no atlas mesh: a flagged ellipsoid where the tract divides
+    const tc = tract.at(0.0015).p;
+    const tub = { key: proxy(`olf-tubercle-${side}`, "Olfactory tubercle", null, tc, [0.0016, 0.0012, 0.0016]), c: tc };
+    const f5b = new Fibre(2).from(split, `n:${tract.key}`);
+    await f5b.routeTo([ON, `n:${tract.key}`, tub.key], tub.c, { h: 0.0002 });
+    const epi = stop(`c:${ON}@${fil.b.map((v) => v.toFixed(4)).join(",")}`, "Olfactory epithelium (nasal roof)", { carve: { mesh: ON, p: fil.b, r: 0.004 } });
+    // a sagittal view for the nose and the bulb (fila through the cribriform plate), from below for the tract and cortex
+    const SAG = { view: "left", cut: "x" };
+    const INF = { view: "inferior" };
+    return [
+      B({ start: soma(rec, `n:${fil.key}`, 1), stops: [epi], meta: SAG }),
+      B({ f: [f1.json()], meta: SAG }),
+      B({ soma: soma(rec, `n:${fil.key}`, 1), stops: [epi], meta: SAG }),
+      B({ f: [f3.json()], syn: soma(mitral, ON, 1), meta: SAG }),
+      B({ soma: soma(mitral, ON, 2), stops: [stop(`c:${ON}@${mitral.map((v) => v.toFixed(4)).join(",")}`, "Olfactory bulb (mitral cells)", { carve: { mesh: ON, p: mitral, r: 0.008 } })], meta: SAG }),
+      B({ f: [f5.json(), f5b.json()], syn: soma(pp, "a:medial-occipitotemporal-gyrus-parahippocampal", 2), meta: INF }),
+      B({ stops: [stop(tub.key, "Olfactory tubercle"), carve("a:medial-occipitotemporal-gyrus-parahippocampal", pp, 0.008, "Prepiriform cortex (uncus)")], meta: INF }),
+    ];
+  },
+};
+PATHWAYS.olfactory = olfactory;

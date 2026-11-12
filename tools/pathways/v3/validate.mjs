@@ -97,7 +97,7 @@ for (const file of files) {
     }
     // a peripheral ganglion with no mesh of its own (parent null) is flagged like a synthetic connector
     if (!g.parent) {
-      synthetic.add(`${g.name} (peripheral ganglion, no mesh: placed on its nerve)`);
+      synthetic.add(`${g.name} (no mesh of its own: a flagged ellipsoid)`);
       continue;
     }
     const parentKey = g.parent.includes(":") ? g.parent : `a:${g.parent}`;

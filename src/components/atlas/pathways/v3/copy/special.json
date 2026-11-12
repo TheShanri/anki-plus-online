@@ -223,5 +223,44 @@
     "thalamus"
    ]
   ]
+ },
+ "olfactory": {
+  "*": [
+   [
+    "Olfactory epithelium",
+    "Odorants bind receptor neurons in the olfactory epithelium of the nasal roof.",
+    "nasal roof"
+   ],
+   [
+    "Olfactory nerve (CN I)",
+    "The receptor neurons' axons gather into the bundles of the olfactory nerve.",
+    "olfactory nerve"
+   ],
+   [
+    "Olfactory receptor neuron",
+    "The 1st-order neuron is a bipolar receptor cell in the epithelium itself.",
+    "olfactory epithelium"
+   ],
+   [
+    "Through the cribriform plate",
+    "The axons pass through the cribriform plate and synapse in the olfactory bulb.",
+    "cribriform plate"
+   ],
+   [
+    "Mitral cell",
+    "The 2nd-order cell body is the mitral cell of the olfactory bulb.",
+    "olfactory bulb"
+   ],
+   [
+    "Olfactory tract",
+    "Mitral cell axons run back in the olfactory tract to the olfactory tubercle and the prepiriform cortex, without a thalamic relay.",
+    "olfactory tract"
+   ],
+   [
+    "Primary olfactory cortex",
+    "The olfactory tubercle and prepiriform cortex receive smell first; onward routes reach the orbitofrontal cortex (by the MD thalamus) and the hippocampus (by the entorhinal cortex).",
+    "prepiriform cortex"
+   ]
+  ]
  }
 }

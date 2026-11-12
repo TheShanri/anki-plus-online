@@ -297,5 +297,81 @@
     "VA/VL thalamus"
    ]
   ]
+ },
+ "limbic-fornix": {
+  "*": [
+   [
+    "Hippocampus",
+    "The output neurons of the hippocampus project out through the fornix.",
+    "hippocampus"
+   ],
+   [
+    "Fornix",
+    "Their axons run in the fornix: crus behind the thalamus, body over it, column down in front of it, to the mammillary body.",
+    "fornix"
+   ],
+   [
+    "Mammillary bodies and septum",
+    "The fornix ends in the mammillary bodies, the septal nuclei and the basal forebrain; the circuit consolidates memory, not retrieval.",
+    "mammillary body"
+   ]
+  ]
+ },
+ "limbic-amygdala": {
+  "*": [
+   [
+    "Central nucleus of amygdala",
+    "The output of the amygdala leaves from its central nucleus.",
+    "amygdala"
+   ],
+   [
+    "Stria terminalis",
+    "Its axons arch along the caudate in the stria terminalis to the bed nucleus of the stria terminalis (BNST) and the hypothalamus.",
+    "stria terminalis"
+   ],
+   [
+    "BNST, hypothalamus, brainstem",
+    "Through the BNST, the hypothalamus and the brainstem autonomic nuclei (dorsal motor nucleus of X), the amygdala drives the body's fear response.",
+    "hypothalamus"
+   ]
+  ]
+ },
+ "limbic-septal": {
+  "*": [
+   [
+    "Septal nuclei",
+    "The circuit starts in the septal nuclei of the basal forebrain, near the midline.",
+    "septal nuclei"
+   ],
+   [
+    "Stria medullaris thalami",
+    "Their axons run back along the top of the thalamus in the stria medullaris thalami.",
+    "stria medullaris"
+   ],
+   [
+    "Habenula",
+    "They end in the habenula‹, beside the pineal gland›.",
+    "habenula"
+   ]
+  ]
+ },
+ "reward": {
+  "*": [
+   [
+    "Ventral tegmental area",
+    "Dopaminergic neurons of the ventral tegmental area (VTA) in the midbrain start the reward pathway.",
+    "midbrain"
+   ],
+   [
+    "Medial forebrain bundle",
+    "Their axons run forward in the medial forebrain bundle through the lateral hypothalamus to the nucleus accumbens and on to the prefrontal cortex.",
+    "medial forebrain bundle"
+   ],
+   [
+    "Accumbens and prefrontal cortex",
+    "Dopamine released in the nucleus accumbens and the prefrontal cortex signals reward.",
+    "nucleus accumbens"
+   ]
+  ]
  }
 }

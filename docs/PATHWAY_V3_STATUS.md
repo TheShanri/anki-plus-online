@@ -89,6 +89,16 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   GPe are ellipsoids inside the one atlas pallidum (medial / lateral). Excitatory / inhibitory are named in the stops and the
   copy only: the fibres have no inhibitory style (a possible follow-up: a bar instead of the synapse cup). Checked against
   lecture 14 slides 11-18 and 23-31, lab 10 slides 4 and 9.
+- limbic-fornix, limbic-amygdala, limbic-septal, reward, olfactory: shipped 2026-11-12. Validator green (227 / 279 / 164 / 282
+  / 193 samples). Fornix: hippocampus -> fimbria/crus -> body -> column -> mammillary body (waypoints inside the fornix mesh).
+  Amygdala: amygdala -> stria terminalis -> BNST (an ellipsoid inside the stria's anterior end) -> hypothalamus. Septal:
+  septal nuclei -> stria medullaris (the thalamus's edge where the SM mesh breaks) -> habenula. Reward: VTA -> lateral
+  hypothalamus (medial forebrain bundle) -> nucleus accumbens -> prefrontal (orbital) cortex. Olfactory: a filament of CN I
+  (epithelium) -> cribriform plate -> bulb (mitral cell, in the Z-Anatomy olfactory nerve mesh) -> tract -> lateral stria ->
+  prepiriform cortex (anterior parahippocampal gyrus / uncus) and a branch to the olfactory tubercle (flagged ellipsoid).
+  Hidden seams here are longer than elsewhere (validated, listed in the validator report): septal->SM 3-4 mm, thalamus->
+  habenula 2 mm, hypothalamus->accumbens 5.4 mm, accumbens->orbital cortex 6 mm, stria->cortex 7 mm (basal forebrain and
+  anterior perforated substance have no atlas mesh). Checked against lecture 15 slides 11-18, 23, 25-26, lecture 2 slide 33.
 - Proxies may now have a host key as parent (a tube, a part mesh) or none (flagged); labels of multi-stop node beats anchor
   on each stop's own mark (proxy centre, or a soma/synapse inside it), no longer all on the beat's soma.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
@@ -138,8 +148,8 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next (5 slugs still on v2)
-u3: limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
+## Next
+All 33 pathways are on v3.
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
 sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.
 Also open: delete v2 code once all slugs ship (the lesion lab keeps PathwayViewer); hidden seams listed above.

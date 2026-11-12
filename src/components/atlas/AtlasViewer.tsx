@@ -21,6 +21,7 @@ import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, Neighb
 import { fitDistance, frameBox } from "./ui/framing";
 import type { CamState } from "./ui/translate";
 import type { SkullFocus } from "@/lib/atlas/catalog";
+import { BrainstemBreathDriver, onBrainstemBreath } from "./brainstem/plate/pulse";
 
 export type AtlasMode = "focus" | "context";
 
@@ -1718,8 +1719,11 @@ function Scene({
     invalidate();
   }, [loaded, mode, invalidate, pulse]);
 
+  // a docked brainstem reference (BrainstemRefDock) lights the same structure: the highlight breathes on its clock
+  const [breath] = useState(() => new BrainstemBreathDriver());
+  useEffect(() => onBrainstemBreath(invalidate), [invalidate]);
   useFrame(() => {
-    if (pulse.step(hiMat, pivots)) invalidate();
+    if (pulse.step(hiMat, pivots) || breath.step(hiMat, mode === "focus")) invalidate();
   });
 
   return (

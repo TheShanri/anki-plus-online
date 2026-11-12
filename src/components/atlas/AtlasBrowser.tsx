@@ -17,6 +17,7 @@ import { trackAtlas } from "@/lib/atlas/progress";
 import extraInfo from "@/data/atlas-extra-info.json";
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
 import { StructureInfo } from "./StructureInfo";
+import { BrainstemRefDock } from "./brainstem/BrainstemRefDock";
 import type { SliceOverlay, SliceView } from "./SliceViewer";
 import type { ViewName } from "./AtlasViewer";
 import { AtlasLoader } from "./ui/AtlasLoader";
@@ -709,6 +710,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">{infoOpen ? "close" : "notes"}</span>
             </button>
             <div className={`${infoOpen ? "max-h-[48dvh]" : "hidden"} overflow-y-auto p-2 lg:block lg:max-h-none lg:min-h-0 lg:flex-1`}>
+              {!curiousNode && <BrainstemRefDock slug={infoSlug} onPick={pickSlug} />}
               {curiousNode ? (
                 <ExtraInfoCard name={curiousNode.name} blurb={nodeBlurb(curiousNode.id.slice(11))} region="Skull and spine" onLock={relock} />
               ) : extraCard && primary ? (

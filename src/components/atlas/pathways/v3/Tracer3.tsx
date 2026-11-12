@@ -418,7 +418,7 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
   const next = !all && cur < B - 1 ? beatCopy(slug, cur + 1, bs.beats[cur + 1], bs.infos[bs.beats[cur + 1].info], part) : null;
   const visual = !!mp.visual;
   const order = Math.min(4, (beat?.neuron ?? 0) + 1) as 1 | 2 | 3 | 4;
-  const badge = /lcst|acst|corticobulbar|umn-lmn/.test(slug) ? (order === 1 ? "UMN" : "LMN") : `${ORDINAL[order]}`;
+  const badge = /lcst|acst|corticobulbar|umn-lmn/.test(slug) ? (order === 1 ? "UMN" : "LMN") : /sympathetic/.test(slug) ? (order === 1 ? "Pre" : "Post") : `${ORDINAL[order]}`;
   // which side the signal is on now: the physical side of the focused fibre at the end of this beat, and whether that is the
   // same side as the stimulus / limb (the body side the user picked) or the opposite one
   const sideNow = useMemo(() => {

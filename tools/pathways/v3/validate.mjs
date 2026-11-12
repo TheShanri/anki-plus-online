@@ -95,7 +95,13 @@ for (const file of files) {
       q[a] += sg * g.r[a] * 0.9;
       pts.push(q);
     }
-    for (const q of pts) if (!(await inHost(`a:${g.parent}`, q, d.geo))) {
+    // a peripheral ganglion with no mesh of its own (parent null) is flagged like a synthetic connector
+    if (!g.parent) {
+      synthetic.add(`${g.name} (peripheral ganglion, no mesh: placed on its nerve)`);
+      continue;
+    }
+    const parentKey = g.parent.includes(":") ? g.parent : `a:${g.parent}`;
+    for (const q of pts) if (!(await inHost(parentKey, q, d.geo))) {
       errs.push(`proxy ${g.name} (${hk}) pokes out of ${g.parent} at ${q.map((v) => v.toFixed(4))}`);
       break;
     }

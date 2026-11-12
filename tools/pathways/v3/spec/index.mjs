@@ -6,7 +6,8 @@ export const FILES = {
   "motor.mjs": ["lcst", "acst", "corticobulbar", "rubrospinal", "tectospinal", "reticulospinal", "vestibulospinal", "umn-lmn"],
   "spinal-reflex.mjs": ["stretch-reflex", "withdrawal-reflex"],
   "special.mjs": ["visual", "pupillary", "gaze", "cochlear", "vestibular", "olfactory"],
-  "circuits.mjs": ["solitary", "cerebellar", "corticopontocerebellar", "basal-ganglia", "sympathetic", "parasympathetic", "limbic-fornix", "limbic-amygdala", "limbic-septal", "reward"],
+  "autonomic.mjs": ["sympathetic", "parasympathetic"],
+  "circuits.mjs": ["solitary", "cerebellar", "corticopontocerebellar", "basal-ganglia", "limbic-fornix", "limbic-amygdala", "limbic-septal", "reward"],
 };
 /** The specs for the wanted slugs (all when none), loaded file by file. */
 export async function loadSpecs(want = []) {

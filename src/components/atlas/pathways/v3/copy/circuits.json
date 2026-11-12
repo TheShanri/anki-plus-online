@@ -1,1 +1,80 @@
-{}
+{
+ "sympathetic": {
+  "*": [
+   [
+    "Lateral horn (T2)",
+    "The preganglionic cell body sits in the lateral horn (intermediolateral column) of the thoracolumbar cord, T1-L2.",
+    "lateral horn"
+   ],
+   [
+    "Out by the ventral root",
+    "Its lightly myelinated axon leaves by the ventral root with the motor axons and reaches a chain ganglion by the white ramus: a short preganglionic fibre.",
+    "ventral root"
+   ],
+   [
+    "Chain ganglion",
+    "It synapses (acetylcholine) on the postganglionic cell body in a paravertebral (chain) ganglion‹; gut fibres pass through to prevertebral ganglia›.",
+    "sympathetic chain"
+   ],
+   [
+    "Back into the spinal nerve",
+    "One postganglionic route rejoins the spinal nerve, so every cutaneous and motor nerve carries sympathetic axons.",
+    "intercostal nerve"
+   ],
+   [
+    "Skin targets",
+    "In the skin they reach blood vessels, sweat glands and arrector pili muscles: smooth muscle and glands.",
+    "skin"
+   ],
+   [
+    "Long fibre to the heart",
+    "Another long, unmyelinated postganglionic fibre runs from the upper thoracic chain to the heart and releases norepinephrine.",
+    "cardiac nerve"
+   ],
+   [
+    "Heart and viscera",
+    "Targets are smooth muscle, cardiac muscle and glands, here the heart (faster, stronger beat); the adrenal medulla is a modified ganglion.",
+    "heart"
+   ]
+  ]
+ },
+ "parasympathetic": {
+  "*": [
+   [
+    "Brainstem nuclei",
+    "Preganglionic cell bodies sit in the nuclei of CN III, VII, IX and X (here the dorsal motor nucleus of X) and in the S2-S4 lateral horn.",
+    "dorsal motor nucleus"
+   ],
+   [
+    "Long preganglionic fibres",
+    "Their long axons leave in the vagus nerve and run down the neck to the heart and the root of the lung.",
+    "vagus nerve"
+   ],
+   [
+    "Ganglia at the organ",
+    "They release acetylcholine onto postganglionic cell bodies in small ganglia on or in the organ wall.",
+    "terminal ganglia"
+   ],
+   [
+    "Short fibre in the heart",
+    "A short postganglionic fibre runs in the heart wall and releases acetylcholine.",
+    "heart wall"
+   ],
+   [
+    "Cardiac muscle",
+    "At the heart the effect is a slower heart rate.",
+    "heart"
+   ],
+   [
+    "Short fibre in the bronchus",
+    "Another short postganglionic fibre reaches the smooth muscle of the bronchial wall.",
+    "bronchus"
+   ],
+   [
+    "Rest and digest",
+    "Targets include the heart, lungs, gut and glands, and (by CN III) the pupil, which constricts.",
+    "heart and lung"
+   ]
+  ]
+ }
+}

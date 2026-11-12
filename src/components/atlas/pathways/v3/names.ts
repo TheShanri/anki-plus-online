@@ -45,15 +45,31 @@ const SHORT: [RegExp, string][] = [
 ];
 
 export function shortName(name: string): string {
-  let s = name.replace(/\.[lr](#\d+)?$/, "").replace(/#\d+$/, "").replace(/^[a-z]+:/, "");
+  let s = name
+    .replace(/\.[lr](#\d+)?$/, "")
+    .replace(/#\d+$/, "")
+    .replace(/^[a-z]+:/, "");
+  // a node of a pathway part file ("thorax/organ_heart_la", "head-targets/muscle_masseter")
+  if (/^[\w-]+\/\w+$/.test(s)) {
+    const node = s.split("/")[1];
+    if (/^organ_heart/.test(node)) return "Heart";
+    s = node
+      .replace(/^(organ|muscle|gland|cartilage|bone|nerve|vessel)_/, "")
+      .replace(/_[LR]$/, "")
+      .replace(/_/g, " ");
+    return s.replace(/^\w/, (c) => c.toUpperCase());
+  }
   for (const [re, to] of SHORT) {
     if (re.test(s)) {
       s = s.replace(re, to);
       if (to) break;
     }
   }
-  s = s.replace(/\s*\([^)]*\)\s*$/, (m) => (/BA|V1|genu|deep/i.test(m) ? m : "")).trim();
-  if (/-/.test(s) && !/\s/.test(s)) s = s.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
+  s = s
+    .replace(/\s*\([^)]*\)\s*$/, (m) => (/BA|V1|genu|deep/i.test(m) ? m : ""))
+    .trim();
+  if (/-/.test(s) && !/\s/.test(s))
+    s = s.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
   const words = s.split(/\s+/);
   return words.length > 4 ? words.slice(0, 3).join(" ") : s;
 }

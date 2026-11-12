@@ -36,11 +36,23 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   with a flagged T1 dorsal ramus; rubro/tecto cross in the midbrain). Checked against lecture 10 slides 14-15 and 19-23,
   lecture 14 slide 5 (named decussations behind Supplementary; no side claim for reticulo/vestibulospinal beyond the drawing).
   For rubrospinal and tectospinal the side buttons name the red nucleus / tectum side.
+- sympathetic: shipped 2026-11-12. Validator green (662 samples). Lateral horn T2 (intermediolateral nucleus mesh), ventral
+  root, intercostal nerve and the T2 white ramus (real curves) to a chain ganglion; grey ramus back into the intercostal nerve
+  to the skin (L6/21) and a long cardiac nerve to the heart. Drawn, flagged connectors: the sympathetic chain (Z-Anatomy has
+  the rami but no trunk: a tube through the rami's chain ends), the thoracic cardiac nerve; hidden seam ramus onto the
+  intercostal nerve (1-2 mm). Badge "Pre"/"Post". Checked against lecture 6 slides 16-21 and 24. Views: anterior with a
+  coronal cut for the cord/chain beats.
+- parasympathetic: shipped 2026-11-12. Validator green (1271 samples). Dorsal motor nucleus of X, the vagus (real curve) to
+  a cardiac ganglion in the atrial wall and a pulmonary ganglion in the main bronchus wall (proxies inside the organ meshes),
+  short postganglionic fibres. Flagged connectors: cardiac and pulmonary branches of the vagus. CN III/VII/IX and S2-S4 named
+  in the copy only (an EW -> ciliary ganglion -> pupil chain is in autonomic.mjs, `edingerWestphal`, for the pupillary
+  reflex: the ciliary ganglion is a proxy with no parent mesh, which the validator now flags as a connector). Checked
+  against lecture 6 slides 22-24, lecture 7 slide 28.
+- Proxies may now have a host key as parent (a tube, a part mesh) or none (flagged); labels of multi-stop node beats anchor
+  on each stop's own mark (proxy centre, or a soma/synapse inside it), no longer all on the beat's soma.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
   3 mm, nerve endings to targets up to 4.5 mm, ICP to cerebellum 3.6 mm.
 - Limb-end node beats (receptor, target muscle) are framed with 9 cm of context.
-- Next, then u1: dsct (spec written),
-  sympathetic, parasympathetic, stretch and withdrawal reflexes.
 
 Order (owner, 2026-11-11): DCML, ALS, LCST, visual, corticobulbar, then the rest in the order of the course units.
 
@@ -85,8 +97,8 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next (19 slugs still on v2)
-u1: sympathetic, parasympathetic. u2: trigeminal-discriminative, trigeminal-pain, corneal, jaw-jerk (sensory.mjs /
+## Next (17 slugs still on v2)
+u2: trigeminal-discriminative, trigeminal-pain, corneal, jaw-jerk (sensory.mjs /
 trigeminal-reflex.mjs), pupillary, gaze, cochlear, vestibular (special.mjs), solitary, corticopontocerebellar (circuits.mjs).
 u3: cerebellar, basal-ganglia, limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->

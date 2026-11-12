@@ -2170,7 +2170,8 @@ export default function AtlasViewer({
       planes.push(pl);
     }
     const out: { id: string; name: string; colour: string }[] = [];
-    for (const [id, colour] of DEEP) {
+    const keyList: [string, string][] = [...DEEP, ["brainstem", look === "regions" ? LOBE_TINT.brainstem : (BRAIN_TINT.brainstem ?? CORTEX_TINT)], ["cerebellum", look === "regions" ? LOBE_TINT.cerebellum : (BRAIN_TINT.cerebellum ?? CORTEX_TINT)]];
+    for (const [id, colour] of keyList) {
       const e = index.structures[id];
       if (!e?.bbox) continue;
       const [a, b] = e.bbox;
@@ -2187,7 +2188,7 @@ export default function AtlasViewer({
       if (ok) out.push({ id, name: e.name, colour });
     }
     return out;
-  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange]);
+  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look]);
   const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
@@ -2212,7 +2213,7 @@ export default function AtlasViewer({
     if (axis === "off") return setClip((c) => ({ ...c, axis }));
     const lo = ctxBox ? ctxBox.min[axis] : axis === "x" ? -0.08 : axis === "y" ? 1.53 : -0.11;
     const hi = ctxBox ? ctxBox.max[axis] : axis === "x" ? 0.08 : axis === "y" ? 1.68 : 0.1;
-    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? 0.012 : axis === "y" ? 1.625 : axis === "x" ? -0.02 : (lo + hi) / 2; // coronal: the anterior commissure and basal ganglia; transverse: the thalamus
+    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? -0.008 : axis === "y" ? 1.619 : axis === "x" ? -0.02 : (lo + hi) / 2; // coronal: through the thalamus, hippocampal head and midbrain; transverse: the thalamus and upper midbrain
     setClip({ axis, t: Math.min(1, Math.max(0, (c - lo) / (hi - lo))), flip: false });
     if (axis === "y") setViewUser("superior");
     else if (axis === "z") setViewUser("anterior");

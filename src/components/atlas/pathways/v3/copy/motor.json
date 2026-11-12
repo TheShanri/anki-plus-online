@@ -1,1 +1,164 @@
-{}
+{
+ "lcst": {
+  "*": [
+   [
+    "Upper motor neuron (M1)",
+    "The upper motor neuron's cell body sits in layer V of the primary motor cortex (precentral gyrus), hand area, opposite the limb.",
+    "precentral gyrus"
+   ],
+   [
+    "Leaving the motor cortex",
+    "Its axon leaves layer V and enters the white matter under the gyrus.",
+    "motor cortex"
+   ],
+   [
+    "Corona radiata, internal capsule",
+    "The axon descends through the corona radiata and the internal capsule‹ (lecture 10: anterior limb and genu; most texts: posterior limb)›.",
+    "internal capsule"
+   ],
+   [
+    "Cerebral peduncle",
+    "It continues in the base of the cerebral peduncle of the midbrain.",
+    "cerebral peduncle"
+   ],
+   [
+    "Basis pontis",
+    "It runs among the longitudinal fibres of the basis pontis.",
+    "basis pontis"
+   ],
+   [
+    "Medullary pyramid",
+    "It forms the pyramid on the ventral surface of the medulla.",
+    "pyramid"
+   ],
+   [
+    "Pyramidal decussation",
+    "About 80 % of the fibres cross the midline at the pyramidal (motor) decussation, at the junction of the medulla and the spinal cord.",
+    "motor decussation"
+   ],
+   [
+    "Lateral corticospinal tract",
+    "The crossed fibres descend in the lateral corticospinal tract of the lateral funiculus and end on lower motor neurons in the lateral ventral horn.",
+    "lateral funiculus"
+   ],
+   [
+    "Uncrossed fibres stay",
+    "The other 20 % stay on the same side and descend in the anterior corticospinal tract of the anterior funiculus.",
+    "anterior funiculus"
+   ],
+   [
+    "Lower motor neuron",
+    "The lower motor neuron (alpha motor neuron, lamina IX) sits in the lateral ventral horn, on the same side as the limb.",
+    "ventral horn"
+   ],
+   [
+    "Ventral root",
+    "Its axon leaves the cord in the ventral root and joins the spinal nerve.",
+    "ventral root"
+   ],
+   [
+    "To the hand muscles",
+    "It runs in the brachial plexus and the ulnar nerve to the muscles of the hand (distal limb).",
+    "ulnar nerve"
+   ],
+   [
+    "Skeletal muscle",
+    "The lower motor neuron's synapse on the muscle fibres makes the hand muscles contract.",
+    "hand muscles"
+   ]
+  ]
+ },
+ "umn-lmn": {
+  "*": [
+   [
+    "Upper motor neuron",
+    "The upper motor neuron's cell body sits in layer V of the motor cortex.",
+    "motor cortex"
+   ],
+   [
+    "Down the corticospinal tract",
+    "Its axon descends through the internal capsule, peduncle, pons and pyramid, crosses at the motor decussation and runs down the lateral corticospinal tract.",
+    "corticospinal tract"
+   ],
+   [
+    "Lower motor neuron",
+    "The lower motor neuron sits in the ventral horn (lamina IX) and is the final common path to the muscle.",
+    "ventral horn"
+   ],
+   [
+    "Ventral root",
+    "Its axon leaves the cord in the ventral root and joins the spinal nerve.",
+    "ventral root"
+   ],
+   [
+    "Peripheral nerve to muscle",
+    "It runs in the brachial plexus and ulnar nerve to the hand muscles.",
+    "ulnar nerve"
+   ],
+   [
+    "Skeletal muscle",
+    "Damage to the upper motor neuron gives spastic weakness; damage to the lower motor neuron gives flaccid weakness.",
+    "hand muscles"
+   ]
+  ]
+ },
+ "corticobulbar": {
+  "*": [
+   [
+    "Upper motor neuron (face)",
+    "The upper motor neuron's cell body sits in layer V of the lateral motor cortex, face area, opposite the muscles.",
+    "precentral gyrus"
+   ],
+   [
+    "Leaving the face area",
+    "Its axon leaves the lateral motor cortex through the corona radiata.",
+    "corona radiata"
+   ],
+   [
+    "Internal capsule, genu",
+    "It descends through the genu of the internal capsule.",
+    "internal capsule"
+   ],
+   [
+    "Cerebral peduncle",
+    "It continues in the base of the cerebral peduncle.",
+    "cerebral peduncle"
+   ],
+   [
+    "Basis pontis",
+    "It runs with the corticospinal fibres in the basis pontis.",
+    "basis pontis"
+   ],
+   [
+    "Cross above each nucleus",
+    "The fibres leave the tract and cross the midline just above each cranial motor nucleus they reach.",
+    "brainstem"
+   ],
+   [
+    "Cranial motor nucleus",
+    "The lower motor neurons sit in the cranial motor nuclei: motor V, facial, hypoglossal and nucleus ambiguus.",
+    "motor nuclei"
+   ],
+   [
+    "Facial nucleus and nerve",
+    "From the facial nucleus the facial nerve loops over the abducens nucleus, leaves the pons and runs to the muscles of the face.",
+    "facial nerve"
+   ],
+   [
+    "Face muscles",
+    "The facial nerve's endings make the muscles of facial expression contract.",
+    "face muscles"
+   ],
+   [
+    "Other cranial nerves",
+    "Motor V runs in the mandibular nerve to the masseter, XII to the tongue and the vagus from the nucleus ambiguus to the pharynx.",
+    "cranial nerves"
+   ],
+   [
+    "Jaw, tongue and pharynx",
+    "The masseter, tongue and pharyngeal muscles contract on the side of their nerves.",
+    "head muscles"
+   ]
+  ]
+ }
+}

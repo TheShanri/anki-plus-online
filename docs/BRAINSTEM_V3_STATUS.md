@@ -4,11 +4,18 @@ Plan: `docs/BRAINSTEM_V3.md`. This file says what is done, what is next, how to 
 safe to deploy for the brainstem pages.
 
 ## Deploy safety
-**HEAD is safe to deploy for the brainstem pages** (`/atlas/brainstem`, the plate study cards, Explore). Checked in the
-headless window at 1440x900, 1900x1100 and 390x844: the atlas page renders every plate split, illustration-only and
-photo-only, hover lights both halves, Atlas labels fit; the plate cards (`/study/run?scope=bslevel:<level>`) render
-the illustration with the asked region lit. `validate-content` 0 errors, `tsc` clean, the brainstem tests pass.
-Region ids are `<slug>-L/-R/-M` and the cards address regions by slug, so every existing plate card still resolves.
+**HEAD is safe to deploy for `/atlas/brainstem` and the plate cards** (and for the Explore dock). Checked on
+2026-11-12 after the last brainstem commit: `tsc` clean, eslint clean on the brainstem files (one pre-existing warning
+in AtlasBrowser, not ours), `npm test` 181/181, `validate-content` 0 errors. In the headless window: every level
+renders split, illustration-only and section-only (contact sheet below), hover lights both halves, Atlas labels fit,
+390x844 works; the plate cards (`/study/run?scope=bslevel:<level>`) show the illustration with the asked region lit;
+region ids are `<slug>-L/-R/-M` and cards address regions by slug, so every existing card resolves. The new section
+photos are in the private bucket (auth-gated route), none in `public/`.
+
+Contact sheet (course photos inside, so not committed): `_atlas/bs3_shots/contact-sheet.jpg` (8 levels x split /
+illustration / section), single shots `_atlas/bs3_shots/<level>-<view>.png`, splits only `sheet-split.jpg`.
+Known weak spot, not an error: the cervical-cord illustration shows no grey-matter butterfly (the course overlay
+outlines only the tracts there).
 
 ## Done
 - Plates for the 8 course levels, built from the course's Brainstem Overlay deck (the professor's outlines drawn on the
@@ -36,10 +43,19 @@ Region ids are `<slug>-L/-R/-M` and the cards address regions by slug, so every 
   bundle, hallmark level), with tests.
 - `/atlas/brainstem?level=<slug>` opens that level.
 
+## Done (Phase 2)
+- `BrainstemRef.tsx` (the plan's exact props; level picked per structure from `brainstem-ref.json`; tracts lit via
+  the bundle that carries them; `side`; breathing on `brainstemPulse(performance.now())`; `pulseKey` change = short
+  emphasis; compact dock) and `BrainstemRefDock.tsx`. Explore (`AtlasBrowser`) docks it above the structure info when
+  the selection is on the plates (collapsible, remembered in the browser); `AtlasViewer`'s highlight breathes on the
+  same clock while the dock is open (`BrainstemBreathDriver`). Checked in Explore for the MLF (caudal pons), medial
+  lemniscus (rostral medulla), abducens nucleus (caudal pons) and red nucleus (rostral midbrain); 2D fill-opacity and
+  the 3D highlight colour both change over time.
+
 ## Next
-- `BrainstemRef.tsx` and `BrainstemRefDock.tsx` are written (tsc clean) but not yet shown anywhere; then the Explore
-  hook-up (dock in `AtlasBrowser`, the 3D highlight breathing via `brainstemBreath` in `AtlasViewer`).
-- Contact sheet in `_atlas/bs3_shots/`.
+- Pathway tracer v3 can swap its `BrainstemInset` adapter for `BrainstemRef` (same props); not done here (its files).
+- Gross toggle stays disabled: no gross section of any level in the course or the open sets.
+- Isthmus (pons-rostral) has no plate (not a course level).
 
 ## How to run the pipeline
 Python 3.11 with `opencv-python-headless numpy scipy scikit-image` (a venv anywhere; the first builder's is in the

@@ -63,9 +63,15 @@ function buildSurface(root: THREE.Group, variant: string): Built | null {
           }
           arteryOf.push(CORTICAL.indexOf(a as (typeof CORTICAL)[number]));
         }
+        // mirrored meshes (negative determinant) have flipped winding: swap two corners so FrontSide faces outward
+        const flip = mesh.matrixWorld.determinant() < 0;
         const ix = g.index;
-        if (ix) for (let i = 0; i < ix.count; i++) idx.push(base + ix.getX(i));
-        else for (let i = 0; i < p.count; i++) idx.push(base + i);
+        const cnt = ix ? ix.count : p.count;
+        const at = (i: number) => base + (ix ? ix.getX(i) : i);
+        for (let i = 0; i + 2 < cnt; i += 3) {
+          if (flip) idx.push(at(i), at(i + 2), at(i + 1));
+          else idx.push(at(i), at(i + 1), at(i + 2));
+        }
       }
     }
   }
@@ -129,6 +135,10 @@ function buildSurface(root: THREE.Group, variant: string): Built | null {
 
 export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }: { show: TerritoryShow[]; colors: Map<string, string>; variant: string; /** Only this hemisphere (left = +x). */ side?: "L" | "R"; opacity?: number }) {
   const invalidate = useThree((s) => s.invalidate);
+  const camera = useThree((s) => s.camera);
+  const controls = useThree((s) => s.controls) as unknown as { target: THREE.Vector3 } | null;
+  /** Seen from the side: only the hemisphere on the camera side (the far one would show through the translucent brain). */
+  const [camSide, setCamSide] = useState<"L" | "R" | undefined>(undefined);
   const [root, setRoot] = useState<THREE.Group | null>(null);
   const needed = show.some((s) => (CORTICAL as readonly string[]).includes(s.artery));
   useEffect(() => {
@@ -159,8 +169,9 @@ export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }
     const rgb = CORTICAL.map((a) => new THREE.Color(colors.get(a) ?? "#999999").lerp(new THREE.Color("#ffffff"), 0.16));
     const amt = CORTICAL.map((a) => show.find((s) => s.artery === a)?.alpha ?? 0);
     const posA = built.geo.attributes.position.array as Float32Array;
+    const eff = side ?? camSide;
     for (let i = 0; i < built.n; i++) {
-      if (side && (side === "L") !== posA[i * 3] > 0) {
+      if (eff && (eff === "L") !== posA[i * 3] > 0) {
         arr[i * 4 + 3] = 0;
         continue;
       }
@@ -182,9 +193,14 @@ export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }
     col.needsUpdate = true;
     fade.current.tgt = show.some((s) => (CORTICAL as readonly string[]).includes(s.artery)) ? opacity : 0;
     invalidate();
-  }, [built, show, colors, side, opacity, invalidate]);
+  }, [built, show, colors, side, camSide, opacity, invalidate]);
 
   useFrame((_, dt) => {
+    const dx = camera.position.x - (controls?.target.x ?? 0);
+    const dist = camera.position.distanceTo(controls?.target ?? new THREE.Vector3());
+    const ratio = dist > 0 ? dx / dist : 0;
+    const want = ratio > 0.6 ? "L" : ratio < -0.6 ? "R" : undefined;
+    if (want !== camSide) setCamSide(want);
     const f = fade.current;
     if (Math.abs(f.cur - f.tgt) > 0.004) {
       f.cur += (f.tgt - f.cur) * (1 - Math.exp(-Math.min(dt, 0.1) * 8));

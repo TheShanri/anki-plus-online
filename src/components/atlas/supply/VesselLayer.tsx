@@ -532,7 +532,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
         const corner = new THREE.Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);
         const a = corner.clone().sub(c).dot(dir);
         const vv = corner.applyMatrix4(inv);
-        D = Math.max(D, (Math.abs(vv.x) / (tanV * aspect)) * marginX + a, (Math.abs(vv.y) / tanV) * 1.08 + a);
+        D = Math.max(D, (Math.abs(vv.x) / (tanV * aspect)) * marginX + a * 0.55, (Math.abs(vv.y) / tanV) * 0.97 + a * 0.55);
       }
       camera.position.copy(c).addScaledVector(dir, D);
       camera.up.set(0, 1, 0);

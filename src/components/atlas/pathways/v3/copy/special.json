@@ -115,5 +115,113 @@
     "eye muscles"
    ]
   ]
+ },
+ "cochlear": {
+  "*": [
+   [
+    "Cochlea",
+    "Sound moves the hair cells of the cochlea.",
+    "cochlea"
+   ],
+   [
+    "To the spiral ganglion",
+    "The hair cells drive the peripheral process of a bipolar neuron in the cochlea.",
+    "cochlea"
+   ],
+   [
+    "Spiral ganglion",
+    "The 1st-order cell body sits in the spiral ganglion inside the cochlea.",
+    "spiral ganglion"
+   ],
+   [
+    "Cochlear nerve (CN VIII)",
+    "Its axon runs in the cochlear part of CN VIII to the cochlear nuclei of the rostral medulla.",
+    "CN VIII"
+   ],
+   [
+    "Cochlear nuclei",
+    "The 2nd-order cell bodies sit in the cochlear nuclei.",
+    "cochlear nuclei"
+   ],
+   [
+    "Up to the inferior colliculus",
+    "Their axons climb the lateral brainstem on both sides, some crossing in the pons, to the inferior colliculus.",
+    "brainstem"
+   ],
+   [
+    "Inferior colliculus",
+    "The inferior colliculus of the midbrain is the next relay.",
+    "inferior colliculus"
+   ],
+   [
+    "To the MGN",
+    "From the inferior colliculus the signal goes to the medial geniculate nucleus of the thalamus.",
+    "midbrain"
+   ],
+   [
+    "Medial geniculate nucleus",
+    "The medial geniculate nucleus is the auditory relay of the thalamus.",
+    "MGN"
+   ],
+   [
+    "To auditory cortex",
+    "Its axons pass through the internal capsule to the transverse temporal gyrus.",
+    "internal capsule"
+   ],
+   [
+    "Primary auditory cortex",
+    "The primary auditory cortex (BA 41, 42) lies in the transverse temporal gyrus; each side hears both ears.",
+    "auditory cortex"
+   ]
+  ]
+ },
+ "vestibular": {
+  "*": [
+   [
+    "Vestibule and canals",
+    "Head movement and gravity move the hair cells of the semicircular canals (rotation) and the utricle and saccule (linear acceleration).",
+    "inner ear"
+   ],
+   [
+    "Vestibular nerve (CN VIII)",
+    "The 1st-order axon leaves the labyrinth in the vestibular nerve.",
+    "vestibular nerve"
+   ],
+   [
+    "Vestibular ganglion",
+    "The 1st-order cell body sits in the vestibular ganglion of CN VIII.",
+    "vestibular ganglion"
+   ],
+   [
+    "To the vestibular nuclei",
+    "The axon enters the brainstem and synapses in the vestibular nuclei.",
+    "brainstem"
+   ],
+   [
+    "Direct to the cerebellum",
+    "Some axons go straight to the flocculonodular lobe of the cerebellum by the inferior cerebellar peduncle.",
+    "inferior cerebellar peduncle"
+   ],
+   [
+    "Vestibular nuclei",
+    "The 2nd-order cell bodies sit in the vestibular nuclei of the pons and medulla.",
+    "vestibular nuclei"
+   ],
+   [
+    "MLF to the eye nuclei",
+    "Ascending fibres in the MLF reach the abducens and oculomotor nuclei: the vestibulo-ocular reflex turns the eyes opposite to the head.",
+    "MLF"
+   ],
+   [
+    "Vestibulospinal tract",
+    "The vestibulospinal tract descends to the ventral horn for trunk muscles, posture and righting.",
+    "spinal cord"
+   ],
+   [
+    "To the thalamus",
+    "Other fibres ascend to the thalamus and on to the cortex for conscious perception of movement.",
+    "thalamus"
+   ]
+  ]
  }
 }

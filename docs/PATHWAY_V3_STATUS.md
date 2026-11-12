@@ -74,6 +74,13 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   cerebellum); ascending MLF to the other abducens nucleus (crossing) and the same-side oculomotor nucleus; lateral
   vestibulospinal tract to the C8 ventral horn; ascent to the thalamus. Checked against lecture 8 slides 18-19, lecture 14
   slides 7-10, lecture 11 slide 28.
+- solitary, corticopontocerebellar: shipped 2026-11-12. Validator green (solitary 1077 samples; corticopontocerebellar 579,
+  transverse pontine fibres cross in the basis pontis). Solitary: posterior tongue (lingual branch of IX) and carotid sinus
+  (flagged carotid sinus branch) -> inferior ganglion of IX (flagged ellipsoid) -> solitary nucleus -> inferior salivatory
+  nucleus, nucleus ambiguus (-> vagus -> flagged pharyngeal branch -> constrictors), superior salivatory nucleus, and down the
+  lateral funiculus (lateral reticulospinal tract mesh as host) to the T1 lateral horn. Corticopontocerebellar: M1 layer V ->
+  capsule -> peduncle -> same-side pontine nuclei -> cross -> opposite MCP -> (seam) -> posterior quadrangular lobule.
+  Checked against lecture 7 slides 22-24, lecture 8 slide 22, lecture 10 slide 11, lecture 14 slide 11.
 - Proxies may now have a host key as parent (a tube, a part mesh) or none (flagged); labels of multi-stop node beats anchor
   on each stop's own mark (proxy centre, or a soma/synapse inside it), no longer all on the beat's soma.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
@@ -123,8 +130,7 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next (9 slugs still on v2)
-u2: solitary, corticopontocerebellar (circuits.mjs).
+## Next (7 slugs still on v2)
 u3: cerebellar, basal-ganglia, limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
 sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.

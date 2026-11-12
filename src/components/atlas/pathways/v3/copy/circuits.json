@@ -76,5 +76,123 @@
     "heart and lung"
    ]
   ]
+ },
+ "solitary": {
+  "*": [
+   [
+    "Taste and baroreceptors",
+    "Taste buds on the posterior tongue and baroreceptors in the carotid sinus are two of the solitary nucleus's inputs (with the aortic arch and gut wall).",
+    "tongue and carotid"
+   ],
+   [
+    "CN VII, IX and X",
+    "Their sensory axons run in CN VII, IX and X; here both run in the glossopharyngeal nerve (IX).",
+    "CN IX"
+   ],
+   [
+    "Peripheral ganglion",
+    "The 1st-order cell body sits outside the brainstem, in a ganglion of the cranial nerve.",
+    "ganglion of IX"
+   ],
+   [
+    "Solitary tract and nucleus",
+    "The axon enters the medulla, runs in the solitary tract and synapses in the solitary nucleus: taste rostrally, visceral input caudally.",
+    "medulla"
+   ],
+   [
+    "Solitary nucleus",
+    "The solitary nucleus is the hub for visceral sensation and turns it into autonomic reflexes.",
+    "solitary nucleus"
+   ],
+   [
+    "To the inferior salivatory",
+    "Taste drives salivation through the inferior salivatory nucleus (CN IX).",
+    "medulla"
+   ],
+   [
+    "Inferior salivatory nucleus",
+    "Its parasympathetic neurons drive salivation through CN IX‹ (parotid gland)›.",
+    "inferior salivatory"
+   ],
+   [
+    "To the nucleus ambiguus",
+    "Visceral input reaches the nucleus ambiguus (swallowing, speech, airway, heart rate).",
+    "medulla"
+   ],
+   [
+    "Nucleus ambiguus",
+    "The nucleus ambiguus holds the motor neurons of the pharynx and larynx.",
+    "nucleus ambiguus"
+   ],
+   [
+    "Out in the vagus",
+    "Its axons leave in the vagus nerve to the pharyngeal and laryngeal muscles.",
+    "vagus nerve"
+   ],
+   [
+    "Pharynx and larynx",
+    "The pharynx and larynx contract for swallowing and airway protection.",
+    "pharynx"
+   ],
+   [
+    "To the superior salivatory",
+    "Taste also reaches the superior salivatory nucleus (CN VII).",
+    "pons"
+   ],
+   [
+    "Superior salivatory nucleus",
+    "Its parasympathetic neurons drive salivation through CN VII‹ (submandibular and sublingual glands)›.",
+    "superior salivatory"
+   ],
+   [
+    "To the lateral horn",
+    "The caudal solitary nucleus also drives the sympathetic outflow, down the cord to the lateral horn.",
+    "spinal cord"
+   ],
+   [
+    "Lateral horn (T1-L2)",
+    "Sympathetic preganglionic neurons of T1-L2 adjust heart rate and blood pressure (baroreceptor reflex).",
+    "lateral horn"
+   ]
+  ]
+ },
+ "corticopontocerebellar": {
+  "*": [
+   [
+    "Layer V cortex",
+    "The motor plan starts in layer V neurons of the cerebral cortex.",
+    "cortex"
+   ],
+   [
+    "Corticopontine fibres",
+    "Their axons descend through the internal capsule and the cerebral peduncle and synapse on the pontine nuclei of the same side.",
+    "cerebral peduncle"
+   ],
+   [
+    "Pontine nuclei",
+    "The 2nd-order cell bodies sit in the pontine nuclei of the basis pontis.",
+    "pontine nuclei"
+   ],
+   [
+    "Transverse fibres cross",
+    "Their axons cross the midline as the transverse pontine fibres.",
+    "basis pontis"
+   ],
+   [
+    "Middle cerebellar peduncle",
+    "They enter the cerebellum through the opposite middle cerebellar peduncle.",
+    "middle cerebellar peduncle"
+   ],
+   [
+    "Cerebellar cortex",
+    "They end as mossy fibres in the cortex of the cerebellar hemisphere.",
+    "cerebellum"
+   ],
+   [
+    "Contralateral cerebellum",
+    "Each cerebral hemisphere informs the opposite cerebellar hemisphere of its motor plan.",
+    "cerebellum"
+   ]
+  ]
  }
 }

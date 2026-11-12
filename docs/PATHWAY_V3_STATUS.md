@@ -48,6 +48,12 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   in the copy only (an EW -> ciliary ganglion -> pupil chain is in autonomic.mjs, `edingerWestphal`, for the pupillary
   reflex: the ciliary ganglion is a proxy with no parent mesh, which the validator now flags as a connector). Checked
   against lecture 6 slides 22-24, lecture 7 slide 28.
+- trigeminal-discriminative, trigeminal-pain: shipped 2026-11-12. Validator green (647 / 779 samples; crossings in the pons
+  and in the caudal medulla, hidden midline seams). Cheek skin (V2, real maxillary curves), trigeminal ganglion (a flagged
+  ellipsoid: the atlas nerve mesh is a thin cord without a ganglion), sensory root into the pons; principal sensory nucleus
+  -> cross in the pons -> trigeminal lemniscus with the medial lemniscus -> contralateral VPM; or spinal trigeminal tract ->
+  spinal nucleus (caudal medulla) -> cross -> trigeminothalamic tract beside the ALS -> VPM; VPM -> capsule -> S1 face area.
+  Checked against lecture 9 slides 16-17 and 21-24 (OQ5: all 2nd-order fibres cross, as the slides say).
 - Proxies may now have a host key as parent (a tube, a part mesh) or none (flagged); labels of multi-stop node beats anchor
   on each stop's own mark (proxy centre, or a soma/synapse inside it), no longer all on the beat's soma.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
@@ -97,8 +103,8 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next (17 slugs still on v2)
-u2: trigeminal-discriminative, trigeminal-pain, corneal, jaw-jerk (sensory.mjs /
+## Next (15 slugs still on v2)
+u2: corneal, jaw-jerk (sensory.mjs /
 trigeminal-reflex.mjs), pupillary, gaze, cochlear, vestibular (special.mjs), solitary, corticopontocerebellar (circuits.mjs).
 u3: cerebellar, basal-ganglia, limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->

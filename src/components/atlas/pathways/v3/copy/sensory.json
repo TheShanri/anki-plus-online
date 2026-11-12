@@ -309,5 +309,211 @@
     "cerebellum"
    ]
   ]
+ },
+ "trigeminal-discriminative": {
+  "*": [
+   [
+    "Cheek skin (V2)",
+    "Receptors in the skin of the face detect fine touch and vibration; here the cheek, served by the maxillary division (V2).",
+    "cheek skin"
+   ],
+   [
+    "Maxillary nerve (V2)",
+    "The 1st-order axon runs back in the maxillary nerve, one of the three divisions (V1, V2, V3).",
+    "maxillary nerve"
+   ],
+   [
+    "Trigeminal ganglion",
+    "The 1st-order cell body sits in the trigeminal ganglion (middle cranial fossa), not in a dorsal root ganglion.",
+    "trigeminal ganglion"
+   ],
+   [
+    "Sensory root",
+    "The central process enters the lateral pons in the sensory root of the trigeminal nerve.",
+    "trigeminal root"
+   ],
+   [
+    "Principal sensory nucleus",
+    "The axon synapses in the principal sensory nucleus of V in the rostral pons, on the same side.",
+    "principal nucleus of V"
+   ],
+   [
+    "Principal sensory nucleus",
+    "The 2nd-order cell body sits in the ipsilateral principal sensory nucleus.",
+    "principal nucleus of V"
+   ],
+   [
+    "Fibres cross in the pons",
+    "The 2nd-order axons cross the midline in the pons.",
+    "pons"
+   ],
+   [
+    "Trigeminal lemniscus",
+    "They ascend as the trigeminal lemniscus, part of the medial lemniscus, to the contralateral VPM.",
+    "medial lemniscus"
+   ],
+   [
+    "VPM nucleus",
+    "The 3rd-order cell body sits in the contralateral VPM nucleus, the face's relay (the body's is the VPL).",
+    "VPM"
+   ],
+   [
+    "Out of the thalamus",
+    "The thalamocortical axon leaves the VPM laterally.",
+    "thalamus"
+   ],
+   [
+    "Internal capsule",
+    "It runs up the internal capsule.",
+    "internal capsule"
+   ],
+   [
+    "To the face area",
+    "It fans out in the corona radiata to the face area of the postcentral gyrus (BA 3,1,2).",
+    "corona radiata"
+   ],
+   [
+    "S1 face area",
+    "The face area lies low on the postcentral gyrus, opposite the stimulated side.",
+    "S1"
+   ]
+  ]
+ },
+ "trigeminal-pain": {
+  "*": [
+   [
+    "Cheek skin (V2)",
+    "Receptors in the skin of the face detect pain and temperature; here the cheek, served by the maxillary division (V2).",
+    "cheek skin"
+   ],
+   [
+    "Maxillary nerve (V2)",
+    "The 1st-order axon runs back in the maxillary nerve, one of the three divisions (V1, V2, V3).",
+    "maxillary nerve"
+   ],
+   [
+    "Trigeminal ganglion",
+    "The 1st-order cell body sits in the trigeminal ganglion (middle cranial fossa), not in a dorsal root ganglion.",
+    "trigeminal ganglion"
+   ],
+   [
+    "Sensory root",
+    "The central process enters the lateral pons in the sensory root of the trigeminal nerve.",
+    "trigeminal root"
+   ],
+   [
+    "Spinal trigeminal tract",
+    "The axon descends on the same side in the spinal trigeminal tract (lateral tegmentum) and synapses in the spinal nucleus, largest in the caudal medulla.",
+    "spinal tract of V"
+   ],
+   [
+    "Spinal trigeminal nucleus",
+    "The 2nd-order cell body sits in the ipsilateral spinal trigeminal nucleus, a long column through pons and medulla.",
+    "spinal nucleus of V"
+   ],
+   [
+    "Fibres cross",
+    "The 2nd-order axons cross the midline just after the nucleus.",
+    "caudal medulla"
+   ],
+   [
+    "Trigeminothalamic tract",
+    "They ascend in the trigeminothalamic tract, beside the anterolateral (spinothalamic) tract, to the contralateral VPM.",
+    "lateral tegmentum"
+   ],
+   [
+    "VPM nucleus",
+    "The 3rd-order cell body sits in the contralateral VPM nucleus, the face's relay (the body's is the VPL).",
+    "VPM"
+   ],
+   [
+    "Out of the thalamus",
+    "The thalamocortical axon leaves the VPM laterally.",
+    "thalamus"
+   ],
+   [
+    "Internal capsule",
+    "It runs up the internal capsule.",
+    "internal capsule"
+   ],
+   [
+    "To the face area",
+    "It fans out in the corona radiata to the face area of the postcentral gyrus (BA 3,1,2).",
+    "corona radiata"
+   ],
+   [
+    "S1 face area",
+    "The face area lies low on the postcentral gyrus, opposite the stimulated side.",
+    "S1"
+   ]
+  ]
+ },
+ "corneal": {
+  "*": [
+   [
+    "Touch the cornea",
+    "Touching the cornea stimulates sensory endings of the ophthalmic division (V1).",
+    "cornea"
+   ],
+   [
+    "Ophthalmic nerve (V1)",
+    "The 1st-order axon runs back from the cornea in V1 through the orbit.",
+    "ophthalmic nerve"
+   ],
+   [
+    "Trigeminal ganglion",
+    "Its cell body sits in the trigeminal ganglion.",
+    "trigeminal ganglion"
+   ],
+   [
+    "Spinal V, both facial nuclei",
+    "The axon enters the pons and descends to the spinal trigeminal nucleus, whose neurons project to the facial nucleus of both sides, one set crossing the midline.",
+    "brainstem"
+   ],
+   [
+    "Both eyes blink",
+    "Both facial nuclei drive CN VII to the eyelids: one eye senses the touch, both eyelids close.",
+    "facial nuclei"
+   ]
+  ]
+ },
+ "jaw-jerk": {
+  "*": [
+   [
+    "Tap the chin",
+    "A tap on the chin stretches the masseter and fires its muscle spindles.",
+    "masseter"
+   ],
+   [
+    "Afferent in CN V",
+    "The 1st-order axon runs back in the mandibular nerve (V3) and passes through the trigeminal ganglion without a cell body there.",
+    "mandibular nerve"
+   ],
+   [
+    "Mesencephalic nucleus",
+    "Its cell body is inside the CNS, in the mesencephalic nucleus of V: the only primary sensory neurons inside the brain.",
+    "midbrain"
+   ],
+   [
+    "Onto the motor nucleus",
+    "Its central branch synapses directly on the motor nucleus of V: a monosynaptic reflex.",
+    "pons"
+   ],
+   [
+    "Motor nucleus of V",
+    "The lower motor neuron's cell body sits in the motor nucleus of V in the pons.",
+    "motor nucleus of V"
+   ],
+   [
+    "Motor root of V",
+    "Its axon leaves in the motor root and V3 to the masseter.",
+    "mandibular nerve"
+   ],
+   [
+    "Masseter contracts",
+    "The masseter contracts and the jaw closes; the loop stops us biting down too hard.",
+    "masseter"
+   ]
+  ]
  }
 }

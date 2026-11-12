@@ -3,7 +3,7 @@ import { Fibre, nuc, inSlice, drgAt, cordY, dist } from "./relay.mjs";
 import { B, soma, stop, thalamocortical, ulnarTip, ulnarToDrg, plantarTip, plantarToDrg, dorsalRootIn, tractRun, CORD_TOP, CORTEX } from "./relay.mjs";
 
 import { sgnOf, chain, synth, seam, cortexPoint } from "./common.mjs";
-import { insideNear } from "../lib/fibre.mjs";
+import { insideNear, hostOf, proxy } from "../lib/fibre.mjs";
 import { curve } from "../lib/nerves.mjs";
 
 const carve = (mesh, p, r, name) => stop(`c:${mesh}@${p.map((v) => v.toFixed(4)).join(",")}`, name, { carve: { mesh, p, r } });
@@ -228,5 +228,160 @@ export const dsct = {
   },
 };
 
-export const PATHWAYS = { dcml, alst, dsct };
+
+/* ------------------------------------------------------------------ trigeminal (face) */
+// Lecture 9 slides 16-17 (discriminative touch) and 21-24 (pain and temperature). The 1st-order cell body is in the trigeminal
+// ganglion; the receptor is the skin of the cheek (V2, the maxillary nerve's infraorbital branches, real Z-Anatomy curves).
+/** A proxy that fits inside a host near p: the deepest spot within r, the radius shrunk until the poles are inside. */
+export async function fitProxy(id, name, parentKey, p, rad, r = 0.003) {
+  const h = await hostOf(parentKey);
+  let best = null;
+  for (let k = 0; k < 1500; k++) {
+    const q = [p[0] + (Math.random() * 2 - 1) * r, p[1] + (Math.random() * 2 - 1) * r, p[2] + (Math.random() * 2 - 1) * r];
+    if (!h.test(q)) continue;
+    const d = h.meshes ? Math.min(...h.meshes.map((m) => m.dist(q, 0.006))) : 0.001;
+    const score = d - 0.15 * dist(q, p);
+    if (!best || score > best.score) best = { q, d, score };
+  }
+  if (!best) throw new Error(`fitProxy ${id}: nothing inside ${parentKey} near ${p}`);
+  let rr = rad.slice();
+  const fits = () => {
+    for (let a = 0; a < 3; a++)
+      for (const sg of [-1, 1]) {
+        const q = best.q.slice();
+        q[a] += sg * rr[a];
+        if (!h.test(q)) return false;
+      }
+    return true;
+  };
+  for (let it = 0; it < 30 && !fits(); it++) rr = rr.map((v) => v * 0.9);
+  return { key: proxy(id, name, parentKey, best.q, rr), c: best.q, r: rr, name };
+}
+const TRI = new Map();
+async function trigeminalStart(side) {
+  if (TRI.has(side)) return TRI.get(side);
+  const p = (async () => {
+    const s = sgnOf(side);
+    const v2 = curve("Maxillary nerve", side, 0);
+    const br = curve("Maxillary nerve", side, 1);
+    // the receptor: the skin of the cheek at the end of an infraorbital branch (built from the nerve tip into the skin, reversed)
+    const tip = new Fibre(1, "afferent").from(br.b, `n:${br.key}`);
+    await tip.enter("b:skin", 0.02);
+    const skin = tip.end.slice();
+    const nerve = tip.reversed();
+    nerve.curve(br, br.length, 0);
+    const j = v2.nearest(br.a);
+    if (j.d > 0.0005) seam(nerve, `v2-branch-${side}`, "Infraorbital branch onto the maxillary nerve", [v2.at(j.s).p], 0.0008, "the Z-Anatomy branch curve starts beside the trunk curve");
+    nerve.curve(v2, j.s, 0);
+    // the ganglion: where the three divisions meet the root (inside the trigeminal nerve mesh)
+    // (the atlas nerve mesh is a thin cord with no ganglion swelling: the ganglion is a flagged ellipsoid on the curves' junction)
+    const gang = { key: proxy(`trigeminal-ganglion-${side}`, "Trigeminal ganglion", null, v2.a, [0.0018, 0.0012, 0.0022]), c: v2.a.slice(), name: "Trigeminal ganglion" };
+    nerve.lineTo(gang.c, `u:n:${v2.key}|${gang.key}`, 0.0003);
+    // beat 3: from the ganglion along the sensory root into the lateral pons
+    const root = curve("Trigeminal nerve (V)", side, 0);
+    const pons = (await hostOf("a:pons")).test;
+    let sIn = root.length;
+    for (let q = root.length; q > 0; q -= 0.0003)
+      if (pons(root.at(q).p)) {
+        sIn = q - 0.0015;
+        break;
+      }
+    const rf = new Fibre(1).from(gang.c, gang.key);
+    rf.lineTo(root.b, `u:${gang.key}|n:${root.key}`, 0.0003);
+    rf.curve(root, root.length, Math.max(0, sIn));
+    const skinStop = stop(`c:b:skin@${skin.map((v) => v.toFixed(4)).join(",")}`, "Cheek skin (V2)", { carve: { mesh: "b:skin", p: skin, r: 0.012 } });
+    return { s, skin, nerve, gang, rf, skinStop };
+  })();
+  TRI.set(side, p);
+  return p;
+}
+/** Across the brainstem midline at height y (the two mesh halves meet without overlapping: a hidden seam). */
+export async function crossBS(f, side, id, y, pref, tag) {
+  const a = await inSlice(id, side, y, pref, 1.0);
+  const host = f.seg[f.seg.length - 1][1].replace(/^u:/, "").split("|")[0];
+  await f.routeTo([...new Set([host, `a:${id}`])], a, { sgn: sgnOf(side), minX: 0.0003, h: 0.0003 });
+  const cross = [0, a[1], a[2]];
+  seam(f, tag, "Across the midline (the two halves of the brainstem mesh)", [cross, [-a[0], a[1], a[2]]], 0.0008, "the left and right halves of the brainstem mesh meet at the midline without overlapping");
+  return cross;
+}
+function trigeminalHead(st) {
+  return [
+    B({ start: soma(st.skin, "b:skin", 1), stops: [st.skinStop], meta: { view: "anterior" } }),
+    B({ f: [st.nerve.json()], meta: { view: "anterior" } }),
+    B({ soma: soma(st.gang.c, st.gang.key, 1), stops: [proxyStop(st.gang)], meta: { view: "anterior" } }),
+    B({ f: [st.rf.json()] }),
+  ];
+}
+async function vpmToCortex(beats, O, vpm) {
+  beats[8] = B({ soma: soma(vpm.c, vpm.key, 3), stops: [proxyStop(vpm)] });
+  const tc = await thalamocortical(O, "vpm", "s1-face");
+  beats[9] = B({ f: [tc.leave.json()] });
+  beats[10] = B({ f: [tc.cap.json()] });
+  beats[11] = B({ f: [tc.cor.json()], syn: soma(tc.goal, `a:${CORTEX["s1-face"][0]}`, 3) });
+  beats[12] = B({ stops: [atlasStop(CORTEX["s1-face"][0], O, CORTEX["s1-face"][2])] });
+  return beats;
+}
+
+export const trigeminalDiscriminative = {
+  async build(side) {
+    const O = side === "L" ? "R" : "L";
+    const st = await trigeminalStart(side);
+    const s = st.s;
+    const beats = trigeminalHead(st);
+    // 4 into the principal sensory nucleus (rostral pons, lateral tegmentum)
+    const pv = await nuc("principal-v", side);
+    const inP = new Fibre(1).from(st.rf.end, st.rf.seg[st.rf.seg.length - 1][1]);
+    await inP.routeTo(["a:pons", pv.key], pv.c, { sgn: s, minX: 0.001, h: 0.0003 });
+    beats[4] = B({ f: [inP.json()], syn: soma(pv.c, pv.key, 1) });
+    beats[5] = B({ soma: soma(pv.c, pv.key, 2), stops: [proxyStop(pv)] });
+    // 6 the 2nd-order axons cross the midline in the pons
+    const x = new Fibre(2).from(pv.c, pv.key);
+    const cross = await crossBS(x, side, "pons", pv.c[1] - 0.001, [0.15, 0.55], `tri-d-x-${side}`);
+    const mlP = await inSlice("mni-medial-lemniscus", O, pv.c[1] + 0.0015);
+    await x.routeTo(["a:pons", "a:mni-medial-lemniscus"], mlP, { sgn: -s, minX: 0.0003, h: 0.0003 });
+    beats[6] = B({ f: [x.json()], cross: { p: cross, host: "a:pons", level: "pons", yMin: 1.582, yMax: 1.598, name: "Trigeminal fibres cross" } });
+    // 7 the trigeminal lemniscus with the medial lemniscus, up to the VPM
+    const vpm = await nuc("vpm", O);
+    const tl = new Fibre(2).from(mlP, "a:mni-medial-lemniscus");
+    const mlTop = await inSlice("mni-medial-lemniscus", O, 1.6125);
+    await tl.routeTo(["a:mni-medial-lemniscus"], mlTop, { h: 0.0002, sgn: -s, minX: 0.0003 });
+    await tl.routeTo(["a:mni-medial-lemniscus", "a:midbrain", "a:thalamus", vpm.key], vpm.c, { h: 0.0004, sgn: -s, minX: 0.001 });
+    beats[7] = B({ f: [tl.json()], syn: soma(vpm.c, vpm.key, 2) });
+    return vpmToCortex(beats, O, vpm);
+  },
+};
+
+export const trigeminalPain = {
+  async build(side) {
+    const O = side === "L" ? "R" : "L";
+    const st = await trigeminalStart(side);
+    const s = st.s;
+    const beats = trigeminalHead(st);
+    // 4 down the spinal trigeminal tract in the lateral tegmentum of the pons and medulla, to the spinal nucleus (caudal medulla)
+    const sv = await nuc("spinal-v", side);
+    const down = new Fibre(1).from(st.rf.end, st.rf.seg[st.rf.seg.length - 1][1]);
+    for (const [id, y, pref] of [["pons", 1.584, [0.72, 0.3]], ["medulla-oblongata", 1.572, [0.75, 0.25]], ["medulla-oblongata", 1.564, [0.75, 0.22]]])
+      await down.routeTo(["a:pons", "a:medulla-oblongata"], await inSlice(id, side, y, pref, 1.0), { sgn: s, minX: 0.0015, h: 0.0003, smooth: 8 });
+    const low = [sv.c[0], sv.c[1] - sv.r[1] * 0.5, sv.c[2]];
+    await down.routeTo(["a:medulla-oblongata", sv.key], low, { sgn: s, minX: 0.0015, h: 0.0003 });
+    beats[4] = B({ f: [down.json()], syn: soma(low, sv.key, 1) });
+    beats[5] = B({ soma: soma(low, sv.key, 2), stops: [proxyStop(sv)] });
+    // 6 the 2nd-order axon crosses just after the nucleus, in the caudal medulla
+    const x = new Fibre(2).from(low, sv.key);
+    const cross = await crossBS(x, side, "medulla-oblongata", low[1] + 0.0005, [0.2, 0.55], `tri-p-x-${side}`);
+    const lt = await inSlice("medulla-oblongata", O, low[1] + 0.002, [0.72, 0.5], 1.0);
+    await x.routeTo(["a:medulla-oblongata"], lt, { sgn: -s, minX: 0.0015, h: 0.0003 });
+    beats[6] = B({ f: [x.json()], cross: { p: cross, host: "a:medulla-oblongata", level: "caudal medulla", yMax: 1.562, name: "Trigeminothalamic fibres cross" } });
+    // 7 the trigeminothalamic tract beside the anterolateral tract in the lateral tegmentum, up to the VPM
+    const vpm = await nuc("vpm", O);
+    const up = new Fibre(2).from(lt, "a:medulla-oblongata");
+    for (const [id, y, pref] of [["medulla-oblongata", 1.5655, [0.72, 0.42]], ["pons", 1.5845, [0.48, 0.32]], ["pons", 1.597, [0.52, 0.36]], ["midbrain", 1.6085, [0.68, 0.4]]])
+      await up.routeTo(["a:medulla-oblongata", "a:pons", "a:midbrain"], await inSlice(id, O, y, pref, 1.0), { sgn: -s, minX: 0.0015, h: 0.0003, smooth: 8 });
+    await up.routeTo(["a:midbrain", "a:thalamus", vpm.key], vpm.c, { sgn: -s, minX: 0.002, h: 0.0004, smooth: 8 });
+    beats[7] = B({ f: [up.json()], syn: soma(vpm.c, vpm.key, 2) });
+    return vpmToCortex(beats, O, vpm);
+  },
+};
+
+export const PATHWAYS = { dcml, alst, dsct, "trigeminal-discriminative": trigeminalDiscriminative, "trigeminal-pain": trigeminalPain };
 export { dist, cordY };

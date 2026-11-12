@@ -52,7 +52,23 @@ Walked so far (1440x900 unless noted):
 | Outlines while cut | Dark hull back faces showed through sections | fixed: outlines off while a cut is active |
 | Locked tint | Locked meshes read as grey patches | softened toward the cortex tint |
 
-Not walked yet: multi-view (2x2) at both sizes, MRI switch and modality memory, skull layer auto on/off, "Oh, I'm just curious" flow end to end, labels, keyboard tour beyond V/B/R/X/1-7/C/T/F, lock view button, theme variants.
+More checks (1440x900, headless, shots in `_atlas/explore_shots/h1`, `h2`, `g2`):
+
+| Item | Result |
+| --- | --- |
+| Multi-view | 2x2 (anterior, lateral, superior, free orbit) with the selection and labels; `M` toggles | ok |
+| 3D to MRI switch | The selected structure carries over as a slice overlay, 3D render pane in the MRI view | ok (modality kept when switching structure not re-tested after the audit fixes) |
+| Skull layer auto | Selecting the temporal bone turns the skull layer on; selecting the thalamus turns it off | ok |
+| Lock view | The lock icon engages, the view stays Lateral R after a new selection | ok |
+| Sagittal / coronal / transverse cuts | Default planes through caudate/putamen/thalamus, the anterior commissure, and the thalamus; the view turns to face the cut; a collapsible section key lists the structures in the plane | done (`g2`) |
+| Toolbar with the info panel open | One row (view name and dividers drop below 880 px) | fixed |
+| Small deep structures | Framing keeps 76% of the brain around the target (amygdala no longer crops the brain) | fixed |
+
+Lab-slide comparison (`_atlas/explore_shots/g1/compare.png`, course atlas pages `atlas-coronal-atlas-images` p009 rotated to brainstem-down, `atlas-horizontal-atlas-images` p011):
+- Level and orientation agree: the coronal at z = +12 mm shows thalamus, putamen, pallidum, third ventricle, hippocampus and amygdala like the lab slice; the horizontal at the thalamus level shows the frontal horns up, genu and posterior limb of the capsule, thalami and the third ventricle.
+- Mesh limitations (not fixable in the viewer): the cortex is a thin ribbon of separate gyral patches, so the sections have no grey/white contrast and a big pale white-matter fill; the cerebral peduncles and midbrain are part of the gross brainstem mesh, which is not capped, so the brainstem appears as an exterior surface in a coronal section; the lateral ventricle is one mesh, so its horns read longer than in the lab image; no putaminal/pallidal lamina detail.
+
+Not walked: the curious flow end to end, keyboard beyond the shortcuts used above, the other themes, 390x844 multi-view and cut states.
 
 ### Known remaining gaps
 

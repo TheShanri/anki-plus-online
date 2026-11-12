@@ -44,7 +44,8 @@ export const NUCLEI = {
   pontine: { name: "Pontine nuclei", parent: "pons", y: 1.588, pref: [0.4, 0.82], r: [0.0022, 0.0028, 0.0018] },
   "reticular-pons": { name: "Pontine reticular formation", parent: "pons", y: 1.592, pref: [0.25, 0.42], r: [0.0014, 0.0025, 0.0014] },
   "reticular-med": { name: "Medullary reticular formation", parent: "medulla-oblongata", y: 1.562, pref: [0.3, 0.45], r: [0.0012, 0.003, 0.0012] },
-  clarke: { name: "Clarke's nucleus", parent: "posterior-horn-of-spinal-cord", y: 1.0682, pref: [0.15, 0.95], r: [0.0005, 0.0018, 0.0005] },
+  // Clarke's column: the medial base of the dorsal horn (lamina VII), C8-L2; shown at L2
+  clarke: { name: "Clarke's nucleus", parent: "grey-matter-of-spinal-cord", y: 1.0765, pref: [0.2, 0.45], r: [0.0004, 0.0015, 0.0004] },
   dentate: { name: "Deep cerebellar nuclei", parent: "cerebellum", y: 1.578, pref: [0.32, 0.55], r: [0.0035, 0.003, 0.0035] },
   pretectal: { name: "Pretectal nucleus", parent: "midbrain", y: 1.6155, pref: [0.3, 0.12], r: [0.0009, 0.0009, 0.0009] },
   vta: { name: "Ventral tegmental area", parent: "midbrain", y: 1.6085, pref: [0.12, 0.72], r: [0.0012, 0.0016, 0.0012] },

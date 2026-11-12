@@ -260,5 +260,54 @@
     "S1"
    ]
   ]
+ },
+ "dsct": {
+  "foot": [
+   [
+    "Spindles and tendon organs",
+    "Muscle spindles and Golgi tendon organs in the foot muscles signal muscle length and contraction (unconscious proprioception).",
+    "foot muscles"
+   ],
+   [
+    "Up the sciatic nerve",
+    "The 1st-order Aα (Ia/Ib) axon runs in the medial plantar, tibial and sciatic nerves to the L5 ganglion.",
+    "sciatic nerve"
+   ],
+   [
+    "Dorsal root ganglion (L5)",
+    "The 1st-order cell body sits in the dorsal root ganglion, outside the cord.",
+    "dorsal root ganglion"
+   ],
+   [
+    "Up to Clarke's nucleus",
+    "The axon enters by the dorsal root, climbs the dorsal column to the lumbar cord and synapses in the same-side column of Clarke (C8-L2).",
+    "dorsal column"
+   ],
+   [
+    "Clarke's nucleus",
+    "The 2nd-order cell body sits in the ipsilateral column of Clarke at the base of the dorsal horn.",
+    "Clarke's nucleus"
+   ],
+   [
+    "Dorsal spinocerebellar tract",
+    "Its axon climbs the same-side dorsal spinocerebellar tract in the lateral funiculus, without crossing.",
+    "lateral funiculus"
+   ],
+   [
+    "Inferior cerebellar peduncle",
+    "At the medulla the tract enters the inferior cerebellar peduncle.",
+    "inferior cerebellar peduncle"
+   ],
+   [
+    "To the cerebellar cortex",
+    "The fibres end in the cerebellar cortex of the same side.",
+    "cerebellum"
+   ],
+   [
+    "Ipsilateral cerebellum",
+    "Afferent pathways to the cerebellum stay on the same side, unlike most sensory pathways to the cortex.",
+    "cerebellum"
+   ]
+  ]
  }
 }

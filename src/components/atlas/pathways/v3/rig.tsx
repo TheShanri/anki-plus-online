@@ -8,7 +8,7 @@ import { useFrame, useThree } from "@react-three/fiber";
  * and locks the view; beats never move a locked camera again until Frame (F), a view button or another pathway. A tween moves
  * position, target and up together (0.8 s, ease-out) and ends exactly on the goal. Never a snap-back. */
 
-export type ViewName = "beat" | "anterior" | "posterior" | "left" | "right" | "superior" | "inferior" | "coronal" | "oblique";
+export type ViewName = "beat" | "anterior" | "posterior" | "left" | "right" | "superior" | "inferior" | "coronal" | "oblique" | "oblique-front";
 export interface ViewDef {
   dir: [number, number, number];
   up: [number, number, number];
@@ -23,6 +23,8 @@ export const VIEW_DEFS: Record<Exclude<ViewName, "beat">, ViewDef> = {
   inferior: { dir: [0, -1, 0], up: [0, 0, 1] },
   coronal: { dir: [0, 0, 1], up: [0, 1, 0] },
   oblique: { dir: [0.62, 0.22, -0.75], up: [0, 1, 0] },
+  // in front and to the left: the face, the cranial nerves and the brainstem side by side
+  "oblique-front": { dir: [0.7, 0.12, 0.7], up: [0, 1, 0] },
 };
 export const VIEW_LABELS: [Exclude<ViewName, "beat">, string][] = [
   ["anterior", "Anterior"],

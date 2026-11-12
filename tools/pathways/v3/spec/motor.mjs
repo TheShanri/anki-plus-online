@@ -324,10 +324,10 @@ export const corticobulbar = {
         soma: soma(c.vii, "a:motor-nucleus-of-facial-nerve", 2),
         stops: [atlasStop("motor-nucleus-of-facial-nerve", side, "Facial nucleus (VII)"), proxyStop(c.mv), atlasStop("nucleus-ambiguus", side, "Nucleus ambiguus"), atlasStop("nucleus-of-hypoglossal-nerve", side, "Hypoglossal nucleus")],
       }),
-      B({ f: [c.nVII.json()], syn: soma(c.nVII.end, `b:muscle_face_${side}`, 2) }),
-      B({ stops: [carve(`b:muscle_face_${side}`, c.nVII.end, 0.02, "Facial muscles")] }),
-      B({ f: [c.nV.json(), c.nAMB.json(), c.nXII.json()], syn: soma(c.nXII.end, c.tongue, 2) }),
-      B({ stops: [carve(c.masseter, c.nV.end, 0.015, "Masseter (V)"), carve(c.tongue, c.nXII.end, 0.015, "Tongue (XII)"), carve(c.constrictors, c.nAMB.end, 0.015, "Pharynx (ambiguus)")] }),
+      B({ f: [c.nVII.json()], syn: soma(c.nVII.end, `b:muscle_face_${side}`, 2), meta: { view: "oblique-front" } }),
+      B({ stops: [carve(`b:muscle_face_${side}`, c.nVII.end, 0.02, "Facial muscles")], meta: { view: "anterior" } }),
+      B({ f: [c.nV.json(), c.nAMB.json(), c.nXII.json()], syn: soma(c.nXII.end, c.tongue, 2), meta: { view: "oblique-front" } }),
+      B({ stops: [carve(c.masseter, c.nV.end, 0.015, "Masseter (V)"), carve(c.tongue, c.nXII.end, 0.015, "Tongue (XII)"), carve(c.constrictors, c.nAMB.end, 0.015, "Pharynx (ambiguus)")], meta: { view: "oblique-front" } }),
     ];
   },
 };

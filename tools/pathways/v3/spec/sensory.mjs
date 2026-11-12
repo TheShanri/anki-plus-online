@@ -2,7 +2,8 @@
 import { Fibre, nuc, inSlice, drgAt, cordY, dist } from "./relay.mjs";
 import { B, soma, stop, thalamocortical, ulnarTip, ulnarToDrg, plantarTip, plantarToDrg, dorsalRootIn, tractRun, CORD_TOP, CORTEX } from "./relay.mjs";
 
-import { sgnOf, chain, synth, cortexPoint } from "./common.mjs";
+import { sgnOf, chain, synth, seam, cortexPoint } from "./common.mjs";
+import { insideNear } from "../lib/fibre.mjs";
 import { curve } from "../lib/nerves.mjs";
 
 const carve = (mesh, p, r, name) => stop(`c:${mesh}@${p.map((v) => v.toFixed(4)).join(",")}`, name, { carve: { mesh, p, r } });
@@ -191,7 +192,7 @@ export const dsct = {
     const clarke = await nuc("clarke", side);
     const up = new Fibre(1).from(g, "part:spine/nerve_drg");
     await dorsalRootIn(up, "L5", side);
-    const entryY = Math.max(up.end[1] + 0.0015, 1.068 - 0.006);
+    const entryY = Math.max(up.end[1] + 0.0015, 1.068);
     const entry = await inSlice("gracile-fasciculus", side, entryY);
     await up.routeTo(["a:spinal-cord", "part:spine/nerve_cord", "a:gracile-fasciculus"], entry, { sgn: s, minX: 0.0002, h: 0.00022, snap: 0.003 });
     await tractRun(up, "gracile-fasciculus", side, entryY, clarke.c[1] - 0.0015);
@@ -217,6 +218,9 @@ export const dsct = {
     // 7 into the same-side cerebellar cortex (the anterior lobe, the leg's spinocerebellum)
     const goal = await cortexPoint("anterior-quadrangular-lobule", side, [0.014, 1.6, -0.035]);
     const cb = new Fibre(2).from(icpTop, "a:mni-inferior-cerebellar-peduncle");
+    // the MNI peduncle and the Z-Anatomy cerebellum do not touch: a hidden seam into the nearest cerebellar tissue
+    const inCb = await insideNear("a:cerebellum", icpTop, 0.006, true);
+    if (dist(inCb, icpTop) > 0.0004) seam(cb, `icp-cb-${side}`, "Inferior cerebellar peduncle into the cerebellum", [inCb], 0.0008, "the MNI inferior cerebellar peduncle and the Z-Anatomy cerebellum meshes do not touch");
     await cb.routeTo(["a:mni-inferior-cerebellar-peduncle", "a:cerebellum", "a:superior-cerebellar-peduncle"], goal, { sgn: s, minX: 0.002, h: 0.0004, smooth: 8 });
     beats[7] = B({ f: [cb.json()], syn: soma(goal, "a:anterior-quadrangular-lobule", 2) });
     beats[8] = B({ stops: [atlasStop("anterior-quadrangular-lobule", side, "Cerebellar cortex (same side)")] });

@@ -97,6 +97,8 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
       for (const s of ss) {
         const x = data.beats[i]?.[s];
         for (const m of [x?.soma, x?.syn, x?.start, x?.cross]) if (m) marks.push(v3(m.p));
+        // a stop drawn as a patch of a big mesh (a muscle, the skin) frames on that patch
+        for (const st of x?.stops ?? []) if (st.carve) marks.push(v3(st.carve.p));
       }
     marks.forEach((p) => b.expandByPoint(p));
     for (const f of fibres) if (beats.includes(f.beat) && ss.includes(f.side)) f.pts.forEach((p) => b.expandByPoint(p));

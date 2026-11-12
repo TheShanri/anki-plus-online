@@ -17,7 +17,15 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   Fibres coloured by visual field (upper lighter, lower darker), both eyes' halves drawn. Sheets `_atlas/pw3_shots/visual/`
   checked against lecture 11 slides 8 and 18-20 (bipolar 1st, ganglion 2nd, LGN 3rd; nasal fibres cross; tract carries the
   opposite field; upper field to the inferior bank). Meyer's loop / parietal route names behind Supplementary.
-- Next: LCST (helper, motor.mjs), corticobulbar (helper), then u1: dsct (spec written),
+- lcst: shipped 2026-11-12. Validator green (2270 samples; pyramidal decussation at the brainstem/spinal cord junction,
+  the uncrossed 20 % in the anterior corticospinal tract). Sheets `_atlas/pw3_shots/lcst/` checked against lecture 10
+  slides 12-15 (layer V, corona radiata, internal capsule, peduncle, longitudinal pontine fibres, pyramid, 80 % cross,
+  lateral funiculus, lateral ventral horn, distal limb). Capsule limb gated (OQ2).
+- corticobulbar: shipped 2026-11-12. Validator green (1602 samples; crossing just above the facial nucleus, plus motor V,
+  hypoglossal and ambiguus fibres). Checked against lecture 10 slides 13-14 / lab 10 slide 2; no forehead sparing.
+- umn-lmn: shipped 2026-11-12 (2008 samples; same descent and LMN as LCST).
+- Built and validated, not yet shipped (sheets pending): dsct (foot), stretch-reflex (leg).
+- Next, then u1: dsct (spec written),
   sympathetic, parasympathetic, stretch and withdrawal reflexes.
 
 Order (owner, 2026-11-11): DCML, ALS, LCST, visual, corticobulbar, then the rest in the order of the course units.

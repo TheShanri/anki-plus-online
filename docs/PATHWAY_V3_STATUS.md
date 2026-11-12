@@ -59,6 +59,13 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   root -> spinal tract -> spinal V -> both facial nuclei. Jaw jerk: masseter spindle -> masseteric connector (flagged) -> V3
   -> through the ganglion (no cell body) -> root -> mesencephalic nucleus -> motor nucleus of V -> motor root -> masseter.
   Checked against lecture 12 slides 3 and 5 and lecture 9 slide 10. Spec: trigeminal-reflex.mjs.
+- pupillary, gaze: shipped 2026-11-12. Validator green (pupillary 1444 samples, nasal fibres cross in the chiasm, pretectal
+  fibres cross in the midbrain; gaze 926, FEF fibres cross in the pons, abducens interneurons cross into the MLF). Pupillary:
+  lit retina -> optic nerve -> chiasm/tract -> pretectal nuclei (hidden seam for the brachium of the SC) -> both EW -> CN III
+  -> ciliary ganglion (flagged) -> short ciliary nerves (flagged) -> sphincter of both eyes; colours 1-4 = RGC, pretectal,
+  EW, ciliary. Gaze: FEF (BA 8, caudal middle frontal gyrus, CORTEX "fef") -> capsule (seam) -> peduncle -> pons -> opposite
+  PPRF -> abducens nucleus -> CN VI -> lateral rectus; internuclear axon across into the MLF -> other oculomotor nucleus ->
+  CN III -> medial rectus. Checked against lecture 11 slides 7 and 25-27, lecture 12 slide 10.
 - Proxies may now have a host key as parent (a tube, a part mesh) or none (flagged); labels of multi-stop node beats anchor
   on each stop's own mark (proxy centre, or a soma/synapse inside it), no longer all on the beat's soma.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
@@ -108,8 +115,8 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next (13 slugs still on v2)
-u2: pupillary, gaze, cochlear, vestibular (special.mjs), solitary, corticopontocerebellar (circuits.mjs).
+## Next (11 slugs still on v2)
+u2: cochlear, vestibular (special.mjs), solitary, corticopontocerebellar (circuits.mjs).
 u3: cerebellar, basal-ganglia, limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
 sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.

@@ -47,5 +47,73 @@
     "V1"
    ]
   ]
+ },
+ "pupillary": {
+  "*": [
+   [
+    "Light in one eye",
+    "Light falls on the retina of ONE eye.",
+    "retina"
+   ],
+   [
+    "Optic nerve (CN II)",
+    "Retinal ganglion cell axons carry the signal back in the optic nerve.",
+    "optic nerve"
+   ],
+   [
+    "To the pretectal nucleus",
+    "Instead of the LGN, these fibres reach the pretectal nucleus of the midbrain, near the superior colliculus.",
+    "pretectal nucleus"
+   ],
+   [
+    "Both Edinger-Westphal nuclei",
+    "Nasal fibres cross in the chiasm, so both pretectal nuclei are driven, and each projects to the Edinger-Westphal nuclei of both sides.",
+    "midbrain"
+   ],
+   [
+    "Edinger-Westphal nuclei",
+    "The parasympathetic preganglionic cell bodies of CN III sit in both Edinger-Westphal nuclei.",
+    "Edinger-Westphal"
+   ],
+   [
+    "CN III, ciliary ganglion",
+    "Preganglionic axons run in the oculomotor nerve to the ciliary ganglion; short postganglionic fibres reach the sphincter pupillae.",
+    "oculomotor nerve"
+   ],
+   [
+    "Both pupils constrict",
+    "Both pupils constrict (consensual reflex); the same pathway constricts the pupil in accommodation.",
+    "both eyes"
+   ]
+  ]
+ },
+ "gaze": {
+  "*": [
+   [
+    "Frontal eye field",
+    "Voluntary gaze starts in the frontal eye field (BA 8) of the hemisphere opposite the direction of gaze.",
+    "frontal eye field"
+   ],
+   [
+    "FEF, PPRF, abducens, MLF",
+    "FEF axons cross to the opposite PPRF near the abducens nucleus; the abducens nucleus also sends axons across into the MLF up to the other oculomotor nucleus.",
+    "pons and MLF"
+   ],
+   [
+    "Abducens and oculomotor nuclei",
+    "Lower motor neurons sit in the abducens nucleus (gaze side) and the oculomotor nucleus (other side).",
+    "brainstem nuclei"
+   ],
+   [
+    "CN VI and CN III",
+    "The abducens nerve drives the lateral rectus of the gaze-side eye; the oculomotor nerve drives the medial rectus of the other eye.",
+    "orbit"
+   ],
+   [
+    "Both eyes turn together",
+    "Lateral and medial rectus contract together: conjugate gaze toward the side opposite the active FEF.",
+    "eye muscles"
+   ]
+  ]
  }
 }

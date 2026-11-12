@@ -20,6 +20,8 @@ export const CORTEX = {
   "m1-leg": ["paracentral-gyrus-and-sulcus", [0.006, 1.69, -0.012], "M1 (leg area)"],
   "m1-trunk": ["precentral-gyrus", [0.02, 1.692, -0.016], "M1 (trunk area)"],
   "m1-face": ["precentral-gyrus", [0.056, 1.652, 0.008], "M1 (face area)"],
+  // the frontal eye field (BA 8): the caudal middle frontal gyrus, in front of the precentral gyrus
+  fef: ["middle-frontal-gyrus", [0.036, 1.672, 0.024], "Frontal eye field (BA 8)"],
 };
 export async function cortex(key, side) {
   const [id, near] = CORTEX[key];

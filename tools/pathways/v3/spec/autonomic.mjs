@@ -45,6 +45,24 @@ async function deepNear(key, p, r) {
   best.q.depth = best.d;
   return best.q;
 }
+/** The most interior point of one side's half of an atlas structure (random probes of its half box). */
+export async function centreIn(id, side, n = 3000) {
+  const ms = await atlasMeshes(id);
+  const sg = sgnOf(side);
+  let best = null;
+  for (const m of ms) {
+    const lo = [Math.max(m.lo[0] * sg > 0 ? m.lo[0] : 0, sg > 0 ? 0 : m.lo[0]), m.lo[1], m.lo[2]];
+    const hi = [sg > 0 ? m.hi[0] : Math.min(0, m.hi[0]), m.hi[1], m.hi[2]];
+    for (let k = 0; k < n; k++) {
+      const q = [0, 1, 2].map((a) => lo[a] + Math.random() * (hi[a] - lo[a]));
+      if (q[0] * sg < 0.0004 || !m.inside(q)) continue;
+      const d = m.dist(q, 0.006);
+      if (!best || d > best.d) best = { q, d };
+    }
+  }
+  if (!best) throw new Error(`centreIn ${id} ${side}`);
+  return best.q;
+}
 /** The spline of a nerve whose start or end lies nearest p. */
 function splineNearest(name, side, p) {
   let best = null;

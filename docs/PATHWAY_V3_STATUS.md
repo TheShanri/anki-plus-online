@@ -24,7 +24,12 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
 - corticobulbar: shipped 2026-11-12. Validator green (1602 samples; crossing just above the facial nucleus, plus motor V,
   hypoglossal and ambiguus fibres). Checked against lecture 10 slides 13-14 / lab 10 slide 2; no forehead sparing.
 - umn-lmn: shipped 2026-11-12 (2008 samples; same descent and LMN as LCST).
-- Built and validated, not yet shipped (sheets pending): dsct (foot), stretch-reflex (leg).
+- dsct (foot): shipped 2026-11-12. Validator green (3268 samples, no crossing; hidden seam from the MNI ICP into the
+  cerebellum mesh). Checked against lecture 5 slides 15-16 (Ia/Ib in the DRG, ipsilateral column of Clarke C8-L2,
+  DSCT in the lateral funiculus, ICP, ipsilateral cerebellum).
+- stretch-reflex (leg): shipped 2026-11-12. Validator green (2135 samples; flagged L4 ramus and cauda equina roots).
+  Checked against lecture 10 slide 9 / lecture 5 slide 9 (spindle Ia, monosynaptic onto the alpha MN, knee jerk L3-L4).
+- Limb-end node beats (receptor, target muscle) are framed with 9 cm of context.
 - Next, then u1: dsct (spec written),
   sympathetic, parasympathetic, stretch and withdrawal reflexes.
 

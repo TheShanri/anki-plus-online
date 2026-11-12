@@ -119,7 +119,10 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
   if (box.isEmpty() && prev) return prev;
   if (box.isEmpty()) box.set(new THREE.Vector3(-0.05, 1.55, -0.08), new THREE.Vector3(0.05, 1.7, 0.08));
   const size = box.getSize(new THREE.Vector3());
-  const minS = node ? 0.032 : 0.028;
+  // a receptor or a target muscle in the limb is framed with its surroundings (the digit, the thigh), not from inside it
+  const bx = bi !== null ? data.beats[bi][sides[0]] : undefined;
+  const limbEnd = node && !!bx && !bx.soma && (!!bx.start || bx.stops.some((st) => !!st.carve)) && (Math.abs(box.getCenter(new THREE.Vector3()).x) > 0.05 || box.max.y < 1.0);
+  const minS = limbEnd ? 0.09 : node ? 0.032 : 0.028;
   const c = box.getCenter(new THREE.Vector3());
   for (const a of ["x", "y", "z"] as const) if (size[a] < minS) {
     box.min[a] = c[a] - minS / 2;

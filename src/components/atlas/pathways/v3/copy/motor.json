@@ -160,5 +160,49 @@
     "head muscles"
    ]
   ]
+ },
+ "stretch-reflex": {
+  "leg": [
+   [
+    "Muscle spindle stretched",
+    "Tapping the patellar tendon stretches the quadriceps and its muscle spindles.",
+    "quadriceps"
+   ],
+   [
+    "Up the femoral nerve",
+    "The Ia afferent runs in the femoral nerve to the L4 dorsal root ganglion.",
+    "femoral nerve"
+   ],
+   [
+    "Dorsal root ganglion (L4)",
+    "The sensory cell body sits in the dorsal root ganglion (the reflex is shown at L4; the knee jerk uses L3 and L4).",
+    "dorsal root ganglion"
+   ],
+   [
+    "Straight to the motor neuron",
+    "The Ia axon enters by the dorsal root and synapses directly on the alpha motor neuron in the ventral horn: one synapse, no interneuron.",
+    "ventral horn"
+   ],
+   [
+    "Alpha motor neuron",
+    "The alpha motor neuron in the ventral horn is the efferent limb of the reflex arc.",
+    "ventral horn"
+   ],
+   [
+    "Ventral root",
+    "Its axon leaves the cord in the ventral root and joins the spinal nerve.",
+    "ventral root"
+   ],
+   [
+    "Femoral nerve to muscle",
+    "It returns in the femoral nerve to the quadriceps.",
+    "femoral nerve"
+   ],
+   [
+    "Quadriceps contracts",
+    "The quadriceps contracts and the knee extends: the knee-jerk (stretch) reflex.",
+    "quadriceps"
+   ]
+  ]
  }
 }

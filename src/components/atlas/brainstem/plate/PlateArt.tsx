@@ -1,9 +1,10 @@
 "use client";
-// One brainstem plate as an atlas page: the illustration (hairline outlines, tonal fills for grey matter, white matter
-// and spaces) and the course's myelin-stained section, split at the midline by default. The section is drawn as ink
-// through its own density (a luminance mask), so it follows the theme: dark stain on paper, or a dark-field look on a
-// dark theme. Regions light on both halves together; the photo half uses the registered (mirrored) outline.
-import { memo, useId, useMemo } from "react";
+// One brainstem plate as an atlas page: an engraved-style illustration (hairline outlines; hatched white matter,
+// stippled and tinted grey matter, open spaces, soft myelin tone from the section) and the course's myelin-stained
+// section, split at the midline by default. The section is printed as ink through its own density (a luminance mask),
+// so it follows the theme: stain on paper, or a dark-field look on a dark theme. A structure lights on both halves
+// together; the photo half uses the registered (mirrored) outline. Approximate outlines are dashed.
+import { memo, useEffect, useId, useMemo, useRef, useState } from "react";
 import type { PlateData, PlateRegion } from "./types";
 
 export type PlateView = "split" | "illustration" | "photo";
@@ -28,6 +29,8 @@ export interface PlateArtProps {
   labels?: boolean;
   /** show the hovered structure's name beside it */
   callout?: boolean;
+  /** the callout's text when it says more than the name (approx., mastery) */
+  calloutText?: string | null;
   names?: Record<string, string>;
   interactive?: boolean;
   onHover?: (slug: string | null, side?: "L" | "R" | "M") => void;
@@ -36,28 +39,51 @@ export interface PlateArtProps {
   ariaLabel?: string;
 }
 
-const MARGIN = 210; // label margin (plate units) on each side
+/** Screen sizes (px) of the plate's text, whatever the plate's size on screen. */
+const LABEL_PX = 10.5;
+/** Margin labels wrap onto a second line past this many characters. */
+const WRAP = 17;
 
-function onHalf(r: PlateRegion, view: PlateView): boolean {
-  return view !== "split" || r.side === "M" || true;
+/** A label in at most two lines, broken at the space nearest the middle. */
+function wrapLabel(s: string): string[] {
+  if (s.length <= WRAP) return [s];
+  const mid = s.length / 2;
+  let best = -1;
+  for (let i = 0; i < s.length; i++) if (s[i] === " " && (best < 0 || Math.abs(i - mid) < Math.abs(best - mid))) best = i;
+  return best < 0 ? [s] : [s.slice(0, best), s.slice(best + 1)];
+}
+const CALL_PX = 14;
+
+/** The svg's rendered width in px (0 before the first layout). */
+function useWidth(ref: React.RefObject<Element | null>): number {
+  const [w, setW] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setW(el.getBoundingClientRect().width));
+    ro.observe(el);
+    setW(el.getBoundingClientRect().width);
+    return () => ro.disconnect();
+  }, [ref]);
+  return w;
 }
 
-/** The illustration: tissue, myelin bands, structures, fibres, outline. Static per plate. */
-const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateData; ids: { hatch: string; stip: string } }) {
+/** Big fibre masses drawn a shade deeper than the tracts, as they stain in the section. */
+const PEDUNCLES = new Set(["cerebral-peduncles", "middle-cerebellar-peduncle", "superior-cerebellar-peduncle", "inferior-cerebellar-peduncle", "pyramids", "decussation-of-the-superior-cerebellar-peduncle", "longitudinal-fibers-of-the-pons", "motor-decussation"]);
+
+/** The illustration: tissue, structures, fibres, outline. Static per plate. */
+const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateData; ids: { hatch: string; stip: string; shadow: string } }) {
   const regs = plate.regions;
   const white = regs.filter((r) => r.tissue === "white");
   const grey = regs.filter((r) => r.tissue === "grey");
-  const space = regs.filter((r) => r.tissue === "space");
+  const space = regs.filter((r) => r.tissue === "space" && !r.open);
   const land = regs.filter((r) => r.tissue === "landmark");
   return (
     <g className="bsp-ill">
-      <path d={plate.outline} className="bsp-tissue" fillRule="evenodd" />
-      {plate.bands.map((d, i) => (
-        <path key={i} d={d} className={`bsp-band bsp-band${i + 1}`} fillRule="evenodd" />
-      ))}
+      <path d={plate.outline} className="bsp-tissue" fillRule="evenodd" filter={`url(#${ids.shadow})`} />
       {white.map((r) => (
         <g key={r.id}>
-          <path d={r.d} className="bsp-wm" fillRule="evenodd" />
+          <path d={r.d} className={PEDUNCLES.has(r.slug) ? "bsp-wm bsp-wm-ped" : "bsp-wm"} fillRule="evenodd" />
           <path d={r.d} fill={`url(#${ids.hatch})`} fillRule="evenodd" className="bsp-hatch" />
         </g>
       ))}
@@ -68,13 +94,16 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
         </g>
       ))}
       {space.map((r) => (
-        <path key={r.id} d={r.d} className="bsp-space" fillRule="evenodd" />
+        <g key={r.id}>
+          <path d={r.d} className="bsp-space" fillRule="evenodd" />
+          <path d={r.d} className="bsp-space-rim" fillRule="evenodd" />
+        </g>
       ))}
       {plate.fibres.map((f) => (
-        <path key={f.id} d={f.d} className={f.tissue === "nerve" ? "bsp-nerve" : "bsp-fibre"} />
+        <path key={f.id} d={f.d} className={`${f.tissue === "nerve" ? "bsp-nerve" : "bsp-fibre"}${f.approx ? " bsp-approx" : ""}`} />
       ))}
       {[...white, ...grey].map((r) => (
-        <path key={r.id} d={r.d} className="bsp-line" fillRule="evenodd" />
+        <path key={r.id} d={r.d} className={r.approx ? "bsp-line bsp-approx" : "bsp-line"} fillRule="evenodd" />
       ))}
       {land.map((r) => (
         <path key={r.id} d={r.d} className="bsp-land" fillRule="evenodd" />
@@ -93,6 +122,14 @@ function nameOf(names: Record<string, string> | undefined, slug: string): string
   return names?.[slug] ?? slug.replace(/-/g, " ");
 }
 
+/** A fibre path's middle point (label anchor). */
+function midOf(d: string): [number, number] | undefined {
+  const n = d.match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];
+  if (n.length < 2) return undefined;
+  const k = Math.floor(n.length / 4) * 2;
+  return [n[k], n[k + 1]];
+}
+
 interface LabelPos {
   slug: string;
   text: string;
@@ -103,7 +140,7 @@ interface LabelPos {
 }
 
 /** Margin labels: one per structure, alternating sides top to bottom, spread so they never overlap. */
-function layoutLabels(plate: PlateData, names: Record<string, string> | undefined, view: PlateView): LabelPos[] {
+function layoutLabels(plate: PlateData, names: Record<string, string> | undefined, gap: number): LabelPos[] {
   const [, , W, H] = plate.viewBox;
   const seen = new Map<string, PlateRegion[]>();
   for (const r of plate.regions) seen.set(r.slug, [...(seen.get(r.slug) ?? []), r]);
@@ -115,16 +152,9 @@ function layoutLabels(plate: PlateData, names: Record<string, string> | undefine
     let L = l ? (l.side === "M" ? ([Math.min(l.a[0], W - l.a[0]), l.a[1]] as [number, number]) : l.a) : undefined;
     let R = rr ? (rr.side === "M" ? ([Math.max(rr.a[0], W - rr.a[0]), rr.a[1]] as [number, number]) : rr.a) : undefined;
     if (!rs.length) {
-      // a fibre course: anchor on its middle point
       const f = plate.fibres.filter((x) => x.slug === slug);
-      const pt = (side: "L" | "R") => {
-        const fx = f.find((x) => x.side === side);
-        const nums = fx?.d.match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];
-        const k = Math.floor(nums.length / 4) * 2;
-        return nums.length >= 2 ? ([nums[k], nums[k + 1]] as [number, number]) : undefined;
-      };
-      L = pt("L");
-      R = pt("R");
+      L = midOf(f.find((x) => x.side === "L")?.d ?? "");
+      R = midOf(f.find((x) => x.side === "R")?.d ?? "");
     }
     if (!L && !R) continue;
     items.push({ slug, L, R, y: (L ?? R)![1] });
@@ -132,7 +162,6 @@ function layoutLabels(plate: PlateData, names: Record<string, string> | undefine
   items.sort((a, b) => a.y - b.y);
   const out: LabelPos[] = [];
   items.forEach((it, i) => {
-    // split view: the left margin names the illustration, the right margin names the photo
     let side: "L" | "R" = i % 2 === 0 ? "L" : "R";
     if (side === "L" && !it.L) side = "R";
     if (side === "R" && !it.R) side = "L";
@@ -141,29 +170,45 @@ function layoutLabels(plate: PlateData, names: Record<string, string> | undefine
   });
   for (const side of ["L", "R"] as const) {
     const col = out.filter((o) => o.side === side).sort((a, b) => a.y - b.y);
-    const gap = 19;
     for (let pass = 0; pass < 6; pass++) {
       for (let i = 1; i < col.length; i++) if (col[i].y - col[i - 1].y < gap) col[i].y = col[i - 1].y + gap;
-      const over = col.length ? col[col.length - 1].y - (H - 8) : 0;
+      const over = col.length ? col[col.length - 1].y - (H - 10) : 0;
       if (over > 0) for (const c of col) c.y -= over;
       for (let i = col.length - 2; i >= 0; i--) if (col[i + 1].y - col[i].y < gap) col[i].y = col[i + 1].y - gap;
-      if (col.length && col[0].y < 12) {
-        const d = 12 - col[0].y;
+      if (col.length && col[0].y < 14) {
+        const d = 14 - col[0].y;
         for (const c of col) c.y += d;
       }
     }
   }
-  void view;
   return out;
 }
 
-export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labels, callout, names, interactive, onHover, onPick, className, ariaLabel }: PlateArtProps) {
+export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labels, callout, calloutText, names, interactive, onHover, onPick, className, ariaLabel }: PlateArtProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
-  const ids = useMemo(() => ({ hatch: `h${uid}`, stip: `s${uid}`, photo: `p${uid}`, L: `l${uid}`, R: `r${uid}`, frame: `f${uid}` }), [uid]);
+  const ids = useMemo(
+    () => ({ hatch: `h${uid}`, stip: `s${uid}`, shadow: `d${uid}`, photo: `p${uid}`, L: `l${uid}`, R: `r${uid}`, frame: `f${uid}` }),
+    [uid],
+  );
   const [, , W, H] = plate.viewBox;
   const mid = plate.mid;
-  const vb = labels ? `${-MARGIN} 0 ${W + 2 * MARGIN} ${H}` : `0 0 ${W} ${H}`;
-  const lab = useMemo(() => (labels ? layoutLabels(plate, names, view) : []), [labels, plate, names, view]);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const cw = useWidth(svgRef) || 800;
+  // label margin (plate units) so the longest name fits at LABEL_PX, whatever the plate's width on screen
+  const longest = useMemo(() => {
+    if (!labels) return 0;
+    const slugs = new Set([...plate.regions.map((r) => r.slug), ...plate.fibres.map((f) => f.slug)]);
+    return Math.max(0, ...[...slugs].flatMap((s) => wrapLabel(nameOf(names, s)).map((l) => l.length)));
+  }, [labels, plate, names]);
+  let M = 0;
+  if (labels) {
+    M = 200;
+    for (let i = 0; i < 5; i++) M = Math.min(0.8 * W, ((W + 2 * M) / cw) * (22 + longest * LABEL_PX * 0.6));
+  }
+  const upx = (W + 2 * M) / cw; // plate units per screen px
+  const labelFont = LABEL_PX * upx;
+  const vb = labels ? `${-M} 0 ${W + 2 * M} ${H}` : `0 0 ${W} ${H}`;
+  const lab = useMemo(() => (labels ? layoutLabels(plate, names, labelFont * 2.5) : []), [labels, plate, names, labelFont]);
   const showIll = view !== "photo";
   const showPhoto = view !== "illustration" && !!plate.photo?.src;
   const clipIll = view === "split" ? `url(#${ids.L})` : undefined;
@@ -174,29 +219,32 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
   const litSet = new Set(lit?.slugs ?? []);
   const isLit = (r: { slug: string; side: string }) => litSet.has(r.slug) && (litSide === "both" || r.side === "M" || r.side === litSide);
 
-  // in the split view each instance lives on its half; in the single views every instance is on the one picture
-  const instances = plate.regions.filter((r) => onHalf(r, view));
-  const hotRegions = instances.filter((r) => hiSlugs.has(r.slug));
-  const litRegions = instances.filter((r) => isLit(r) && !hiSlugs.has(r.slug));
+  const hotRegions = plate.regions.filter((r) => hiSlugs.has(r.slug));
+  const litRegions = plate.regions.filter((r) => isLit(r) && !hiSlugs.has(r.slug));
   const hotFibres = plate.fibres.filter((f) => hiSlugs.has(f.slug) || isLit(f));
+  // in the split view each instance lives on its half; in the single views every instance is on the one picture
   const kindOf = (side: string) => (view === "split" ? (side === "R" ? "photo" : side === "L" ? "ill" : "both") : view === "photo" ? "photo" : "ill");
 
-  // callout: name beside the hovered structure, on the half the pointer is on
+  // callout: the name beside the hovered structure, on the half the pointer is on
   let call: { x: number; y: number; text: string } | null = null;
   if (callout && hot) {
-    const rs = instances.filter((r) => r.slug === hot);
+    const rs = plate.regions.filter((r) => r.slug === hot);
     const pick = rs.find((r) => r.side === hotSide) ?? rs.find((r) => r.side === "M") ?? rs[0];
     if (pick) {
       let x = pick.a[0];
       if (pick.side === "M" && hotSide === "L") x = Math.min(x, W - x);
       if (pick.side === "M" && hotSide === "R") x = Math.max(x, W - x);
-      call = { x, y: pick.a[1], text: nameOf(names, hot) };
+      call = { x, y: pick.a[1], text: calloutText ?? nameOf(names, hot) };
     } else {
       const f = plate.fibres.find((x) => x.slug === hot && (x.side === hotSide || !hotSide));
-      const n = f?.d.match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];
-      if (n.length >= 2) call = { x: n[0], y: n[1], text: nameOf(names, hot) };
+      const p = f ? midOf(f.d) : undefined;
+      if (p) call = { x: p[0], y: p[1], text: calloutText ?? nameOf(names, hot) };
     }
   }
+  // keep the callout inside the plate
+  const callFont = CALL_PX * upx;
+  const halfText = call ? call.text.length * callFont * 0.31 : 0;
+  const callX = call ? Math.min(W - 8 - halfText, Math.max(8 + halfText, call.x)) : 0;
 
   return (
     <svg
@@ -204,25 +252,29 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
       className={`bsp${pulse ? " bsp-pulsing" : ""}${className ? " " + className : ""}`}
       role={interactive ? "group" : "img"}
       aria-label={ariaLabel ?? "Brainstem section plate"}
-      style={{ aspectRatio: `${labels ? W + 2 * MARGIN : W} / ${H}` }}
+      ref={svgRef}
+      style={{ aspectRatio: `${labels ? W + 2 * M : W} / ${H}` }}
     >
       <defs>
         <clipPath id={ids.L}>
-          <rect x={-MARGIN} y={-10} width={mid + MARGIN} height={H + 20} />
+          <rect x={-M} y={-10} width={mid + M} height={H + 20} />
         </clipPath>
         <clipPath id={ids.R}>
-          <rect x={mid} y={-10} width={W - mid + MARGIN} height={H + 20} />
+          <rect x={mid} y={-10} width={W - mid + M} height={H + 20} />
         </clipPath>
         <clipPath id={ids.frame}>
           <rect x={0} y={0} width={W} height={H} />
         </clipPath>
-        <pattern id={ids.hatch} patternUnits="userSpaceOnUse" width="3.4" height="3.4" patternTransform="rotate(38)">
-          <line x1="0" y1="0" x2="0" y2="3.4" className="bsp-hatch-line" />
+        <pattern id={ids.hatch} patternUnits="userSpaceOnUse" width="3.6" height="3.6" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="3.6" className="bsp-hatch-line" />
         </pattern>
-        <pattern id={ids.stip} patternUnits="userSpaceOnUse" width="5.2" height="4.5">
-          <circle cx="1.3" cy="1.1" r="0.42" className="bsp-dot" />
-          <circle cx="3.9" cy="3.35" r="0.42" className="bsp-dot" />
+        <pattern id={ids.stip} patternUnits="userSpaceOnUse" width="4.6" height="4">
+          <circle cx="1.1" cy="1" r="0.62" className="bsp-dot" />
+          <circle cx="3.4" cy="3" r="0.52" className="bsp-dot" />
         </pattern>
+        <filter id={ids.shadow} x="-5%" y="-5%" width="110%" height="112%">
+          <feDropShadow dx="0" dy="3" stdDeviation="5" className="bsp-shadow" />
+        </filter>
         {showPhoto && (
           <mask id={ids.photo} maskUnits="userSpaceOnUse" x={0} y={0} width={W} height={H}>
             <image href={plate.photo!.src} x={0} y={0} width={W} height={H} preserveAspectRatio="none" />
@@ -242,7 +294,9 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
           </g>
         )}
       </g>
-      {view === "split" && <line x1={mid} x2={mid} y1={-4} y2={H + 4} className="bsp-midline" />}
+      {/* one crisp outline around both halves: the photo half's tissue edge is the same (registered) outline */}
+      {view === "split" && <path d={plate.outline} className="bsp-outline bsp-outline-photo" fillRule="evenodd" clipPath={clipPhoto} />}
+      {view === "split" && <line x1={mid} x2={mid} y1={4} y2={H - 4} className="bsp-midline" />}
 
       {/* lit (caller) and hot (hover/selection) structures */}
       <g className="bsp-lit" pointerEvents="none">
@@ -259,7 +313,7 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
 
       {interactive && (
         <g className="bsp-hit">
-          {instances.map((r) => (
+          {plate.regions.map((r) => (
             <path
               key={r.id}
               d={dFor(r, view)}
@@ -269,7 +323,11 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
               tabIndex={r.side === "R" || r.side === "M" ? 0 : -1}
               role="button"
               aria-label={nameOf(names, r.slug)}
-              onPointerEnter={(e) => onHover?.(r.slug, r.side === "M" ? (e.nativeEvent.offsetX < (e.currentTarget.ownerSVGElement?.clientWidth ?? 0) / 2 ? "L" : "R") : r.side)}
+              onPointerEnter={(e) => {
+                if (r.side !== "M") return onHover?.(r.slug, r.side);
+                const box = e.currentTarget.ownerSVGElement?.getBoundingClientRect();
+                onHover?.(r.slug, box && e.clientX < box.left + box.width / 2 ? "L" : "R");
+              }}
               onPointerLeave={() => onHover?.(null)}
               onFocus={() => onHover?.(r.slug, r.side)}
               onBlur={() => onHover?.(null)}
@@ -283,7 +341,7 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
             />
           ))}
           {plate.fibres.map((f) => (
-            <path key={f.id} d={f.d} fill="none" stroke="transparent" strokeWidth={9} pointerEvents="stroke" onPointerEnter={() => onHover?.(f.slug, f.side)} onPointerLeave={() => onHover?.(null)} onClick={() => onPick?.(f.slug)} />
+            <path key={f.id} d={f.d} fill="none" stroke="transparent" strokeWidth={10} pointerEvents="stroke" onPointerEnter={() => onHover?.(f.slug, f.side)} onPointerLeave={() => onHover?.(null)} onClick={() => onPick?.(f.slug)} />
           ))}
         </g>
       )}
@@ -291,15 +349,19 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
       {labels && (
         <g className="bsp-labels" pointerEvents="none">
           {lab.map((l) => {
-            const lx = l.side === "L" ? -14 : W + 14;
-            const elbow = l.side === "L" ? 6 : W - 6;
-            const on = hiSlugs.has(l.slug);
+            const lx = l.side === "L" ? -10 * upx : W + 10 * upx;
+            const elbow = l.side === "L" ? 4 : W - 4;
+            const on = hiSlugs.has(l.slug) || litSet.has(l.slug);
             return (
               <g key={l.slug} className={on ? "bsp-lab bsp-lab-on" : "bsp-lab"}>
-                <polyline points={`${lx + (l.side === "L" ? 4 : -4)},${l.y} ${elbow},${l.y} ${l.ax},${l.ay}`} className="bsp-leader" />
-                <circle cx={l.ax} cy={l.ay} r={1.9} className="bsp-leader-dot" />
-                <text x={lx} y={l.y} dy="0.34em" textAnchor={l.side === "L" ? "end" : "start"} className="bsp-label">
-                  {l.text}
+                <polyline points={`${lx + (l.side === "L" ? 4 : -4) * upx},${l.y} ${elbow},${l.y} ${l.ax},${l.ay}`} className="bsp-leader" />
+                <circle cx={l.ax} cy={l.ay} r={1.6 * upx} className="bsp-leader-dot" />
+                <text x={lx} y={l.y} textAnchor={l.side === "L" ? "end" : "start"} className="bsp-label" style={{ fontSize: labelFont }}>
+                  {wrapLabel(l.text).map((t, i, all) => (
+                    <tspan key={i} x={lx} dy={i === 0 ? `${0.34 - (all.length - 1) * 0.55}em` : "1.1em"}>
+                      {t}
+                    </tspan>
+                  ))}
                 </text>
               </g>
             );
@@ -309,7 +371,7 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
 
       {call && (
         <g pointerEvents="none" className="bsp-callout">
-          <text x={call.x} y={Math.max(18, call.y - 16)} textAnchor="middle" className="bsp-call">
+          <text x={callX} y={call.y < callFont * 2 ? call.y + callFont * 1.6 : call.y - callFont * 0.9} textAnchor="middle" className="bsp-call" style={{ fontSize: callFont, strokeWidth: callFont * 0.28 }}>
             {call.text}
           </text>
         </g>

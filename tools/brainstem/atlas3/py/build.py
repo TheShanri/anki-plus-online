@@ -65,7 +65,13 @@ def build(level):
     shapes = cj["shapes"]
     ex = EXTRAS.get(level, {})
 
+    pending = {}
+
     def emit(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False):
+        """Collect a structure (mR: its right-half mask, canvas px); emitted after the extras have clipped/cut."""
+        pending[slug] = dict(mR=mR, tissue_kind=tissue_kind, src=src, approx=approx, note=note, photoL=photoL, mid_struct=mid_struct)
+
+    def emit_now(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False):
         """mR: the structure on the plate's right half (canvas px). Emits the right, left (mirror) or midline instance."""
         if mR.sum() < 4:
             report.append(f"  EMPTY {slug}")
@@ -73,18 +79,23 @@ def build(level):
         if mid_struct:
             m = mirror(mR)
             a, clr = anchor(m * right)
-            regions.append({"id": f"{slug}-M", "slug": slug, "slugs": [slug], "side": "M", "tissue": tissue_kind, "d": mask_paths(m), "c": centroid(m), "a": a, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {})})
+            regions.append({"id": f"{slug}-M", "slug": slug, "slugs": [slug], "side": "M", "tissue": tissue_kind, "d": mask_paths(m), "c": centroid(m), "a": a, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(m, tissue_kind)})
             return
         mL = np.zeros_like(mR)
         mL[:, : w2 - mid] = mR[:, mid:][:, ::-1][:, : w2 - mid]
         aR, _ = anchor(mR)
         aL = [round(W - aR[0], 1), aR[1]]
-        base = {"slug": slug, "slugs": [slug], "tissue": tissue_kind, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {})}
+        base = {"slug": slug, "slugs": [slug], "tissue": tissue_kind, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(mR, tissue_kind)}
         regions.append({"id": f"{slug}-R", "side": "R", "d": mask_paths(mR), "c": centroid(mR), "a": aR, **base})
         rl = {"id": f"{slug}-L", "side": "L", "d": mask_paths(mL), "c": centroid(mL), "a": aL, **base}
         if photoL is not None and photoL.sum() > 4:
             rl["dPhoto"] = mask_paths(photoL)
         regions.append(rl)
+
+    def is_open(m, kind):
+        """a space that lies outside the section (the fourth ventricle opened by the cut, the interpeduncular fossa):
+        the illustration leaves it as paper and draws no rim along the section's hull"""
+        return {"open": True} if kind == "space" and (m & sym).sum() < 0.5 * max(1, m.sum()) else {}
 
     def clip(m, kind):
         if kind == "space":
@@ -137,11 +148,25 @@ def build(level):
             pts = e["pts"]
         kind = e.get("tissue") or tissue_of(slug)
         m = raster([pts], tissue.shape)
-        if e.get("midline"):
-            emit(slug, clip(mirror(m * right), kind) * right, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=True)
-        else:
-            emit(slug, clip(m, kind) * right, kind, e.get("src", []), e.get("approx", True), e.get("note"))
+        mR = clip(mirror(m * right), kind) * right if e.get("midline") else clip(m, kind) * right
+        for other in e.get("clip_out", []):  # keep a clean partition: drop what an existing region already covers
+            if other in pending:
+                mR = mR & (1 - pending[other]["mR"])
+        for other in e.get("cut_from", []):  # the extra takes its part out of a broader course region
+            if other in pending:
+                pending[other]["mR"] = pending[other]["mR"] & (1 - mR)
+        emit(slug, mR, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=bool(e.get("midline")))
         report.append(f"  {slug}: authored" + (" (approx)" if e.get("approx", True) else ""))
+
+    # course regions the second source does not confirm closely: shown as approximate, with the reason
+    for slug, note in ex.get("_approx", {}).items():
+        if slug in pending:
+            pending[slug]["approx"] = True
+            pending[slug]["note"] = note
+            report.append(f"  {slug}: course outline marked approximate")
+
+    for slug, kw in pending.items():
+        emit_now(slug, **kw)
 
     # fibre courses (open paths)
     for slug, lst in shapes["fibres"].items():
@@ -154,6 +179,13 @@ def build(level):
             fibres.append({"id": f"{slug}-R{k}", "slug": slug, "side": "R", "tissue": kind, "d": d})
             fibres.append({"id": f"{slug}-L{k}", "slug": slug, "side": "L", "tissue": kind, "d": dl})
         report.append(f"  {slug}: {len(use)} fibre paths" + ("" if R else " (left, mirrored)"))
+    for slug, e in ex.get("_fibres", {}).items():  # authored fibre courses (right side, plate units)
+        kind = "nerve" if slug in NERVE_FIBRES else "fibres"
+        for k, pts in enumerate(e["paths"]):
+            extra = {**({"approx": True} if e.get("approx", True) else {}), **({"note": e["note"]} if e.get("note") else {}), "src": e.get("src", [])}
+            fibres.append({"id": f"{slug}-R{k}", "slug": slug, "side": "R", "tissue": kind, "d": curve(pts, False, step=2.0, sigma=1.0, eps=0.25), **extra})
+            fibres.append({"id": f"{slug}-L{k}", "slug": slug, "side": "L", "tissue": kind, "d": curve(mirror_pts(pts), False, step=2.0, sigma=1.0, eps=0.25), **extra})
+        report.append(f"  {slug}: authored fibres" + (" (approx)" if e.get("approx", True) else ""))
 
     # myelin density of the photo, used for the illustration's tonal bands (right half mirrored) and the photo itself
     g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
@@ -171,8 +203,10 @@ def build(level):
         bands.append(mask_paths(bm, step=3.0, sigma=1.4, eps=0.55, min_area=140))
     # the photo: density as luminance (white = myelin), outside the tissue black, edge feathered by ~1 px
     feather = cv2.GaussianBlur(tissue.astype(np.float32), (0, 0), 0.8)
-    gamma = cfg.get("gamma", 0.92)
-    photo = (np.power(dens, gamma) * feather * 255).clip(0, 255).astype(np.uint8)
+    # tone: the original prints are near-black wherever myelin is dense; cap the ink at 88 % and ease the mid-tones so
+    # the section reads like a printed plate (texture kept in the peduncles), the same curve on every level
+    gamma = cfg.get("gamma", 1.15)
+    photo = (0.88 * np.power(dens, gamma) * feather * 255).clip(0, 255).astype(np.uint8)
     cv2.imwrite(f"{BASE}/levels/{level}/density.png", photo)
     cv2.imwrite(f"{BASE}/levels/{level}/density.webp", photo, [cv2.IMWRITE_WEBP_QUALITY, 88])
 

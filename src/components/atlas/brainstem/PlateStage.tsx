@@ -4,7 +4,7 @@
 // View: Split (default), Illustration or Photo; Histology (Gross where a source exists); Atlas labels in the margins.
 // Level changes crossfade. A small sagittal locator shows where the cut is.
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { Columns2, PenTool, Image as ImageIcon, Tags } from "lucide-react";
+import { Brain, Columns2, Image as ImageIcon, Microscope, PenTool, Tags } from "lucide-react";
 import { STRUCTURES } from "./data";
 import { usePlate } from "./plate/usePlate";
 import { PlateArt, type PlateView } from "./plate/PlateArt";
@@ -50,7 +50,7 @@ function Seg<T extends string>({ value, options, onChange, label }: { value: T; 
   return (
     <div className="bs-seg" role="radiogroup" aria-label={label}>
       {options.map((o) => (
-        <button key={o.id} type="button" role="radio" aria-checked={value === o.id} aria-pressed={value === o.id} disabled={o.disabled} title={o.title ?? o.label} onClick={() => onChange(o.id)}>
+        <button key={o.id} type="button" role="radio" aria-checked={value === o.id} disabled={o.disabled} title={o.title ?? o.label} onClick={() => onChange(o.id)}>
           {o.icon && <o.icon size={14} />}
           <span className="bs-seg-t">{o.label}</span>
         </button>
@@ -96,8 +96,7 @@ export function PlateStage({
   const hot = hover;
   const pct = hot && mastery[hot] !== undefined ? ` · ${Math.round(mastery[hot] * 100)}%` : "";
   const approx = ready && hot ? ready.regions.some((r) => r.slug === hot && r.approx) : false;
-  const callNames = hot ? { ...names, [hot]: `${names[hot] ?? hot}${approx ? " (approx.)" : ""}${pct}` } : names;
-  const ratio = ready ? `${ready.viewBox[2] + (prefs.labels ? 420 : 0)} / ${ready.viewBox[3]}` : "4 / 3";
+  const callText = hot ? `${names[hot] ?? hot.replace(/-/g, " ")}${approx ? " (approx.)" : ""}${pct}` : null;
 
   return (
     <div className="bsp-stage">
@@ -117,22 +116,17 @@ export function PlateStage({
           value="histology"
           onChange={() => undefined}
           options={[
-            { id: "histology", label: "Histology", title: "Myelin-stained section (Weil)" },
-            { id: "gross", label: "Gross", disabled: true, title: "No gross section of this level in the course or the open atlases" },
+            { id: "histology", label: "Histology", icon: Microscope, title: "Myelin-stained section (Weil)" },
+            { id: "gross", label: "Gross", icon: Brain, disabled: true, title: "Gross: no gross section of this level in the course or the open atlases" },
           ]}
         />
         <button type="button" className={`bs-ib${prefs.labels ? " bs-on" : ""}`} aria-pressed={prefs.labels} title="Atlas labels (L)" aria-label="Atlas labels (L)" onClick={() => save({ ...prefs, labels: !prefs.labels })}>
           <Tags size={16} aria-hidden />
         </button>
       </div>
-      <div className="bsp-frame" style={{ aspectRatio: ratio }}>
-        {prev && prevPlate && prevPlate !== "missing" && (
-          <div className="bsp-layer bs-fade-out" aria-hidden>
-            <PlateArt plate={prevPlate} view={prefs.view} labels={prefs.labels} names={names} />
-          </div>
-        )}
+      <div className="bsp-frame">
         {ready ? (
-          <div key={cur} className="bsp-layer bs-fade-in">
+          <div key={cur} className="bs-fade-in">
             <PlateArt
               plate={ready}
               view={prefs.view}
@@ -141,7 +135,8 @@ export function PlateStage({
               selected={selected}
               labels={prefs.labels}
               callout={!prefs.labels}
-              names={callNames}
+              calloutText={callText}
+              names={names}
               interactive
               onHover={(s, sd) => {
                 onHover(s);
@@ -152,9 +147,15 @@ export function PlateStage({
             />
           </div>
         ) : plate === "missing" ? (
-          <div className="panel text-sm text-text-dim">The plate could not be loaded.</div>
+          <div className="p-6 text-sm text-text-dim">The plate could not be loaded.</div>
         ) : (
-          <div className="plate-skel absolute inset-0" aria-busy />
+          <div className="plate-skel" style={{ aspectRatio: "4 / 3" }} aria-busy />
+        )}
+        {/* the previous level fades out over the new one */}
+        {prev && prevPlate && prevPlate !== "missing" && (
+          <div className="bsp-layer bs-fade-out" aria-hidden>
+            <PlateArt plate={prevPlate} view={prefs.view} labels={prefs.labels} names={names} />
+          </div>
         )}
         <div className="bsp-locator" title="Where this section is cut">
           <LevelLocator level={level} />

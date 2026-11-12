@@ -19,3 +19,7 @@ export function pulseDisabled(): boolean {
   if (typeof window === "undefined") return true;
   return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.effects === "off";
 }
+
+/** While a docked BrainstemRef is lighting a structure, a 3D view breathes its highlight with brainstemPulse() so the
+ *  2D plate and the 3D mesh pulse together. A counter, so overlapping docks do not switch it off early. */
+export const brainstemBreath = { active: 0 };

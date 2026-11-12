@@ -1,0 +1,1079 @@
+{
+ "levels": [
+  "midbrain-sc",
+  "midbrain-ic",
+  "pons-mid",
+  "pons-caudal",
+  "medulla-rostral",
+  "medulla-mid",
+  "medulla-caudal",
+  "cervicomedullary"
+ ],
+ "structures": {
+  "cerebral-peduncles": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 251461
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 291229
+    }
+   }
+  },
+  "substantia-nigra": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 93162
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 72410
+    }
+   }
+  },
+  "interpeduncular-fossa": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 49954
+    }
+   }
+  },
+  "red-nucleus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 40968
+    }
+   }
+  },
+  "periaqueductal-gray": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 38076
+    },
+    "midbrain-ic": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 59920
+    }
+   }
+  },
+  "medial-geniculate-nucleus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 19476
+    }
+   }
+  },
+  "oculomotor-nucleus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 8238
+    }
+   }
+  },
+  "anterolateral-spinothalamic-tract": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 17363
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 14911
+    },
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 5001
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 6215
+    },
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 14408
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 38556
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 56052
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 66428
+    }
+   }
+  },
+  "superior-colliculus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 33236
+    }
+   }
+  },
+  "medial-longitudinal-fasciculus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 5960
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 3863
+    },
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 2944
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 4186
+    },
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 3931
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 1668
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 6999
+    }
+   }
+  },
+  "medial-lemniscus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 14803
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 50488
+    },
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 13998
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 12933
+    },
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 54930
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 32467
+    }
+   }
+  },
+  "edinger-westphal-nucleus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 1809
+    }
+   }
+  },
+  "brachium-of-the-inferior-colliculus": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 5422
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 6492
+    }
+   }
+  },
+  "cerebral-aqueduct": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 1821
+    },
+    "midbrain-ic": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 3449
+    }
+   }
+  },
+  "oculomotor-nerve": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "decussation-of-the-superior-cerebellar-peduncle": {
+   "levels": {
+    "midbrain-ic": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 71804
+    }
+   }
+  },
+  "pontine-nuclei": {
+   "levels": {
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 37965
+    },
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 40442
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 28242
+    }
+   }
+  },
+  "inferior-colliculus": {
+   "levels": {
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 75100
+    }
+   }
+  },
+  "transverse-fibers-of-the-pons": {
+   "levels": {
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 123370
+    },
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "trochlear-nucleus": {
+   "levels": {
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 2133
+    }
+   }
+  },
+  "trochlear-nerve": {
+   "levels": {
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "middle-cerebellar-peduncle": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 159776
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 274286
+    }
+   }
+  },
+  "longitudinal-fibers-of-the-pons": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 32350
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 30440
+    }
+   }
+  },
+  "superior-cerebellar-peduncle": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 36937
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 55574
+    }
+   }
+  },
+  "fourth-ventricle": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 16014
+    },
+    "pons-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 43080
+    },
+    "medulla-rostral": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 110427
+    }
+   }
+  },
+  "motor-trigeminal-nucleus": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 5156
+    }
+   }
+  },
+  "principal-sensory-nucleus-of-trigeminal": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 4419
+    }
+   }
+  },
+  "trigeminal-nerve": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "vestibulocochlear-complex": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 10112
+    },
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 24451
+    }
+   }
+  },
+  "inferior-cerebellar-peduncle": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 5216
+    },
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 92429
+    }
+   }
+  },
+  "spinal-trigeminal-nucleus": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 6803
+    },
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 15066
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 32694
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 45539
+    }
+   }
+  },
+  "facial-colliculus": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 11838
+    }
+   }
+  },
+  "abducens-nucleus": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 2812
+    }
+   }
+  },
+  "facial-nucleus": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 3100
+    }
+   }
+  },
+  "facial-nerve": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "vestibulocochlear-nerve": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "abducens-nerve": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "inferior-olivary-nucleus": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 155234
+    }
+   }
+  },
+  "pyramids": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 59292
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 131082
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 59524
+    }
+   }
+  },
+  "dorsal-motor-nucleus-of-the-vagus": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 11986
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 1020
+    }
+   }
+  },
+  "solitary-nucleus": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 12744
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 1209
+    }
+   }
+  },
+  "hypoglossal-nucleus": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 19594
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 1733
+    }
+   }
+  },
+  "dorsal-spinocerebellar-tract": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 18299
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 26551
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 45646
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 77077
+    }
+   }
+  },
+  "nucleus-ambiguus": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 1218
+    },
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 1022
+    }
+   }
+  },
+  "vagus-nerve": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "glossopharyngeal-nerve": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "hypoglossal-nerve": {
+   "levels": {
+    "medulla-rostral": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "fasciculus-cuneatus": {
+   "levels": {
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 111995
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 137700
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 105038
+    }
+   }
+  },
+  "cuneate-nucleus": {
+   "levels": {
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 87850
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 19858
+    }
+   }
+  },
+  "gracile-nucleus": {
+   "levels": {
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 54521
+    },
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 45672
+    }
+   }
+  },
+  "internal-arcuate-fibers": {
+   "levels": {
+    "medulla-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    }
+   }
+  },
+  "motor-decussation": {
+   "levels": {
+    "medulla-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 214440
+    }
+   }
+  },
+  "lateral-corticospinal-tract": {
+   "levels": {
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 28373
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 31551
+    }
+   }
+  },
+  "fasciculus-gracilis": {
+   "levels": {
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 32472
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 46306
+    }
+   }
+  },
+  "accessory-nerve": {
+   "levels": {
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 0
+    }
+   }
+  }
+ }
+}

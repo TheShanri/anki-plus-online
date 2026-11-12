@@ -22,6 +22,8 @@ export interface PlateRegion {
   a: [number, number];
   /** the photo's own left-half outline when it differs from the mirrored illustration (photo-only view) */
   dPhoto?: string;
+  /** a space outside the section (the opened fourth ventricle, the interpeduncular fossa): no fill or rim drawn */
+  open?: boolean;
   /** drawn from fewer than two agreeing sources: shown as approximate */
   approx?: boolean;
   note?: string;
@@ -34,6 +36,9 @@ export interface PlateFibre {
   side: "L" | "R";
   tissue: "nerve" | "fibres";
   d: string;
+  approx?: boolean;
+  note?: string;
+  src?: string[];
 }
 
 export interface PlateData {
@@ -48,6 +53,7 @@ export interface PlateData {
   bands: string[];
   regions: PlateRegion[];
   fibres: PlateFibre[];
+  /** the section photo: `key` in the private course-media bucket; `src` (the auth-gated media URL) is added by the route */
   photo?: { key: string; w: number; h: number; kind: "histology"; src?: string };
   sources?: Record<string, unknown>;
 }

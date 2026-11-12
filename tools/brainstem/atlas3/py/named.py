@@ -62,6 +62,8 @@ def main(level, fig=None, width=1500):
                 draw_path(vis, f["d"], col, 1)
     h = vis.shape[0]
     cv2.line(vis, (vis.shape[1] // 2, 0), (vis.shape[1] // 2, h), (0, 200, 255), 1)
+    if os.environ.get("HALF"):
+        vis = vis[:, int(470 * SS):]
     panels = [vis]
     if fig and os.path.exists(fig):
         f = cv2.imread(fig)

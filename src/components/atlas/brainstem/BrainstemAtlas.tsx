@@ -15,8 +15,10 @@ import { MasteryPanel } from "./MasteryPanel";
 import { ComparePane } from "./ComparePane";
 import { LEVELS, STRUCTURES, levelBySlug } from "./data";
 
-export function BrainstemAtlas({ courseSlug, mastery, plateLevels }: { courseSlug: string; mastery: BrainstemMastery; plateLevels: string[] }) {
-  const [levelSlug, setLevel] = useState(mastery.next && plateLevels.includes(mastery.next) ? mastery.next : plateLevels[0] ?? LEVELS[0].slug);
+export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel }: { courseSlug: string; mastery: BrainstemMastery; plateLevels: string[]; initialLevel?: string }) {
+  const [levelSlug, setLevel] = useState(
+    initialLevel && LEVELS.some((l) => l.slug === initialLevel) ? initialLevel : mastery.next && plateLevels.includes(mastery.next) ? mastery.next : (plateLevels[0] ?? LEVELS[0].slug),
+  );
   const [compare, setCompare] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);

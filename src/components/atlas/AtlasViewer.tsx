@@ -569,7 +569,7 @@ function CutCap({ fill, planes, centre, color, ghost = false }: { fill: THREE.Gr
       const back = new THREE.MeshBasicMaterial({ ...base, side: THREE.BackSide, stencilFail: THREE.IncrementWrapStencilOp, stencilZFail: THREE.IncrementWrapStencilOp, stencilZPass: THREE.IncrementWrapStencilOp });
       const front = new THREE.MeshBasicMaterial({ ...base, side: THREE.FrontSide, stencilFail: THREE.DecrementWrapStencilOp, stencilZFail: THREE.DecrementWrapStencilOp, stencilZPass: THREE.DecrementWrapStencilOp });
       const cap = new THREE.MeshStandardMaterial({
-        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: others, transparent: ghost, opacity: ghost ? 0.72 : 1,
+        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: others, transparent: ghost, opacity: ghost ? 0.93 : 1,
         stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp,
       });
       return { pl, back, front, cap };
@@ -1741,7 +1741,7 @@ function Scene({
       {gross && <primitive object={gross} />}
       {deepRoot && grossOn && <primitive object={deepRoot} />}
       {fill && capPlanes.length > 0 && grossOn && (brainOpacity ?? 1) >= 1 && <CutCap fill={fill} planes={capPlanes} centre={centre} color={look === "regions" ? "#cfc6c9" : "#dcc3b6"} />}
-      {fill && capPlanes.length > 0 && look === "xray" && <CutCap ghost fill={fill} planes={capPlanes} centre={centre} color="#232c29" />}
+      {fill && capPlanes.length > 0 && look === "xray" && <CutCap ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
       {guides.map((g, i) => (
@@ -2647,7 +2647,7 @@ export default function AtlasViewer({
         )}
         {sectionKey.length > 0 && !multi && (
           <div className="atl-chip pointer-events-auto flex-col items-stretch gap-1 !py-1.5" role="group" aria-label="Colour key for the section">
-            <button type="button" className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-text-dim" onClick={() => setKeyOpen((o) => !o)} aria-expanded={keyOpen}>
+            <button type="button" className="flex items-center gap-1.5 rounded-sm font-mono text-[10px] uppercase tracking-widest text-text-dim focus-visible:outline-none focus-visible:[box-shadow:var(--focus-ring)]" onClick={() => setKeyOpen((o) => !o)} aria-expanded={keyOpen}>
               {keyOpen ? <ChevronDown size={11} aria-hidden /> : <ChevronUp size={11} aria-hidden />} Section key
             </button>
             {keyOpen && (

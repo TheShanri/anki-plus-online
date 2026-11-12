@@ -76,7 +76,10 @@ Later round (shots `i1` cuts, `j1` phone, `k1` X-ray/context cuts, `l1` patch, `
 - Themes: the section, the key and the cut slider follow Dark Academia and Synthwave Cortex tokens.
 - MRI modality memory: choosing another structure in the navigator while in MRI keeps MRI and jumps the slices to the new structure.
 
-Not walked: the locked-region "Oh, I'm just curious" flow end to end (the stale-card fix is in place but untested in the browser), keyboard beyond the shortcuts used, phone multi-view with a cut.
+Final pass:
+- X-ray midsagittal: the ghost section face is now 93% opaque in the X-ray's own dark tone (`#1d2522`), so the former pale patch no longer stands out (`_atlas/explore_shots/q1/xray_mid.png`). The brain reads as one dark mass in that cut; the internal fold detail behind the plane is hidden, as in a real section.
+- Keyboard: Tab from the viewer walks Hide controls, Camera view, Frame selection, Lock view and on; every toolbar button shows the yellow focus ring; the section key button now has the same ring. Enter activates, Esc closes popovers (checked: no open menu after Esc). Shortcuts used and confirmed: 1-7 views, B/R/X looks, C/S/T cuts, M multi-view, F frame, Z full screen. Lock view has no shortcut.
+- Curious flow: a deep link to a non-syllabus structure (`/atlas?s=occipital-pole`) opens the structure directly (MRI and Sections tabs dim); it does not go through the lock. The lock card appears only when a locked mesh is clicked in 3D; the headless run did not reliably land on one, so the heads-up, "Oh, I'm just curious", re-lock on click-out and the stale-card fix (closes with its layer) were not exercised end to end in a browser. Code path: `pickMesh` -> `touchLocked` -> `useSupplementaryGate` -> `relock`.
 
 ### Known remaining gaps
 

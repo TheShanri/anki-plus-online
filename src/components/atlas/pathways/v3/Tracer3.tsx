@@ -871,7 +871,7 @@ function regionNameOf(d: V3Data, key: string): string | null {
 
 /** Plain text of a copy string (the ‹ › gate marks dropped with their content). */
 function stripGate(s: string) {
-  return s.replace(/‹[^›]*›/g, "").replace(/s{2,}/g, " ").trim();
+  return s.replace(/‹[^›]*›/g, "").replace(/\s{2,}/g, " ").trim();
 }
 
 function Legend({ visual, motor, n, onClose }: { visual: boolean; motor: boolean; n: number; onClose: () => void }) {

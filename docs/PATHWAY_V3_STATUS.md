@@ -13,7 +13,11 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   near the level of entry). Sheets `_atlas/pw3_shots/alst-{hand,foot}/` checked against lecture 5 slides 21-23 (marginal
   zone / substantia gelatinosa onto nucleus proprius, ventral white commissure, anterior/lateral funiculi, VPL, internal
   capsule, BA 3,1,2); Lissauer's tract only behind Supplementary.
-- Next: LCST (helper, motor.mjs), visual (one eye sample left), corticobulbar (helper), then u1: dsct (spec written),
+- visual: shipped 2026-11-12. Validator green (1577 samples, 28 fibres; the nasal fibres cross inside the optic chiasm).
+  Fibres coloured by visual field (upper lighter, lower darker), both eyes' halves drawn. Sheets `_atlas/pw3_shots/visual/`
+  checked against lecture 11 slides 8 and 18-20 (bipolar 1st, ganglion 2nd, LGN 3rd; nasal fibres cross; tract carries the
+  opposite field; upper field to the inferior bank). Meyer's loop / parietal route names behind Supplementary.
+- Next: LCST (helper, motor.mjs), corticobulbar (helper), then u1: dsct (spec written),
   sympathetic, parasympathetic, stretch and withdrawal reflexes.
 
 Order (owner, 2026-11-11): DCML, ALS, LCST, visual, corticobulbar, then the rest in the order of the course units.

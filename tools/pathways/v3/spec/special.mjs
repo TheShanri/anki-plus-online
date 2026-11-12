@@ -103,7 +103,7 @@ export const visual = {
       await f.routeTo(["a:optic-chiasm", "a:optic-tract"], tractStart[fd], { sgn: -sgnOf(xEye), minX: 0.0001, h: 0.0002 });
       xf.push(f);
     }
-    beats[2] = B({ f: xf.map((f) => f.json()), cross: { p: [0, cross[1], cross[2]], host: "a:optic-chiasm", level: "optic chiasm", yMin: 1.607, yMax: 1.617, name: "Optic chiasm (nasal fibres)" }, meta: { view: "inferior" } });
+    beats[2] = B({ f: xf.map((f) => f.json()), cross: { p: [0, cross[1], cross[2]], host: "a:optic-chiasm", level: "nasal fibres only", yMin: 1.607, yMax: 1.617, name: "Optic chiasm" }, meta: { view: "inferior" } });
     // 3 the temporal fibres stay on their own side, through the lateral chiasm
     const uf = [];
     for (const fd of fields) {

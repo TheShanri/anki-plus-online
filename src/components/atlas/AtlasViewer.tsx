@@ -554,7 +554,7 @@ function bakeFill(fill: THREE.Object3D): THREE.BufferGeometry | null {
 }
 
 /** Solid cut faces: the watertight brain solid is stencil-counted behind each active cut plane, and a plane-sized quad paints where the count is odd. */
-function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: THREE.Plane[]; centre: THREE.Vector3; color: string }) {
+function CutCap({ fill, planes, centre, color, ghost = false }: { fill: THREE.Group; planes: THREE.Plane[]; centre: THREE.Vector3; color: string; ghost?: boolean }) {
   const geo = useMemo(() => {
     return bakeFill(fill);
   }, [fill]);
@@ -568,12 +568,12 @@ function CutCap({ fill, planes, centre, color }: { fill: THREE.Group; planes: TH
       const back = new THREE.MeshBasicMaterial({ ...base, side: THREE.BackSide, stencilFail: THREE.IncrementWrapStencilOp, stencilZFail: THREE.IncrementWrapStencilOp, stencilZPass: THREE.IncrementWrapStencilOp });
       const front = new THREE.MeshBasicMaterial({ ...base, side: THREE.FrontSide, stencilFail: THREE.DecrementWrapStencilOp, stencilZFail: THREE.DecrementWrapStencilOp, stencilZPass: THREE.DecrementWrapStencilOp });
       const cap = new THREE.MeshStandardMaterial({
-        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: others,
+        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: others, transparent: ghost, opacity: ghost ? 0.72 : 1,
         stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp,
       });
       return { pl, back, front, cap };
     });
-  }, [geo, planes, color]);
+  }, [geo, planes, color, ghost]);
   useEffect(() => () => parts.forEach((p) => [p.back, p.front, p.cap].forEach((m) => m.dispose())), [parts]);
   useFrame(() => {
     parts.forEach((p, i) => {
@@ -1735,8 +1735,9 @@ function Scene({
       ))}
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
-      {deepRoot && grossOn && solid && (brainOpacity ?? 1) >= 1 && <primitive object={deepRoot} />}
+      {deepRoot && grossOn && <primitive object={deepRoot} />}
       {fill && capPlanes.length > 0 && grossOn && (brainOpacity ?? 1) >= 1 && <CutCap fill={fill} planes={capPlanes} centre={centre} color={look === "regions" ? "#cfc6c9" : "#dcc3b6"} />}
+      {fill && capPlanes.length > 0 && look === "xray" && <CutCap ghost fill={fill} planes={capPlanes} centre={centre} color="#232c29" />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
       {guides.map((g, i) => (
@@ -2072,7 +2073,7 @@ export default function AtlasViewer({
   }, [look, gross]);
   // the closed brain solid (small): stencil-capped cut faces; without it a cut shows the hollow shell
   useEffect(() => {
-    if (!solidCuts || look === "xray" || fill) return;
+    if (!solidCuts || fill) return;
     let alive = true;
     loadAtlasModel("brainfill.glb")
       .then((g) => alive && setFill(g))
@@ -2080,7 +2081,7 @@ export default function AtlasViewer({
     return () => {
       alive = false;
     };
-  }, [look, fill, solidCuts]);
+  }, [fill, solidCuts]);
   // the deep structures a section passes through: fetched the first time a cut or the midsagittal view is used
   const cutNow = solidCuts && look !== "xray" && (clip.axis !== "off" || (view === "midsagittal" && !multi));
   useEffect(() => {
@@ -2094,7 +2095,7 @@ export default function AtlasViewer({
     };
   }, [cutNow, deep, deepFailed, index]);
   const deepLoading = cutNow && !deep && !deepFailed;
-  const [keyOpen, setKeyOpen] = useState(true);
+  const [keyOpen, setKeyOpen] = useState(() => (typeof window === "undefined" ? true : window.innerWidth >= 640));
   // a narrow viewer (info panel open) drops the view name and the dividers so the bar stays on one row
   const narrow = (Number(sizeKey.split("x")[0]) || 9999) < 880;
 

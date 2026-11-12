@@ -26,7 +26,7 @@
       "R"
      ],
      "approx": false,
-     "area": 291229
+     "area": 291197
     }
    }
   },
@@ -87,7 +87,7 @@
       "M"
      ],
      "approx": false,
-     "area": 59920
+     "area": 59472
     }
    }
   },
@@ -131,7 +131,7 @@
       "R"
      ],
      "approx": false,
-     "area": 14911
+     "area": 13303
     },
     "pons-mid": {
      "sides": [
@@ -335,7 +335,7 @@
       "R"
      ],
      "approx": true,
-     "area": 6492
+     "area": 2828
     }
    }
   },
@@ -416,7 +416,7 @@
       "R"
      ],
      "approx": false,
-     "area": 75100
+     "area": 67975
     }
    }
   },
@@ -488,7 +488,7 @@
       "R"
      ],
      "approx": false,
-     "area": 274286
+     "area": 172008
     }
    }
   },
@@ -520,7 +520,7 @@
       "R"
      ],
      "approx": false,
-     "area": 36937
+     "area": 36635
     },
     "pons-caudal": {
      "sides": [
@@ -629,7 +629,7 @@
       "R"
      ],
      "approx": false,
-     "area": 92429
+     "area": 72975
     }
    }
   },

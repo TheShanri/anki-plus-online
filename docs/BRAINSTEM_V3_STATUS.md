@@ -14,6 +14,9 @@ photos are in the private bucket (auth-gated route), none in `public/`.
 
 Contact sheet (course photos inside, so not committed): `_atlas/bs3_shots/contact-sheet.jpg` (8 levels x split /
 illustration / section), single shots `_atlas/bs3_shots/<level>-<view>.png`, splits only `sheet-split.jpg`.
+Frame-clipped edges trimmed (2026-11-12): the caudal pons peduncle stumps now end in a rounded cut inside the frame, the
+midbrain-ic tectum is a rounded dome instead of the photo's straight top edge, the rostral medulla's lateral edges are
+no longer frame-ruled, and the rostral pons velum notch is gone (`levels_cfg.py` clip/keep/erase).
 Known weak spot, not an error: the cervical-cord illustration shows no grey-matter butterfly (the course overlay
 outlines only the tracts there).
 

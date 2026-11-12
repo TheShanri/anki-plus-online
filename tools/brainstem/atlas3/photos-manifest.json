@@ -94,5 +94,29 @@
  "atlas3/brainstem/pons-mid-histology-6b1236333c.webp": {
   "hash": "6b1236333c64af3a105119b9",
   "bytes": 129178
+ },
+ "atlas3/brainstem/medulla-rostral-histology-ee5be2207a.webp": {
+  "hash": "ee5be2207a8c3c22c543a328",
+  "bytes": 122432
+ },
+ "atlas3/brainstem/midbrain-ic-histology-60de0e5764.webp": {
+  "hash": "60de0e5764f3e76a207775c8",
+  "bytes": 188292
+ },
+ "atlas3/brainstem/pons-caudal-histology-c24b1e3304.webp": {
+  "hash": "c24b1e3304db7ac7fd4ffe24",
+  "bytes": 176856
+ },
+ "atlas3/brainstem/pons-mid-histology-f5f999085a.webp": {
+  "hash": "f5f999085a6e8799b451559d",
+  "bytes": 129072
+ },
+ "atlas3/brainstem/medulla-rostral-histology-198d7ddf1a.webp": {
+  "hash": "198d7ddf1a069e60bb9b018e",
+  "bytes": 121410
+ },
+ "atlas3/brainstem/pons-mid-histology-39c89fd7ad.webp": {
+  "hash": "39c89fd7ad8fd1bbb534d47f",
+  "bytes": 129190
  }
 }

@@ -556,7 +556,7 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
           {/* phones: the beat's title and side stay on screen with the scene (the four answers at a glance) */}
           {loaded && !all && copy && (
             <div className="pointer-events-none absolute inset-x-12 top-2 z-10 flex flex-col items-center gap-0.5 text-center sm:hidden" aria-hidden>
-              <span className="rounded-sm bg-panel-solid/92 px-2 py-0.5 text-[12px] font-semibold leading-tight text-text">
+              <span className="max-w-full whitespace-normal text-balance rounded-sm bg-panel-solid/92 px-2 py-0.5 text-[12px] font-semibold leading-tight text-text">
                 <span className="mr-1 rounded-sm px-1 font-mono text-[10px]" style={{ background: visual ? FIELD_COLORS.leftUpper : ORDER_COLORS[order], color: "#111" }}>{badge}</span>
                 {stripGate(copy.title)}
               </span>

@@ -225,7 +225,20 @@ export class Fibre {
     for (let k = 1; k <= n; k++) pts.push([a[0] + ((p[0] - a[0]) * k) / n, a[1] + ((p[1] - a[1]) * k) / n, a[2] + ((p[2] - a[2]) * k) / n]);
     return this.add(pts, host);
   }
-  /** Splits off the samples from index i (for the next beat), sharing the junction point. */
+  /** The same fibre run the other way (built from its target back to its start, e.g. into a muscle, then reversed). */
+  reversed() {
+    const r = new Fibre(this.order, this.tag);
+    const n = this.pts.length;
+    r.pts = this.pts.slice().reverse();
+    r.seg = [];
+    for (let k = this.seg.length - 1; k >= 0; k--) {
+      const end = k + 1 < this.seg.length ? this.seg[k + 1][0] : n;
+      // the reversed segment starts at the sample that was the old segment's last one
+      r.seg.push([n - end, this.seg[k][1]]);
+    }
+    if (r.seg.length) r.seg[0][0] = 0;
+    return r;
+  }
   json() {
     return { order: this.order, tag: this.tag || undefined, pts: this.pts.flat(), seg: this.seg };
   }

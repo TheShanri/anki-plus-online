@@ -134,5 +134,131 @@
     "S1"
    ]
   ]
+ },
+ "alst": {
+  "hand": [
+   [
+    "Pain on the skin",
+    "Free nerve endings in the skin of the little finger respond to pain, temperature and itch.",
+    "hand"
+   ],
+   [
+    "Up the ulnar nerve",
+    "Aδ (sharp pain) and C (dull, burning pain) fibres run in the ulnar nerve, the inferior trunk and the C8 root to their cell bodies.",
+    "ulnar nerve"
+   ],
+   [
+    "Dorsal root ganglion (C8)",
+    "The 1st-order cell body sits in the dorsal root ganglion, outside the cord.",
+    "dorsal root ganglion"
+   ],
+   [
+    "Into the dorsal horn",
+    "The axon enters by the dorsal root‹ and Lissauer's tract› and synapses in the same-side dorsal horn: the marginal zone (Aδ) or the substantia gelatinosa onto nucleus proprius cells (C).",
+    "dorsal horn"
+   ],
+   [
+    "Dorsal horn",
+    "The 2nd-order cell body sits in the dorsal horn (marginal zone or nucleus proprius) on the same side as the stimulus.",
+    "dorsal horn"
+   ],
+   [
+    "Crosses: anterior white commissure",
+    "The 2nd-order axon crosses the midline in the anterior (ventral) white commissure, near the level of entry.",
+    "C8 cord"
+   ],
+   [
+    "Anterolateral tract",
+    "It climbs the contralateral anterolateral (spinothalamic) tract in the anterior and lateral funiculi, then the lateral brainstem tegmentum, to the thalamus.",
+    "anterolateral tract"
+   ],
+   [
+    "VPL nucleus of thalamus",
+    "The 3rd-order cell body sits in the ventral posterolateral (VPL) nucleus, opposite the stimulus.",
+    "VPL nucleus"
+   ],
+   [
+    "Leaving the thalamus",
+    "Thalamocortical axons leave the VPL laterally toward the internal capsule.",
+    "thalamus"
+   ],
+   [
+    "Internal capsule",
+    "They pass through the internal capsule‹ (posterior limb)›.",
+    "internal capsule"
+   ],
+   [
+    "Corona radiata to S1",
+    "They fan out through the corona radiata to the postcentral gyrus, hand area on the lateral surface.",
+    "corona radiata"
+   ],
+   [
+    "Primary somatosensory cortex",
+    "The signal arrives in S1 (BA 3, 1, 2) of the hemisphere opposite the stimulus.",
+    "S1"
+   ]
+  ],
+  "foot": [
+   [
+    "Pain on the skin",
+    "Free nerve endings in the skin of the big toe respond to pain, temperature and itch.",
+    "foot"
+   ],
+   [
+    "Up the sciatic nerve",
+    "Aδ (sharp pain) and C (dull, burning pain) fibres run in the medial plantar, tibial and sciatic nerves to the L5 ganglion.",
+    "sciatic nerve"
+   ],
+   [
+    "Dorsal root ganglion (L5)",
+    "The 1st-order cell body sits in the dorsal root ganglion, outside the cord.",
+    "dorsal root ganglion"
+   ],
+   [
+    "Into the dorsal horn",
+    "The axon enters by the dorsal root‹ and Lissauer's tract› and synapses in the same-side dorsal horn: the marginal zone (Aδ) or the substantia gelatinosa onto nucleus proprius cells (C).",
+    "dorsal horn"
+   ],
+   [
+    "Dorsal horn",
+    "The 2nd-order cell body sits in the dorsal horn (marginal zone or nucleus proprius) on the same side as the stimulus.",
+    "dorsal horn"
+   ],
+   [
+    "Crosses: anterior white commissure",
+    "The 2nd-order axon crosses the midline in the anterior (ventral) white commissure, near the level of entry.",
+    "lumbosacral cord"
+   ],
+   [
+    "Anterolateral tract",
+    "It climbs the contralateral anterolateral (spinothalamic) tract in the anterior and lateral funiculi, then the lateral brainstem tegmentum, to the thalamus.",
+    "anterolateral tract"
+   ],
+   [
+    "VPL nucleus of thalamus",
+    "The 3rd-order cell body sits in the ventral posterolateral (VPL) nucleus, opposite the stimulus.",
+    "VPL nucleus"
+   ],
+   [
+    "Leaving the thalamus",
+    "Thalamocortical axons leave the VPL laterally toward the internal capsule.",
+    "thalamus"
+   ],
+   [
+    "Internal capsule",
+    "They pass through the internal capsule‹ (posterior limb)›.",
+    "internal capsule"
+   ],
+   [
+    "Corona radiata to S1",
+    "They fan out through the corona radiata to the postcentral gyrus, leg area on the medial surface.",
+    "corona radiata"
+   ],
+   [
+    "Primary somatosensory cortex",
+    "The signal arrives in S1 (BA 3, 1, 2) of the hemisphere opposite the stimulus.",
+    "S1"
+   ]
+  ]
  }
 }

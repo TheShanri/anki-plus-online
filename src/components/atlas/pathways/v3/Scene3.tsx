@@ -731,7 +731,9 @@ export default function Scene3(p: Scene3Props) {
               color: it.color ?? "var(--text)",
               background: "color-mix(in srgb, var(--bg-2, #111) 82%, transparent)",
               maxWidth: it.prio === 3 ? 260 : 180,
-              whiteSpace: it.prio === 3 ? "normal" : "nowrap",
+              // labels wrap (never truncated); the updater narrows them on small screens
+              whiteSpace: "normal",
+              width: "max-content",
             }}
           >
             {it.text}

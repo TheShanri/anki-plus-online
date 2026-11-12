@@ -66,7 +66,7 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
       }
       const ax = (_p.x * 0.5 + 0.5) * W;
       const ay = (-_p.y * 0.5 + 0.5) * H;
-      el.style.maxWidth = `${Math.round(Math.min(it.prio === 3 ? 320 : 200, W * (it.prio === 3 ? 0.62 : 0.42)))}px`;
+      el.style.maxWidth = `${Math.round(Math.min(it.prio === 3 ? 320 : 200, it.prio === 3 ? W * 0.62 : W * 0.5 - 40))}px`;
       if (it.prio === 3) {
         // the crossing callout: a banner at the top centre, its leader line down to the crossing
         const w = el.offsetWidth || 200, h = el.offsetHeight || 20;
@@ -109,7 +109,8 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
         const el = d.tags.get(it.key)!;
         const ln = d.lines.get(it.key)!;
         const dot = d.dots.get(it.key)!;
-        const x = side === "l" ? (W < 520 ? 6 : 30) : W - it.w - (W < 520 ? 6 : 30);
+        // clear of the fixed L | R chips at the screen edges
+        const x = side === "l" ? 30 : W - it.w - 30;
         const yy = placed[i];
         el.style.visibility = "visible";
         el.style.transform = `translate(${x.toFixed(1)}px,${yy.toFixed(1)}px)`;

@@ -10,7 +10,7 @@ import { ROOT, atlasMeshes, nodeMesh } from "./lib/geom.mjs";
 import { Curve } from "./lib/nerves.mjs";
 import { partMesh, partMeshMirrored } from "./lib/fibre.mjs";
 try {
-  setPriority(19); // idle priority: the build and the validator never compete with interactive work
+  setPriority(Number(process.env.PW3_NICE ?? 10)); // below normal (PW3_NICE=19: idle, while someone works on the machine)
 } catch {}
 
 const DIR = join(ROOT, "public/pathways/v3");

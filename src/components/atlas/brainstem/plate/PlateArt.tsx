@@ -81,6 +81,10 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
   return (
     <g className="bsp-ill">
       <path d={plate.outline} className="bsp-tissue" fillRule="evenodd" filter={`url(#${ids.shadow})`} />
+      {/* the section's own myelin density, as two quiet tones, so the unnamed tissue keeps its form */}
+      {plate.bands.map((d, i) => (
+        <path key={i} d={d} className={`bsp-band bsp-band${i + 1}`} fillRule="evenodd" />
+      ))}
       {white.map((r) => (
         <g key={r.id}>
           <path d={r.d} className={PEDUNCLES.has(r.slug) ? "bsp-wm bsp-wm-ped" : "bsp-wm"} fillRule="evenodd" />

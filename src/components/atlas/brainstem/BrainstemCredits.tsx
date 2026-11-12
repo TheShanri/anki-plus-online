@@ -9,7 +9,13 @@ export function BrainstemCredits() {
   if (!list.length) return null;
   return (
     <div>
-      <p>The brainstem atlas also uses these openly licensed images (the course images in it stay private to course members).</p>
+      <p>
+        The brainstem plates are original vector illustrations drawn from the outlines in the course&apos;s Brainstem Overlay slides; their
+        section photos are the course&apos;s myelin-stained sections and stay private to course members. Each structure was checked against
+        the course atlas key and against the open atlas of Coulombe et al. (2021, CC BY 4.0, listed below); structures the course slides do
+        not outline are marked approximate.
+      </p>
+      <p className="mt-1">The brainstem atlas also uses these openly licensed images (the course images in it stay private to course members).</p>
       <ul className="mt-1 list-disc space-y-0.5 pl-5">
         {list.map((o) => (
           <li key={o.src}>

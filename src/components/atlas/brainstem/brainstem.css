@@ -70,12 +70,13 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
   --bsp-gm: color-mix(in srgb, var(--accent-2) 20%, var(--bsp-paper));
   --bsp-space: var(--bsp-paper);
   --bsp-hi: var(--accent);
-  --bsp-pulse: 0.6;
   display: block; width: 100%; height: auto; background: var(--bsp-paper); user-select: none; -webkit-user-select: none;
   font-family: var(--font-body);
 }
 .bsp .bsp-tissue { fill: var(--bsp-tissue); }
 .bsp .bsp-shadow { flood-color: var(--text); flood-opacity: 0.16; }
+.bsp .bsp-band { fill: color-mix(in srgb, var(--text) 3%, transparent); }
+.bsp .bsp-band2 { fill: color-mix(in srgb, var(--text) 4%, transparent); }
 .bsp .bsp-wm { fill: var(--bsp-wm); }
 .bsp .bsp-wm-ped { fill: color-mix(in srgb, var(--text) 30%, var(--bsp-paper)); }
 .bsp .bsp-outline-photo { stroke-opacity: 0.7; }
@@ -86,10 +87,10 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
 .bsp .bsp-space-rim { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.08; stroke-width: 5px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .bsp .bsp-line { fill: none; stroke: var(--bsp-paper); stroke-opacity: 1; stroke-width: 1.3px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .bsp .bsp-line.bsp-approx { stroke: var(--bsp-ink); stroke-opacity: 0.55; stroke-width: 0.8px; stroke-dasharray: 2.2 2.4; }
-.bsp .bsp-nerve.bsp-approx, .bsp .bsp-fibre.bsp-approx { stroke-dasharray: 2.2 2.4; }
+.bsp .bsp-fibre.bsp-approx { stroke-dasharray: 2.2 2.4; }
 .bsp .bsp-land { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.5; stroke-width: 0.75px; stroke-dasharray: 1 2.4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.bsp .bsp-nerve { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.62; stroke-width: 0.85px; vector-effect: non-scaling-stroke; stroke-linecap: round; }
-.bsp .bsp-fibre { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.36; stroke-width: 0.6px; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.bsp .bsp-nerve { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.7; stroke-width: 1.1px; stroke-dasharray: 0.1 2.6; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.bsp .bsp-fibre { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.3; stroke-width: 0.6px; vector-effect: non-scaling-stroke; stroke-linecap: round; }
 .bsp .bsp-outline { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.92; stroke-width: 1.4px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .bsp .bsp-photo { fill: var(--bsp-ink); fill-opacity: 0.76; }
 .bsp .bsp-midline { stroke: var(--bsp-ink); stroke-opacity: 0.32; stroke-width: 0.7px; stroke-dasharray: 1 3.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
@@ -99,8 +100,8 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
 .bsp .bsp-hl-both { fill: var(--bsp-hi); fill-opacity: 0.28; }
 .bsp .bsp-hl.bsp-sel { stroke-width: 2.4px; fill-opacity: 0.42; }
 .bsp .bsp-hlf { fill: none; stroke: var(--bsp-hi); stroke-width: 2.4px; vector-effect: non-scaling-stroke; stroke-linecap: round; }
-.bsp .bsp-breathe { fill-opacity: calc(0.14 + 0.36 * var(--bsp-pulse)); stroke-opacity: calc(0.5 + 0.5 * var(--bsp-pulse)); }
-.bsp .bsp-hlf.bsp-breathe { stroke-opacity: calc(0.4 + 0.6 * var(--bsp-pulse)); }
+.bsp .bsp-breathe { fill-opacity: calc(0.14 + 0.36 * var(--bsp-pulse, 0.6)); stroke-opacity: calc(0.5 + 0.5 * var(--bsp-pulse, 0.6)); }
+.bsp .bsp-hlf.bsp-breathe { stroke-opacity: calc(0.4 + 0.6 * var(--bsp-pulse, 0.6)); }
 .bsp .bsp-hit path { cursor: pointer; outline: none; }
 .bsp .bsp-hit path:focus-visible { stroke: var(--bsp-hi); stroke-width: 2px; vector-effect: non-scaling-stroke; }
 .bsp .bsp-leader { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.45; stroke-width: 0.55px; vector-effect: non-scaling-stroke; }

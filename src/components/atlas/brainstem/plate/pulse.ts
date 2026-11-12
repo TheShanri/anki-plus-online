@@ -23,3 +23,37 @@ export function pulseDisabled(): boolean {
 /** While a docked BrainstemRef is lighting a structure, a 3D view breathes its highlight with brainstemPulse() so the
  *  2D plate and the 3D mesh pulse together. A counter, so overlapping docks do not switch it off early. */
 export const brainstemBreath = { active: 0 };
+const wakers = new Set<() => void>();
+
+/** A 3D view with an on-demand frame loop registers its invalidate() here, so breathing starts without waiting for
+ *  the next interaction. Returns the unsubscribe. */
+export function onBrainstemBreath(wake: () => void): () => void {
+  wakers.add(wake);
+  return () => {
+    wakers.delete(wake);
+  };
+}
+
+/** Start (+1) or stop (-1) breathing on behalf of one docked reference. */
+export function setBrainstemBreath(delta: 1 | -1): void {
+  brainstemBreath.active = Math.max(0, brainstemBreath.active + delta);
+  for (const w of wakers) w();
+}
+
+/** Drives a 3D highlight material from the shared pulse while a docked reference breathes (brainstemBreath), and puts
+ *  it back to `rest` afterwards. step() returns true while the view needs another frame. */
+export class BrainstemBreathDriver {
+  private on = false;
+  constructor(private rest = 0.55) {}
+  step(mat: { emissiveIntensity: number }, allowed: boolean): boolean {
+    if (allowed && brainstemBreath.active > 0 && !pulseDisabled()) {
+      mat.emissiveIntensity = this.rest - 0.25 + 0.6 * brainstemPulse();
+      this.on = true;
+      return true;
+    }
+    if (!this.on) return false;
+    this.on = false;
+    mat.emissiveIntensity = this.rest;
+    return true;
+  }
+}

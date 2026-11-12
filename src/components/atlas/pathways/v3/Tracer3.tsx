@@ -49,13 +49,13 @@ const GROUPS: { title: string; slugs: string[] }[] = [
 ];
 const SIDE_NOUN: Record<string, string> = {
   cochlear: "ear", vestibular: "ear", "stretch-reflex": "limb", "withdrawal-reflex": "limb", visual: "field", pupillary: "eye", cerebellar: "cerebellum",
-  corticopontocerebellar: "cerebellum", "basal-ganglia": "body", lcst: "limb", acst: "body", corticobulbar: "face", rubrospinal: "limb", tectospinal: "neck",
+  corticopontocerebellar: "cerebellum", "basal-ganglia": "body", lcst: "limb", acst: "body", corticobulbar: "face", rubrospinal: "red nucleus", tectospinal: "tectum",
   "umn-lmn": "limb", vestibulospinal: "body", reticulospinal: "body", "trigeminal-discriminative": "face", "trigeminal-pain": "face", gaze: "gaze",
 };
 const sideNoun = (slug: string) => SIDE_NOUN[slug] ?? "body";
 /** What "same side" is measured against in the side chip: the stimulus for sensory pathways, the target for motor ones. */
 const REL_NOUN: Record<string, string> = {
-  lcst: "limb", acst: "muscles", "umn-lmn": "limb", rubrospinal: "limb", tectospinal: "muscles", reticulospinal: "muscles", vestibulospinal: "muscles",
+  lcst: "limb", acst: "muscles", "umn-lmn": "limb", rubrospinal: "red nucleus", tectospinal: "tectum", reticulospinal: "muscles", vestibulospinal: "muscles",
   corticobulbar: "face muscles", "stretch-reflex": "limb", "withdrawal-reflex": "limb", visual: "visual field", gaze: "eyes' turn", cochlear: "ear", vestibular: "ear",
   cerebellar: "cerebellum", corticopontocerebellar: "cortex", "basal-ganglia": "cortex", sympathetic: "organ", parasympathetic: "organ", reward: "VTA",
   "limbic-fornix": "hippocampus", "limbic-amygdala": "amygdala", "limbic-septal": "septal nuclei", olfactory: "nostril", pupillary: "lit eye", "jaw-jerk": "muscle",

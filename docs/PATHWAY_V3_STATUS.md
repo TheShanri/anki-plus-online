@@ -32,6 +32,10 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
 - withdrawal-reflex (hand): shipped 2026-11-12. Validator green (2679 samples; one drawn, flagged connector: the ulnar
   muscular branch into the flexor group). Checked against lecture 10 slide 9 / lecture 5 slide 8 (skin receptor, interneurons,
   alpha MN, polysynaptic, descending modulation).
+- acst, rubrospinal, tectospinal, reticulospinal, vestibulospinal: shipped 2026-11-12. Validator green (acst 819 samples
+  with a flagged T1 dorsal ramus; rubro/tecto cross in the midbrain). Checked against lecture 10 slides 14-15 and 19-23,
+  lecture 14 slide 5 (named decussations behind Supplementary; no side claim for reticulo/vestibulospinal beyond the drawing).
+  For rubrospinal and tectospinal the side buttons name the red nucleus / tectum side.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
   3 mm, nerve endings to targets up to 4.5 mm, ICP to cerebellum 3.6 mm.
 - Limb-end node beats (receptor, target muscle) are framed with 9 cm of context.

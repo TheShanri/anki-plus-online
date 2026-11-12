@@ -85,9 +85,10 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next
-- Specs for the remaining 33 pathway variants (only DCML exists), validator green for all.
-- UI: side chip in Both mode, one diagram expand button, phone height for the diagram, branch names, framing/labels.
-- Contact sheets per beat at 1440x900 and 390x844 in `_atlas/pw3_shots/<slug>/`, reviewed against the slides.
-- Mid-beat navigation test with the workaround removed (AtlasModes.tsx, NavMenu.tsx), then remove it.
-- Switch `/atlas/pathways` to v3; lesion lab stays on its own scene (PathwayViewer); delete replaced v2 code.
+## Next (19 slugs still on v2)
+u1: sympathetic, parasympathetic. u2: trigeminal-discriminative, trigeminal-pain, corneal, jaw-jerk (sensory.mjs /
+trigeminal-reflex.mjs), pupillary, gaze, cochlear, vestibular (special.mjs), solitary, corticopontocerebellar (circuits.mjs).
+u3: cerebellar, basal-ganglia, limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
+Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
+sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.
+Also open: delete v2 code once all slugs ship (the lesion lab keeps PathwayViewer); hidden seams listed above.

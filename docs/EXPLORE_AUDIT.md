@@ -68,10 +68,17 @@ Lab-slide comparison (`_atlas/explore_shots/g1/compare.png`, course atlas pages 
 - Level and orientation agree: the coronal at z = +12 mm shows thalamus, putamen, pallidum, third ventricle, hippocampus and amygdala like the lab slice; the horizontal at the thalamus level shows the frontal horns up, genu and posterior limb of the capsule, thalami and the third ventricle.
 - Mesh limitations (not fixable in the viewer): the cortex is a thin ribbon of separate gyral patches, so the sections have no grey/white contrast and a big pale white-matter fill; the cerebral peduncles and midbrain are part of the gross brainstem mesh, which is not capped, so the brainstem appears as an exterior surface in a coronal section; the lateral ventricle is one mesh, so its horns read longer than in the lab image; no putaminal/pallidal lamina detail.
 
-Not walked: the curious flow end to end, keyboard beyond the shortcuts used above, the other themes, 390x844 multi-view and cut states.
+Later round (shots `i1` cuts, `j1` phone, `k1` X-ray/context cuts, `l1` patch, `m1` context repair, `n1` themes, `o1` MRI):
+- Coronal default now z = -8 mm (thalamus, hippocampal head, midbrain): the brainstem is sectioned with its own cap colour; transverse default y = 1.619 (thalamus and upper midbrain); brainstem and cerebellum are in the section key.
+- X-ray midsagittal: the window is filled by a translucent ghost section face (`CutCap ghost`); deep structures also show in context-mode cuts (a selected structure stays highlighted among them); the key starts collapsed on phones.
+- `context.glb`: 954 small boundary loops (pinholes, cracks) closed with `tools/atlas/fill_ctx_holes.py` (original in `_atlas/backup/context.glb`, 556 KB vs 541 KB). The orbital pinholes drop to two or three specks; a lighter patch over the frontal operculum in X-ray remains.
+- The grey parietal patch with a dark centre (Lateral R) was a locked mesh: gone after the locked tint change.
+- Themes: the section, the key and the cut slider follow Dark Academia and Synthwave Cortex tokens.
+- MRI modality memory: choosing another structure in the navigator while in MRI keeps MRI and jumps the slices to the new structure.
+
+Not walked: the locked-region "Oh, I'm just curious" flow end to end (the stale-card fix is in place but untested in the browser), keyboard beyond the shortcuts used, phone multi-view with a cut.
 
 ### Known remaining gaps
 
-- Surface spots in `_atlas/explore_shots/c1/sheet_b.png`: the grey parietal patch with a dark centre (Lateral R) is a mesh with a normal singularity from `smoothGeometry`; the pale blobs (Anterior, Superior) are locked meshes. Not rebuilt at source yet.
 - A few pinholes at the orbital roof (context shell), and the medial frontal window in the X-ray look and in translucent context mode (no cap there).
 - /atlas/supply Lateral shows a large pale-blue quad. Reproduced with `CutCap` disabled and `brainfill.glb` not loaded (supply does not pass `solidCuts`), so it comes from the supply scene, not from the cap.

@@ -39,7 +39,7 @@ export default async function PathwaysPage({ searchParams }: { searchParams: Pro
     <section className="relative left-1/2 w-[min(1760px,calc(100vw-24px))] -translate-x-1/2">
       <h1 className="sr-only">Pathway tracer</h1>
       <AtlasModes />
-      {/* v3 for the pathways it has shipped, v2 for the rest (?v=2 / ?v=3 pins one version) */}
+      {/* tracer v3 for every pathway */}
       <PathwayHub courses={coursePathways as unknown as CoursePathway[]} cards={cards} courseSlug={course.slug} initial={sp} />
     </section>
   );

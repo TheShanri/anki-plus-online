@@ -2,8 +2,9 @@
 
 Running note for whoever continues (design and done bar: `docs/PATHWAY_V3.md`). Updated at each milestone.
 
-## Shipped (v3 live on /atlas/pathways; every other pathway still shows v2)
-The list lives in `src/components/atlas/pathways/v3/shipped.ts` (`V3_SHIPPED`); keep this section in step with it.
+## Shipped (all 33 pathways on v3; the v2 tracer is deleted)
+`V3_SHIPPED` (`v3/shipped.ts`) and the v2 `PathwayTracer` / `ReceptorLens` were removed once every slug shipped; the lesion
+lab keeps its own `PathwayViewer` / `PathwayScene`.
 A pathway ships when its spec builds, the validator is green, and its per-beat contact sheets (1440x900 and 390x844,
 `_atlas/pw3_shots/<slug>/`) were looked at and checked against the slides.
 - dcml (hand, foot): shipped 2026-11-12. Validator green (hand 2174 samples, foot 3763; 2 crossings each, internal
@@ -109,7 +110,7 @@ Order (owner, 2026-11-11): DCML, ALS, LCST, visual, corticobulbar, then the rest
 
 ## Where things are
 - UI: `src/components/atlas/pathways/v3/` (Tracer3 = page shell, Scene3 = 3D scene, fibres/layers/labels/rig/insets).
-  `/atlas/pathways?v=3` opens v3; v2 (`PathwayTracer.tsx`) is still the default until the switch-over.
+  `/atlas/pathways` always opens v3 (`PathwayHub` renders `Tracer3`).
 - Data: `public/pathways/v3/<slug>[-<limb>].json`, built offline from `tools/pathways/v3/spec/*.mjs` (one spec per pathway,
   same beat list as the shared beat model `buildPathwayScene.ts`, so 3D, the 2D diagram and the copy cannot drift).
 - Inputs: `_atlas/pw3_raw/nerves.json` (Z-Anatomy nerve centrelines + radii, from `export_v3.py` in Blender),
@@ -143,7 +144,7 @@ commits while pending. Commit 6c4494a.
 - 6c4494a navigation root cause + `navtest.mjs`.
 
 ## Page wiring
-`/atlas/pathways` renders `PathwayHub`: v3 (`Tracer3`) for shipped slugs, v2 (`PathwayTracer`) for the rest, one picker and
+(History) `/atlas/pathways` rendered `PathwayHub`: v3 (`Tracer3`) for shipped slugs, v2 (`PathwayTracer`) for the rest, one picker and
 one URL scheme; picking a pathway of the other version swaps the tracer in place. `?v=3` / `?v=2` pins a version.
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
@@ -152,4 +153,5 @@ The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: rea
 All 33 pathways are on v3.
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
 sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.
-Also open: delete v2 code once all slugs ship (the lesion lab keeps PathwayViewer); hidden seams listed above.
+Done: v2 tracer code deleted. Still open: the hidden seams listed above; an inhibitory style for circuit fibres (bar
+instead of cup); the dev overlay shows "3 issues" on every sheet (pre-existing, not from the tracer specs).

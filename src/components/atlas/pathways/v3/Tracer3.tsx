@@ -118,7 +118,7 @@ const NAMED_SITE = /syndrome|locked-in|wallenberg|weber|brown|parkinson|huntingt
 const meaningful = (s?: string) => !!s && !/^\s*(n\/a|none|not stated|not taught|see specific)/i.test(s) && s.trim().length > 1;
 type Answered = Record<string, "right" | "wrong">;
 
-export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { courses: CoursePathway[]; cards: PathwayCard[]; courseSlug: string; initial: { p?: string; side?: string; step?: string; limb?: string }; onSwitch?: (slug: string, limb?: string) => boolean }) {
+export function Tracer3({ courses, cards, courseSlug, initial }: { courses: CoursePathway[]; cards: PathwayCard[]; courseSlug: string; initial: { p?: string; side?: string; step?: string; limb?: string } }) {
   const bySlug = useMemo(() => new Map(courses.map((c) => [c.slug, c])), [courses]);
   const groups = useMemo<PickerGroup[]>(
     () => GROUPS.map((g) => ({ title: g.title, items: g.slugs.filter((s) => bySlug.has(s) && PATHWAY_MAP[s]).map((s) => ({ slug: s, name: bySlug.get(s)!.name })) })).filter((g) => g.items.length),
@@ -249,7 +249,6 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
   );
   const choose = useCallback(
     (s: string) => {
-      if (s !== slug && onSwitch?.(s)) return; // a pathway still on v2: the page swaps the tracer
       setSlug(s);
       setStep(0);
       setAll(false);
@@ -262,7 +261,7 @@ export function Tracer3({ courses, cards, courseSlug, initial, onSwitch }: { cou
       setReady(false);
       visited.current = new Set();
     },
-    [resetStepUi, slug, onSwitch],
+    [resetStepUi],
   );
   useEffect(() => {
     (window as unknown as { __pwChoose?: (s: string, limb?: string) => void }).__pwChoose = (s: string, limb?: string) => {

@@ -257,6 +257,17 @@ export function contextGeometry(): Promise<THREE.BufferGeometry | null> {
   }
   return p;
 }
+/** The closed brain solid (public/atlas/brainfill.glb, a voxelised union of the gross meshes): its plane sections are the
+ * clean outlines the section cap draws. */
+export function fillGeometry(): Promise<THREE.BufferGeometry | null> {
+  const key = "ctx:fill";
+  let p = GEO.get(key);
+  if (!p) {
+    p = loadGlb("/atlas/brainfill.glb").then((s) => (s ? merge(s, () => true) : null));
+    GEO.set(key, p);
+  }
+  return p;
+}
 export function bodyGeometry(node: string): Promise<THREE.BufferGeometry | null> {
   return hostGeometry(`b:${node}`, {});
 }

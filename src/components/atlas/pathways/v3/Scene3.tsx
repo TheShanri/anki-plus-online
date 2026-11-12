@@ -6,12 +6,13 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { TrackballControls } from "@react-three/drei";
 import { RotateCcw } from "lucide-react";
 import { FIELD_COLORS, GUIDE_COLORS, ORDER_COLORS } from "@/lib/atlas/pathwayPalette";
-import { atlasName, bodyGeometry, carvedGeometry, contextGeometry, hostGeometry, partObjects } from "./geometry";
+import { atlasName, bodyGeometry, carvedGeometry, contextGeometry, fillGeometry, hostGeometry, partObjects } from "./geometry";
 import { Layer, type LayerStyle } from "./layers";
 import { FibreLine, Mark, NerveBand, Pulses, type FibreSpec } from "./fibres";
 import { LabelUpdater, type LabelDom, type LabelItem } from "./labels";
 import { FIXED_PANES, MultiRender, Rig, VIEW_DEFS, applyPaneCam, fitPanes, type Pane, type PaneBase, type PaneView, type ViewDef, type ViewName } from "./rig";
 import { PALETTES } from "./materials";
+import { SectionCap } from "./sectionCap";
 import { hostParts, type HostKey, type Side, type V3Data, type V3SideBeat } from "./types";
 import { shortName } from "./names";
 import "@/components/atlas/ui/atlas-ui.css";
@@ -82,7 +83,7 @@ function fibreSpecs(data: V3Data, visual: boolean): FibreSpec[] {
 interface Stage {
   box: THREE.Box3;
   view: ViewDef;
-  cut: { axis: "x" | "y" | "z" | null; pos: number; flip: boolean };
+  cut: { axis: "x" | "y" | "z" | null; pos: number; flip: boolean; cap?: boolean };
 }
 /** The camera box, the canonical view and the auto cut of a beat. */
 function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha: { L: number; R: number }, prev: Stage | null): Stage {
@@ -152,9 +153,13 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
       : wantCut
         ? { axis: wantCut, pos: wantCut === "x" ? 0.0006 * (view.dir[0] >= 0 ? 1 : -1) : cc[wantCut], flip: view.dir[wantCut === "x" ? 0 : wantCut === "y" ? 1 : 2] < 0 }
         : headBeat
-          ? // inside the head: the brain context becomes clay, cut through the beat on the camera's side (a cutaway bowl
-            // behind the fibres, never fog in front of them)
-            ((ax: "x" | "y" | "z") => ({ axis: ax, pos: ax === "x" && Math.abs(cc.x) < 0.012 ? 0.0006 * (view.dir[0] >= 0 ? 1 : -1) : cc[ax], flip: view.dir[ax === "x" ? 0 : ax === "y" ? 1 : 2] < 0 }))(
+          ? // inside the head: the brain is opened on the camera's side just beyond the beat, and the cut face is drawn as a
+            // flat section (the cap) behind the fibres: a textbook section as the backdrop, never fog in front of them
+            ((ax: "x" | "y" | "z") => {
+              const d = view.dir[ax === "x" ? 0 : ax === "y" ? 1 : 2];
+              const m = 0.003;
+              return { axis: ax, pos: d < 0 ? box.max[ax] + m : box.min[ax] - m, flip: d < 0, cap: true };
+            })(
               Math.abs(view.dir[1]) > Math.max(Math.abs(view.dir[0]), Math.abs(view.dir[2])) ? "y" : Math.abs(view.dir[2]) >= Math.abs(view.dir[0]) ? "z" : "x",
             )
           : cordBeat
@@ -507,6 +512,15 @@ export default function Scene3(p: Scene3Props) {
   };
 
   const [locked, setLocked] = useState(false);
+  // the closed brain solid for the section cap (small; loaded once, not part of the loader's count)
+  const [fill, setFill] = useState<THREE.BufferGeometry | null>(null);
+  useEffect(() => {
+    let alive = true;
+    fillGeometry().then((g) => alive && setFill(g));
+    return () => {
+      alive = false;
+    };
+  }, []);
   const curBeat = p.cur;
   const isHover = (k: string) => p.hoverKey === k;
   const revealedBeat = (bi: number | undefined) => bi === undefined || bi <= p.reveal + (p.quiz ? 0 : 1);
@@ -607,8 +621,7 @@ export default function Scene3(p: Scene3Props) {
         {layers.map((l) => {
           const g = geos[l.key];
           if (!g) return null;
-          // with a section cut the brain is opaque clay, opened on the camera's side; without one it is the rim-only ghost
-          const style: LayerStyle = l.key === "ctx:brain" && cutAxis ? "clay" : l.style;
+          const style: LayerStyle = l.style;
           const shown = style === "ghost" || style === "clay" || revealedBeat(l.beat);
           if (!shown) return null;
           const half = l.half;
@@ -673,6 +686,7 @@ export default function Scene3(p: Scene3Props) {
             onHover={p.onHover}
           />
         ))}
+        {stage.cut.cap && p.cut.mode === "auto" && cutAxis && fill && <SectionCap geo={fill} axis={cutAxis} pos={cutPos} color={pal.cap} ink={pal.ink} />}
         <LabelUpdater items={labelItems} dom={labelDom} enabled={p.labels && !p.multi} obstacleTop={92} obstacleBottom={64} />
       </Canvas>
 

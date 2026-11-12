@@ -20,6 +20,8 @@ export interface Palette {
   regionFill: string;
   regionCurrent: string;
   regionOutline: string;
+  /** the flat section face behind head beats */
+  cap: string;
   bg: string;
   dark: boolean;
 }
@@ -99,6 +101,6 @@ export function lineMaterial(color: string, o: { dashed?: boolean; rim?: boolean
 }
 
 export const PALETTES: Record<"light" | "dark", Omit<Palette, "accent" | "bg">> = {
-  light: { clay: "#d8d1c4", clayDark: "#b9b0a1", host: "#e9e1d0", ink: "#1c1a17", ghost: "#6b6458", regionFill: "#ede6d6", regionCurrent: "#fff4c2", regionOutline: "#1c1a17", dark: false },
-  dark: { clay: "#8d867b", clayDark: "#6d675e", host: "#a8a091", ink: "#0b0a09", ghost: "#cfc6b4", regionFill: "#ede6d6", regionCurrent: "#fff4c2", regionOutline: "#0b0a09", dark: true },
+  light: { clay: "#d8d1c4", clayDark: "#b9b0a1", host: "#e9e1d0", ink: "#1c1a17", ghost: "#6b6458", regionFill: "#ede6d6", regionCurrent: "#fff4c2", regionOutline: "#1c1a17", cap: "#c9c0ad", dark: false },
+  dark: { clay: "#8d867b", clayDark: "#6d675e", host: "#a8a091", ink: "#0b0a09", ghost: "#cfc6b4", regionFill: "#ede6d6", regionCurrent: "#fff4c2", regionOutline: "#0b0a09", cap: "#57514a", dark: true },
 };

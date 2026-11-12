@@ -258,5 +258,120 @@
     "forearm flexors"
    ]
   ]
+ },
+ "rubrospinal": {
+  "*": [
+   [
+    "Red nucleus",
+    "The upper motor neuron's cell body sits in the red nucleus of the rostral midbrain tegmentum.",
+    "red nucleus"
+   ],
+   [
+    "Axons cross at once",
+    "Its axons cross the midline in the midbrain tegmentum‹ (ventral tegmental decussation)›.",
+    "midbrain"
+   ],
+   [
+    "Rubrospinal tract",
+    "They descend through the brainstem tegmentum and in the rubrospinal tract of the lateral funiculus, beside the lateral corticospinal tract.",
+    "lateral funiculus"
+   ],
+   [
+    "Upper-limb motor neurons",
+    "They drive lower motor neurons of the contralateral upper limb, favouring flexion.",
+    "ventral horn"
+   ]
+  ]
+ },
+ "tectospinal": {
+  "*": [
+   [
+    "Superior colliculus",
+    "The cell bodies sit in the tectum (superior and inferior colliculi), which respond to sights and sounds.",
+    "colliculi"
+   ],
+   [
+    "Axons cross",
+    "The axons cross the midline in the midbrain‹ (dorsal tegmental decussation)›.",
+    "midbrain"
+   ],
+   [
+    "Tectospinal tract",
+    "They descend near the midline through the tegmentum and in the anterior funiculus of the cervical cord.",
+    "anterior funiculus"
+   ],
+   [
+    "Neck motor neurons",
+    "They reach lower motor neurons at cervical and upper thoracic levels that turn the head toward a sight or sound.",
+    "ventral horn"
+   ]
+  ]
+ },
+ "reticulospinal": {
+  "*": [
+   [
+    "Reticular formation",
+    "Upper motor neurons in the pontine and medullary reticular formation.",
+    "reticular formation"
+   ],
+   [
+    "Reticulospinal tracts",
+    "The pontine tract (extension of axial and limb muscles) and the medullary tract (inhibits extensor motor neurons, helps flexion) run in the anterior and lateral funiculi.",
+    "anterior funiculus"
+   ],
+   [
+    "Ventral horn",
+    "They act on lower motor neurons for posture and stepping.",
+    "ventral horn"
+   ]
+  ]
+ },
+ "vestibulospinal": {
+  "*": [
+   [
+    "Vestibular nuclei",
+    "Upper motor neurons in the vestibular nuclei of the medulla and caudal pons.",
+    "vestibular nuclei"
+   ],
+   [
+    "Vestibulospinal tract",
+    "Their axons descend in the vestibulospinal tract of the anterior funiculus.",
+    "anterior funiculus"
+   ],
+   [
+    "Axial motor neurons",
+    "They drive lower motor neurons of axial and antigravity muscles for posture and righting.",
+    "ventral horn"
+   ]
+  ]
+ },
+ "acst": {
+  "*": [
+   [
+    "Trunk motor cortex",
+    "The upper motor neuron sits in layer V of the trunk area of the motor cortex.",
+    "motor cortex"
+   ],
+   [
+    "Anterior corticospinal tract",
+    "Its axon descends with the corticospinal fibres, does not cross in the medulla (the 20 %) and runs in the anterior funiculus.",
+    "anterior funiculus"
+   ],
+   [
+    "Medial ventral horn",
+    "It ends on lower motor neurons of the medial ventral horn, on both sides (one side shown).",
+    "ventral horn"
+   ],
+   [
+    "Ventral root",
+    "The lower motor neuron's axon leaves in the ventral root to the axial muscles.",
+    "ventral root"
+   ],
+   [
+    "Axial muscles",
+    "The trunk and proximal muscles contract for posture.",
+    "back muscles"
+   ]
+  ]
  }
 }

@@ -3,6 +3,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
+import { loadAtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel } from "../ui/modelCache";
 import { SUPPLY, unitArteries } from "./supply-data";
 
@@ -11,14 +12,105 @@ import { SUPPLY, unitArteries } from "./supply-data";
  * assigned to ACA, MCA or PCA from the course's supply map (and, where a gyrus is shared between ACA and MCA, from which way
  * the surface faces), then the assignment is blurred over a few millimetres, so the edges are soft instead of following mesh
  * borders. Colour and opacity are per-vertex, so only one translucent layer is ever drawn (no stacked fog).
+ *
+ * Occlusion: the brain is translucent, so a skin drawn with plain depth testing shows the far side through it (the MCA's
+ * lateral convexity painted over the medial wall). Before the skin is drawn, the whole brain surface of gross.glb (cerebrum,
+ * cerebellum, brainstem; both faces of every triangle, so it does not depend on normals or winding; clipped like the viewer)
+ * plus the deep structures that fill the hollow cortical shell (FILL) is rendered depth-only into a private depth texture
+ * with the same camera. The skin's fragment shader discards every
+ * fragment lying more than OCC_TOL behind that nearest surface, so a territory shows only where its own cortex is the brain
+ * surface facing the camera. The private target leaves the main depth buffer alone: vessels and deep territories inside
+ * the translucent brain stay visible exactly as before.
  */
 export type TerritoryShow = { artery: string; alpha: number };
+/** The viewer's controlled cut, same meaning as AtlasViewer's `cut` prop (removes the high side unless flipped). */
+export type TerritoryCut = { axis: "x" | "y" | "z"; position: number; flip?: boolean };
 
 const CORTICAL = ["aca", "mca", "pca"] as const;
 const BLUR = 0.0065; // metres
 const LIFT = 0.00035; // metres along the normal, so the skin sits just above the brain surface
+/** How far (view depth, metres) a skin fragment may lie behind the nearest brain surface and still show: covers the lift and the gap between neighbouring gyral patches, far less than any fold or the far side of the brain. */
+const OCC_TOL = 0.0015;
+/** gross.glb is a hollow shell of cortical patches: through the gap in the medial wall (corpus callosum, diencephalon) or the
+ * anterior perforated substance the next surface would be the inside of the far cortex (the insula, the opercula). These
+ * fill the interior, as in the viewer's sections, so what lies behind them counts as hidden. */
+const FILL = ["corpus-callosum", "fornix", "septum-pellucidum", "anterior-commissure", "mni-internal-capsule", "caudate-nucleus", "putamen", "globus-pallidus", "thalamus", "hypothalamus", "hippocampus", "amygdaloid-body", "optic-chiasm", "lateral-ventricle", "third-ventricle", "fourth-ventricle"];
+/** Radius (CSS px) over which the nearest depth is taken: closes the cracks between gyral patches, through which the inside of the far cortex would otherwise show. */
+const OCC_PX = 4;
+/** The viewer stops drawing the brainstem here (the open lower medulla); the occluder stops at the same plane. */
+const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 
 type Built = { geo: THREE.BufferGeometry; w: Record<string, Float32Array>; n: number };
+
+/** The whole brain surface (gross.glb and the interior fill) at its world transform, every mesh sharing one depth-only material. */
+function buildOccluder(roots: THREE.Group[], mat: THREE.Material): THREE.Scene {
+  const scene = new THREE.Scene();
+  for (const root of roots) {
+    root.updateWorldMatrix(true, true);
+    root.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      const c = new THREE.Mesh(m.geometry, mat);
+      c.matrixAutoUpdate = false;
+      c.matrix.copy(m.matrixWorld);
+      c.matrixWorldNeedsUpdate = true;
+      scene.add(c);
+    });
+  }
+  return scene;
+}
+
+function cutPlanes(cut: TerritoryCut | undefined): THREE.Plane[] {
+  if (!cut) return [MEDULLA_CUT];
+  const e = new THREE.Vector3(cut.axis === "x" ? 1 : 0, cut.axis === "y" ? 1 : 0, cut.axis === "z" ? 1 : 0);
+  const p = cut.flip ? new THREE.Plane(e, -cut.position) : new THREE.Plane(e.negate(), cut.position);
+  return [p, MEDULLA_CUT];
+}
+
+/** Uniforms of the occlusion test (shared by the skin material's shader). */
+function occUniforms(depth: THREE.DepthTexture) {
+  return {
+    uOccDepth: { value: depth as THREE.Texture },
+    uOccRes: { value: new THREE.Vector2(1, 1) },
+    uOccNear: { value: 0.01 },
+    uOccFar: { value: 6 },
+    uOccOrtho: { value: 0 },
+    uOccOn: { value: 0 },
+    uOccTol: { value: OCC_TOL },
+    uOccPx: { value: OCC_PX },
+  };
+}
+type OccUniforms = ReturnType<typeof occUniforms>;
+
+const OCC_GLSL = `
+uniform sampler2D uOccDepth;
+uniform vec2 uOccRes;
+uniform float uOccNear;
+uniform float uOccFar;
+uniform float uOccOrtho;
+uniform float uOccOn;
+uniform float uOccTol;
+uniform float uOccPx;
+float occViewZ(const in float d) {
+  return uOccOrtho > 0.5 ? d * (uOccNear - uOccFar) - uOccNear : (uOccNear * uOccFar) / ((uOccFar - uOccNear) * d - uOccFar);
+}
+void main() {
+  float occHere = occViewZ(gl_FragCoord.z);
+  float occSlope = fwidth(occHere);
+  if (uOccOn > 0.5) {
+    // nearest depth over a small disc (a crack between patches is a few pixels wide)
+    float d = texture2D(uOccDepth, gl_FragCoord.xy / uOccRes).x;
+    for (int i = 0; i < 8; i++) {
+      float a = float(i) * 0.785398;
+      vec2 o = vec2(cos(a), sin(a)) * uOccPx;
+      d = min(d, texture2D(uOccDepth, (gl_FragCoord.xy + o) / uOccRes).x);
+      d = min(d, texture2D(uOccDepth, (gl_FragCoord.xy + 0.5 * o) / uOccRes).x);
+    }
+    float occFront = occViewZ(d);
+    // view z is negative: further from the camera is more negative; the slope term keeps the skin's own tilted surface
+    if (occHere < occFront - uOccTol - (uOccPx + 2.0) * occSlope) discard;
+  }
+`;
 
 function buildSurface(root: THREE.Group, variant: string): Built | null {
   // cortical units are the first block of the supply map (up to the corpus callosum)
@@ -133,12 +225,24 @@ function buildSurface(root: THREE.Group, variant: string): Built | null {
   return { geo, w, n };
 }
 
-export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }: { show: TerritoryShow[]; colors: Map<string, string>; variant: string; /** Only this hemisphere (left = +x). */ side?: "L" | "R"; opacity?: number }) {
+export function TerritorySurface({
+  show,
+  colors,
+  variant,
+  side,
+  cut,
+  opacity = 0.72,
+}: {
+  show: TerritoryShow[];
+  colors: Map<string, string>;
+  variant: string;
+  /** Only this hemisphere (left = +x). */
+  side?: "L" | "R";
+  /** The viewer's cut, so the occluder is clipped the same way (the medial view sees past the removed hemisphere). */
+  cut?: TerritoryCut;
+  opacity?: number;
+}) {
   const invalidate = useThree((s) => s.invalidate);
-  const camera = useThree((s) => s.camera);
-  const controls = useThree((s) => s.controls) as unknown as { target: THREE.Vector3 } | null;
-  /** Seen from the side: only the hemisphere on the camera side (the far one would show through the translucent brain). */
-  const [camSide, setCamSide] = useState<"L" | "R" | undefined>(undefined);
   const [root, setRoot] = useState<THREE.Group | null>(null);
   const needed = show.some((s) => (CORTICAL as readonly string[]).includes(s.artery));
   useEffect(() => {
@@ -151,17 +255,117 @@ export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }
       alive = false;
     };
   }, [needed, root]);
+  const [fill, setFill] = useState<THREE.Group[] | null>(null);
+  useEffect(() => {
+    if (!needed || fill) return;
+    let alive = true;
+    loadAtlasIndex()
+      .then((index) => Promise.all(FILL.flatMap((id) => (index.structures[id]?.file ? [loadAtlasModel(index.structures[id].file as string).catch(() => null)] : []))))
+      .then((gs) => alive && setFill(gs.filter((g): g is THREE.Group => !!g)))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [needed, fill]);
   const built = useMemo(() => (root ? buildSurface(root, variant) : null), [root, variant]);
   useEffect(() => () => built?.geo.dispose(), [built]);
-  const mat = useMemo(
-    () => new THREE.MeshStandardMaterial({ vertexColors: true, transparent: true, opacity: 0, depthWrite: false, roughness: 0.7, metalness: 0, side: THREE.FrontSide }),
-    [],
+
+  // ---- occlusion: a private depth target holding the nearest brain surface, refreshed when the camera or canvas changes
+  const occ = useMemo(() => {
+    const depth = new THREE.DepthTexture(1, 1);
+    const rt = new THREE.WebGLRenderTarget(1, 1, { depthBuffer: true, depthTexture: depth });
+    const depthMat = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: true, depthTest: true, side: THREE.DoubleSide });
+    return { depth, rt, depthMat, u: occUniforms(depth), key: [] as number[], size: new THREE.Vector2(), vp: new THREE.Vector4() };
+  }, []);
+  useEffect(
+    () => () => {
+      occ.rt.dispose();
+      occ.depth.dispose();
+      occ.depthMat.dispose();
+    },
+    [occ],
   );
+  const occScene = useMemo(() => (root ? buildOccluder([root, ...(fill ?? [])], occ.depthMat) : null), [root, fill, occ]);
+  const cutKey = cut ? `${cut.axis}:${cut.position}:${cut.flip ? 1 : 0}` : "";
+
+  const mat = useMemo(() => {
+    const m = new THREE.MeshStandardMaterial({ vertexColors: true, transparent: true, opacity: 0, depthWrite: false, roughness: 0.7, metalness: 0, side: THREE.FrontSide });
+    const u: OccUniforms = occ.u;
+    m.onBeforeCompile = (sh) => {
+      Object.assign(sh.uniforms, u);
+      sh.fragmentShader = sh.fragmentShader.replace("void main() {", OCC_GLSL);
+    };
+    m.customProgramCacheKey = () => "territory-occluded";
+    return m;
+  }, [occ]);
   useEffect(() => () => mat.dispose(), [mat]);
   const fade = useRef({ cur: 0, tgt: 0 });
 
-  /* three.js buffers are filled imperatively */
+  /* three.js objects are configured imperatively */
   /* eslint-disable react-hooks/immutability */
+  useEffect(() => {
+    const parts = cutKey ? cutKey.split(":") : null;
+    occ.depthMat.clippingPlanes = cutPlanes(parts ? { axis: parts[0] as TerritoryCut["axis"], position: Number(parts[1]), flip: parts[2] === "1" } : undefined);
+    occ.depthMat.needsUpdate = true;
+    occ.key.length = 0; // the next frame redraws the depth
+    invalidate();
+  }, [cutKey, occ, invalidate]);
+
+  /** Runs right before the skin is drawn, with the camera it is drawn with (also each multi-view pane). */
+  const depthPass = useMemo(
+    () => (renderer: THREE.WebGLRenderer, _scene: THREE.Scene, cam: THREE.Camera) => {
+      const u = occ.u;
+      if (!occScene) {
+        u.uOccOn.value = 0;
+        return;
+      }
+      const prev = renderer.getRenderTarget();
+      if (prev) occ.size.set(prev.width, prev.height);
+      else renderer.getDrawingBufferSize(occ.size);
+      renderer.getCurrentViewport(occ.vp);
+      const w = Math.max(1, Math.floor(occ.size.x));
+      const h = Math.max(1, Math.floor(occ.size.y));
+      if (occ.rt.width !== w || occ.rt.height !== h) {
+        occ.rt.setSize(w, h);
+        occ.key.length = 0;
+      }
+      // same camera, projection, viewport and occluder as last time: the depth texture is still right
+      const k = occ.key;
+      const me = cam.matrixWorld.elements;
+      const pe = cam.projectionMatrix.elements;
+      const vp = occ.vp;
+      let same = k.length === 36;
+      for (let i = 0; same && i < 16; i++) same = k[i] === me[i] && k[16 + i] === pe[i];
+      same = same && k[32] === vp.x && k[33] === vp.y && k[34] === vp.z && k[35] === vp.w;
+      if (!same) {
+        k.length = 0;
+        k.push(...me, ...pe, vp.x, vp.y, vp.z, vp.w);
+        occ.rt.viewport.copy(vp);
+        occ.rt.scissor.copy(vp);
+        occ.rt.scissorTest = true;
+        const autoClear = renderer.autoClear;
+        renderer.autoClear = false;
+        renderer.setRenderTarget(occ.rt);
+        renderer.clear(false, true, false);
+        renderer.render(occScene, cam);
+        renderer.setRenderTarget(prev);
+        renderer.autoClear = autoClear;
+      }
+      const pc = cam as THREE.PerspectiveCamera;
+      u.uOccRes.value.set(w, h);
+      u.uOccPx.value = OCC_PX * renderer.getPixelRatio();
+      u.uOccNear.value = pc.near;
+      u.uOccFar.value = pc.far;
+      u.uOccOrtho.value = (cam as THREE.OrthographicCamera).isOrthographicCamera ? 1 : 0;
+      u.uOccOn.value = 1;
+    },
+    [occ, occScene],
+  );
+  useEffect(() => {
+    occ.key.length = 0;
+    invalidate();
+  }, [occScene, occ, invalidate]);
+
   useEffect(() => {
     if (!built) return;
     const col = built.geo.attributes.color as THREE.BufferAttribute;
@@ -169,9 +373,8 @@ export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }
     const rgb = CORTICAL.map((a) => new THREE.Color(colors.get(a) ?? "#999999").lerp(new THREE.Color("#ffffff"), 0.16));
     const amt = CORTICAL.map((a) => show.find((s) => s.artery === a)?.alpha ?? 0);
     const posA = built.geo.attributes.position.array as Float32Array;
-    const eff = side ?? camSide;
     for (let i = 0; i < built.n; i++) {
-      if (eff && (eff === "L") !== posA[i * 3] > 0) {
+      if (side && (side === "L") !== posA[i * 3] > 0) {
         arr[i * 4 + 3] = 0;
         continue;
       }
@@ -193,14 +396,9 @@ export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }
     col.needsUpdate = true;
     fade.current.tgt = show.some((s) => (CORTICAL as readonly string[]).includes(s.artery)) ? opacity : 0;
     invalidate();
-  }, [built, show, colors, side, camSide, opacity, invalidate]);
+  }, [built, show, colors, side, opacity, invalidate]);
 
   useFrame((_, dt) => {
-    const dx = camera.position.x - (controls?.target.x ?? 0);
-    const dist = camera.position.distanceTo(controls?.target ?? new THREE.Vector3());
-    const ratio = dist > 0 ? dx / dist : 0;
-    const want = ratio > 0.6 ? "L" : ratio < -0.6 ? "R" : undefined;
-    if (want !== camSide) setCamSide(want);
     const f = fade.current;
     if (Math.abs(f.cur - f.tgt) > 0.004) {
       f.cur += (f.tgt - f.cur) * (1 - Math.exp(-Math.min(dt, 0.1) * 8));
@@ -208,7 +406,10 @@ export function TerritorySurface({ show, colors, variant, side, opacity = 0.72 }
     } else f.cur = f.tgt;
     mat.opacity = f.cur;
   });
+  const attach = (m: THREE.Mesh | null) => {
+    if (m) m.onBeforeRender = depthPass as unknown as THREE.Mesh["onBeforeRender"];
+  };
   /* eslint-enable react-hooks/immutability */
   if (!built) return null;
-  return <mesh geometry={built.geo} material={mat} renderOrder={5} raycast={() => null} />;
+  return <mesh ref={attach} geometry={built.geo} material={mat} renderOrder={5} raycast={() => null} />;
 }

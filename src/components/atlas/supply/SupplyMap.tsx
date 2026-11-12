@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Focus, Lock, PanelRight, Pause, Play, Rotate
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
 import type { AtlasOverlay } from "../AtlasViewer";
 import { VesselLayer, type SegStyle } from "./VesselLayer";
-import { TerritorySurface, type TerritoryShow } from "./TerritorySurface";
+import { TerritorySurface, type TerritoryCut, type TerritoryShow } from "./TerritorySurface";
 import { VeinLayer } from "./VeinLayer";
 import { MarginLabels, createLabelBus, type LabelBus } from "./margin-labels";
 import { COMM_NOTE, COW_SLUGS, SEG_SHORT, SUPP_SLUGS, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
@@ -72,6 +72,8 @@ const VIEWS: { id: ViewId; label: string }[] = [
   { id: "superior", label: "Superior" },
   { id: "posterior", label: "Posterior" },
 ];
+/** Camera directions of the views (the viewer's own), for the brain fit after a view change. */
+const VIEW_DIR: Record<ViewId, [number, number, number]> = { inferior: [0, -1, 0.02], left: [1, 0, 0], midsagittal: [1, 0, 0], superior: [0, 1, 0.02], posterior: [0, 0, -1] };
 /** Territories that sit mostly on a surface the default Inferior view cannot see: a hint and a button, never an automatic camera move. */
 const VIEW_HINT: Record<string, { view: ViewId; text: string }> = {
   sca: { view: "superior", text: "Mostly on the top of the cerebellum: view from Superior." },
@@ -79,6 +81,8 @@ const VIEW_HINT: Record<string, { view: ViewId; text: string }> = {
   aica: { view: "inferior", text: "The flocculus and the anterior inferior cerebellum: Inferior view." },
   pca: { view: "inferior", text: "Inferior temporal and occipital lobes show best from Inferior; the occipital pole from Posterior." },
 };
+/** Medial view: the left hemisphere (+x) is cut away at the midline; the territory occluder is clipped the same way. */
+const MEDIAL_CUT: TerritoryCut = { axis: "x", position: 0 };
 /** Cerebellar surface units: drawn solid so that only the surface facing the camera shows (nothing behind shows through). */
 const CEREBELLAR = new Set(["Superior cerebellar hemisphere", "Inferior cerebellar hemisphere", "Superior and posterior vermis", "Inferior vermis (pyramis, uvula, nodule)", "Cerebellar tonsil", "Flocculus"]);
 const CEREBELLAR_ARTERIES = new Set(["sca", "aica", "pica"]);
@@ -145,7 +149,7 @@ export function SupplyMap() {
   const [quizOn, setQuizOn] = useState(false);
   const [drawer, setDrawer] = useState(true);
   const [flow, setFlow] = useState<FlowFile | null>(null);
-  const [frame, setFrame] = useState<{ n: number; dir: [number, number, number] | null }>({ n: 1, dir: [0, -1, 0.02] });
+  const [frame, setFrame] = useState<{ n: number; dir: [number, number, number] | null; after?: number }>({ n: 1, dir: [0, -1, 0.02] });
   const [request, setRequest] = useState<{ n: number; view?: ViewId } | null>(null);
   const [step, setStep] = useState(0);
   const [vstep, setVstep] = useState(0);
@@ -399,6 +403,8 @@ export function SupplyMap() {
   const askView = useCallback((view: ViewId) => {
     setMedial(view === "midsagittal");
     setRequest((r) => ({ n: (r?.n ?? 0) + 1, view: view === "midsagittal" ? "left" : view }));
+    // the viewer eases to the named view with its own (looser) fit; then the brain is fitted like the first frame
+    setFrame((f) => ({ n: f.n + 1, dir: VIEW_DIR[view], after: 540 }));
   }, []);
 
   useEffect(() => {
@@ -471,7 +477,7 @@ export function SupplyMap() {
             onPickMesh={onPick}
             view="inferior"
             request={request}
-            cut={medial ? { axis: "x", position: 0 } : undefined}
+            cut={medial ? MEDIAL_CUT : undefined}
             toolbarExtra={<IconBtn label="Frame the shown vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />}
             brainOpacity={brainOpacity}
             overlay={
@@ -504,7 +510,7 @@ export function SupplyMap() {
               </div>
             }
           >
-            <TerritorySurface show={terr} colors={terrColors} variant={variant} side={terrSide} />
+            <TerritorySurface show={terr} colors={terrColors} variant={variant} side={terrSide} cut={medial ? MEDIAL_CUT : undefined} />
             <VeinLayer ids={veinIds} current={veinCurrent} animate={animate} bus={veinBus} />
             <VesselLayer
               flow={flow}
@@ -518,6 +524,7 @@ export function SupplyMap() {
               onPick={onPickVessel}
               onHover={setHover}
               frame={frame}
+              fitSide={medial ? "R" : undefined}
               pad={territories || mode === "tour" ? 0.03 : 0}
               topInset={caption ? 104 : 18}
             />

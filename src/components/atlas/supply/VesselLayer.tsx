@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
 import { layoutLabels, type LabelBus, type RawLabel } from "./margin-labels";
+import { loadAtlasModel } from "../ui/modelCache";
 
 /** How one segment is drawn. solid: selected, opaque. idle: nothing selected, soft. faint: context. blocked: occluded. starved: downstream of a block. */
 export type SegMode = "solid" | "idle" | "faint" | "blocked" | "starved" | "hidden";
@@ -32,8 +33,12 @@ type Props = {
   circle: boolean;
   onPick: (artery: string, name: string) => void;
   onHover: (artery: string | null) => void;
-  frame: { n: number; dir: [number, number, number] | null };
+  /** A new n re-frames the brain (from dir, or the current direction). after: wait this long (ms) and glide there, used after the
+   * viewer's own eased move to a named view, so every view ends at the same framing. */
+  frame: { n: number; dir: [number, number, number] | null; after?: number };
   pad: number;
+  /** Only this hemisphere is drawn (the medial view cuts the left one away): the fit uses its points only. Left = +x. */
+  fitSide?: "L" | "R";
   /** Pixels kept clear at the top for a caption band. */
   topInset?: number;
 };
@@ -169,7 +174,78 @@ type Rec = {
 };
 type Particle = { rec: Rec; line: Line; phase: number; r: number; fwdStatic: number; alt: 1 | -1 };
 
-const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.066, 1.56, -0.088), new THREE.Vector3(0.066, 1.7, 0.086));
+/** The cerebrum and cerebellum of gross.glb (metres, measured from the model). */
+const BRAIN_BOX = new THREE.Box3(new THREE.Vector3(-0.069, 1.56, -0.099), new THREE.Vector3(0.069, 1.7, 0.082));
+/** Points of the brain for the camera fit: until gross.glb is in, a rounded box (superellipsoid) in BRAIN_BOX plus the
+ * brainstem; then every 40th vertex of the model (down to the lower medulla). A per-point perspective fit of these, not of
+ * the box corners, lets the brain fill the canvas (the wide temporal lobes sit nearer the camera from below). */
+let BRAIN_PTS: THREE.Vector3[] = (() => {
+  const c = BRAIN_BOX.getCenter(new THREE.Vector3());
+  const h = BRAIN_BOX.getSize(new THREE.Vector3()).multiplyScalar(0.5);
+  const out: THREE.Vector3[] = [];
+  const sp = (v: number) => Math.sign(v) * Math.pow(Math.abs(v), 0.7);
+  for (let i = 0; i <= 12; i++)
+    for (let j = 0; j < 24; j++) {
+      const th = (i / 12) * Math.PI;
+      const ph = (j / 24) * Math.PI * 2;
+      out.push(new THREE.Vector3(c.x + h.x * sp(Math.sin(th) * Math.cos(ph)), c.y + h.y * sp(Math.cos(th)), c.z + h.z * sp(Math.sin(th) * Math.sin(ph))));
+    }
+  for (const y of [1.525, 1.545]) for (const x of [-0.012, 0.012]) for (const z of [-0.03, -0.01]) out.push(new THREE.Vector3(x, y, z));
+  return out;
+})();
+let brainPtsLoad: Promise<void> | null = null;
+function loadBrainPts(): Promise<void> {
+  brainPtsLoad ??= loadAtlasModel("gross.glb")
+    .then((root) => {
+      const out: THREE.Vector3[] = [];
+      root.updateWorldMatrix(true, true);
+      root.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        const pos = m.geometry.getAttribute("position");
+        for (let i = 0; i < pos.count; i += 40) {
+          const v = new THREE.Vector3().fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld);
+          if (v.y >= 1.52) out.push(v); // the viewer does not draw the lower medulla
+        }
+      });
+      if (out.length > 100) BRAIN_PTS = out;
+    })
+    .catch(() => undefined);
+  return brainPtsLoad;
+}
+/** Share of the canvas height the brain fills; the width share leaves the side margins to the labels on a wide canvas. */
+const FILL_H = 0.85;
+export const BRAIN_CENTRE = BRAIN_BOX.getCenter(new THREE.Vector3());
+/** Camera target and distance along `dir` (unit) that fit the brain to FILL_H of the height and fillW of the width, centred on screen. */
+export function brainFit(dir: THREE.Vector3, fovDeg: number, aspect: number, fillW: number, side?: "L" | "R"): { c: THREE.Vector3; D: number } {
+  const pts = side ? BRAIN_PTS.filter((p) => (side === "L" ? p.x >= -0.002 : p.x <= 0.002)) : BRAIN_PTS;
+  const probe = new THREE.Matrix4().lookAt(dir, new THREE.Vector3(), new THREE.Vector3(0, 1, 0));
+  const right = new THREE.Vector3().setFromMatrixColumn(probe, 0);
+  const up = new THREE.Vector3().setFromMatrixColumn(probe, 1);
+  const tanV = Math.tan(THREE.MathUtils.degToRad(fovDeg) / 2);
+  const tanH = tanV * aspect;
+  const q = new THREE.Vector3();
+  let r0 = Infinity, r1 = -Infinity, u0 = Infinity, u1 = -Infinity;
+  for (const p of pts) {
+    q.copy(p).sub(BRAIN_CENTRE);
+    const r = q.dot(right);
+    const u = q.dot(up);
+    r0 = Math.min(r0, r);
+    r1 = Math.max(r1, r);
+    u0 = Math.min(u0, u);
+    u1 = Math.max(u1, u);
+  }
+  const c = BRAIN_CENTRE.clone().addScaledVector(right, (r0 + r1) / 2).addScaledVector(up, (u0 + u1) / 2);
+  let D = 0.05;
+  for (const p of pts) {
+    q.copy(p).sub(c);
+    const a = q.dot(dir);
+    D = Math.max(D, a + Math.abs(q.dot(right)) / (tanH * fillW), a + Math.abs(q.dot(up)) / (tanV * FILL_H));
+  }
+  return { c, D };
+}
+/** Width share for a canvas this wide (CSS px): label margins on a wide canvas, almost the full width on a phone. */
+export const fillWidthFor = (w: number) => (w > 700 ? 0.66 : 0.9);
 /** New instanced meshes start with identity matrices (a 1 m cone at the origin) until the first frame places them: hide them at once. */
 function initInstances(ref: { current: THREE.InstancedMesh | null }) {
   return (m: THREE.InstancedMesh | null) => {
@@ -185,7 +261,7 @@ function initInstances(ref: { current: THREE.InstancedMesh | null }) {
 const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
 
 /** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
-export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, topInset = 18 }: Props) {
+export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, fitSide, topInset = 18 }: Props) {
   const invalidate = useThree((s) => s.invalidate);
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
@@ -476,7 +552,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
     invalidate();
   }, [animate, invalidate]);
 
-  // ---- camera: fit the visible vessels (from their centrelines); keep the viewing direction unless asked
+  // ---- camera: fit the brain to the canvas on the first frame and on Frame; keep the viewing direction unless asked
   const moved = useRef(false);
   const lastN = useRef(-1);
   const framed = useRef(false);
@@ -491,20 +567,6 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
   }, [controls]);
   useEffect(() => {
     if (!flow || !controls || !built) return;
-    const box = new THREE.Box3();
-    let any = false;
-    for (const name of Object.keys(flow.segments)) {
-      const m = built.recs.get(name)?.style.mode;
-      if (m !== "solid" && m !== "idle" && m !== "blocked" && m !== "starved") continue;
-      for (const flat of built.recs.get(name)?.lines ?? [])
-        for (let i = 0; i + 2 < flat.length; i += 3) {
-          box.expandByPoint(_p.set(flat[i], flat[i + 1], flat[i + 2]));
-          any = true;
-        }
-    }
-    if (!any) return;
-    box.expandByScalar((circle ? 0.022 : 0.008) + pad);
-    box.union(BRAIN_BOX); // the whole brain always fits the canvas (the camera frames the brain, not the selection)
     const fresh = lastN.current !== frame.n;
     if (fresh) {
       dirRef.current = frame.dir ?? dirRef.current;
@@ -512,39 +574,66 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
     }
     lastN.current = frame.n;
     // The camera only moves on an explicit Frame (frame.n changes), never on a selection change.
-    if (!fresh && framed.current) return;
+    const now = fresh || !framed.current;
     framed.current = true;
-    const apply = () => {
+    const after = fresh ? (frame.after ?? 0) : 0;
+    let raf = 0;
+    let watch = 0;
+    /** true while this layer moves the camera, so its own changes do not count as the viewer's */
+    let own = false;
+    const apply = (glide: boolean) => {
       if (moved.current) return;
-      const c = box.getCenter(new THREE.Vector3());
+      // the camera frames the brain (never the selection), from the requested or current direction
       const dir = dirRef.current ? new THREE.Vector3(...dirRef.current).normalize() : camera.position.clone().sub(controls.target).normalize();
-      const probe = new THREE.PerspectiveCamera();
-      probe.position.copy(c).add(dir);
-      probe.up.set(0, 1, 0);
-      probe.lookAt(c);
-      probe.updateMatrixWorld();
-      const inv = probe.matrixWorld.clone().invert();
-      const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
       const aspect = size.width > 4 && size.height > 4 ? size.width / size.height : 1.5;
-      const marginX = size.width > 700 ? 1.2 : 0.98; // leave the side margins to the labels
-      let D = 0.03;
-      for (let i = 0; i < 8; i++) {
-        const corner = new THREE.Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);
-        const a = corner.clone().sub(c).dot(dir);
-        const vv = corner.applyMatrix4(inv);
-        D = Math.max(D, (Math.abs(vv.x) / (tanV * aspect)) * marginX + a * 0.55, (Math.abs(vv.y) / tanV) * 0.97 + a * 0.55);
-      }
-      camera.position.copy(c).addScaledVector(dir, D);
-      camera.up.set(0, 1, 0);
-      camera.lookAt(c);
-      controls.target.copy(c);
-      controls.update();
-      invalidate();
+      const { c, D } = brainFit(dir, camera.fov, aspect, fillWidthFor(size.width), fitSide);
+      const toPos = c.clone().addScaledVector(dir, D);
+      const set = (pos: THREE.Vector3, tg: THREE.Vector3) => {
+        own = true;
+        camera.position.copy(pos);
+        camera.up.set(0, 1, 0);
+        camera.lookAt(tg);
+        controls.target.copy(tg);
+        controls.update();
+        own = false;
+        invalidate();
+      };
+      cancelAnimationFrame(raf);
+      if (!glide || reduced || camera.position.distanceTo(toPos) < 1e-4) return set(toPos, c);
+      // a short eased glide from where the viewer's own move ended
+      const p0 = camera.position.clone();
+      const t0 = controls.target.clone();
+      const start = performance.now();
+      const step = (now: number) => {
+        if (moved.current) return;
+        const k = Math.min(1, (now - start) / 320);
+        const e = 1 - Math.pow(1 - k, 3);
+        set(p0.clone().lerp(toPos, e), t0.clone().lerp(c, e));
+        if (k < 1) raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
     };
-    const ts = [0, 150, 500, 1000, 2000, 3500, 6000].map((ms) => window.setTimeout(apply, ms));
-    return () => ts.forEach((t) => window.clearTimeout(t));
+    // The viewer re-frames on its own (its eased move to a named view, a resize, a late-loading part): once it has settled,
+    // fit the brain again from the direction it ended on. A drag or wheel by the student sets `moved` and stops all of this.
+    const onChange = () => {
+      if (own || moved.current) return;
+      window.clearTimeout(watch);
+      watch = window.setTimeout(() => {
+        dirRef.current = null;
+        apply(true);
+      }, 600);
+    };
+    controls.addEventListener("change", onChange);
+    void loadBrainPts();
+    const ts = (!now ? [] : after ? [after, after + 1500] : [0, 150, 500, 1000]).map((ms) => window.setTimeout(() => apply(!!after), ms));
+    return () => {
+      ts.forEach((t) => window.clearTimeout(t));
+      window.clearTimeout(watch);
+      cancelAnimationFrame(raf);
+      controls.removeEventListener("change", onChange);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flow, controls, built, frame, sig, pad, size.width, size.height, yMin]);
+  }, [flow, controls, built, frame, sig, pad, fitSide, size.width, size.height, yMin]);
 
   const hovered = useRef<string | null>(null);
   const pickOf = (o: THREE.Object3D) => {

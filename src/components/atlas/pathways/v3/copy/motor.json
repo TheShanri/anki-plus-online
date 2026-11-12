@@ -204,5 +204,59 @@
     "quadriceps"
    ]
   ]
+ },
+ "withdrawal-reflex": {
+  "hand": [
+   [
+    "Painful stimulus",
+    "A painful stimulus on the skin of the little finger excites the skin receptors.",
+    "hand"
+   ],
+   [
+    "Up the ulnar nerve",
+    "The sensory axon runs in the ulnar nerve, the inferior trunk and the C8 root to its cell body.",
+    "ulnar nerve"
+   ],
+   [
+    "Dorsal root ganglion (C8)",
+    "The sensory cell body sits in the dorsal root ganglion.",
+    "dorsal root ganglion"
+   ],
+   [
+    "Into the dorsal horn",
+    "The axon enters by the dorsal root and synapses on interneurons in the dorsal horn.",
+    "dorsal horn"
+   ],
+   [
+    "Interneurons",
+    "Spinal interneurons form the local circuit of the reflex, open to modulation from the brain.",
+    "dorsal horn"
+   ],
+   [
+    "Onto the motor neuron",
+    "The interneurons excite the alpha motor neurons of the flexor muscles: a polysynaptic reflex.",
+    "grey matter"
+   ],
+   [
+    "Alpha motor neuron",
+    "The alpha motor neuron sits in the ventral horn on the same side.",
+    "ventral horn"
+   ],
+   [
+    "Ventral root",
+    "Its axon leaves the cord in the ventral root and joins the spinal nerve.",
+    "ventral root"
+   ],
+   [
+    "To the flexor muscles",
+    "It runs in the brachial plexus and ulnar nerve to the flexors of the forearm.",
+    "ulnar nerve"
+   ],
+   [
+    "Flexors contract",
+    "The flexors contract and the hand is withdrawn from the stimulus.",
+    "forearm flexors"
+   ]
+  ]
  }
 }

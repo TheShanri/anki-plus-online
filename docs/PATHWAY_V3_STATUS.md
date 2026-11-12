@@ -29,6 +29,11 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   DSCT in the lateral funiculus, ICP, ipsilateral cerebellum).
 - stretch-reflex (leg): shipped 2026-11-12. Validator green (2135 samples; flagged L4 ramus and cauda equina roots).
   Checked against lecture 10 slide 9 / lecture 5 slide 9 (spindle Ia, monosynaptic onto the alpha MN, knee jerk L3-L4).
+- withdrawal-reflex (hand): shipped 2026-11-12. Validator green (2679 samples; one drawn, flagged connector: the ulnar
+  muscular branch into the flexor group). Checked against lecture 10 slide 9 / lecture 5 slide 8 (skin receptor, interneurons,
+  alpha MN, polysynaptic, descending modulation).
+- Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
+  3 mm, nerve endings to targets up to 4.5 mm, ICP to cerebellum 3.6 mm.
 - Limb-end node beats (receptor, target muscle) are framed with 9 cm of context.
 - Next, then u1: dsct (spec written),
   sympathetic, parasympathetic, stretch and withdrawal reflexes.

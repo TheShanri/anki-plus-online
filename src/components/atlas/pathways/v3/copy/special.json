@@ -1,1 +1,51 @@
-{}
+{
+ "visual": {
+  "*": [
+   [
+    "Light on the retina",
+    "Light from one visual field falls on the nasal retina of the eye on that side and the temporal retina of the other eye, where photoreceptors drive the bipolar cells (1st-order neurons).",
+    "retina"
+   ],
+   [
+    "Optic nerves",
+    "Retinal ganglion cell axons (2nd order) leave each eye in its optic nerve and run back to the optic chiasm.",
+    "optic nerves"
+   ],
+   [
+    "Nasal fibres cross",
+    "In the optic chiasm the fibres from the nasal half of each retina cross to the opposite optic tract.",
+    "optic chiasm"
+   ],
+   [
+    "Temporal fibres stay",
+    "The fibres from the temporal half of each retina pass the chiasm without crossing.",
+    "optic chiasm"
+   ],
+   [
+    "Optic tract",
+    "Each optic tract now carries the opposite visual field from both eyes, back to the lateral geniculate nucleus.",
+    "optic tract"
+   ],
+   [
+    "Lateral geniculate nucleus",
+    "The 3rd-order cell body sits in the lateral geniculate nucleus of the thalamus, where the retinotopic map is kept.",
+    "LGN"
+   ],
+   [
+    "Lower field: to the cuneus",
+    "Optic radiation fibres for the lower visual field run back‹ through the parietal lobe› to the superior bank of the calcarine sulcus (cuneus).",
+    "optic radiation"
+   ],
+   [
+    "Upper field: lingual gyrus",
+    "Fibres for the upper visual field loop forward into the temporal lobe‹ (Meyer's loop)› before running back to the inferior bank (lingual gyrus).",
+    "optic radiation"
+   ],
+   [
+    "Primary visual cortex (V1)",
+    "V1 lines the calcarine sulcus: the upper field lands below it and the lower field above it, in the hemisphere opposite the field.",
+    "V1"
+   ]
+  ]
+ }
+}

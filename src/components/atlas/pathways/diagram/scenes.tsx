@@ -179,9 +179,10 @@ export function olfactory(): Diagram {
   b.text("start", "Nose", 24, 226, "middle");
   b.text("n1", "Olfactory bulb", 70, 124, "middle");
   b.text("tr", "Olfactory tract", 104, 192, "middle");
-  b.text("end", "Piriform", 134, 214, "middle");
-  b.text("end", "cortex", 134, 228, "middle");
-  b.text("end", "Amygdala", 200, 192, "start");
+  b.text("end", "Olfactory", 134, 214, "middle");
+  b.text("end", "tubercle", 134, 228, "middle");
+  b.text("end", "Prepiriform", 184, 192, "start");
+  b.text("end", "cortex", 184, 206, "start");
   return sag(b, 240);
 }
 

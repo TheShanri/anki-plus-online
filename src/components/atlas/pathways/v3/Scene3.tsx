@@ -383,8 +383,10 @@ export default function Scene3(p: Scene3Props) {
         if (!x) continue;
         for (const st of x.stops) {
           const key = `r:${st.key}`;
-          if (seen.has(st.name)) continue;
-          seen.add(st.name);
+          // one tag per displayed name ("GPi (inhibitory output)" and the GPi region both read "GPi")
+          const text = shortName(st.name);
+          if (seen.has(text)) continue;
+          seen.add(text);
           // the stop's own mark: its carve, a cell body / start / synapse inside it (this beat or earlier), a proxy's centre,
           // else the beat's soma or synapse
           const g = p.data.geo[st.key];
@@ -401,7 +403,7 @@ export default function Scene3(p: Scene3Props) {
             if (y?.syn) at = v3(y.syn.p);
           }
           const pos = at ?? (g && g.kind === "proxy" ? v3(g.c) : null);
-          if (pos) out.push({ key, text: shortName(st.name), at: pos, prio: bi === p.cur ? 2 : 1 });
+          if (pos) out.push({ key, text, at: pos, prio: bi === p.cur ? 2 : 1 });
         }
         if (bi === p.cur && b.kind === "path") {
           const f = x.f[0];
@@ -410,7 +412,7 @@ export default function Scene3(p: Scene3Props) {
             const seg = [...f.seg].reverse().find(([i]) => i * 3 <= mid);
             const hk = seg ? hostParts(seg[1]).find((h) => !NOT_DRAWN.has(h.split("@")[0])) : null;
             const nm = hk ? names[hk] : null;
-            if (nm && !seen.has(nm)) out.push({ key: `cur:${bi}`, text: nm, at: v3(f.pts, mid), prio: 2 });
+            if (nm && !seen.has(nm) && !seen.has(shortName(nm))) out.push({ key: `cur:${bi}`, text: nm, at: v3(f.pts, mid), prio: 2 });
           }
           if (x.cross) out.push({ key: `x:${bi}`, text: `Crosses here: ${x.cross.name.toLowerCase()}, ${x.cross.level}`, at: v3(x.cross.p), prio: 3, color: GUIDE_COLORS.crossing });
         }

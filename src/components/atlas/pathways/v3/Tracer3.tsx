@@ -274,6 +274,12 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   // the loader always ends: after 15 s the scene shows anyway and the note names what is missing
   const [loadNote, setLoadNote] = useState<string | null>(null);
   const loaded = ready && !!d;
+  // the key lists every neuron order drawn (the basal ganglia loop draws a 4th, thalamocortical neuron the course map does not count)
+  const legendN = useMemo(() => {
+    let mx = n;
+    for (const b of data?.d.beats ?? []) for (const sd of [b.L, b.R]) for (const f of sd?.f ?? []) mx = Math.max(mx, f.order ?? 0);
+    return mx;
+  }, [n, data]);
   useEffect(() => {
     if (loaded) {
       setLoadNote(null);
@@ -549,7 +555,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           {loadNote && <p role="status" className="absolute bottom-16 left-2 z-10 max-w-sm rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1 text-[11px] text-text-dim">{loadNote}</p>}
 
           {/* legend: colour = neuron, line style = side */}
-          {loaded && !multi && keyOpen && <Legend visual={visual} motor={/lcst|acst|corticobulbar|umn-lmn/.test(slug)} n={n} onClose={() => setKeyOpen(false)} />}
+          {loaded && !multi && keyOpen && <Legend visual={visual} motor={/lcst|acst|corticobulbar|umn-lmn/.test(slug)} n={legendN} onClose={() => setKeyOpen(false)} />}
           {loaded && !multi && !keyOpen && (
             <button type="button" onClick={() => setKeyOpen(true)} className="absolute left-2 top-2 z-10 rounded-sm border border-panel-border bg-panel-solid/92 px-2 py-1 text-[11px] text-text" aria-label="Show the colour and line key">
               Key

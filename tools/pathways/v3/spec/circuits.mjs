@@ -215,11 +215,11 @@ export const cerebellar = {
       B({ start: soma(pn.c, pn.key, 1), soma: soma(olive, "a:olive", 1), stops: [proxyStop(pn), atlasStop("olive", O, "Inferior olive")] }),
       B({ f: [mossy.json()], syn: soma(goal, "a:posterior-quadrangular-lobule", 1) }),
       B({ f: [climb.json()], syn: soma(goal, "a:posterior-quadrangular-lobule", 1) }),
-      B({ soma: soma(goal, "a:posterior-quadrangular-lobule", 2), stops: [atlasStop("posterior-quadrangular-lobule", side, "Purkinje cells (inhibitory)")] }),
+      B({ soma: soma(goal, "a:posterior-quadrangular-lobule", 2), stops: [carve("a:posterior-quadrangular-lobule", goal, 0.008, "Purkinje cells (inhibitory)")] }),
       B({ f: [pk.json()], syn: soma(dn.c, dn.key, 2) }),
       B({ soma: soma(dn.c, dn.key, 3), stops: [stop(dn.key, "Deep cerebellar nuclei (excitatory)")] }),
-      B({ f: [scp.json()] }),
-      B({ f: [x.json()], cross: { p: cross, host: "a:midbrain", level: "caudal midbrain", yMin: 1.6, yMax: 1.609, name: "Decussation of the SCP" } }),
+      B({ f: [scp.json()], meta: { view: "superior" } }),
+      B({ f: [x.json()], cross: { p: cross, host: "a:midbrain", level: "caudal midbrain", yMin: 1.6, yMax: 1.609, name: "Decussation of the SCP" }, meta: { view: "anterior" } }),
       B({ f: [thal.json()], syn: soma(vavl.c, vavl.key, 3) }),
       B({ stops: [atlasStop("red-nucleus", O, "Red nucleus (other side)"), stop(vavl.key, "VA/VL thalamus (other side)")] }),
     ];
@@ -274,17 +274,110 @@ export const basalGanglia = {
     const capUp = await inSlice("mni-internal-capsule", H, 1.632, [0.5, 0.4], 1.0);
     await R(t7, [vavl.key, "a:thalamus", IC], capUp);
     await R(t7, [IC, WMk, "a:precentral-gyrus"], cx, { h: 0.0006, smooth: 12 });
+    // a coronal section through the loop, seen from the front (the textbook plate)
+    const COR = { view: "anterior", cut: "z" };
     return [
-      B({ soma: soma(cx, "a:precentral-gyrus", 1), stops: [atlasStop("precentral-gyrus", H, "Motor cortex")] }),
-      B({ f: [f1.json()], syn: soma(put, "a:putamen", 1) }),
-      B({ soma: soma(put, "a:putamen", 2), stops: [atlasStop("putamen", H, "Putamen (striatum)"), atlasStop("caudate-nucleus", H, "Caudate (striatum)")] }),
-      B({ f: [d3.json()], syn: soma(gpi.c, gpi.key, 2) }),
-      B({ f: [i1.json(), i2.json(), i3.json()], syn: soma(gpi.c, gpi.key, 3), soma: soma(gpe.c, gpe.key, 3), stops: [stop(gpe.key, "GPe"), atlasStop("mni-subthalamic-nucleus", H, "Subthalamic nucleus")] }),
-      B({ f: [da.json()], syn: soma(put, "a:putamen", 3), soma: soma(snc, "a:mni-substantia-nigra", 3), stops: [atlasStop("mni-substantia-nigra", H, "Substantia nigra (SNc)")] }),
-      B({ soma: soma(gpi.c, gpi.key, 3), stops: [stop(gpi.key, "GPi (inhibitory output)")] }),
-      B({ f: [g7.json(), t7.json()], syn: soma(cx, "a:precentral-gyrus", 4) }),
-      B({ soma: soma(vavl.c, vavl.key, 4), stops: [stop(vavl.key, "VA/VL thalamus"), atlasStop("precentral-gyrus", H, "Motor cortex")] }),
+      B({ soma: soma(cx, "a:precentral-gyrus", 1), stops: [atlasStop("precentral-gyrus", H, "Motor cortex")] , meta: COR }),
+      B({ f: [f1.json()], syn: soma(put, "a:putamen", 1) , meta: COR }),
+      B({ soma: soma(put, "a:putamen", 2), stops: [carve("a:putamen", put, 0.006, "Striatum (putamen)")] , meta: COR }),
+      B({ f: [d3.json()], syn: soma(gpi.c, gpi.key, 2) , meta: COR }),
+      B({ f: [i1.json(), i2.json(), i3.json()], syn: soma(gpi.c, gpi.key, 3), soma: soma(gpe.c, gpe.key, 3), stops: [stop(gpe.key, "GPe"), atlasStop("mni-subthalamic-nucleus", H, "Subthalamic nucleus")] , meta: COR }),
+      B({ f: [da.json()], syn: soma(put, "a:putamen", 3), soma: soma(snc, "a:mni-substantia-nigra", 3), stops: [carve("a:mni-substantia-nigra", snc, 0.004, "Substantia nigra (SNc)")] , meta: COR }),
+      B({ soma: soma(gpi.c, gpi.key, 3), stops: [stop(gpi.key, "GPi (inhibitory output)")] , meta: COR }),
+      B({ f: [g7.json(), t7.json()], syn: soma(cx, "a:precentral-gyrus", 4) , meta: COR }),
+      B({ soma: soma(vavl.c, vavl.key, 4), stops: [stop(vavl.key, "VA/VL thalamus"), atlasStop("precentral-gyrus", H, "Motor cortex")] , meta: COR }),
     ];
   },
 };
 PATHWAYS["basal-ganglia"] = basalGanglia;
+
+/* ------------------------------------------------------------------ limbic tracts and the reward pathway */
+// Lecture 15 slides 17-18, 23, 25-26, lab 14, Lecture 2 slide 33. One side throughout (`side`).
+/** Through a chain of waypoints, each moved to the most interior spot of `id` near it, routing inside the hosts. */
+async function via(f, id, side, pts, hosts, o = {}) {
+  const s = sgnOf(side);
+  for (const p of pts) {
+    const q = await insideNear(`a:${id}`, [p[0] * s, p[1], p[2]], 0.006);
+    await f.routeTo(hosts, q, { sgn: s, minX: 0.0006, h: 0.0003, smooth: 8, ...o });
+  }
+  return f;
+}
+export const limbicFornix = {
+  async build(side) {
+    const s = sgnOf(side);
+    const hip = await insideNear("a:hippocampus", [s * 0.026, 1.612, -0.018], 0.008);
+    const mb = await centreIn("mamillary-body", side);
+    const f = new Fibre(1).from(hip, "a:hippocampus");
+    // fimbria and crus up behind the thalamus, the body over it, the column down in front of it to the mammillary body
+    await via(f, "fornix", side, [[0.022, 1.62, -0.024]], ["a:hippocampus", "a:fornix"]);
+    await via(f, "fornix", side, [[0.013, 1.632, -0.018], [0.005, 1.636, -0.006], [0.003, 1.634, 0.006], [0.003, 1.626, 0.011], [0.003, 1.616, 0.009]], ["a:fornix"]);
+    await f.routeTo(["a:fornix", "a:hypothalamus", "a:mamillary-body"], mb, { sgn: s, minX: 0.0006, h: 0.0003 });
+    return [
+      B({ soma: soma(hip, "a:hippocampus", 1), stops: [atlasStop("hippocampus", side, "Hippocampus")] }),
+      B({ f: [f.json()], syn: soma(mb, "a:mamillary-body", 1) }),
+      B({ stops: [atlasStop("mamillary-body", side, "Mammillary body"), atlasStop("septal-nuclei", side, "Septal nuclei"), atlasStop("fornix", side, "Fornix")] }),
+    ];
+  },
+};
+PATHWAYS["limbic-fornix"] = limbicFornix;
+
+export const limbicAmygdala = {
+  async build(side) {
+    const s = sgnOf(side);
+    const am = await centreIn("amygdaloid-body", side);
+    const bnst = await nuc("bnst", side);
+    const hyp = await insideNear("a:hypothalamus", [s * 0.004, 1.612, 0.012], 0.006);
+    const f = new Fibre(1).from(am, "a:amygdaloid-body");
+    // the stria terminalis arches back and up along the tail and body of the caudate, then forward and down to the BNST
+    await via(f, "stria-terminalis", side, [[0.026, 1.614, -0.004], [0.024, 1.624, -0.02], [0.016, 1.635, -0.014], [0.01, 1.637, 0.0], [0.007, 1.628, 0.012]], ["a:amygdaloid-body", "a:stria-terminalis"]);
+    await f.routeTo(["a:stria-terminalis", "a:septal-nuclei", bnst.key, "a:white-matter-of-telencephalon"], bnst.c, { sgn: s, minX: 0.0004, h: 0.0003, smooth: 6 });
+    const h = new Fibre(1).from(bnst.c, bnst.key);
+    await h.routeTo([bnst.key, "a:septal-nuclei", "a:hypothalamus", "a:white-matter-of-telencephalon"], hyp, { sgn: s, minX: 0.0004, h: 0.0003, smooth: 6 });
+    return [
+      B({ soma: soma(am, "a:amygdaloid-body", 1), stops: [atlasStop("amygdaloid-body", side, "Amygdala (central nucleus)")] }),
+      B({ f: [joinFibres(1, [f, h]).json()], syn: soma(hyp, "a:hypothalamus", 1) }),
+      B({ stops: [proxyStop(bnst), atlasStop("hypothalamus", side, "Hypothalamus"), atlasStop("posterior-nucleus-of-vagus-nerve", side, "Dorsal motor nucleus of X")] }),
+    ];
+  },
+};
+PATHWAYS["limbic-amygdala"] = limbicAmygdala;
+
+export const limbicSeptal = {
+  async build(side) {
+    const s = sgnOf(side);
+    const sep = await centreIn("septal-nuclei", side);
+    const hb = await centreIn("habenula", side);
+    const f = new Fibre(1).from(sep, "a:septal-nuclei");
+    // back along the dorsomedial edge of the thalamus in the stria medullaris thalami to the habenula
+    await via(f, "stria-medullaris-thalami", side, [[0.004, 1.622, 0.008], [0.005, 1.627, -0.002], [0.004, 1.624, -0.012]], ["a:septal-nuclei", "a:stria-medullaris-thalami", "a:white-matter-of-telencephalon"]);
+    await f.routeTo(["a:stria-medullaris-thalami", "a:habenula"], hb, { sgn: s, minX: 0.0004, h: 0.0002 });
+    return [
+      B({ soma: soma(sep, "a:septal-nuclei", 1), stops: [atlasStop("septal-nuclei", side, "Septal nuclei")] }),
+      B({ f: [f.json()], syn: soma(hb, "a:habenula", 1) }),
+      B({ stops: [atlasStop("habenula", side, "Habenula"), atlasStop("stria-medullaris-thalami", side, "Stria medullaris thalami")] }),
+    ];
+  },
+};
+PATHWAYS["limbic-septal"] = limbicSeptal;
+
+export const reward = {
+  async build(side) {
+    const s = sgnOf(side);
+    const vta = await nuc("vta", side);
+    const nac = await centreIn("mni-nucleus-accumbens", side);
+    const pfc = await cortexPoint("orbital-gyri", side, [0.012, 1.618, 0.05]);
+    // the medial forebrain bundle: forward through the lateral hypothalamus to the nucleus accumbens; on to the prefrontal cortex
+    const f = new Fibre(1).from(vta.c, vta.key);
+    await f.routeTo([vta.key, "a:midbrain", "a:hypothalamus"], await insideNear("a:hypothalamus", [s * 0.006, 1.612, 0.006], 0.005), { sgn: s, minX: 0.0008, h: 0.0003, smooth: 6 });
+    await f.routeTo(["a:hypothalamus", "a:white-matter-of-telencephalon", "a:mni-nucleus-accumbens", "a:basal-forebrain"], nac, { sgn: s, minX: 0.0008, h: 0.0003, smooth: 6 });
+    const p = new Fibre(1).from(f.pts[Math.floor(f.pts.length * 0.8)], f.seg.filter(([i]) => i <= Math.floor(f.pts.length * 0.8)).pop()[1]);
+    await p.routeTo(["a:hypothalamus", "a:white-matter-of-telencephalon", "a:mni-nucleus-accumbens", "a:basal-forebrain", "a:orbital-gyri"], pfc, { sgn: s, minX: 0.0008, h: 0.0004, smooth: 8 });
+    const toPfc = joinFibres(1, [{ pts: f.pts.slice(0, Math.floor(f.pts.length * 0.8) + 1), seg: f.seg.filter(([i]) => i <= Math.floor(f.pts.length * 0.8)) }, p]);
+    return [
+      B({ soma: soma(vta.c, vta.key, 1), stops: [proxyStop(vta)] }),
+      B({ f: [f.json(), toPfc.json()], syn: soma(nac, "a:mni-nucleus-accumbens", 1) }),
+      B({ stops: [atlasStop("mni-nucleus-accumbens", side, "Nucleus accumbens"), carve("a:orbital-gyri", pfc, 0.012, "Prefrontal cortex")] }),
+    ];
+  },
+};
+PATHWAYS.reward = reward;

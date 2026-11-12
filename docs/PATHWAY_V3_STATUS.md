@@ -81,6 +81,14 @@ A pathway ships when its spec builds, the validator is green, and its per-beat c
   lateral funiculus (lateral reticulospinal tract mesh as host) to the T1 lateral horn. Corticopontocerebellar: M1 layer V ->
   capsule -> peduncle -> same-side pontine nuclei -> cross -> opposite MCP -> (seam) -> posterior quadrangular lobule.
   Checked against lecture 7 slides 22-24, lecture 8 slide 22, lecture 10 slide 11, lecture 14 slide 11.
+- cerebellar, basal-ganglia: shipped 2026-11-12. Validator green (cerebellar 830 samples, decussation of the SCP in the
+  caudal midbrain; basal ganglia 714). Cerebellar: mossy (opposite pontine nuclei, cross, MCP) and climbing (opposite olive,
+  cross, ICP) fibres -> posterior quadrangular lobule (Purkinje, "inhibitory") -> deep cerebellar nuclei ("excitatory") ->
+  SCP -> decussation -> opposite red nucleus -> VA/VL. Basal ganglia (one hemisphere, coronal view with a z cut): cortex ->
+  putamen; direct putamen -> GPi; indirect putamen -> GPe -> STN -> GPi; SNc -> putamen; GPi -> VA/VL -> motor cortex. GPi and
+  GPe are ellipsoids inside the one atlas pallidum (medial / lateral). Excitatory / inhibitory are named in the stops and the
+  copy only: the fibres have no inhibitory style (a possible follow-up: a bar instead of the synapse cup). Checked against
+  lecture 14 slides 11-18 and 23-31, lab 10 slides 4 and 9.
 - Proxies may now have a host key as parent (a tube, a part mesh) or none (flagged); labels of multi-stop node beats anchor
   on each stop's own mark (proxy centre, or a soma/synapse inside it), no longer all on the beat's soma.
 - Hidden seams (validated, not drawn) are where two source meshes do not touch: capsule to crus 6-7 mm, brainstem midline
@@ -130,8 +138,8 @@ one URL scheme; picking a pathway of the other version swaps the tracer in place
 The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: real mid-beat clicks commit (v3 lesion lab
 3.5 s / study 2.1 s on the dev server, v2 1.5 s / 0.34 s while playing).
 
-## Next (7 slugs still on v2)
-u3: cerebellar, basal-ganglia, limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
+## Next (5 slugs still on v2)
+u3: limbic-fornix, limbic-amygdala, limbic-septal, reward (circuits.mjs), olfactory (special.mjs).
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
 sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.
 Also open: delete v2 code once all slugs ship (the lesion lab keeps PathwayViewer); hidden seams listed above.

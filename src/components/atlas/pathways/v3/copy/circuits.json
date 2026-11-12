@@ -194,5 +194,108 @@
     "cerebellum"
    ]
   ]
+ },
+ "cerebellar": {
+  "*": [
+   [
+    "Inputs from the brainstem",
+    "Mossy fibres (here from the pontine nuclei; also DSCT and vestibular) and climbing fibres (from the inferior olive) carry the plan and the feedback.",
+    "brainstem"
+   ],
+   [
+    "Mossy fibres (MCP)",
+    "Pontine neurons cross the midline and enter the cerebellum by the middle cerebellar peduncle.",
+    "middle cerebellar peduncle"
+   ],
+   [
+    "Climbing fibres (ICP)",
+    "Inferior olive neurons cross the midline and enter by the inferior cerebellar peduncle.",
+    "inferior cerebellar peduncle"
+   ],
+   [
+    "Purkinje cells (inhibitory)",
+    "Both inputs reach the Purkinje cells of the cerebellar cortex, the only output of the cortex, which are inhibitory.",
+    "cerebellar cortex"
+   ],
+   [
+    "Purkinje to deep nuclei",
+    "Purkinje axons inhibit the deep cerebellar nuclei.",
+    "cerebellum"
+   ],
+   [
+    "Deep cerebellar nuclei",
+    "The deep cerebellar nuclei are excitatory and are the cerebellum's output.",
+    "deep cerebellar nuclei"
+   ],
+   [
+    "Superior cerebellar peduncle",
+    "Their axons leave by the superior cerebellar peduncle.",
+    "superior cerebellar peduncle"
+   ],
+   [
+    "Decussation of the SCP",
+    "They cross the midline in the caudal midbrain, at the level of the inferior colliculus.",
+    "caudal midbrain"
+   ],
+   [
+    "Red nucleus and VA/VL",
+    "They end in the contralateral red nucleus and VA/VL thalamus, which projects back to the motor cortex.",
+    "midbrain and thalamus"
+   ],
+   [
+    "Back to the same side",
+    "The output crosses back to the cortex that drives the same-side body, so a cerebellar lesion affects the same side (double crossing).",
+    "red nucleus, VA/VL"
+   ]
+  ]
+ },
+ "basal-ganglia": {
+  "*": [
+   [
+    "Cortex",
+    "The loop starts in the cerebral cortex.",
+    "cortex"
+   ],
+   [
+    "Cortex to striatum",
+    "Corticostriate fibres excite the striatum (caudate and putamen).",
+    "internal capsule"
+   ],
+   [
+    "Striatum",
+    "The striatum is the input nucleus of the basal ganglia.",
+    "striatum"
+   ],
+   [
+    "Direct 'go' pathway",
+    "The striatum inhibits the GPi, which then stops inhibiting the VA/VL thalamus, so the cortex is excited.",
+    "globus pallidus"
+   ],
+   [
+    "Indirect 'no-go' pathway",
+    "The striatum inhibits the GPe, which releases the STN; the STN excites the GPi, which inhibits the thalamus more.",
+    "GPe and STN"
+   ],
+   [
+    "Dopamine from the SNc",
+    "The substantia nigra pars compacta sends dopamine to the striatum: D1 excites the direct pathway, D2 inhibits the indirect.",
+    "substantia nigra"
+   ],
+   [
+    "GPi (inhibitory output)",
+    "The GPi is the inhibitory output of the basal ganglia.",
+    "GPi"
+   ],
+   [
+    "GPi to VA/VL, cortex",
+    "The GPi inhibits the VA/VL thalamus, whose excitatory neurons project to the motor cortex.",
+    "thalamus"
+   ],
+   [
+    "VA/VL and motor cortex",
+    "Too little GPi inhibition of the thalamus gives hyperkinesia (ballismus, Huntington's); too much gives hypokinesia (Parkinson's).",
+    "VA/VL thalamus"
+   ]
+  ]
  }
 }

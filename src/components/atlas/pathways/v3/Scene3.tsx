@@ -13,7 +13,7 @@ import { LabelUpdater, type LabelDom, type LabelItem } from "./labels";
 import { FIXED_PANES, MultiRender, Rig, VIEW_DEFS, applyPaneCam, fitPanes, type Pane, type PaneBase, type PaneView, type ViewDef, type ViewName } from "./rig";
 import { PALETTES } from "./materials";
 import { SectionCap } from "./sectionCap";
-import { hostParts, type HostKey, type Side, type V3Data, type V3SideBeat } from "./types";
+import { hostParts, type HostKey, type Side, type V3Data, type V3Fibre, type V3SideBeat } from "./types";
 import { shortName } from "./names";
 import "@/components/atlas/ui/atlas-ui.css";
 
@@ -564,7 +564,7 @@ export default function Scene3(p: Scene3Props) {
   }, [curBeat, p.data]);
 
   const marks = useMemo(() => {
-    const out: { key: string; kind: "soma" | "syn" | "start" | "cross"; p: THREE.Vector3; dir?: THREE.Vector3; color: string; beat: number; side: Side; info: string }[] = [];
+    const out: { key: string; kind: "soma" | "syn" | "inh" | "start" | "cross"; p: THREE.Vector3; dir?: THREE.Vector3; color: string; beat: number; side: Side; info: string }[] = [];
     p.data.beats.forEach((b, bi) => {
       for (const side of ["L", "R"] as Side[]) {
         const x = b[side];
@@ -572,14 +572,19 @@ export default function Scene3(p: Scene3Props) {
         const ord = (o: number) => ORDER_COLORS[(Math.min(4, Math.max(1, o)) as 1 | 2 | 3 | 4)];
         if (x.soma) out.push({ key: `s${bi}${side}`, kind: "soma", p: v3(x.soma.p), color: ord(x.soma.order), beat: bi, side, info: b.info });
         if (x.start) out.push({ key: `st${bi}${side}`, kind: "start", p: v3(x.start.p), color: ord(x.start.order), beat: bi, side, info: b.info });
-        if (x.syn) {
-          const f = x.f[x.f.length - 1];
-          let dir: THREE.Vector3 | undefined;
-          if (f && f.pts.length >= 6) {
-            const n = f.pts.length;
-            dir = new THREE.Vector3(f.pts[n - 3] - f.pts[n - 6], f.pts[n - 2] - f.pts[n - 5], f.pts[n - 1] - f.pts[n - 4]).normalize();
-          }
-          out.push({ key: `y${bi}${side}`, kind: "syn", p: v3(x.syn.p), dir, color: ord(x.syn.order), beat: bi, side, info: b.info });
+        // the direction a fibre arrives at its end
+        const endDir = (f: V3Fibre | undefined) => {
+          if (!f || f.pts.length < 6) return undefined;
+          const n = f.pts.length;
+          return new THREE.Vector3(f.pts[n - 3] - f.pts[n - 6], f.pts[n - 2] - f.pts[n - 5], f.pts[n - 1] - f.pts[n - 4]).normalize();
+        };
+        // an inhibitory synapse: a bar across the fibre's end instead of the cup
+        x.f.forEach((f, fi) => {
+          if (f.inh && f.pts.length >= 6) out.push({ key: `i${bi}${side}${fi}`, kind: "inh", p: v3(f.pts, f.pts.length - 3), dir: endDir(f), color: ord(f.order), beat: bi, side, info: b.info });
+        });
+        const lastF = x.f[x.f.length - 1];
+        if (x.syn && !lastF?.inh) {
+          out.push({ key: `y${bi}${side}`, kind: "syn", p: v3(x.syn.p), dir: endDir(lastF), color: ord(x.syn.order), beat: bi, side, info: b.info });
         }
         if (x.cross && side === "L") out.push({ key: `x${bi}`, kind: "cross", p: v3(x.cross.p), color: GUIDE_COLORS.crossing, beat: bi, side, info: b.info });
       }

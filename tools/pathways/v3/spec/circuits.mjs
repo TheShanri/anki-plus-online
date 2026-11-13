@@ -192,7 +192,7 @@ export const cerebellar = {
     await intoCb(climb, icpTop, `cb-icp-${side}`);
     // 4 Purkinje cell (inhibitory) -> deep cerebellar nucleus
     const dn = await nuc("dentate", side);
-    const pk = new Fibre(2).from(goal, "a:posterior-quadrangular-lobule");
+    const pk = new Fibre(2).from(goal, "a:posterior-quadrangular-lobule").inhibits(); // GABA: Purkinje cells inhibit the deep nuclei
     await pk.routeTo(["a:posterior-quadrangular-lobule", "a:cerebellum", dn.key], dn.c, { sgn: s, minX: 0.003, h: 0.0003, smooth: 6 });
     // 6-8 deep nucleus (excitatory) -> SCP -> decussation (caudal midbrain) -> red nucleus and VA/VL of the other side
     const scpLow = await inSlice("superior-cerebellar-peduncle", side, 1.587, [0.6, 0.5], 1.0);
@@ -255,12 +255,12 @@ export const basalGanglia = {
     const f1 = new Fibre(1).from(cx, "a:precentral-gyrus");
     await R(f1, ["a:precentral-gyrus", WMk, IC, "a:putamen"], put);
     // 3 direct: striatum -> GPi (inhibitory)
-    const d3 = new Fibre(2).from(put, "a:putamen");
+    const d3 = new Fibre(2).from(put, "a:putamen").inhibits(); // striatum -> GPi: inhibitory
     await R(d3, ["a:putamen", GP, gpi.key], gpi.c, { h: 0.0003 });
     // 4 indirect: striatum -> GPe (inhibitory), GPe -> STN (inhibitory), STN -> GPi (excitatory)
-    const i1 = new Fibre(2).from(put, "a:putamen");
+    const i1 = new Fibre(2).from(put, "a:putamen").inhibits(); // striatum -> GPe: inhibitory
     await R(i1, ["a:putamen", GP, gpe.key], gpe.c, { h: 0.0003 });
-    const i2 = new Fibre(3).from(gpe.c, gpe.key);
+    const i2 = new Fibre(3).from(gpe.c, gpe.key).inhibits(); // GPe -> STN: inhibitory
     await R(i2, [gpe.key, GP, IC, "a:mni-internal-capsule", "a:thalamus", "a:hypothalamus", "a:mni-subthalamic-nucleus"], stn, { h: 0.0003 });
     const i3 = new Fibre(3).from(stn, "a:mni-subthalamic-nucleus");
     await R(i3, ["a:mni-subthalamic-nucleus", IC, "a:thalamus", "a:hypothalamus", GP, gpi.key], gpi.c, { h: 0.0003 });
@@ -268,7 +268,7 @@ export const basalGanglia = {
     const da = new Fibre(3).from(snc, "a:mni-substantia-nigra");
     await R(da, ["a:mni-substantia-nigra", "a:midbrain", "a:mni-subthalamic-nucleus", "a:thalamus", "a:hypothalamus", IC, GP, "a:putamen"], put, { h: 0.0004 });
     // 7 GPi -> VA/VL thalamus (inhibitory) -> motor cortex (excitatory)
-    const g7 = new Fibre(3).from(gpi.c, gpi.key);
+    const g7 = new Fibre(3).from(gpi.c, gpi.key).inhibits(); // GPi -> VA/VL: inhibitory
     await R(g7, [gpi.key, GP, IC, "a:thalamus", vavl.key], vavl.c, { h: 0.0003 });
     const t7 = new Fibre(4).from(vavl.c, vavl.key);
     const capUp = await inSlice("mni-internal-capsule", H, 1.632, [0.5, 0.4], 1.0);

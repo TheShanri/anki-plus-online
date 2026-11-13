@@ -280,6 +280,8 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
     for (const b of data?.d.beats ?? []) for (const sd of [b.L, b.R]) for (const f of sd?.f ?? []) mx = Math.max(mx, f.order ?? 0);
     return mx;
   }, [n, data]);
+  // the key shows the inhibition bar only for a pathway that has one
+  const hasInh = useMemo(() => !!data?.d.beats.some((b) => [b.L, b.R].some((sd) => sd?.f.some((f) => f.inh))), [data]);
   useEffect(() => {
     if (loaded) {
       setLoadNote(null);
@@ -555,7 +557,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           {loadNote && <p role="status" className="absolute bottom-16 left-2 z-10 max-w-sm rounded-sm border border-panel-border bg-panel-solid/90 px-2 py-1 text-[11px] text-text-dim">{loadNote}</p>}
 
           {/* legend: colour = neuron, line style = side */}
-          {loaded && !multi && keyOpen && <Legend visual={visual} motor={/lcst|acst|corticobulbar|umn-lmn/.test(slug)} n={legendN} onClose={() => setKeyOpen(false)} />}
+          {loaded && !multi && keyOpen && <Legend visual={visual} motor={/lcst|acst|corticobulbar|umn-lmn/.test(slug)} n={legendN} inh={hasInh} onClose={() => setKeyOpen(false)} />}
           {loaded && !multi && !keyOpen && (
             <button type="button" onClick={() => setKeyOpen(true)} className="absolute left-2 top-2 z-10 rounded-sm border border-panel-border bg-panel-solid/92 px-2 py-1 text-[11px] text-text" aria-label="Show the colour and line key">
               Key
@@ -879,7 +881,7 @@ function stripGate(s: string) {
   return s.replace(/‹[^›]*›/g, "").replace(/\s{2,}/g, " ").trim();
 }
 
-function Legend({ visual, motor, n, onClose }: { visual: boolean; motor: boolean; n: number; onClose: () => void }) {
+function Legend({ visual, motor, n, inh, onClose }: { visual: boolean; motor: boolean; n: number; inh: boolean; onClose: () => void }) {
   const rows = visual
     ? [
         ["Left visual field", FIELD_COLORS.leftUpper],
@@ -887,7 +889,7 @@ function Legend({ visual, motor, n, onClose }: { visual: boolean; motor: boolean
       ]
     : Array.from({ length: Math.min(4, n) }, (_, i) => [motor ? (i === 0 ? "Upper motor neuron" : "Lower motor neuron") : `${ORDINAL[i + 1]}-order neuron`, ORDER_COLORS[(i + 1) as 1 | 2 | 3 | 4]]);
   return (
-    <div className="absolute left-2 top-2 z-10 grid gap-1 rounded-sm border border-panel-border bg-panel-solid/92 py-1.5 pl-2 pr-6 text-[11px] leading-none text-text">
+    <div data-pw-key className="absolute left-2 top-2 z-10 grid gap-1 rounded-sm border border-panel-border bg-panel-solid/92 py-1.5 pl-2 pr-6 text-[11px] leading-none text-text">
       <button type="button" onClick={onClose} className="absolute right-0.5 top-0.5 rounded-sm p-0.5 text-text-dim hover:text-text" aria-label="Hide the key">
         <X size={12} aria-hidden />
       </button>
@@ -901,6 +903,12 @@ function Legend({ visual, motor, n, onClose }: { visual: boolean; motor: boolean
         <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="var(--text)" strokeWidth="2.4" /></svg>
         Left side · <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="var(--text)" strokeWidth="2.4" strokeDasharray="5 3" /></svg> right side
       </span>
+      {inh && (
+        <span className="flex items-center gap-1.5">
+          <svg width="22" height="10" aria-hidden><line x1="1" y1="5" x2="14" y2="5" stroke="var(--text)" strokeWidth="2.2" /><line x1="16" y1="0.5" x2="16" y2="9.5" stroke="var(--text)" strokeWidth="3" strokeLinecap="round" /></svg>
+          inhibits
+        </span>
+      )}
       <span className="flex items-center gap-1.5">
         <svg width="22" height="10" aria-hidden><rect x="2" y="1" width="18" height="8" rx="4" fill="#ede6d6" stroke="#1c1a17" strokeWidth="1.4" /></svg>
         Region (stop): click for notes

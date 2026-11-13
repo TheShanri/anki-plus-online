@@ -226,8 +226,12 @@ export function Pulses({ fibres, active, reduced }: { fibres: FibreSpec[]; activ
   );
 }
 
-export type MarkKind = "soma" | "syn" | "start" | "cross";
-/** A cell body (sphere), a synapse (cup facing the incoming fibre), a receptor start (diamond) or the crossing ring. Constant px size. */
+const _view = new THREE.Vector3();
+const _across = new THREE.Vector3();
+const _xAxis = new THREE.Vector3(1, 0, 0);
+export type MarkKind = "soma" | "syn" | "inh" | "start" | "cross";
+/** A cell body (sphere), a synapse (cup facing the incoming fibre), an inhibitory synapse (a short bar across the fibre's end, the
+ * textbook end-bar), a receptor start (diamond) or the crossing ring. Constant px size. */
 export function Mark({
   kind,
   p,
@@ -264,6 +268,9 @@ export function Mark({
     if (kind === "syn") {
       // a cup: the outer half of a sphere shell, open toward the incoming fibre
       body = new THREE.SphereGeometry(1, 20, 10, 0, Math.PI * 2, Math.PI * 0.55, Math.PI * 0.45);
+    } else if (kind === "inh") {
+      // the end-bar: long axis along +x (turned across the fibre and toward the screen in resize), thin along the fibre
+      body = new THREE.BoxGeometry(2.7, 0.62, 0.62);
     } else if (kind === "start") body = new THREE.OctahedronGeometry(1.15, 0);
     else if (kind === "cross") body = new THREE.TorusGeometry(1.25, 0.28, 10, 40);
     else body = new THREE.SphereGeometry(1, 22, 14);
@@ -286,18 +293,25 @@ export function Mark({
     },
     [g],
   );
-  const size = kind === "soma" ? 5.2 : kind === "syn" ? 5.6 : kind === "cross" ? 7 : 5;
+  const size = kind === "soma" ? 5.2 : kind === "syn" ? 5.6 : kind === "inh" ? 5.4 : kind === "cross" ? 7 : 5;
   useEffect(() => {
     const { grp, a, b } = g;
     const resize = (renderer: THREE.WebGLRenderer, cam: THREE.Camera) => {
       const s = size * (current ? 1.18 : 1) * worldPerPx(cam, grp.position, renderer) * Math.max(0.001, sc.current);
       grp.scale.setScalar(s);
       if (kind === "cross") grp.quaternion.copy(cam.quaternion);
+      if (kind === "inh") {
+        // the bar lies across the fibre and in the screen plane: long axis = fibre direction x view direction
+        cam.getWorldDirection(_view);
+        _across.crossVectors(dir ?? _view, _view);
+        if (_across.lengthSq() < 1e-6) _across.set(1, 0, 0).applyQuaternion(cam.quaternion);
+        grp.quaternion.setFromUnitVectors(_xAxis, _across.normalize());
+      }
       grp.updateMatrixWorld(true);
     };
     a.onBeforeRender = (renderer, _s, cam) => resize(renderer, cam);
     b.onBeforeRender = (renderer, _s, cam) => resize(renderer, cam);
-  }, [g, size, current, kind]);
+  }, [g, size, current, kind, dir]);
   useEffect(() => {
     g.mat.opacity = alpha;
     g.rimMat.opacity = alpha;

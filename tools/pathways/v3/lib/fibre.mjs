@@ -127,6 +127,12 @@ export class Fibre {
     this.tag = tag;
     this.pts = [];
     this.seg = []; // [startIndex, hostKey]
+    this.inh = false; // the axon ends on an inhibitory synapse (drawn as a bar, not a cup)
+  }
+  /** Mark this fibre's terminal synapse as inhibitory (the textbook bar). */
+  inhibits() {
+    this.inh = true;
+    return this;
   }
   get end() {
     return this.pts[this.pts.length - 1];
@@ -242,7 +248,7 @@ export class Fibre {
     return r;
   }
   json() {
-    return { order: this.order, tag: this.tag || undefined, pts: this.pts.flat(), seg: this.seg };
+    return { order: this.order, tag: this.tag || undefined, ...(this.inh ? { inh: true } : {}), pts: this.pts.flat(), seg: this.seg };
   }
 }
 const DIRS = [];

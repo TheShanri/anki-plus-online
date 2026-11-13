@@ -16,6 +16,8 @@ export type HostKey = string;
 export interface V3Fibre {
   order: number;
   tag?: string;
+  /** the axon ends on an inhibitory synapse: drawn as a bar (the textbook end-bar), not a cup */
+  inh?: boolean;
   /** flat xyz */
   pts: number[];
   /** [first sample index, host] */

@@ -142,7 +142,7 @@ export function SupplyMap() {
   const [mode, setMode] = useState<Mode>("explore");
   const [sel, setSel] = useState<Set<string>>(() => new Set(DEFAULT_SEL));
   const [cow, setCow] = useState(true);
-  const [territories, setTerritories] = useState(true);
+  const [territories, setTerritories] = useState(false); // the Circle of Willis overview starts with territories off; switching them on leaves it
   const [animate, setAnimate] = useState(true);
   const [variant, setVariant] = useState("lab16");
   const [selected, setSelected] = useState<Selected>(null);
@@ -345,6 +345,7 @@ export function SupplyMap() {
       const n = new Set(cow ? [] : sel);
       if (n.has(id)) n.delete(id);
       else n.add(id);
+      if (cow) setTerritories(true); // picking an artery from the overview shows what it supplies
       setCow(false);
       setSel(n);
       setSelected({ kind: "artery", id });
@@ -360,6 +361,14 @@ export function SupplyMap() {
     setTerritories(false);
     setSelected(null);
     setFrame((f) => ({ n: f.n + 1, dir: [0, -1, 0.02] }));
+  }, []);
+  /** Territories on from the Circle of Willis overview leaves the overview (keeping its selection), so the press always shows something. */
+  const toggleTerritories = useCallback(() => {
+    stamp();
+    setTerritories((t) => {
+      if (!t) setCow(false);
+      return !t;
+    });
   }, []);
   const clear = useCallback(() => {
     if (mode === "block") {
@@ -423,12 +432,12 @@ export function SupplyMap() {
       else if (k === "c") circleView();
       else if (k === "f") setFrame((f) => ({ n: f.n + 1, dir: null }));
       else if (k === "p") setAnimate((a) => !a);
-      else if (k === "t" && mode === "explore") setTerritories((t) => !t);
+      else if (k === "t" && mode === "explore") toggleTerritories();
       else if (k === "d") setDrawer((d) => !d);
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
-  }, [quizOn, mode, step, vstep, toggleArtery, clear, circleView, gotoStep, gotoV]);
+  }, [quizOn, mode, step, vstep, toggleArtery, toggleTerritories, clear, circleView, gotoStep, gotoV]);
 
   if (quizOn)
     return (
@@ -555,7 +564,7 @@ export function SupplyMap() {
                 setCow(false);
                 setSel(new Set(ARTERIES.map((a) => a.id)));
               }}
-              onTerritories={() => setTerritories((t) => !t)}
+              onTerritories={toggleTerritories}
               gate={gate}
               variant={variant}
               setVariant={setVariant}

@@ -86,7 +86,8 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
 .bsp.bsp-surface { --bsp-wm: color-mix(in srgb, var(--text) 13%, var(--bsp-paper)); --bsp-tissue: color-mix(in srgb, var(--text) 4%, var(--bsp-paper)); }
 .bsp.bsp-surface .bsp-wm-ped { fill: color-mix(in srgb, var(--text) 17%, var(--bsp-paper)); }
 .bsp.bsp-surface .bsp-hatch { opacity: 0.55; }
-.bsp.bsp-surface .bsp-space { fill: color-mix(in srgb, var(--bsp-paper) 70%, var(--panel-solid)); }
+/* CSF (ventricles, aqueduct, fossa) in a surface view or the midsagittal cut: a dark, quiet tone that reads as space */
+.bsp.bsp-surface .bsp-space { fill: color-mix(in srgb, var(--text) 34%, var(--bsp-paper)); }
 .bsp.bsp-surface .bsp-space-rim { stroke-opacity: 0.4; stroke-width: 0.9px; }
 .bsp .bsp-wm-nerve { fill: color-mix(in srgb, var(--text) 40%, var(--bsp-paper)); }
 .bsp .bsp-outline-photo { stroke-opacity: 0.7; }

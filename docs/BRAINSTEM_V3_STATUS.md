@@ -105,6 +105,10 @@ exception (below).
   straightening; everything below it is carried through the same row shift), and the specimen's mammillary bodies,
   infundibulum, optic chiasm and optic tract were added as context. Hypoglossal/vagal trigones are not drawn: they are
   not on the course slides or lists. Surface plates use lighter tones (`.bsp-surface`).
+- Midsagittal last pass: the fourth ventricle, aqueduct and other CSF spaces of the surface plates are a dark CSF tone;
+  the cerebellum's outer contour is scaled to 0.84 about its attachment (closer to Sobotta 648 and the Lab 2 photo); the
+  arbor vitae branches from a central white core with alternating twigs; the aqueduct is a thin channel opening into
+  the fourth ventricle; a fine line marks the tegmentum's front border.
 - Lateral view kept, labelled on the plate as a schematic after Sobotta fig. 661 (no course image): it is the only plate
   with the collective "cerebellar peduncles" (Lab 7 list) as the cut stump, and the trochlear nerve's course.
 - Toggles: without a published photo the view shows Illustration selected, Split/Photo disabled, and neither Histology

@@ -152,6 +152,17 @@ FREE = {
 }
 
 
+def _shrink_cerebellum(cfg, f=0.84, c=(436, 560)):
+    """the outer contour of the cerebellum, scaled about its attachment so its size matches Sobotta 648 / the Lab 2 photo"""
+    S = lambda p: [round(c[0] + (p[0] - c[0]) * f, 1), round(c[1] + (p[1] - c[1]) * f, 1)]
+    o = cfg["outline"][0]
+    for i in range(10, 26):
+        o[i] = S(o[i])
+    cb = cfg["regions"]["cerebellum"]["pts"]
+    for i in range(1, 14):
+        cb[i] = S(cb[i])
+
+
 def soft(pts, sigma=4.0):
     """an authored polygon as a smooth closed curve (resampled every 3 units, Gaussian-smoothed over ~3 sigma samples)"""
     return smooth(resample(pts, 3.0, True), sigma, True).tolist()
@@ -178,37 +189,46 @@ def branch(p0, p1, w0, w1):
 def sagittal_detail(cfg):
     """the cerebellum's arbor vitae (white core, branches, twigs) and folia; pons striations; the central canal and the vela"""
     out = []
-    root, hub = (536, 566), (610, 548)
-    tips = [(560, 236), (650, 205), (742, 290), (820, 420), (880, 560), (872, 690), (790, 800), (680, 870), (566, 884), (486, 820)]
-    polys = [branch(root, hub, 30, 26)]
-    for tx, ty in tips:
-        polys.append(branch(hub, (tx, ty), 22, 3))
-        mx, my = hub[0] + (tx - hub[0]) * 0.55, hub[1] + (ty - hub[1]) * 0.55
+    hub = (592, 556)
+    core = ell(hub[0], hub[1], 46, 30, -20, 36) + []
+    polys = [core, branch((540, 566), hub, 26, 30)]
+    tips = [(548, 300), (622, 268), (700, 318), (768, 420), (812, 540), (790, 660), (720, 760), (630, 822), (545, 820)]
+    for k, (tx, ty) in enumerate(tips):
         ang = math.atan2(ty - hub[1], tx - hub[0])
-        for da in (-0.55, 0.55):
-            L = 0.32 * math.hypot(tx - hub[0], ty - hub[1])
-            polys.append(branch((mx, my), (mx + L * math.cos(ang + da), my + L * math.sin(ang + da)), 9, 2))
+        start = (hub[0] + 38 * math.cos(ang), hub[1] + 26 * math.sin(ang))
+        polys.append(branch(start, (tx, ty), 16, 2.5))
+        L = math.hypot(tx - start[0], ty - start[1])
+        for j, frac in enumerate((0.35, 0.6, 0.8)):
+            mx, my = start[0] + (tx - start[0]) * frac, start[1] + (ty - start[1]) * frac
+            da = (0.7 if (j + k) % 2 else -0.7)
+            ln = L * (0.34 - 0.08 * j)
+            polys.append(branch((mx, my), (mx + ln * math.cos(ang + da), my + ln * math.sin(ang + da)), 7 - 2 * j, 1.5))
     shape = (int(round(cfg["H"] * SS)), int(round(cfg["W"] * SS)))
     cb = raster([soft(cfg["regions"]["cerebellum"]["pts"], 2.0)], shape)
     core = raster(polys, shape) & cb
     out.append({"d": mask_paths(core, step=1.6, sigma=0.9, eps=0.25, min_area=4), "k": "core"})
     # folia: short strokes from the surface toward the hub, every ~11 units along the outer contour
-    ring = resample(soft(cfg["regions"]["cerebellum"]["pts"][:23], 2.0), 11.0, False)
+    ring = resample(soft(cfg["regions"]["cerebellum"]["pts"][:14], 2.0), 9.0, False)
     for i, (x, y) in enumerate(ring):
-        if x < 470:
+        if x < 452:
             continue
         vx, vy = hub[0] - x, hub[1] - y
         L = math.hypot(vx, vy) or 1
-        ln = 26 + 14 * (i % 3)
+        ln = 18 + 10 * (i % 3)
         out.append({"d": curve([[x, y], [x + vx / L * ln, y + vy / L * ln]], False, step=2, sigma=0.5, eps=0.2), "k": "fine"})
     # transverse striations of the basilar pons and the central canal below the obex
     for y in range(300, 660, 26):
         out.append({"d": curve([[96 + abs(y - 470) * 0.18, y], [180, y + 6], [250, y + 2], [298 - abs(y - 470) * 0.22, y - 6]], False, step=3, sigma=1.2, eps=0.3), "k": "fine"})
     out.append({"d": curve([[404, 892], [400, 950], [395, 1004]], False, step=2, sigma=1, eps=0.2), "k": "line"})
+    # the tegmentum's front border (behind the cerebral peduncle and the basilar pons)
+    out.append({"d": curve([[300, 116], [330, 160], [340, 230], [300, 290], [262, 304], [300, 380], [306, 470], [298, 560], [262, 640], [176, 690]], False, step=2, sigma=1.5, eps=0.3), "k": "fine"})
     # the medullary vela: the roof of the fourth ventricle, up to the fastigium
     out.append({"d": curve([[414, 384], [456, 446], [490, 500], [532, 566]], False, step=2, sigma=1, eps=0.2), "k": "line"})
     out.append({"d": curve([[532, 566], [490, 620], [462, 700], [436, 780], [418, 840]], False, step=2, sigma=1, eps=0.2), "k": "line"})
     return out
+
+
+_shrink_cerebellum(FREE["midsagittal"])
 
 
 def build(level):

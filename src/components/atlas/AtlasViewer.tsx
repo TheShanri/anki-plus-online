@@ -1212,7 +1212,7 @@ function Scene({
   }, [colourCuts, sectionLook]);
   useEffect(() => () => Object.values(deepMats).forEach((m) => m.dispose()), [deepMats]);
   // the cut face of each deep structure (and of a selected structure): tissue on the plane, see section/deep.tsx
-  const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue)])) as Record<string, THREE.MeshBasicMaterial>, []);
+  const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue, d.shade)])) as Record<string, THREE.MeshBasicMaterial>, []);
   const targetPaint = useMemo(() => makeSectionPaint("grey"), []);
   useEffect(() => () => [...Object.values(paintMats), targetPaint].forEach((m) => m.dispose()), [paintMats, targetPaint]);
   useEffect(() => {
@@ -2215,9 +2215,9 @@ export default function AtlasViewer({
     if (axis === "off") return setClip((c) => ({ ...c, axis }));
     const lo = ctxBox ? ctxBox.min[axis] : axis === "x" ? -0.08 : axis === "y" ? 1.53 : -0.11;
     const hi = ctxBox ? ctxBox.max[axis] : axis === "x" ? 0.08 : axis === "y" ? 1.68 : 0.1;
-    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? -0.008 : axis === "y" ? 1.619 : axis === "x" ? -0.02 : (lo + hi) / 2; // coronal: through the thalamus, hippocampal head and midbrain; transverse: the thalamus and upper midbrain
+    const c = box ? box.getCenter(new THREE.Vector3())[axis] : axis === "z" ? -0.008 : axis === "y" ? 1.625 : axis === "x" ? -0.02 : (lo + hi) / 2; // coronal: through the thalamus, hippocampal head and midbrain; transverse: caudate head, lentiform nucleus, thalamus and splenium (the course's "through the thalamus" level)
     setClip({ axis, t: Math.min(1, Math.max(0, (c - lo) / (hi - lo))), flip: false });
-    if (axis === "y") setViewUser("superior");
+    if (axis === "y") setViewUser("top"); // front at the top, as the course's horizontal sections are shown
     else if (axis === "z") setViewUser("anterior");
     else if (axis === "x") setViewUser("left");
     trackAtlas({ type: "cut_used", plane: CLIP_AXES.find((a) => a.id === axis)?.plane ?? axis });

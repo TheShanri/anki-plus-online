@@ -126,6 +126,6 @@ export function insideTissue(s: { uniforms: Record<string, unknown>; vertexShade
     SEC_GLSL +
     s.fragmentShader.replace(
       "#include <opaque_fragment>",
-      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.0012) outgoingLight = secTone(vSecW);\n" : ""}#include <opaque_fragment>`,
+      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.003) outgoingLight = mix(secTone(vSecW), mix(uGM, uWM, 0.6), 0.3);\n" : ""}#include <opaque_fragment>`,
     );
 }

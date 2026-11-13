@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { ATLAS_BASE } from "@/lib/atlas/index";
+import { SECTION_VOLUME_VERSION } from "./version";
 
 /**
  * The tissue volume behind every section face: the ICBM 2009b T1 template warped into the Z-Anatomy mesh space
@@ -28,7 +29,7 @@ async function gunzip(buf: ArrayBuffer): Promise<ArrayBuffer> {
 export function loadTissue(): Promise<TissueVolume> {
   if (pending) return pending;
   pending = (async () => {
-    const res = await fetch(`${ATLAS_BASE}/section.bin.gz`);
+    const res = await fetch(`${ATLAS_BASE}/section.bin.gz?v=${SECTION_VOLUME_VERSION}`);
     if (!res.ok) throw new Error(`section volume ${res.status}`);
     const raw = await gunzip(await res.arrayBuffer());
     const dv = new DataView(raw);

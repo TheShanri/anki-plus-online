@@ -17,17 +17,17 @@ export type Tissue = "grey" | "white" | "csf";
  * "colour structures" is on (and in the section key then); otherwise a cut shows tissue: nuclei as grey matter,
  * tracts as white matter, ventricles as dark CSF, each outlined by a hairline.
  */
-export const DEEP: { id: string; tissue: Tissue; hue: string }[] = [
+export const DEEP: { id: string; tissue: Tissue; hue: string; shade?: number }[] = [
   { id: "corpus-callosum", tissue: "white", hue: "#e9dcc4" },
   { id: "fornix", tissue: "white", hue: "#e3cf9f" },
-  { id: "septum-pellucidum", tissue: "grey", hue: "#cfc3d6" },
+  { id: "septum-pellucidum", tissue: "grey", hue: "#cfc3d6", shade: 0.2 },
   { id: "anterior-commissure", tissue: "white", hue: "#ecd9a4" },
   { id: "mni-internal-capsule", tissue: "white", hue: "#efe4cc" },
   { id: "caudate-nucleus", tissue: "grey", hue: "#86a5c2" },
   { id: "putamen", tissue: "grey", hue: "#c4908c" },
-  { id: "globus-pallidus", tissue: "grey", hue: "#d6b47c" },
-  { id: "thalamus", tissue: "grey", hue: "#b79bc9" },
-  { id: "hypothalamus", tissue: "grey", hue: "#d29a78" },
+  { id: "globus-pallidus", tissue: "grey", hue: "#d6b47c", shade: 0.45 },
+  { id: "thalamus", tissue: "grey", hue: "#b79bc9", shade: 0.3 },
+  { id: "hypothalamus", tissue: "grey", hue: "#d29a78", shade: 0.15 },
   { id: "hippocampus", tissue: "grey", hue: "#86b79b" },
   { id: "amygdaloid-body", tissue: "grey", hue: "#c98484" },
   { id: "lateral-ventricle", tissue: "csf", hue: "#4f5d77" },
@@ -44,9 +44,10 @@ type PaintU = { uKind: { value: THREE.Vector3 }; uTint: { value: THREE.Color }; 
  * painted with the tissue at the point on the cutting plane, and clearing the stencil there so the section quad leaves it.
  * renderOrder 0.3: after the brain-solid stencil count (0.1, 0.2), before the section quads (0.5).
  */
-export function makeSectionPaint(tissue: Tissue): THREE.MeshBasicMaterial & { userData: { sec: PaintU } } {
+/** `shade` (0..1) moves a grey structure toward white: the pallidum and thalamus are paler than cortex in a fixed brain (more myelin). */
+export function makeSectionPaint(tissue: Tissue, shade = 0): THREE.MeshBasicMaterial & { userData: { sec: PaintU } } {
   const u: PaintU = {
-    uKind: { value: new THREE.Vector3(tissue === "grey" ? 1 : 0, tissue === "white" ? 1 : 0, tissue === "csf" ? 1 : 0) },
+    uKind: { value: new THREE.Vector3(tissue === "grey" ? 1 - shade : 0, tissue === "white" ? 1 : tissue === "grey" ? shade : 0, tissue === "csf" ? 1 : 0) },
     uTint: { value: new THREE.Color("#ffffff") },
     uTintAmt: { value: 0 },
   };

@@ -238,7 +238,7 @@ def report(v, vstep):
     json.dump(res, open(os.path.join(W, "dice.json"), "w"), indent=1)
 
 # ---------------------------------------------------------------- tissue volume
-def tissue(v, vstep, step=0.00075):
+def tissue(v, vstep, step=0.001):
     lo, shape = z_grid(step)
     # crop to the brain solid (+2 voxels)
     fm = resample_z_mask(FILL, lo, shape, step)
@@ -268,16 +268,20 @@ def tissue(v, vstep, step=0.00075):
     # Where the warped template still has caudate/putamen/pallidum/thalamus grey or ventricle CSF outside the matching mesh,
     # it would show as a doubled edge or a second ventricle beside the mesh: those voxels become white matter.
     zm = z_masks()
-    for g in ("caudate", "putamen", "pallidum", "thalamus", "latvent", "v3"):
+    for g in ("caudate", "putamen", "pallidum", "thalamus", "latvent"):  # not the third ventricle: a thin midline slit the mesh only half covers
         zk = ndi.binary_dilation(resample_z_mask(zm[g], lo, shape, step), iterations=1)
         rem = np.isin(lab, GROUPS[g]) & ~zk
-        x[rem] = np.maximum(x[rem], 200 if g in ("latvent", "v3") else 215)
+        x[rem] = np.maximum(x[rem], 200 if g == "latvent" else 215)
         log(f"  {g}: {int(rem.sum())} template voxels outside the mesh set to white matter")
     x = ndi.gaussian_filter(x, 0.6)
     # far outside the brain solid (never seen, only reached by clamped samples): one flat value, which also keeps the file small
     far = ndi.distance_transform_edt(~resample_z_mask(FILL, lo, shape, step)) * step > 0.004
     far[:, : int(0.012 / step), :] = False  # the band below the fill, where the medulla hangs
     x[far] = 215
+    # the Z-Anatomy medulla runs lower than the template brain: there, a pale brainstem tone (mostly white matter)
+    bs = ndi.binary_dilation(resample_z_mask(zm["brainstem"], lo, shape, step), iterations=2) & ~brainA
+    x[bs] = 185
+    log(f"  {int(bs.sum())} brainstem voxels below the template set to brainstem tone")
     vol = np.clip(np.round(x), 0, 255).astype(np.uint8)
     return vol, lo, step, lab, (30, 130, 220)
 
@@ -292,6 +296,12 @@ def write(vol, lo, step, anchors):
     out = os.path.join(ROOT, "public/atlas/section.bin.gz")
     with gzip.open(out, "wb", compresslevel=9) as f: f.write(data)
     log("wrote", out, os.path.getsize(out) // 1024, "KB")
+    # atlas files are cached for an hour (next.config.ts): the client asks for this exact version
+    import hashlib
+    ver = hashlib.sha1(data).hexdigest()[:10]
+    src = ("/** Content hash of public/atlas/section.bin.gz (written by tools/atlas/section_volume.py), used as a cache key. */\n"
+           f'export const SECTION_VOLUME_VERSION = "{ver}";\n')
+    open(os.path.join(ROOT, "src/components/atlas/section/version.ts"), "w", newline="\n").write(src)
 
 def previews(vol, lo, step):
     from PIL import Image
@@ -330,7 +340,7 @@ def previews(vol, lo, step):
 if __name__ == "__main__":
     v, vstep = register()
     if "--report" in sys.argv or REDO: report(v, vstep)
-    step = 0.00075
+    step = 0.001
     for a in sys.argv:
         if a.startswith("--step="): step = float(a.split("=")[1]) / 1000
     vol, lo, step, lab, anchors = tissue(v, vstep, step)

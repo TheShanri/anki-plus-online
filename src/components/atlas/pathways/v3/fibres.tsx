@@ -47,6 +47,7 @@ export function FibreLine({
   f,
   revealed,
   current,
+  over,
   alpha,
   hover,
   drawS,
@@ -58,6 +59,8 @@ export function FibreLine({
   f: FibreSpec;
   revealed: boolean;
   current: boolean;
+  /** a brain section (cut) beat: the neuron is drawn over the section's shells and cap, as a textbook figure draws it */
+  over?: boolean;
   alpha: number;
   hover: boolean;
   drawS: number;
@@ -117,11 +120,13 @@ export function FibreLine({
     const rm = built.rimL.material as LineMaterial;
     cm.linewidth = current || hover ? 4.2 : 3.2;
     rm.linewidth = current || hover ? 7.4 : 5.8;
+    cm.depthTest = !over;
+    rm.depthTest = !over;
     cm.opacity = alpha;
     rm.opacity = alpha * 0.92;
     rm.color.set(hover ? "#ffffff" : rim);
     invalidate();
-  }, [built, current, hover, alpha, rim, invalidate]);
+  }, [built, current, hover, alpha, rim, over, invalidate]);
   useFrame((_, dt) => {
     const target = revealed ? 1 : 0;
     const segs = f.pts.length - 1;

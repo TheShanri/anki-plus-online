@@ -681,6 +681,7 @@ export default function Scene3(p: Scene3Props) {
             f={f}
             revealed={f.beat <= p.reveal}
             current={f.beat === curBeat}
+            over={!!cutAxis && !stage.cut.cap && zones.brain && !(zones.spine || zones.arm || zones.leg || zones.trunk)}
             alpha={p.sideAlpha[f.side] > 0.5 ? (curBeat === null || f.beat === curBeat ? 1 : 0.82) : 0.16}
             hover={p.hoverKey === f.info}
             drawS={p.data.beats[f.beat]?.L?.f.length && (p.data.beats[f.beat] as unknown as { fork?: unknown }).fork ? FORK_S : DRAW_S}

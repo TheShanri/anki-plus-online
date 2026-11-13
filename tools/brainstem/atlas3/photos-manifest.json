@@ -118,5 +118,17 @@
  "atlas3/brainstem/pons-mid-histology-39c89fd7ad.webp": {
   "hash": "39c89fd7ad8fd1bbb534d47f",
   "bytes": 129190
+ },
+ "atlas3/brainstem/external-anterior-gross-9ef0b0b7ac.webp": {
+  "hash": "9ef0b0b7acaef93cae2a7389",
+  "bytes": 120608
+ },
+ "atlas3/brainstem/external-posterior-gross-1bb27f1e2d.webp": {
+  "hash": "1bb27f1e2ddc949c3ae12347",
+  "bytes": 98826
+ },
+ "atlas3/brainstem/pons-caudal-histology-618d857bb2.webp": {
+  "hash": "618d857bb242c242ce712dd2",
+  "bytes": 182436
  }
 }

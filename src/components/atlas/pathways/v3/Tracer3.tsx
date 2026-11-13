@@ -438,6 +438,10 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
     if (all || !neuron || order <= ni + 1) return neuron;
     const mapped = cp.neurons[order - 1];
     // (the basal ganglia SNc dopamine beat is coloured 3rd as a side input, but the map's 3rd neuron is the GPi: keep the beat's own card)
+    // (the basal ganglia SNc dopamine beat is coloured 3rd as a side input, but the map's 3rd neuron is the GPi: the card names the
+    // nigrostriatal neuron itself, so badge, colour and card agree)
+    if (slug === "basal-ganglia" && /substantia nigra|SNc/i.test(beat?.caption ?? ""))
+      return { ...neuron, order, cell_body: "substantia nigra pars compacta (SNc)", tract: "nigrostriatal fibres (dopamine)", synapse: "striatum: D1 excites the direct pathway, D2 inhibits the indirect", level: "", decussates: false };
     if (mapped) return slug === "basal-ganglia" ? neuron : mapped;
     // only where a path beat actually draws this order (the basal ganglia 4th neuron is a node with no path of its own: unchanged)
     const drawsOrder = (k: number) => bs.beats[k].kind === "path" && bs.beats[k].neuron === ni && (d?.beats[k]?.L ?? d?.beats[k]?.R)?.f[0]?.order === order;

@@ -22,6 +22,12 @@ import { fitDistance, frameBox } from "./ui/framing";
 import type { CamState } from "./ui/translate";
 import type { SkullFocus } from "@/lib/atlas/catalog";
 import { BrainstemBreathDriver, onBrainstemBreath } from "./brainstem/plate/pulse";
+import { SectionFace } from "./section/SectionFace";
+import { DEEP, SectionOutlines, addSectionPaint, makeSectionPaint, tintPaint } from "./section/deep";
+import { planeSection } from "./section/geometry";
+import { SECTION_PALETTE, sectionSwatch } from "./section/palette";
+import { insideTissue, setPalette, setSectionPlanes, setTissue } from "./section/shader";
+import { loadTissue } from "./section/tissue";
 
 export type AtlasMode = "focus" | "context";
 
@@ -530,98 +536,9 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
   });
 }
 
-/** The brain fill as plain world-space geometry: the glb is quantised (normalised-integer positions plus a node scale and offset), so both are baked into floats. */
-function bakeFill(fill: THREE.Object3D): THREE.BufferGeometry | null {
-  const gs: THREE.BufferGeometry[] = [];
-  fill.updateWorldMatrix(true, true);
-  fill.traverse((o) => {
-    const m = o as THREE.Mesh;
-    if (!m.isMesh) return;
-    const src = m.geometry.getAttribute("position");
-    const f = new Float32Array(src.count * 3);
-    for (let i = 0; i < src.count; i++) {
-      f[i * 3] = src.getX(i);
-      f[i * 3 + 1] = src.getY(i);
-      f[i * 3 + 2] = src.getZ(i);
-    }
-    const g = new THREE.BufferGeometry();
-    g.setAttribute("position", new THREE.BufferAttribute(f, 3));
-    if (m.geometry.index) g.setIndex(m.geometry.index.clone());
-    gs.push(g.applyMatrix4(m.matrixWorld));
-  });
-  const out = gs[0] ?? null;
-  out?.computeVertexNormals();
-  return out;
-}
+/** Midsagittal: the section face sits this far behind the plane, so the medial surface (cortex, thalamus, deep structures just off the midline) stays in front of it; it still paints the tissue on the plane. */
+const MID_DEPTH = 0.012;
 
-/** Solid cut faces: the watertight brain solid is stencil-counted behind each active cut plane, and a plane-sized quad paints where the count is odd. */
-function CutCap({ fill, planes, centre, color, ghost = false }: { fill: THREE.Group; planes: THREE.Plane[]; centre: THREE.Vector3; color: string; ghost?: boolean }) {
-  const geo = useMemo(() => {
-    return bakeFill(fill);
-  }, [fill]);
-  const quads = useRef<(THREE.Mesh | null)[]>([]);
-  const S = CAP_SCALE;
-  const parts = useMemo(() => {
-    if (!geo) return [];
-    return planes.map((pl, i) => {
-      const others = planes.filter((_, j) => j !== i);
-      const base = { colorWrite: false, depthWrite: false, depthTest: false, stencilWrite: true, stencilFunc: THREE.AlwaysStencilFunc, clippingPlanes: planes } as const;
-      const back = new THREE.MeshBasicMaterial({ ...base, side: THREE.BackSide, stencilFail: THREE.IncrementWrapStencilOp, stencilZFail: THREE.IncrementWrapStencilOp, stencilZPass: THREE.IncrementWrapStencilOp });
-      const front = new THREE.MeshBasicMaterial({ ...base, side: THREE.FrontSide, stencilFail: THREE.DecrementWrapStencilOp, stencilZFail: THREE.DecrementWrapStencilOp, stencilZPass: THREE.DecrementWrapStencilOp });
-      const cap = new THREE.MeshStandardMaterial({
-        color, emissive: color, emissiveIntensity: 0.4, roughness: 0.95, metalness: 0, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: others, transparent: ghost, opacity: ghost ? 0.93 : 1,
-        stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp,
-      });
-      return { pl, back, front, cap };
-    });
-  }, [geo, planes, color, ghost]);
-  useEffect(() => () => parts.forEach((p) => [p.back, p.front, p.cap].forEach((m) => m.dispose())), [parts]);
-  useFrame(() => {
-    parts.forEach((p, i) => {
-      const q = quads.current[i];
-      if (!q) return;
-      p.pl.projectPoint(centre, q.position);
-      q.position.addScaledVector(p.pl.normal, CAP_DEPTH);
-      q.lookAt(q.position.clone().add(p.pl.normal));
-    });
-  });
-  if (!geo) return null;
-  return (
-    <>
-      {parts.map((p, i) => (
-        <group key={i}>
-          <mesh geometry={geo} material={p.back} renderOrder={0.1 + i * 0.01} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
-          <mesh geometry={geo} material={p.front} renderOrder={0.2 + i * 0.01} scale={S} position={centre.clone().multiplyScalar(1 - S)} raycast={() => undefined} />
-          <mesh ref={(m) => { quads.current[i] = m; }} material={p.cap} renderOrder={0.5 + i * 0.01} raycast={() => undefined}>
-            <planeGeometry args={[0.6, 0.6]} />
-          </mesh>
-        </group>
-      ))}
-    </>
-  );
-}
-
-const CAP_SCALE = 0.985;
-/** The section face sits this far behind the cut plane, so anything lying on or just behind the plane (medial cortex, deep structures) stays in front of it. */
-const CAP_DEPTH = 0.012;
-/** Deep structures drawn inside a cut or the midsagittal view (loaded on the first cut): name, colour. Ventricles are dark spaces, white-matter tracts ivory; the pale section face is the white matter between them. */
-const DEEP: [id: string, colour: string][] = [
-  ["corpus-callosum", "#efe6d6"],
-  ["fornix", "#e6d3a8"],
-  ["septum-pellucidum", "#d8cde0"],
-  ["anterior-commissure", "#f1e4b8"],
-  ["mni-internal-capsule", "#f4ecda"],
-  ["caudate-nucleus", "#7fa6c9"],
-  ["putamen", "#c98f8f"],
-  ["globus-pallidus", "#e2b46c"],
-  ["thalamus", "#c3a0d6"],
-  ["hypothalamus", "#e5996a"],
-  ["hippocampus", "#7fc2a0"],
-  ["amygdaloid-body", "#d46a6a"],
-  ["lateral-ventricle", "#46546f"],
-  ["third-ventricle", "#46546f"],
-  ["fourth-ventricle", "#46546f"],
-];
 /** A cut mesh shows its inside flat in its own colour, so a section through a closed structure reads as solid tissue. */
 function flatInside(m: THREE.MeshStandardMaterial) {
   m.onBeforeCompile = (s) => {
@@ -633,7 +550,7 @@ function flatInside(m: THREE.MeshStandardMaterial) {
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 const INFLATE = { value: 0 };
-function inflate(m: THREE.MeshStandardMaterial) {
+function inflate(m: THREE.MeshStandardMaterial, onPlane = false) {
   m.onBeforeCompile = (s) => {
     s.uniforms.uInflate = INFLATE;
     s.vertexShader = "uniform float uInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uInflate;");
@@ -641,10 +558,10 @@ function inflate(m: THREE.MeshStandardMaterial) {
   const prev = m.onBeforeCompile;
   m.onBeforeCompile = (s, r) => {
     prev.call(m, s, r);
-    // a cut mesh shows its inside: flat, in its own colour, so a section reads as solid tissue of that structure
-    s.fragmentShader = s.fragmentShader.replace("#include <opaque_fragment>", "if (!gl_FrontFacing) outgoingLight = diffuseColor.rgb * 0.93;\n#include <opaque_fragment>");
+    // a cut mesh shows its inside: the section tissue on the plane (flat in its own colour until the tissue volume is in)
+    insideTissue(s, "outgoingLight = diffuseColor.rgb * 0.93;", onPlane);
   };
-  m.customProgramCacheKey = () => "atlas-inflate";
+  m.customProgramCacheKey = () => (onPlane ? "atlas-inflate-plane" : "atlas-inflate");
 }
 function setInflate(on: boolean) {
   INFLATE.value = on ? 0.0006 : 0;
@@ -655,7 +572,7 @@ function buildGrossMats(look: Look): Record<string, THREE.MeshStandardMaterial> 
   for (const g of GROUPS) {
     const color = look === "regions" ? LOBE_TINT[g] : (BRAIN_TINT[g] ?? CORTEX_TINT);
     out[g] = new THREE.MeshStandardMaterial({ color, vertexColors: true, roughness: 0.62, metalness: 0 });
-    inflate(out[g]);
+    inflate(out[g], g === "brainstem" || g === "cerebellum"); // their half-meshes have medial faces on the midline: those are section too
   }
   // meshes that are not on the syllabus: a desaturated, slightly lighter warm grey-pink (still "part of the brain"); the lock shows on hover
   out.locked = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#b8a9ab" : "#d8b8ab", vertexColors: true, roughness: 0.7, metalness: 0 });
@@ -1185,6 +1102,8 @@ function Scene({
   gross,
   fill,
   deep,
+  tissueOk,
+  colourCuts,
   structures,
   look,
   solid,
@@ -1233,6 +1152,10 @@ function Scene({
   gross: THREE.Group | null;
   fill: THREE.Group | null;
   deep: { id: string; g: THREE.Group }[] | null;
+  /** the section tissue volume is loaded (the section faces paint grey/white matter instead of a flat tone) */
+  tissueOk: boolean;
+  /** section option: deep structures tinted in their own colours instead of tissue tones */
+  colourCuts: boolean;
   structures: Record<string, AtlasEntry>;
   look: Look;
   solid: boolean;
@@ -1277,16 +1200,25 @@ function Scene({
   const accentHull = useMemo(() => makeHull("#" + accent.clone().multiplyScalar(1.15).getHexString(), 0.0024), [accent]);
   const grossHull = useMemo(() => makeHull("#6a4e46", 0.0008), []);
   const grossMats = useMemo(() => buildGrossMats(look), [look]);
+  const sectionLook = look === "regions" ? "regions" : "brain";
   const deepMats = useMemo(() => {
     const out: Record<string, THREE.MeshStandardMaterial> = {};
-    for (const [id, c] of DEEP) {
-      const m = new THREE.MeshStandardMaterial({ color: c, roughness: 0.6, metalness: 0, side: THREE.DoubleSide });
+    for (const d of DEEP) {
+      const m = new THREE.MeshStandardMaterial({ color: colourCuts ? d.hue : sectionSwatch(d.tissue, sectionLook), roughness: 0.8, metalness: 0, side: THREE.DoubleSide });
       flatInside(m);
-      out[id] = m;
+      out[d.id] = m;
     }
     return out;
-  }, []);
+  }, [colourCuts, sectionLook]);
   useEffect(() => () => Object.values(deepMats).forEach((m) => m.dispose()), [deepMats]);
+  // the cut face of each deep structure (and of a selected structure): tissue on the plane, see section/deep.tsx
+  const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue)])) as Record<string, THREE.MeshBasicMaterial>, []);
+  const targetPaint = useMemo(() => makeSectionPaint("grey"), []);
+  useEffect(() => () => [...Object.values(paintMats), targetPaint].forEach((m) => m.dispose()), [paintMats, targetPaint]);
+  useEffect(() => {
+    setPalette(SECTION_PALETTE[sectionLook]);
+    invalidate();
+  }, [sectionLook, tissueOk, invalidate]);
   const hoverMat = useMemo(
     () =>
       new THREE.MeshBasicMaterial({ color: hoverColor, transparent: true, opacity: 0.55, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }),
@@ -1568,6 +1500,9 @@ function Scene({
   }, [targetRoot, loaded.ctx, hiMat, ctxMat, invalidate]);
 
   const capPlanes = useMemo(() => [...(midsagittal ? [clipPlane] : []), ...(clip.axis !== "off" ? [cutP] : [])], [midsagittal, clip.axis, clipPlane, cutP]);
+  const sectionOn = !!fill && capPlanes.length > 0 && showCtx && look !== "xray" && !!gross && (brainOpacity ?? 1) >= 1;
+  const capDepth = useCallback((pl: THREE.Plane) => (pl === clipPlane ? MID_DEPTH : -0.0002), [clipPlane]);
+  useEffect(() => invalidate(), [tissueOk, invalidate]);
   // cut planes
   useEffect(() => {
     const gp: THREE.Plane[] = [];
@@ -1588,11 +1523,16 @@ function Scene({
     });
     setPlanes(backMat, gp);
     Object.values(deepMats).forEach((m) => setPlanes(m, gp, true));
+    for (const m of [...Object.values(paintMats), targetPaint]) {
+      m.clippingPlanes = gp;
+      m.needsUpdate = true;
+    }
+    setSectionPlanes(gp);
     setPlanes(boneMat, gp, true);
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, boneMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, boneMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
@@ -1609,12 +1549,13 @@ function Scene({
         m.material = deepMats[id];
         m.userData.gid = id;
         m.userData.deep = true;
-        m.renderOrder = 1;
+        m.renderOrder = 0.05; // before the section face, which covers whatever lies behind the plane
       });
       root.add(c);
     }
+    addSectionPaint(root, (m) => paintMats[m.userData.gid as string] ?? null);
     return root;
-  }, [deep, deepMats, hiddenIds]);
+  }, [deep, deepMats, paintMats, hiddenIds]);
   useEffect(() => {
     setGrossVisible(grossById, grossOn, hiddenIds);
     const list: THREE.Mesh[] = [];
@@ -1665,7 +1606,7 @@ function Scene({
       if (m && m.visible) {
         list.push(m);
         grossHover = true;
-      } else if (deepRoot) {
+      } else if (deepRoot && !sectionOn) {
         eachMesh(deepRoot, (d) => d.userData.gid === hover.id && list.push(d));
         grossHover = list.length > 0;
       }
@@ -1674,7 +1615,30 @@ function Scene({
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, layerRoots, perMesh, invalidate]);
+  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, layerRoots, perMesh, sectionOn, invalidate]);
+
+  // in a section, a hovered deep structure tints its own cut face (not its whole body behind the plane); a selected one is in the accent
+  useEffect(() => {
+    for (const d of DEEP) {
+      const m = paintMats[d.id];
+      if (hover?.id === d.id && !hover.key) tintPaint(m, hoverColor, 0.5);
+      else if (colourCuts) tintPaint(m, d.hue, 0.62);
+      else tintPaint(m, null, 0);
+    }
+    tintPaint(targetPaint, accent, 0.58);
+    invalidate();
+  }, [hover, hoverColor, colourCuts, accent, paintMats, targetPaint, invalidate]);
+  useEffect(() => {
+    if (!sectionOn) return;
+    const undo = addSectionPaint(targetRoot, () => targetPaint);
+    invalidate();
+    return () => {
+      undo();
+      invalidate();
+    };
+  }, [sectionOn, targetRoot, targetPaint, invalidate]);
+  const outlineRoots = useMemo(() => (sectionOn ? [deepRoot, targetRoot].filter((r): r is THREE.Group => !!r) : []), [sectionOn, deepRoot, targetRoot]);
+  const outlineKey = `${clip.axis}:${clip.t}:${clip.flip}:${midsagittal}:${clipRange[0]}:${clipRange[1]}`;
 
   // how much of the target can be seen from a direction (rays from the camera to sample points, blocked by the solid brain)
   useEffect(() => {
@@ -1740,8 +1704,9 @@ function Scene({
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
       {deepRoot && grossOn && <primitive object={deepRoot} />}
-      {fill && capPlanes.length > 0 && grossOn && (brainOpacity ?? 1) >= 1 && <CutCap fill={fill} planes={capPlanes} centre={centre} color={look === "regions" ? "#cfc6c9" : "#dcc3b6"} />}
-      {fill && capPlanes.length > 0 && look === "xray" && <CutCap ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
+      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={SECTION_PALETTE[sectionLook].wm} depth={capDepth} />}
+      {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" depth={() => MID_DEPTH} />}
+      {outlineRoots.length > 0 && <SectionOutlines roots={outlineRoots} planes={capPlanes} version={outlineKey} color={SECTION_PALETTE[sectionLook].line} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
       {guides.map((g, i) => (
@@ -2091,13 +2056,29 @@ export default function AtlasViewer({
   useEffect(() => {
     if (!cutNow || deep || deepFailed || !index) return;
     let alive = true;
-    Promise.all(DEEP.filter(([id]) => index.structures[id]?.file).map(([id]) => loadAtlasModel(index.structures[id].file as string).then((g) => ({ id, g }))))
+    Promise.all(DEEP.filter(({ id }) => index.structures[id]?.file).map(({ id }) => loadAtlasModel(index.structures[id].file as string).then((g) => ({ id, g }))))
       .then((r) => alive && setDeep(r))
       .catch(() => alive && setDeepFailed(true));
     return () => {
       alive = false;
     };
   }, [cutNow, deep, deepFailed, index]);
+  // the tissue volume the section faces paint (grey ribbon, white matter, sulci, ventricles): fetched with the deep structures
+  const [tissueOk, setTissueOk] = useState(false);
+  const [colourCuts, setColourCuts] = useState(false);
+  useEffect(() => {
+    if (!cutNow || tissueOk) return;
+    let alive = true;
+    loadTissue()
+      .then((t) => {
+        setTissue(t);
+        if (alive) setTissueOk(true);
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [cutNow, tissueOk]);
   const deepLoading = cutNow && !deep && !deepFailed;
   const [keyOpen, setKeyOpen] = useState(() => (typeof window === "undefined" ? true : window.innerWidth >= 640));
   // a narrow viewer (info panel open) drops the view name and the dividers so the bar stays on one row
@@ -2164,36 +2145,52 @@ export default function AtlasViewer({
     if (!ctxBox) return ax === "x" ? [-0.08, 0.08] : ax === "y" ? [1.53, 1.68] : [-0.11, 0.1];
     return [ctxBox.min[ax], ctxBox.max[ax]];
   }, [ctxBox, clip.axis]);
-  /** The deep structures a section shows: those the plane cuts, or that lie within 12 mm behind it. */
+  /** The structures a section shows: deep structures the cut actually passes through (or, midsagittal, that lie within 12 mm behind the midline), then brainstem and cerebellum. Swatches use the section's tissue tones unless "colour" is on. */
   const sectionKey = useMemo(() => {
     if (!cutNow || !deep || !index) return [] as { id: string; name: string; colour: string }[];
-    const planes: THREE.Plane[] = [];
-    if (view === "midsagittal" && !multi) planes.push(new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0));
-    if (clip.axis !== "off") {
-      const pl = new THREE.Plane();
-      cutPlane(clip.axis, clipRange[0] + clip.t * (clipRange[1] - clipRange[0]), clip.flip, pl);
-      planes.push(pl);
-    }
+    const mid = view === "midsagittal" && !multi ? new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0) : null;
+    const cut = clip.axis !== "off" ? new THREE.Plane() : null;
+    if (cut) cutPlane(clip.axis, clipRange[0] + clip.t * (clipRange[1] - clipRange[0]), clip.flip, cut);
+    const planes = [mid, cut].filter((p): p is THREE.Plane => !!p);
+    const sl = look === "regions" ? "regions" : "brain";
+    const pal = SECTION_PALETTE[sl];
     const out: { id: string; name: string; colour: string }[] = [];
-    const keyList: [string, string][] = [...DEEP, ["brainstem", look === "regions" ? LOBE_TINT.brainstem : (BRAIN_TINT.brainstem ?? CORTEX_TINT)], ["cerebellum", look === "regions" ? LOBE_TINT.cerebellum : (BRAIN_TINT.cerebellum ?? CORTEX_TINT)]];
-    for (const [id, colour] of keyList) {
-      const e = index.structures[id];
-      if (!e?.bbox) continue;
+    const behind = (e: AtlasEntry, pl: THREE.Plane, depth: number) => {
+      if (!e.bbox) return false;
       const [a, b] = e.bbox;
-      const ok = planes.every((pl) => {
-        let dmin = Infinity;
-        let dmax = -Infinity;
-        for (const x of [a[0], b[0]]) for (const y of [a[1], b[1]]) for (const z of [a[2], b[2]]) {
-          const d = pl.normal.x * x + pl.normal.y * y + pl.normal.z * z + pl.constant;
-          dmin = Math.min(dmin, d);
-          dmax = Math.max(dmax, d);
-        }
-        return dmax >= 0 && dmin <= 0.012;
+      let dmin = Infinity;
+      let dmax = -Infinity;
+      for (const x of [a[0], b[0]]) for (const y of [a[1], b[1]]) for (const z of [a[2], b[2]]) {
+        const d = pl.normal.x * x + pl.normal.y * y + pl.normal.z * z + pl.constant;
+        dmin = Math.min(dmin, d);
+        dmax = Math.max(dmax, d);
+      }
+      return dmax >= 0 && dmin <= depth;
+    };
+    const segs: number[] = [];
+    for (const d of DEEP) {
+      const e = index.structures[d.id];
+      const g = deep.find((x) => x.id === d.id)?.g;
+      if (!e || !g) continue;
+      let hit = false;
+      g.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (hit || !m.isMesh) return;
+        planes.forEach((pl, i) => {
+          segs.length = 0;
+          planeSection(m, pl, planes.filter((_, j) => j !== i), segs);
+          if (segs.length) hit = true;
+        });
       });
-      if (ok) out.push({ id, name: e.name, colour });
+      if (!hit && mid && !cut) hit = behind(e, mid, MID_DEPTH);
+      if (hit) out.push({ id: d.id, name: e.name, colour: colourCuts ? d.hue : sectionSwatch(d.tissue, sl) });
+    }
+    for (const id of ["brainstem", "cerebellum"]) {
+      const e = index.structures[id];
+      if (e && planes.every((pl) => behind(e, pl, pl === mid ? MID_DEPTH : 0))) out.push({ id, name: e.name, colour: `linear-gradient(135deg, ${pal.gm} 50%, ${pal.wm} 50%)` });
     }
     return out;
-  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look]);
+  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts]);
   const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
@@ -2249,7 +2246,8 @@ export default function AtlasViewer({
   }, [gross, index]);
   const allSurface =
     !!shown && (shown.targetIds.length + shown.ovl.length === 0 || [...shown.targetIds, ...shown.ovl.flatMap((o) => o.ids)].every((id) => grossIds.has(id)));
-  const solid = look === "xray" ? false : (solidPref ?? allSurface);
+  // a cut shows a deep selection in its section (accent cut face), so the brain stays solid there
+  const solid = look === "xray" ? false : (solidPref ?? (allSurface || cutNow));
 
   const lockedSet = useMemo(() => {
     const s = new Set<string>();
@@ -2525,6 +2523,8 @@ export default function AtlasViewer({
             gross={gross}
             fill={fill}
             deep={cutNow ? deep : null}
+            tissueOk={tissueOk}
+            colourCuts={colourCuts}
             structures={index.structures}
             look={look}
             solid={solid}
@@ -2659,6 +2659,12 @@ export default function AtlasViewer({
                   </li>
                 ))}
               </ul>
+            )}
+            {keyOpen && (
+              <label className="mt-0.5 flex cursor-pointer items-center gap-1.5 border-t border-panel-border pt-1 text-[11px] text-text-dim">
+                <input type="checkbox" className="accent-[var(--accent)]" checked={colourCuts} onChange={(e) => setColourCuts(e.target.checked)} />
+                Colour structures
+              </label>
             )}
           </div>
         )}

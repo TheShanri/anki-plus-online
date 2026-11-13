@@ -437,12 +437,18 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   const cardNeuron = (() => {
     if (all || !neuron || order <= ni + 1) return neuron;
     const mapped = cp.neurons[order - 1];
-    if (mapped) return mapped;
+    // (the basal ganglia SNc dopamine beat is coloured 3rd as a side input, but the map's 3rd neuron is the GPi: keep the beat's own card)
+    if (mapped) return slug === "basal-ganglia" ? neuron : mapped;
     // only where a path beat actually draws this order (the basal ganglia 4th neuron is a node with no path of its own: unchanged)
+    const drawsOrder = (k: number) => bs.beats[k].kind === "path" && bs.beats[k].neuron === ni && (d?.beats[k]?.L ?? d?.beats[k]?.R)?.f[0]?.order === order;
     let li = cur;
     while (li >= 0 && !(bs.beats[li].kind === "path" && bs.beats[li].neuron === ni)) li--;
-    const lb = li >= 0 ? d?.beats[li] : undefined;
-    if ((lb?.L ?? lb?.R)?.f[0]?.order !== order) return neuron;
+    // the soma beat of that neuron (before its axon is drawn) takes the card from the path beat that follows
+    if (li < 0 || !drawsOrder(li)) {
+      li = cur + 1;
+      while (li < bs.beats.length && !(bs.beats[li].kind === "path" && bs.beats[li].neuron === ni)) li++;
+      if (li >= bs.beats.length || !drawsOrder(li)) return neuron;
+    }
     const last = bs.beats[li];
     const m = /^(.*?)\s+to\s+(?:the\s+)?(.+)$/i.exec(last?.caption ?? "");
     return { ...neuron, order, cell_body: neuron.synapse.replace(/\s*\(monosynaptic\)/i, ""), tract: m?.[1] ?? last?.caption ?? neuron.tract, synapse: m?.[2] ?? "", level: "", decussates: false };

@@ -2573,6 +2573,7 @@ export default function AtlasViewer({
           enableDamping
           dampingFactor={0.12}
           screenSpacePanning
+          zoomToCursor
           minDistance={0.05}
           maxDistance={1.2}
           touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}

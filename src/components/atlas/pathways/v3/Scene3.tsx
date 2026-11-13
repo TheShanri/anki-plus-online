@@ -4,6 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import * as THREE from "three";
 import { Canvas, useThree } from "@react-three/fiber";
 import { TrackballControls } from "@react-three/drei";
+import { ZoomToCursor } from "../zoomToCursor";
 import { RotateCcw } from "lucide-react";
 import { FIELD_COLORS, GUIDE_COLORS, ORDER_COLORS } from "@/lib/atlas/pathwayPalette";
 import { atlasName, bodyGeometry, carvedGeometry, contextGeometry, fillGeometry, hostGeometry, partObjects } from "./geometry";
@@ -650,6 +651,7 @@ export default function Scene3(p: Scene3Props) {
         <directionalLight position={[-1.4, 1.2, -0.8]} intensity={0.75} />
         <directionalLight position={[0.2, 0.4, -2]} intensity={0.55} />
         <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={1.6} panSpeed={0.8} minDistance={0.015} maxDistance={3.5} keys={["F13", "F14", "F15"]} domElement={mainEl ?? undefined} />
+        <ZoomToCursor el={mainEl} />
         <Rig box={stableBox} view={stableView} nonce={p.frameNonce} resetKey={p.resetKey} onLock={setLocked} />
         {p.multi && <MultiRender panes={panes} />}
         {layers.map((l) => {

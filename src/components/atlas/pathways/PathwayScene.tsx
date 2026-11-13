@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { TrackballControls } from "@react-three/drei";
+import { ZoomToCursor } from "./zoomToCursor";
 import { loadAtlasIndex, resolveStructureIds } from "@/lib/atlas";
 import type { AtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel, releaseAtlasCache, retainAtlasCache } from "@/lib/atlas/loader";
@@ -778,6 +779,7 @@ export default function PathwayScene(p: SceneProps) {
         <directionalLight position={[-2, 1, -2]} intensity={0.7} />
         {/* a trackball: free rotation on both axes, no pole stops */}
         <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={2.4} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
+        <ZoomToCursor el={null} />
         <Rig box={box} view={p.view} nonce={p.frameNonce} resetKey={p.resetKey} onLock={setViewLocked} />
         {index && <ContextShell file={index.context.file} color={p.colors.dim} />}
         {p.anatomy?.map((a) => (

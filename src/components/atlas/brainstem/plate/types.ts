@@ -58,6 +58,10 @@ export interface PlateData {
   photo?: { key: string; w: number; h: number; kind: "histology" | "gross"; src?: string };
   /** false: a one-sided drawing (midsagittal, lateral view); every region is drawn once ("M") where it lies */
   sym?: boolean;
+  /** drawing detail without a structure of its own (sulci, striations, folia, the arbor vitae): never hoverable */
+  detail?: { d: string; k: "line" | "fine" | "core" }[];
+  /** a schematic redrawn from an open atlas because the course has no image of this view */
+  schematic?: string;
   /** "surface": a surface view or a midsagittal cut instead of a transverse section */
   view?: "section" | "surface";
   sources?: Record<string, unknown>;

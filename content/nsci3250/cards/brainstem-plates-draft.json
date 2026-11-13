@@ -5566,5 +5566,238 @@
    "unit:u2",
    "kind:pin"
   ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-optic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "optic-tract",
+  "status": "draft",
+  "position": 13138,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Optic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "optic tracts"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "optic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "optic-tract:lesion",
+   "optic-tract:connections",
+   "optic-tract:order"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-mammillary-bodies",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "mammillary-bodies",
+  "status": "draft",
+  "position": 13139,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Mammillary bodies",
+  "answer_kind": "structure",
+  "accept": [
+   "mammillary body",
+   "mamillary bodies",
+   "mamillary body"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "mammillary-bodies"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "mammillary-bodies:function",
+   "mammillary-bodies:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-optic-chiasm",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "optic-chiasm",
+  "status": "draft",
+  "position": 13140,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Optic chiasm",
+  "answer_kind": "structure",
+  "accept": [
+   "optic chiasma",
+   "chiasm"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "optic-chiasm"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "optic-chiasm:lesion",
+   "optic-chiasm:connections",
+   "optic-chiasm:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-pituitary-stalk",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pituitary-stalk",
+  "status": "draft",
+  "position": 13141,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Pituitary stalk",
+  "answer_kind": "structure",
+  "accept": [
+   "infundibulum",
+   "infundibular stalk",
+   "infundibular stem",
+   "hypophyseal stalk"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "pituitary-stalk"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pituitary-stalk:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-pontine-protuberance",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pontine-protuberance",
+  "status": "draft",
+  "position": 13142,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Pontine protuberance",
+  "answer_kind": "structure",
+  "accept": [
+   "basilar pons",
+   "basis pontis",
+   "ventral pons"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "pontine-protuberance"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pontine-protuberance:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-obex",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "obex",
+  "status": "draft",
+  "position": 13143,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Obex",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "obex"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "obex:level"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
  }
 ]

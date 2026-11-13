@@ -110,6 +110,9 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
       {nerves.map((r) => (
         <path key={r.id} d={r.d} className="bsp-wm bsp-wm-nerve" fillRule="evenodd" />
       ))}
+      {(plate.detail ?? []).map((x, i) => (
+        <path key={`x${i}`} d={x.d} className={`bsp-detail bsp-detail-${x.k}`} />
+      ))}
       {[...white, ...grey, ...nerves].map((r) => (
         <path key={r.id} d={r.d} className={r.approx ? "bsp-line bsp-approx" : "bsp-line"} fillRule="evenodd" />
       ))}
@@ -261,7 +264,7 @@ export function PlateArt({ plate, view: askedView, hot, hotSide, selected, lit, 
   return (
     <svg
       viewBox={vb}
-      className={`bsp${pulse ? " bsp-pulsing" : ""}${className ? " " + className : ""}`}
+      className={`bsp${plate.view === "surface" ? " bsp-surface" : ""}${pulse ? " bsp-pulsing" : ""}${className ? " " + className : ""}`}
       role={interactive ? "group" : "img"}
       aria-label={ariaLabel ?? "Brainstem section plate"}
       ref={svgRef}

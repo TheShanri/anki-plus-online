@@ -479,3 +479,84 @@ EXTRAS.update({
         },
     },
 })
+
+
+# The ventral regions below the midbrain were authored on the photo before surface_canon.py straightened the bent
+# specimen: carry them through the same row shift (x_new = x_old - shift(y)); points on the midline seam stay put.
+def _carry_straightening(level, keys):
+    import json as _json, os as _os
+    from paths import BASE as _B
+    f = f"{_B}/levels/{level}/canon.json"
+    if not _os.path.exists(f):
+        return
+    sh = _json.load(open(f)).get("shift") or [0]
+
+    def s_at(y):
+        i = max(0.0, min(len(sh) - 1.0, y / 10.0))
+        a = int(i)
+        b = min(a + 1, len(sh) - 1)
+        return sh[a] + (sh[b] - sh[a]) * (i - a)
+
+    def tf(p):
+        x, y = p
+        return [x if x <= 505 else round(x - s_at(y), 1), y]
+
+    lv = EXTRAS[level]
+    for k in keys:
+        e = lv[k]
+        if "pts" in e:
+            e["pts"] = [tf(p) for p in e["pts"]]
+        if "ellipse" in e:
+            cx, cy = e["ellipse"][:2]
+            e["ellipse"][0] = tf([cx, cy])[0]
+    for k, e in lv.get("_fibres", {}).items():
+        e["paths"] = [[tf(p) for p in path] for path in e["paths"]]
+
+
+_carry_straightening("external-anterior", ["pons", "medulla", "transverse-fibers-of-the-pons", "middle-cerebellar-peduncle", "trigeminal-nerve",
+                                           "abducens-nerve", "facial-nerve", "vestibulocochlear-nerve", "pyramids", "olives", "hypoglossal-nerve",
+                                           "glossopharyngeal-nerve", "vagus-nerve", "motor-decussation"])
+# the midbrain level, re-read on the straightened photo (Lab 7 'Landmarks of Ventral Midbrain' marks carried over)
+EXTRAS["external-anterior"].update({
+    "midbrain": {**EXTRAS["external-anterior"]["midbrain"], "pts": [[500, 236], [600, 224], [690, 238], [765, 296], [800, 360], [796, 412], [740, 444], [640, 446], [560, 432], [500, 405]]},
+    "cerebral-peduncles": {**EXTRAS["external-anterior"]["cerebral-peduncles"],
+                           "pts": [[526, 332], [556, 266], [618, 228], [690, 240], [760, 298], [795, 358], [790, 408], [742, 438], [680, 448], [610, 442], [560, 428], [532, 400]]},
+    "oculomotor-nerve": {**EXTRAS["external-anterior"]["oculomotor-nerve"],
+                         "pts": [[575, 270], [615, 262], [655, 275], [672, 310], [668, 350], [650, 372], [610, 378], [580, 362], [568, 320]]},
+    "interpeduncular-fossa": {**EXTRAS["external-anterior"]["interpeduncular-fossa"], "pts": [[500, 322], [528, 330], [520, 385], [500, 420]]},
+    "interpeduncular-cistern": {**EXTRAS["external-anterior"]["interpeduncular-cistern"], "pts": [[500, 300], [548, 305], [546, 360], [526, 410], [500, 440]]},
+    "mammillary-bodies": {"ellipse": [537, 293, 28, 25, 0], "tissue": "grey", "approx": False, "src": [L7V, L8S],
+                          "note": "The paired bumps behind the infundibulum (hypothalamus), in front of the interpeduncular fossa."},
+    "pituitary-stalk": {"ellipse": [500, 226, 26, 18, 0], "midline": True, "tissue": "grey", "src": [L8S + " ('Infundibulum')", "Lab 2 (course)"],
+                        "note": "The cut stalk of the pituitary (infundibulum), between the optic chiasm and the mammillary bodies."},
+    "optic-chiasm": {"pts": [[500, 176], [548, 178], [552, 214], [500, 210]], "midline": True, "tissue": "white", "src": [L8S, "Lab 7 (course)"],
+                     "note": "Where the optic nerves cross, in front of the infundibulum (diencephalon)."},
+    "optic-tract": {"pts": [[548, 184], [606, 186], [666, 210], [726, 246], [776, 288], [762, 304], [704, 270], [644, 240], [586, 222], [552, 214]],
+                    "tissue": "white", "src": [L8S, "Lab 7 (course)"], "note": "From the chiasm back around the cerebral peduncle (diencephalon)."},
+})
+for _k in ("transverse-fibers-of-the-pons", "pons"):
+    EXTRAS["external-anterior"][_k]["pts"][0] = [500, 404]
+EXTRAS["external-anterior"]["oculomotor-nerve"]["approx"] = False
+EXTRAS["external-anterior"]["cerebral-peduncles"]["clip_out"] = ["oculomotor-nerve"]
+EXTRAS["external-anterior"]["cerebral-peduncles"]["anchor_out"] = ["oculomotor-nerve"]
+
+# Drawing lines without a structure of their own (mirrored unless "mid"): sulci, striations, grooves.
+EXTRAS["external-anterior"]["_detail"] = (
+    [{"pts": [[500, 404], [500, 600], [500, 792]], "mid": True},  # basilar sulcus of the pons
+     {"pts": [[500, 798], [500, 1000], [500, 1230]], "mid": True},  # anterior median fissure
+     {"pts": [[586, 800], [585, 880], [588, 958]]},  # preolivary sulcus (XII)
+     {"pts": [[631, 806], [636, 880], [626, 956]]},  # postolivary sulcus (IX, X)
+     {"pts": [[505, 797], [560, 795], [600, 797], [640, 791], [690, 774]]}]  # pontomedullary junction
+    + [{"pts": [[505, y], [560, y + 4], [622, y + 2], [672, y - 8]], "k": "fine"} for y in range(428, 780, 24)]  # transverse striations
+    + [{"pts": p, "k": "fine"} for p in ([[548, 410], [620, 330], [700, 262]], [[580, 430], [660, 350], [740, 290]], [[620, 442], [700, 372], [775, 332]])]
+)
+EXTRAS["external-posterior"]["_detail"] = (
+    [{"pts": [[500, 650], [500, 800], [500, 934]], "mid": True},  # median sulcus of the fourth ventricle floor
+     {"pts": [[500, 952], [500, 1100], [500, 1250]], "mid": True},  # posterior median sulcus
+     {"pts": [[500, 352], [500, 430], [500, 505]], "mid": True},  # between the colliculi
+     {"pts": [[505, 437], [560, 441], [606, 432]]},  # between superior and inferior colliculus
+     {"pts": [[522, 662], [548, 702], [560, 762], [552, 822], [530, 882], [510, 926]], "k": "fine"},  # sulcus limitans
+     {"pts": [[505, 796], [540, 793], [575, 801], [592, 808]], "k": "fine"},  # striae medullares
+     {"pts": [[505, 809], [545, 807], [586, 816]], "k": "fine"},
+     {"pts": [[570, 975], [566, 1060], [560, 1150], [556, 1240]], "k": "fine"}]  # posterior intermediate sulcus
+)

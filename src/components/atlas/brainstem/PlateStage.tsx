@@ -105,7 +105,7 @@ export function PlateStage({
       <div className="bsp-tools" role="toolbar" aria-label="Plate view">
         <Seg
           label="View"
-          value={prefs.view}
+          value={ready && !hasPhoto ? "illustration" : prefs.view}
           onChange={(v) => save({ ...prefs, view: v })}
           options={[
             { id: "split", label: "Split", icon: Columns2, disabled: !!ready && !hasPhoto, title: hasPhoto ? "Illustration and photo, split at the midline" : "No course photo published for this view" },
@@ -115,11 +115,11 @@ export function PlateStage({
         />
         <Seg
           label={surface ? "Specimen" : "Section stain"}
-          value={surface ? "gross" : "histology"}
+          value={!hasPhoto && ready ? ("" as "gross") : surface ? "gross" : "histology"}
           onChange={() => undefined}
           options={[
             { id: "histology", label: "Histology", icon: Microscope, disabled: surface, title: surface ? "A surface view: no stained section" : "Myelin-stained section (Weil)" },
-            { id: "gross", label: "Gross", icon: Brain, disabled: !surface, title: surface ? "Gross specimen (Lab 7)" : "Gross: no gross section of this level in the course or the open atlases" },
+            { id: "gross", label: "Gross", icon: Brain, disabled: !surface || !hasPhoto, title: surface ? (hasPhoto ? "Gross specimen (Lab 7)" : "No course photo published for this view") : "Gross: no gross section of this level in the course or the open atlases" },
           ]}
         />
         <button type="button" className={`bs-ib${prefs.labels ? " bs-on" : ""}`} aria-pressed={prefs.labels} title="Atlas labels (L)" aria-label="Atlas labels (L)" onClick={() => save({ ...prefs, labels: !prefs.labels })}>
@@ -127,6 +127,7 @@ export function PlateStage({
         </button>
       </div>
       <div className="bsp-frame">
+        {ready?.schematic && <div className="bsp-schematic">{ready.schematic}</div>}
         {ready ? (
           <div key={cur} className="bs-fade-in">
             <PlateArt

@@ -1016,19 +1016,19 @@
      "source": "course"
     },
     {
-     "slug": "middle-cerebellar-peduncle",
-     "source": "course"
-    },
-    {
-     "slug": "cerebral-peduncles",
-     "source": "course"
-    },
-    {
      "slug": "olives",
      "source": "course"
     },
     {
+     "slug": "middle-cerebellar-peduncle",
+     "source": "course"
+    },
+    {
      "slug": "cerebellar-peduncles",
+     "source": "course"
+    },
+    {
+     "slug": "cerebral-peduncles",
      "source": "course"
     },
     {
@@ -1060,19 +1060,19 @@
      "source": "course"
     },
     {
-     "slug": "vestibulocochlear-nerve",
-     "source": "course"
-    },
-    {
-     "slug": "facial-nerve",
-     "source": "course"
-    },
-    {
      "slug": "medial-geniculate-nucleus",
      "source": "course"
     },
     {
      "slug": "glossopharyngeal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "vestibulocochlear-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "facial-nerve",
      "source": "course"
     },
     {
@@ -1142,6 +1142,10 @@
      "source": "course"
     },
     {
+     "slug": "pontine-protuberance",
+     "source": "course"
+    },
+    {
      "slug": "cerebral-aqueduct",
      "source": "course"
     },
@@ -1159,6 +1163,10 @@
     },
     {
      "slug": "mesencephalic-flexure",
+     "source": "course"
+    },
+    {
+     "slug": "obex",
      "source": "course"
     }
    ]

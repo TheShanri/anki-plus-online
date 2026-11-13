@@ -44,7 +44,7 @@
       "R"
      ],
      "approx": false,
-     "area": 93569
+     "area": 116346
     },
     "external-posterior": {
      "sides": [
@@ -52,21 +52,21 @@
       "R"
      ],
      "approx": true,
-     "area": 11310
+     "area": 10318
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 49646
+     "area": 46419
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 14810
+     "area": 28121
     }
    }
   },
@@ -104,7 +104,7 @@
       "M"
      ],
      "approx": true,
-     "area": 15413
+     "area": 4514
     }
    }
   },
@@ -161,7 +161,7 @@
       "M"
      ],
      "approx": true,
-     "area": 1691
+     "area": 1696
     }
    }
   },
@@ -268,14 +268,14 @@
       "M"
      ],
      "approx": true,
-     "area": 10362
+     "area": 8962
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 5514
+     "area": 9924
     }
    }
   },
@@ -427,14 +427,14 @@
       "R"
      ],
      "approx": true,
-     "area": 15520
+     "area": 12174
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 6527
+     "area": 6080
     }
    }
   },
@@ -459,7 +459,7 @@
       "M"
      ],
      "approx": false,
-     "area": 25953
+     "area": 29223
     }
    }
   },
@@ -479,7 +479,7 @@
       "R"
      ],
      "approx": false,
-     "area": 19980
+     "area": 22932
     }
    }
   },
@@ -545,14 +545,14 @@
       "M"
      ],
      "approx": true,
-     "area": 10755
+     "area": 9530
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 2890
+     "area": 7753
     }
    }
   },
@@ -588,7 +588,7 @@
       "R"
      ],
      "approx": false,
-     "area": 180915
+     "area": 196068
     }
    }
   },
@@ -655,7 +655,7 @@
       "R"
      ],
      "approx": true,
-     "area": 39894
+     "area": 47600
     },
     "external-posterior": {
      "sides": [
@@ -663,14 +663,14 @@
       "R"
      ],
      "approx": false,
-     "area": 40906
+     "area": 39876
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 36621
+     "area": 33452
     }
    }
   },
@@ -691,6 +691,13 @@
      ],
      "approx": false,
      "area": 165617
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 99236
     }
    }
   },
@@ -717,7 +724,7 @@
       "M"
      ],
      "approx": false,
-     "area": 26147
+     "area": 42063
     }
    }
   },
@@ -745,14 +752,14 @@
       "R"
      ],
      "approx": false,
-     "area": 23363
+     "area": 19414
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 39969
+     "area": 31189
     }
    }
   },
@@ -784,14 +791,14 @@
       "M"
      ],
      "approx": false,
-     "area": 59709
+     "area": 56402
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": false,
-     "area": 34064
+     "area": 66671
     }
    }
   },
@@ -835,14 +842,14 @@
       "R"
      ],
      "approx": false,
-     "area": 16064
+     "area": 14939
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 11244
+     "area": 9914
     }
    }
   },
@@ -860,7 +867,7 @@
       "M"
      ],
      "approx": false,
-     "area": 252177
+     "area": 372542
     }
    }
   },
@@ -908,14 +915,14 @@
       "R"
      ],
      "approx": false,
-     "area": 18210
+     "area": 15120
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 18573
+     "area": 15482
     }
    }
   },
@@ -1014,14 +1021,14 @@
       "R"
      ],
      "approx": false,
-     "area": 3232
+     "area": 2662
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 2674
+     "area": 1546
     }
    }
   },
@@ -1041,14 +1048,14 @@
       "R"
      ],
      "approx": false,
-     "area": 6698
+     "area": 6986
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 2876
+     "area": 1792
     }
    }
   },
@@ -1068,7 +1075,7 @@
       "R"
      ],
      "approx": false,
-     "area": 6670
+     "area": 4673
     }
    }
   },
@@ -1087,7 +1094,7 @@
       "M"
      ],
      "approx": true,
-     "area": 5268
+     "area": 6754
     }
    }
   },
@@ -1123,21 +1130,21 @@
       "R"
      ],
      "approx": false,
-     "area": 94596
+     "area": 83570
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 15196
+     "area": 14739
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": false,
-     "area": 27463
+     "area": 36226
     }
    }
   },
@@ -1273,14 +1280,14 @@
       "R"
      ],
      "approx": true,
-     "area": 14622
+     "area": 13728
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 4222
+     "area": 3165
     }
    }
   },
@@ -1300,14 +1307,14 @@
       "R"
      ],
      "approx": true,
-     "area": 13452
+     "area": 11307
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 2255
+     "area": 1701
     }
    }
   },
@@ -1327,7 +1334,7 @@
       "R"
      ],
      "approx": false,
-     "area": 4362
+     "area": 3221
     },
     "external-lateral": {
      "sides": [
@@ -1432,7 +1439,7 @@
       "M"
      ],
      "approx": true,
-     "area": 3175
+     "area": 3012
     }
    }
   },
@@ -1602,14 +1609,14 @@
       "M"
      ],
      "approx": false,
-     "area": 142542
+     "area": 140919
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": false,
-     "area": 74641
+     "area": 107076
     }
    }
   },
@@ -1620,21 +1627,21 @@
       "M"
      ],
      "approx": false,
-     "area": 164579
+     "area": 189191
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": false,
-     "area": 151650
+     "area": 142160
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": false,
-     "area": 114832
+     "area": 156919
     }
    }
   },
@@ -1645,14 +1652,14 @@
       "M"
      ],
      "approx": false,
-     "area": 117731
+     "area": 132889
     },
     "midsagittal": {
      "sides": [
       "M"
      ],
      "approx": false,
-     "area": 61276
+     "area": 86977
     }
    }
   },
@@ -1664,14 +1671,14 @@
       "R"
      ],
      "approx": false,
-     "area": 17053
+     "area": 16366
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 8418
+     "area": 8684
     }
    }
   },
@@ -1682,7 +1689,53 @@
       "M"
      ],
      "approx": true,
-     "area": 25672
+     "area": 12562
+    }
+   }
+  },
+  "optic-tract": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 51135
+    }
+   }
+  },
+  "mammillary-bodies": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 5601
+    }
+   }
+  },
+  "optic-chiasm": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 3622
+    }
+   }
+  },
+  "pituitary-stalk": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 1849
     }
    }
   },
@@ -1694,7 +1747,7 @@
       "R"
      ],
      "approx": true,
-     "area": 69126
+     "area": 61825
     }
    }
   },
@@ -1725,14 +1778,14 @@
       "R"
      ],
      "approx": false,
-     "area": 7064
+     "area": 7115
     },
     "external-lateral": {
      "sides": [
       "M"
      ],
      "approx": true,
-     "area": 2842
+     "area": 2560
     }
    }
   },
@@ -1754,7 +1807,7 @@
       "M"
      ],
      "approx": true,
-     "area": 1449
+     "area": 912
     }
    }
   },
@@ -1766,6 +1819,13 @@
      ],
      "approx": false,
      "area": 271
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 228
     }
    }
   },
@@ -1787,7 +1847,7 @@
       "M"
      ],
      "approx": true,
-     "area": 9458
+     "area": 4351
     }
    }
   }

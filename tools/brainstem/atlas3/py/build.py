@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 from levels_cfg import LEVELS, SURFACES
 from prep import BASE
-from geom import SS, mask_paths, curve, raster, mirror_pts, anchor, centroid
+from geom import SS, mask_paths, curve, raster, mirror_pts, anchor, centroid, resample, smooth
 try:
     from extras import EXTRAS
 except ImportError:
@@ -159,6 +159,8 @@ def build(level):
             pts = [[cx + rx * math.cos(a) * c - ry * math.sin(a) * s_, cy + rx * math.cos(a) * s_ + ry * math.sin(a) * c] for a in t]
         else:
             pts = e["pts"]
+            if level in SURFACES:  # surface outlines are organic: authored polygons become smooth curves
+                pts = smooth(resample(pts, 3.0, True), e.get("soft", 3.0), True).tolist()
         kind = e.get("tissue") or tissue_of(slug)
         m = raster([pts], tissue.shape)
         if "pale" in e:  # grey matter as the section shows it: the unstained (pale) tissue inside the polygon
@@ -228,6 +230,10 @@ def build(level):
     cv2.imwrite(f"{BASE}/levels/{level}/density.png", photo)
     cv2.imwrite(f"{BASE}/levels/{level}/density.webp", photo, [cv2.IMWRITE_WEBP_QUALITY, 88])
 
+    detail = []
+    for x in ex.get("_detail", []):  # drawing lines without a structure (sulci, striations), mirrored unless on the midline
+        for pts in [x["pts"]] + ([] if x.get("mid") else [mirror_pts(x["pts"])]):
+            detail.append({"d": curve(pts, x.get("closed", False), step=2.0, sigma=1.2, eps=0.25), "k": x.get("k", "line")})
     plate = {
         "level": level,
         "viewBox": [0, 0, W, H],
@@ -238,6 +244,7 @@ def build(level):
         "regions": sorted(regions, key=lambda r: -abs(cv2.contourArea(np.zeros((1, 1, 2), np.float32)))),
         "fibres": fibres,
         "photo": {"w": w2, "h": h2},
+        **({"detail": detail} if detail else {}),
     }
     # big regions first so small ones sit on top (hover)
     areas = {}

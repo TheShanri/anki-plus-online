@@ -26,59 +26,74 @@ def ell(cx, cy, rx, ry, rot=0, n=48):
 
 FREE = {
     "midsagittal": {
-        "W": 1000, "H": 800, "orient": "anterior left",
+        # frame: Sobotta 1909 fig. 648 (public domain), unit = (figure px - 330) * 1.4925, anterior to the left; the
+        # divisions where the course's Lab 2 photo puts them (midbrain above the pons bulge, medulla below the bulge)
+        "W": 1000, "H": 1050, "orient": "anterior left", "outline_soft": 5.0,
         "outline": [
-            # brainstem
-            [[212, 98], [260, 80], [330, 64], [395, 60], [432, 78], [458, 110], [466, 145], [472, 175], [462, 210], [450, 232], [452, 236],
-             [480, 170], [520, 120], [600, 70], [700, 72], [790, 120], [850, 210], [868, 320], [850, 430], [805, 520], [740, 590], [660, 640],
-             [580, 660], [520, 640], [484, 598], [474, 600], [482, 690], [490, 760], [350, 770], [338, 700], [318, 620], [295, 545], [280, 490],
-             [210, 470], [165, 440], [135, 390], [122, 330], [128, 270], [150, 235], [200, 222], [212, 170], [210, 130]],
+            [[190, 118], [260, 112], [330, 112], [395, 114], [424, 138], [442, 188], [432, 236], [446, 282], [430, 330], [414, 372],
+             # cerebellum (outer contour), joined to the brainstem through the medullary vela
+             [440, 320], [480, 252], [560, 192], [640, 170], [705, 176], [765, 255], [830, 395], [900, 515], [932, 600], [912, 700], [852, 790],
+             [762, 860], [662, 900], [562, 912], [478, 892], [424, 862], [408, 880],
+             [404, 940], [396, 1000], [300, 1010], [250, 960], [214, 860], [184, 760], [165, 690], [122, 642], [86, 562], [70, 470], [80, 380],
+             [110, 300], [150, 262], [174, 216], [188, 170]],
         ],
         "regions": {
-            "midbrain": {"pts": [[150, 30], [520, 30], [470, 232], [150, 224]], "tissue": "landmark", "approx": False, "brainstem": True,
+            "midbrain": {"pts": [[150, 100], [440, 100], [452, 300], [414, 378], [150, 268]], "tissue": "landmark", "approx": False, "brainstem": True,
                          "anchor_out": ["cerebral-peduncles", "superior-colliculus", "inferior-colliculus", "cerebral-aqueduct"],
-                         "src": [SAG_P, OSX], "note": "The course's own outline: the upper division of the brainstem, around the cerebral aqueduct."},
-            "pons": {"pts": [[100, 224], [470, 232], [470, 472], [280, 492], [100, 482]], "tissue": "landmark", "approx": False, "brainstem": True,
-                     "anchor_out": ["longitudinal-fibers-of-the-pons"],
-                     "src": [SAG_P, OSX], "note": "The course's own outline: the middle division, its ventral part bulging forward."},
-            "medulla": {"pts": [[100, 482], [280, 492], [470, 472], [520, 800], [100, 800]], "tissue": "landmark", "approx": False, "brainstem": True,
-                        "anchor_out": ["pyramids", "inferior-olivary-nucleus"],
-                        "src": [SAG_P, OSX], "note": "The course's own outline: the lowest division, continuous with the spinal cord."},
-            "cerebellum": {"pts": [[452, 236], [480, 170], [520, 120], [600, 70], [700, 72], [790, 120], [850, 210], [868, 320], [850, 430], [805, 520],
-                                   [740, 590], [660, 640], [580, 660], [520, 640], [484, 598], [470, 566], [478, 515], [490, 455], [504, 405], [522, 365],
-                                   [538, 338], [512, 294], [480, 256]],
-                           "tissue": "grey", "approx": False, "src": [SAG_P + " (and Lab 7's review photo)", S648],
-                           "note": "Behind the pons and medulla, over the fourth ventricle (the arbor vitae shows in the cut)."},
-            "fourth-ventricle": {"pts": [[446, 232], [478, 258], [510, 296], [534, 338], [518, 362], [498, 404], [484, 452], [474, 510], [466, 562], [456, 562],
-                                         [448, 500], [441, 420], [438, 330]],
-                                 "tissue": "space", "approx": False, "src": [OSX, S648, "Lab 2 ventricular system (course)"],
-                                 "note": "Between the pons and upper medulla in front and the cerebellum behind; its tent-shaped roof points into the cerebellum."},
-            "cerebral-aqueduct": {"pts": [[325, 64], [342, 64], [384, 104], [420, 154], [448, 214], [452, 234], [438, 236], [426, 214], [398, 162], [364, 116]],
-                                  "tissue": "space", "approx": False, "src": [SAG_P + " (the channel in the midbrain)", OSX, S648],
-                                  "note": "The narrow channel through the midbrain, from the third ventricle to the fourth."},
-            "superior-colliculus": {"pts": [[398, 62], [430, 78], [455, 106], [462, 136], [440, 142], [412, 122], [394, 90]], "tissue": "grey",
-                                    "clip_out": ["cerebral-aqueduct"], "src": [S648, OSX], "note": "The upper bump of the tectum, behind the aqueduct."},
-            "inferior-colliculus": {"pts": [[462, 142], [472, 176], [462, 208], [450, 226], [434, 204], [440, 170], [440, 148]], "tissue": "grey",
-                                    "clip_out": ["cerebral-aqueduct"], "src": [S648, OSX], "note": "The lower bump of the tectum, above the fourth ventricle."},
-            "cerebral-peduncles": {"pts": [[210, 100], [262, 82], [300, 120], [302, 200], [262, 222], [204, 222], [212, 160]], "tissue": "white",
-                                   "src": [OSX, S648], "note": "The ventral midbrain (the cortical efferent fibres), seen in the cut."},
-            "mesencephalic-flexure": {"pts": [[216, 106], [262, 89], [330, 73], [393, 70], [394, 84], [332, 87], [266, 103], [222, 120]],
+                         "src": [SAG_P, S648, OSX], "note": "The course's upper division of the brainstem, from the diencephalon to the top of the pons, around the cerebral aqueduct."},
+            "pons": {"pts": [[150, 268], [414, 378], [404, 640], [165, 692], [50, 690], [50, 268]], "tissue": "landmark", "approx": False, "brainstem": True,
+                     "anchor_out": ["longitudinal-fibers-of-the-pons", "pontine-protuberance"],
+                     "src": [SAG_P, S648, OSX], "note": "The course's middle division: the ventral bulge (basilar pons) and the tegmentum behind it, under the upper fourth ventricle."},
+            "medulla": {"pts": [[165, 692], [404, 640], [420, 1040], [150, 1040]], "tissue": "landmark", "approx": False, "brainstem": True,
+                        "anchor_out": ["pyramids", "inferior-olivary-nucleus", "obex"],
+                        "src": [SAG_P, S648, OSX], "note": "The course's lowest division, continuous with the spinal cord below the cut."},
+            "pontine-protuberance": {"pts": [[152, 264], [210, 276], [262, 304], [300, 380], [306, 470], [298, 560], [262, 640], [176, 690], [122, 642], [86, 562],
+                                             [70, 470], [80, 380], [110, 300]],
+                                     "tissue": "zone", "approx": False, "src": [S648, "Lab 10 slide 11 (course)"],
+                                     "note": "The basilar pons: the ventral bulge made by the pontine nuclei and the fibres through them."},
+            "cerebellum": {"pts": [[440, 320], [480, 252], [560, 192], [640, 170], [705, 176], [765, 255], [830, 395], [900, 515], [932, 600], [912, 700],
+                                   [852, 790], [762, 860], [662, 900], [562, 912], [478, 892], [424, 862], [418, 840], [436, 780], [462, 700], [490, 620],
+                                   [532, 566], [490, 500], [456, 446], [430, 404], [416, 380]],
+                           "tissue": "grey", "approx": False, "soft": 7.0, "src": [SAG_P + " (and Lab 7's review photo)", S648],
+                           "note": "Behind the pons and medulla, over the fourth ventricle; the cut shows its folia and the white arbor vitae."},
+            "fourth-ventricle": {"pts": [[406, 392], [420, 396], [456, 446], [490, 500], [532, 566], [490, 620], [462, 700], [436, 780], [418, 840], [406, 876],
+                                         [401, 800], [399, 700], [399, 600], [401, 500]],
+                                 "tissue": "space", "approx": False, "soft": 1.5, "src": [S648, OSX, "Lab 2 ventricular system (course)"],
+                                 "note": "Tent-shaped: its floor is the back of the pons and upper medulla; its roof (the superior and inferior medullary vela) peaks at the fastigium in the cerebellum; it narrows to the obex."},
+            "cerebral-aqueduct": {"pts": [[318, 114], [340, 112], [368, 168], [390, 238], [404, 308], [416, 380], [418, 398], [400, 400], [392, 382],
+                                          [380, 314], [364, 248], [344, 178]],
+                                  "tissue": "space", "approx": False, "soft": 1.0, "src": [S648, OSX, SAG_P],
+                                  "note": "The narrow channel through the midbrain, from the third ventricle above to the fourth ventricle below."},
+            "superior-colliculus": {"pts": [[350, 118], [395, 116], [424, 140], [442, 190], [434, 230], [384, 232], [362, 172]], "tissue": "grey",
+                                    "clip_out": ["cerebral-aqueduct"], "src": [S648 + " (lamina quadrigemina)", OSX],
+                                    "note": "The upper bump of the tectum, behind the aqueduct."},
+            "inferior-colliculus": {"pts": [[384, 234], [434, 234], [446, 282], [430, 330], [414, 372], [398, 318]], "tissue": "grey",
+                                    "clip_out": ["cerebral-aqueduct", "fourth-ventricle"], "src": [S648, OSX],
+                                    "note": "The lower bump of the tectum, just above the fourth ventricle."},
+            "cerebral-peduncles": {"pts": [[190, 120], [300, 116], [330, 160], [340, 230], [300, 290], [250, 290], [180, 262], [176, 216], [188, 170]],
+                                   "tissue": "white", "clip_out": ["cerebral-aqueduct", "superior-colliculus", "inferior-colliculus"], "src": [S648 + " (cerebral peduncle)", OSX],
+                                   "note": "The ventral midbrain (the cortical efferent fibres), in front of the tegmentum."},
+            "mesencephalic-flexure": {"pts": [[192, 124], [262, 118], [330, 117], [394, 120], [394, 134], [330, 131], [262, 132], [196, 140]],
                                       "tissue": "landmark", "src": ["Lab 1 planes and Lab 2 brainstem lists (course)", STD],
                                       "note": "The bend of the neuraxis at the midbrain: above it the forebrain's axis runs front to back, below it the brainstem's runs top to bottom."},
-            "longitudinal-fibers-of-the-pons": {"pts": [[215, 226], [262, 225], [292, 262], [306, 330], [306, 400], [300, 470], [286, 486], [262, 476],
-                                                        [250, 400], [240, 330], [226, 272]],
-                                                "tissue": "white", "approx": False, "src": [L10L, OSX],
-                                                "note": "The corticospinal and corticobulbar fibres streaking down through the ventral pons, from the cerebral peduncle to the pyramid (the course's longitudinal section)."},
-            "pyramids": {"pts": [[282, 490], [302, 486], [315, 560], [332, 650], [352, 762], [336, 764], [316, 652], [298, 566]], "tissue": "white",
-                         "approx": False, "src": [L10L, OSX], "note": "Along the front of the medulla: the corticospinal fibres leaving the pons."},
-            "inferior-olivary-nucleus": {"ellipse": [340, 575, 20, 58, -12], "tissue": "grey", "clip_out": ["pyramids"],
-                                         "src": [L10L + " (the olive, dorsal and lateral to the pyramid)", S648],
+            "longitudinal-fibers-of-the-pons": {"pts": [[200, 270], [252, 292], [282, 360], [290, 450], [280, 550], [252, 630], [206, 676], [182, 664], [222, 590],
+                                                        [240, 500], [236, 400], [212, 320], [180, 284]],
+                                                "tissue": "white", "approx": False, "src": [L10L, S648 + " (longitudinal fibers of pons)"],
+                                                "note": "The corticospinal and corticobulbar fibres streaking down through the basilar pons, from the cerebral peduncle to the pyramid (the course's longitudinal section)."},
+            "pyramids": {"pts": [[176, 690], [212, 684], [232, 760], [254, 860], [280, 960], [298, 1004], [262, 1002], [236, 930], [210, 840], [188, 760]],
+                         "tissue": "white", "approx": False, "src": [L10L, S648], "note": "Along the front of the medulla: the corticospinal fibres leaving the pons."},
+            "inferior-olivary-nucleus": {"ellipse": [262, 790, 24, 62, -14], "tissue": "grey", "clip_out": ["pyramids"],
+                                         "src": [L10L + " (the olive, dorsal and lateral to the pyramid)", STD],
                                          "note": "Cut just off the midline (the course's longitudinal section), the olive lies behind the pyramid in the upper medulla."},
+            "obex": {"ellipse": [404, 884, 8, 8, 0], "tissue": "landmark", "approx": False, "src": [S648 + " (calamus scriptorius)", STD],
+                     "note": "The lower tip of the fourth ventricle, where it narrows into the central canal."},
         },
         "fibres": {},
+        "detail": "sagittal",
     },
     "external-lateral": {
         "W": 760, "H": 1700, "x0": 0, "orient": "anterior left",
+        "schematic": "Schematic after Sobotta 1909 (fig. 661): the course has no lateral brainstem image",
         "outline": [
             [[140, 470], [230, 420], [330, 380], [380, 330], [430, 290], [470, 296], [520, 288], [560, 330], [590, 400], [620, 450], [625, 500],
              [612, 540], [600, 600], [590, 700], [570, 800], [560, 900], [545, 1000], [530, 1100], [520, 1200], [505, 1300], [490, 1400],
@@ -142,11 +157,65 @@ def soft(pts, sigma=4.0):
     return smooth(resample(pts, 3.0, True), sigma, True).tolist()
 
 
+def branch(p0, p1, w0, w1):
+    """a tapered branch as a closed polygon"""
+    (x0, y0), (x1, y1) = p0, p1
+    dx, dy = x1 - x0, y1 - y0
+    L = math.hypot(dx, dy) or 1
+    nx, ny = -dy / L, dx / L
+    pts = []
+    for t in np.linspace(0, 1, 12):
+        w = w0 + (w1 - w0) * t
+        bend = 6 * math.sin(math.pi * t)
+        pts.append([x0 + dx * t + nx * (w / 2 + bend), y0 + dy * t + ny * (w / 2 + bend)])
+    for t in np.linspace(1, 0, 12):
+        w = w0 + (w1 - w0) * t
+        bend = 6 * math.sin(math.pi * t)
+        pts.append([x0 + dx * t - nx * (w / 2 - bend), y0 + dy * t - ny * (w / 2 - bend)])
+    return pts
+
+
+def sagittal_detail(cfg):
+    """the cerebellum's arbor vitae (white core, branches, twigs) and folia; pons striations; the central canal and the vela"""
+    out = []
+    root, hub = (536, 566), (610, 548)
+    tips = [(560, 236), (650, 205), (742, 290), (820, 420), (880, 560), (872, 690), (790, 800), (680, 870), (566, 884), (486, 820)]
+    polys = [branch(root, hub, 30, 26)]
+    for tx, ty in tips:
+        polys.append(branch(hub, (tx, ty), 22, 3))
+        mx, my = hub[0] + (tx - hub[0]) * 0.55, hub[1] + (ty - hub[1]) * 0.55
+        ang = math.atan2(ty - hub[1], tx - hub[0])
+        for da in (-0.55, 0.55):
+            L = 0.32 * math.hypot(tx - hub[0], ty - hub[1])
+            polys.append(branch((mx, my), (mx + L * math.cos(ang + da), my + L * math.sin(ang + da)), 9, 2))
+    shape = (int(round(cfg["H"] * SS)), int(round(cfg["W"] * SS)))
+    cb = raster([soft(cfg["regions"]["cerebellum"]["pts"], 2.0)], shape)
+    core = raster(polys, shape) & cb
+    out.append({"d": mask_paths(core, step=1.6, sigma=0.9, eps=0.25, min_area=4), "k": "core"})
+    # folia: short strokes from the surface toward the hub, every ~11 units along the outer contour
+    ring = resample(soft(cfg["regions"]["cerebellum"]["pts"][:23], 2.0), 11.0, False)
+    for i, (x, y) in enumerate(ring):
+        if x < 470:
+            continue
+        vx, vy = hub[0] - x, hub[1] - y
+        L = math.hypot(vx, vy) or 1
+        ln = 26 + 14 * (i % 3)
+        out.append({"d": curve([[x, y], [x + vx / L * ln, y + vy / L * ln]], False, step=2, sigma=0.5, eps=0.2), "k": "fine"})
+    # transverse striations of the basilar pons and the central canal below the obex
+    for y in range(300, 660, 26):
+        out.append({"d": curve([[96 + abs(y - 470) * 0.18, y], [180, y + 6], [250, y + 2], [298 - abs(y - 470) * 0.22, y - 6]], False, step=3, sigma=1.2, eps=0.3), "k": "fine"})
+    out.append({"d": curve([[404, 892], [400, 950], [395, 1004]], False, step=2, sigma=1, eps=0.2), "k": "line"})
+    # the medullary vela: the roof of the fourth ventricle, up to the fastigium
+    out.append({"d": curve([[414, 384], [456, 446], [490, 500], [532, 566]], False, step=2, sigma=1, eps=0.2), "k": "line"})
+    out.append({"d": curve([[532, 566], [490, 620], [462, 700], [436, 780], [418, 840]], False, step=2, sigma=1, eps=0.2), "k": "line"})
+    return out
+
+
 def build(level):
     cfg = FREE[level]
     W, H = cfg["W"], cfg["H"]
     shape = (int(round(H * SS)), int(round(W * SS)))
-    out_m = raster([soft(p, 3.0) for p in cfg["outline"]], shape)
+    out_m = raster([soft(p, cfg.get("outline_soft", 3.0)) for p in cfg["outline"]], shape)
     regions, pending = [], {}
     for slug, e in cfg["regions"].items():
         pts = ell(*e["ellipse"]) if "ellipse" in e else soft(e["pts"], e.get("soft", 3.0))
@@ -172,7 +241,9 @@ def build(level):
             fibres.append({"id": f"{slug}-M{k}", "slug": slug, "side": "R", "tissue": "nerve", "d": curve(pts, False, step=2.0, sigma=1.0, eps=0.25),
                            **({"approx": True} if e.get("approx", True) else {}), **({"note": e["note"]} if e.get("note") else {}), "src": e.get("src", [])})
     areas = {r["id"]: (lambda ys: max(ys) - min(ys))([float(v) for v in r["d"].replace("M", " ").replace("C", " ").replace("Z", " ").split()[1::2]]) for r in regions}
+    detail = sagittal_detail(cfg) if cfg.get("detail") == "sagittal" else []
     plate = {"level": level, "viewBox": [0, 0, W, H], "mid": W / 2, "bleed": False, "sym": False, "view": "surface",
+             **({"schematic": cfg["schematic"]} if cfg.get("schematic") else {}), **({"detail": detail} if detail else {}),
              "outline": mask_paths(out_m, step=2.0, sigma=1.5, eps=0.35, min_area=20), "bands": [],
              "regions": sorted(regions, key=lambda r: -areas[r["id"]]), "fibres": fibres,
              "sources": {"orient": cfg["orient"], "drawn": "one-sided vector drawing (no photo half)"}}

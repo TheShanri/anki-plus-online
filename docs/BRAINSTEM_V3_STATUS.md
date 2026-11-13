@@ -92,7 +92,33 @@ exception (below).
   no lateral brainstem image; everything on it is marked approximate. Weakest plate visually (schematic), but it is
   where the trochlear nerve's course and the cut cerebellar peduncles (the collective "cerebellar peduncles") show.
 
-**Photo halves of the surface plates are not published yet.** The gross photos are built
+**Second pass on the surface plates (2026-11-13, after review):**
+- Midsagittal redrawn on Sobotta 1909 fig. 648 (public domain; the course's Lab 2 photo is too coarse inside: it is
+  used for the midbrain/pons/medulla division lines): tectum with superior and inferior colliculi, the cerebral aqueduct,
+  the tent-shaped fourth ventricle with its vela up to the fastigium, the obex and central canal, the basilar pons
+  (pontine protuberance, a zone) with transverse striations and the longitudinal fibres, pyramid and olive, the cerebellum
+  with folia and the arbor vitae (drawing detail, not hoverable).
+- Ventral/dorsal: authored outlines become smooth curves; a `detail` layer draws sulci and striations (basilar sulcus,
+  anterior median fissure, pre- and postolivary sulci, pontomedullary groove, transverse striations, peduncle fibres;
+  median sulcus, sulcus limitans, striae medullares, posterior median/intermediate sulci, the cruciform groove of the
+  colliculi). The ventral midbrain level was re-read on the straightened photo (the first pass had read it before the
+  straightening; everything below it is carried through the same row shift), and the specimen's mammillary bodies,
+  infundibulum, optic chiasm and optic tract were added as context. Hypoglossal/vagal trigones are not drawn: they are
+  not on the course slides or lists. Surface plates use lighter tones (`.bsp-surface`).
+- Lateral view kept, labelled on the plate as a schematic after Sobotta fig. 661 (no course image): it is the only plate
+  with the collective "cerebellar peduncles" (Lab 7 list) as the cut stump, and the trochlear nerve's course.
+- Toggles: without a published photo the view shows Illustration selected, Split/Photo disabled, and neither Histology
+  nor Gross lit.
+
+**Photo halves of the surface plates are not published yet.** The upload was denied by the permission system in this
+session (not retried). For the owner, from the repo root:
+```
+node tools/brainstem/atlas3/upload-photos.mjs
+cd tools/brainstem/atlas3/py && python export.py external-anterior external-posterior pons-caudal
+node ../build-ref-map.mjs
+```
+The second command needs the atlas3 venv (opencv, numpy, scipy, scikit-image). After it, the two surface plates get
+Split/Photo/Gross and the caudal pons photo shows the cerebellum strip; check registration in Split view. The gross photos are built
 (`content-build/atlas3/brainstem/external-{anterior,posterior}-gross-*.webp`) but not uploaded (this pass never wrote
 to Storage). `export.py` now only names photos listed in `photos-manifest.json`: until `node tools/brainstem/atlas3/
 upload-photos.mjs` runs and the levels are exported again, the surface plates show the illustration only (Split/Photo

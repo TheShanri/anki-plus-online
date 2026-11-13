@@ -500,9 +500,9 @@ export function SupplyMap() {
                     </span>
                   </div>
                 )}
-                <div className="pointer-events-auto absolute bottom-16 left-2 flex gap-1" role="group" aria-label="Camera view">
+                <div className="pointer-events-auto absolute bottom-16 left-2 right-2 flex flex-wrap gap-1" role="group" aria-label="Camera view">
                   {VIEWS.map((v) => (
-                    <button key={v.id} type="button" className="btn !px-2 !py-1 text-xs" onClick={() => askView(v.id)}>
+                    <button key={v.id} type="button" className="btn !px-1.5 !py-1 text-xs sm:!px-2" onClick={() => askView(v.id)}>
                       {v.label}
                     </button>
                   ))}

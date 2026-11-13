@@ -40,6 +40,8 @@ const OCC_PX = 4;
 /** Medial view: the model has no medial wall in places (the frontal and callosal region), so the far side of the hemisphere (the inner opercula, the insula, the lateral convexity) would show through and take the
  * MCA colour. The cut section of the closed brain solid (brainfill.glb) stands in for the missing wall in the depth pre-pass only: the back faces of the
  * clipped solid are drawn at the depth of the cut plane pushed CAP_DEPTH into the brain, deeper than any medial sulcus, shallower than the insula. */
+/** Flat tone of the underlay (what the brain looks like over white). */
+const UNDERLAY = "#d8c6c0";
 const CAP_DEPTH = 0.022; // metres behind the cut plane
 
 /** The viewer stops drawing the brainstem here (the open lower medulla); the occluder stops at the same plane. */
@@ -307,7 +309,7 @@ export function TerritorySurface({
   // the closed brain solid, only for a cut view: its cut section stands in for the missing medial wall in the depth pre-pass
   const [solid, setSolid] = useState<THREE.Group | null>(null);
   useEffect(() => {
-    if (!cut || solid) return;
+    if (solid) return;
     let alive = true;
     loadAtlasModel("brainfill.glb")
       .then((g) => alive && setSolid(g))
@@ -315,7 +317,7 @@ export function TerritorySurface({
     return () => {
       alive = false;
     };
-  }, [cut, solid]);
+  }, [solid]);
   const built = useMemo(() => (root ? buildSurface(root, variant) : null), [root, variant]);
   useEffect(() => () => built?.geo.dispose(), [built]);
 
@@ -337,6 +339,18 @@ export function TerritorySurface({
   const occScene = useMemo(() => (root ? buildOccluder([root, ...(fill ?? [])], occ.depthMat) : null), [root, fill, occ]);
   const capMat = useMemo(() => makeCapMaterial(), []);
   useEffect(() => () => capMat.dispose(), [capMat]);
+  // underlay: the far inner wall of the same solid in a flat brain tone, drawn first, so a gap in the gyral model (the frontal window, the diencephalon) never shows the page behind the brain
+  const underMat = useMemo(() => new THREE.MeshBasicMaterial({ color: UNDERLAY, side: THREE.BackSide, depthWrite: false, depthTest: false }), []);
+  useEffect(() => () => underMat.dispose(), [underMat]);
+  const underScene = useMemo(() => {
+    if (!solid) return null;
+    const sc = buildOccluder([solid], underMat);
+    sc.traverse((o) => {
+      o.renderOrder = -10;
+      o.raycast = () => null;
+    });
+    return sc;
+  }, [solid, underMat]);
   const capScene = useMemo(() => (solid ? buildOccluder([solid], capMat) : null), [solid, capMat]);
   const cutKey = cut ? `${cut.axis}:${cut.position}:${cut.flip ? 1 : 0}` : "";
 
@@ -359,11 +373,12 @@ export function TerritorySurface({
     const parts = cutKey ? cutKey.split(":") : null;
     const planes = cutPlanes(parts ? { axis: parts[0] as TerritoryCut["axis"], position: Number(parts[1]), flip: parts[2] === "1" } : undefined);
     occ.depthMat.clippingPlanes = planes;
+    underMat.clippingPlanes = planes;
     capMat.uniforms.uPlane.value.set(planes[0].normal.x, planes[0].normal.y, planes[0].normal.z, planes[0].constant);
     occ.depthMat.needsUpdate = true;
     occ.key.length = 0; // the next frame redraws the depth
     invalidate();
-  }, [cutKey, occ, capMat, invalidate]);
+  }, [cutKey, occ, capMat, underMat, invalidate]);
 
   /** Runs right before the skin is drawn, with the camera it is drawn with (also each multi-view pane). */
   const depthPass = useMemo(
@@ -472,6 +487,10 @@ export function TerritorySurface({
     if (m) m.onBeforeRender = depthPass as unknown as THREE.Mesh["onBeforeRender"];
   };
   /* eslint-enable react-hooks/immutability */
-  if (!built) return null;
-  return <mesh ref={attach} geometry={built.geo} material={mat} renderOrder={5} raycast={() => null} />;
+  return (
+    <>
+      {underScene && <primitive object={underScene} />}
+      {built && <mesh ref={attach} geometry={built.geo} material={mat} renderOrder={5} raycast={() => null} />}
+    </>
+  );
 }

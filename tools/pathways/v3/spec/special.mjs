@@ -487,7 +487,7 @@ export const olfactory = {
     const epi = stop(`c:${ON}@${fil.b.map((v) => v.toFixed(4)).join(",")}`, "Olfactory epithelium (nasal roof)", { carve: { mesh: ON, p: fil.b, r: 0.004 } });
     // a coronal section seen from the front for the nose and the bulb (fila through the cribriform plate, both nerves against the ethmoid and the frontal lobes), from below for the tract and cortex
     const SAG = { view: "anterior", cut: "z" };
-    const INF = { view: "inferior" };
+    const INF = { view: "inferior", cut: "z" };
     return [
       B({ start: soma(rec, `n:${fil.key}`, 1), stops: [epi], meta: SAG }),
       B({ f: [f1.json()], meta: SAG }),

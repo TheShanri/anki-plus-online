@@ -25,9 +25,9 @@ export function TrendChart({ points, field, label, unit }: { points: TrendPoint[
         {points.map((p, i) => (
           <circle key={p.d} cx={x(i)} cy={y(vals[i])} r="2" fill="var(--accent-2)"><title>{`${p.d}: ${vals[i]} ${unit}`}</title></circle>
         ))}
-        <text x={2} y={12} fontSize="10" fill="var(--text-faint)">{max}</text>
-        <text x={pad} y={h - 4} fontSize="10" fill="var(--text-faint)">{first}</text>
-        <text x={w - 6} y={h - 4} fontSize="10" textAnchor="end" fill="var(--text-faint)">{last}</text>
+        <text x={2} y={12} className="text-[17px] sm:text-[10px]" fill="var(--text-faint)">{max}</text>
+        <text x={pad} y={h - 4} className="text-[17px] sm:text-[10px]" fill="var(--text-faint)">{first}</text>
+        <text x={w - 6} y={h - 4} className="text-[17px] sm:text-[10px]" textAnchor="end" fill="var(--text-faint)">{last}</text>
       </svg>
       <figcaption className="text-xs text-text-faint">{label}: {total} {unit} in {points.length} days</figcaption>
     </figure>

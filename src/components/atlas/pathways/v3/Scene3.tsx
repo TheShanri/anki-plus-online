@@ -426,6 +426,13 @@ export default function Scene3(p: Scene3Props) {
     });
     return out;
   }, [p.labels, p.data, p.sideAlpha, p.cur, p.reveal, names]);
+  // the active beat's fibre samples: tags keep off them (a tag box laid over the lit fibre hides it)
+  const avoidPts = useMemo(() => {
+    const out: THREE.Vector3[] = [];
+    if (p.cur === null) return out;
+    for (const f of fibres) if (f.beat === p.cur && p.sideAlpha[f.side] > 0.5) for (let i = 0; i < f.pts.length; i++) out.push(f.pts[i]);
+    return out;
+  }, [fibres, p.cur, p.sideAlpha]);
   const labelDom = useRef<LabelDom>({ tags: new Map(), lines: new Map(), dots: new Map(), chipL: null, chipR: null, root: null });
 
   /* ---------- multi-view panes ---------- */
@@ -715,7 +722,7 @@ export default function Scene3(p: Scene3Props) {
           />
         ))}
         {stage.cut.cap && p.cut.mode === "auto" && cutAxis && fill && <SectionCap geo={fill} axis={cutAxis} pos={cutPos} color={pal.cap} ink={pal.ink} />}
-        <LabelUpdater items={labelItems} dom={labelDom} enabled={p.labels && !p.multi} obstacleTop={92} obstacleBottom={64} />
+        <LabelUpdater items={labelItems} dom={labelDom} enabled={p.labels && !p.multi} avoid={avoidPts} obstacleTop={92} obstacleBottom={64} />
       </Canvas>
 
       {/* interaction layer: one cell, or the 2x2 multi-view grid (anterior, lateral, superior, free orbit), as in Explore */}

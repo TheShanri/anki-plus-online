@@ -30,7 +30,7 @@ const tagsRoot = (d: LabelDom) => d.tags.values().next().value?.parentElement ??
 const _p = new THREE.Vector3();
 const _x = new THREE.Vector3();
 
-export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom }: { items: LabelItem[]; dom: React.RefObject<LabelDom>; enabled: boolean; obstacleTop: number; obstacleBottom: number }) {
+export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom, avoid }: { items: LabelItem[]; dom: React.RefObject<LabelDom>; enabled: boolean; obstacleTop: number; obstacleBottom: number; avoid?: THREE.Vector3[] }) {
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
   const lastFlip = useRef<boolean | null>(null);
@@ -102,6 +102,18 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
     const keyEl = document.querySelector<HTMLElement>("[data-pw-key]");
     const rootEl = d.root ?? tagsRoot(d);
     if (keyEl && rootEl && keyEl.offsetParent) keyBottom = keyEl.getBoundingClientRect().bottom - rootEl.getBoundingClientRect().top + 6;
+    // the lit fibre on screen, to keep the tag boxes off it
+    const av: number[] = [];
+    if (avoid?.length)
+      for (const q of avoid) {
+        _p.copy(q).project(camera);
+        if (_p.z > -1 && _p.z < 1) av.push((_p.x * 0.5 + 0.5) * W, (-_p.y * 0.5 + 0.5) * H);
+      }
+    const hits = (x: number, y: number, w: number, h: number) => {
+      let n = 0;
+      for (let i = 0; i < av.length; i += 2) if (av[i] > x - 2 && av[i] < x + w + 2 && av[i + 1] > y - 2 && av[i + 1] < y + h + 2) n++;
+      return n;
+    };
     for (const side of ["l", "r"] as const) {
       const list = gut[side].sort((a, b) => a.ay - b.ay);
       // stack without overlaps between the toolbar band at the top and the controls at the bottom
@@ -119,6 +131,28 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
         const m = Math.min(room, over);
         for (let j = i; j < list.length; j++) placed[j] -= m;
         over -= m;
+      }
+      // nudge a tag up or down (clear of its neighbours and the bands) when its box covers the lit fibre
+      if (av.length) {
+        const lo = side === "l" ? Math.max(top, keyBottom) : top, hi = H - obstacleBottom;
+        list.forEach((it, i) => {
+          const x = side === "l" ? 30 : W - it.w - 30;
+          const here = hits(x, placed[i], it.w, it.h);
+          if (!here) return;
+          const minY = i === 0 ? lo : placed[i - 1] + list[i - 1].h + 4;
+          const maxY = (i === list.length - 1 ? hi : placed[i + 1] - 4) - it.h;
+          let best = placed[i], bestN = here;
+          for (let dy = 6; dy <= 120 && bestN > 0; dy += 6)
+            for (const y of [placed[i] - dy, placed[i] + dy]) {
+              if (y < minY || y > maxY) continue;
+              const n = hits(x, y, it.w, it.h);
+              if (n < bestN) {
+                bestN = n;
+                best = y;
+              }
+            }
+          placed[i] = best;
+        });
       }
       list.forEach((it, i) => {
         const el = d.tags.get(it.key)!;

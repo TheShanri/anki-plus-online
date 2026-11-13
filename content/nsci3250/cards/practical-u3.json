@@ -91,7 +91,7 @@
    "ref": "practical-u3-2025 Q3"
   },
   "facet": "supply",
-  "prompt": "Name the arterial blood supply to this structure.",
+  "prompt": "Name the arterial blood supply to the highlighted structure.",
   "answer": "Lenticulostriate",
   "accept": [],
   "keywords": null,
@@ -366,7 +366,7 @@
    "ref": "practical-u3-2025 Q10"
   },
   "facet": "connections",
-  "prompt": "What deep cerebellar nucleus is associated with this region of cortex?",
+  "prompt": "What deep cerebellar nucleus is associated with the highlighted region of cortex?",
   "answer": "Fastigial nucleus",
   "accept": [],
   "keywords": null,
@@ -440,7 +440,7 @@
    "ref": "practical-u3-2025 Q12"
   },
   "facet": "connections",
-  "prompt": "What nuclei are the origin of the fibers contained within this structure?",
+  "prompt": "What nuclei are the origin of the fibers contained within the highlighted structure?",
   "answer": "Pontine nuclei",
   "accept": [
    "Pontine nuclei (contralateral)"
@@ -516,7 +516,7 @@
    "ref": "practical-u3-2025 Q14"
   },
   "facet": "lesion",
-  "prompt": "Herniation of this structure occurs when it is pushed through which bony opening?",
+  "prompt": "Herniation of the highlighted structure occurs when it is pushed through which bony opening?",
   "answer": "Foramen magnum",
   "accept": [],
   "keywords": null,
@@ -586,7 +586,7 @@
    "ref": "practical-u3-2025 Q16"
   },
   "facet": "function",
-  "prompt": "What limbic system structure lies just anterior to it?",
+  "prompt": "What limbic system structure lies just anterior to the highlighted structure?",
   "answer": "Amygdala",
   "accept": [],
   "keywords": null,
@@ -655,7 +655,7 @@
    "ref": "practical-u3-2025 Q18"
   },
   "facet": "function",
-  "prompt": "Which part of the ventricular system lies just medial to this structure? Be specific.",
+  "prompt": "Which part of the ventricular system lies just medial to the highlighted structure? Be specific.",
   "answer": "Anterior horn orbody of LV",
   "accept": [],
   "keywords": null,
@@ -727,7 +727,7 @@
    "ref": "practical-u3-2025 Q20"
   },
   "facet": "function",
-  "prompt": "True or false: This structure serves as one of the boundaries of the hypothalamus.",
+  "prompt": "True or false: The highlighted structure serves as one of the boundaries of the hypothalamus.",
   "answer": "True",
   "accept": [
    "true",
@@ -802,7 +802,7 @@
    "ref": "practical-u3-2025 Q22"
   },
   "facet": "supply",
-  "prompt": "Is this vessel part of the anterior or posterior circulation?",
+  "prompt": "Is the highlighted vessel part of the anterior or posterior circulation?",
   "answer": "Posterior circulation",
   "accept": [],
   "keywords": null,
@@ -868,7 +868,7 @@
    "ref": "practical-u3-2025 Q24"
   },
   "facet": "supply",
-  "prompt": "What brain structure receives its blood supply from this vessel? Magnified view Note: the pink pin is holding another artery out of the way. This question asks about the green pin.",
+  "prompt": "What brain structure receives its blood supply from the highlighted vessel? Magnified view Note: the pink pin is holding another artery out of the way. This question asks about the green pin.",
   "answer": "Cerebellum",
   "accept": [],
   "keywords": null,
@@ -969,7 +969,7 @@
    "ref": "practical-u3-2025 Q27"
   },
   "facet": "supply",
-  "prompt": "Motor control to what part of the body would be affected by loss of perfusion in this artery? Choose one. Arms Legs Face",
+  "prompt": "Motor control to what part of the body would be affected by loss of perfusion in the highlighted artery? Choose one. Arms Legs Face",
   "answer": "Legs",
   "accept": [],
   "keywords": null,
@@ -1219,7 +1219,7 @@
    "ref": "practical-u3-2025 Q34"
   },
   "facet": "supply",
-  "prompt": "A ruptured Berry Aneurysm in this vessel would cause blood to collect in which meningeal space?",
+  "prompt": "A ruptured Berry Aneurysm in the highlighted vessel would cause blood to collect in which meningeal space?",
   "answer": "Subarachnoid space",
   "accept": [],
   "keywords": null,
@@ -1352,7 +1352,7 @@
    "ref": "practical-u3-2025 Q38"
   },
   "facet": "supply",
-  "prompt": "True or false: The territory encompassed by this tumor receives its blood supply from the lenticulostriate arteries.",
+  "prompt": "True or false: The territory encompassed by the highlighted tumor receives its blood supply from the lenticulostriate arteries.",
   "answer": "False",
   "accept": [
    "false",

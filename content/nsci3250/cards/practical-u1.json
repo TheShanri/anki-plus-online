@@ -135,7 +135,7 @@
    "ref": "practical-u1-2024 Q4"
   },
   "facet": "function",
-  "prompt": "What layer of meninges makes up the structure labeled in question 3?",
+  "prompt": "What layer of meninges makes up the highlighted structure?",
   "answer": "Dura mater",
   "accept": [],
   "keywords": null,
@@ -240,7 +240,7 @@
    "ref": "practical-u1-2024 Q7"
   },
   "facet": "function",
-  "prompt": "What plane of sectioning is demonstrated in question 6?",
+  "prompt": "What plane of sectioning is demonstrated in the image shown?",
   "answer": "Mid-sagittal or sagittal",
   "accept": [],
   "keywords": [
@@ -502,7 +502,7 @@
    "ref": "practical-u1-2024 Q14"
   },
   "facet": "connections",
-  "prompt": "What cerebral nucleus is deep to the answer for question 13?",
+  "prompt": "What cerebral nucleus is deep to the highlighted structure?",
   "answer": "Amygdala",
   "accept": [],
   "keywords": null,
@@ -572,7 +572,7 @@
    "ref": "practical-u1-2024 Q16"
   },
   "facet": "embryology",
-  "prompt": "For the structure you identified in question 15, what secondary vesicle does it arise from?",
+  "prompt": "For the highlighted area, what secondary vesicle does it arise from?",
   "answer": "Metencephalon",
   "accept": [],
   "keywords": null,
@@ -725,7 +725,7 @@
    "ref": "practical-u1-2024 Q20"
   },
   "facet": "connections",
-  "prompt": "What group of cerebral nuclei are deep to the structure you named in question 19?",
+  "prompt": "What group of cerebral nuclei are deep to the highlighted area?",
   "answer": "Basal forebrain nuclei",
   "accept": [],
   "keywords": null,
@@ -799,7 +799,7 @@
    "ref": "practical-u1-2024 Q22"
   },
   "facet": "function",
-  "prompt": "For question 21, what is the function of the gyrus immediately above and below the groove?",
+  "prompt": "For the highlighted groove, what is the function of the gyrus immediately above and below it?",
   "answer": "Vision",
   "accept": [
    "primary visual cortex",
@@ -1029,7 +1029,7 @@
    "ref": "practical-u1-2024 Q28"
   },
   "facet": "function",
-  "prompt": "What type of tissue makes up the structure you named in question 27?",
+  "prompt": "What type of tissue makes up the highlighted structure?",
   "answer": "Pia mater",
   "accept": [],
   "keywords": null,
@@ -1105,7 +1105,7 @@
    "ref": "practical-u1-2024 Q30"
   },
   "facet": "connections",
-  "prompt": "What is the shape of the neuron associated with your answer for question 29?",
+  "prompt": "What is the shape of the neuron associated with the highlighted structure?",
   "answer": "Pseudounipolar",
   "accept": [],
   "keywords": null,
@@ -1614,7 +1614,7 @@
    "ref": "practical-u1-2025 Q2"
   },
   "facet": "function",
-  "prompt": "What three bones fuse to form this landmark?",
+  "prompt": "What three bones fuse to form the highlighted landmark?",
   "answer": "Two parietal bones and the occipital bone",
   "accept": [
    "parietal x2, occipital"
@@ -1745,7 +1745,7 @@
    "ref": "practical-u1-2025 Q5"
   },
   "facet": "function",
-  "prompt": "What is the function of this structure?",
+  "prompt": "What is the function of the highlighted structure?",
   "answer": "Reabsorb CSF",
   "accept": [
    "drain CSF",
@@ -1929,7 +1929,7 @@
    "ref": "practical-u1-2025 Q10"
   },
   "facet": "function",
-  "prompt": "What is the name of the gyrus located dorsal to this structure?",
+  "prompt": "What is the name of the gyrus located dorsal to the highlighted structure?",
   "answer": "Cingulate gyrus",
   "accept": [],
   "keywords": null,
@@ -2035,7 +2035,7 @@
    "ref": "practical-u1-2025 Q13"
   },
   "facet": "embryology",
-  "prompt": "From what secondary embryological vesicle does it develop?",
+  "prompt": "From what secondary embryological vesicle does the highlighted structure develop?",
   "answer": "Diencephalon",
   "accept": [],
   "keywords": null,
@@ -2571,7 +2571,7 @@
    "ref": "practical-u1-2025 Q27"
   },
   "facet": "function",
-  "prompt": "What is the shape/morphology of the neurons located here?",
+  "prompt": "What is the shape/morphology of the neurons located in the highlighted structure?",
   "answer": "Pseudounipolar",
   "accept": [],
   "keywords": null,
@@ -2640,7 +2640,7 @@
    "ref": "practical-u1-2025 Q29"
   },
   "facet": "function",
-  "prompt": "Is this structure located on the dorsal or ventral aspect of the vertebrae?",
+  "prompt": "Is the highlighted structure located on the dorsal or ventral aspect of the vertebrae?",
   "answer": "Dorsal",
   "accept": [],
   "keywords": null,
@@ -2680,7 +2680,7 @@
    "type": "existing",
    "color": "star sticker"
   },
-  "prompt": "(Refer to ★ stickers) What is the name of the hole through which this nerve exits the vertebral column?",
+  "prompt": "(Refer to ★ stickers) What is the name of the hole through which the highlighted nerve exits the vertebral column?",
   "followups": [],
   "followup_cards": [],
   "tags": [
@@ -3563,7 +3563,7 @@
    "ref": "practice-practical-lab3 Q13"
   },
   "facet": "connections",
-  "prompt": "What white matter tract is associated?",
+  "prompt": "What white matter tract is associated with the highlighted structure?",
   "answer": "Fornix",
   "accept": [],
   "keywords": null,

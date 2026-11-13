@@ -505,7 +505,7 @@
    "ref": "practical-u2-2024 Q23"
   },
   "facet": "function",
-  "prompt": "True or False: This nucleus relays pain and temperature signals from the face.",
+  "prompt": "True or False: The highlighted nucleus relays pain and temperature signals from the face.",
   "answer": "",
   "accept": [],
   "keywords": null,
@@ -749,7 +749,7 @@
    "ref": "practical-u2-2024 Q40"
   },
   "facet": "order",
-  "prompt": "Where are the cell bodies of afferent neurons that synapse in this structure?",
+  "prompt": "Where are the cell bodies of afferent neurons that synapse in the highlighted structure?",
   "answer": "",
   "accept": [],
   "keywords": null,
@@ -867,7 +867,7 @@
    "ref": "practical-u2-2025 Q2"
   },
   "facet": "muscle",
-  "prompt": "What muscle(s) are innervated by this structure?",
+  "prompt": "What muscle(s) are innervated by the highlighted nerve?",
   "answer": "Lateral rectus",
   "accept": [],
   "keywords": null,
@@ -939,7 +939,7 @@
    "ref": "practical-u2-2025 Q4"
   },
   "facet": "connections",
-  "prompt": "What tract containing upper motor neurons originates from this structure?",
+  "prompt": "What tract containing upper motor neurons originates from the highlighted structure?",
   "answer": "Tectospinal",
   "accept": [],
   "keywords": null,
@@ -1013,7 +1013,7 @@
    "ref": "practical-u2-2025 Q6"
   },
   "facet": "passes",
-  "prompt": "Name one tract that travels through this structure.",
+  "prompt": "Name one tract that travels through the highlighted structure.",
   "answer": "Corticospinal tract",
   "accept": [
    "corticopontine",
@@ -1174,7 +1174,7 @@
    "ref": "practical-u2-2025 Q10"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve exits just medial to this structure?",
+  "prompt": "Which cranial nerve exits just medial to the highlighted structure?",
   "answer": "Hypoglossal n.",
   "accept": [],
   "keywords": null,
@@ -1570,7 +1570,7 @@
    "ref": "practical-u2-2025 Q20"
   },
   "facet": "connections",
-  "prompt": "Is this tract comprised of upper or lower motor neurons? (UMNs or LMNs)",
+  "prompt": "Is the highlighted tract comprised of upper or lower motor neurons? (UMNs or LMNs)",
   "answer": "UMNs",
   "accept": [],
   "keywords": null,
@@ -1642,7 +1642,7 @@
    "ref": "practical-u2-2025 Q22"
   },
   "facet": "connections",
-  "prompt": "What tract originates from this nucleus?",
+  "prompt": "What tract originates from the highlighted nucleus?",
   "answer": "Rubrospinal tract",
   "accept": [],
   "keywords": null,
@@ -2098,7 +2098,7 @@
    "ref": "practical-u2-2025 Q34"
   },
   "facet": "connections",
-  "prompt": "Where do these fibers synapse?",
+  "prompt": "Where do the highlighted fibers synapse?",
   "answer": "Primary visual cortex",
   "accept": [],
   "keywords": null,
@@ -2168,7 +2168,7 @@
    "ref": "practical-u2-2025 Q36"
   },
   "facet": "function",
-  "prompt": "Name a main function of this structure.",
+  "prompt": "Name a main function of the highlighted structure.",
   "answer": "Blood supply",
   "accept": [
    "temperature regulation"
@@ -2322,7 +2322,7 @@
    "ref": "practical-u2-2025 Q40"
   },
   "facet": "muscle",
-  "prompt": "Which muscle is responsible for changing the shape of this structure?",
+  "prompt": "Which muscle is responsible for changing the shape of the highlighted structure?",
   "answer": "Ciliary Body",
   "accept": [],
   "keywords": null,

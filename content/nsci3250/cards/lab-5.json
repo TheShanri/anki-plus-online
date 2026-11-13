@@ -13819,7 +13819,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "What modality (sensation) does this pathway carry?",
+  "prompt": "What modality (sensation) does the highlighted pathway carry?",
   "followups": [],
   "review_note": "free-text answer [OCR 'nsation, proprioception 'Touch, vibration, pressure', conf 0.99]",
   "tags": [

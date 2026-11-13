@@ -4239,7 +4239,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "What is this region involved in?",
+  "prompt": "What is the highlighted region involved in?",
   "followups": [],
   "review_note": "\"Involved in\" text (orbitofrontal cortex); consider a theory card [OCR 'decision making Social and emc', conf 1.00]",
   "tags": [
@@ -5650,7 +5650,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "What is this region involved in?",
+  "prompt": "What is the highlighted region involved in?",
   "followups": [],
   "review_note": "\"Involved in\" text (parietal association areas); consider a theory card [OCR 'Consolidating our sense of internal and external space', conf 1.00]",
   "tags": [
@@ -6428,7 +6428,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "What is this region involved in?",
+  "prompt": "What is the highlighted region involved in?",
   "followups": [],
   "review_note": "\"Involved in\" text; consider a theory card [OCR 'Processing somatosensory information received from the body', conf 1.00]",
   "tags": [

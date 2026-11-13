@@ -375,7 +375,7 @@ export default function Scene3(p: Scene3Props) {
     const out: LabelItem[] = [];
     const sides = (["L", "R"] as Side[]).filter((s) => p.sideAlpha[s] > 0.5);
     const lastBeat = p.cur === null ? p.data.beats.length - 1 : p.reveal;
-    const seen = new Set<string>();
+    const seen = new Map<string, THREE.Vector3[]>();
     p.data.beats.forEach((b, bi) => {
       if (bi > lastBeat) return;
       for (const s of sides.slice(0, 1)) {
@@ -386,8 +386,6 @@ export default function Scene3(p: Scene3Props) {
           const text = shortName(st.name);
           // the key carries the name: two stops on the same patch ("Spindles in the masseter", "Masseter contracts") are two tags
           const key = `r:${st.key}|${text}`;
-          if (seen.has(text)) continue;
-          seen.add(text);
           // the stop's own mark: its carve, a cell body / start / synapse inside it (this beat or earlier), a proxy's centre,
           // else the beat's soma or synapse
           const g = p.data.geo[st.key];
@@ -404,7 +402,14 @@ export default function Scene3(p: Scene3Props) {
             if (y?.syn) at = v3(y.syn.p);
           }
           const pos = at ?? (g && g.kind === "proxy" ? v3(g.c) : null);
-          if (pos) out.push({ key, text, at: pos, prio: bi === p.cur ? 2 : 1 });
+          if (!pos) continue;
+          // a bilateral structure the pathway uses on both sides (pretectal nuclei) gets a second tag when the two stops are
+          // well apart; a duplicate name at the same spot (GPi, GPi (inhibitory output)) stays one tag
+          const prev = seen.get(text);
+          if (prev && prev.some((q) => q.distanceTo(pos) < 0.008)) continue;
+          if (prev) prev.push(pos);
+          else seen.set(text, [pos]);
+          out.push({ key, text, at: pos, prio: bi === p.cur ? 2 : 1 });
         }
         if (bi === p.cur && b.kind === "path") {
           const f = x.f[0];

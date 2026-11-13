@@ -25,6 +25,8 @@ export interface LabelDom {
   root: HTMLDivElement | null;
 }
 
+/** The overlay the labels live in (the parent of any tag), when `dom.root` was never set. */
+const tagsRoot = (d: LabelDom) => d.tags.values().next().value?.parentElement ?? null;
 const _p = new THREE.Vector3();
 const _x = new THREE.Vector3();
 
@@ -87,10 +89,15 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
       const side = ax < W / 2 ? "l" : "r";
       gut[side].push({ key: it.key, ay, ax, h: el.offsetHeight || 20, w: el.offsetWidth || 90 });
     }
+    // the open key box (top left) is an obstacle too: the left gutter stacks below its real bottom edge
+    let keyBottom = 0;
+    const keyEl = document.querySelector<HTMLElement>("[data-pw-key]");
+    const rootEl = d.root ?? tagsRoot(d);
+    if (keyEl && rootEl && keyEl.offsetParent) keyBottom = keyEl.getBoundingClientRect().bottom - rootEl.getBoundingClientRect().top + 6;
     for (const side of ["l", "r"] as const) {
       const list = gut[side].sort((a, b) => a.ay - b.ay);
       // stack without overlaps between the toolbar band at the top and the controls at the bottom
-      let y = top;
+      let y = side === "l" ? Math.max(top, keyBottom) : top;
       const placed: number[] = [];
       for (const it of list) {
         const want = Math.max(y, it.ay - it.h / 2);
@@ -100,7 +107,7 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
       // pull back up if the stack overflows the bottom
       let over = y - 4 - (H - obstacleBottom);
       for (let i = list.length - 1; i >= 0 && over > 0; i--) {
-        const room = i === 0 ? placed[0] - top : placed[i] - (placed[i - 1] + list[i - 1].h + 4);
+        const room = i === 0 ? placed[0] - (side === "l" ? Math.max(top, keyBottom) : top) : placed[i] - (placed[i - 1] + list[i - 1].h + 4);
         const m = Math.min(room, over);
         for (let j = i; j < list.length; j++) placed[j] -= m;
         over -= m;

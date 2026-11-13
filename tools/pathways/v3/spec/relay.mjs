@@ -51,9 +51,14 @@ export async function thalamocortical(side, nucleusId, target) {
 /* ------------------------------------------------------------------ limb chains */
 /** The fingertip of the little finger (ulnar side), the start of the C8 chain. */
 export function ulnarTip(side) {
-  let best = null;
-  for (const c of splines("Proper palmar digital branches of ulnar nerve", side)) for (const p of [c.a, c.b]) if (!best || p[1] < best[1]) best = p;
-  return best;
+  // the little finger is the most medial digit: of the ulnar digital branches' distal ends, the one nearest the midline.
+  // (the lowest end is the ulnar side of the RING finger, which is longer; owner caught it, 2026-11-13)
+  // Only branches of the common palmar digital nerve (they share its split point) continue into the chain below; the little
+  // finger's ulnar-side proper nerve leaves the superficial branch higher up, so the radial side of the little finger is used.
+  const cs = splines("Proper palmar digital branches of ulnar nerve", side).map((c) => (c.a[1] < c.b[1] ? { tip: c.a, root: c.b } : { tip: c.b, root: c.a }));
+  const shared = cs.filter((c) => cs.some((o) => o !== c && Math.hypot(o.root[0] - c.root[0], o.root[1] - c.root[1], o.root[2] - c.root[2]) < 0.003));
+  const pool = shared.length ? shared : cs;
+  return pool.reduce((best, c) => (Math.abs(c.tip[0]) < Math.abs(best.tip[0]) ? c : best)).tip;
 }
 /** Skin of the little finger to the C8 dorsal root ganglion, in the real ulnar nerve, inferior trunk and C8 root. */
 export function ulnarToDrg(f, side, off = 0) {

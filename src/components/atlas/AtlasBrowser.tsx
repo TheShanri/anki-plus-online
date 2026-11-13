@@ -341,6 +341,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     try {
       const p = new URLSearchParams();
       if (primary) p.set("s", primary.slug && tab === "slices" ? primary.slug : primary.key.replace(/^slug:/, ""));
+      else if (lockedPick && !lockedPick.id.startsWith("skull:")) p.set("s", lockedPick.id);
       if (tab === "slices") p.set("view", VIEW_NAME[sliceView]);
       if (extraKeys.length) p.set("add", extraKeys.join(","));
       if (neighbors) p.set("nb", "1");
@@ -349,7 +350,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     } catch {
       /* ignore */
     }
-  }, [embedded, primary, tab, sliceView, extraKeys, neighbors]);
+  }, [embedded, primary, lockedPick, tab, sliceView, extraKeys, neighbors]);
 
   const results = useMemo(() => {
     const terms = normalizeQuery(q).split(" ").filter(Boolean);
@@ -369,7 +370,30 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
 
   const onSyllabus = (it: CatalogItem) => !!it.slug || it.meshIds.some((id) => SYLLABUS.has(id));
 
+  // A deep link (?s=) to a structure that is not on the syllabus respects the lock: nothing is selected,
+  // the region shows greyed and the "Oh, I'm just curious" offer appears. (Unlocking is never saved in the URL.)
+  const deepChecked = useRef(!(initialS || initialN));
+  useEffect(() => {
+    if (!primary || deepChecked.current) return;
+    deepChecked.current = true;
+    if (primary.group || infoSlug || onSyllabus(primary) || !primary.meshIds.length) return;
+    const t = window.setTimeout(() => {
+      setPrimaryKey(null);
+      setCourseName(undefined);
+      setLockedPick({ id: primary.meshIds[0], name: primary.name });
+    }, 0);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [primary, infoSlug]);
+
+  // locking again also drops the selection that was only open because of the unlock
+  const unlockedRef = useRef<string | null>(null);
+  useEffect(() => {
+    unlockedRef.current = unlocked;
+  }, [unlocked]);
   const relock = useCallback(() => {
+    const u = unlockedRef.current;
+    if (u) setPrimaryKey((k) => (k === u ? null : k));
     setUnlocked(null);
     setCuriousNode(null);
     setLockedPick(null);
@@ -692,7 +716,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 </button>
               </div>
             )}
-            {tab === "model" && !primary && (
+            {tab === "model" && !primary && !lockedPick && (
               <div className="atl-chip pointer-events-none absolute bottom-16 left-2 z-[6] max-w-[60%] text-text-dim">Pick a structure, or click one in 3D. Drag to rotate, scroll to zoom.</div>
             )}
           </div>

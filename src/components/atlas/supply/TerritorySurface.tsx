@@ -37,6 +37,11 @@ const OCC_TOL = 0.0015;
 const FILL = ["corpus-callosum", "fornix", "septum-pellucidum", "anterior-commissure", "mni-internal-capsule", "caudate-nucleus", "putamen", "globus-pallidus", "thalamus", "hypothalamus", "hippocampus", "amygdaloid-body", "optic-chiasm", "lateral-ventricle", "third-ventricle", "fourth-ventricle"];
 /** Radius (CSS px) over which the nearest depth is taken: closes the cracks between gyral patches, through which the inside of the far cortex would otherwise show. */
 const OCC_PX = 4;
+/** Medial view: the model has no medial wall in places (the frontal and callosal region), so the far side of the hemisphere (the inner opercula, the insula, the lateral convexity) would show through and take the
+ * MCA colour. The cut section of the closed brain solid (brainfill.glb) stands in for the missing wall in the depth pre-pass only: the back faces of the
+ * clipped solid are drawn at the depth of the cut plane pushed CAP_DEPTH into the brain, deeper than any medial sulcus, shallower than the insula. */
+const CAP_DEPTH = 0.022; // metres behind the cut plane
+
 /** The viewer stops drawing the brainstem here (the open lower medulla); the occluder stops at the same plane. */
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 
@@ -58,6 +63,38 @@ function buildOccluder(roots: THREE.Group[], mat: THREE.Material): THREE.Scene {
     });
   }
   return scene;
+}
+
+/** Depth-only material: back faces of the clipped brain solid, written at the cut plane (+ CAP_DEPTH) along each view ray. */
+function makeCapMaterial() {
+  return new THREE.ShaderMaterial({
+    side: THREE.BackSide,
+    colorWrite: false,
+    depthWrite: true,
+    depthTest: true,
+    uniforms: {
+      uPlane: { value: new THREE.Vector4(-1, 0, 0, 0) }, // keeps dot(n,p)+c >= 0
+      uDepth: { value: CAP_DEPTH },
+      uCam: { value: new THREE.Vector3() },
+      uDir: { value: new THREE.Vector3() }, // ortho view direction
+      uOrtho: { value: 0 },
+      uVP: { value: new THREE.Matrix4() },
+    },
+    vertexShader: `varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position,1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: `
+      uniform vec4 uPlane; uniform float uDepth; uniform vec3 uCam; uniform vec3 uDir; uniform float uOrtho; uniform mat4 uVP;
+      varying vec3 vW;
+      void main(){
+        if (dot(uPlane.xyz, vW) + uPlane.w < 0.0) discard;
+        vec3 dir = uOrtho > 0.5 ? uDir : normalize(vW - uCam);
+        float dn = dot(uPlane.xyz, dir);
+        if (abs(dn) < 1e-4) discard;
+        float t = (uDepth - uPlane.w - dot(uPlane.xyz, uOrtho > 0.5 ? vW : uCam)) / dn;
+        vec3 q = (uOrtho > 0.5 ? vW : uCam) + dir * t;
+        vec4 c = uVP * vec4(q, 1.0);
+        gl_FragDepth = clamp(c.z / c.w * 0.5 + 0.5, 0.0, 1.0);
+      }`,
+  });
 }
 
 function cutPlanes(cut: TerritoryCut | undefined): THREE.Plane[] {
@@ -267,6 +304,18 @@ export function TerritorySurface({
       alive = false;
     };
   }, [needed, fill]);
+  // the closed brain solid, only for a cut view: its cut section stands in for the missing medial wall in the depth pre-pass
+  const [solid, setSolid] = useState<THREE.Group | null>(null);
+  useEffect(() => {
+    if (!cut || solid) return;
+    let alive = true;
+    loadAtlasModel("brainfill.glb")
+      .then((g) => alive && setSolid(g))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [cut, solid]);
   const built = useMemo(() => (root ? buildSurface(root, variant) : null), [root, variant]);
   useEffect(() => () => built?.geo.dispose(), [built]);
 
@@ -286,6 +335,9 @@ export function TerritorySurface({
     [occ],
   );
   const occScene = useMemo(() => (root ? buildOccluder([root, ...(fill ?? [])], occ.depthMat) : null), [root, fill, occ]);
+  const capMat = useMemo(() => makeCapMaterial(), []);
+  useEffect(() => () => capMat.dispose(), [capMat]);
+  const capScene = useMemo(() => (solid ? buildOccluder([solid], capMat) : null), [solid, capMat]);
   const cutKey = cut ? `${cut.axis}:${cut.position}:${cut.flip ? 1 : 0}` : "";
 
   const mat = useMemo(() => {
@@ -305,11 +357,13 @@ export function TerritorySurface({
   /* eslint-disable react-hooks/immutability */
   useEffect(() => {
     const parts = cutKey ? cutKey.split(":") : null;
-    occ.depthMat.clippingPlanes = cutPlanes(parts ? { axis: parts[0] as TerritoryCut["axis"], position: Number(parts[1]), flip: parts[2] === "1" } : undefined);
+    const planes = cutPlanes(parts ? { axis: parts[0] as TerritoryCut["axis"], position: Number(parts[1]), flip: parts[2] === "1" } : undefined);
+    occ.depthMat.clippingPlanes = planes;
+    capMat.uniforms.uPlane.value.set(planes[0].normal.x, planes[0].normal.y, planes[0].normal.z, planes[0].constant);
     occ.depthMat.needsUpdate = true;
     occ.key.length = 0; // the next frame redraws the depth
     invalidate();
-  }, [cutKey, occ, invalidate]);
+  }, [cutKey, occ, capMat, invalidate]);
 
   /** Runs right before the skin is drawn, with the camera it is drawn with (also each multi-view pane). */
   const depthPass = useMemo(
@@ -348,6 +402,14 @@ export function TerritorySurface({
         renderer.setRenderTarget(occ.rt);
         renderer.clear(false, true, false);
         renderer.render(occScene, cam);
+        if (capScene && cutKey) {
+          const cu = capMat.uniforms;
+          (cu.uCam.value as THREE.Vector3).setFromMatrixPosition(cam.matrixWorld);
+          cu.uOrtho.value = (cam as THREE.OrthographicCamera).isOrthographicCamera ? 1 : 0;
+          cam.getWorldDirection(cu.uDir.value as THREE.Vector3);
+          (cu.uVP.value as THREE.Matrix4).multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse);
+          renderer.render(capScene, cam);
+        }
         renderer.setRenderTarget(prev);
         renderer.autoClear = autoClear;
       }
@@ -359,12 +421,12 @@ export function TerritorySurface({
       u.uOccOrtho.value = (cam as THREE.OrthographicCamera).isOrthographicCamera ? 1 : 0;
       u.uOccOn.value = 1;
     },
-    [occ, occScene],
+    [occ, occScene, capScene, capMat, cutKey],
   );
   useEffect(() => {
     occ.key.length = 0;
     invalidate();
-  }, [occScene, occ, invalidate]);
+  }, [occScene, capScene, occ, invalidate]);
 
   useEffect(() => {
     if (!built) return;

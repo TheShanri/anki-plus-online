@@ -382,9 +382,10 @@ export default function Scene3(p: Scene3Props) {
         const x = b[s];
         if (!x) continue;
         for (const st of x.stops) {
-          const key = `r:${st.key}`;
           // one tag per displayed name ("GPi (inhibitory output)" and the GPi region both read "GPi")
           const text = shortName(st.name);
+          // the key carries the name: two stops on the same patch ("Spindles in the masseter", "Masseter contracts") are two tags
+          const key = `r:${st.key}|${text}`;
           if (seen.has(text)) continue;
           seen.add(text);
           // the stop's own mark: its carve, a cell body / start / synapse inside it (this beat or earlier), a proxy's centre,

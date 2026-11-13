@@ -424,7 +424,14 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   const copy = beat ? beatCopy(slug, cur, beat, bs.infos[beat.info], part) : null;
   const next = !all && cur < B - 1 ? beatCopy(slug, cur + 1, bs.beats[cur + 1], bs.infos[bs.beats[cur + 1].info], part) : null;
   const visual = !!mp.visual;
-  const order = Math.min(4, (beat?.neuron ?? 0) + 1) as 1 | 2 | 3 | 4;
+  // the badge names the neuron the scene draws: the course map can count fewer neurons than the circuit draws (the jaw-jerk motor
+  // neuron, the basal ganglia thalamocortical neuron), so the drawn order wins when it is higher
+  let drawnOrder = 0;
+  for (let k = cur; k >= 0 && !drawnOrder; k--) {
+    const dr = d?.beats[k]?.L ?? d?.beats[k]?.R; // a beat with nothing neural drawn (the target) keeps the previous beat's order
+    drawnOrder = dr?.f[0]?.order ?? dr?.soma?.order ?? dr?.start?.order ?? 0;
+  }
+  const order = Math.min(4, Math.max((beat?.neuron ?? 0) + 1, all ? 0 : drawnOrder)) as 1 | 2 | 3 | 4;
   const badge = /lcst|acst|corticobulbar|umn-lmn/.test(slug) ? (order === 1 ? "UMN" : "LMN") : /sympathetic/.test(slug) ? (order === 1 ? "Pre" : "Post") : `${ORDINAL[order]}`;
   // which side the signal is on now: the physical side of the focused fibre at the end of this beat, and whether that is the
   // same side as the stimulus / limb (the body side the user picked) or the opposite one

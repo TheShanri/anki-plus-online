@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -34,7 +34,15 @@ export function LabelUpdater({ items, dom, enabled, obstacleTop, obstacleBottom 
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
   const lastFlip = useRef<boolean | null>(null);
+  const invalidate = useThree((s) => s.invalidate);
   const sorted = useMemo(() => [...items].sort((a, b) => b.prio - a.prio), [items]);
+  // the scene renders on demand: when the tags change (a new beat) their wrapped heights are only known after React has laid
+  // them out, so lay the stack out again a moment later instead of keeping the first, stale heights (overlapping labels)
+  useEffect(() => {
+    invalidate();
+    const t = [60, 250].map((ms) => setTimeout(invalidate, ms));
+    return () => t.forEach(clearTimeout);
+  }, [items, invalidate]);
   useFrame(() => {
     const d = dom.current;
     if (!d) return;

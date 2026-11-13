@@ -153,5 +153,23 @@ The hard-navigation workaround in AtlasModes.tsx and NavMenu.tsx is removed: rea
 All 33 pathways are on v3.
 Pattern per pathway: spec -> build (validator green) -> copy in copy/<group>.json + copycheck -> shoot.mjs both sizes ->
 sheet.py -> look and compare with the slides -> add to V3_SHIPPED and the Shipped list -> commit.
-Done: v2 tracer code deleted. Still open: the hidden seams listed above; an inhibitory style for circuit fibres (bar
-instead of cup); the dev overlay shows "3 issues" on every sheet (pre-existing, not from the tracer specs).
+Done: v2 tracer code deleted. Still open: the hidden seams listed above; the dev overlay shows "3 issues" on every sheet (pre-existing, not from the tracer specs).
+
+## Polish pass (2026-11-12)
+- Inhibitory synapses: a spec fibre marked `.inhibits()` (fibre.mjs) carries `inh: true` into the JSON; the scene draws a short
+  bar across the fibre's end (Mark kind "inh", turned across the fibre and the view each frame) instead of the cup, and the key
+  adds an "inhibits" row only when the pathway has one. Marked (lecture 14 slides 11-18 and 23-31, as cited in circuits.mjs):
+  Purkinje -> deep cerebellar nuclei; striatum -> GPi (direct); striatum -> GPe and GPe -> STN (indirect); GPi -> VA/VL.
+  Cups stay for STN -> GPi, cortex -> striatum, thalamus -> cortex, mossy / climbing fibres and the deep nuclei -> red nucleus /
+  VA/VL (all excitatory). SNc dopamine is left as is (the 2D diagram key already says "modulates"). Sheets: basal-ganglia and
+  cerebellar, both sizes. Known weakness, not from this change: in the basal ganglia coronal beats the short striatum -> GPi
+  fibres are partly hidden behind the putamen shell at the section plane; the bars (depth-test off) still show the endings.
+- Labels: the open key box (`[data-pw-key]`) is an obstacle: the left gutter stacks below its measured bottom edge.
+  Label tags are keyed by stop key plus name: two stops on one patch ("Spindles in the masseter", "Masseter contracts") used to
+  share a tag and drew over each other.
+- Olfactory beats 0-4: a coronal cut seen from the front (was a midsagittal cut that left the nerve on an empty background).
+  Both nerves read against the ethmoid, cribriform plate and frontal lobes.
+- Jaw jerk: the beat badge named the motor neuron "1st" while the scene draws it 2nd-order (the course map counts one neuron).
+  The badge now takes the drawn order when it is higher (and a target beat keeps the previous beat's order); this also makes
+  the basal ganglia thalamocortical beat read "4th". Left: the side rail's neuron card still follows the course map (jaw jerk
+  lists only the mesencephalic neuron).

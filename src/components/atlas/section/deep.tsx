@@ -17,12 +17,13 @@ export type Tissue = "grey" | "white" | "csf";
  * "colour structures" is on (and in the section key then); otherwise a cut shows tissue: nuclei as grey matter,
  * tracts as white matter, ventricles as dark CSF, each outlined by a hairline.
  */
-export const DEEP: { id: string; tissue: Tissue; hue: string; shade?: number }[] = [
+export const DEEP: { id: string; tissue: Tissue; hue: string; shade?: number; under?: boolean; midSkip?: boolean }[] = [
   { id: "corpus-callosum", tissue: "white", hue: "#e9dcc4" },
   { id: "fornix", tissue: "white", hue: "#e3cf9f" },
   { id: "septum-pellucidum", tissue: "grey", hue: "#cfc3d6", shade: 0.2 },
   { id: "anterior-commissure", tissue: "white", hue: "#ecd9a4" },
-  { id: "mni-internal-capsule", tissue: "white", hue: "#efe4cc" },
+  // MNI-derived, it overlaps the nuclei it runs between: drawn under them (no depth write, painted first)
+  { id: "mni-internal-capsule", tissue: "white", hue: "#efe4cc", under: true },
   { id: "caudate-nucleus", tissue: "grey", hue: "#86a5c2" },
   { id: "putamen", tissue: "grey", hue: "#c4908c" },
   { id: "globus-pallidus", tissue: "grey", hue: "#d6b47c", shade: 0.45 },
@@ -31,10 +32,34 @@ export const DEEP: { id: string; tissue: Tissue; hue: string; shade?: number }[]
   { id: "hippocampus", tissue: "grey", hue: "#86b79b" },
   { id: "amygdaloid-body", tissue: "grey", hue: "#c98484" },
   { id: "lateral-ventricle", tissue: "csf", hue: "#4f5d77" },
-  { id: "third-ventricle", tissue: "csf", hue: "#4f5d77" },
+  // a midsagittal cut runs down the third ventricle: there its lateral wall (the thalamus, hypothalamus) is what an atlas plate shows
+  { id: "third-ventricle", tissue: "csf", hue: "#4f5d77", midSkip: true },
   { id: "fourth-ventricle", tissue: "csf", hue: "#4f5d77" },
+  { id: "aqueduct-of-midbrain", tissue: "csf", hue: "#4f5d77" },
+  // the midline landmarks of a midsagittal plate
+  { id: "posterior-commissure", tissue: "white", hue: "#ecd9a4" },
+  { id: "mamillary-body", tissue: "grey", hue: "#d29a78", shade: 0.1 },
+  { id: "mni-pineal-gland", tissue: "grey", hue: "#c9a3b8", shade: 0.15 },
+  { id: "habenula", tissue: "grey", hue: "#b79bc9" },
+  { id: "optic-chiasm", tissue: "white", hue: "#e7dcc0" },
+  { id: "superior-colliculus", tissue: "grey", hue: "#c6a98f", shade: 0.1 },
+  { id: "inferior-colliculus", tissue: "grey", hue: "#c6a98f", shade: 0.1 },
+  { id: "mni-periaqueductal-gray", tissue: "grey", hue: "#b9a49a" },
 ];
 export const DEEP_TISSUE: Record<string, Tissue> = Object.fromEntries(DEEP.map((d) => [d.id, d.tissue]));
+const DEEP_UNDER = new Set(DEEP.filter((d) => d.under).map((d) => d.id));
+
+/** Even-odd test: is point (u, v) inside the closed outline given as 2D segments [u0, v0, u1, v1, ...]? */
+function inside2(u: number, v: number, seg: number[]) {
+  let c = false;
+  for (let k = 0; k < seg.length; k += 4) {
+    const v0 = seg[k + 1], v1 = seg[k + 3];
+    if ((v0 > v) === (v1 > v)) continue;
+    const x = seg[k] + ((v - v0) / (v1 - v0)) * (seg[k + 2] - seg[k]);
+    if (x > u) c = !c;
+  }
+  return c;
+}
 
 /** Per-structure section paint uniforms: how far toward its tissue's clean tone, and a tint (hover, selection, colour mode). */
 type PaintU = { uKind: { value: THREE.Vector3 }; uTint: { value: THREE.Color }; uTintAmt: { value: number } };
@@ -45,7 +70,7 @@ type PaintU = { uKind: { value: THREE.Vector3 }; uTint: { value: THREE.Color }; 
  * renderOrder 0.3: after the brain-solid stencil count (0.1, 0.2), before the section quads (0.5).
  */
 /** `shade` (0..1) moves a grey structure toward white: the pallidum and thalamus are paler than cortex in a fixed brain (more myelin). */
-export function makeSectionPaint(tissue: Tissue, shade = 0): THREE.MeshBasicMaterial & { userData: { sec: PaintU } } {
+export function makeSectionPaint(tissue: Tissue, shade = 0, opts: { under?: boolean; midSkip?: boolean } = {}): THREE.MeshBasicMaterial & { userData: { sec: PaintU } } {
   const u: PaintU = {
     uKind: { value: new THREE.Vector3(tissue === "grey" ? 1 - shade : 0, tissue === "white" ? 1 : tissue === "grey" ? shade : 0, tissue === "csf" ? 1 : 0) },
     uTint: { value: new THREE.Color("#ffffff") },
@@ -58,7 +83,9 @@ export function makeSectionPaint(tissue: Tissue, shade = 0): THREE.MeshBasicMate
     stencilRef: 0,
     stencilFunc: THREE.AlwaysStencilFunc,
     stencilZPass: THREE.ReplaceStencilOp,
+    depthWrite: !opts.under,
   }) as THREE.MeshBasicMaterial & { userData: { sec: PaintU } };
+  if (opts.under) m.userData.under = true;
   m.userData.sec = u;
   m.onBeforeCompile = (s) => {
     Object.assign(s.uniforms, SEC, u);
@@ -70,6 +97,7 @@ uniform vec3 uKind;
 uniform vec3 uTint;
 uniform float uTintAmt;
 vec3 secPaint(vec3 w) {
+  ${opts.midSkip ? "if (uMidIdx >= 0 && secEntry(w) == uMidIdx) discard;" : ""}
   vec3 p = secOnPlane(w);
   vec3 tone = uHasTissue > 0.5 ? secTone(p) : uKind.x * uGM + uKind.y * uWM + uKind.z * uCSF;
   // pull toward the clean tone of its tissue: a nucleus reads as one grey mass, a tract as white, a ventricle as an empty dark space
@@ -82,7 +110,7 @@ vec3 secPaint(vec3 w) {
 ` +
       s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", "vec4 diffuseColor = vec4( secPaint( vSecW ), opacity );");
   };
-  m.customProgramCacheKey = () => "atlas-section-paint";
+  m.customProgramCacheKey = () => (opts.midSkip ? "atlas-section-paint-midskip" : "atlas-section-paint");
   return m;
 }
 
@@ -108,7 +136,7 @@ export function addSectionPaint(root: THREE.Object3D, mat: (m: THREE.Mesh) => TH
     c.userData.secPaint = true;
     c.userData.hull = true; // not a pickable/structure mesh
     c.raycast = () => undefined;
-    c.renderOrder = 0.3;
+    c.renderOrder = pm.userData.under ? 0.29 : 0.3; // a structure drawn "under" is painted first, the nuclei over it
     m.add(c);
     added.push(c);
   }
@@ -134,21 +162,43 @@ export function SectionOutlines({ roots, planes, version, color, width = 1.1 }: 
     // the cutting planes are moved in place by the scene's own effect, which runs after this child's: read them a frame later
     const raf = requestAnimationFrame(() => {
       const out: number[] = [];
-      for (const r of roots)
-        r.traverse((o) => {
-          const m = o as THREE.Mesh;
-          if (!m.isMesh || m.userData.secPaint || m.userData.hull || !m.visible) return;
-          planes.forEach((pl, i) => {
-            const before = out.length;
-            planeSection(m, pl, planes.filter((_, j) => j !== i), out);
-            // lift the outline a hair toward the viewer side of the plane so it never sinks under the face
-            for (let k = before; k < out.length; k += 3) {
-              out[k] -= pl.normal.x * 0.0004;
-              out[k + 1] -= pl.normal.y * 0.0004;
-              out[k + 2] -= pl.normal.z * 0.0004;
+      planes.forEach((pl, i) => {
+        const others = planes.filter((_, j) => j !== i);
+        // a 2D basis on the plane, for the "under" structures' outlines (internal capsule): no line inside a nucleus' cut
+        const eu = new THREE.Vector3(1, 0, 0);
+        if (Math.abs(pl.normal.x) > 0.9) eu.set(0, 1, 0);
+        eu.addScaledVector(pl.normal, -eu.dot(pl.normal)).normalize();
+        const ev = new THREE.Vector3().crossVectors(pl.normal, eu);
+        const to2 = (a: number[], k: number) => [a[k] * eu.x + a[k + 1] * eu.y + a[k + 2] * eu.z, a[k] * ev.x + a[k + 1] * ev.y + a[k + 2] * ev.z];
+        const nuclei: number[][] = [];
+        const under: number[][] = [];
+        const plain: number[] = [];
+        for (const r of roots)
+          r.traverse((o) => {
+            const m = o as THREE.Mesh;
+            if (!m.isMesh || m.userData.secPaint || m.userData.hull || !m.visible) return;
+            const gid = (m.userData.gid as string | undefined) ?? "";
+            const seg: number[] = [];
+            planeSection(m, pl, others, seg);
+            if (!seg.length) return;
+            if (DEEP_UNDER.has(gid)) return void under.push(seg);
+            plain.push(...seg);
+            if (DEEP_TISSUE[gid] === "grey") {
+              const s2: number[] = [];
+              for (let k = 0; k < seg.length; k += 6) s2.push(...to2(seg, k), ...to2(seg, k + 3));
+              nuclei.push(s2);
             }
           });
-        });
+        for (const seg of under)
+          for (let k = 0; k < seg.length; k += 6) {
+            const mid = [(seg[k] + seg[k + 3]) / 2, (seg[k + 1] + seg[k + 4]) / 2, (seg[k + 2] + seg[k + 5]) / 2];
+            const [u, v] = to2(mid, 0);
+            if (nuclei.some((n) => inside2(u, v, n))) continue;
+            plain.push(seg[k], seg[k + 1], seg[k + 2], seg[k + 3], seg[k + 4], seg[k + 5]);
+          }
+        // lift the outline a hair toward the viewer side of the plane so it never sinks under the face
+        for (let k = 0; k < plain.length; k += 3) out.push(plain[k] - pl.normal.x * 0.0004, plain[k + 1] - pl.normal.y * 0.0004, plain[k + 2] - pl.normal.z * 0.0004);
+      });
       const g = new LineSegmentsGeometry();
       if (out.length) g.setPositions(out);
       line.geometry.dispose();

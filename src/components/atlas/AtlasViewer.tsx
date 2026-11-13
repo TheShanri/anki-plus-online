@@ -536,8 +536,6 @@ function eachMesh(root: THREE.Object3D, fn: (m: THREE.Mesh) => void) {
   });
 }
 
-/** Midsagittal: the section face sits this far behind the plane, so the medial surface (cortex, thalamus, deep structures just off the midline) stays in front of it; it still paints the tissue on the plane. */
-const MID_DEPTH = 0.012;
 
 /** A cut mesh shows its inside flat in its own colour, so a section through a closed structure reads as solid tissue. */
 function flatInside(m: THREE.MeshStandardMaterial) {
@@ -1204,15 +1202,18 @@ function Scene({
   const deepMats = useMemo(() => {
     const out: Record<string, THREE.MeshStandardMaterial> = {};
     for (const d of DEEP) {
-      const m = new THREE.MeshStandardMaterial({ color: colourCuts ? d.hue : sectionSwatch(d.tissue, sectionLook), roughness: 0.8, metalness: 0, side: THREE.DoubleSide });
+      const c = colourCuts ? d.hue : sectionSwatch(d.tissue, sectionLook);
+      // seen as surfaces only beside a midsagittal cut (the thalamus wall of the third ventricle, the fornix): lit, but held near their tissue tone
+      const m = new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.35, roughness: 0.8, metalness: 0, side: THREE.DoubleSide });
       flatInside(m);
+      if (d.under) m.depthWrite = false; // the internal capsule overlaps the nuclei: it must not hide their cut faces
       out[d.id] = m;
     }
     return out;
   }, [colourCuts, sectionLook]);
   useEffect(() => () => Object.values(deepMats).forEach((m) => m.dispose()), [deepMats]);
   // the cut face of each deep structure (and of a selected structure): tissue on the plane, see section/deep.tsx
-  const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue, d.shade)])) as Record<string, THREE.MeshBasicMaterial>, []);
+  const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue, d.shade, { under: d.under, midSkip: d.midSkip })])) as Record<string, THREE.MeshBasicMaterial>, []);
   const targetPaint = useMemo(() => makeSectionPaint("grey"), []);
   useEffect(() => () => [...Object.values(paintMats), targetPaint].forEach((m) => m.dispose()), [paintMats, targetPaint]);
   useEffect(() => {
@@ -1501,7 +1502,6 @@ function Scene({
 
   const capPlanes = useMemo(() => [...(midsagittal ? [clipPlane] : []), ...(clip.axis !== "off" ? [cutP] : [])], [midsagittal, clip.axis, clipPlane, cutP]);
   const sectionOn = !!fill && capPlanes.length > 0 && showCtx && look !== "xray" && !!gross && (brainOpacity ?? 1) >= 1;
-  const capDepth = useCallback((pl: THREE.Plane) => (pl === clipPlane ? MID_DEPTH : -0.0002), [clipPlane]);
   useEffect(() => invalidate(), [tissueOk, invalidate]);
   // cut planes
   useEffect(() => {
@@ -1527,7 +1527,7 @@ function Scene({
       m.clippingPlanes = gp;
       m.needsUpdate = true;
     }
-    setSectionPlanes(gp);
+    setSectionPlanes(gp, midsagittal ? clipPlane : null);
     setPlanes(boneMat, gp, true);
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
@@ -1556,6 +1556,14 @@ function Scene({
     addSectionPaint(root, (m) => paintMats[m.userData.gid as string] ?? null);
     return root;
   }, [deep, deepMats, paintMats, hiddenIds]);
+  // midsagittal: the cut runs down the third ventricle, so its lateral wall (thalamus, hypothalamus) is what shows, not the cavity cast
+  useEffect(() => {
+    if (!deepRoot) return;
+    deepRoot.traverse((o) => {
+      if (o.userData.gid === "third-ventricle" && (o as THREE.Mesh).isMesh) o.visible = !midsagittal;
+    });
+    invalidate();
+  }, [deepRoot, midsagittal, invalidate]);
   useEffect(() => {
     setGrossVisible(grossById, grossOn, hiddenIds);
     const list: THREE.Mesh[] = [];
@@ -1704,8 +1712,8 @@ function Scene({
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
       {deepRoot && grossOn && <primitive object={deepRoot} />}
-      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={SECTION_PALETTE[sectionLook].wm} depth={capDepth} />}
-      {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" depth={() => MID_DEPTH} />}
+      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={SECTION_PALETTE[sectionLook].wm} medial={midsagittal ? clipPlane : null} />}
+      {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
       {outlineRoots.length > 0 && <SectionOutlines roots={outlineRoots} planes={capPlanes} version={outlineKey} color={SECTION_PALETTE[sectionLook].line} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
@@ -2145,7 +2153,7 @@ export default function AtlasViewer({
     if (!ctxBox) return ax === "x" ? [-0.08, 0.08] : ax === "y" ? [1.53, 1.68] : [-0.11, 0.1];
     return [ctxBox.min[ax], ctxBox.max[ax]];
   }, [ctxBox, clip.axis]);
-  /** The structures a section shows: deep structures the cut actually passes through (or, midsagittal, that lie within 12 mm behind the midline), then brainstem and cerebellum. Swatches use the section's tissue tones unless "colour" is on. */
+  /** The structures a section shows: deep structures the cut actually passes through (the same rule for the midsagittal plane), then brainstem and cerebellum. Swatches use the section's tissue tones unless "colour" is on. */
   const sectionKey = useMemo(() => {
     if (!cutNow || !deep || !index) return [] as { id: string; name: string; colour: string }[];
     const mid = view === "midsagittal" && !multi ? new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0) : null;
@@ -2182,12 +2190,11 @@ export default function AtlasViewer({
           if (segs.length) hit = true;
         });
       });
-      if (!hit && mid && !cut) hit = behind(e, mid, MID_DEPTH);
       if (hit) out.push({ id: d.id, name: e.name, colour: colourCuts ? d.hue : sectionSwatch(d.tissue, sl) });
     }
     for (const id of ["brainstem", "cerebellum"]) {
       const e = index.structures[id];
-      if (e && planes.every((pl) => behind(e, pl, pl === mid ? MID_DEPTH : 0))) out.push({ id, name: e.name, colour: `linear-gradient(135deg, ${pal.gm} 50%, ${pal.wm} 50%)` });
+      if (e && planes.every((pl) => behind(e, pl, 0))) out.push({ id, name: e.name, colour: `linear-gradient(135deg, ${pal.gm} 50%, ${pal.wm} 50%)` });
     }
     return out;
   }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts]);

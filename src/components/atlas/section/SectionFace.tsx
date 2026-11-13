@@ -7,13 +7,21 @@ import { bakeGeometry } from "./geometry";
 import { SEC, SEC_GLSL, SEC_VERT_DECL, SEC_VERT_MAIN } from "./shader";
 
 const CAP_SCALE = 0.985;
+/** The face sits a hair in front of its plane, so the cut edges of the meshes behind it never show through. */
+const ON_PLANE = -0.0002;
+/** Midsagittal fill layer: this far behind the midline, under the medial surface, it only shows through gaps in the gyral meshes. */
+export const MID_DEPTH = 0.012;
+
+type Kind = "plain" | "midline" | "medial" | "ghost";
 
 /**
  * The cut face of the brain. The watertight brain solid (brainfill.glb) is stencil-counted once (odd = inside the brain
  * along that pixel's ray), deep-structure section paints (renderOrder 0.3, see makeSectionPaint) then clear the stencil where
- * a nucleus/tract/ventricle is cut, and one quad per cutting plane paints the remaining section with the tissue volume
- * (grey ribbon, white matter, sulci, ventricles). `ghost` is the X-ray look: a flat dark, almost opaque face.
- * `depth` pushes a plane's face behind the plane (midsagittal: the medial surface stays in front of it).
+ * a nucleus/tract/ventricle is cut, and quads per cutting plane paint the remaining section with the tissue volume
+ * (grey ribbon, white matter, sulci, ventricles).
+ * The midsagittal plane (`medial`) gets two layers: on the plane, the true section of the brainstem and cerebellum (the
+ * volume's midline mask; elsewhere the interhemispheric fissure lets the medial surface show), then a fill 12 mm behind for
+ * gaps in the medial surface. `ghost` is the X-ray look: a flat dark, almost opaque face 12 mm behind each plane.
  */
 export function SectionFace({
   fill,
@@ -21,14 +29,14 @@ export function SectionFace({
   centre,
   color,
   ghost = false,
-  depth,
+  medial = null,
 }: {
   fill: THREE.Group;
   planes: THREE.Plane[];
   centre: THREE.Vector3;
   color: string;
   ghost?: boolean;
-  depth?: (pl: THREE.Plane, i: number) => number;
+  medial?: THREE.Plane | null;
 }) {
   const geo = useMemo(() => bakeGeometry(fill), [fill]);
   const quads = useRef<(THREE.Mesh | null)[]>([]);
@@ -38,10 +46,12 @@ export function SectionFace({
     const front = new THREE.MeshBasicMaterial({ ...base, side: THREE.FrontSide, stencilFail: THREE.DecrementWrapStencilOp, stencilZFail: THREE.DecrementWrapStencilOp, stencilZPass: THREE.DecrementWrapStencilOp });
     return { back, front };
   }, [planes]);
-  const caps = useMemo(
-    () =>
-      planes.map((pl, i) => {
-        const others = planes.filter((_, j) => j !== i);
+  const caps = useMemo(() => {
+    const out: { pl: THREE.Plane; cap: THREE.MeshBasicMaterial; depth: number }[] = [];
+    planes.forEach((pl, i) => {
+      const others = planes.filter((_, j) => j !== i);
+      const kinds: Kind[] = ghost ? ["ghost"] : pl === medial ? ["midline", "medial"] : ["plain"];
+      for (const kind of kinds) {
         const cap = new THREE.MeshBasicMaterial({
           color,
           side: THREE.DoubleSide,
@@ -57,11 +67,12 @@ export function SectionFace({
           stencilZFail: THREE.ReplaceStencilOp,
           stencilZPass: THREE.ReplaceStencilOp,
         });
-        if (!ghost) tissueCap(cap, !!depth && depth(pl, i) > 0.005);
-        return { pl, cap };
-      }),
-    [planes, color, ghost, depth],
-  );
+        if (kind !== "ghost") tissueCap(cap, kind);
+        out.push({ pl, cap, depth: kind === "plain" || kind === "midline" ? ON_PLANE : MID_DEPTH });
+      }
+    });
+    return out;
+  }, [planes, color, ghost, medial]);
   useEffect(() => () => [counts.back, counts.front].forEach((m) => m.dispose()), [counts]);
   useEffect(() => () => caps.forEach((c) => c.cap.dispose()), [caps]);
   useFrame(() => {
@@ -69,7 +80,7 @@ export function SectionFace({
       const q = quads.current[i];
       if (!q) return;
       c.pl.projectPoint(centre, q.position);
-      q.position.addScaledVector(c.pl.normal, depth ? depth(c.pl, i) : 0.00005);
+      q.position.addScaledVector(c.pl.normal, c.depth);
       q.lookAt(q.position.clone().add(c.pl.normal));
     });
   });
@@ -90,14 +101,16 @@ export function SectionFace({
 }
 
 /**
- * The cap quad paints the tissue volume on its plane. `medial` (the midsagittal face, which sits behind the medial surface):
- * the interhemispheric fissure there would read as a dark hole, so CSF is shown as the medial grey matter it lies against.
+ * The cap quad paints the tissue volume on its plane. "midline": only inside the volume's midline-section mask (brainstem,
+ * cerebellum), discarded elsewhere. "medial": the fill behind the medial surface, where the fissure would read as a dark hole,
+ * so CSF is shown as the medial grey matter it lies against.
  */
-function tissueCap(m: THREE.MeshBasicMaterial, medial: boolean) {
+function tissueCap(m: THREE.MeshBasicMaterial, kind: Kind) {
+  const mode = kind === "midline" ? "2.0" : kind === "medial" ? "1.0" : "0.0";
   m.onBeforeCompile = (s) => {
     Object.assign(s.uniforms, SEC);
     s.vertexShader = SEC_VERT_DECL + s.vertexShader.replace("#include <project_vertex>", "#include <project_vertex>\n" + SEC_VERT_MAIN);
-    s.fragmentShader = SEC_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${medial ? "1.0" : "0.0"} ), opacity );`);
+    s.fragmentShader = SEC_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${mode} ), opacity );`);
   };
-  m.customProgramCacheKey = () => (medial ? "atlas-section-cap-medial" : "atlas-section-cap");
+  m.customProgramCacheKey = () => "atlas-section-cap-" + kind;
 }

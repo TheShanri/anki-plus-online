@@ -16,8 +16,8 @@ export const SEC = {
   uGM: { value: new THREE.Color() },
   uWM: { value: new THREE.Color() },
   uCSF: { value: new THREE.Color() },
-  /** 1 = the sulci and the interhemispheric fissure on the midsagittal plane let the medial surface show through */
-  uOpenFissure: { value: 0 },
+  /** which of uPlanes is the midsagittal plane (-1: none) */
+  uMidIdx: { value: -1 },
 };
 
 export function setTissue(t: TissueVolume | null) {
@@ -29,8 +29,9 @@ export function setTissue(t: TissueVolume | null) {
   }
 }
 
-export function setSectionPlanes(planes: THREE.Plane[]) {
+export function setSectionPlanes(planes: THREE.Plane[], mid: THREE.Plane | null = null) {
   SEC.uNPlanes.value = Math.min(2, planes.length);
+  SEC.uMidIdx.value = mid ? planes.indexOf(mid) : -1;
   planes.slice(0, 2).forEach((p, i) => SEC.uPlanes.value[i].set(p.normal.x, p.normal.y, p.normal.z, p.constant));
 }
 
@@ -58,8 +59,8 @@ uniform vec4 uPlanes[2];
 uniform int uNPlanes;
 uniform vec3 uGM;
 uniform vec3 uWM;
+uniform int uMidIdx;
 uniform vec3 uCSF;
-uniform float uOpenFissure;
 varying vec3 vSecW;
 
 float secIntensity(vec3 p) {
@@ -71,13 +72,19 @@ vec3 secTone(vec3 p) {
   float gw = smoothstep(0.655 - 0.025 - aa, 0.655 + 0.025 + aa, t);
   float cs = smoothstep(0.30 - 0.035 - aa, 0.30 + 0.035 + aa, t);
   float mid = mix(0.51, 0.86, gw);
-  vec3 tis = mix(uGM, uWM, gw) * (1.0 + 0.45 * (t - mid));
+  vec3 tis = mix(uGM, uWM, gw) * (1.0 + 0.65 * (t - mid));
   return mix(uCSF, tis, cs);
 }
 /** The section face: the tissue tone, or the flat colour while the volume is still loading. */
-vec3 secCap(vec3 p, vec3 fallback, float medial) {
+/** mode 0: plain; 1: midsagittal fill behind the medial surface (CSF shown as medial grey); 2: midsagittal true section, only
+ * inside the volume's midline mask (brainstem, cerebellum), discarded elsewhere so the medial surface shows. */
+vec3 secCap(vec3 p, vec3 fallback, float mode) {
+  if (mode > 1.5) {
+    if (uHasTissue < 0.5 || texture(uTissue, (p - uOrigin) / uSize).g < 0.5) discard;
+    return secTone(p);
+  }
   if (uHasTissue < 0.5) return fallback;
-  if (medial > 0.5) {
+  if (mode > 0.5) {
     float t = secIntensity(p);
     float aa = fwidth(t) * 0.6;
     float gw = smoothstep(0.655 - 0.025 - aa, 0.655 + 0.025 + aa, t);
@@ -93,6 +100,32 @@ float secPlaneDist(vec3 w) {
     d = min(d, abs(dot(uPlanes[i].xyz, w) + uPlanes[i].w));
   }
   return d;
+}
+/** The nearest active plane's foot point of w. */
+vec3 secFoot(vec3 w) {
+  float d = 1e3;
+  vec3 f = w;
+  for (int i = 0; i < 2; i++) {
+    if (i >= uNPlanes) break;
+    float s = dot(uPlanes[i].xyz, w) + uPlanes[i].w;
+    if (abs(s) < d) { d = abs(s); f = w - uPlanes[i].xyz * s; }
+  }
+  return f;
+}
+/** Which plane the view ray through w enters the kept side by (-1: none). */
+int secEntry(vec3 w) {
+  vec3 ro = isOrthographic ? w : cameraPosition;
+  vec3 rd = isOrthographic ? -vec3(viewMatrix[0][2], viewMatrix[1][2], viewMatrix[2][2]) : normalize(w - cameraPosition);
+  float best = -1e9;
+  int idx = -1;
+  for (int i = 0; i < 2; i++) {
+    if (i >= uNPlanes) break;
+    float dn = dot(uPlanes[i].xyz, rd);
+    if (dn <= 1e-5) continue;
+    float t = -(dot(uPlanes[i].xyz, ro) + uPlanes[i].w) / dn;
+    if (t > best) { best = t; idx = i; }
+  }
+  return idx;
 }
 /** Where the view ray through this fragment enters the kept side of the cut: the point on the section plane. */
 vec3 secOnPlane(vec3 w) {
@@ -126,6 +159,6 @@ export function insideTissue(s: { uniforms: Record<string, unknown>; vertexShade
     SEC_GLSL +
     s.fragmentShader.replace(
       "#include <opaque_fragment>",
-      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.003) outgoingLight = mix(secTone(vSecW), mix(uGM, uWM, 0.6), 0.3);\n" : ""}#include <opaque_fragment>`,
+      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.003) outgoingLight = secTone(secFoot(vSecW));\n" : ""}#include <opaque_fragment>`,
     );
 }

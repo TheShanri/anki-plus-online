@@ -49,5 +49,14 @@ export function frameBox(brain: THREE.Box3, target: THREE.Box3 | null): THREE.Bo
     Math.max(ts.z * 0.85, bs.z * 0.38),
   );
   const out = new THREE.Box3(tc.clone().sub(half), tc.clone().add(half));
+  // A brain edge that lands on, or just beside, the frame edge would sit flush against the canvas border (a low
+  // target such as the pons puts the top of the brain there). Give those edges a small even margin instead.
+  const near = 0.12;
+  const pad = 0.06;
+  for (const k of ["x", "y", "z"] as const) {
+    const unit = bs[k];
+    if (Math.abs(brain.max[k] - out.max[k]) < near * unit) out.max[k] = Math.max(out.max[k], brain.max[k] + pad * unit);
+    if (Math.abs(brain.min[k] - out.min[k]) < near * unit) out.min[k] = Math.min(out.min[k], brain.min[k] - pad * unit);
+  }
   return out;
 }

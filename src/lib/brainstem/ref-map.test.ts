@@ -6,9 +6,22 @@ import { makeRefMap, type RefData } from "./ref-map.ts";
 const data = JSON.parse(readFileSync(new URL("../../data/brainstem-ref.json", import.meta.url), "utf8")) as RefData;
 const ref = makeRefMap(data);
 
-test("every plate level is in the map, rostral to caudal", () => {
+test("every plate level is in the map: sections rostral to caudal, then the surface views", () => {
   assert.deepEqual(ref.levels.slice(0, 2), ["midbrain-sc", "midbrain-ic"]);
-  assert.equal(ref.levels.at(-1), "cervicomedullary");
+  const surfaces = data.surfaces ?? [];
+  assert.equal(ref.levels.filter((l) => !surfaces.includes(l)).at(-1), "cervicomedullary");
+  for (const s of ["external-anterior", "external-posterior", "external-lateral", "midsagittal"]) assert.ok(surfaces.includes(s), s);
+});
+
+test("a section wins over a surface view; surface-only structures go to their surface", () => {
+  assert.equal(ref.pickLevel(["anterior-corticospinal-tract"]), "cervicomedullary");
+  assert.equal(ref.pickLevel(["location-of-limb-lower-motor-neurons"]), "cervicomedullary");
+  assert.equal(ref.pickLevel(["pyramids"]), "medulla-rostral");
+  assert.ok(!ref.levelsFor(["pyramids"]).includes("external-anterior"));
+  assert.equal(ref.pickLevel(["olives"]), "external-anterior");
+  assert.equal(ref.pickLevel(["obex"]), "external-posterior");
+  assert.equal(ref.pickLevel(["mesencephalic-flexure"]), "midsagittal");
+  assert.equal(ref.pickLevel(["cerebellum"]), "pons-caudal");
 });
 
 test("the four reference structures the Explore hook-up shows are on the plates, at their hallmark level", () => {

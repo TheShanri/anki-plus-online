@@ -96,6 +96,8 @@ export function PlateStage({
   const hot = hover;
   const pct = hot && mastery[hot] !== undefined ? ` · ${Math.round(mastery[hot] * 100)}%` : "";
   const approx = ready && hot ? ready.regions.some((r) => r.slug === hot && r.approx) : false;
+  const surface = ready?.view === "surface";
+  const hasPhoto = !!ready?.photo?.src && ready.sym !== false;
   const callText = hot ? `${names[hot] ?? hot.replace(/-/g, " ")}${approx ? " (approx.)" : ""}${pct}` : null;
 
   return (
@@ -106,18 +108,18 @@ export function PlateStage({
           value={prefs.view}
           onChange={(v) => save({ ...prefs, view: v })}
           options={[
-            { id: "split", label: "Split", icon: Columns2, title: "Illustration and section, split at the midline" },
+            { id: "split", label: "Split", icon: Columns2, disabled: !!ready && !hasPhoto, title: hasPhoto ? "Illustration and photo, split at the midline" : "No course photo published for this view" },
             { id: "illustration", label: "Illustration", icon: PenTool },
-            { id: "photo", label: "Section", icon: ImageIcon, title: "The course's myelin-stained section" },
+            { id: "photo", label: surface ? "Photo" : "Section", icon: ImageIcon, disabled: !!ready && !hasPhoto, title: surface ? "The course's specimen photo" : "The course's myelin-stained section" },
           ]}
         />
         <Seg
-          label="Section stain"
-          value="histology"
+          label={surface ? "Specimen" : "Section stain"}
+          value={surface ? "gross" : "histology"}
           onChange={() => undefined}
           options={[
-            { id: "histology", label: "Histology", icon: Microscope, title: "Myelin-stained section (Weil)" },
-            { id: "gross", label: "Gross", icon: Brain, disabled: true, title: "Gross: no gross section of this level in the course or the open atlases" },
+            { id: "histology", label: "Histology", icon: Microscope, disabled: surface, title: surface ? "A surface view: no stained section" : "Myelin-stained section (Weil)" },
+            { id: "gross", label: "Gross", icon: Brain, disabled: !surface, title: surface ? "Gross specimen (Lab 7)" : "Gross: no gross section of this level in the course or the open atlases" },
           ]}
         />
         <button type="button" className={`bs-ib${prefs.labels ? " bs-on" : ""}`} aria-pressed={prefs.labels} title="Atlas labels (L)" aria-label="Atlas labels (L)" onClick={() => save({ ...prefs, labels: !prefs.labels })}>
@@ -157,9 +159,11 @@ export function PlateStage({
             <PlateArt plate={prevPlate} view={prefs.view} labels={prefs.labels} names={names} />
           </div>
         )}
-        <div className="bsp-locator" title="Where this section is cut">
-          <LevelLocator level={level} />
-        </div>
+        {!surface && (
+          <div className="bsp-locator" title="Where this section is cut">
+            <LevelLocator level={level} />
+          </div>
+        )}
       </div>
     </div>
   );

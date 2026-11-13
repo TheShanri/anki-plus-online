@@ -7,7 +7,17 @@
   "medulla-rostral",
   "medulla-mid",
   "medulla-caudal",
-  "cervicomedullary"
+  "cervicomedullary",
+  "external-anterior",
+  "external-posterior",
+  "external-lateral",
+  "midsagittal"
+ ],
+ "surfaces": [
+  "external-anterior",
+  "external-posterior",
+  "external-lateral",
+  "midsagittal"
  ],
  "structures": {
   "cerebral-peduncles": {
@@ -27,6 +37,36 @@
      ],
      "approx": false,
      "area": 291197
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 93569
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 11310
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 49646
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 14810
     }
    }
   },
@@ -58,6 +98,13 @@
      ],
      "approx": false,
      "area": 49954
+    },
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 15413
     }
    }
   },
@@ -100,6 +147,21 @@
      ],
      "approx": true,
      "area": 19476
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 3134
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 1691
     }
    }
   },
@@ -192,6 +254,28 @@
      ],
      "approx": false,
      "area": 33236
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 18952
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 10362
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 5514
     }
    }
   },
@@ -336,6 +420,21 @@
      ],
      "approx": true,
      "area": 2828
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 15520
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 6527
     }
    }
   },
@@ -354,6 +453,13 @@
      ],
      "approx": true,
      "area": 3449
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 25953
     }
    }
   },
@@ -366,6 +472,14 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 19980
     }
    }
   },
@@ -417,6 +531,28 @@
      ],
      "approx": false,
      "area": 67975
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 14419
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 10755
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 2890
     }
    }
   },
@@ -445,6 +581,14 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 180915
     }
    }
   },
@@ -469,6 +613,21 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 0
+    },
+    "external-lateral": {
+     "sides": [
+      "R"
+     ],
+     "approx": true,
+     "area": 0
     }
    }
   },
@@ -488,7 +647,50 @@
       "R"
      ],
      "approx": false,
-     "area": 172008
+     "area": 174046
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 39894
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 40906
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 36621
+    }
+   }
+  },
+  "pontine-protuberance": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 142735
+    },
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 165617
     }
    }
   },
@@ -509,6 +711,13 @@
      ],
      "approx": false,
      "area": 30440
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 26147
     }
    }
   },
@@ -529,6 +738,21 @@
      ],
      "approx": false,
      "area": 55574
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 23363
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 39969
     }
    }
   },
@@ -554,6 +778,20 @@
      ],
      "approx": false,
      "area": 110427
+    },
+    "external-posterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 59709
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 34064
     }
    }
   },
@@ -590,6 +828,39 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 16064
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 11244
+    }
+   }
+  },
+  "cerebellum": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 67548
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 252177
     }
    }
   },
@@ -630,6 +901,21 @@
      ],
      "approx": false,
      "area": 72975
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 18210
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 18573
     }
    }
   },
@@ -677,6 +963,14 @@
      ],
      "approx": false,
      "area": 11838
+    },
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 4478
     }
    }
   },
@@ -713,6 +1007,21 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 3232
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 2674
     }
    }
   },
@@ -725,6 +1034,21 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 6698
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 2876
     }
    }
   },
@@ -737,6 +1061,14 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 6670
     }
    }
   },
@@ -749,6 +1081,13 @@
      ],
      "approx": false,
      "area": 155234
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 5268
     }
    }
   },
@@ -777,6 +1116,28 @@
      ],
      "approx": true,
      "area": 59524
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 94596
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 15196
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 27463
     }
    }
   },
@@ -905,6 +1266,21 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 14622
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 4222
     }
    }
   },
@@ -917,6 +1293,21 @@
      ],
      "approx": false,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 13452
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 2255
     }
    }
   },
@@ -928,6 +1319,21 @@
       "R"
      ],
      "approx": false,
+     "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 4362
+    },
+    "external-lateral": {
+     "sides": [
+      "R"
+     ],
+     "approx": true,
      "area": 0
     }
    }
@@ -1020,6 +1426,13 @@
      ],
      "approx": false,
      "area": 214440
+    },
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 3175
     }
    }
   },
@@ -1063,6 +1476,26 @@
     }
    }
   },
+  "anterior-corticospinal-tract": {
+   "levels": {
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 14807
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 8016
+    }
+   }
+  },
   "accessory-nerve": {
    "levels": {
     "medulla-caudal": {
@@ -1072,6 +1505,289 @@
      ],
      "approx": true,
      "area": 0
+    },
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 0
+    },
+    "external-lateral": {
+     "sides": [
+      "R"
+     ],
+     "approx": true,
+     "area": 0
+    }
+   }
+  },
+  "lateral-funiculus": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 204249
+    }
+   }
+  },
+  "anterior-funiculus": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 142839
+    }
+   }
+  },
+  "dorsal-horn": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 25495
+    }
+   }
+  },
+  "location-of-trunk-lower-motor-neurons": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 20820
+    }
+   }
+  },
+  "ventral-horn": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 55954
+    }
+   }
+  },
+  "location-of-limb-lower-motor-neurons": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 22132
+    }
+   }
+  },
+  "medulla": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 142542
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 74641
+    }
+   }
+  },
+  "pons": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 164579
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 151650
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 114832
+    }
+   }
+  },
+  "midbrain": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 117731
+    },
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 61276
+    }
+   }
+  },
+  "olives": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 17053
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 8418
+    }
+   }
+  },
+  "interpeduncular-cistern": {
+   "levels": {
+    "external-anterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 25672
+    }
+   }
+  },
+  "pulvinar": {
+   "levels": {
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 69126
+    }
+   }
+  },
+  "cuneate-tubercle": {
+   "levels": {
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 8157
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 5803
+    }
+   }
+  },
+  "gracile-tubercle": {
+   "levels": {
+    "external-posterior": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 7064
+    },
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 2842
+    }
+   }
+  },
+  "pineal-gland": {
+   "levels": {
+    "external-posterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 2310
+    }
+   }
+  },
+  "area-postrema": {
+   "levels": {
+    "external-posterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 1449
+    }
+   }
+  },
+  "obex": {
+   "levels": {
+    "external-posterior": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 271
+    }
+   }
+  },
+  "cerebellar-peduncles": {
+   "levels": {
+    "external-lateral": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 35925
+    }
+   }
+  },
+  "mesencephalic-flexure": {
+   "levels": {
+    "midsagittal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 9458
     }
    }
   }

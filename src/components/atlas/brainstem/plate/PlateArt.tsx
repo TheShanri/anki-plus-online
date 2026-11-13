@@ -78,6 +78,7 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
   const grey = regs.filter((r) => r.tissue === "grey");
   const space = regs.filter((r) => r.tissue === "space" && !r.open);
   const land = regs.filter((r) => r.tissue === "landmark");
+  const nerves = regs.filter((r) => r.tissue === "nerve");
   return (
     <g className="bsp-ill">
       <path d={plate.outline} className="bsp-tissue" fillRule="evenodd" filter={`url(#${ids.shadow})`} />
@@ -106,7 +107,10 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
       {plate.fibres.map((f) => (
         <path key={f.id} d={f.d} className={`${f.tissue === "nerve" ? "bsp-nerve" : "bsp-fibre"}${f.approx ? " bsp-approx" : ""}`} />
       ))}
-      {[...white, ...grey].map((r) => (
+      {nerves.map((r) => (
+        <path key={r.id} d={r.d} className="bsp-wm bsp-wm-nerve" fillRule="evenodd" />
+      ))}
+      {[...white, ...grey, ...nerves].map((r) => (
         <path key={r.id} d={r.d} className={r.approx ? "bsp-line bsp-approx" : "bsp-line"} fillRule="evenodd" />
       ))}
       {land.map((r) => (
@@ -153,8 +157,9 @@ function layoutLabels(plate: PlateData, names: Record<string, string> | undefine
   for (const [slug, rs] of seen) {
     const l = rs.find((r) => r.side === "L" || r.side === "M");
     const rr = rs.find((r) => r.side === "R" || r.side === "M");
-    let L = l ? (l.side === "M" ? ([Math.min(l.a[0], W - l.a[0]), l.a[1]] as [number, number]) : l.a) : undefined;
-    let R = rr ? (rr.side === "M" ? ([Math.max(rr.a[0], W - rr.a[0]), rr.a[1]] as [number, number]) : rr.a) : undefined;
+    const one = plate.sym === false;
+    let L = l ? (l.side === "M" && !one ? ([Math.min(l.a[0], W - l.a[0]), l.a[1]] as [number, number]) : l.a) : undefined;
+    let R = rr ? (rr.side === "M" && !one ? ([Math.max(rr.a[0], W - rr.a[0]), rr.a[1]] as [number, number]) : rr.a) : undefined;
     if (!rs.length) {
       const f = plate.fibres.filter((x) => x.slug === slug);
       L = midOf(f.find((x) => x.side === "L")?.d ?? "");
@@ -166,7 +171,8 @@ function layoutLabels(plate: PlateData, names: Record<string, string> | undefine
   items.sort((a, b) => a.y - b.y);
   const out: LabelPos[] = [];
   items.forEach((it, i) => {
-    let side: "L" | "R" = i % 2 === 0 ? "L" : "R";
+    // one-sided plates: each label goes to the nearer margin
+    let side: "L" | "R" = plate.sym === false ? ((it.L ?? it.R)![0] < W / 2 ? "L" : "R") : i % 2 === 0 ? "L" : "R";
     if (side === "L" && !it.L) side = "R";
     if (side === "R" && !it.R) side = "L";
     const a = side === "L" ? it.L! : it.R!;
@@ -188,7 +194,7 @@ function layoutLabels(plate: PlateData, names: Record<string, string> | undefine
   return out;
 }
 
-export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labels, callout, calloutText, names, interactive, onHover, onPick, className, ariaLabel }: PlateArtProps) {
+export function PlateArt({ plate, view: askedView, hot, hotSide, selected, lit, pulse, labels, callout, calloutText, names, interactive, onHover, onPick, className, ariaLabel }: PlateArtProps) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const ids = useMemo(
     () => ({ hatch: `h${uid}`, stip: `s${uid}`, shadow: `d${uid}`, photo: `p${uid}`, L: `l${uid}`, R: `r${uid}`, frame: `f${uid}` }),
@@ -196,6 +202,8 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
   );
   const [, , W, H] = plate.viewBox;
   const mid = plate.mid;
+  // no photo half (a one-sided drawing, or a photo not published yet): the illustration alone, whole
+  const view: PlateView = plate.photo?.src && plate.sym !== false ? askedView : "illustration";
   const svgRef = useRef<SVGSVGElement>(null);
   const cw = useWidth(svgRef) || 800;
   // label margin (plate units) so the longest name fits at LABEL_PX, whatever the plate's width on screen
@@ -236,8 +244,8 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
     const pick = rs.find((r) => r.side === hotSide) ?? rs.find((r) => r.side === "M") ?? rs[0];
     if (pick) {
       let x = pick.a[0];
-      if (pick.side === "M" && hotSide === "L") x = Math.min(x, W - x);
-      if (pick.side === "M" && hotSide === "R") x = Math.max(x, W - x);
+      if (pick.side === "M" && hotSide === "L" && plate.sym !== false) x = Math.min(x, W - x);
+      if (pick.side === "M" && hotSide === "R" && plate.sym !== false) x = Math.max(x, W - x);
       call = { x, y: pick.a[1], text: calloutText ?? nameOf(names, hot) };
     } else {
       const f = plate.fibres.find((x) => x.slug === hot && (x.side === hotSide || !hotSide));
@@ -257,7 +265,7 @@ export function PlateArt({ plate, view, hot, hotSide, selected, lit, pulse, labe
       role={interactive ? "group" : "img"}
       aria-label={ariaLabel ?? "Brainstem section plate"}
       ref={svgRef}
-      style={{ aspectRatio: `${labels ? W + 2 * M : W} / ${H}` }}
+      style={{ aspectRatio: `${labels ? W + 2 * M : W} / ${H}`, ...(H > W ? { width: `min(100%, ${Math.round((72 * (labels ? W + 2 * M : W)) / H)}vh)`, marginInline: "auto" } : null) }}
     >
       <defs>
         <clipPath id={ids.L}>

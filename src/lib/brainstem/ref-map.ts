@@ -11,6 +11,8 @@ export interface RefEntry {
 }
 export interface RefData {
   levels: string[];
+  /** the surface views and the midsagittal cut among `levels`: used only when no section shows the structure */
+  surfaces?: string[];
   structures: Record<string, { levels: Record<string, RefEntry> }>;
 }
 
@@ -30,7 +32,19 @@ const HALLMARK: Record<string, string> = {
   "medial-lemniscus": "medulla-rostral",
   "anterolateral-spinothalamic-tract": "medulla-rostral",
   "lateral-corticospinal-tract": "medulla-caudal",
-  "anterior-corticospinal-tract": "medulla-rostral",
+  "anterior-corticospinal-tract": "cervicomedullary",
+  cerebellum: "pons-caudal",
+  "pontine-protuberance": "pons-mid",
+  "lateral-funiculus": "cervicomedullary",
+  "anterior-funiculus": "cervicomedullary",
+  olives: "external-anterior",
+  obex: "external-posterior",
+  "area-postrema": "external-posterior",
+  "cuneate-tubercle": "external-posterior",
+  "gracile-tubercle": "external-posterior",
+  "facial-colliculus": "pons-caudal",
+  "mesencephalic-flexure": "midsagittal",
+  "cerebellar-peduncles": "pons-mid",
   "corticobulbar-tract": "midbrain-sc",
   "corticopontine-tract": "pons-mid",
   "cerebral-peduncles": "midbrain-sc",
@@ -41,7 +55,6 @@ const HALLMARK: Record<string, string> = {
   "superior-cerebellar-peduncle": "pons-mid",
   "middle-cerebellar-peduncle": "pons-mid",
   "inferior-cerebellar-peduncle": "medulla-rostral",
-  "cerebellar-peduncles": "pons-mid",
   pyramids: "medulla-rostral",
   "spinal-trigeminal-nucleus": "medulla-mid",
   "vestibulocochlear-complex": "pons-caudal",
@@ -78,9 +91,14 @@ export function makeRefMap(data: RefData) {
     return data.levels.some((l) => resolveAt(slug, l).length > 0);
   }
 
-  /** The levels (rostral to caudal) where any of the structures shows. */
+  const surf = new Set(data.surfaces ?? []);
+  const showsAny = (structures: string[], l: string) => structures.some((s) => resolveAt(s, l).length > 0);
+
+  /** The levels (rostral to caudal) where any of the structures shows: the sections, or the surface views when no
+   *  section shows them. */
   function levelsFor(structures: string[]): string[] {
-    return data.levels.filter((l) => structures.some((s) => resolveAt(s, l).length > 0));
+    const secs = data.levels.filter((l) => !surf.has(l) && showsAny(structures, l));
+    return secs.length ? secs : data.levels.filter((l) => surf.has(l) && showsAny(structures, l));
   }
 
   /** The most representative level for a set of structures: the one showing most of them, then the first structure's
@@ -92,6 +110,8 @@ export function makeRefMap(data: RefData) {
       const shown = structures.filter((s) => resolveAt(s, l).length > 0);
       if (!shown.length) continue;
       let score = shown.length * 1000;
+      // a transverse section wins over a surface view showing as much, unless the structure's hallmark says otherwise
+      if (surf.has(l)) score -= 400;
       if (structures[0] && HALLMARK[structures[0]] === l) score += 500;
       score += shown.filter((s) => HALLMARK[s] === l).length * 100;
       // prefer what the course outlines (not approximate), then size

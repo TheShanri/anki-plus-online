@@ -1,6 +1,6 @@
 // Builds src/data/brainstem-levels.json: level metadata, the structures at each level (from what the course images
 // label, then standard neuroanatomy for gaps), consistent colours, and each section's MNI z derived from atlas2 centroids.
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -28,9 +28,9 @@ const LEVELS = [
 const G = {
   "cn-nuclei": "oculomotor-nucleus edinger-westphal-nucleus trochlear-nucleus motor-trigeminal-nucleus principal-sensory-nucleus-of-trigeminal spinal-trigeminal-nucleus abducens-nucleus facial-nucleus vestibulocochlear-complex hypoglossal-nucleus dorsal-motor-nucleus-of-the-vagus solitary-nucleus nucleus-ambiguus",
   ascending: "medial-lemniscus anterolateral-spinothalamic-tract dorsal-spinocerebellar-tract fasciculus-gracilis fasciculus-cuneatus internal-arcuate-fibers lateral-lemniscus",
-  descending: "lateral-corticospinal-tract motor-decussation longitudinal-fibers-of-the-pons pyramids cerebral-peduncles",
-  nuclei: "red-nucleus substantia-nigra periaqueductal-gray pontine-nuclei inferior-olivary-nucleus gracile-nucleus cuneate-nucleus superior-colliculus inferior-colliculus locus-coeruleus medial-geniculate-nucleus lateral-geniculate-nucleus pulvinar thalamus hypothalamus cerebellum pineal-gland",
-  bundles: "medial-longitudinal-fasciculus superior-cerebellar-peduncle middle-cerebellar-peduncle inferior-cerebellar-peduncle cerebellar-peduncles decussation-of-the-superior-cerebellar-peduncle transverse-fibers-of-the-pons brachium-of-the-inferior-colliculus",
+  descending: "anterior-corticospinal-tract lateral-corticospinal-tract motor-decussation longitudinal-fibers-of-the-pons pyramids cerebral-peduncles",
+  nuclei: "location-of-limb-lower-motor-neurons location-of-trunk-lower-motor-neurons dorsal-horn ventral-horn olives cuneate-tubercle gracile-tubercle red-nucleus substantia-nigra periaqueductal-gray pontine-nuclei inferior-olivary-nucleus gracile-nucleus cuneate-nucleus superior-colliculus inferior-colliculus locus-coeruleus medial-geniculate-nucleus lateral-geniculate-nucleus pulvinar thalamus hypothalamus cerebellum pineal-gland",
+  bundles: "lateral-funiculus anterior-funiculus medial-longitudinal-fasciculus superior-cerebellar-peduncle middle-cerebellar-peduncle inferior-cerebellar-peduncle cerebellar-peduncles decussation-of-the-superior-cerebellar-peduncle transverse-fibers-of-the-pons brachium-of-the-inferior-colliculus",
 };
 const groupOf = (slug) => {
   for (const [g, s] of Object.entries(G)) if (s.split(" ").includes(slug)) return g;
@@ -50,6 +50,27 @@ const byLevel = Object.fromEntries(LEVELS.map((l) => [l.slug, new Map()]));
 for (const im of course) for (const lb of im.labels) if (byLevel[im.level] && !byLevel[im.level].has(lb.slug)) byLevel[im.level].set(lb.slug, { slug: lb.slug, source: "course" });
 for (const [lv, list] of Object.entries(EXTRA)) for (const s of list) if (!byLevel[lv].has(s)) byLevel[lv].set(s, { slug: s, source: "standard" });
 
+// the official list groups for each plate (structures.json lists), and every structure drawn on a plate: course
+const LISTS = {
+  "midbrain-sc": ["Rostral Midbrain – Level of Superior Colliculus", "Level of Superior Colliculus"],
+  "midbrain-ic": ["Caudal Midbrain – Level of Inferior Colliculus", "Level of Inferior Colliculus"],
+  "pons-mid": ["Rostral Pons – Level of Trigeminal Nerve", "Level of Pons (cross-section)"],
+  "pons-caudal": ["Caudal Pons – Level of Facial Colliculus", "Level of Pons (cross-section)"],
+  "medulla-rostral": ["Rostral Medulla – Level of Olive"],
+  "medulla-mid": ["Caudal Medulla – Level of Cuneate & Gracile Tubercles"],
+  "medulla-caudal": ["Motor Decussation"],
+  cervicomedullary: ["Cervical Spinal Cord"],
+  midsagittal: ["In mid-sagittal / longitudinal section of brainstem"],
+};
+for (const [lv, groups] of Object.entries(LISTS))
+  for (const s of structs.values()) if ((s.lists ?? []).some((l) => groups.includes(l.group)) && !byLevel[lv].has(s.slug)) byLevel[lv].set(s.slug, { slug: s.slug, source: "course" });
+const plateDir = join(root, "src/data/brainstem-plates");
+for (const f of readdirSync(plateDir).filter((f) => f.endsWith(".json"))) {
+  const p = JSON.parse(readFileSync(join(plateDir, f), "utf8"));
+  if (!byLevel[p.level]) continue;
+  for (const slug of new Set([...p.regions.map((r) => r.slug), ...p.fibres.map((x) => x.slug)])) if (!byLevel[p.level].has(slug)) byLevel[p.level].set(slug, { slug, source: structs.has(slug) ? "course" : "standard" });
+}
+
 const all = new Set();
 for (const m of Object.values(byLevel)) for (const k of m.keys()) all.add(k);
 const keys = [...all].sort();
@@ -59,15 +80,21 @@ const hex = (h, s, l) => {
   const f = (n) => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))));
   return "#" + [f(0), f(8), f(4)].map((x) => x.toString(16).padStart(2, "0")).join("");
 };
+// colours stay as they were; structures new to the table continue the golden-angle sequence after the old ones
+const outPath = join(root, "src/data/brainstem-levels.json");
+const prev = existsSync(outPath) ? JSON.parse(readFileSync(outPath, "utf8")).structures : {};
+const prevKeys = Object.keys(prev).sort();
+let nextIdx = prevKeys.length;
 const structures = {};
-keys.forEach((k, i) => {
+keys.forEach((k) => {
+  const i = prev[k] ? prevKeys.indexOf(k) : nextIdx++;
   const s = structs.get(k);
   structures[k] = {
     name: s?.name ?? EXTRA_NAMES[k] ?? k,
     slug: s ? k : null,
     onList: !!s,
     group: groupOf(k),
-    color: hex((i * 137.508) % 360, 72, 56),
+    color: prev[k]?.color ?? hex((i * 137.508) % 360, 72, 56),
     inAtlas: !!atlas[k],
   };
 });

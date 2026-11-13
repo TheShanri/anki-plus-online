@@ -155,6 +155,10 @@
     {
      "slug": "lateral-lemniscus",
      "source": "standard"
+    },
+    {
+     "slug": "transverse-fibers-of-the-pons",
+     "source": "course"
     }
    ]
   },
@@ -291,6 +295,14 @@
     {
      "slug": "inferior-cerebellar-peduncle",
      "source": "course"
+    },
+    {
+     "slug": "cerebellum",
+     "source": "course"
+    },
+    {
+     "slug": "pontine-protuberance",
+     "source": "course"
     }
    ]
   },
@@ -373,6 +385,14 @@
     },
     {
      "slug": "spinal-trigeminal-nucleus",
+     "source": "course"
+    },
+    {
+     "slug": "cerebellum",
+     "source": "course"
+    },
+    {
+     "slug": "pontine-protuberance",
      "source": "course"
     }
    ]
@@ -525,6 +545,14 @@
     {
      "slug": "nucleus-ambiguus",
      "source": "course"
+    },
+    {
+     "slug": "anterolateral-spinothalamic-tract",
+     "source": "course"
+    },
+    {
+     "slug": "dorsal-motor-nucleus-of-the-vagus",
+     "source": "course"
     }
    ]
   },
@@ -589,6 +617,10 @@
     {
      "slug": "pyramids",
      "source": "standard"
+    },
+    {
+     "slug": "anterior-corticospinal-tract",
+     "source": "course"
     }
    ]
   },
@@ -624,6 +656,34 @@
     {
      "slug": "dorsal-spinocerebellar-tract",
      "source": "standard"
+    },
+    {
+     "slug": "anterior-corticospinal-tract",
+     "source": "course"
+    },
+    {
+     "slug": "lateral-funiculus",
+     "source": "course"
+    },
+    {
+     "slug": "anterior-funiculus",
+     "source": "course"
+    },
+    {
+     "slug": "location-of-limb-lower-motor-neurons",
+     "source": "course"
+    },
+    {
+     "slug": "location-of-trunk-lower-motor-neurons",
+     "source": "course"
+    },
+    {
+     "slug": "dorsal-horn",
+     "source": "course"
+    },
+    {
+     "slug": "ventral-horn",
+     "source": "course"
     }
    ]
   },
@@ -765,6 +825,10 @@
     },
     {
      "slug": "corpus-callosum",
+     "source": "course"
+    },
+    {
+     "slug": "midbrain",
      "source": "course"
     }
    ]
@@ -920,6 +984,10 @@
     {
      "slug": "fasciculus-cuneatus",
      "source": "course"
+    },
+    {
+     "slug": "fourth-ventricle",
+     "source": "course"
     }
    ]
   },
@@ -930,7 +998,96 @@
    "kind": "gross",
    "mniZ": null,
    "mniNote": null,
-   "structures": []
+   "structures": [
+    {
+     "slug": "pons",
+     "source": "course"
+    },
+    {
+     "slug": "pyramids",
+     "source": "course"
+    },
+    {
+     "slug": "inferior-cerebellar-peduncle",
+     "source": "course"
+    },
+    {
+     "slug": "superior-cerebellar-peduncle",
+     "source": "course"
+    },
+    {
+     "slug": "middle-cerebellar-peduncle",
+     "source": "course"
+    },
+    {
+     "slug": "cerebral-peduncles",
+     "source": "course"
+    },
+    {
+     "slug": "olives",
+     "source": "course"
+    },
+    {
+     "slug": "cerebellar-peduncles",
+     "source": "course"
+    },
+    {
+     "slug": "cuneate-tubercle",
+     "source": "course"
+    },
+    {
+     "slug": "inferior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "gracile-tubercle",
+     "source": "course"
+    },
+    {
+     "slug": "trigeminal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "superior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "vagus-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "brachium-of-the-inferior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "vestibulocochlear-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "facial-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "medial-geniculate-nucleus",
+     "source": "course"
+    },
+    {
+     "slug": "glossopharyngeal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "trochlear-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "hypoglossal-nerve",
+     "source": "course"
+    },
+    {
+     "slug": "accessory-nerve",
+     "source": "course"
+    }
+   ]
   },
   {
    "slug": "midsagittal",
@@ -966,6 +1123,42 @@
     },
     {
      "slug": "cerebellum",
+     "source": "course"
+    },
+    {
+     "slug": "pyramids",
+     "source": "course"
+    },
+    {
+     "slug": "longitudinal-fibers-of-the-pons",
+     "source": "course"
+    },
+    {
+     "slug": "inferior-olivary-nucleus",
+     "source": "course"
+    },
+    {
+     "slug": "fourth-ventricle",
+     "source": "course"
+    },
+    {
+     "slug": "cerebral-aqueduct",
+     "source": "course"
+    },
+    {
+     "slug": "cerebral-peduncles",
+     "source": "course"
+    },
+    {
+     "slug": "inferior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "superior-colliculus",
+     "source": "course"
+    },
+    {
+     "slug": "mesencephalic-flexure",
      "source": "course"
     }
    ]
@@ -1003,6 +1196,22 @@
    "group": "landmarks",
    "color": "#e0cb3e",
    "inAtlas": true
+  },
+  "anterior-corticospinal-tract": {
+   "name": "Anterior corticospinal tract",
+   "slug": "anterior-corticospinal-tract",
+   "onList": true,
+   "group": "descending",
+   "color": "#3ec9e0",
+   "inAtlas": false
+  },
+  "anterior-funiculus": {
+   "name": "Anterior funiculus",
+   "slug": "anterior-funiculus",
+   "onList": true,
+   "group": "bundles",
+   "color": "#e03e9a",
+   "inAtlas": false
   },
   "anterolateral-spinothalamic-tract": {
    "name": "Anterolateral spinothalamic tract",
@@ -1112,7 +1321,7 @@
    "name": "Cuneate tubercle",
    "slug": "cuneate-tubercle",
    "onList": true,
-   "group": "landmarks",
+   "group": "nuclei",
    "color": "#3ee0d9",
    "inAtlas": true
   },
@@ -1122,6 +1331,14 @@
    "onList": true,
    "group": "bundles",
    "color": "#e03eb7",
+   "inAtlas": false
+  },
+  "dorsal-horn": {
+   "name": "Dorsal horn",
+   "slug": "dorsal-horn",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#6be03e",
    "inAtlas": false
   },
   "dorsal-motor-nucleus-of-the-vagus": {
@@ -1216,7 +1433,7 @@
    "name": "Gracile tubercle",
    "slug": "gracile-tubercle",
    "onList": true,
-   "group": "landmarks",
+   "group": "nuclei",
    "color": "#3ee0b8",
    "inAtlas": true
   },
@@ -1316,6 +1533,14 @@
    "color": "#e0673e",
    "inAtlas": false
   },
+  "lateral-funiculus": {
+   "name": "Lateral funiculus",
+   "slug": "lateral-funiculus",
+   "onList": true,
+   "group": "bundles",
+   "color": "#403ee0",
+   "inAtlas": false
+  },
   "lateral-geniculate-nucleus": {
    "name": "Lateral geniculate nucleus",
    "slug": "lateral-geniculate-nucleus",
@@ -1339,6 +1564,22 @@
    "group": "landmarks",
    "color": "#cae03e",
    "inAtlas": true
+  },
+  "location-of-limb-lower-motor-neurons": {
+   "name": "Location of limb lower motor neurons",
+   "slug": "location-of-limb-lower-motor-neurons",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#e06f3e",
+   "inAtlas": false
+  },
+  "location-of-trunk-lower-motor-neurons": {
+   "name": "Location of trunk lower motor neurons",
+   "slug": "location-of-trunk-lower-motor-neurons",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#3ee09e",
+   "inAtlas": false
   },
   "locus-coeruleus": {
    "name": "Locus coeruleus",
@@ -1395,6 +1636,14 @@
    "group": "landmarks",
    "color": "#e03ec4",
    "inAtlas": true
+  },
+  "mesencephalic-flexure": {
+   "name": "Mesencephalic flexure",
+   "slug": "mesencephalic-flexure",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#ce3ee0",
+   "inAtlas": false
   },
   "midbrain": {
    "name": "Midbrain",
@@ -1472,7 +1721,7 @@
    "name": "Olives",
    "slug": "olives",
    "onList": true,
-   "group": "landmarks",
+   "group": "nuclei",
    "color": "#4d3ee0",
    "inAtlas": true
   },
@@ -1538,6 +1787,14 @@
    "onList": true,
    "group": "nuclei",
    "color": "#833ee0",
+   "inAtlas": true
+  },
+  "pontine-protuberance": {
+   "name": "Pontine protuberance",
+   "slug": "pontine-protuberance",
+   "onList": true,
+   "group": "landmarks",
+   "color": "#c3e03e",
    "inAtlas": true
   },
   "principal-sensory-nucleus-of-trigeminal": {
@@ -1698,6 +1955,14 @@
    "onList": true,
    "group": "nerves",
    "color": "#3ee068",
+   "inAtlas": false
+  },
+  "ventral-horn": {
+   "name": "Ventral horn",
+   "slug": "ventral-horn",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#3e93e0",
    "inAtlas": false
   },
   "vestibulocochlear-complex": {

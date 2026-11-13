@@ -4,7 +4,7 @@
 import json, math, os, sys
 import cv2
 import numpy as np
-from levels_cfg import LEVELS
+from levels_cfg import LEVELS, SURFACES
 from prep import BASE
 from geom import SS, mask_paths, curve, raster, mirror_pts, anchor, centroid
 try:
@@ -39,7 +39,7 @@ def tissue_of(slug):
 
 
 def build(level):
-    cfg = LEVELS[level]
+    cfg = LEVELS.get(level) or SURFACES[level]
     cj = json.load(open(f"{BASE}/levels/{level}/canon.json"))
     H = cj["H"]
     img = cv2.imread(f"{BASE}/levels/{level}/canon.png")
@@ -63,19 +63,32 @@ def build(level):
 
     regions, fibres, report = [], [], []
     shapes = cj["shapes"]
+    # myelin density (0 = unstained grey matter or a hole, 1 = dense myelin), used by "pale" extras and the bands below
+    g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
+    bg = cj["bg"]
+    inside = g[tissue > 0]
+    dark = np.percentile(inside, 1.5)
+    dens = np.clip((bg - g) / max(20.0, bg - dark), 0, 1)
     ex = EXTRAS.get(level, {})
 
     pending = {}
 
-    def emit(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False):
+    def emit(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False, aout=None):
         """Collect a structure (mR: its right-half mask, canvas px); emitted after the extras have clipped/cut."""
-        pending[slug] = dict(mR=mR, tissue_kind=tissue_kind, src=src, approx=approx, note=note, photoL=photoL, mid_struct=mid_struct)
+        pending[slug] = dict(mR=mR, tissue_kind=tissue_kind, src=src, approx=approx, note=note, photoL=photoL, mid_struct=mid_struct, aout=aout)
 
-    def emit_now(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False):
-        """mR: the structure on the plate's right half (canvas px). Emits the right, left (mirror) or midline instance."""
+    def emit_now(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False, aout=None):
+        """mR: the structure on the plate's right half (canvas px). Emits the right, left (mirror) or midline instance.
+        aout: slugs whose area the label anchor avoids (a funiculus is a container: its name sits beside its tracts)."""
         if mR.sum() < 4:
             report.append(f"  EMPTY {slug}")
             return
+        am = mR
+        for o in aout or []:
+            if o in pending and o != slug:
+                am = am & (1 - pending[o]["mR"])
+        if am.sum() < 4:
+            am = mR
         if mid_struct:
             m = mirror(mR)
             a, clr = anchor(m * right)
@@ -83,7 +96,7 @@ def build(level):
             return
         mL = np.zeros_like(mR)
         mL[:, : w2 - mid] = mR[:, mid:][:, ::-1][:, : w2 - mid]
-        aR, _ = anchor(mR)
+        aR, _ = anchor(am)
         aL = [round(W - aR[0], 1), aR[1]]
         base = {"slug": slug, "slugs": [slug], "tissue": tissue_kind, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(mR, tissue_kind)}
         regions.append({"id": f"{slug}-R", "side": "R", "d": mask_paths(mR), "c": centroid(mR), "a": aR, **base})
@@ -148,14 +161,24 @@ def build(level):
             pts = e["pts"]
         kind = e.get("tissue") or tissue_of(slug)
         m = raster([pts], tissue.shape)
+        if "pale" in e:  # grey matter as the section shows it: the unstained (pale) tissue inside the polygon
+            pb = cv2.GaussianBlur(dens, (0, 0), 2.0 * SS)
+            pm = ((pb < e["pale"]) & (m > 0) & (tissue > 0)).astype(np.uint8)
+            pm = cv2.morphologyEx(pm, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9)))
+            pm = cv2.morphologyEx(pm, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (13, 13)))
+            n_, lab_, st_, _ = cv2.connectedComponentsWithStats(pm, 8)
+            m = (lab_ == 1 + int(np.argmax(st_[1:, cv2.CC_STAT_AREA]))).astype(np.uint8) if n_ > 1 else pm
         mR = clip(mirror(m * right), kind) * right if e.get("midline") else clip(m, kind) * right
+        for other in e.get("within", []):  # a zone inside another region (a motor neuron pool inside the ventral horn)
+            if other in pending:
+                mR = mR & pending[other]["mR"]
         for other in e.get("clip_out", []):  # keep a clean partition: drop what an existing region already covers
             if other in pending:
                 mR = mR & (1 - pending[other]["mR"])
         for other in e.get("cut_from", []):  # the extra takes its part out of a broader course region
             if other in pending:
                 pending[other]["mR"] = pending[other]["mR"] & (1 - mR)
-        emit(slug, mR, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=bool(e.get("midline")))
+        emit(slug, mR, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=bool(e.get("midline")), aout=e.get("anchor_out"))
         report.append(f"  {slug}: authored" + (" (approx)" if e.get("approx", True) else ""))
 
     # course regions the second source does not confirm closely: shown as approximate, with the reason
@@ -188,11 +211,6 @@ def build(level):
         report.append(f"  {slug}: authored fibres" + (" (approx)" if e.get("approx", True) else ""))
 
     # myelin density of the photo, used for the illustration's tonal bands (right half mirrored) and the photo itself
-    g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
-    bg = cj["bg"]
-    inside = g[tissue > 0]
-    dark = np.percentile(inside, 1.5)
-    dens = np.clip((bg - g) / max(20.0, bg - dark), 0, 1)
     dens_sym = dens.copy()
     dens_sym[:, : w2 - mid] = dens[:, mid:][:, ::-1][:, : w2 - mid]
     blur = cv2.GaussianBlur(dens_sym, (0, 0), 4.0 * SS) * sym

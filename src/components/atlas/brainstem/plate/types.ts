@@ -3,7 +3,8 @@
 // photo's right half, mirrored), so one region list serves both halves of the split view.
 
 export type Side = "L" | "R" | "M";
-export type Tissue = "grey" | "white" | "space" | "landmark" | "nerve" | "fibres";
+/** zone: a division (midbrain, pons, medulla) drawn only when lit, so its parts stay readable */
+export type Tissue = "grey" | "white" | "space" | "landmark" | "nerve" | "fibres" | "zone";
 
 export interface PlateRegion {
   /** `<slug>-L`, `<slug>-R` or `<slug>-M` */
@@ -54,6 +55,10 @@ export interface PlateData {
   regions: PlateRegion[];
   fibres: PlateFibre[];
   /** the section photo: `key` in the private course-media bucket; `src` (the auth-gated media URL) is added by the route */
-  photo?: { key: string; w: number; h: number; kind: "histology"; src?: string };
+  photo?: { key: string; w: number; h: number; kind: "histology" | "gross"; src?: string };
+  /** false: a one-sided drawing (midsagittal, lateral view); every region is drawn once ("M") where it lies */
+  sym?: boolean;
+  /** "surface": a surface view or a midsagittal cut instead of a transverse section */
+  view?: "section" | "surface";
   sources?: Record<string, unknown>;
 }

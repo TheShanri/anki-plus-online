@@ -13,7 +13,10 @@ import { Navigator } from "./Navigator";
 import { PlateStage } from "./PlateStage";
 import { MasteryPanel } from "./MasteryPanel";
 import { ComparePane } from "./ComparePane";
+import Link from "next/link";
+import { atlasHrefForCourseName } from "@/lib/atlas/map";
 import { LEVELS, STRUCTURES, levelBySlug } from "./data";
+import { OFF_PLATE } from "./offplate";
 
 export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel }: { courseSlug: string; mastery: BrainstemMastery; plateLevels: string[]; initialLevel?: string }) {
   const [levelSlug, setLevel] = useState(
@@ -89,7 +92,30 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel 
             <div className={compare ? "grid gap-3 lg:grid-cols-2" : ""}>
               <div className="plate-wrap">
                 <PlateStage level={levelSlug} hover={hover} onHover={setHover} selected={selected} onSelect={select} mastery={lm?.structures ?? {}} />
-                {!compare && <p className="mt-1.5 text-xs text-text-dim">Hover a structure to light it on both halves, click to open it. Dorsal is up; the illustration mirrors the section&apos;s right half.</p>}
+                {!compare && (
+                  <p className="mt-1.5 text-xs text-text-dim">
+                    {level.kind === "gross"
+                      ? levelSlug === "midsagittal"
+                        ? "Hover a structure to name it, click to open it. Anterior is to the left; the brainstem cut in the midline (pyramid, olive and longitudinal fibres just off it, as in the course's longitudinal section)."
+                        : levelSlug === "external-lateral"
+                          ? "Hover a structure to name it, click to open it. Anterior is to the left, the cerebellum removed (its cut peduncles show)."
+                          : "Hover a structure to name it, click to open it. Rostral is up; the illustration mirrors the specimen's right half."
+                      : "Hover a structure to light it on both halves, click to open it. Dorsal is up; the illustration mirrors the section's right half."}
+                  </p>
+                )}
+                {OFF_PLATE.filter((o) => o.near === levelSlug).map((o) => {
+                  const href = atlasHrefForCourseName(o.name);
+                  return (
+                    <p key={o.slug} className="mt-1.5 text-xs text-text-dim">
+                      <span className="font-semibold text-text">{o.name}: not on this plate.</span> {o.note}{" "}
+                      {href && (
+                        <Link href={href} className="text-accent-2 underline underline-offset-2">
+                          Open in Explore
+                        </Link>
+                      )}
+                    </p>
+                  );
+                })}
               </div>
               {compare && <ComparePane level={level} courseSlug={courseSlug} />}
             </div>

@@ -37,8 +37,10 @@ LEVELS = {
         "fibres": {"transverse-fibers-of-the-pons": [21, 22, 23, 24, 25, 26, 27, 28], "trigeminal-nerve": [76, 77, 78, 79, 80, 82, 83, 84, 85, 86]},
     },
     "pons-caudal": {
+        # the clip keeps the strip of cerebellum (nodulus/vermis) that roofs the fourth ventricle in this photo: the course
+        # lists the cerebellum at this level (Lab 8 shows the same section with the cerebellum attached)
         "slide": 4, "bleed": True,
-        "clip": [[250, 780], [245, 640], [230, 590], [194, 565], [179, 559], [164, 549], [150, 536], [137, 519], [125, 499], [115, 476], [106, 451], [99, 424], [94, 395], [91, 365], [90, 335], [91, 305], [94, 275], [99, 246], [106, 219], [115, 194], [125, 171], [137, 151], [150, 134], [164, 121], [179, 111], [194, 105], [200, 104], [240, 94], [300, 88], [380, 92], [420, 120], [440, 140], [500, 150], [500, 150], [560, 140], [580, 120], [620, 92], [700, 88], [760, 94], [800, 104], [806, 105], [821, 111], [836, 121], [850, 134], [863, 151], [875, 171], [885, 194], [894, 219], [901, 246], [906, 275], [909, 305], [910, 335], [909, 365], [906, 395], [901, 424], [894, 451], [885, 476], [875, 499], [863, 519], [850, 536], [836, 549], [821, 559], [806, 565], [770, 590], [755, 640], [750, 780]],
+        "clip": [[250, 780], [245, 640], [230, 590], [194, 565], [179, 559], [164, 549], [150, 536], [137, 519], [125, 499], [115, 476], [106, 451], [99, 424], [94, 395], [91, 365], [90, 335], [91, 305], [94, 275], [99, 246], [106, 219], [115, 194], [125, 171], [137, 151], [150, 134], [164, 121], [179, 111], [194, 105], [198, 70], [214, 36], [786, 36], [802, 70], [806, 105], [821, 111], [836, 121], [850, 134], [863, 151], [875, 171], [885, 194], [894, 219], [901, 246], [906, 275], [909, 305], [910, 335], [909, 365], [906, 395], [901, 424], [894, 451], [885, 476], [875, 499], [863, 519], [850, 536], [836, 549], [821, 559], [806, 565], [770, 590], [755, 640], [750, 780]],
         "area": {
             "fourth-ventricle": [2], "facial-colliculus": [3], "superior-cerebellar-peduncle": [6, 7],
             "middle-cerebellar-peduncle": [9, 10], "vestibulocochlear-complex": [11], "abducens-nucleus": [14, 17],
@@ -88,5 +90,25 @@ LEVELS = {
             "anterolateral-spinothalamic-tract": [6, 11],
         },
         "fibres": {},
+    },
+}
+
+
+# Surface plates (atlas3 surfaces): the course's Lab 7 specimen photos, put in the plate frame by surface_canon.py.
+# rect = the photo inside the slide (slide px); mid = a first guess of the specimen's midline (photo px, refined by
+# symmetry); clip = the part of the specimen the plate keeps (plate units). Regions are authored in extras.py.
+SURFACES = {
+    "external-anterior": {
+        "file": "apkg/lab-7/media/paste-b579a13d6110fb327c9174e45581a5aa87bf0530.jpg",
+        "rect": [968, 225, 632, 896], "mid": 315, "sym_rows": [430, 880], "mid_fixed": [331, 3.6], "straighten": {"win": 90, "rows": [270, 1260]}, "erode": 14,
+        "meta": {"photo": "Lab 7 slide 'Review: Important Structures on the Ventral Brainstem Surface' (course specimen photo)"},
+    },
+    "external-posterior": {
+        "file": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.jpg",
+        "rect": [1069, 261, 650, 905], "mid": 326, "sym_rows": [300, 900], "straighten": {"win": 90, "rows": [330, 1260]}, "erode": 12,
+        # the slide's white dotted arrow (photo px) and the right middle cerebellar peduncle's pale cut surface (plate units)
+        "erase": [[[300, 395], [330, 392], [390, 432], [388, 455], [370, 458], [305, 425]]],
+        "keep": [[[575, 700], [640, 690], [720, 695], [780, 712], [810, 745], [812, 790], [790, 800], [720, 800], [660, 795], [600, 790], [575, 760]]],
+        "meta": {"photo": "Lab 7 slide 'Surface Landmarks of the Dorsal Midbrain' (course specimen photo, cerebellum removed)"},
     },
 }

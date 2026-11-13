@@ -27,6 +27,11 @@ export const BRAINSTEM_REGIONS: Record<string, string> = {
   "medulla-mid": "medulla",
   "medulla-caudal": "medulla",
   cervicomedullary: "medulla",
+  // the surface views and the midsagittal cut: their own region (a structure there is learned on the whole brainstem)
+  "external-anterior": "surface",
+  "external-posterior": "surface",
+  "external-lateral": "surface",
+  midsagittal: "surface",
 };
 
 /** (level, structure slug) of a plate card slug, or null. */

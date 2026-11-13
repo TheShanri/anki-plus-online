@@ -79,6 +79,7 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
 .bsp .bsp-band2 { fill: color-mix(in srgb, var(--text) 4%, transparent); }
 .bsp .bsp-wm { fill: var(--bsp-wm); }
 .bsp .bsp-wm-ped { fill: color-mix(in srgb, var(--text) 30%, var(--bsp-paper)); }
+.bsp .bsp-wm-nerve { fill: color-mix(in srgb, var(--text) 40%, var(--bsp-paper)); }
 .bsp .bsp-outline-photo { stroke-opacity: 0.7; }
 .bsp .bsp-hatch-line { stroke: var(--bsp-ink); stroke-width: 0.5; stroke-opacity: 0.16; }
 .bsp .bsp-gm { fill: var(--bsp-gm); }

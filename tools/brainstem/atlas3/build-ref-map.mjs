@@ -5,10 +5,13 @@
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 
 const root = new URL("../../../", import.meta.url);
-const levels = JSON.parse(readFileSync(new URL("src/data/brainstem-levels.json", root), "utf8")).levels.filter((l) => l.kind === "section").map((l) => l.slug);
+const all = JSON.parse(readFileSync(new URL("src/data/brainstem-levels.json", root), "utf8")).levels;
 const dir = new URL("src/data/brainstem-plates/", root);
 const have = new Set(readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, "")));
-const order = levels.filter((l) => have.has(l));
+// the transverse sections first (rostral to caudal), then the surface views and the midsagittal cut
+const sections = all.filter((l) => l.kind === "section" && have.has(l.slug)).map((l) => l.slug);
+const surfaces = all.filter((l) => l.kind === "gross" && have.has(l.slug)).map((l) => l.slug);
+const order = [...sections, ...surfaces];
 
 const structures = {};
 for (const lv of order) {
@@ -28,5 +31,5 @@ for (const lv of order) {
   for (const f of p.fibres) add(f.slug, f.side, f.approx, 0);
 }
 for (const s of Object.values(structures)) for (const e of Object.values(s.levels)) e.sides.sort();
-writeFileSync(new URL("src/data/brainstem-ref.json", root), JSON.stringify({ levels: order, structures }, null, 1) + "\n");
+writeFileSync(new URL("src/data/brainstem-ref.json", root), JSON.stringify({ levels: order, surfaces, structures }, null, 1) + "\n");
 console.log(order.length, "levels,", Object.keys(structures).length, "structures");

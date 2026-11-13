@@ -12,6 +12,10 @@ import medullaRostral from "@/data/brainstem-plates/medulla-rostral.json";
 import medullaMid from "@/data/brainstem-plates/medulla-mid.json";
 import medullaCaudal from "@/data/brainstem-plates/medulla-caudal.json";
 import cervicomedullary from "@/data/brainstem-plates/cervicomedullary.json";
+import externalAnterior from "@/data/brainstem-plates/external-anterior.json";
+import externalPosterior from "@/data/brainstem-plates/external-posterior.json";
+import externalLateral from "@/data/brainstem-plates/external-lateral.json";
+import midsagittal from "@/data/brainstem-plates/midsagittal.json";
 
 export type Plate = PlateData;
 
@@ -24,6 +28,11 @@ const PLATES: Record<string, Plate> = {
   "medulla-mid": medullaMid as unknown as Plate,
   "medulla-caudal": medullaCaudal as unknown as Plate,
   cervicomedullary: cervicomedullary as unknown as Plate,
+  // surface views and the midsagittal cut (Lab 2 / Lab 7 / Lab 10 longitudinal section)
+  "external-anterior": externalAnterior as unknown as Plate,
+  "external-posterior": externalPosterior as unknown as Plate,
+  "external-lateral": externalLateral as unknown as Plate,
+  midsagittal: midsagittal as unknown as Plate,
 };
 
 export function getPlate(level: string): Plate | null {

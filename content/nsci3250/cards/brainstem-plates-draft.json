@@ -1,0 +1,5570 @@
+[
+ {
+  "slug": "bs-plate-midbrain-sc-cerebral-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-peduncles",
+  "status": "draft",
+  "position": 13000,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "cerebral-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-peduncles:passes",
+   "cerebral-peduncles:lesion",
+   "cerebral-peduncles:embryology",
+   "cerebral-peduncles:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-interpeduncular-fossa",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "interpeduncular-fossa",
+  "status": "draft",
+  "position": 13001,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Interpeduncular fossa",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "interpeduncular-fossa"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "interpeduncular-fossa:cranial_nerve"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-medial-geniculate-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-geniculate-nucleus",
+  "status": "draft",
+  "position": 13002,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "medial geniculate body",
+   "medial geniculate",
+   "MGN"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "medial-geniculate-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-geniculate-nucleus:function",
+   "medial-geniculate-nucleus:connections",
+   "medial-geniculate-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13003,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-superior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-colliculus",
+  "status": "draft",
+  "position": 13004,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Superior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "superior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "superior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-colliculus:function",
+   "superior-colliculus:connections",
+   "superior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13005,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-medial-lemniscus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-lemniscus",
+  "status": "draft",
+  "position": 13006,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Medial lemniscus",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "medial-lemniscus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-lemniscus:level",
+   "medial-lemniscus:function",
+   "medial-lemniscus:order",
+   "medial-lemniscus:side",
+   "medial-lemniscus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-sc-brachium-of-the-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "brachium-of-the-inferior-colliculus",
+  "status": "draft",
+  "position": 13007,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-sc"
+  },
+  "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior brachium",
+   "brachium of inferior colliculus",
+   "brachium"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-sc",
+   "region": "brachium-of-the-inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "brachium-of-the-inferior-colliculus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-sc",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-pontine-nuclei",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pontine-nuclei",
+  "status": "draft",
+  "position": 13008,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Pontine nuclei",
+  "answer_kind": "structure",
+  "accept": [
+   "pontine nucleus",
+   "basilar pontine nuclei"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "pontine-nuclei"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pontine-nuclei:function",
+   "pontine-nuclei:connections",
+   "pontine-nuclei:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-colliculus",
+  "status": "draft",
+  "position": 13009,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-colliculus:connections",
+   "inferior-colliculus:function",
+   "inferior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-transverse-fibers-of-the-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "transverse-fibers-of-the-pons",
+  "status": "draft",
+  "position": 13010,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
+  "accept": [
+   "transverse pontine fibers",
+   "transverse fibers of pons",
+   "pontocerebellar fibers"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "transverse-fibers-of-the-pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "transverse-fibers-of-the-pons:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-medial-lemniscus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-lemniscus",
+  "status": "draft",
+  "position": 13011,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Medial lemniscus",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "medial-lemniscus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-lemniscus:level",
+   "medial-lemniscus:function",
+   "medial-lemniscus:order",
+   "medial-lemniscus:side",
+   "medial-lemniscus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13012,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-brachium-of-the-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "brachium-of-the-inferior-colliculus",
+  "status": "draft",
+  "position": 13013,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior brachium",
+   "brachium of inferior colliculus",
+   "brachium"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "brachium-of-the-inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "brachium-of-the-inferior-colliculus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midbrain-ic-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13014,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midbrain-ic"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midbrain-ic",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midbrain-ic",
+   "bs-region:midbrain",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-middle-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13015,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium pontis",
+   "MCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "middle-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "middle-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-pontine-protuberance",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pontine-protuberance",
+  "status": "draft",
+  "position": 13016,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Pontine protuberance",
+  "answer_kind": "structure",
+  "accept": [
+   "basilar pons",
+   "basis pontis",
+   "ventral pons"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "pontine-protuberance"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pontine-protuberance:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-pontine-nuclei",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pontine-nuclei",
+  "status": "draft",
+  "position": 13017,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Pontine nuclei",
+  "answer_kind": "structure",
+  "accept": [
+   "pontine nucleus",
+   "basilar pontine nuclei"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "pontine-nuclei"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pontine-nuclei:function",
+   "pontine-nuclei:connections",
+   "pontine-nuclei:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-medial-lemniscus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-lemniscus",
+  "status": "draft",
+  "position": 13018,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Medial lemniscus",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "medial-lemniscus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-lemniscus:level",
+   "medial-lemniscus:function",
+   "medial-lemniscus:order",
+   "medial-lemniscus:side",
+   "medial-lemniscus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13019,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-mid-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13020,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-mid"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-mid",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-mid",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-middle-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13021,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium pontis",
+   "MCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "middle-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "middle-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-pontine-protuberance",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pontine-protuberance",
+  "status": "draft",
+  "position": 13022,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Pontine protuberance",
+  "answer_kind": "structure",
+  "accept": [
+   "basilar pons",
+   "basis pontis",
+   "ventral pons"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "pontine-protuberance"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pontine-protuberance:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-pontine-nuclei",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pontine-nuclei",
+  "status": "draft",
+  "position": 13023,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Pontine nuclei",
+  "answer_kind": "structure",
+  "accept": [
+   "pontine nucleus",
+   "basilar pontine nuclei"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "pontine-nuclei"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pontine-nuclei:function",
+   "pontine-nuclei:connections",
+   "pontine-nuclei:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-cerebellum",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebellum",
+  "status": "draft",
+  "position": 13024,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Cerebellum",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "cerebellum"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebellum:function",
+   "cerebellum:supply",
+   "cerebellum:embryology",
+   "cerebellum:lesion",
+   "cerebellum:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-medial-lemniscus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-lemniscus",
+  "status": "draft",
+  "position": 13025,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Medial lemniscus",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "medial-lemniscus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-lemniscus:level",
+   "medial-lemniscus:function",
+   "medial-lemniscus:order",
+   "medial-lemniscus:side",
+   "medial-lemniscus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13026,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-inferior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13027,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "restiform body",
+   "ICP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "inferior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-cerebellar-peduncle:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-spinal-trigeminal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "draft",
+  "position": 13028,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "spinal nucleus of trigeminal",
+   "trigeminal spinal nucleus",
+   "spinal nucleus of V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "spinal-trigeminal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "spinal-trigeminal-nucleus:function",
+   "spinal-trigeminal-nucleus:side",
+   "spinal-trigeminal-nucleus:cranial_nerve",
+   "spinal-trigeminal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13029,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-pons-caudal-facial-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "facial-colliculus",
+  "status": "draft",
+  "position": 13030,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate pons-caudal"
+  },
+  "answer": "Facial colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "facial colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "pons-caudal",
+   "region": "facial-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "facial-colliculus:cranial_nerve",
+   "facial-colliculus:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:pons-caudal",
+   "bs-region:pons",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-medial-lemniscus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-lemniscus",
+  "status": "draft",
+  "position": 13031,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Medial lemniscus",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "medial-lemniscus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-lemniscus:level",
+   "medial-lemniscus:function",
+   "medial-lemniscus:order",
+   "medial-lemniscus:side",
+   "medial-lemniscus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-fourth-ventricle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fourth-ventricle",
+  "status": "draft",
+  "position": 13032,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Fourth ventricle",
+  "answer_kind": "structure",
+  "accept": [
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "fourth-ventricle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fourth-ventricle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-spinal-trigeminal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "draft",
+  "position": 13033,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "spinal nucleus of trigeminal",
+   "trigeminal spinal nucleus",
+   "spinal nucleus of V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "spinal-trigeminal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "spinal-trigeminal-nucleus:function",
+   "spinal-trigeminal-nucleus:side",
+   "spinal-trigeminal-nucleus:cranial_nerve",
+   "spinal-trigeminal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13034,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-dorsal-spinocerebellar-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "draft",
+  "position": 13035,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
+  "accept": [
+   "posterior spinocerebellar tract",
+   "DSCT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "dorsal-spinocerebellar-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-spinocerebellar-tract:function",
+   "dorsal-spinocerebellar-tract:side",
+   "dorsal-spinocerebellar-tract:order",
+   "dorsal-spinocerebellar-tract:receptor",
+   "dorsal-spinocerebellar-tract:passes",
+   "dorsal-spinocerebellar-tract:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13036,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-rostral-nucleus-ambiguus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "nucleus-ambiguus",
+  "status": "draft",
+  "position": 13037,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-rostral"
+  },
+  "answer": "Nucleus ambiguus",
+  "answer_kind": "structure",
+  "accept": [
+   "ambiguus nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-rostral",
+   "region": "nucleus-ambiguus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "nucleus-ambiguus:function",
+   "nucleus-ambiguus:cranial_nerve",
+   "nucleus-ambiguus:lesion",
+   "nucleus-ambiguus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-rostral",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-medial-lemniscus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-lemniscus",
+  "status": "draft",
+  "position": 13038,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Medial lemniscus",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "medial-lemniscus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-lemniscus:level",
+   "medial-lemniscus:function",
+   "medial-lemniscus:order",
+   "medial-lemniscus:side",
+   "medial-lemniscus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-fasciculus-cuneatus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fasciculus-cuneatus",
+  "status": "draft",
+  "position": 13039,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
+  "accept": [
+   "cuneate fasciculus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "fasciculus-cuneatus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fasciculus-cuneatus:function",
+   "fasciculus-cuneatus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13040,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-dorsal-spinocerebellar-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "draft",
+  "position": 13041,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
+  "accept": [
+   "posterior spinocerebellar tract",
+   "DSCT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "dorsal-spinocerebellar-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-spinocerebellar-tract:function",
+   "dorsal-spinocerebellar-tract:side",
+   "dorsal-spinocerebellar-tract:order",
+   "dorsal-spinocerebellar-tract:receptor",
+   "dorsal-spinocerebellar-tract:passes",
+   "dorsal-spinocerebellar-tract:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-hypoglossal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "hypoglossal-nucleus",
+  "status": "draft",
+  "position": 13042,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Hypoglossal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "CN XII nucleus",
+   "nucleus of CN XII",
+   "XII nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "hypoglossal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "hypoglossal-nucleus:muscle",
+   "hypoglossal-nucleus:function",
+   "hypoglossal-nucleus:lesion",
+   "hypoglossal-nucleus:cranial_nerve",
+   "hypoglossal-nucleus:embryology",
+   "hypoglossal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13043,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-solitary-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "solitary-nucleus",
+  "status": "draft",
+  "position": 13044,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Solitary nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus solitarius",
+   "nucleus of the solitary tract",
+   "solitary tract nucleus",
+   "NTS"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "solitary-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "solitary-nucleus:function",
+   "solitary-nucleus:cranial_nerve",
+   "solitary-nucleus:embryology",
+   "solitary-nucleus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-dorsal-motor-nucleus-of-the-vagus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-motor-nucleus-of-the-vagus",
+  "status": "draft",
+  "position": 13045,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Dorsal motor nucleus of the vagus",
+  "answer_kind": "structure",
+  "accept": [
+   "dorsal motor nucleus of vagus",
+   "dorsal motor nucleus of X",
+   "dorsal vagal nucleus",
+   "DMV",
+   "DMX"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "dorsal-motor-nucleus-of-the-vagus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-motor-nucleus-of-the-vagus:function",
+   "dorsal-motor-nucleus-of-the-vagus:connections",
+   "dorsal-motor-nucleus-of-the-vagus:cranial_nerve",
+   "dorsal-motor-nucleus-of-the-vagus:embryology",
+   "dorsal-motor-nucleus-of-the-vagus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-mid-nucleus-ambiguus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "nucleus-ambiguus",
+  "status": "draft",
+  "position": 13046,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-mid"
+  },
+  "answer": "Nucleus ambiguus",
+  "answer_kind": "structure",
+  "accept": [
+   "ambiguus nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-mid",
+   "region": "nucleus-ambiguus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "nucleus-ambiguus:function",
+   "nucleus-ambiguus:cranial_nerve",
+   "nucleus-ambiguus:lesion",
+   "nucleus-ambiguus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-mid",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-motor-decussation",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "motor-decussation",
+  "status": "draft",
+  "position": 13047,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Motor decussation",
+  "answer_kind": "structure",
+  "accept": [
+   "decussation of the pyramids",
+   "pyramidal decussation",
+   "decussation of pyramids",
+   "corticospinal decussation"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "motor-decussation"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "motor-decussation:level",
+   "motor-decussation:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-gracile-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "gracile-nucleus",
+  "status": "draft",
+  "position": 13048,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Gracile nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus gracilis",
+   "gracilis nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "gracile-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "gracile-nucleus:order",
+   "gracile-nucleus:connections",
+   "gracile-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-fasciculus-cuneatus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fasciculus-cuneatus",
+  "status": "draft",
+  "position": 13049,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
+  "accept": [
+   "cuneate fasciculus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "fasciculus-cuneatus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fasciculus-cuneatus:function",
+   "fasciculus-cuneatus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-pyramids",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pyramids",
+  "status": "draft",
+  "position": 13050,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Pyramids",
+  "answer_kind": "structure",
+  "accept": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "pyramids"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pyramids:passes",
+   "pyramids:lesion",
+   "pyramids:cranial_nerve",
+   "pyramids:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-dorsal-spinocerebellar-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "draft",
+  "position": 13051,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
+  "accept": [
+   "posterior spinocerebellar tract",
+   "DSCT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "dorsal-spinocerebellar-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-spinocerebellar-tract:function",
+   "dorsal-spinocerebellar-tract:side",
+   "dorsal-spinocerebellar-tract:order",
+   "dorsal-spinocerebellar-tract:receptor",
+   "dorsal-spinocerebellar-tract:passes",
+   "dorsal-spinocerebellar-tract:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13052,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-spinal-trigeminal-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "spinal-trigeminal-nucleus",
+  "status": "draft",
+  "position": 13053,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Spinal trigeminal nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "spinal nucleus of trigeminal",
+   "trigeminal spinal nucleus",
+   "spinal nucleus of V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "spinal-trigeminal-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "spinal-trigeminal-nucleus:function",
+   "spinal-trigeminal-nucleus:side",
+   "spinal-trigeminal-nucleus:cranial_nerve",
+   "spinal-trigeminal-nucleus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-lateral-corticospinal-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "lateral-corticospinal-tract",
+  "status": "draft",
+  "position": 13054,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Lateral corticospinal tract",
+  "answer_kind": "structure",
+  "accept": [
+   "lateral CST",
+   "LCST"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "lateral-corticospinal-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "lateral-corticospinal-tract:function",
+   "lateral-corticospinal-tract:order",
+   "lateral-corticospinal-tract:side",
+   "lateral-corticospinal-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-fasciculus-gracilis",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fasciculus-gracilis",
+  "status": "draft",
+  "position": 13055,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
+  "accept": [
+   "gracile fasciculus",
+   "fasciculus gracile"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "fasciculus-gracilis"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fasciculus-gracilis:function",
+   "fasciculus-gracilis:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-cuneate-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cuneate-nucleus",
+  "status": "draft",
+  "position": 13056,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Cuneate nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "nucleus cuneatus",
+   "cuneatus nucleus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "cuneate-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cuneate-nucleus:order",
+   "cuneate-nucleus:function",
+   "cuneate-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-anterior-corticospinal-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterior-corticospinal-tract",
+  "status": "draft",
+  "position": 13057,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Anterior corticospinal tract",
+  "answer_kind": "structure",
+  "accept": [
+   "ventral corticospinal tract",
+   "anterior CST",
+   "ACST"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "anterior-corticospinal-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterior-corticospinal-tract:connections",
+   "anterior-corticospinal-tract:function",
+   "anterior-corticospinal-tract:side",
+   "anterior-corticospinal-tract:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-medulla-caudal-medial-longitudinal-fasciculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-longitudinal-fasciculus",
+  "status": "draft",
+  "position": 13058,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate medulla-caudal"
+  },
+  "answer": "Medial longitudinal fasciculus",
+  "answer_kind": "structure",
+  "accept": [
+   "MLF"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "medulla-caudal",
+   "region": "medial-longitudinal-fasciculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-longitudinal-fasciculus:function",
+   "medial-longitudinal-fasciculus:lesion",
+   "medial-longitudinal-fasciculus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:medulla-caudal",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-lateral-funiculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "lateral-funiculus",
+  "status": "draft",
+  "position": 13059,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Lateral funiculus",
+  "answer_kind": "structure",
+  "accept": [
+   "lateral column"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "lateral-funiculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "lateral-funiculus:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-fasciculus-gracilis",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fasciculus-gracilis",
+  "status": "draft",
+  "position": 13060,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Fasciculus gracilis",
+  "answer_kind": "structure",
+  "accept": [
+   "gracile fasciculus",
+   "fasciculus gracile"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "fasciculus-gracilis"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fasciculus-gracilis:function",
+   "fasciculus-gracilis:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-fasciculus-cuneatus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fasciculus-cuneatus",
+  "status": "draft",
+  "position": 13061,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Fasciculus cuneatus",
+  "answer_kind": "structure",
+  "accept": [
+   "cuneate fasciculus"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "fasciculus-cuneatus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fasciculus-cuneatus:function",
+   "fasciculus-cuneatus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-anterior-funiculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterior-funiculus",
+  "status": "draft",
+  "position": 13062,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Anterior funiculus",
+  "answer_kind": "structure",
+  "accept": [
+   "ventral funiculus",
+   "anterior/ventral funiculus",
+   "anterior column",
+   "ventral column"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "anterior-funiculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterior-funiculus:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-dorsal-spinocerebellar-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-spinocerebellar-tract",
+  "status": "draft",
+  "position": 13063,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
+  "accept": [
+   "posterior spinocerebellar tract",
+   "DSCT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "dorsal-spinocerebellar-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-spinocerebellar-tract:function",
+   "dorsal-spinocerebellar-tract:side",
+   "dorsal-spinocerebellar-tract:order",
+   "dorsal-spinocerebellar-tract:receptor",
+   "dorsal-spinocerebellar-tract:passes",
+   "dorsal-spinocerebellar-tract:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-anterolateral-spinothalamic-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterolateral-spinothalamic-tract",
+  "status": "draft",
+  "position": 13064,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Anterolateral spinothalamic tract",
+  "answer_kind": "structure",
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "anterolateral-spinothalamic-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterolateral-spinothalamic-tract:function",
+   "anterolateral-spinothalamic-tract:order",
+   "anterolateral-spinothalamic-tract:side",
+   "anterolateral-spinothalamic-tract:fiber_type",
+   "anterolateral-spinothalamic-tract:receptor",
+   "anterolateral-spinothalamic-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-dorsal-horn",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "dorsal-horn",
+  "status": "draft",
+  "position": 13065,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Dorsal horn",
+  "answer_kind": "structure",
+  "accept": [
+   "dorsal horns",
+   "posterior horn of spinal cord",
+   "posterior gray horn"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "dorsal-horn"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "dorsal-horn:function",
+   "dorsal-horn:fiber_type"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-location-of-trunk-lower-motor-neurons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "location-of-trunk-lower-motor-neurons",
+  "status": "draft",
+  "position": 13066,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Location of trunk lower motor neurons",
+  "answer_kind": "structure",
+  "accept": [
+   "trunk lower motor neurons",
+   "medial ventral horn"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "location-of-trunk-lower-motor-neurons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "location-of-trunk-lower-motor-neurons:function"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-lateral-corticospinal-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "lateral-corticospinal-tract",
+  "status": "draft",
+  "position": 13067,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Lateral corticospinal tract",
+  "answer_kind": "structure",
+  "accept": [
+   "lateral CST",
+   "LCST"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "lateral-corticospinal-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "lateral-corticospinal-tract:function",
+   "lateral-corticospinal-tract:order",
+   "lateral-corticospinal-tract:side",
+   "lateral-corticospinal-tract:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-ventral-horn",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "ventral-horn",
+  "status": "draft",
+  "position": 13068,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Ventral horn",
+  "answer_kind": "structure",
+  "accept": [
+   "ventral horns",
+   "anterior horn of spinal cord",
+   "anterior gray horn"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "ventral-horn"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "ventral-horn:function",
+   "ventral-horn:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-anterior-corticospinal-tract",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "anterior-corticospinal-tract",
+  "status": "draft",
+  "position": 13069,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Anterior corticospinal tract",
+  "answer_kind": "structure",
+  "accept": [
+   "ventral corticospinal tract",
+   "anterior CST",
+   "ACST"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "anterior-corticospinal-tract"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "anterior-corticospinal-tract:connections",
+   "anterior-corticospinal-tract:function",
+   "anterior-corticospinal-tract:side",
+   "anterior-corticospinal-tract:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-cervicomedullary-location-of-limb-lower-motor-neurons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "location-of-limb-lower-motor-neurons",
+  "status": "draft",
+  "position": 13070,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate cervicomedullary"
+  },
+  "answer": "Location of limb lower motor neurons",
+  "answer_kind": "structure",
+  "accept": [
+   "limb lower motor neurons",
+   "lateral ventral horn"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "cervicomedullary",
+   "region": "location-of-limb-lower-motor-neurons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "location-of-limb-lower-motor-neurons:function"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:cervicomedullary",
+   "bs-region:medulla",
+   "region:brainstem",
+   "plane:horizontal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-pyramids",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pyramids",
+  "status": "draft",
+  "position": 13071,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Pyramids",
+  "answer_kind": "structure",
+  "accept": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "pyramids"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pyramids:passes",
+   "pyramids:lesion",
+   "pyramids:cranial_nerve",
+   "pyramids:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-medulla",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medulla",
+  "status": "draft",
+  "position": 13072,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Medulla",
+  "answer_kind": "structure",
+  "accept": [
+   "medulla oblongata",
+   "myelencephalon"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "medulla"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medulla:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-transverse-fibers-of-the-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "transverse-fibers-of-the-pons",
+  "status": "draft",
+  "position": 13073,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Transverse fibers of the pons",
+  "answer_kind": "structure",
+  "accept": [
+   "transverse pontine fibers",
+   "transverse fibers of pons",
+   "pontocerebellar fibers"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "transverse-fibers-of-the-pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "transverse-fibers-of-the-pons:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pons",
+  "status": "draft",
+  "position": 13074,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Pons",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pons:embryology",
+   "pons:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-middle-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13075,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium pontis",
+   "MCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "middle-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "middle-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-midbrain",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "midbrain",
+  "status": "draft",
+  "position": 13076,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Midbrain",
+  "answer_kind": "structure",
+  "accept": [
+   "mesencephalon"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "midbrain"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "midbrain:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-cerebral-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-peduncles",
+  "status": "draft",
+  "position": 13077,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "cerebral-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-peduncles:passes",
+   "cerebral-peduncles:lesion",
+   "cerebral-peduncles:embryology",
+   "cerebral-peduncles:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-olives",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "olives",
+  "status": "draft",
+  "position": 13078,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Olives",
+  "answer_kind": "structure",
+  "accept": [
+   "olive"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "olives"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "olives:cranial_nerve",
+   "olives:connections",
+   "olives:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-interpeduncular-cistern",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "interpeduncular-cistern",
+  "status": "draft",
+  "position": 13079,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Interpeduncular cistern",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "interpeduncular-cistern"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "interpeduncular-cistern:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-interpeduncular-fossa",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "interpeduncular-fossa",
+  "status": "draft",
+  "position": 13080,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Interpeduncular fossa",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "interpeduncular-fossa"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "interpeduncular-fossa:cranial_nerve"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-trigeminal-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "trigeminal-nerve",
+  "status": "draft",
+  "position": 13081,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve V",
+   "cranial nerve 5",
+   "5th cranial nerve",
+   "V",
+   "trigeminal",
+   "CN V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "trigeminal-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "trigeminal-nerve:function",
+   "trigeminal-nerve:passes",
+   "trigeminal-nerve:lesion",
+   "trigeminal-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-oculomotor-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "oculomotor-nerve",
+  "status": "draft",
+  "position": 13082,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Oculomotor nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve III",
+   "cranial nerve 3",
+   "oculomotor",
+   "3rd cranial nerve",
+   "III",
+   "CN III"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "oculomotor-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "oculomotor-nerve:cranial_nerve",
+   "oculomotor-nerve:lesion",
+   "oculomotor-nerve:muscle",
+   "oculomotor-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-abducens-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "abducens-nerve",
+  "status": "draft",
+  "position": 13083,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Abducens nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve VI",
+   "cranial nerve 6",
+   "6th cranial nerve",
+   "VI",
+   "abducens",
+   "abducent nerve",
+   "CN VI"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "abducens-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "abducens-nerve:muscle",
+   "abducens-nerve:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-motor-decussation",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "motor-decussation",
+  "status": "draft",
+  "position": 13084,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Motor decussation",
+  "answer_kind": "structure",
+  "accept": [
+   "decussation of the pyramids",
+   "pyramidal decussation",
+   "decussation of pyramids",
+   "corticospinal decussation"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "motor-decussation"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "motor-decussation:level",
+   "motor-decussation:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-vagus-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "vagus-nerve",
+  "status": "draft",
+  "position": 13085,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Vagus nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve X",
+   "cranial nerve 10",
+   "vagus",
+   "10th cranial nerve",
+   "X",
+   "CN X"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "vagus-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "vagus-nerve:function",
+   "vagus-nerve:passes",
+   "vagus-nerve:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-glossopharyngeal-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "glossopharyngeal-nerve",
+  "status": "draft",
+  "position": 13086,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve IX",
+   "cranial nerve 9",
+   "glossopharyngeal",
+   "9th cranial nerve",
+   "IX",
+   "CN IX"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "glossopharyngeal-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "glossopharyngeal-nerve:function",
+   "glossopharyngeal-nerve:muscle",
+   "glossopharyngeal-nerve:passes",
+   "glossopharyngeal-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-vestibulocochlear-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "vestibulocochlear-nerve",
+  "status": "draft",
+  "position": 13087,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve VIII",
+   "cranial nerve 8",
+   "8th cranial nerve",
+   "VIII",
+   "vestibulocochlear",
+   "vestibular nerve",
+   "cochlear nerve",
+   "auditory nerve",
+   "CN VIII"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "vestibulocochlear-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "vestibulocochlear-nerve:function",
+   "vestibulocochlear-nerve:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-facial-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "facial-nerve",
+  "status": "draft",
+  "position": 13088,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Facial nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve VII",
+   "cranial nerve 7",
+   "facial",
+   "7th cranial nerve",
+   "VII",
+   "CN VII"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "facial-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "facial-nerve:function",
+   "facial-nerve:lesion",
+   "facial-nerve:cranial_nerve",
+   "facial-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-anterior-hypoglossal-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "hypoglossal-nerve",
+  "status": "draft",
+  "position": 13089,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-anterior"
+  },
+  "answer": "Hypoglossal nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve XII",
+   "cranial nerve 12",
+   "hypoglossal",
+   "12th cranial nerve",
+   "XII",
+   "CN XII"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-anterior",
+   "region": "hypoglossal-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "hypoglossal-nerve:passes",
+   "hypoglossal-nerve:muscle"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-anterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-fourth-ventricle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fourth-ventricle",
+  "status": "draft",
+  "position": 13090,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Fourth ventricle",
+  "answer_kind": "structure",
+  "accept": [
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "fourth-ventricle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fourth-ventricle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-pulvinar",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pulvinar",
+  "status": "draft",
+  "position": 13091,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Pulvinar",
+  "answer_kind": "structure",
+  "accept": [
+   "pulvinar nucleus",
+   "thalamic pulvinar"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "pulvinar"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pulvinar:function",
+   "pulvinar:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-inferior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13092,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "restiform body",
+   "ICP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "inferior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-cerebellar-peduncle:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-middle-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13093,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium pontis",
+   "MCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "middle-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "middle-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-superior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13094,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium conjunctivum",
+   "SCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "superior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-cerebellar-peduncle:connections",
+   "superior-cerebellar-peduncle:passes",
+   "superior-cerebellar-peduncle:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-cerebral-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-peduncles",
+  "status": "draft",
+  "position": 13095,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "cerebral-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-peduncles:passes",
+   "cerebral-peduncles:lesion",
+   "cerebral-peduncles:embryology",
+   "cerebral-peduncles:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-cuneate-tubercle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cuneate-tubercle",
+  "status": "draft",
+  "position": 13096,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Cuneate tubercle",
+  "answer_kind": "structure",
+  "accept": [
+   "cuneate tubercles",
+   "tuberculum cuneatum"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "cuneate-tubercle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cuneate-tubercle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-superior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-colliculus",
+  "status": "draft",
+  "position": 13097,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Superior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "superior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "superior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-colliculus:function",
+   "superior-colliculus:connections",
+   "superior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-gracile-tubercle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "gracile-tubercle",
+  "status": "draft",
+  "position": 13098,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Gracile tubercle",
+  "answer_kind": "structure",
+  "accept": [
+   "gracile tubercles",
+   "tuberculum gracile"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "gracile-tubercle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "gracile-tubercle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-brachium-of-the-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "brachium-of-the-inferior-colliculus",
+  "status": "draft",
+  "position": 13099,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior brachium",
+   "brachium of inferior colliculus",
+   "brachium"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "brachium-of-the-inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "brachium-of-the-inferior-colliculus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-colliculus",
+  "status": "draft",
+  "position": 13100,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-colliculus:connections",
+   "inferior-colliculus:function",
+   "inferior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-facial-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "facial-colliculus",
+  "status": "draft",
+  "position": 13101,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Facial colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "facial colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "facial-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "facial-colliculus:cranial_nerve",
+   "facial-colliculus:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-pineal-gland",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pineal-gland",
+  "status": "draft",
+  "position": 13102,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Pineal gland",
+  "answer_kind": "structure",
+  "accept": [
+   "pineal body",
+   "pineal",
+   "epiphysis"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "pineal-gland"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pineal-gland:function",
+   "pineal-gland:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-medial-geniculate-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-geniculate-nucleus",
+  "status": "draft",
+  "position": 13103,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "medial geniculate body",
+   "medial geniculate",
+   "MGN"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "medial-geniculate-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-geniculate-nucleus:function",
+   "medial-geniculate-nucleus:connections",
+   "medial-geniculate-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-area-postrema",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "area-postrema",
+  "status": "draft",
+  "position": 13104,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Area postrema",
+  "answer_kind": "structure",
+  "accept": [
+   "chemoreceptor trigger zone",
+   "AP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "area-postrema"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "area-postrema:function",
+   "area-postrema:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-posterior-obex",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "obex",
+  "status": "draft",
+  "position": 13105,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-posterior"
+  },
+  "answer": "Obex",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "external-posterior",
+   "region": "obex"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "obex:level"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-posterior",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pons",
+  "status": "draft",
+  "position": 13106,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Pons",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pons:embryology",
+   "pons:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-pyramids",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pyramids",
+  "status": "draft",
+  "position": 13107,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Pyramids",
+  "answer_kind": "structure",
+  "accept": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "pyramids"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pyramids:passes",
+   "pyramids:lesion",
+   "pyramids:cranial_nerve",
+   "pyramids:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-inferior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13108,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Inferior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "restiform body",
+   "ICP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "inferior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-cerebellar-peduncle:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-superior-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13109,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Superior cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium conjunctivum",
+   "SCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "superior-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-cerebellar-peduncle:connections",
+   "superior-cerebellar-peduncle:passes",
+   "superior-cerebellar-peduncle:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-olives",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "olives",
+  "status": "draft",
+  "position": 13110,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Olives",
+  "answer_kind": "structure",
+  "accept": [
+   "olive"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "olives"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "olives:cranial_nerve",
+   "olives:connections",
+   "olives:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-middle-cerebellar-peduncle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "middle-cerebellar-peduncle",
+  "status": "draft",
+  "position": 13111,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Middle cerebellar peduncle",
+  "answer_kind": "structure",
+  "accept": [
+   "brachium pontis",
+   "MCP"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "middle-cerebellar-peduncle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "middle-cerebellar-peduncle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-cerebellar-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebellar-peduncles",
+  "status": "draft",
+  "position": 13112,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Cerebellar peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebellar peduncle"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "cerebellar-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebellar-peduncles:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-cerebral-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-peduncles",
+  "status": "draft",
+  "position": 13113,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "cerebral-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-peduncles:passes",
+   "cerebral-peduncles:lesion",
+   "cerebral-peduncles:embryology",
+   "cerebral-peduncles:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-cuneate-tubercle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cuneate-tubercle",
+  "status": "draft",
+  "position": 13114,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Cuneate tubercle",
+  "answer_kind": "structure",
+  "accept": [
+   "cuneate tubercles",
+   "tuberculum cuneatum"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "cuneate-tubercle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cuneate-tubercle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-colliculus",
+  "status": "draft",
+  "position": 13115,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-colliculus:connections",
+   "inferior-colliculus:function",
+   "inferior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-gracile-tubercle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "gracile-tubercle",
+  "status": "draft",
+  "position": 13116,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Gracile tubercle",
+  "answer_kind": "structure",
+  "accept": [
+   "gracile tubercles",
+   "tuberculum gracile"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "gracile-tubercle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "gracile-tubercle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-trigeminal-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "trigeminal-nerve",
+  "status": "draft",
+  "position": 13117,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Trigeminal nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve V",
+   "cranial nerve 5",
+   "5th cranial nerve",
+   "V",
+   "trigeminal",
+   "CN V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "trigeminal-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "trigeminal-nerve:function",
+   "trigeminal-nerve:passes",
+   "trigeminal-nerve:lesion",
+   "trigeminal-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-superior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-colliculus",
+  "status": "draft",
+  "position": 13118,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Superior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "superior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "superior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-colliculus:function",
+   "superior-colliculus:connections",
+   "superior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-vagus-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "vagus-nerve",
+  "status": "draft",
+  "position": 13119,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Vagus nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve X",
+   "cranial nerve 10",
+   "vagus",
+   "10th cranial nerve",
+   "X",
+   "CN X"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "vagus-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "vagus-nerve:function",
+   "vagus-nerve:passes",
+   "vagus-nerve:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-brachium-of-the-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "brachium-of-the-inferior-colliculus",
+  "status": "draft",
+  "position": 13120,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Brachium of the inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior brachium",
+   "brachium of inferior colliculus",
+   "brachium"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "brachium-of-the-inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "brachium-of-the-inferior-colliculus:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-medial-geniculate-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medial-geniculate-nucleus",
+  "status": "draft",
+  "position": 13121,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Medial geniculate nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "medial geniculate body",
+   "medial geniculate",
+   "MGN"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "medial-geniculate-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medial-geniculate-nucleus:function",
+   "medial-geniculate-nucleus:connections",
+   "medial-geniculate-nucleus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-glossopharyngeal-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "glossopharyngeal-nerve",
+  "status": "draft",
+  "position": 13122,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Glossopharyngeal nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve IX",
+   "cranial nerve 9",
+   "glossopharyngeal",
+   "9th cranial nerve",
+   "IX",
+   "CN IX"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "glossopharyngeal-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "glossopharyngeal-nerve:function",
+   "glossopharyngeal-nerve:muscle",
+   "glossopharyngeal-nerve:passes",
+   "glossopharyngeal-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-vestibulocochlear-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "vestibulocochlear-nerve",
+  "status": "draft",
+  "position": 13123,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Vestibulocochlear nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve VIII",
+   "cranial nerve 8",
+   "8th cranial nerve",
+   "VIII",
+   "vestibulocochlear",
+   "vestibular nerve",
+   "cochlear nerve",
+   "auditory nerve",
+   "CN VIII"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "vestibulocochlear-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "vestibulocochlear-nerve:function",
+   "vestibulocochlear-nerve:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-external-lateral-facial-nerve",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "facial-nerve",
+  "status": "draft",
+  "position": 13124,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate external-lateral"
+  },
+  "answer": "Facial nerve",
+  "answer_kind": "structure",
+  "accept": [
+   "cranial nerve VII",
+   "cranial nerve 7",
+   "facial",
+   "7th cranial nerve",
+   "VII",
+   "CN VII"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "external-lateral",
+   "region": "facial-nerve"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "facial-nerve:function",
+   "facial-nerve:lesion",
+   "facial-nerve:cranial_nerve",
+   "facial-nerve:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:external-lateral",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:surface",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-cerebellum",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebellum",
+  "status": "draft",
+  "position": 13125,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Cerebellum",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "cerebellum"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebellum:function",
+   "cerebellum:supply",
+   "cerebellum:embryology",
+   "cerebellum:lesion",
+   "cerebellum:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-fourth-ventricle",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "fourth-ventricle",
+  "status": "draft",
+  "position": 13126,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Fourth ventricle",
+  "answer_kind": "structure",
+  "accept": [
+   "4th ventricle",
+   "ventricle IV",
+   "4V"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "fourth-ventricle"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "fourth-ventricle:connections"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-medulla",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "medulla",
+  "status": "draft",
+  "position": 13127,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Medulla",
+  "answer_kind": "structure",
+  "accept": [
+   "medulla oblongata",
+   "myelencephalon"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "medulla"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "medulla:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pons",
+  "status": "draft",
+  "position": 13128,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Pons",
+  "answer_kind": "structure",
+  "accept": [],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pons:embryology",
+   "pons:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-pyramids",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "pyramids",
+  "status": "draft",
+  "position": 13129,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Pyramids",
+  "answer_kind": "structure",
+  "accept": [
+   "pyramid",
+   "medullary pyramids",
+   "medullary pyramid"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "pyramids"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "pyramids:passes",
+   "pyramids:lesion",
+   "pyramids:cranial_nerve",
+   "pyramids:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-longitudinal-fibers-of-the-pons",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "longitudinal-fibers-of-the-pons",
+  "status": "draft",
+  "position": 13130,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Longitudinal fibers of the pons",
+  "answer_kind": "structure",
+  "accept": [
+   "longitudinal fibers of pons",
+   "longitudinal pontine fibers"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "longitudinal-fibers-of-the-pons"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "longitudinal-fibers-of-the-pons:passes"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-midbrain",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "midbrain",
+  "status": "draft",
+  "position": 13131,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Midbrain",
+  "answer_kind": "structure",
+  "accept": [
+   "mesencephalon"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "midbrain"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "midbrain:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-cerebral-aqueduct",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-aqueduct",
+  "status": "draft",
+  "position": 13132,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Cerebral aqueduct",
+  "answer_kind": "structure",
+  "accept": [
+   "aqueduct of Sylvius",
+   "mesencephalic aqueduct",
+   "aqueduct",
+   "CA"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "cerebral-aqueduct"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-aqueduct:level",
+   "cerebral-aqueduct:lesion"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-cerebral-peduncles",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "cerebral-peduncles",
+  "status": "draft",
+  "position": 13133,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "cerebral peduncle",
+   "crus cerebri",
+   "basis pedunculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "cerebral-peduncles"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "cerebral-peduncles:passes",
+   "cerebral-peduncles:lesion",
+   "cerebral-peduncles:embryology",
+   "cerebral-peduncles:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-inferior-olivary-nucleus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-olivary-nucleus",
+  "status": "draft",
+  "position": 13134,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Inferior olivary nucleus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior olive",
+   "olivary nucleus",
+   "ION"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "inferior-olivary-nucleus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-olivary-nucleus:function",
+   "inferior-olivary-nucleus:connections",
+   "inferior-olivary-nucleus:embryology",
+   "inferior-olivary-nucleus:written"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-inferior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "inferior-colliculus",
+  "status": "draft",
+  "position": 13135,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Inferior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "inferior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "inferior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "inferior-colliculus:connections",
+   "inferior-colliculus:function",
+   "inferior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-superior-colliculus",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "superior-colliculus",
+  "status": "draft",
+  "position": 13136,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Superior colliculus",
+  "answer_kind": "structure",
+  "accept": [
+   "superior colliculi"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "superior-colliculus"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [
+   "superior-colliculus:function",
+   "superior-colliculus:connections",
+   "superior-colliculus:embryology"
+  ],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ },
+ {
+  "slug": "bs-plate-midsagittal-mesencephalic-flexure",
+  "kind": "pin",
+  "topic": "brainstem-overlay",
+  "structure": "mesencephalic-flexure",
+  "status": "draft",
+  "position": 13137,
+  "source": {
+   "type": "plate",
+   "ref": "brainstem plate midsagittal"
+  },
+  "answer": "Mesencephalic flexure",
+  "answer_kind": "structure",
+  "accept": [
+   "cephalic flexure",
+   "midbrain flexure"
+  ],
+  "require_side": false,
+  "plate": {
+   "level": "midsagittal",
+   "region": "mesencephalic-flexure"
+  },
+  "prompt": "Name the highlighted structure.",
+  "followups": [],
+  "followup_cards": [],
+  "review_note": "Draft from the brainstem atlas coverage pass (2026-11-12): check the plate region, then set status live.",
+  "tags": [
+   "bs-plate",
+   "bs-level:midsagittal",
+   "bs-region:surface",
+   "region:brainstem",
+   "plane:sagittal",
+   "unit:u2",
+   "kind:pin"
+  ]
+ }
+]

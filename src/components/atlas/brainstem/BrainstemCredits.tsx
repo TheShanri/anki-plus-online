@@ -15,6 +15,12 @@ export function BrainstemCredits() {
         the course atlas key and against the open atlas of Coulombe et al. (2021, CC BY 4.0, listed below); structures the course slides do
         not outline are marked approximate.
       </p>
+      <p className="mt-1">
+        The ventral and dorsal surface plates are drawn on the course&apos;s Lab 7 specimen photos, using the course&apos;s own marks on them;
+        the midsagittal plate follows the course&apos;s Lab 2 midsagittal photo and OpenStax Anatomy &amp; Physiology fig. 13.11 (CC BY 4.0);
+        the lateral view is drawn after Sobotta&apos;s Atlas of Human Anatomy (1909), fig. 661 (public domain), as the course has no lateral
+        brainstem image.
+      </p>
       <p className="mt-1">The brainstem atlas also uses these openly licensed images (the course images in it stay private to course members).</p>
       <ul className="mt-1 list-disc space-y-0.5 pl-5">
         {list.map((o) => (

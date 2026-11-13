@@ -440,7 +440,7 @@ export function SupplyMap() {
   const showComm = mode === "explore" && (cow || sel.has("pcomm"));
   const caption = mode === "tour" ? TOUR[step] : mode === "veins" ? VEIN_STEPS[vstep] : null;
   return (
-    <div className="relative flex h-[calc(100dvh-148px)] min-h-[560px] w-full min-w-0 flex-col overflow-hidden rounded-card border border-panel-border bg-bg-2">
+    <div className="relative flex h-[calc(100dvh-148px)] min-h-[560px] max-sm:h-[calc(100dvh-212px)] w-full min-w-0 flex-col overflow-hidden rounded-card border border-panel-border bg-bg-2">
       <div className="flex flex-none flex-wrap items-center gap-1.5 border-b border-panel-border bg-panel px-2 py-1.5">
         <div role="tablist" aria-label="Blood supply modes" className="flex flex-none gap-1 max-sm:gap-0.5">
           {MODES.map((m) => (

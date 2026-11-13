@@ -579,7 +579,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   );
 
   return (
-    <div className={`relative flex w-full min-w-0 gap-2 ${height ? "" : "h-[calc(100dvh-148px)] min-h-[560px]"}`} style={rootStyle}>
+    <div className={`relative flex w-full min-w-0 gap-2 ${height ? "" : "h-[calc(100dvh-148px)] min-h-[560px] max-sm:h-[calc(100dvh-212px)]"}`} style={rootStyle}>
       <aside
         className={`${listOpen ? "flex" : "hidden"} absolute inset-0 z-30 flex-col gap-2 rounded-card border border-panel-border bg-panel-solid p-3 lg:static lg:inset-auto lg:z-auto lg:w-[250px] lg:flex-none lg:bg-panel`}
         aria-label="Structure search"

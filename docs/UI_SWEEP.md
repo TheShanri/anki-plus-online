@@ -37,3 +37,22 @@ Not reached: staff dashboard, admin review tool, boss fight, summary, multi-part
 | 768x1024 / 1024x768 | production 768 shots of home, study viewed (before/prod_*_768.png): fine, with "Atlas quiz" wrapping alone onto a second toolbar row (left). Dev-server shots at those sizes caught loading skeletons (the skeleton looks right) |
 | Multi-part answer, follow-up, boss fight, parking lot | not reached: theory/multi-part cards and bosses are gated on mastery, which the fresh probe account lacks; auto-play via `__ankiEngine` only produced first-look pin cards |
 | Staff dashboard, admin review | not reachable: the probe is a student, and promoting it was blocked by the permission check, so I did not do it |
+
+## Staff and professor
+
+Audited as perf-probe@uvm.edu (temporarily professor of NSCI3250A), read-only: nothing was submitted or clicked that writes. Shots in `_atlas/staff_shots/`. Pages: `/staff` (1440 and 390), `/staff/student/[id]` (1440, 390, malformed id -> 404 page), `/professor` (307 redirect to /staff). The only staff-only nav entry is "Staff" (Admin is admin-only and out of scope).
+
+| Item | Status |
+|---|---|
+| Staff nav link missing for course TAs/professors whose profile role is "student" (only profile-role staff saw it; the probe had no way to reach /staff) | fixed (NavBar also checks course enrollments) |
+| Roster toolbar (search, section filter, Export CSV) overflowed the card on phones, Export clipped | fixed (wraps) |
+| Roster "Reset" (and At-risk "Send reset email") emailed a password reset on a single click | fixed (confirm dialog first) |
+| Trend chart axis labels ~6px on phones | fixed (larger on small screens) |
+| Layout at 1440 and 390, empty states (no weak spots, no at-risk, no mock practicals), roster wide table scrolls inside its card on phones | fine |
+| Copy: "Summaries only..." notes present on both pages | fine |
+| Members list on phones: role label sits on its own line, ragged but readable | not fixed (minor) |
+| Student page "Last seen" uses the server locale date format (11/9/2026), roster uses "3 days ago" | not fixed (inconsistent, minor) |
+| Theme tokens: no hard-coded colours in `src/components/staff/*`; Academia and Synthwave were NOT visually checked (the headless theme switch via data-theme did not stick, shots show UVM) | open |
+| Weak-spot heatmap with data (needs 3+ students), at-risk list populated, Temp pw (admin only), keyboard focus walk | not reached (only 2 students enrolled; no writes allowed) |
+
+SPEC check: no item-level data is shown. The student page uses `staff_student_detail` (per-unit percentages, practical scores, daily minutes), guarded by `is_course_staff` and student-only target; class weak spots are anonymous and need 3+ students. Writes (join code, settings, roles, resets, temp passwords) are only offered to professors/admins in the UI (`canManage`); TAs see the dashboard and members without Make TA/Course settings. I did not test the server actions' own role checks for a TA. No privacy concern found. Course images auth-gating is not on these pages and was not tested.

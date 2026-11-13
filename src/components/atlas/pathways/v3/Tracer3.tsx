@@ -346,7 +346,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           return s + 1;
         });
       },
-      reduced ? 1400 : fork ? 3400 : 2800,
+      reduced ? 1400 : fork ? 4000 : 3400, // room for the camera glide (up to 2.6 s) to settle before the next beat
     );
     return () => clearTimeout(t);
   }, [playing, quiz, B, reduced, cur, beat]);

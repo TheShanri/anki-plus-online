@@ -5,8 +5,10 @@ import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 
 /* The beat camera. User input always wins: the first grab (pointer, wheel, touch or the controls' own start) cancels any tween
- * and locks the view; beats never move a locked camera again until Frame (F), a view button or another pathway. A tween moves
- * position, target and up together (0.8 s, ease-out) and ends exactly on the goal. Never a snap-back. */
+ * and locks the view; beats never move a locked camera again until Frame (F), a view button or another pathway. A move is a calm
+ * glide (owner: "a nice calm mellow follow"): it orbits around the target (direction and up turned on the sphere, distance
+ * changed geometrically, never a straight cut through the brain), eases in and out over 1.3-2.6 s depending on how far it
+ * travels, and a new goal mid-glide carries on from the current motion instead of stopping first. Ends exactly on the goal. */
 
 export type ViewName = "beat" | "anterior" | "posterior" | "left" | "right" | "superior" | "inferior" | "coronal" | "oblique" | "oblique-front";
 export interface ViewDef {
@@ -59,13 +61,65 @@ export function fitDist(box: THREE.Box3, dir: THREE.Vector3, up: THREE.Vector3, 
   return Math.max(uu / tan, rr / (tan * Math.max(0.2, aspect))) * margin + dd + 0.006;
 }
 
+/* ---------- the glide: orbit-style interpolation with gentle easing ---------- */
+interface Glide {
+  t: number;
+  dur: number;
+  /** true when it starts while the previous glide is still moving: ease out only, so the motion carries on */
+  moving: boolean;
+  ft: THREE.Vector3;
+  tt: THREE.Vector3;
+  fdir: THREE.Vector3;
+  tdir: THREE.Vector3;
+  q: THREE.Quaternion;
+  fdist: number;
+  tdist: number;
+  fu: THREE.Vector3;
+  tu: THREE.Vector3;
+  qu: THREE.Quaternion;
+}
+const ID = new THREE.Quaternion();
+/** Rotation taking unit vector a onto b; a half turn goes round `axis` (the camera's up), never through an arbitrary axis. */
+function turn(a: THREE.Vector3, b: THREE.Vector3, axis: THREE.Vector3) {
+  if (a.dot(b) < -0.9995) return new THREE.Quaternion().setFromAxisAngle(axis.clone().normalize(), Math.PI);
+  return new THREE.Quaternion().setFromUnitVectors(a, b);
+}
+function makeGlide(pos: THREE.Vector3, target: THREE.Vector3, up: THREE.Vector3, goalTarget: THREE.Vector3, goalDir: THREE.Vector3, goalDist: number, goalUp: THREE.Vector3, moving: boolean): Glide {
+  const off = pos.clone().sub(target);
+  const fdist = Math.max(1e-4, off.length());
+  const fdir = off.divideScalar(fdist);
+  const q = turn(fdir, goalDir, up);
+  const fu = up.clone().normalize();
+  const qu = turn(fu, goalUp, fdir);
+  const angle = Math.max(fdir.angleTo(goalDir), fu.angleTo(goalUp));
+  const zoom = Math.abs(Math.log(goalDist / fdist));
+  const shift = target.distanceTo(goalTarget) / Math.max(fdist, goalDist);
+  const dur = Math.min(2.6, 1.3 + (0.9 * angle) / Math.PI + 0.45 * Math.min(1, zoom) + 0.5 * Math.min(1, shift));
+  return { t: 0, dur, moving, ft: target.clone(), tt: goalTarget.clone(), fdir, tdir: goalDir.clone().normalize(), q, fdist, tdist: goalDist, fu, tu: goalUp.clone(), qu };
+}
+const ease = (t: number, moving: boolean) => (moving ? Math.sin((t * Math.PI) / 2) : 0.5 - 0.5 * Math.cos(t * Math.PI));
+function stepGlide(g: Glide, t: number, pos: THREE.Vector3, target: THREE.Vector3, up: THREE.Vector3) {
+  if (t >= 1) {
+    target.copy(g.tt);
+    pos.copy(g.tt).addScaledVector(g.tdir, g.tdist);
+    up.copy(g.tu).normalize();
+    return;
+  }
+  const e = ease(t, g.moving);
+  target.lerpVectors(g.ft, g.tt, e);
+  const dir = g.fdir.clone().applyQuaternion(ID.clone().slerp(g.q, e)).normalize();
+  const dist = g.fdist * Math.pow(g.tdist / g.fdist, e);
+  pos.copy(target).addScaledVector(dir, dist);
+  up.copy(g.fu).applyQuaternion(ID.clone().slerp(g.qu, e)).normalize();
+}
+
 export function Rig({ box, view, nonce, resetKey, onLock }: { box: THREE.Box3 | null; view: ViewDef; nonce: number; resetKey: string; onLock: (l: boolean) => void }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const controls = useThree((s) => s.controls) as unknown as Controls | null;
   const gl = useThree((s) => s.gl);
   const invalidate = useThree((s) => s.invalidate);
   const size = useThree((s) => s.size);
-  const tween = useRef<{ t: number; fp: THREE.Vector3; ft: THREE.Vector3; fu: THREE.Vector3; pos: THREE.Vector3; target: THREE.Vector3; up: THREE.Vector3 } | null>(null);
+  const tween = useRef<Glide | null>(null);
   const locked = useRef(false);
   const last = useRef({ nonce: -1, reset: "" });
   const lockCb = useRef(onLock);
@@ -110,23 +164,16 @@ export function Rig({ box, view, nonce, resetKey, onLock }: { box: THREE.Box3 | 
     const up = new THREE.Vector3(...view.up).normalize();
     const c = box.getCenter(new THREE.Vector3());
     const d = fitDist(box, dir, up, camera.fov, size.width / Math.max(1, size.height));
-    tween.current = { t: 0, fp: camera.position.clone(), ft: controls.target.clone(), fu: camera.up.clone(), pos: c.clone().addScaledVector(dir, d), target: c, up };
+    const g = makeGlide(camera.position, controls.target, camera.up, c, dir, d, up, !!tween.current && tween.current.t > 0.15 && tween.current.t < 0.85); // a retarget in the first frames (view, then box) still eases in
+    tween.current = g;
     invalidate();
   }, [box, view, nonce, resetKey, camera, controls, size.width, size.height, invalidate]);
   useFrame((_, dt) => {
     const g = tween.current;
     if (!g || !controls) return;
-    g.t = Math.min(1, g.t + dt / 0.8);
-    const e = 1 - Math.pow(1 - g.t, 3);
-    camera.position.lerpVectors(g.fp, g.pos, e);
-    controls.target.lerpVectors(g.ft, g.target, e);
-    camera.up.lerpVectors(g.fu, g.up, e).normalize();
-    if (g.t >= 1) {
-      camera.position.copy(g.pos);
-      controls.target.copy(g.target);
-      camera.up.copy(g.up);
-      tween.current = null;
-    }
+    g.t = Math.min(1, g.t + Math.min(dt, 0.05) / g.dur);
+    stepGlide(g, g.t, camera.position, controls.target, camera.up);
+    if (g.t >= 1) tween.current = null;
     camera.lookAt(controls.target);
     controls.update();
     invalidate();

@@ -432,6 +432,21 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
     drawnOrder = dr?.f[0]?.order ?? dr?.soma?.order ?? dr?.start?.order ?? 0;
   }
   const order = Math.min(4, Math.max((beat?.neuron ?? 0) + 1, all ? 0 : drawnOrder)) as 1 | 2 | 3 | 4;
+  // the side-rail card follows the same rule: when the circuit draws a later neuron than the course map counts (the jaw-jerk motor
+  // neuron), the card names the drawn order, and its cell body is where the previous neuron synapsed; tract and target come from the beat
+  const cardNeuron = (() => {
+    if (all || !neuron || order <= ni + 1) return neuron;
+    const mapped = cp.neurons[order - 1];
+    if (mapped) return mapped;
+    // only where a path beat actually draws this order (the basal ganglia 4th neuron is a node with no path of its own: unchanged)
+    let li = cur;
+    while (li >= 0 && !(bs.beats[li].kind === "path" && bs.beats[li].neuron === ni)) li--;
+    const lb = li >= 0 ? d?.beats[li] : undefined;
+    if ((lb?.L ?? lb?.R)?.f[0]?.order !== order) return neuron;
+    const last = bs.beats[li];
+    const m = /^(.*?)\s+to\s+(?:the\s+)?(.+)$/i.exec(last?.caption ?? "");
+    return { ...neuron, order, cell_body: neuron.synapse.replace(/\s*\(monosynaptic\)/i, ""), tract: m?.[1] ?? last?.caption ?? neuron.tract, synapse: m?.[2] ?? "", level: "", decussates: false };
+  })();
   const badge = /lcst|acst|corticobulbar|umn-lmn/.test(slug) ? (order === 1 ? "UMN" : "LMN") : /sympathetic/.test(slug) ? (order === 1 ? "Pre" : "Post") : `${ORDINAL[order]}`;
   // which side the signal is on now: the physical side of the focused fibre at the end of this beat, and whether that is the
   // same side as the stimulus / limb (the body side the user picked) or the opposite one
@@ -793,17 +808,17 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           </div>
         </div>
         <div className="panel grid gap-2 p-3">
-          {!all && neuron ? (
+          {!all && cardNeuron ? (
             <>
               <div className="flex flex-wrap items-center gap-2">
-                <h2 className="font-display text-lg">{ORDINAL[neuron.order]}-order neuron</h2>
-                {neuron.decussates ? <span className="chip boss">decussates</span> : <span className="chip follow">no crossing</span>}
+                <h2 className="font-display text-lg">{ORDINAL[cardNeuron.order]}-order neuron</h2>
+                {cardNeuron.decussates ? <span className="chip boss">decussates</span> : <span className="chip follow">no crossing</span>}
               </div>
               <dl className="grid gap-1.5 text-sm">
-                <div><dt className="label">Cell body</dt><dd>{withGate(neuron.cell_body)}</dd></div>
-                <div><dt className="label">Tract</dt><dd>{withGate(neuron.tract)}</dd></div>
-                <div><dt className="label">Synapse</dt><dd>{withGate(neuron.synapse)}</dd></div>
-                {meaningful(neuron.level) && <div><dt className="label">Level</dt><dd>{neuron.level}</dd></div>}
+                <div><dt className="label">Cell body</dt><dd>{withGate(cardNeuron.cell_body)}</dd></div>
+                <div><dt className="label">Tract</dt><dd>{withGate(cardNeuron.tract)}</dd></div>
+                <div><dt className="label">Synapse</dt><dd>{withGate(cardNeuron.synapse)}</dd></div>
+                {meaningful(cardNeuron.level) && <div><dt className="label">Level</dt><dd>{cardNeuron.level}</dd></div>}
               </dl>
               {(() => {
                 const loss = mp.neurons[ni]?.stretches.find((s) => s.loss)?.loss ?? mp.loss;

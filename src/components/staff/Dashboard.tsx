@@ -144,6 +144,7 @@ export function Dashboard(props: {
   }
 
   function reset(userId: string) {
+    if (!window.confirm("Email this student a password reset link?")) return;
     start(async () => setMsg((await sendResetEmail(props.courseId, userId)).message ?? null));
   }
   function temp(userId: string) {
@@ -231,8 +232,8 @@ export function Dashboard(props: {
       <section className="panel">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
           <h2 className="font-display text-lg">Roster</h2>
-          <div className="flex items-center gap-2">
-            <input className="input" style={{ width: "11rem" }} placeholder="Search name or email" aria-label="Search students" value={q} onChange={(e) => setQ(e.target.value)} />
+          <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
+            <input className="input" style={{ width: "11rem", maxWidth: "100%" }} placeholder="Search name or email" aria-label="Search students" value={q} onChange={(e) => setQ(e.target.value)} />
             <select className="input" style={{ width: "auto" }} aria-label="Filter by lab section" value={section} onChange={(e) => setSection(e.target.value)}>
               <option value="">All sections</option>
               {props.sections.map((s) => <option key={s}>{s}</option>)}

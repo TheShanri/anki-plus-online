@@ -12,7 +12,7 @@ Registration (MNI -> Z-Anatomy):
      template's gyri are carried along without folding.
 
 Output: public/atlas/section.bin.gz  (gzip of a 64-byte header + uint8 voxels, x fastest) and _atlas/section/*.png checks.
-Header: magic 'ASEC', u16 nx, ny, nz, pad, f32 origin xyz (m), f32 spacing (m), f32 csf, gm, wm (intensity anchors /255).
+Header: magic 'ASEC', u16 nx, ny, nz, channels (1: tissue; 2: tissue + midline-section mask, interleaved), f32 origin xyz (m), f32 spacing (m), f32 csf, gm, wm (intensity anchors /255).
 
 Run (repo root, low priority):  tools/.venv/Scripts/python.exe -I tools/atlas/section_volume.py [--redo]
 Inputs (git-ignored): _atlas/raw/mni09b (unzip sym09b.zip), _atlas/raw/ahra, _atlas/raw/glb/s, _atlas/fill (fill.npy, gross_dq.glb).
@@ -64,6 +64,7 @@ GROUPS = {
     "v3": under("3V"),
     "v4": under("4V"),
     "cc": under("cc"),
+    "aq": under("Aq"),
     "cerebellum": under("CBV", "CBPV", "CBL", "CbDN"),
     "brainstem": under("MGM", "MWM", "MV", "PnBa", "PnTg", "Mo", "icp"),
 }
@@ -77,7 +78,13 @@ MNI_STEP = 2  # masks on a 1 mm MNI grid
 def mni_masks():
     cache = os.path.join(W, "mni_masks.npz")
     if os.path.exists(cache) and not REDO:
-        z = np.load(cache); return {k: z[k] for k in z.files}
+        z = np.load(cache); out = {k: z[k] for k in z.files}
+        miss = [k for k in GROUPS if k not in out]
+        if miss:
+            a = A[::MNI_STEP, ::MNI_STEP, ::MNI_STEP]
+            for k in miss: out[k] = np.isin(a, GROUPS[k])
+            np.savez_compressed(cache, **out)
+        return out
     a = A[::MNI_STEP, ::MNI_STEP, ::MNI_STEP]
     out = {}
     brain = a > 0
@@ -97,7 +104,7 @@ FP = 0.0007
 ZMESH = {
     "caudate": ["caudate-nucleus"], "putamen": ["putamen"], "pallidum": ["globus-pallidus"], "thalamus": ["thalamus"],
     "hippocampus": ["hippocampus"], "amygdala": ["amygdaloid-body"], "latvent": ["lateral-ventricle"], "v3": ["third-ventricle"],
-    "v4": ["fourth-ventricle"], "cc": ["corpus-callosum"],
+    "v4": ["fourth-ventricle"], "cc": ["corpus-callosum"], "aq": ["aqueduct-of-midbrain"],
 }
 def load_mesh(name):
     sc = trimesh.load(os.path.join(ROOT, "_atlas/raw/glb/s", name + ".glb"), force="scene")
@@ -117,7 +124,13 @@ def voxelize(meshes, close=0):
 def z_masks():
     cache = os.path.join(W, "z_masks.npz")
     if os.path.exists(cache) and not REDO:
-        z = np.load(cache); return {k: z[k] for k in z.files}
+        z = np.load(cache); out = {k: z[k] for k in z.files}
+        miss = [k for k in ZMESH if k not in out]
+        for k in miss:
+            out[k] = voxelize([m for n in ZMESH[k] for m in load_mesh(n)])
+            log("z mask", k, int(out[k].sum()))
+        if miss: np.savez_compressed(cache, **out)
+        return out
     idx = json.load(open(os.path.join(ROOT, "public/atlas/index.json")))["structures"]
     out = {"brain": FILL.copy()}
     for k, names in ZMESH.items():
@@ -163,13 +176,20 @@ def resample_z_mask(mask_fill, lo, shape, step_m):
     out[ok] = mask_fill[i[ok, 0], i[ok, 1], i[ok, 2]]
     return out.reshape(shape)
 
-KEYS = ["brain", "cerebellum", "brainstem", "caudate", "putamen", "pallidum", "thalamus", "hippocampus", "amygdala", "latvent", "v3", "v4", "cc"]
-WEIGHT = {"brain": 2.0, "cerebellum": 1.0, "brainstem": 1.0, "latvent": 1.5, "v3": 0.7, "v4": 0.7, "cc": 1.0}
+KEYS = ["brain", "cerebellum", "brainstem", "caudate", "putamen", "pallidum", "thalamus", "hippocampus", "amygdala", "latvent", "v3", "v4", "cc", "aq"]
+WEIGHT = {"brain": 2.0, "cerebellum": 1.0, "brainstem": 1.0, "latvent": 1.5, "v3": 0.7, "v4": 0.7, "cc": 1.0, "aq": 0.0}
+# the 1 mm pass (--fine) tightens the thin structures: third/fourth ventricle, aqueduct, hippocampus
+WEIGHT_FINE = {**WEIGHT, "v3": 1.5, "v4": 1.5, "aq": 1.0, "hippocampus": 1.5}
 
 def register():
     cache = os.path.join(W, "warp.npz")
+    fine = os.path.join(W, "warp_fine.npz")
+    if os.path.exists(fine) and not REDO and "--fine" not in sys.argv:
+        z = np.load(fine); return z["v"], float(z["step"])
     if os.path.exists(cache) and not REDO:
-        z = np.load(cache); return z["v"], float(z["step"])
+        z = np.load(cache)
+        if "--fine" in sys.argv: return register_fine(z["v"], float(z["step"]), fine)
+        return z["v"], float(z["step"])
     mm = mni_masks(); zm = z_masks()
     mni_aff1 = AFF.copy(); mni_aff1[:3, :3] *= MNI_STEP
     MS = {k: sdf(mm[k], 1.0) for k in KEYS}  # 1 mm grid
@@ -207,6 +227,44 @@ def register():
         log(f"  jacobian min {jac.min():.3f} max {jac.max():.3f}  (<=0: {(jac <= 0).sum()})")
     np.savez_compressed(cache, v=v, step=step_mm / 1000)
     return v, step_mm / 1000
+
+def register_fine(v, vstep, out_path, step_mm=1.0, iters=40, sig_fluid=1.5, sig_diff=2.0):
+    """One more demons level at 1 mm on top of the 2 mm warp, weighted toward the thin structures (float16 gradients for memory)."""
+    mm = mni_masks(); zm = z_masks()
+    mni_aff1 = AFF.copy(); mni_aff1[:3, :3] *= MNI_STEP
+    keys = [k for k in KEYS if WEIGHT_FINE.get(k, 1.0) > 0]
+    MS = {k: sdf(mm[k], 1.0) for k in keys}
+    step = step_mm / 1000
+    lo, shape = z_grid(step)
+    P = z_points(lo, shape, step)
+    base = to_mni_vox(P, mni_aff1).T.reshape((3,) + tuple(shape)).astype(np.float32); del P
+    J = ((np.linalg.inv(mni_aff1)[:3, :3] @ M_z2mni[:3, :3]) / 1000).astype(np.float32)
+    FS = {k: sdf(resample_z_mask(zm[k], lo, shape, step), step_mm) for k in keys}
+    G = {k: np.stack(np.gradient(FS[k], step_mm)).astype(np.float16) for k in keys}
+    v = np.stack([ndi.zoom(c, np.array(shape) / np.array(c.shape), order=1) for c in v]).astype(np.float32)
+    log(f"fine level {step_mm} mm grid {shape}, channels {keys}")
+    for it in range(iters):
+        coords = base + np.tensordot(J, v, axes=1)
+        num = np.zeros_like(v); den = np.zeros(shape, np.float32); err = 0.0
+        for k in keys:
+            w = WEIGHT_FINE.get(k, 1.0)
+            Mk = ndi.map_coordinates(MS[k], coords, order=1, mode="nearest")
+            d = Mk - FS[k]
+            band = (np.abs(FS[k]) < 8) | (np.abs(Mk) < 8)
+            d = np.where(band, d, 0).astype(np.float32)
+            g = G[k].astype(np.float32)
+            num += -w * d * g
+            den += w * ((g ** 2).sum(0) + 1.0 * d * d)  # steps of at most 0.5 mm: no folding at 1 mm
+            err += w * float((d[band] ** 2).mean()) if band.any() else 0
+            del Mk, g
+        du = num / (den + 1e-3)
+        du = np.stack([ndi.gaussian_filter(c, sig_fluid) for c in du])
+        v = np.stack([ndi.gaussian_filter(c, sig_diff) for c in v + du]).astype(np.float32)
+        if it % 10 == 0 or it == iters - 1: log(f"  it {it} err {err:.2f}")
+    jac = np.linalg.det(np.moveaxis(np.stack([np.stack(np.gradient(v[i], step_mm)) for i in range(3)]), (0, 1), (-2, -1)) + np.eye(3))
+    log(f"  jacobian min {jac.min():.3f} max {jac.max():.3f}  (<=0: {(jac <= 0).sum()})")
+    np.savez_compressed(out_path, v=v, step=step)
+    return v, step
 
 def mapping(v, vstep, lo, shape, step):
     """MNI 0.5 mm voxel coords for every point of a Z grid (lo, shape, step), through affine + warp."""
@@ -273,6 +331,12 @@ def tissue(v, vstep, step=0.001):
         rem = np.isin(lab, GROUPS[g]) & ~zk
         x[rem] = np.maximum(x[rem], 200 if g == "latvent" else 215)
         log(f"  {g}: {int(rem.sum())} template voxels outside the mesh set to white matter")
+    # The T1 template has little contrast inside the brainstem and diencephalon (it reads as one pale shaft). Where the Allen
+    # atlas names a nucleus, tract or CSF space there, blend the voxel toward that tissue's fixed-brain tone, so a midsagittal
+    # (or any) cut shows tectum, aqueduct and periaqueductal grey, tegmentum, basilar pons, pyramids, olive, hypothalamus,
+    # mammillary body, fornix and commissures as an atlas plate does. Template detail is kept (1 - weight).
+    x = label_tones(x, lab, step)
+    x = mesh_truths(x, lab, lo, shape, step)
     x = ndi.gaussian_filter(x, 0.6)
     # far outside the brain solid (never seen, only reached by clamped samples): one flat value, which also keeps the file small
     far = ndi.distance_transform_edt(~resample_z_mask(FILL, lo, shape, step)) * step > 0.004
@@ -282,17 +346,79 @@ def tissue(v, vstep, step=0.001):
     bs = ndi.binary_dilation(resample_z_mask(zm["brainstem"], lo, shape, step), iterations=2) & ~brainA
     x[bs] = 185
     log(f"  {int(bs.sum())} brainstem voxels below the template set to brainstem tone")
-    vol = np.clip(np.round(x), 0, 255).astype(np.uint8)
+    vol = np.stack([np.clip(np.round(x), 0, 255).astype(np.uint8), midline_mask(lo, shape, step)], -1)
     return vol, lo, step, lab, (30, 130, 220)
+
+# (acronyms whose subtree gets the tone, tone on the 30/130/220 CSF/grey/white scale, blend weight); later rows win
+LABEL_TONES = [
+    (("MTg", "PnTg", "MoTg", "PTR"), 156, 0.6),   # tegmentum: grey and white intermixed (reticular formation, lemnisci), reads greyish
+    (("PnBa",), 180, 0.6),                         # basilar pons: pontine grey with transverse and longitudinal fibres
+    (("cpd", "MoPy", "scp", "icp", "mcp"), 214, 0.6),  # crus cerebri, pyramids, cerebellar peduncles
+    (("SC", "IC"), 128, 0.65),                     # tectum: colliculi are grey matter
+    (("RN",), 150, 0.55), (("SN",), 104, 0.6), (("IO",), 122, 0.65),
+    (("HTH",), 126, 0.6), (("HTHma",), 118, 0.7), (("Pin",), 132, 0.65), (("HN",), 124, 0.6),
+    (("fx", "mtt", "ac", "cc", "ot"), 218, 0.6),
+    (("Aq", "4V", "3V", "cec"), 30, 0.85),
+]
+def label_tones(x, lab, step):
+    for acrs, tone, wgt in LABEL_TONES:
+        m = np.isin(lab, under(*acrs))
+        x[m] = (1 - wgt) * x[m] + wgt * tone
+    # periaqueductal grey (not an Allen leaf): midbrain tegmentum within 2.5 mm of the aqueduct
+    aq = np.isin(lab, under("Aq"))
+    if aq.any():
+        pag = np.isin(lab, under("MTg")) & (ndi.distance_transform_edt(~aq) * step < 0.0025)
+        x[pag] = 0.35 * x[pag] + 0.65 * 122
+    # basilar pons: faint striations parallel to its ventral surface (its transverse fibre layers)
+    pb = np.isin(lab, under("PnBa"))
+    if pb.any():
+        d = ndi.distance_transform_edt(pb) * step * 1000  # mm from the surface
+        x[pb] += 13 * np.sin(2 * np.pi * d[pb] / 2.6)
+    log("  label tones applied (brainstem, diencephalon, commissures, CSF spaces)")
+    return x
+
+def mesh_truths(x, lab, lo, shape, step):
+    """Thin midline CSF spaces from the Z-Anatomy meshes (the Allen aqueduct lands millimetres off the mesh one): the aqueduct
+    and fourth ventricle are CSF, the periaqueductal grey a 2.5 mm ring round the aqueduct; Allen aqueduct voxels elsewhere
+    become tegmentum. The cerebellum's folia: the template's cerebellar contrast is stretched so the white-matter tree
+    (arbor vitae) reads white against the grey cortex of the folia."""
+    zm = z_masks()
+    aq = resample_z_mask(zm["aq"], lo, shape, step)
+    v4 = resample_z_mask(zm["v4"], lo, shape, step)
+    bs = resample_z_mask(zm["brainstem"], lo, shape, step)
+    cb = resample_z_mask(zm["cerebellum"], lo, shape, step)
+    stray = np.isin(lab, under("Aq")) & ~ndi.binary_dilation(aq, iterations=1)
+    x[stray] = 156
+    if aq.any():
+        ring = bs & ~aq & (ndi.distance_transform_edt(~aq) * step < 0.0025)
+        x[ring] = 0.3 * x[ring] + 0.7 * 120
+    x[aq | v4] = 0.15 * x[aq | v4] + 0.85 * 30
+    c = cb & ~v4 & (x > 60)
+    if c.any():
+        # local contrast: the folia's white core is only a little brighter than their cortex in the averaged template
+        m = ndi.gaussian_filter(np.where(cb, x, np.nan_to_num(x)), 0.003 / step)
+        x[c] = np.clip(140 + 2.4 * (x[c] - m[c]), 70, 225)
+    log(f"  mesh truths: aqueduct {int(aq.sum())}, fourth ventricle {int(v4.sum())}, cerebellum stretch {int(c.sum())} voxels")
+    return x
+
+def midline_mask(lo, shape, step):
+    """Second channel: where a midsagittal cut is a true section (brainstem, cerebellum, fourth ventricle, aqueduct) and not the
+    interhemispheric fissure in front of the medial surface. The midsagittal face paints only inside it."""
+    zm = z_masks()
+    m = np.zeros(tuple(shape), bool)
+    for k in ("brainstem", "cerebellum", "v4", "aq"):
+        m |= resample_z_mask(zm[k], lo, shape, step)
+    m = ndi.binary_closing(m, ball(2))
+    return np.clip(ndi.gaussian_filter(m.astype(np.float32) * 255, 0.7), 0, 255).astype(np.uint8)
 
 def mapping_to_1mm(c05):
     return c05 / MNI_STEP
 
 def write(vol, lo, step, anchors):
-    nx, ny, nz = vol.shape
-    head = b"ASEC" + struct.pack("<4H", nx, ny, nz, 0) + struct.pack("<3f", *lo) + struct.pack("<f", step) + struct.pack("<3f", *(a / 255 for a in anchors))
+    nx, ny, nz, ch = vol.shape
+    head = b"ASEC" + struct.pack("<4H", nx, ny, nz, ch) + struct.pack("<3f", *lo) + struct.pack("<f", step) + struct.pack("<3f", *(a / 255 for a in anchors))
     head = head.ljust(64, b"\0")
-    data = head + np.ascontiguousarray(vol.transpose(2, 1, 0)).tobytes()  # x fastest
+    data = head + np.ascontiguousarray(vol.transpose(2, 1, 0, 3)).tobytes()  # channels interleaved, then x fastest
     out = os.path.join(ROOT, "public/atlas/section.bin.gz")
     with gzip.open(out, "wb", compresslevel=9) as f: f.write(data)
     log("wrote", out, os.path.getsize(out) // 1024, "KB")
@@ -345,5 +471,5 @@ if __name__ == "__main__":
         if a.startswith("--step="): step = float(a.split("=")[1]) / 1000
     vol, lo, step, lab, anchors = tissue(v, vstep, step)
     write(vol, lo, step, anchors)
-    previews(vol, lo, step)
+    previews(vol[..., 0], lo, step)
     log("done")

@@ -5,7 +5,7 @@ import { SECTION_VOLUME_VERSION } from "./version";
 /**
  * The tissue volume behind every section face: the ICBM 2009b T1 template warped into the Z-Anatomy mesh space
  * (tools/atlas/section_volume.py), one byte per voxel. Dark = CSF (sulci, ventricles), grey = grey matter, light = white matter.
- * File: gzip( 64-byte header + uint8 voxels, x fastest ). Header: "ASEC", u16 nx ny nz pad, f32 origin xyz (m), f32 step (m),
+ * File: gzip( 64-byte header + uint8 voxels, x fastest ). Header: "ASEC", u16 nx ny nz channels (2: + a midline-section mask in G), f32 origin xyz (m), f32 step (m),
  * f32 csf gm wm (intensity anchors, 0..1).
  */
 export type TissueVolume = {
@@ -38,13 +38,14 @@ export function loadTissue(): Promise<TissueVolume> {
     const nx = dv.getUint16(4, true);
     const ny = dv.getUint16(6, true);
     const nz = dv.getUint16(8, true);
+    const ch = Math.max(1, dv.getUint16(10, true)); // 2: tissue + midline-section mask, interleaved
     const f = (o: number) => dv.getFloat32(o, true);
     const step = f(24);
     const origin = new THREE.Vector3(f(12), f(16), f(20)).subScalar(step / 2);
     const anchors = { csf: f(28), gm: f(32), wm: f(36) };
-    const data = new Uint8Array(raw, 64, nx * ny * nz);
+    const data = new Uint8Array(raw, 64, nx * ny * nz * ch);
     const texture = new THREE.Data3DTexture(data, nx, ny, nz);
-    texture.format = THREE.RedFormat;
+    texture.format = ch === 2 ? THREE.RGFormat : THREE.RedFormat;
     texture.type = THREE.UnsignedByteType;
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;

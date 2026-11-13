@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LogIn, LogOut, UserPlus } from "lucide-react";
 import { Tooltip } from "./ui/Tooltip";
 import { getViewer } from "@/lib/session";
+import { staffCourses } from "@/lib/auth/guard";
 import { NavMenu, type NavLinkItem } from "./NavMenu";
 import { ThemeCycle } from "./theme/ThemeCycle";
 
@@ -15,7 +16,9 @@ export async function NavBar() {
         { href: "/settings", label: "Settings", icon: "settings" },
       ]
     : [{ href: "/atlas", label: "Atlas", icon: "atlas" }];
-  if (viewer && (viewer.role === "professor" || viewer.role === "ta" || viewer.role === "admin")) links.push({ href: "/staff", label: "Staff", icon: "staff" });
+  // Staff is per course (enrollment role), not only the profile role: a TA or professor of a course needs the link too.
+  const isStaff = viewer ? viewer.role === "professor" || viewer.role === "ta" || viewer.role === "admin" || (await staffCourses(viewer)).length > 0 : false;
+  if (isStaff) links.push({ href: "/staff", label: "Staff", icon: "staff" });
   if (viewer?.role === "admin") links.push({ href: "/admin", label: "Admin", icon: "admin" });
   const who = viewer ? viewer.displayName || viewer.email : "";
   return (

@@ -39,7 +39,9 @@ export function AtlasAttribution({ compact = false }: { compact?: boolean }) {
         <A href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</A>), curated from the HCP-842 atlas (Yeh et al. 2018 NeuroImage 178:57-68). Periaqueductal grey (and locus coeruleus, raphe, parabrachial and reticular nuclei, kept as optional labels): <A href="https://doi.org/10.5061/dryad.zw3r228d2">Harvard Ascending Arousal Network Atlas v2.0</A> (Edlow &amp; Kinney 2023,
         Dryad; <A href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</A>; Edlow et al. 2023 bioRxiv doi:10.1101/2023.07.13.548265). The internal capsule and pontine
         longitudinal fibres are derived from the Allen labels (method in the viewer), and the 3D meshes of structures missing in Z-Anatomy were generated from them and placed in the Z-Anatomy model by an affine
-        registration. Slice viewer: <A href="https://github.com/niivue/niivue">NiiVue</A> (BSD-2-Clause).
+        registration. The grey and white matter on the 3D section faces is the same ICBM 2009b template, warped onto the Z-Anatomy
+        model (affine, then a deformable fit of the brain outline, basal ganglia, thalamus, ventricles and callosum to the Allen labels; tools/atlas/section_volume.py);
+        as an adaptation fitted to the Z-Anatomy meshes, that volume (section.bin.gz) is shared under the same CC BY-SA 4.0 terms with the notices above. Slice viewer: <A href="https://github.com/niivue/niivue">NiiVue</A> (BSD-2-Clause).
       </p>
       )}
     </div>

@@ -485,8 +485,8 @@ export const olfactory = {
     const f5b = new Fibre(2).from(split, `n:${tract.key}`);
     await f5b.routeTo([ON, `n:${tract.key}`, tub.key], tub.c, { h: 0.0002 });
     const epi = stop(`c:${ON}@${fil.b.map((v) => v.toFixed(4)).join(",")}`, "Olfactory epithelium (nasal roof)", { carve: { mesh: ON, p: fil.b, r: 0.004 } });
-    // a sagittal view for the nose and the bulb (fila through the cribriform plate), from below for the tract and cortex
-    const SAG = { view: "left", cut: "x" };
+    // a coronal section seen from the front for the nose and the bulb (fila through the cribriform plate, both nerves against the ethmoid and the frontal lobes), from below for the tract and cortex
+    const SAG = { view: "anterior", cut: "z" };
     const INF = { view: "inferior" };
     return [
       B({ start: soma(rec, `n:${fil.key}`, 1), stops: [epi], meta: SAG }),

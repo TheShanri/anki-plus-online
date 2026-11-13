@@ -173,3 +173,17 @@ Done: v2 tracer code deleted. Still open: the hidden seams listed above; the dev
   The badge now takes the drawn order when it is higher (and a target beat keeps the previous beat's order); this also makes
   the basal ganglia thalamocortical beat read "4th". Left: the side rail's neuron card still follows the course map (jaw jerk
   lists only the mesencephalic neuron).
+
+## Left/right symmetry (2026-11-13)
+Owner: the cochlear acoustic radiation was not symmetrical (left behind the thalamus to the cortex, right looping under the
+temporal horn). Cause: each side was routed independently (random cortex point, different slice picks), and a few nuclei
+proxies landed on different spots. Now `tools/pathways/v3/symmetry.mjs` compares every L fibre with the mirrored (x -> -x)
+R fibre (arc-length resampled; flags > 3 mm max, or > 10 % length with > 1 mm max) and the build prints it as a warning.
+Fix: `spec/mirror.mjs` lists the beats whose right side is the exact mirror of the left (`lib/mirror.mjs`; side-specific host keys
+swap, samples that leave a host on the other side because the meshes are not perfectly symmetric are pulled in, 0.3 mm typical,
+2 mm worst: dsct-foot, 1.5 mm limbic-septal). `node tools/pathways/v3/mirror.mjs` re-applies it to built JSON without a rebuild.
+`nuc("dentate", "R")` now takes the mirror of the left proxy (it had landed 21 mm away). New beats: add them to `spec/mirror.mjs`
+when the routing is the same on both sides; crossing fibres mirror onto the other side's crossing fibre.
+Justified exceptions (organs that are not mirror images): parasympathetic beats 1, 3, 5 (cardiac / pulmonary ganglia and the vagal
+branches to the atria and bronchi; the right pulmonary branch is a long flagged connector) and sympathetic beat 5 (cardiac nerve
+to the left vs right atrium).

@@ -85,6 +85,13 @@ export async function nuc(id, side) {
     if (it % 2 === 0 && deep) c = c.map((v, a) => v + (deep.p[a] - v) * 0.15);
     else r = r.map((v) => v * 0.9);
   }
+  // bilateral nuclei are mirror images: when the left proxy's mirror also fits and the slice search put this side > 1 mm away
+  // from it (the cerebellum / pallidum slice heuristics can pick a different spot), take the mirror of the left one
+  if (side === "R" && (id === "dentate" || id === "gpi" || NUCLEI[id].mirrorL)) {
+    const L = await nuc(id, "L");
+    const mc = [-L.c[0], L.c[1], L.c[2]];
+    if (Math.hypot(mc[0] - c[0], mc[1] - c[1], mc[2] - c[2]) > 0.001 && fits(mc, L.r)) { c = mc; r = L.r.slice(); }
+  }
   if (!fits(c, r)) throw new Error(`nucleus ${id}-${side} does not fit inside ${d.parent}`);
   const out = { key: proxy(k, d.name, d.parent, c, r), c, r, name: d.name, parent: d.parent };
   PLACED.set(k, out);

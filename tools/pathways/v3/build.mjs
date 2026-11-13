@@ -10,6 +10,7 @@ import { ROOT } from "./lib/geom.mjs";
 import { PROXIES, TUBES } from "./lib/fibre.mjs";
 import { curveByKey } from "./lib/nerves.mjs";
 import { loadSpecs } from "./spec/index.mjs";
+import { applyMirror } from "./lib/mirror.mjs";
 try {
   setPriority(Number(process.env.PW3_NICE ?? 10)); // below normal (PW3_NICE=19: idle, while someone works on the machine)
 } catch {}
@@ -80,7 +81,10 @@ for (const [slug, spec] of Object.entries(ALL)) {
       }
     }
     const file = limb ? `${slug}-${limb}.json` : `${slug}.json`;
-    writeFileSync(join(OUT, file), JSON.stringify({ v: 1, slug, limb, beats, geo }));
+    const data = { v: 1, slug, limb, beats, geo };
+    const note = await applyMirror(data, key); // right side = mirror of the left for the beats in spec/mirror.mjs
+    if (note) console.log(note);
+    writeFileSync(join(OUT, file), JSON.stringify(data));
     console.log(`built ${key}: ${beats.length} beats, ${hosts.size} hosts, ${((Date.now() - t0) / 1000).toFixed(1)} s`);
   }
 }
@@ -90,5 +94,7 @@ if (fails.length) {
 }
 if (!process.argv.includes("--no-validate")) {
   const v = spawnSync(process.execPath, [join(ROOT, "tools/pathways/v3/validate.mjs"), ...want], { stdio: "inherit" });
+  // left/right symmetry is reported as a warning (never fails the build); intended exceptions: see docs/PATHWAY_V3_STATUS.md
+  spawnSync(process.execPath, [join(ROOT, "tools/pathways/v3/symmetry.mjs"), ...want], { stdio: "inherit" });
   process.exit(v.status ?? 1);
 }

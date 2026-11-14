@@ -44,6 +44,8 @@ const OCC_PX = 4;
 const UNDERLAY = "#d8c6c0";
 /** Precuneus extent in model space (z runs front to back as it falls, y up) and where the PCA part starts. */
 const PRECUNEUS = { zMax: -0.033, zMin: -0.087, yMin: 1.624, yMax: 1.691, cut: 0.2 };
+/** The corpus callosum is drawn by the skin component too (deep, translucent): ACA, with the splenium (z behind SPLENIUM_Z) PCA. */
+const SPLENIUM_Z = -0.027;
 const CAP_DEPTH = 0.022; // metres behind the cut plane
 
 /** The viewer stops drawing the brainstem here (the open lower medulla); the occluder stops at the same plane. */
@@ -195,6 +197,8 @@ function buildSurface(root: THREE.Group, variant: string): Built | null {
             // lecture 16 slides 15-17: the ACA is the medial aspect; from above only the margin of the interhemispheric fissure (a few mm) is ACA
             a = medial > 0.35 || Math.abs(v.x) < 0.006 ? "aca" : "mca";
           }
+          // lecture 16 slide 18 (ventral view): PCA down the posterior midline; the isthmus (posteroventral cingulate) with the splenium is PCA (splenial / posterior pericallosal branches)
+          if (id === "cingulate-gyrus-posteroventral-part") a = "pca";
           if (u.name === "Precuneus") {
             // lecture 16 slide 17 (medial view): the ACA ends at the parieto-occipital sulcus; the posterior-inferior precuneus, next to the cuneus, is PCA
             const t = (PRECUNEUS.zMax - v.z) / (PRECUNEUS.zMax - PRECUNEUS.zMin);
@@ -327,6 +331,33 @@ export function TerritorySurface({
       alive = false;
     };
   }, [solid]);
+  const callosum = useMemo(() => {
+    if (!fill) return null;
+    let src: THREE.Mesh | null = null;
+    for (const g of fill) g.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh && !src && /corpus-callosum/.test(m.name)) src = m; });
+    if (!src) return null;
+    const m0: THREE.Mesh = src;
+    m0.updateWorldMatrix(true, false);
+    const g0 = m0.geometry;
+    const p = g0.attributes.position as THREE.BufferAttribute;
+    const pos = new Float32Array(p.count * 3);
+    const z = new Float32Array(p.count);
+    const v = new THREE.Vector3();
+    for (let i = 0; i < p.count; i++) {
+      v.fromBufferAttribute(p, i).applyMatrix4(m0.matrixWorld);
+      pos.set([v.x, v.y, v.z], i * 3);
+      z[i] = v.z;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    geo.setAttribute("color", new THREE.BufferAttribute(new Float32Array(p.count * 4), 4));
+    if (g0.index) geo.setIndex(g0.index.clone());
+    geo.computeVertexNormals();
+    return { geo, z };
+  }, [fill]);
+  useEffect(() => () => callosum?.geo.dispose(), [callosum]);
+  const callosumMat = useMemo(() => new THREE.MeshStandardMaterial({ vertexColors: true, transparent: true, opacity: 0.55, depthWrite: false, roughness: 0.7, metalness: 0, side: THREE.DoubleSide }), []);
+  useEffect(() => () => callosumMat.dispose(), [callosumMat]);
   const built = useMemo(() => (root ? buildSurface(root, variant) : null), [root, variant]);
   useEffect(() => () => built?.geo.dispose(), [built]);
 
@@ -453,6 +484,33 @@ export function TerritorySurface({
   }, [occScene, capScene, occ, invalidate]);
 
   useEffect(() => {
+    if (!callosum) return;
+    const col = callosum.geo.attributes.color as THREE.BufferAttribute;
+    const arr = col.array as Float32Array;
+    const aca = show.find((x) => x.artery === "aca")?.alpha ?? 0;
+    const pca = show.find((x) => x.artery === "pca")?.alpha ?? 0;
+    const ca = new THREE.Color(colors.get("aca") ?? "#999999").lerp(new THREE.Color("#ffffff"), 0.16);
+    const cp = new THREE.Color(colors.get("pca") ?? "#999999").lerp(new THREE.Color("#ffffff"), 0.16);
+    for (let i = 0; i < callosum.z.length; i++) {
+      let t = (SPLENIUM_Z + 0.005 - callosum.z[i]) / 0.01; // 0 anterior of the splenium, 1 inside it
+      t = Math.min(1, Math.max(0, t));
+      t = t * t * (3 - 2 * t);
+      const wa = (1 - t) * aca;
+      const wp = t * pca;
+      const w = wa + wp;
+      if (w < 0.02) {
+        arr[i * 4 + 3] = 0;
+        continue;
+      }
+      arr[i * 4] = (ca.r * wa + cp.r * wp) / w;
+      arr[i * 4 + 1] = (ca.g * wa + cp.g * wp) / w;
+      arr[i * 4 + 2] = (ca.b * wa + cp.b * wp) / w;
+      arr[i * 4 + 3] = Math.min(1, w);
+    }
+    col.needsUpdate = true;
+    invalidate();
+  }, [callosum, show, colors, invalidate]);
+  useEffect(() => {
     if (!built) return;
     const col = built.geo.attributes.color as THREE.BufferAttribute;
     const arr = col.array as Float32Array;
@@ -499,6 +557,7 @@ export function TerritorySurface({
   return (
     <>
       {underScene && <primitive object={underScene} />}
+      {callosum && <mesh geometry={callosum.geo} material={callosumMat} renderOrder={4} raycast={() => null} />}
       {built && <mesh ref={attach} geometry={built.geo} material={mat} renderOrder={5} raycast={() => null} />}
     </>
   );

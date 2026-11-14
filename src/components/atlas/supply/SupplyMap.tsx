@@ -110,7 +110,7 @@ function territoryOverlays(arteries: Set<string>, variant: string, opts: { opaci
   const neutral: string[] = [];
   const cerebellar = [...arteries].some((a) => CEREBELLAR_ARTERIES.has(a));
   for (const [ui, u] of SUPPLY.units.entries()) {
-    if (ui < CORTEX_END) continue;
+    if (ui < CORTEX_END || u.name === "Corpus callosum") continue; // the callosum is drawn by TerritorySurface (ACA, splenium PCA)
     const a = unitArteries(u, variant)[0];
     const cb = CEREBELLAR.has(u.name);
     if (!arteries.has(a)) {
@@ -118,7 +118,7 @@ function territoryOverlays(arteries: Set<string>, variant: string, opts: { opaci
       continue;
     }
     // the callosum lies on the midline, seen through the translucent cerebellum from below it reads as a stray ACA patch: tint it like the other deep shells
-    const key = cb ? `${a}~c` : u.shell || u.name === "Corpus callosum" ? `${a}~s` : a;
+    const key = cb ? `${a}~c` : u.shell ? `${a}~s` : a;
     groups.set(key, [...(groups.get(key) ?? []), ...u.meshes]);
   }
   const out = [...groups].map(([key, ids]) => ({

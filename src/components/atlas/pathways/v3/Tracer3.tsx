@@ -1,5 +1,6 @@
 "use client";
 
+import { withRoman } from "./roman";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -97,7 +98,8 @@ function buildQuestion(slug: string, step: number, courses: CoursePathway[]): Qu
 }
 
 /** Text between ‹ and › (and "posterior limb") is beyond the slides: it sits behind the Supplementary gate. */
-function withGate(label: string) {
+function withGate(label0: string) {
+  const label = withRoman(label0);
   const parts = label.replace(/, posterior limb/g, "‹, posterior limb›").replace(/\(posterior limb\)/g, "‹(posterior limb)›").split(/(‹[^›]*›)/);
   if (parts.length === 1) return label;
   return (
@@ -507,7 +509,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
   const info = openKey && bs.infos[openKey] ? bs.infos[openKey] : null;
   const infoCards = info ? cardsFor(info.neuron + 1) : [];
   const regionSlug = openKey && (openKey.startsWith("r:") || openKey.startsWith("h:")) ? slugForStop(openKey.slice(2)) : null;
-  const regionName = openKey && d ? regionNameOf(d, openKey) : null;
+  const regionName = openKey && d ? withRoman(regionNameOf(d, openKey) ?? "") || null : null;
   const firstBeatOf = useCallback((idx: number) => Math.max(0, bs.beats.findIndex((b) => b.neuron === idx)), [bs.beats]);
   const sideWord = (s: Side) => `${s === "L" ? "Left" : "Right"} ${noun}`;
   const stepOptions = [
@@ -914,7 +916,7 @@ function regionNameOf(d: V3Data, key: string): string | null {
 
 /** Plain text of a copy string (the ‹ › gate marks dropped with their content). */
 function stripGate(s: string) {
-  return s.replace(/‹[^›]*›/g, "").replace(/\s{2,}/g, " ").trim();
+  return withRoman(s).replace(/‹[^›]*›/g, "").replace(/\s{2,}/g, " ").trim();
 }
 
 function Legend({ visual, motor, n, inh, onClose }: { visual: boolean; motor: boolean; n: number; inh: boolean; onClose: () => void }) {

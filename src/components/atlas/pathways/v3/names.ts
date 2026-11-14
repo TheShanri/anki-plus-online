@@ -1,5 +1,7 @@
 /* Short labels (1 to 3 words) for the gutter labels and tooltips: the structure's course name without qualifiers. */
 
+import { withRoman } from "./roman";
+
 const SHORT: [RegExp, string][] = [
   [/^mni-?/i, ""],
   [/^Medial lemniscus.*/i, "Medial lemniscus"],
@@ -29,19 +31,19 @@ const SHORT: [RegExp, string][] = [
   [/^Base of peduncle/i, "Cerebral peduncle"],
   [/^Longitudinal fibers of the pons/i, "Basis pontis"],
   [/^White matter of spinal cord/i, "Spinal cord"],
-  [/^Optic nerve \(II\)/i, "Optic nerve"],
+  [/^Optic nerve \(II\)/i, "Optic nerve (II)"],
   [/^Lateral geniculate body/i, "LGN"],
   [/^Medial geniculate body/i, "MGN"],
   [/^Calcarine sulcus/i, "Calcarine sulcus (V1)"],
-  [/^Trigeminal nerve \(V\)/i, "Trigeminal nerve"],
-  [/^Vestibulocochlear nerve \(VIII\)/i, "CN VIII"],
-  [/^Facial nerve \(VII\)/i, "Facial nerve"],
-  [/^Glossopharyngeal nerve \(IX\)/i, "CN IX"],
-  [/^Vagus nerve \(X\)/i, "Vagus nerve"],
-  [/^Hypoglossal nerve \(XII\)/i, "Hypoglossal nerve"],
-  [/^Oculomotor nerve \(III\)/i, "Oculomotor nerve"],
-  [/^Abducens nerve \(VI\)/i, "Abducens nerve"],
-  [/^Olfactory nerve \(I\)/i, "Olfactory nerve"],
+  [/^Trigeminal nerve \(V\)/i, "Trigeminal nerve (V)"],
+  [/^Vestibulocochlear nerve \(VIII\)/i, "Vestibulocochlear nerve (VIII)"],
+  [/^Facial nerve \(VII\)/i, "Facial nerve (VII)"],
+  [/^Glossopharyngeal nerve \(IX\)/i, "Glossopharyngeal nerve (IX)"],
+  [/^Vagus nerve \(X\)/i, "Vagus nerve (X)"],
+  [/^Hypoglossal nerve \(XII\)/i, "Hypoglossal nerve (XII)"],
+  [/^Oculomotor nerve \(III\)/i, "Oculomotor nerve (III)"],
+  [/^Abducens nerve \(VI\)/i, "Abducens nerve (VI)"],
+  [/^Olfactory nerve \(I\)/i, "Olfactory nerve (I)"],
 ];
 
 export function shortName(name: string): string {
@@ -59,8 +61,8 @@ export function shortName(name: string): string {
       if (to) break;
     }
   }
-  s = s.replace(/\s*\([^)]*\)\s*$/, (m) => (/BA|V1|genu|deep/i.test(m) ? m : "")).trim();
+  s = s.replace(/\s*\([^)]*\)\s*$/, (m) => (/BA|V1|genu|deep|\(\s*[IVX]+\d?\s*\)/i.test(m) ? m : "")).trim();
   if (/-/.test(s) && !/\s/.test(s)) s = s.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
   const words = s.split(/\s+/);
-  return words.length > 4 ? words.slice(0, 3).join(" ") : s;
+  return withRoman(words.length > 4 ? words.slice(0, 3).join(" ") : s);
 }

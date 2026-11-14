@@ -16,6 +16,7 @@ import { PALETTES } from "./materials";
 import { BrainVeil } from "./veil";
 import { hostParts, type HostKey, type Side, type V3Data, type V3Fibre, type V3SideBeat } from "./types";
 import { shortName } from "./names";
+import { withRoman } from "./roman";
 import "@/components/atlas/ui/atlas-ui.css";
 
 /* The v3 pathway scene: matte clay context with crisp silhouettes, cutaway host shells the fibres run inside, neutral regions
@@ -663,7 +664,7 @@ export default function Scene3(p: Scene3Props) {
               dim={style === "ghost" ? 1 : sideDim < 0.5 ? 0.35 : 1}
               accent={p.accent}
               pickKey={l.pick}
-              name={style === "region" ? shortName(l.name) : names[l.key.replace(/^h:/, "")]}
+              name={withRoman(style === "region" ? shortName(l.name) : names[l.key.replace(/^h:/, "")] ?? "")}
               onPick={(k) => p.onPick(k)}
               onHover={onLayerHover}
             />
@@ -755,7 +756,7 @@ export default function Scene3(p: Scene3Props) {
               width: "max-content",
             }}
           >
-            {it.text}
+            {withRoman(it.text)}
           </div>
         ))}
         <div ref={(el) => void (labelDom.current.chipL = el)} className="absolute top-1/2 -translate-y-1/2 rounded-sm border border-panel-border bg-panel-solid px-1.5 py-0.5 font-mono text-[11px] font-bold text-text" style={{ left: 6 }}>

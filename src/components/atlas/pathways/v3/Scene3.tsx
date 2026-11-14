@@ -620,16 +620,6 @@ export default function Scene3(p: Scene3Props) {
     }
     return out;
   }, [layers, p.data.geo]);
-  const midBox = stableBox;
-  const midGeo = useMemo(() => {
-    const b = midBox;
-    const pad = 0.004;
-    const y0 = b.min.y - pad, y1 = b.max.y + pad, z0 = b.min.z - pad, z1 = b.max.z + pad;
-    const g = new THREE.BufferGeometry();
-    g.setAttribute("position", new THREE.Float32BufferAttribute([0, y0, z0, 0, y1, z0, 0, y1, z0, 0, y1, z1, 0, y1, z1, 0, y0, z1, 0, y0, z1, 0, y0, z0], 3));
-    return g;
-  }, [midBox]);
-  useEffect(() => () => midGeo.dispose(), [midGeo]);
 
   return (
     <div ref={rootRef} className="relative h-full w-full" data-pw3-ready={ready ? "1" : "0"}>
@@ -686,9 +676,7 @@ export default function Scene3(p: Scene3Props) {
           );
         })}
         {bands.map((b) => (revealedBeat(b.beat) ? <NerveBand key={b.key} pts={b.pts} color={pal.host} rim={rim} width={curHosts.has(`h:${b.key}`) ? 10 : 8} /> : null))}
-        <lineSegments geometry={midGeo} renderOrder={30}>
-          <lineBasicMaterial color={GUIDE_COLORS.midline} transparent opacity={0.7} />
-        </lineSegments>
+        {/* no midline rectangle (owner: a thin red square on some beats): the L | R chips and the crossing marker say it */}
         {fibres.map((f) => (
           <FibreLine
             key={f.key}

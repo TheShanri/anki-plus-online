@@ -15720,16 +15720,20 @@
   "slug": "lab-8-diagrams-io-1770937860931-c4",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": null,
+  "structure": "cerebral-peduncles",
   "status": "live",
   "position": 603,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-8-diagrams note 1770937860931 cloze 4"
   },
-  "answer": "Cerebral",
-  "answer_kind": "region",
-  "accept": [],
+  "answer": "Cerebral peduncles",
+  "answer_kind": "structure",
+  "accept": [
+   "crus cerebri",
+   "basis pedunculi",
+   "cerebral peduncle"
+  ],
   "require_side": false,
   "image": "apkg/lab-8-diagrams/media/paste-47cbe3933135ce6c8bcf5d9695eb176c59b91132.webp",
   "w": 1604,
@@ -16034,7 +16038,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the region.",
+  "prompt": "Name the structure.",
   "followups": [],
   "caption": "Rostral Midbrain",
   "tags": [
@@ -27827,21 +27831,17 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771338246043-c5",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": "vestibulocochlear-complex",
+  "structure": "vestibular-nuclei",
   "status": "live",
   "position": 1004,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338246043 cloze 5"
   },
-  "answer": "Vestibulocochlear complex",
+  "answer": "Vestibular nucleus",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular complex",
-   "cochlear nuclei",
-   "vestibular nucleus"
+   "vestibular nuclei"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3c237b319c57793284bb55f5d9ff559f1ffda6c1.webp",
@@ -31294,21 +31294,17 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c3",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": "vestibulocochlear-complex",
+  "structure": "vestibular-nuclei",
   "status": "live",
   "position": 1402,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 3"
   },
-  "answer": "Vestibulocochlear complex",
+  "answer": "Vestibular nucleus",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibular nuclei"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",
@@ -31432,21 +31428,17 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c4",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": "vestibulocochlear-complex",
+  "structure": "vestibular-nuclei",
   "status": "live",
   "position": 1403,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 4"
   },
-  "answer": "Vestibulocochlear complex",
+  "answer": "Vestibular nucleus",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibular nuclei"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",
@@ -31570,21 +31562,17 @@
   "slug": "lab-8-surface-brainstem-histology-io-1771338388042-c5",
   "kind": "pin",
   "topic": "lab-8",
-  "structure": "vestibulocochlear-complex",
+  "structure": "cochlear-nuclei",
   "status": "live",
   "position": 1404,
   "source": {
    "type": "apkg",
    "ref": "apkg/lab-8-surface-brainstem-histology note 1771338388042 cloze 5"
   },
-  "answer": "Vestibulocochlear complex",
+  "answer": "Cochlear nuclei",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "cochlear nucleus"
   ],
   "require_side": false,
   "image": "apkg/lab-8-surface-brainstem-histology/media/paste-3b9a1341fc50b1d516c4f13224e9a7d373a5be6c.webp",

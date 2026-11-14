@@ -7161,7 +7161,7 @@
   "slug": "lab-1-io-1768350188659-c3",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": "coronal-plane",
+  "structure": "frontal-bone",
   "status": "live",
   "position": 1502,
   "source": {
@@ -7169,11 +7169,9 @@
    "ref": "apkg/lab-1 note 1768350188659 cloze 3"
   },
   "answer": "Frontal",
-  "answer_kind": "plane",
+  "answer_kind": "structure",
   "accept": [
-   "frontal plane",
-   "coronal plane",
-   "coronal"
+   "frontal bone"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e9c523cef67bd51ac8f89df7e495defd4b303938.webp",
@@ -7226,13 +7224,13 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the plane.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck",
-   "plane:coronal"
+   "region:skull"
   ],
   "also_called": [
    "coronal plane"
@@ -10686,7 +10684,7 @@
   "slug": "lab-1-io-1768350670118-c1",
   "kind": "pin",
   "topic": "lab-1",
-  "structure": "coronal-plane",
+  "structure": "frontal-lobe",
   "status": "live",
   "position": 2600,
   "source": {
@@ -10694,11 +10692,9 @@
    "ref": "apkg/lab-1 note 1768350670118 cloze 1"
   },
   "answer": "Frontal",
-  "answer_kind": "plane",
+  "answer_kind": "structure",
   "accept": [
-   "frontal plane",
-   "coronal plane",
-   "coronal"
+   "frontal lobe"
   ],
   "require_side": false,
   "image": "apkg/lab-1/media/paste-e2a12a570b2e7cb18d87fba7d972ab7024efb190.webp",
@@ -10744,13 +10740,13 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the plane.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u1",
    "kind:pin",
    "source:anki-deck",
-   "plane:coronal"
+   "region:cortex"
   ],
   "also_called": [
    "coronal plane"

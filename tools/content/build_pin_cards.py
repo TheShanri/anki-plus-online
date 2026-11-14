@@ -127,6 +127,8 @@ for deck in sorted(DECK_TOPIC):
             prompt = prompt_ov or "Name the structure."
             if prompt_ov and "Brodmann" in prompt_ov:
                 accept = [f"BA {answer}", f"area {answer}", f"Brodmann area {answer}", f"Brodmann's area {answer}"]
+            if ov and "accept" in ov:  # hand list when the structure's synonyms name more than the label (e.g. a group's members)
+                accept = list(ov["accept"])
             card = {"slug": slug, "kind": "pin", "topic": topic, "structure": slug_m, "status": status,
                     "position": ni * 100 + pos, "source": {"type": "apkg", "ref": f"apkg/{deck} note {nt['id']} cloze {o['cloze']}"},
                     "answer": answer, "accept": accept, "require_side": False,

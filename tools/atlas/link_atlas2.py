@@ -106,6 +106,10 @@ OVERRIDE = {
     "dorsal-rootlets": (["posterior-root-of-spinal-nerve"], True),
     "ventral-rootlets": (["anterior-root-of-spinal-nerve"], True),
     "accessory-nerve": (["nucleus-of-accessory-nerve"], True),
+    # course label audit 2026-11-13: the Z-Anatomy "Olfactory nerve (I)" mesh is the bulb + tract; cochlear nuclei split out of the complex
+    "olfactory-bulb": (["olfactory-nerve-i"], True),
+    "olfactory-tract": (["olfactory-nerve-i"], True),
+    "cochlear-nuclei": (["anterior-cochlear-nucleus", "posterior-cochlear-nucleus"], False),
 }
 
 # Vetting fixes (atlas screenshot review): the mapped mesh was either the whole parent shown as if exact, or a mesh

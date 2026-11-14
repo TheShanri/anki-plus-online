@@ -6056,11 +6056,7 @@
   "answer": "Vestibulocochlear complex",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibulocochlear nuclei"
   ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-d2e3ef5fe431aa14e496e9d2f1b689210c4fd312.webp",
@@ -9439,11 +9435,7 @@
   "answer": "Vestibulocochlear complex",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibulocochlear nuclei"
   ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-b5719c79c0fa5207b71606cd14bb1c91d413a173.webp",
@@ -11962,9 +11954,16 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942818794 cloze 9"
   },
-  "answer": "Anterolateral",
+  "answer": "Anterolateral spinothalamic tract",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-a3fc5c4d182248521cd2723404e179d3c316adc5.webp",
   "w": 2000,
@@ -13223,16 +13222,19 @@
   "slug": "brainstem-overlay-io-1771942952185-c3",
   "kind": "pin",
   "topic": "brainstem-overlay",
-  "structure": "dorsal",
+  "structure": "dorsal-spinocerebellar-tract",
   "status": "live",
   "position": 1502,
   "source": {
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942952185 cloze 3"
   },
-  "answer": "Dorsal",
-  "answer_kind": "direction",
-  "accept": [],
+  "answer": "Dorsal spinocerebellar tract",
+  "answer_kind": "structure",
+  "accept": [
+   "posterior spinocerebellar tract",
+   "DSCT"
+  ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-4ec3948ee4010f23650a987e07ad4740ad3e29af.webp",
   "w": 1803,
@@ -13339,14 +13341,15 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the directional term.",
+  "prompt": "Name the structure.",
   "followups": [],
   "tags": [
    "unit:u2",
    "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "plane:horizontal"
+   "plane:horizontal",
+   "modality:sensory"
   ]
  },
  {
@@ -13360,9 +13363,16 @@
    "type": "apkg",
    "ref": "apkg/brainstem-overlay note 1771942952185 cloze 4"
   },
-  "answer": "Anterolateral",
+  "answer": "Anterolateral spinothalamic tract",
   "answer_kind": "structure",
-  "accept": [],
+  "accept": [
+   "anterolateral tract",
+   "anterolateral system",
+   "spinothalamic tract",
+   "spinothalamic",
+   "ALS",
+   "STT"
+  ],
   "require_side": false,
   "image": "apkg/brainstem-overlay/media/paste-4ec3948ee4010f23650a987e07ad4740ad3e29af.webp",
   "w": 1803,

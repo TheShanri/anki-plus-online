@@ -770,11 +770,7 @@
   "answer": "Vestibulocochlear complex",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibulocochlear nuclei"
   ],
   "require_side": false,
   "plate": {
@@ -969,11 +965,7 @@
   "answer": "Vestibulocochlear complex",
   "answer_kind": "structure",
   "accept": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibulocochlear nuclei"
   ],
   "require_side": false,
   "plate": {

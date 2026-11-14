@@ -5192,5 +5192,40 @@
   "exactIn": [
    "slices"
   ]
+ },
+ "Olfactory bulb": {
+  "meshIds": [
+   "olfactory-nerve-i"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "olfactory-bulb",
+  "slices": null,
+  "exactIn": [],
+  "fallbackParentId": "olfactory-nerve-i"
+ },
+ "Olfactory tract": {
+  "meshIds": [
+   "olfactory-nerve-i"
+  ],
+  "approximate": true,
+  "synonyms": [],
+  "slug": "olfactory-tract",
+  "slices": null,
+  "exactIn": [],
+  "fallbackParentId": "olfactory-nerve-i"
+ },
+ "Cochlear nuclei": {
+  "meshIds": [
+   "anterior-cochlear-nucleus",
+   "posterior-cochlear-nucleus"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "cochlear-nuclei",
+  "slices": null,
+  "exactIn": [
+   "3d"
+  ]
  }
 }

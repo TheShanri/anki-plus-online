@@ -2949,8 +2949,8 @@
    "type": "apkg",
    "ref": "apkg/lab-3 note 1769004632487 cloze 3"
   },
-  "answer": "Frontal lo",
-  "answer_kind": "structure",
+  "answer": "Frontal lobe",
+  "answer_kind": "region",
   "accept": [],
   "require_side": false,
   "image": "apkg/lab-3/media/paste-92fd56b146efd118c1f996ef57e535627a2c9855.webp",
@@ -3033,7 +3033,7 @@
   "pointer": {
    "type": "mask"
   },
-  "prompt": "Name the structure.",
+  "prompt": "Name the region.",
   "followups": [],
   "tags": [
    "unit:u1",

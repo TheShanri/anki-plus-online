@@ -11463,11 +11463,7 @@
   "name": "Vestibulocochlear complex",
   "unit": "u2",
   "synonyms": [
-   "vestibulocochlear nuclei",
-   "vestibular nuclei",
-   "vestibular nucleus",
-   "vestibular complex",
-   "cochlear nuclei"
+   "vestibulocochlear nuclei"
   ],
   "abbreviations": [],
   "region": "brainstem",
@@ -15889,9 +15885,7 @@
    "cranial nerve 1",
    "1st cranial nerve",
    "I",
-   "olfactory",
-   "olfactory tract",
-   "olfactory bulb"
+   "olfactory"
   ],
   "abbreviations": [
    "CN I"
@@ -20555,6 +20549,52 @@
   }
  },
  {
+  "slug": "cochlear-nuclei",
+  "name": "Cochlear nuclei",
+  "unit": "u2",
+  "synonyms": [
+   "cochlear nucleus",
+   "dorsal and ventral cochlear nuclei"
+  ],
+  "abbreviations": [],
+  "region": "brainstem",
+  "lists": [],
+  "laterality": "paired",
+  "parent": null,
+  "concept": false,
+  "info": {
+   "latin": "Nuclei cochleares",
+   "etymology": {
+    "roots": [
+     {
+      "part": "cochlea",
+      "lang": "Latin (from Greek kochlias)",
+      "meaning": "snail shell"
+     },
+     {
+      "part": "nucleus",
+      "lang": "Latin",
+      "meaning": "kernel, little nut"
+     }
+    ],
+    "literal": "kernels of the snail shell",
+    "story": "Named for the snail-shaped cochlea of the inner ear, whose nerve ends here."
+   },
+   "explanation": "Dorsal and ventral cochlear nuclei on the lateral surface of the rostral medulla at the pontomedullary junction, draped over the inferior cerebellar peduncle. They receive the cochlear nerve and are the first synapse of the auditory pathway, projecting mainly contralaterally (trapezoid body, superior olive, lateral lemniscus) to the inferior colliculus.",
+   "facts": {
+    "function": null,
+    "passes": null,
+    "supply": null,
+    "lesion": null,
+    "connections": null
+   }
+  },
+  "atlas": {
+   "meshIds": [],
+   "approximate": false
+  }
+ },
+ {
   "slug": "granule-cell",
   "name": "Granule cell",
   "unit": "u3",
@@ -20866,7 +20906,9 @@
   "slug": "olfactory-bulb",
   "name": "Olfactory bulb",
   "unit": "u3",
-  "synonyms": [],
+  "synonyms": [
+   "olfactory bulbs"
+  ],
   "abbreviations": [],
   "region": "forebrain",
   "lists": [],
@@ -20909,7 +20951,9 @@
   "slug": "olfactory-tract",
   "name": "Olfactory tract",
   "unit": "u3",
-  "synonyms": [],
+  "synonyms": [
+   "olfactory tracts"
+  ],
   "abbreviations": [],
   "region": "forebrain",
   "lists": [],

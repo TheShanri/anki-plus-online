@@ -88,7 +88,11 @@
 "status": "live",
 "structure": "meningeal-blood-vessels",
 "answer": "Middle meningeal veins",
-"note": "specific vein shown; list item is \"Meningeal blood vessels\""
+"note": "specific vein shown; list item is \"Meningeal blood vessels\"",
+"accept": [
+"meningeal veins",
+"meningeal vessels"
+]
 },
 "lab-2-io-1768771540931-c1": {
 "status": "draft",
@@ -616,7 +620,7 @@
 },
 "lab-8-surface-brainstem-histology-io-1771338246043-c5": {
 "status": "live",
-"structure": "vestibulocochlear-complex",
+"structure": "vestibular-nuclei",
 "answer": "Vestibular nucleus",
 "note": "two \"vestibular nucleus\" labels in the image"
 },
@@ -777,5 +781,68 @@
 "answer": "41, 42",
 "note": "Brodmann area label (number only); answer is the area number",
 "prompt": "Which Brodmann area is this?"
+},
+"lab-7-io-1770685184914-c1": {
+"status": "live",
+"structure": "olfactory-bulb",
+"note": "course label audit 2026-11-13: label reads \"Olfactory Bulb\""
+},
+"lab-7-io-1770685184914-c2": {
+"status": "live",
+"structure": "olfactory-tract",
+"note": "course label audit 2026-11-13: label reads \"I Olfactory Tract\"; the tract, not CN I"
+},
+"lab-1-io-1768350188659-c3": {
+"status": "live",
+"structure": "frontal-bone",
+"answer": "Frontal",
+"note": "course label audit 2026-11-13: skull bone label \"Frontal\", not the frontal plane",
+"accept": [
+"frontal bone"
+]
+},
+"lab-1-io-1768350670118-c1": {
+"status": "live",
+"structure": "frontal-lobe",
+"answer": "Frontal",
+"note": "course label audit 2026-11-13: lobe label \"Frontal\", not the frontal plane",
+"accept": [
+"frontal lobe"
+]
+},
+"lab-8-diagrams-io-1770937860931-c4": {
+"status": "live",
+"structure": "cerebral-peduncles",
+"note": "course label audit 2026-11-13: rotated handwritten label \"cerebral peduncles\""
+},
+"brainstem-overlay-io-1771942952185-c3": {
+"status": "live",
+"structure": "dorsal-spinocerebellar-tract",
+"note": "course label audit 2026-11-13: rotated label \"Dorsal Spinocerebellar Tract\" (was read as the direction Dorsal)"
+},
+"brainstem-overlay-io-1771942952185-c4": {
+"status": "live",
+"structure": "anterolateral-spinothalamic-tract"
+},
+"brainstem-overlay-io-1771942818794-c9": {
+"status": "live",
+"structure": "anterolateral-spinothalamic-tract"
+},
+"lab-8-surface-brainstem-histology-io-1771338388042-c3": {
+"status": "live",
+"structure": "vestibular-nuclei",
+"answer": "Vestibular nucleus",
+"note": "course label audit 2026-11-13: label \"vestibular nucleus\" (the course image blanks the prefix)"
+},
+"lab-8-surface-brainstem-histology-io-1771338388042-c4": {
+"status": "live",
+"structure": "vestibular-nuclei",
+"answer": "Vestibular nucleus",
+"note": "course label audit 2026-11-13: label \"vestibular nucleus\" (the course image blanks the prefix)"
+},
+"lab-8-surface-brainstem-histology-io-1771338388042-c5": {
+"status": "live",
+"structure": "cochlear-nuclei",
+"note": "course label audit 2026-11-13: label \"cochlear nuclei\""
 }
 }

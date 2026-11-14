@@ -744,7 +744,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
         </div>
         {/* a fixed-height text well (desktop): the caption, quiz and feedback scroll inside it, so the 3D panel and the beat
             buttons above never move between beats */}
-        <div className="flex flex-col gap-2 lg:h-[228px] lg:flex-none lg:overflow-y-auto lg:overscroll-contain">
+        <div className="flex flex-col gap-2 lg:h-[168px] lg:flex-none lg:overflow-y-auto lg:overscroll-contain">
         <div className="rounded-card border border-panel-border bg-panel-solid/70 px-3 py-2" aria-live="polite">
           {all ? (
             <p className="text-sm">

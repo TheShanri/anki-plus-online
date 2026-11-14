@@ -42,6 +42,8 @@ const OCC_PX = 4;
  * clipped solid are drawn at the depth of the cut plane pushed CAP_DEPTH into the brain, deeper than any medial sulcus, shallower than the insula. */
 /** Flat tone of the underlay (what the brain looks like over white). */
 const UNDERLAY = "#d8c6c0";
+/** Precuneus extent in model space (z runs front to back as it falls, y up) and where the PCA part starts. */
+const PRECUNEUS = { zMax: -0.033, zMin: -0.087, yMin: 1.624, yMax: 1.691, cut: 0.2 };
 const CAP_DEPTH = 0.022; // metres behind the cut plane
 
 /** The viewer stops drawing the brainstem here (the open lower medulla); the occluder stops at the same plane. */
@@ -190,7 +192,14 @@ function buildSurface(root: THREE.Group, variant: string): Built | null {
           let a = primary;
           if (shared) {
             const medial = -Math.sign(v.x || 1) * nv.x; // facing the midline
-            a = medial > 0.35 || Math.abs(v.x) < 0.012 ? "aca" : "mca";
+            // lecture 16 slides 15-17: the ACA is the medial aspect; from above only the margin of the interhemispheric fissure (a few mm) is ACA
+            a = medial > 0.35 || Math.abs(v.x) < 0.006 ? "aca" : "mca";
+          }
+          if (u.name === "Precuneus") {
+            // lecture 16 slide 17 (medial view): the ACA ends at the parieto-occipital sulcus; the posterior-inferior precuneus, next to the cuneus, is PCA
+            const t = (PRECUNEUS.zMax - v.z) / (PRECUNEUS.zMax - PRECUNEUS.zMin);
+            const h = (v.y - PRECUNEUS.yMin) / (PRECUNEUS.yMax - PRECUNEUS.yMin);
+            if (t - h > PRECUNEUS.cut) a = "pca";
           }
           arteryOf.push(CORTICAL.indexOf(a as (typeof CORTICAL)[number]));
         }

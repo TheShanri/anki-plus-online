@@ -117,7 +117,8 @@ function territoryOverlays(arteries: Set<string>, variant: string, opts: { opaci
       if (cb && cerebellar) neutral.push(...u.meshes);
       continue;
     }
-    const key = cb ? `${a}~c` : u.shell ? `${a}~s` : a;
+    // the callosum lies on the midline, seen through the translucent cerebellum from below it reads as a stray ACA patch: tint it like the other deep shells
+    const key = cb ? `${a}~c` : u.shell || u.name === "Corpus callosum" ? `${a}~s` : a;
     groups.set(key, [...(groups.get(key) ?? []), ...u.meshes]);
   }
   const out = [...groups].map(([key, ids]) => ({

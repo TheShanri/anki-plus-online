@@ -53,3 +53,46 @@ Follow-up cards (`after_pin`) now always show their pin image, so prompts that p
 - Every card using a "this/the highlighted X" reference has an image: all 38 `after_pin` cards point to a pin card with an image, and the rest have their own `image`/`plate`. No card refers to a structure without a picture.
 - Prompts that already name the pointer colour (u1-2024-q34, u1-2025-q36, u2-2025-q25, q29, u3-2025-q35) or say "this section/level/specimen/brain" were left as they are. Written/clinical "this" refers to the vignette text.
 - Brodmann "Which Brodmann area is this?" (lab-3) left as is.
+
+# Content fixes 2026-11-13 (second section): answers name the structure the course label names
+
+Owner report: the Lab 7 pin card masking "I Olfactory Tract" answered "Olfactory nerve". Audit of every pin/section card: the label text each Anki target hides was recovered from the OCR passes (`content-build/ocr`, `ocr_tight`, `ocr_rot`, `ocr_poly`, keyed by note id + cloze, same as `source.ref`) and compared with `answer`, `structure` and `accept`. Cards where the label and the linked structure differ in kind (tract/nerve/bulb, nucleus/nerve/complex, gyrus/sulcus/fissure, lobe/bone/plane, artery/vein, root/nerve, peduncle/colliculus ...) were re-read on the image. Content only; not seeded.
+
+Checked: 2049 pin and section cards (1564 Anki image-occlusion cards with a recovered label; 485 practical, slide-label, plate and section cards checked as answer vs linked structure vs accept). Fixed: 19 cards. By type: tract vs nerve 2, bulb/tract accepted for the nerve 1, lobe/bone linked to the frontal plane 2, nucleus answered as the complex 4, complex accepting its parts 4, tract read as a direction 1, garbled/incomplete answer 4, vein accepting the artery 1. New structure: `cochlear-nuclei`.
+
+| slug | label on image | old answer / structure | new answer / structure | accept changes |
+|---|---|---|---|---|
+| lab-7-io-1770685184914-c2 | I Olfactory Tract | Olfactory nerve / olfactory-nerve | Olfactory tract / olfactory-tract | removed CN I, cranial nerve I/1, 1st cranial nerve, I, olfactory, olfactory bulb (and the now redundant olfactory tract); added olfactory tracts |
+| lab-7-io-1770685184914-c1 | Olfactory Bulb | Olfactory bulb / olfactory-nerve | Olfactory bulb / olfactory-bulb | removed olfactory nerve, cranial nerve I, CN I, olfactory; added olfactory bulbs |
+| lab-7-io-1770685285246-c1 | I. Olfactory (model list) | Olfactory nerve / olfactory-nerve | unchanged | removed olfactory tract, olfactory bulb |
+| lab-1-io-1768350188659-c3 | Frontal (skull bone diagram) | Frontal / coronal-plane | Frontal / frontal-bone | removed frontal plane, coronal plane, coronal; added frontal bone |
+| lab-1-io-1768350670118-c1 | Frontal (lobe outline, wet brain) | Frontal / coronal-plane | Frontal / frontal-lobe | removed frontal plane, coronal plane, coronal; added frontal lobe |
+| brainstem-overlay-io-1771942952185-c3 | Dorsal Spinocerebellar Tract (rotated) | Dorsal / dorsal (direction) | Dorsal spinocerebellar tract / dorsal-spinocerebellar-tract | added posterior spinocerebellar tract, DSCT |
+| lab-8-diagrams-io-1770937860931-c4 | cerebral peduncles (rotated, handwritten) | Cerebral / none | Cerebral peduncles / cerebral-peduncles | added crus cerebri, basis pedunculi, cerebral peduncle |
+| brainstem-overlay-io-1771942952185-c4 | Anterolateral Tract | Anterolateral / anterolateral-spinothalamic-tract | Anterolateral spinothalamic tract / same | added anterolateral tract, anterolateral system, spinothalamic tract, spinothalamic, ALS, STT (as on the other overlay cards) |
+| brainstem-overlay-io-1771942818794-c9 | Anterolateral Tract | Anterolateral / anterolateral-spinothalamic-tract | Anterolateral spinothalamic tract / same | as above |
+| lab-3-io-1769004632487-c3 | Frontal lobe (truncated OCR) | Frontal lo / frontal-lobe | Frontal lobe / frontal-lobe | none |
+| lab-8-surface-brainstem-histology-io-1771338246043-c5 | vestibular nucleus | Vestibulocochlear complex / vestibulocochlear-complex | Vestibular nucleus / vestibular-nuclei | now only vestibular nuclei |
+| lab-8-surface-brainstem-histology-io-1771338388042-c3 | vestibular nucleus (prefix blanked on the course image) | Vestibulocochlear complex / vestibulocochlear-complex | Vestibular nucleus / vestibular-nuclei | now only vestibular nuclei |
+| lab-8-surface-brainstem-histology-io-1771338388042-c4 | vestibular nucleus (prefix blanked) | Vestibulocochlear complex / vestibulocochlear-complex | Vestibular nucleus / vestibular-nuclei | now only vestibular nuclei |
+| lab-8-surface-brainstem-histology-io-1771338388042-c5 | cochlear nuclei | Vestibulocochlear complex / vestibulocochlear-complex | Cochlear nuclei / cochlear-nuclei (new) | now only cochlear nucleus |
+| brainstem-overlay-io-1771942598900-c4, brainstem-overlay-io-1771942696290-c5, bs-plate-pons-caudal-vestibulocochlear-complex, bs-plate-medulla-rostral-vestibulocochlear-complex | Vestibulocochlear Complex | unchanged | unchanged | removed vestibular nuclei, vestibular nucleus, vestibular complex, cochlear nuclei (parts, not synonyms); kept vestibulocochlear nuclei |
+| lab-2-io-1768770086191-c6 | Middle meningeal veins | Middle meningeal veins / meningeal-blood-vessels | unchanged | removed meningeal arteries, middle meningeal artery |
+
+## Dependent pieces
+- `structures.json`: `olfactory-nerve` no longer lists "olfactory tract"/"olfactory bulb" as synonyms (they also fed the grader's known-names table, so typing them counted as CN I); `olfactory-bulb`/`olfactory-tract` gained their plurals; `vestibulocochlear-complex` no longer lists its parts; new `cochlear-nuclei` (u2, brainstem, paired; no course-list entry, it is labelled on the Lab 8 histology image).
+- Follow-ups: none of the changed pins had `followups`/`followup_cards`; no theory card is tied to the bulb, tract or cochlear nuclei. The olfactory-nerve theory cards (CN I, cribriform plate, anosmia) stay with the nerve pins.
+- Atlas: `atlas-links.json`/`atlas-map.json` gained `olfactory-bulb` and `olfactory-tract` (approximate, on the Z-Anatomy "Olfactory nerve (I)" mesh, which is bulb + tract) and `cochlear-nuclei` (anterior + posterior cochlear nucleus meshes, exact). The same entries are in the `tools/atlas/link_atlas2.py` OVERRIDE table so a re-run keeps them.
+- Rebuild safety: decisions recorded in `tools/content/pin_overrides.json`; `build_pin_cards.py` now honours an `"accept"` override (used for the meningeal veins and the two "Frontal" cards).
+- `scripts/answer-kinds.mjs` re-run on the changed cards: the two "Frontal" cards, DSCT and cerebral peduncles are structure pins; "Frontal lobe" is a region.
+- `npm run validate:content`: 0 errors. `npm test`: 183 pass.
+
+## For the owner (not changed)
+- The Lab 7 slide itself labels the olfactory tract "I", equating the tract with CN I, while Lecture 15 separates CN I (filaments through the cribriform plate), bulb and tract. The card now follows the label's words (tract). If you prefer the slide's "I" reading, add "CN I" back to that card's accept list.
+- `premotor-cortex` accepts "supplementary motor area"/"SMA" (lab 3 "Area 6" and "Premotor cortex" labels). The course list says "Premotor Cortex (BA 6)" and the SMA is also area 6, so this was left. Drop SMA if the course treats it as a separate area.
+- `basal-forebrain-nuclei` ("Basal Forebrain Area", lab 14) accepts "basal nucleus of Meynert", one nucleus of the group. Left; drop it if you want only the group name.
+- "Anterior (Thalamic) Tubercle" labels (lab 7, lab 14) answer "Anterior nucleus of thalamus"; the course list says "anterior thalamic nuclei (creating anterior thalamic tubercles)", so kept.
+- "Cerebrum" labels (lab 1, lab 2) answer "Cerebral cortex"; the course list item is "Cerebral Cortex (Cerebrum)", so kept.
+- "Vagus nerve roots", "Hypoglossal nerve roots", "Trochlear nerve fibres" (lab 8 histology) are linked to the nerve (there are no root structures); the answers are the label wording.
+- Combined labels kept on one structure (linked to the nucleus): "Abducent nucleus and nerve", "Trigeminal spinal nucleus and tract", "Nucleus solitarius and tract", "Hypoglossal nucleus and nerve". `lab-8-diagrams-io-1770937686697-c1/c3` (one box over two labels) is still the known draft.
+- On the Lab 1 lobe image, `lab-1-io-1768350670118-c2..c4` (Parietal, Temporal, Occipital) have no structure link. Linking them to the lobes would give them atlas views.

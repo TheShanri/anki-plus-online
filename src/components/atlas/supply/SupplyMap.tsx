@@ -1,5 +1,6 @@
 "use client";
 
+import { withCranialNumeral } from "@/lib/atlas/cranial";
 import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -103,6 +104,20 @@ const SLUG_ARTERY = (() => {
 })();
 
 /** Groups the units supplied by the given arteries into overlays (one per artery; shells fainter). */
+/** Brainstem motor nuclei carry their cranial nerve numeral wherever a name is shown. */
+const NUCLEUS_CN: [RegExp, string][] = [
+  [/^(oculomotor|edinger-westphal) nucleus$/i, "III"],
+  [/^trochlear nucleus$/i, "IV"],
+  [/^abducens nucleus$/i, "VI"],
+  [/^facial nucleus$/i, "VII"],
+  [/^dorsal motor nucleus of the vagus$/i, "X"],
+  [/^nucleus ambiguus$/i, "IX, X"],
+  [/^hypoglossal nucleus$/i, "XII"],
+];
+const unitLabel = (name: string) => {
+  const hit = NUCLEUS_CN.find(([re]) => re.test(name));
+  return hit ? `${name} (${hit[1]})` : withCranialNumeral(name);
+};
 const CORTEX_END = SUPPLY.units.findIndex((u) => u.name === "Corpus callosum");
 /** Cortical units are drawn by the soft territory skin; the viewer overlays only draw the deep structures. */
 function territoryOverlays(arteries: Set<string>, variant: string, opts: { opacity: number; shell: number; color?: string; side?: "L" | "R"; keyPrefix: string }): AtlasOverlay[] {
@@ -976,7 +991,7 @@ function InfoPanel({ selected, variant, onUnit, onView }: { selected: Selected; 
             <p className="flex flex-wrap gap-1.5 pt-1">
               {primary.map((u) => (
                 <button key={u.name} type="button" className="chip hover:border-panel-border-hi" onClick={() => onUnit(u)}>
-                  {u.name}
+                  {unitLabel(u.name)}
                 </button>
               ))}
             </p>
@@ -988,7 +1003,7 @@ function InfoPanel({ selected, variant, onUnit, onView }: { selected: Selected; 
             <p className="flex flex-wrap gap-1.5 pt-1">
               {also.map((u) => (
                 <button key={u.name} type="button" className="chip hover:border-panel-border-hi" onClick={() => onUnit(u)}>
-                  {u.name}
+                  {unitLabel(u.name)}
                 </button>
               ))}
             </p>
@@ -1002,7 +1017,7 @@ function InfoPanel({ selected, variant, onUnit, onView }: { selected: Selected; 
   const arts = unitArteries(u, variant);
   return (
     <div className="panel grid gap-2" aria-live="polite">
-      <h2 className="font-display text-base text-accent">{u.name}</h2>
+      <h2 className="font-display text-base text-accent">{unitLabel(u.name)}</h2>
       <p className="flex flex-wrap gap-1.5">
         {arts.map((id, i) => {
           const a = ARTERY.get(id)!;

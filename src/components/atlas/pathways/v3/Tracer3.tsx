@@ -549,7 +549,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
 
         <div
           ref={attachFs}
-          className="relative min-h-[380px] flex-1 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[62dvh] max-lg:flex-none [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0"
+          className="relative min-h-[380px] flex-1 basis-0 overflow-hidden rounded-card border border-panel-border bg-bg-2 max-lg:h-[62dvh] max-lg:flex-none [&:fullscreen]:!h-screen [&:fullscreen]:!min-h-0 [&:fullscreen]:!w-screen [&:fullscreen]:rounded-none [&:fullscreen]:border-0"
         >
           {d && (
             <Scene3
@@ -742,6 +742,9 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
             <IconButton label="Quiz: what comes next?" keys="Q" icon={<CircleHelp size={16} />} pressed={quiz} onClick={() => { setQuiz((v) => !v); setPlaying(false); }} />
           </div>
         </div>
+        {/* a fixed-height text well (desktop): the caption, quiz and feedback scroll inside it, so the 3D panel and the beat
+            buttons above never move between beats */}
+        <div className="flex flex-col gap-2 lg:h-[228px] lg:flex-none lg:overflow-y-auto lg:overscroll-contain">
         <div className="rounded-card border border-panel-border bg-panel-solid/70 px-3 py-2" aria-live="polite">
           {all ? (
             <p className="text-sm">
@@ -806,6 +809,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           <span><span className="kbd">M</span> multi-view</span>
           <span>click a structure or a fibre for its notes</span>
         </p>
+        </div>
       </div>
 
       {/* side rail: the textbook diagram (synced both ways), then the neuron in detail */}

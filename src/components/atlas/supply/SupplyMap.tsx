@@ -410,6 +410,8 @@ export function SupplyMap() {
     }
     if (m === "bleeds") trackAtlas({ type: "supply_bleeds_opened" });
     if (m === "block") setBlocked(null);
+    // on a phone the panel is closed by default; Block and Bleeds have nothing to read without it, so it opens with them
+    if ((m === "block" || m === "bleeds") && window.matchMedia("(max-width: 1023px)").matches) setDrawer(true);
     // switching mode is a deliberate change of scene: fit the new content once (selections never move the camera)
     setFrame((f) => ({ n: f.n + 1, dir: m === "explore" ? [0, -1, 0.02] : null }));
   }, []);
@@ -557,7 +559,7 @@ export function SupplyMap() {
         </div>
 
         <aside
-          className={`${drawer ? "flex" : "hidden"} absolute inset-0 z-30 min-h-0 flex-col gap-3 overflow-y-auto bg-panel-solid p-3 lg:static lg:inset-auto lg:z-auto lg:w-[350px] lg:flex-none lg:border-l lg:border-panel-border`}
+          className={`${drawer ? "flex" : "hidden"} absolute inset-0 z-30 min-h-0 min-w-0 flex-col gap-3 overflow-y-auto overflow-x-hidden bg-panel-solid p-3 [&>*]:min-w-0 lg:static lg:inset-auto lg:z-auto lg:w-[350px] lg:flex-none lg:border-l lg:border-panel-border`}
           aria-label="Blood supply panel"
         >
           <div className="flex items-center gap-2 lg:hidden">
@@ -718,22 +720,22 @@ function ExplorePanel(p: {
 
       <InfoPanel selected={p.selected} variant={p.variant} onUnit={p.onUnit} onView={p.onView} />
 
-      <div className="grid gap-1.5">
+      <div className="grid min-w-0 gap-1.5">
         {p.gate.asking ? (
           <SupplementaryHeadsUp what="Small cortical branches (orbitofrontal, temporal, parietal, central and precentral sulcus, frontal callosomarginal, PCA cortical)" onConfirm={p.gate.confirm} onCancel={p.gate.cancel} />
         ) : (
-          <button type="button" className="btn justify-start" aria-pressed={p.gate.open} onClick={() => (p.gate.open ? p.gate.lock() : p.gate.request())}>
+          <button type="button" className="btn !h-auto max-w-full justify-start !whitespace-normal py-1.5 text-left" aria-pressed={p.gate.open} onClick={() => (p.gate.open ? p.gate.lock() : p.gate.request())}>
             <Lock size={14} aria-hidden /> {p.gate.open ? "Hide" : "Show"} small cortical branches (beyond the slides)
           </button>
         )}
       </div>
 
       {plic && (
-        <div className="grid gap-2">
+        <div className="grid min-w-0 gap-2">
           <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">Open question: {SUPPLY.decisions[0]?.title}</h2>
           <div className="flex flex-wrap gap-2" role="group" aria-label="Reading of the posterior limb of the internal capsule">
             {plic.variants!.map((v) => (
-              <button key={v.id} type="button" aria-pressed={p.variant === v.id} onClick={() => p.setVariant(v.id)} className={`btn ${p.variant === v.id ? "btn-primary" : ""}`}>
+              <button key={v.id} type="button" aria-pressed={p.variant === v.id} onClick={() => p.setVariant(v.id)} className={`btn !h-auto max-w-full !whitespace-normal py-1.5 text-left ${p.variant === v.id ? "btn-primary" : ""}`}>
                 {v.label}
               </button>
             ))}

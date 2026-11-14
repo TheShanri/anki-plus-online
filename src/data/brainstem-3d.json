@@ -1,0 +1,1464 @@
+{
+ "version": 1,
+ "file": "brainstem3d.glb",
+ "bytes": 627960,
+ "units": "metres, Z-Anatomy model space (+x = subject's left, +y up, +z anterior), the same space as gross.glb",
+ "parts": [
+  {
+   "id": "facial-colliculus.R",
+   "slug": "facial-colliculus",
+   "name": "Facial colliculus",
+   "kind": "patch",
+   "side": "R",
+   "approx": true,
+   "note": "Surface patch: the medial eminence over the abducens nucleus, just above the striae medullares (course Lab 7 posterior view; Sobotta 659).",
+   "anchor": [
+    -0.003006,
+    1.582204,
+    -0.020536
+   ]
+  },
+  {
+   "id": "facial-colliculus.L",
+   "slug": "facial-colliculus",
+   "name": "Facial colliculus",
+   "kind": "patch",
+   "side": "L",
+   "approx": true,
+   "note": "Surface patch: the medial eminence over the abducens nucleus, just above the striae medullares (course Lab 7 posterior view; Sobotta 659).",
+   "anchor": [
+    0.003006,
+    1.582204,
+    -0.020536
+   ]
+  },
+  {
+   "id": "area-postrema.R",
+   "slug": "area-postrema",
+   "name": "Area postrema",
+   "kind": "patch",
+   "side": "R",
+   "approx": true,
+   "note": "Surface patch: the narrow strip on each side of the caudal tip of the fourth ventricle, just above the obex.",
+   "anchor": [
+    -0.000888,
+    1.570989,
+    -0.023351
+   ]
+  },
+  {
+   "id": "area-postrema.L",
+   "slug": "area-postrema",
+   "name": "Area postrema",
+   "kind": "patch",
+   "side": "L",
+   "approx": true,
+   "note": "Surface patch: the narrow strip on each side of the caudal tip of the fourth ventricle, just above the obex.",
+   "anchor": [
+    0.000889,
+    1.570989,
+    -0.023351
+   ]
+  },
+  {
+   "id": "obex",
+   "slug": "obex",
+   "name": "Obex",
+   "kind": "patch",
+   "side": "M",
+   "approx": true,
+   "note": "The caudal tip of the fourth ventricle (where the model's floor closes).",
+   "anchor": [
+    0.000566,
+    1.569383,
+    -0.022649
+   ]
+  },
+  {
+   "id": "floor-of-the-fourth-ventricle",
+   "slug": "fourth-ventricle",
+   "name": "Floor of the fourth ventricle",
+   "kind": "patch",
+   "side": "M",
+   "note": "The rhomboid fossa: the brainstem surface under the Z-Anatomy fourth-ventricle cast (cerebellum removed).",
+   "anchor": [
+    0.001676,
+    1.583245,
+    -0.019362
+   ]
+  },
+  {
+   "id": "superior-colliculus.R",
+   "slug": "superior-colliculus",
+   "name": "Superior colliculus",
+   "kind": "patch",
+   "side": "R",
+   "note": "The upper pair of the four bumps of the midbrain tectum (relief of the Z-Anatomy midbrain).",
+   "anchor": [
+    -0.003099,
+    1.612291,
+    -0.02151
+   ]
+  },
+  {
+   "id": "superior-colliculus.L",
+   "slug": "superior-colliculus",
+   "name": "Superior colliculus",
+   "kind": "patch",
+   "side": "L",
+   "note": "The upper pair of the four bumps of the midbrain tectum (relief of the Z-Anatomy midbrain).",
+   "anchor": [
+    0.003099,
+    1.612291,
+    -0.02151
+   ]
+  },
+  {
+   "id": "inferior-colliculus.R",
+   "slug": "inferior-colliculus",
+   "name": "Inferior colliculus",
+   "kind": "patch",
+   "side": "R",
+   "note": "The lower pair of the tectal bumps (relief of the Z-Anatomy midbrain).",
+   "anchor": [
+    -0.003052,
+    1.604608,
+    -0.021294
+   ]
+  },
+  {
+   "id": "inferior-colliculus.L",
+   "slug": "inferior-colliculus",
+   "name": "Inferior colliculus",
+   "kind": "patch",
+   "side": "L",
+   "note": "The lower pair of the tectal bumps (relief of the Z-Anatomy midbrain).",
+   "anchor": [
+    0.003052,
+    1.604608,
+    -0.021294
+   ]
+  },
+  {
+   "id": "gracile-tubercle.R",
+   "slug": "gracile-tubercle",
+   "name": "Gracile tubercle",
+   "kind": "patch",
+   "side": "R",
+   "approx": true,
+   "note": "Surface patch beside the posterior median sulcus at and below the obex (course Lab 7; Sobotta 659).",
+   "anchor": [
+    -0.002509,
+    1.568059,
+    -0.029364
+   ]
+  },
+  {
+   "id": "gracile-tubercle.L",
+   "slug": "gracile-tubercle",
+   "name": "Gracile tubercle",
+   "kind": "patch",
+   "side": "L",
+   "approx": true,
+   "note": "Surface patch beside the posterior median sulcus at and below the obex (course Lab 7; Sobotta 659).",
+   "anchor": [
+    0.002509,
+    1.568059,
+    -0.029364
+   ]
+  },
+  {
+   "id": "cuneate-tubercle.R",
+   "slug": "cuneate-tubercle",
+   "name": "Cuneate tubercle",
+   "kind": "patch",
+   "side": "R",
+   "approx": true,
+   "note": "Surface patch lateral to the gracile tubercle, slightly higher (course Lab 7; Sobotta 659).",
+   "anchor": [
+    -0.005384,
+    1.568506,
+    -0.028601
+   ]
+  },
+  {
+   "id": "cuneate-tubercle.L",
+   "slug": "cuneate-tubercle",
+   "name": "Cuneate tubercle",
+   "kind": "patch",
+   "side": "L",
+   "approx": true,
+   "note": "Surface patch lateral to the gracile tubercle, slightly higher (course Lab 7; Sobotta 659).",
+   "anchor": [
+    0.005384,
+    1.568506,
+    -0.028601
+   ]
+  },
+  {
+   "id": "olives.R",
+   "slug": "olives",
+   "name": "Olives",
+   "kind": "patch",
+   "side": "R",
+   "note": "The surface over the Z-Anatomy inferior olive mesh.",
+   "anchor": [
+    -0.011736,
+    1.569001,
+    -0.013625
+   ]
+  },
+  {
+   "id": "olives.L",
+   "slug": "olives",
+   "name": "Olives",
+   "kind": "patch",
+   "side": "L",
+   "note": "The surface over the Z-Anatomy inferior olive mesh.",
+   "anchor": [
+    0.011736,
+    1.569001,
+    -0.013625
+   ]
+  },
+  {
+   "id": "pyramids.R",
+   "slug": "pyramids",
+   "name": "Pyramids",
+   "kind": "patch",
+   "side": "R",
+   "note": "The surface over the Z-Anatomy pyramid mesh, from the pons to the decussation.",
+   "anchor": [
+    -0.004113,
+    1.567112,
+    -0.007533
+   ]
+  },
+  {
+   "id": "pyramids.L",
+   "slug": "pyramids",
+   "name": "Pyramids",
+   "kind": "patch",
+   "side": "L",
+   "note": "The surface over the Z-Anatomy pyramid mesh, from the pons to the decussation.",
+   "anchor": [
+    0.004113,
+    1.567112,
+    -0.007533
+   ]
+  },
+  {
+   "id": "pyramidal-decussation",
+   "slug": "motor-decussation",
+   "name": "Pyramidal (motor) decussation",
+   "kind": "patch",
+   "side": "M",
+   "approx": true,
+   "note": "Ventral midline where the pyramids' fibres cross, placed from Coulombe et al. 2021 (plates 40-43, scaled to this model).",
+   "anchor": [
+    0.000262,
+    1.555731,
+    -0.018991
+   ]
+  },
+  {
+   "id": "interpeduncular-fossa",
+   "slug": "interpeduncular-fossa",
+   "name": "Interpeduncular fossa",
+   "kind": "patch",
+   "side": "M",
+   "approx": true,
+   "note": "The floor between the cerebral peduncles (posterior perforated substance), where the oculomotor nerves exit.",
+   "anchor": [
+    -0.000558,
+    1.609856,
+    0.001767
+   ]
+  },
+  {
+   "id": "middle-cerebellar-peduncle.R",
+   "slug": "middle-cerebellar-peduncle",
+   "name": "Middle cerebellar peduncle",
+   "kind": "patch",
+   "side": "R",
+   "note": "The pons lateral to the trigeminal roots, cut where it enters the cerebellum.",
+   "anchor": [
+    -0.020343,
+    1.588808,
+    -0.012244
+   ]
+  },
+  {
+   "id": "middle-cerebellar-peduncle.L",
+   "slug": "middle-cerebellar-peduncle",
+   "name": "Middle cerebellar peduncle",
+   "kind": "patch",
+   "side": "L",
+   "note": "The pons lateral to the trigeminal roots, cut where it enters the cerebellum.",
+   "anchor": [
+    0.020343,
+    1.588808,
+    -0.012244
+   ]
+  },
+  {
+   "id": "basilar-pons.R",
+   "slug": "transverse-fibers-of-the-pons",
+   "name": "Basilar pons (transverse fibres)",
+   "kind": "patch",
+   "side": "R",
+   "note": "The ventral (basilar) pons: the pontine protuberance with its transverse fibres.",
+   "anchor": [
+    -0.006466,
+    1.590544,
+    0.005209
+   ]
+  },
+  {
+   "id": "basilar-pons.L",
+   "slug": "transverse-fibers-of-the-pons",
+   "name": "Basilar pons (transverse fibres)",
+   "kind": "patch",
+   "side": "L",
+   "note": "The ventral (basilar) pons: the pontine protuberance with its transverse fibres.",
+   "anchor": [
+    0.006467,
+    1.590544,
+    0.005209
+   ]
+  },
+  {
+   "id": "midbrain.R",
+   "slug": "midbrain",
+   "name": "Midbrain",
+   "kind": "body",
+   "side": "R",
+   "anchor": [
+    -0.011557,
+    1.608428,
+    -0.011421
+   ]
+  },
+  {
+   "id": "midbrain.L",
+   "slug": "midbrain",
+   "name": "Midbrain",
+   "kind": "body",
+   "side": "L",
+   "anchor": [
+    0.011557,
+    1.608428,
+    -0.011421
+   ]
+  },
+  {
+   "id": "pons.R",
+   "slug": "pons",
+   "name": "Pons",
+   "kind": "body",
+   "side": "R",
+   "anchor": [
+    0.000264,
+    1.592224,
+    -0.013623
+   ]
+  },
+  {
+   "id": "pons.L",
+   "slug": "pons",
+   "name": "Pons",
+   "kind": "body",
+   "side": "L",
+   "anchor": [
+    -0.000264,
+    1.592224,
+    -0.013623
+   ]
+  },
+  {
+   "id": "medulla-oblongata.R",
+   "slug": "medulla",
+   "name": "Medulla",
+   "kind": "body",
+   "side": "R",
+   "anchor": [
+    0.000261,
+    1.557277,
+    -0.020966
+   ]
+  },
+  {
+   "id": "medulla-oblongata.L",
+   "slug": "medulla",
+   "name": "Medulla",
+   "kind": "body",
+   "side": "L",
+   "anchor": [
+    -0.000261,
+    1.557277,
+    -0.020966
+   ]
+  },
+  {
+   "id": "upper-cervical-cord",
+   "slug": "spinal-cord",
+   "name": "Upper cervical spinal cord",
+   "kind": "body",
+   "side": "M",
+   "note": "Upper cervical cord (clipped).",
+   "anchor": [
+    -7.1e-05,
+    1.529785,
+    -0.026931
+   ]
+  },
+  {
+   "id": "cerebral-peduncles.R",
+   "slug": "cerebral-peduncles",
+   "name": "Cerebral peduncles",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.011595,
+    1.611609,
+    0.000297
+   ]
+  },
+  {
+   "id": "cerebral-peduncles.L",
+   "slug": "cerebral-peduncles",
+   "name": "Cerebral peduncles",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.011595,
+    1.611609,
+    0.000297
+   ]
+  },
+  {
+   "id": "superior-cerebellar-peduncle.R",
+   "slug": "superior-cerebellar-peduncle",
+   "name": "Superior cerebellar peduncle",
+   "kind": "mesh",
+   "side": "R",
+   "note": "Cut where it enters the cerebellum.",
+   "anchor": [
+    -0.00763,
+    1.593302,
+    -0.022937
+   ]
+  },
+  {
+   "id": "superior-cerebellar-peduncle.L",
+   "slug": "superior-cerebellar-peduncle",
+   "name": "Superior cerebellar peduncle",
+   "kind": "mesh",
+   "side": "L",
+   "note": "Cut where it enters the cerebellum.",
+   "anchor": [
+    0.00763,
+    1.593302,
+    -0.022937
+   ]
+  },
+  {
+   "id": "inferior-cerebellar-peduncle.L",
+   "slug": "inferior-cerebellar-peduncle",
+   "name": "Inferior cerebellar peduncle",
+   "kind": "mesh",
+   "side": "L",
+   "note": "Cut where it enters the cerebellum.",
+   "anchor": [
+    0.010485,
+    1.578169,
+    -0.020977
+   ]
+  },
+  {
+   "id": "inferior-cerebellar-peduncle.R",
+   "slug": "inferior-cerebellar-peduncle",
+   "name": "Inferior cerebellar peduncle",
+   "kind": "mesh",
+   "side": "R",
+   "note": "Cut where it enters the cerebellum.",
+   "anchor": [
+    -0.010591,
+    1.578287,
+    -0.020976
+   ]
+  },
+  {
+   "id": "brachium-of-the-inferior-colliculus.R",
+   "slug": "brachium-of-the-inferior-colliculus",
+   "name": "Brachium of the inferior colliculus",
+   "kind": "mesh",
+   "side": "R",
+   "note": "The Z-Anatomy inferior colliculus mesh where it leaves the tectum: the brachium running to the medial geniculate body.",
+   "anchor": [
+    -0.011839,
+    1.610663,
+    -0.016672
+   ]
+  },
+  {
+   "id": "brachium-of-the-inferior-colliculus.L",
+   "slug": "brachium-of-the-inferior-colliculus",
+   "name": "Brachium of the inferior colliculus",
+   "kind": "mesh",
+   "side": "L",
+   "note": "The Z-Anatomy inferior colliculus mesh where it leaves the tectum: the brachium running to the medial geniculate body.",
+   "anchor": [
+    0.011839,
+    1.610663,
+    -0.016672
+   ]
+  },
+  {
+   "id": "brachium-of-the-superior-colliculus.R",
+   "slug": "brachium-of-the-superior-colliculus",
+   "name": "Brachium of the superior colliculus",
+   "kind": "context",
+   "side": "R",
+   "anchor": [
+    -0.011776,
+    1.61315,
+    -0.018273
+   ]
+  },
+  {
+   "id": "brachium-of-the-superior-colliculus.L",
+   "slug": "brachium-of-the-superior-colliculus",
+   "name": "Brachium of the superior colliculus",
+   "kind": "context",
+   "side": "L",
+   "anchor": [
+    0.011776,
+    1.61315,
+    -0.018273
+   ]
+  },
+  {
+   "id": "medial-geniculate-nucleus.R",
+   "slug": "medial-geniculate-nucleus",
+   "name": "Medial geniculate nucleus",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.013464,
+    1.612582,
+    -0.010807
+   ]
+  },
+  {
+   "id": "medial-geniculate-nucleus.L",
+   "slug": "medial-geniculate-nucleus",
+   "name": "Medial geniculate nucleus",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.013464,
+    1.612582,
+    -0.010807
+   ]
+  },
+  {
+   "id": "lateral-geniculate-nucleus.R",
+   "slug": "lateral-geniculate-nucleus",
+   "name": "Lateral geniculate nucleus",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.020064,
+    1.612876,
+    -0.013069
+   ]
+  },
+  {
+   "id": "lateral-geniculate-nucleus.L",
+   "slug": "lateral-geniculate-nucleus",
+   "name": "Lateral geniculate nucleus",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.020064,
+    1.612876,
+    -0.013069
+   ]
+  },
+  {
+   "id": "pineal-gland.L",
+   "slug": "pineal-gland",
+   "name": "Pineal gland",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.002024,
+    1.614583,
+    -0.020971
+   ]
+  },
+  {
+   "id": "pineal-gland.R",
+   "slug": "pineal-gland",
+   "name": "Pineal gland",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.002317,
+    1.614582,
+    -0.02097
+   ]
+  },
+  {
+   "id": "mammillary-bodies.R",
+   "slug": "mammillary-bodies",
+   "name": "Mammillary bodies",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.005342,
+    1.613136,
+    0.004637
+   ]
+  },
+  {
+   "id": "mammillary-bodies.L",
+   "slug": "mammillary-bodies",
+   "name": "Mammillary bodies",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.005342,
+    1.613136,
+    0.004637
+   ]
+  },
+  {
+   "id": "optic-chiasm.R",
+   "slug": "optic-chiasm",
+   "name": "Optic chiasm",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.001068,
+    1.613473,
+    0.01706
+   ]
+  },
+  {
+   "id": "optic-chiasm.L",
+   "slug": "optic-chiasm",
+   "name": "Optic chiasm",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.001068,
+    1.613473,
+    0.01706
+   ]
+  },
+  {
+   "id": "optic-tract.R",
+   "slug": "optic-tract",
+   "name": "Optic tract",
+   "kind": "mesh",
+   "side": "R",
+   "anchor": [
+    -0.018539,
+    1.612692,
+    0.001286
+   ]
+  },
+  {
+   "id": "optic-tract.L",
+   "slug": "optic-tract",
+   "name": "Optic tract",
+   "kind": "mesh",
+   "side": "L",
+   "anchor": [
+    0.018539,
+    1.612692,
+    0.001286
+   ]
+  },
+  {
+   "id": "hypothalamus",
+   "slug": "hypothalamus",
+   "name": "Hypothalamus",
+   "kind": "context",
+   "side": "M",
+   "anchor": [
+    0.0,
+    1.614345,
+    0.011194
+   ]
+  },
+  {
+   "id": "pulvinar.R",
+   "slug": "pulvinar",
+   "name": "Pulvinar",
+   "kind": "patch",
+   "side": "R",
+   "note": "The posterior pole of the thalamus (Z-Anatomy thalamus over the MRI-carved pulvinar).",
+   "anchor": [
+    -0.013006,
+    1.626666,
+    -0.024028
+   ]
+  },
+  {
+   "id": "thalamus.R",
+   "slug": "thalamus",
+   "name": "Thalamus",
+   "kind": "context",
+   "side": "R",
+   "anchor": [
+    -0.016549,
+    1.619979,
+    -0.003214
+   ]
+  },
+  {
+   "id": "pulvinar.L",
+   "slug": "pulvinar",
+   "name": "Pulvinar",
+   "kind": "patch",
+   "side": "L",
+   "note": "The posterior pole of the thalamus (Z-Anatomy thalamus over the MRI-carved pulvinar).",
+   "anchor": [
+    0.013006,
+    1.626666,
+    -0.024028
+   ]
+  },
+  {
+   "id": "thalamus.L",
+   "slug": "thalamus",
+   "name": "Thalamus",
+   "kind": "context",
+   "side": "L",
+   "anchor": [
+    0.016549,
+    1.619979,
+    -0.003214
+   ]
+  },
+  {
+   "id": "olfactory-nerve.R",
+   "slug": "olfactory-nerve",
+   "name": "Olfactory nerve (I) (I)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.022353,
+    1.608188,
+    0.019503
+   ]
+  },
+  {
+   "id": "olfactory-nerve.L",
+   "slug": "olfactory-nerve",
+   "name": "Olfactory nerve (I) (I)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.022132,
+    1.607611,
+    0.019469
+   ]
+  },
+  {
+   "id": "optic-nerve.R",
+   "slug": "optic-nerve",
+   "name": "Optic nerve (II) (II)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.00349,
+    1.607838,
+    0.020561
+   ]
+  },
+  {
+   "id": "optic-nerve.L",
+   "slug": "optic-nerve",
+   "name": "Optic nerve (II) (II)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.00349,
+    1.607838,
+    0.020561
+   ]
+  },
+  {
+   "id": "oculomotor-nerve.R",
+   "slug": "oculomotor-nerve",
+   "name": "Oculomotor nerve (III) (III)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.0049,
+    1.607974,
+    0.000445
+   ]
+  },
+  {
+   "id": "oculomotor-nerve.L",
+   "slug": "oculomotor-nerve",
+   "name": "Oculomotor nerve (III) (III)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.005151,
+    1.607782,
+    0.000682
+   ]
+  },
+  {
+   "id": "trochlear-nerve.R",
+   "slug": "trochlear-nerve",
+   "name": "Trochlear nerve (IV) (IV)",
+   "kind": "nerve",
+   "side": "R",
+   "note": "Its dorsal exit below the inferior colliculus and the turn around the midbrain are drawn (approximate); the rest is the Z-Anatomy nerve.",
+   "anchor": [
+    -0.004229,
+    1.601486,
+    -0.008987
+   ]
+  },
+  {
+   "id": "trochlear-nerve.L",
+   "slug": "trochlear-nerve",
+   "name": "Trochlear nerve (IV) (IV)",
+   "kind": "nerve",
+   "side": "L",
+   "note": "Its dorsal exit below the inferior colliculus and the turn around the midbrain are drawn (approximate); the rest is the Z-Anatomy nerve.",
+   "anchor": [
+    0.007747,
+    1.600196,
+    -0.002917
+   ]
+  },
+  {
+   "id": "abducens-nerve.R",
+   "slug": "abducens-nerve",
+   "name": "Abducens nerve (VI) (VI)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.004654,
+    1.576381,
+    -0.002617
+   ]
+  },
+  {
+   "id": "abducens-nerve.L",
+   "slug": "abducens-nerve",
+   "name": "Abducens nerve (VI) (VI)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.004521,
+    1.57624,
+    -0.00298
+   ]
+  },
+  {
+   "id": "facial-nerve.R",
+   "slug": "facial-nerve",
+   "name": "Facial nerve (VII) (VII)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.006133,
+    1.579175,
+    -0.013997
+   ]
+  },
+  {
+   "id": "facial-nerve.L",
+   "slug": "facial-nerve",
+   "name": "Facial nerve (VII) (VII)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.006148,
+    1.579233,
+    -0.014295
+   ]
+  },
+  {
+   "id": "vestibulocochlear-nerve.R",
+   "slug": "vestibulocochlear-nerve",
+   "name": "Vestibulocochlear nerve (VIII) (VIII)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.009223,
+    1.577992,
+    -0.014022
+   ]
+  },
+  {
+   "id": "vestibulocochlear-nerve.L",
+   "slug": "vestibulocochlear-nerve",
+   "name": "Vestibulocochlear nerve (VIII) (VIII)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.009234,
+    1.578063,
+    -0.013943
+   ]
+  },
+  {
+   "id": "glossopharyngeal-nerve.R",
+   "slug": "glossopharyngeal-nerve",
+   "name": "Glossopharyngeal nerve (IX) (IX)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.012424,
+    1.569597,
+    -0.019919
+   ]
+  },
+  {
+   "id": "glossopharyngeal-nerve.L",
+   "slug": "glossopharyngeal-nerve",
+   "name": "Glossopharyngeal nerve (IX) (IX)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.012409,
+    1.569591,
+    -0.019921
+   ]
+  },
+  {
+   "id": "vagus-nerve.R",
+   "slug": "vagus-nerve",
+   "name": "Vagus nerve (X) (X)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.012855,
+    1.572534,
+    -0.016812
+   ]
+  },
+  {
+   "id": "vagus-nerve.L",
+   "slug": "vagus-nerve",
+   "name": "Vagus nerve (X) (X)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.01303,
+    1.572357,
+    -0.016796
+   ]
+  },
+  {
+   "id": "hypoglossal-nerve.R",
+   "slug": "hypoglossal-nerve",
+   "name": "Hypoglossal nerve (XII) (XII)",
+   "kind": "nerve",
+   "side": "R",
+   "anchor": [
+    -0.009301,
+    1.568062,
+    -0.010843
+   ]
+  },
+  {
+   "id": "hypoglossal-nerve.L",
+   "slug": "hypoglossal-nerve",
+   "name": "Hypoglossal nerve (XII) (XII)",
+   "kind": "nerve",
+   "side": "L",
+   "anchor": [
+    0.009299,
+    1.568083,
+    -0.010841
+   ]
+  },
+  {
+   "id": "trigeminal-nerve.L",
+   "slug": "trigeminal-nerve",
+   "name": "Trigeminal nerve (V) (V)",
+   "kind": "nerve",
+   "side": "L",
+   "approx": true,
+   "note": "Drawn at the course specimen's level (Lab 7 ventral view: about 43 % down the pons, at the junction with the middle cerebellar peduncle); the large sensory root with the small motor root above it.",
+   "anchor": [
+    0.0161,
+    1.590301,
+    -0.000588
+   ]
+  },
+  {
+   "id": "trigeminal-nerve.R",
+   "slug": "trigeminal-nerve",
+   "name": "Trigeminal nerve (V) (V)",
+   "kind": "nerve",
+   "side": "R",
+   "approx": true,
+   "note": "Drawn at the course specimen's level (Lab 7 ventral view: about 43 % down the pons, at the junction with the middle cerebellar peduncle); the large sensory root with the small motor root above it.",
+   "anchor": [
+    -0.016114,
+    1.590292,
+    -0.00061
+   ]
+  },
+  {
+   "id": "accessory-nerve.L",
+   "slug": "accessory-nerve",
+   "name": "Accessory nerve (XI) (XI)",
+   "kind": "nerve",
+   "side": "L",
+   "approx": true,
+   "note": "Drawn (approximate): the spinal accessory root rising along the lateral cord beside the medulla to join the vagus at the jugular foramen. The course notes it is not present on the lab brainstems.",
+   "anchor": [
+    0.009203,
+    1.546893,
+    -0.023969
+   ]
+  },
+  {
+   "id": "accessory-nerve.R",
+   "slug": "accessory-nerve",
+   "name": "Accessory nerve (XI) (XI)",
+   "kind": "nerve",
+   "side": "R",
+   "approx": true,
+   "note": "Drawn (approximate): the spinal accessory root rising along the lateral cord beside the medulla to join the vagus at the jugular foramen. The course notes it is not present on the lab brainstems.",
+   "anchor": [
+    -0.009203,
+    1.546893,
+    -0.023969
+   ]
+  }
+ ],
+ "levels": {
+  "midbrain-sc": {
+   "p": [
+    0.0,
+    1.61219,
+    -0.020477
+   ],
+   "n": [
+    -0.0,
+    0.95281,
+    0.30356
+   ],
+   "why": "Through the superior colliculi and the oculomotor roots in the interpeduncular fossa (both on the plate).",
+   "axisMm": 5.2,
+   "coulombeMm": 10.12,
+   "coulombeScaledMm": 11.8,
+   "cuts": [
+    "brachium-of-the-inferior-colliculus",
+    "brachium-of-the-superior-colliculus",
+    "cerebral-peduncles",
+    "interpeduncular-fossa",
+    "lateral-geniculate-nucleus",
+    "medial-geniculate-nucleus",
+    "midbrain",
+    "optic-tract",
+    "superior-colliculus"
+   ],
+   "radius": 0.024
+  },
+  "midbrain-ic": {
+   "p": [
+    0.0,
+    1.604602,
+    -0.020589
+   ],
+   "n": [
+    -0.0,
+    0.98775,
+    0.15607
+   ],
+   "why": "Through the inferior colliculi and, ventrally, the top of the basilar pons (the plate shows pontine nuclei).",
+   "axisMm": 0.0,
+   "coulombeMm": 3.2,
+   "coulombeScaledMm": 3.7,
+   "cuts": [
+    "cerebral-peduncles",
+    "inferior-colliculus",
+    "midbrain",
+    "middle-cerebellar-peduncle",
+    "pons",
+    "transverse-fibers-of-the-pons",
+    "trochlear-nerve"
+   ],
+   "radius": 0.024
+  },
+  "pons-mid": {
+   "p": [
+    7e-06,
+    1.589237,
+    -0.001181
+   ],
+   "n": [
+    0.0,
+    0.99585,
+    0.09105
+   ],
+   "why": "Through the trigeminal roots (and the model's intrapontine motor roots), across the long axis.",
+   "axisMm": -13.2,
+   "coulombeMm": -17.09,
+   "coulombeScaledMm": -19.9,
+   "cuts": [
+    "fourth-ventricle",
+    "middle-cerebellar-peduncle",
+    "pons",
+    "superior-cerebellar-peduncle",
+    "transverse-fibers-of-the-pons",
+    "trigeminal-nerve"
+   ],
+   "radius": 0.024
+  },
+  "pons-caudal": {
+   "p": [
+    -0.0,
+    1.581582,
+    -0.020486
+   ],
+   "n": [
+    0.0,
+    0.99052,
+    0.13734
+   ],
+   "why": "Through the facial colliculi and, ventrally, the caudal basilar pons 2.5 mm above the pontomedullary junction (the plate shows the abducens fibres crossing it).",
+   "axisMm": -24.2,
+   "coulombeMm": -21.33,
+   "coulombeScaledMm": -24.8,
+   "cuts": [
+    "abducens-nerve",
+    "facial-colliculus",
+    "fourth-ventricle",
+    "inferior-cerebellar-peduncle",
+    "middle-cerebellar-peduncle",
+    "pons",
+    "superior-cerebellar-peduncle",
+    "transverse-fibers-of-the-pons",
+    "vestibulocochlear-nerve"
+   ],
+   "radius": 0.024
+  },
+  "medulla-rostral": {
+   "p": [
+    0.0,
+    1.569886,
+    -0.015739
+   ],
+   "n": [
+    0.0,
+    0.83544,
+    0.54958
+   ],
+   "why": "Through the middle of the olives (mid-height of the inferior olive), across the long axis.",
+   "axisMm": -35.8,
+   "coulombeMm": -26.31,
+   "coulombeScaledMm": -30.6,
+   "cuts": [
+    "accessory-nerve",
+    "fourth-ventricle",
+    "glossopharyngeal-nerve",
+    "hypoglossal-nerve",
+    "inferior-cerebellar-peduncle",
+    "medulla",
+    "olives",
+    "pyramids",
+    "vagus-nerve"
+   ],
+   "radius": 0.024
+  },
+  "medulla-mid": {
+   "p": [
+    -2e-06,
+    1.567497,
+    -0.028992
+   ],
+   "n": [
+    0.0,
+    0.84012,
+    0.5424
+   ],
+   "why": "Through the gracile and cuneate tubercles just below the obex (closed medulla), across the long axis.",
+   "axisMm": -44.1,
+   "coulombeMm": -36.87,
+   "coulombeScaledMm": -42.9,
+   "cuts": [
+    "accessory-nerve",
+    "cuneate-tubercle",
+    "gracile-tubercle",
+    "medulla"
+   ],
+   "radius": 0.024
+  },
+  "medulla-caudal": {
+   "p": [
+    0.0,
+    1.555297,
+    -0.019013
+   ],
+   "n": [
+    0.0,
+    0.92897,
+    0.37015
+   ],
+   "why": "Through the pyramidal decussation, across the long axis.",
+   "axisMm": -50.8,
+   "coulombeMm": -42.2,
+   "coulombeScaledMm": -49.1,
+   "cuts": [
+    "accessory-nerve",
+    "medulla",
+    "motor-decussation"
+   ],
+   "radius": 0.024
+  },
+  "cervicomedullary": {
+   "p": [
+    0.0,
+    1.548658,
+    -0.026865
+   ],
+   "n": [
+    0.0,
+    0.96777,
+    0.25184
+   ],
+   "why": "Upper cervical cord, about 7 mm (along the axis) below the decussation.",
+   "axisMm": -59.3,
+   "coulombeMm": -51.7,
+   "coulombeScaledMm": -60.2,
+   "cuts": [
+    "accessory-nerve",
+    "medulla"
+   ],
+   "radius": 0.024
+  },
+  "midsagittal": {
+   "p": [
+    0.0,
+    1.572,
+    -0.012
+   ],
+   "n": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "why": "The median plane.",
+   "cuts": [
+    "fourth-ventricle",
+    "motor-decussation",
+    "obex",
+    "pons",
+    "transverse-fibers-of-the-pons",
+    "trochlear-nerve"
+   ],
+   "radius": 0.05
+  }
+ },
+ "axis": [
+  [
+   0.0,
+   1.513,
+   -0.025317
+  ],
+  [
+   0.0,
+   1.516,
+   -0.025317
+  ],
+  [
+   0.0,
+   1.519,
+   -0.025453
+  ],
+  [
+   0.0,
+   1.522,
+   -0.026679
+  ],
+  [
+   0.0,
+   1.525,
+   -0.02841
+  ],
+  [
+   0.0,
+   1.528,
+   -0.028194
+  ],
+  [
+   0.0,
+   1.531,
+   -0.027762
+  ],
+  [
+   0.0,
+   1.534,
+   -0.025907
+  ],
+  [
+   0.0,
+   1.537,
+   -0.027389
+  ],
+  [
+   0.0,
+   1.54,
+   -0.027613
+  ],
+  [
+   0.0,
+   1.543,
+   -0.028441
+  ],
+  [
+   0.0,
+   1.546,
+   -0.027523
+  ],
+  [
+   0.0,
+   1.549,
+   -0.026804
+  ],
+  [
+   0.0,
+   1.552,
+   -0.025797
+  ],
+  [
+   0.0,
+   1.555,
+   -0.024799
+  ],
+  [
+   0.0,
+   1.558,
+   -0.023469
+  ],
+  [
+   0.0,
+   1.561,
+   -0.022155
+  ],
+  [
+   0.0,
+   1.564,
+   -0.020447
+  ],
+  [
+   0.0,
+   1.567,
+   -0.018629
+  ],
+  [
+   0.0,
+   1.57,
+   -0.016441
+  ],
+  [
+   0.0,
+   1.573,
+   -0.014419
+  ],
+  [
+   0.0,
+   1.576,
+   -0.012537
+  ],
+  [
+   0.0,
+   1.579,
+   -0.011088
+  ],
+  [
+   0.0,
+   1.582,
+   -0.00962
+  ],
+  [
+   0.0,
+   1.585,
+   -0.008016
+  ],
+  [
+   0.0,
+   1.588,
+   -0.006533
+  ],
+  [
+   0.0,
+   1.591,
+   -0.006911
+  ],
+  [
+   0.0,
+   1.594,
+   -0.007359
+  ],
+  [
+   0.0,
+   1.597,
+   -0.007865
+  ],
+  [
+   0.0,
+   1.6,
+   -0.00727
+  ],
+  [
+   0.0,
+   1.603,
+   -0.007454
+  ],
+  [
+   0.0,
+   1.606,
+   -0.008174
+  ],
+  [
+   0.0,
+   1.609,
+   -0.008625
+  ],
+  [
+   0.0,
+   1.612,
+   -0.008336
+  ],
+  [
+   0.0,
+   1.615,
+   -0.007562
+  ]
+ ],
+ "junctions": {
+  "pmj": 1.602963,
+  "pomj": 1.576585,
+  "obex": 1.5694,
+  "decussation": [
+   1.558525,
+   1.551495
+  ],
+  "coulombeScale": 1.164
+ },
+ "sources": [
+  "Z-Anatomy (CC BY-SA 4.0): every mesh; landmark patches are cut from its surfaces",
+  "Course Lab 7 wet-specimen photos (anterior and posterior views; external-anterior / external-posterior plates): relative positions of the colliculi, facial colliculus, obex, area postrema, tubercles, olives, pyramids, nerve roots",
+  "Sobotta 1909, figs. 647 (ventral), 659 (rhomboid fossa), 661 (lateral) - public domain",
+  "Coulombe et al. 2021, Front. Neuroanat. 15:627656 (CC BY 4.0): plate distances from the pontomesencephalic junction, used to check the section planes and to place the pyramidal decussation"
+ ]
+}

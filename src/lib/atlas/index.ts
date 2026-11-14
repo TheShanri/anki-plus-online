@@ -1,4 +1,5 @@
 import type { AtlasEntry, AtlasIndex } from "./types";
+import { withCranialNumeral } from "./cranial";
 
 export type { AtlasEntry, AtlasIndex, AtlasMapEntry } from "./types";
 
@@ -13,6 +14,11 @@ export function loadAtlasIndex(): Promise<AtlasIndex> {
       .then((r) => {
         if (!r.ok) throw new Error(`atlas index: HTTP ${r.status}`);
         return r.json() as Promise<AtlasIndex>;
+      })
+      .then((idx) => {
+        // cranial nerves (and their branches and nuclei) always show their Roman numeral
+        for (const e of Object.values(idx.structures)) e.name = withCranialNumeral(e.name);
+        return idx;
       })
       .catch((e) => {
         indexPromise = null;

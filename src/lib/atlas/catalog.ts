@@ -1,5 +1,6 @@
 import linksJson from "@/data/atlas-links.json";
 import { normalizeQuery } from "./index";
+import { withCranialNumeral } from "./cranial";
 import type { AtlasIndex } from "./index";
 import type { SliceQuality } from "./slices";
 import skullData from "@/data/atlas-skull.json";
@@ -95,7 +96,7 @@ export function buildCatalog(index: AtlasIndex): CatalogItem[] {
     if (!l.slices && !meshIds.length && !l.skull) continue;
     items.push({
       key: `slug:${slug}`,
-      name: l.name,
+      name: withCranialNumeral(l.name),
       region: l.skull ? (SKULL[slug]?.region ?? "skull") : l.slices ? "slices" : (index.structures[meshIds[0]]?.region ?? "other"),
       meshIds,
       approximate: true,

@@ -14,7 +14,7 @@ import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { readCssColor } from "@/lib/atlas/theme";
 import { trackAtlas } from "@/lib/atlas/progress";
 import {
-  Bone, Brain, ChevronDown, ChevronUp, Crosshair, FlipHorizontal2, LayoutGrid, Lock, LockOpen, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Tag,
+  Bone, Brain, Cable, ChevronDown, ChevronUp, Crosshair, FlipHorizontal2, LayoutGrid, Lock, LockOpen, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Sprout, Tag,
 } from "lucide-react";
 import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
@@ -25,7 +25,7 @@ import { BrainstemBreathDriver, onBrainstemBreath } from "./brainstem/plate/puls
 import { SectionFace } from "./section/SectionFace";
 import { DEEP, SectionOutlines, addSectionPaint, makeSectionPaint, tintPaint } from "./section/deep";
 import { planeSection } from "./section/geometry";
-import { SECTION_PALETTE, sectionSwatch } from "./section/palette";
+import { sectionPalette, sectionSwatch, useSectionTheme } from "./section/palette";
 import { insideTissue, setPalette, setSectionPlanes, setTissue } from "./section/shader";
 import { loadTissue } from "./section/tissue";
 
@@ -1095,6 +1095,30 @@ function Picker({
   return null;
 }
 
+/** A boolean preference kept in localStorage (per device). The viewer is client-only (dynamic import, no SSR). */
+function useStoredFlag(key: string, initial: boolean): [boolean, (v: boolean) => void] {
+  const [v, setV] = useState(() => {
+    try {
+      const s = typeof window === "undefined" ? null : window.localStorage.getItem(key);
+      return s === "1" ? true : s === "0" ? false : initial;
+    } catch {
+      return initial; // storage blocked
+    }
+  });
+  const set = useCallback(
+    (nv: boolean) => {
+      setV(nv);
+      try {
+        window.localStorage.setItem(key, nv ? "1" : "0");
+      } catch {
+        /* storage blocked */
+      }
+    },
+    [key],
+  );
+  return [v, set];
+}
+
 function Scene({
   loaded,
   gross,
@@ -1123,6 +1147,8 @@ function Scene({
   skull,
   layer,
   layerShow,
+  nerves,
+  showBrainstem,
   skullNodes,
   skullNames,
   onWarm,
@@ -1140,6 +1166,10 @@ function Scene({
   skull: SkullFocus | null;
   layer: THREE.Group[];
   layerShow: boolean;
+  /** cranial nerve meshes (the "Cranial nerves" toggle), or null while off / not loaded */
+  nerves: { id: string; g: THREE.Group }[] | null;
+  /** the gross brainstem meshes are drawn (the "Brainstem" toggle) */
+  showBrainstem: boolean;
   skullNodes: { prefix: string; slug: string }[];
   skullNames: Record<string, string>;
   onWarm: () => void;
@@ -1199,10 +1229,15 @@ function Scene({
   const grossHull = useMemo(() => makeHull("#6a4e46", 0.0008), []);
   const grossMats = useMemo(() => buildGrossMats(look), [look]);
   const sectionLook = look === "regions" ? "regions" : "brain";
+  const secTheme = useSectionTheme();
+  // the "Cranial nerves" toggle: one cream nerve tone, lit
+  const nerveMat = useMemo(() => new THREE.MeshStandardMaterial({ color: "#e9d9a6", emissive: "#5a4a20", emissiveIntensity: 0.25, roughness: 0.6, metalness: 0 }), []);
+  useEffect(() => () => nerveMat.dispose(), [nerveMat]);
+  const secPal = sectionPalette(sectionLook, secTheme);
   const deepMats = useMemo(() => {
     const out: Record<string, THREE.MeshStandardMaterial> = {};
     for (const d of DEEP) {
-      const c = colourCuts ? d.hue : sectionSwatch(d.tissue, sectionLook);
+      const c = colourCuts ? d.hue : sectionSwatch(d.tissue, sectionLook, secTheme);
       // seen as surfaces only beside a midsagittal cut (the thalamus wall of the third ventricle, the fornix): lit, but held near their tissue tone
       const m = new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.35, roughness: 0.8, metalness: 0, side: THREE.DoubleSide });
       flatInside(m);
@@ -1210,16 +1245,16 @@ function Scene({
       out[d.id] = m;
     }
     return out;
-  }, [colourCuts, sectionLook]);
+  }, [colourCuts, sectionLook, secTheme]);
   useEffect(() => () => Object.values(deepMats).forEach((m) => m.dispose()), [deepMats]);
   // the cut face of each deep structure (and of a selected structure): tissue on the plane, see section/deep.tsx
   const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue, d.shade, { under: d.under, midSkip: d.midSkip })])) as Record<string, THREE.MeshBasicMaterial>, []);
   const targetPaint = useMemo(() => makeSectionPaint("grey"), []);
   useEffect(() => () => [...Object.values(paintMats), targetPaint].forEach((m) => m.dispose()), [paintMats, targetPaint]);
   useEffect(() => {
-    setPalette(SECTION_PALETTE[sectionLook]);
+    setPalette(sectionPalette(sectionLook, secTheme));
     invalidate();
-  }, [sectionLook, tissueOk, invalidate]);
+  }, [sectionLook, secTheme, tissueOk, invalidate]);
   const hoverMat = useMemo(
     () =>
       new THREE.MeshBasicMaterial({ color: hoverColor, transparent: true, opacity: 0.55, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }),
@@ -1529,14 +1564,39 @@ function Scene({
     }
     setSectionPlanes(gp, midsagittal ? clipPlane : null);
     setPlanes(boneMat, gp, true);
+    setPlanes(nerveMat, gp, true);
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, boneMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, boneMat, nerveMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
   const grossOn = showCtx && look !== "xray" && !!gross;
+  // ids hidden from the gross brain: a selected structure (drawn by its own layer) and, with the toggle off, the brainstem
+  const grossHidden = useMemo(() => {
+    if (showBrainstem) return hiddenIds;
+    const out = new Set(hiddenIds);
+    for (const [id, m] of grossById) if (m.userData.g === "brainstem") out.add(id);
+    return out;
+  }, [hiddenIds, showBrainstem, grossById]);
+  const nerveRoot = useMemo(() => {
+    if (!nerves || look === "xray") return null;
+    const root = new THREE.Group();
+    for (const { id, g } of nerves) {
+      if (hiddenIds.has(id)) continue; // a selected nerve is drawn by its own layer
+      const c = g.clone(true);
+      c.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        m.material = nerveMat;
+        m.userData.gid = id;
+        m.userData.nerve = true;
+      });
+      root.add(c);
+    }
+    return root;
+  }, [nerves, look, hiddenIds, nerveMat]);
   const deepRoot = useMemo(() => {
     if (!deep) return null;
     const root = new THREE.Group();
@@ -1565,11 +1625,12 @@ function Scene({
     invalidate();
   }, [deepRoot, midsagittal, invalidate]);
   useEffect(() => {
-    setGrossVisible(grossById, grossOn, hiddenIds);
+    setGrossVisible(grossById, grossOn, grossHidden);
     const list: THREE.Mesh[] = [];
     eachMesh(targetRoot, (m) => list.push(m));
     eachMesh(ovlRoot, (m) => list.push(m));
-    if (grossOn && solid) for (const [id, m] of grossById) if (!hiddenIds.has(id)) list.push(m);
+    if (grossOn && solid) for (const [id, m] of grossById) if (!grossHidden.has(id)) list.push(m);
+    if (nerveRoot) eachMesh(nerveRoot, (m) => list.push(m));
     if (deepRoot) eachMesh(deepRoot, (m) => list.push(m));
     for (const r of layerRoots)
       r.traverse((o) => {
@@ -1582,7 +1643,7 @@ function Scene({
     });
     pickables.current = list;
     invalidate();
-  }, [grossById, grossOn, solid, hiddenIds, targetRoot, ovlRoot, deepRoot, layerRoots, skullGroup, invalidate]);
+  }, [grossById, grossOn, solid, grossHidden, nerveRoot, targetRoot, ovlRoot, deepRoot, layerRoots, skullGroup, invalidate]);
 
   // hover highlight: a pooled tinted copy of the hovered mesh(es), parented to the source so transforms follow
   const pool = useMemo(
@@ -1618,12 +1679,16 @@ function Scene({
         eachMesh(deepRoot, (d) => d.userData.gid === hover.id && list.push(d));
         grossHover = list.length > 0;
       }
+      if (!list.length && nerveRoot) {
+        eachMesh(nerveRoot, (d) => d.userData.gid === hover.id && list.push(d));
+        grossHover = list.length > 0;
+      }
     }
     setPickPlanes(hoverMat, grossHover ? grossPlanes.current : ownPlanes.current);
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, layerRoots, perMesh, sectionOn, invalidate]);
+  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, nerveRoot, layerRoots, perMesh, sectionOn, invalidate]);
 
   // in a section, a hovered deep structure tints its own cut face (not its whole body behind the plane); a selected one is in the accent
   useEffect(() => {
@@ -1652,7 +1717,7 @@ function Scene({
   useEffect(() => {
     const ray = new THREE.Raycaster();
     probeRef.current = (dir, mid) => {
-      const shell = pickables.current.filter((m) => m.userData.gid !== undefined && !m.userData.deep && m.visible);
+      const shell = pickables.current.filter((m) => m.userData.gid !== undefined && !m.userData.deep && !m.userData.nerve && m.visible);
       if (!shell.length || !solid || !grossOn) return 1;
       targetRoot.updateMatrixWorld(true);
       const pts: THREE.Vector3[] = [];
@@ -1712,9 +1777,10 @@ function Scene({
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
       {deepRoot && grossOn && <primitive object={deepRoot} />}
-      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={SECTION_PALETTE[sectionLook].wm} medial={midsagittal ? clipPlane : null} />}
+      {nerveRoot && <primitive object={nerveRoot} />}
+      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} />}
       {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
-      {outlineRoots.length > 0 && <SectionOutlines roots={outlineRoots} planes={capPlanes} version={outlineKey} color={SECTION_PALETTE[sectionLook].line} />}
+      {outlineRoots.length > 0 && <SectionOutlines roots={outlineRoots} planes={capPlanes} version={outlineKey} color={secPal.line} />}
       <primitive object={ovlRoot} />
       <primitive object={targetRoot} />
       {guides.map((g, i) => (
@@ -1834,6 +1900,11 @@ export default function AtlasViewer({
   const [cssFs, setCssFs] = useState(false);
   // skull & spine layer: automatic from the selection type, with a manual override that holds until the type changes
   const [layerOv, setLayerOv] = useState<{ auto: boolean; v: boolean } | null>(null);
+  // the cranial-nerve and brainstem layers: on/off like the skull and spine, remembered on this device
+  const [showNerves, setShowNerves] = useStoredFlag("atlas.layer.nerves", false);
+  const [showBrainstem, setShowBrainstem] = useStoredFlag("atlas.layer.brainstem", true);
+  const [nerves, setNerves] = useState<{ id: string; g: THREE.Group }[] | null>(null);
+  const [nervesFailed, setNervesFailed] = useState(false);
   const layerOn = layerOv && layerOv.auto === layerAuto ? layerOv.v : layerAuto;
   useEffect(() => {
     onLayerChange?.(layerOn);
@@ -2074,6 +2145,7 @@ export default function AtlasViewer({
   // the tissue volume the section faces paint (grey ribbon, white matter, sulci, ventricles): fetched with the deep structures
   const [tissueOk, setTissueOk] = useState(false);
   const [colourCuts, setColourCuts] = useState(false);
+  const secThemeKey = useSectionTheme();
   useEffect(() => {
     if (!cutNow || tissueOk) return;
     let alive = true;
@@ -2087,6 +2159,18 @@ export default function AtlasViewer({
       alive = false;
     };
   }, [cutNow, tissueOk]);
+  // cranial nerve meshes, fetched the first time the layer is switched on
+  useEffect(() => {
+    if (!showNerves || nerves || nervesFailed || !index) return;
+    let alive = true;
+    const ids = resolveStructureIds(index, ["cranial-nerves"], 200).filter((id) => index.structures[id]?.file);
+    Promise.all(ids.map((id) => loadAtlasModel(index.structures[id].file as string).then((g) => ({ id, g }))))
+      .then((r) => alive && setNerves(r))
+      .catch(() => alive && setNervesFailed(true));
+    return () => {
+      alive = false;
+    };
+  }, [showNerves, nerves, nervesFailed, index]);
   const deepLoading = cutNow && !deep && !deepFailed;
   const [keyOpen, setKeyOpen] = useState(() => (typeof window === "undefined" ? true : window.innerWidth >= 640));
   // a narrow viewer (info panel open) drops the view name and the dividers so the bar stays on one row
@@ -2161,7 +2245,7 @@ export default function AtlasViewer({
     if (cut) cutPlane(clip.axis, clipRange[0] + clip.t * (clipRange[1] - clipRange[0]), clip.flip, cut);
     const planes = [mid, cut].filter((p): p is THREE.Plane => !!p);
     const sl = look === "regions" ? "regions" : "brain";
-    const pal = SECTION_PALETTE[sl];
+    const pal = sectionPalette(sl, secThemeKey);
     const out: { id: string; name: string; colour: string }[] = [];
     const behind = (e: AtlasEntry, pl: THREE.Plane, depth: number) => {
       if (!e.bbox) return false;
@@ -2190,14 +2274,14 @@ export default function AtlasViewer({
           if (segs.length) hit = true;
         });
       });
-      if (hit) out.push({ id: d.id, name: e.name, colour: colourCuts ? d.hue : sectionSwatch(d.tissue, sl) });
+      if (hit) out.push({ id: d.id, name: e.name, colour: colourCuts ? d.hue : sectionSwatch(d.tissue, sl, secThemeKey) });
     }
     for (const id of ["brainstem", "cerebellum"]) {
       const e = index.structures[id];
       if (e && planes.every((pl) => behind(e, pl, 0))) out.push({ id, name: e.name, colour: `linear-gradient(135deg, ${pal.gm} 50%, ${pal.wm} 50%)` });
     }
     return out;
-  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts]);
+  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts, secThemeKey]);
   const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
@@ -2458,6 +2542,8 @@ export default function AtlasViewer({
     else if (k === "l" && !quiz && !hideLabels) setShowLabels((x) => !x);
     else if (k === "h") setShowCtx((x) => !x);
     else if (k === "k" && shortcuts && !layerMissing) setLayerOv({ auto: layerAuto, v: !layerOn });
+    else if (k === "e" && shortcuts) setShowNerves(!showNerves);
+    else if (k === "w" && shortcuts) setShowBrainstem(!showBrainstem);
     else if (k === "g" && onToggleNeighbors) onToggleNeighbors();
     else if (k === "m" && multiview && !cut) toggleMulti();
     else if (k === "f" && !multi) setFrameTick((n) => n + 1);
@@ -2553,6 +2639,8 @@ export default function AtlasViewer({
             skull={skull}
             layer={layerOn || skull ? layerGroups : EMPTY_LAYER}
             layerShow={layerOn}
+            nerves={showNerves ? nerves : null}
+            showBrainstem={showBrainstem}
             skullNodes={skullNodes}
             skullNames={skullNames}
             onWarm={onWarm}
@@ -2797,6 +2885,8 @@ export default function AtlasViewer({
                 <IconBtn label={showCtx ? "Hide shell" : "Show shell"} keys="H" on={showCtx} onClick={() => setShowCtx((s) => !s)} icon={<ShellIcon />} />
                 {onToggleNeighbors && <IconBtn label="Highlight neighbours" keys="G" on={neighbors} onClick={onToggleNeighbors} icon={<NeighborIcon />} />}
                 {shortcuts && !layerMissing && <IconBtn label={layerOn ? "Hide the skull and spine layer" : "Show the skull and spine layer"} keys="K" on={layerOn} onClick={() => setLayerOv({ auto: layerAuto, v: !layerOn })} icon={<Bone />} />}
+                {shortcuts && <IconBtn label={showNerves ? "Hide the cranial nerves" : "Show the cranial nerves"} keys="E" on={showNerves} onClick={() => setShowNerves(!showNerves)} icon={<Cable />} />}
+                {shortcuts && <IconBtn label={showBrainstem ? "Hide the brainstem" : "Show the brainstem"} keys="W" on={showBrainstem} onClick={() => setShowBrainstem(!showBrainstem)} icon={<Sprout />} />}
               </Group>
               {(multiview && !cut) || canFs || toolbarExtra ? <Divider /> : null}
               <Group label="Layout">

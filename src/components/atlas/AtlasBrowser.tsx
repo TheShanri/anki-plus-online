@@ -1,5 +1,6 @@
 "use client";
 
+import { withCranialNumeral } from "@/lib/atlas/cranial";
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Lock, PanelLeft, PanelRight } from "lucide-react";
@@ -195,10 +196,10 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       const t = atlasTargetForCourseName(courseName);
       if (t?.slug) {
         const it = items.find((i) => i.slug === t.slug && !i.group);
-        if (it) return { ...it, name: courseName };
+        if (it) return { ...it, name: withCranialNumeral(courseName) };
       }
       if (t && t.ids.length) {
-        return { key: t.ids[0], name: courseName, region: "other", meshIds: t.ids, approximate: t.approximate, slug: t.slug ?? null, slices: t.slices ?? null, hay: "", group: false };
+        return { key: t.ids[0], name: withCranialNumeral(courseName), region: "other", meshIds: t.ids, approximate: t.approximate, slug: t.slug ?? null, slices: t.slices ?? null, hay: "", group: false };
       }
     }
     if (!primaryKey) return null;

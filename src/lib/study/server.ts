@@ -358,6 +358,24 @@ export async function buildStudyPayload(
   const rows = [...firstRows, ...extraRows];
   const allIds = rows.map((r) => r.id);
   const cards = rows.map(toStudyCard);
+  // A practical follow-up ("True or false: this structure ...") is about the pin of the question before it (content.after_pin).
+  // When it comes up on its own (learning, review), it still shows that pin's image, or "this structure" points at nothing.
+  const afterPin = new Map<number, string>();
+  rows.forEach((r, i) => {
+    const ap = (r.content as { after_pin?: unknown } | null)?.after_pin;
+    if (typeof ap === "string" && !cards[i].image) afterPin.set(i, ap);
+  });
+  if (afterPin.size) {
+    const bySlug = new Map(rows.map((r) => [r.slug, r]));
+    const missing = [...new Set(afterPin.values())].map((s) => slugToId.get(s)).filter((id): id is string => !!id && !have.has(id) && !extraIds.includes(id));
+    const pinRows = missing.length ? await fetchRowsByIds<CardRow>(sb, "cards", "id, slug, kind, topic_id, structure_id, position, content, media", missing) : [];
+    for (const r of pinRows) bySlug.set(r.slug, r);
+    for (const [i, slug] of afterPin) {
+      const pr = bySlug.get(slug);
+      const img = pr ? toStudyCard(pr).image : undefined;
+      if (img) cards[i] = { ...cards[i], image: img };
+    }
+  }
 
   const haveStruct = new Set(structFirst.map((r) => r.id));
   const moreStructIds = [...new Set(cards.map((c) => c.structureId).filter((x): x is string => !!x && !haveStruct.has(x)))];

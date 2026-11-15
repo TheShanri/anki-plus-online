@@ -67,7 +67,7 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
   --bsp-ink: var(--text);
   --bsp-tissue: color-mix(in srgb, var(--text) 6%, var(--bsp-paper));
   --bsp-wm: color-mix(in srgb, var(--text) 21%, var(--bsp-paper));
-  --bsp-gm: color-mix(in srgb, var(--accent-2) 20%, var(--bsp-paper));
+  --bsp-gm: color-mix(in srgb, var(--accent-2) 27%, var(--bsp-paper));
   --bsp-space: var(--bsp-paper);
   --bsp-hi: var(--accent);
   display: block; width: 100%; height: auto; background: var(--bsp-paper); user-select: none; -webkit-user-select: none;

@@ -257,7 +257,7 @@ EXTRAS = {
             "note": "The thin white band between the grey commissure and the anterior median fissure, where the spinothalamic (anterolateral) fibres cross.",
         },
         "dorsal-columns": {
-            "from": ["fasciculus-gracilis", "fasciculus-cuneatus"], "tissue": "landmark", "approx": False,
+            "from": ["fasciculus-gracilis", "fasciculus-cuneatus"], "tissue": "zone", "approx": False,
             "anchor_out": ["fasciculus-gracilis", "fasciculus-cuneatus"],
             "src": ["Lecture 4 slide 30 (course: the dorsal, lateral and ventral funiculi)", "Lab 5 (course: dorsal columns)", STD],
             "note": "The posterior funiculus: fasciculus gracilis (medial, lower body) and fasciculus cuneatus (lateral, upper body), both hoverable inside.",

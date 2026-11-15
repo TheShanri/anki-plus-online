@@ -191,6 +191,69 @@ when it shows the structure, surfaces are used for olives, obex, tubercles, area
 Screens checked headless (1440x900 and 390x844): every new and changed plate, hover callouts on both halves, the info
 drawer. Shots (course images inside, not committed) were saved to the agent scratchpad.
 
+## 3D brainstem (2026-11-15): external landmarks, level planes, Explore focus
+
+**Where.** `/atlas/brainstem` has a Plates | 3D toggle (`V`, deep link `?view=3d&level=<slug>`); in Plates view a small 3D
+locator (oblique view) sits under the level list (below the plate on phones) with every plane and the current one lit.
+Explore has a **Brainstem** tab (`/atlas?view=brainstem`): same model and planes; a landmark click becomes Explore's
+selection (notes + the docked plate follow), a plane or level click opens that plate beside the model with a link to the
+atlas. Code: `src/components/atlas/brainstem/three/` (`Brainstem3D.tsx`, `BrainstemFocus.tsx`, `model.ts`, `bs3d.css`),
+lazy-loaded (`next/dynamic`); the hook into `AtlasBrowser` is one tab + one dynamic import.
+
+**Model.** `tools/brainstem/bs3d/build.py` -> `public/atlas/brainstem3d.glb` (593 KB, meshopt, 81 parts, ~101k triangles,
+Z-Anatomy space = gross.glb space) + `src/data/brainstem-3d.json` (parts, label anchors, planes, sources). Real Z-Anatomy
+meshes (CC BY-SA 4.0): midbrain, pons, medulla, cerebral peduncles, SCP (cut at z -31 mm), ICP, brachium of the IC (the
+part of the Z-Anatomy IC mesh outside the tectum), MGN, LGN, pineal, mammillary bodies, optic chiasm/tract/nerve stubs,
+olfactory tract stub, thalamus, upper cervical cord, nerves III, IV, VI, VII, VIII, IX, X, XII (roots clipped outside the
+brainstem within 9-16 mm of the exit, thickened 0.1-0.45 mm to be pickable). Patches cut out of the real surface along a
+smooth field (exact triangle splitting, so outlines are curves): superior/inferior colliculi (the tectal bumps of the
+midbrain mesh), facial colliculus, floor of the 4th ventricle (surface under the Z-Anatomy ventricle cast), obex, area
+postrema, gracile/cuneate tubercles, olives / pyramids (surface over the buried Z-Anatomy olive / pyramid meshes),
+pyramidal decussation, interpeduncular fossa, basilar pons (transverse fibres), MCP (pons lateral to the trigeminal
+roots), pulvinar (thalamus over the MRI-carved mni-pulvinar). Authored (approximate, flagged in the hover chip):
+trochlear nerve's dorsal exit and turn round the midbrain, accessory nerve (course: absent on the lab brainstems),
+trigeminal root (see below). Hypothalamus left out (it hid the mammillary bodies and the IPF).
+
+**Landmark sources.** The model's own relief (depth maps of the dorsal midbrain and the 4th-ventricle floor), the
+course Lab 7 photos (relative positions on the external-anterior/-posterior plates: FC at the level of the MCP/ICP
+stumps 2-3 mm off the midline, area postrema just above the obex, gracile tubercle beside the posterior median sulcus at
+the obex, cuneate lateral and slightly higher, V at 43 % of the pons height), Sobotta 1909 figs. 647/659/661 (public
+domain), Coulombe et al. 2021 (CC BY; decussation from plates 40-43). Course vs Z-Anatomy: the Z-Anatomy trigeminal root
+attaches at 22 % of the pons height; the course specimen and the model's own intrapontine motor root put it at ~43 %, so
+the root is drawn there (course wins). Side-by-side: `_atlas/bs3d_shots/cmp_lab7_side_by_side.png` (course photos inside,
+not committed).
+
+**Planes (calibration).** Each plate level is a plane through landmarks the plate itself shows, oriented across the long
+axis (a line fitted over +-8 mm of the brainstem's midline sagittal centre line). Axis distance from the ventral
+pontomesencephalic junction vs Coulombe et al. 2021 scaled by pons length (model 25.5 mm / theirs ~24 mm = 1.16):
+
+| Level | Through | Axis mm | Coulombe (scaled) |
+|---|---|---|---|
+| midbrain-sc | superior colliculi + oculomotor roots in the IPF | +5.2 | +10.1 (+11.8) |
+| midbrain-ic | inferior colliculi + top of the basilar pons | 0.0 | +3.2 (+3.7) |
+| pons-mid | trigeminal roots (and intrapontine motor roots) | -13.2 | -17.1 (-19.9) |
+| pons-caudal | facial colliculi + caudal basilar pons 2.5 mm above the PoMJ | -24.2 | -21.3 (-24.8) |
+| medulla-rostral | mid-height of the olives | -35.8 | -26.3 (-30.6) |
+| medulla-mid | gracile/cuneate tubercles, below the obex | -44.1 | -36.9 (-42.9) |
+| medulla-caudal | pyramidal decussation | -50.8 | -42.2 (-49.1) |
+| cervicomedullary | 7 mm below the decussation | -59.3 | -51.7 (-60.2) |
+| midsagittal | median plane (shown when current or hovered) | - | - |
+
+Differences: the Z-Anatomy midbrain is short (16 mm), so the SC plane sits closer to the PMJ; Coulombe's plate 28 is the
+rostral tip of the olive, the course level is its middle.
+
+**Coverage.** `node tools/brainstem/coverage.mjs` now ends with a 3D section: 43 external landmarks and nerves pickable,
+0 gaps; not drawn in 3D (internal, plates only): third ventricle, cerebral aqueduct, anterior nucleus of the thalamus,
+epithalamus (pineal is pickable), hypothalamus, pituitary stalk, mesencephalic flexure; every plate level has a plane.
+
+**Shots** (`_atlas/bs3d_shots/`, 1440x900 `w_*`, 390x844 `p_*`): `w_3d_anterior`, `w_3d_posterior`, `w_3d_lateral`,
+`w_ant_hover`, `w_lat_hover`, `w_plane_hover_a` (plane preview), `w_3d_click_olive` (landmark -> plates list),
+`w_plate_to_3d_selected` (plate pick -> lit in 3D), `w_plate_inset`, `w_explore_focus`, `w_explore_plane_plate`,
+`p_sheet` (phone: 3D, plate + locator, Explore focus).
+
+**Open.** Lighting is quiet but flat-ish at a distance; patch outlines are faint by design. The 3D view has no labels
+pinned on screen (hover only). Rebuild: `tools/.venv/Scripts/python.exe -I tools/brainstem/bs3d/build.py` (~2 min).
+
 ## Next
 - Pathway tracer v3 can swap its `BrainstemInset` adapter for `BrainstemRef` (same props); not done here (its files).
 - Gross toggle stays disabled: no gross section of any level in the course or the open sets.

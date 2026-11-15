@@ -195,30 +195,35 @@ export const BLOCKABLE: Record<string, string> = {
 };
 
 /** Drainage (lecture 16 slides 27-30). Sinus meshes exist in the atlas; the great cerebral vein, bridging veins and the jugular are schematic. */
-export type VeinStep = { title: string; text: string; ids: string[]; src: string };
+/** `view`: the camera view each step reads best from (the Drainage layer moves to it on entering the step). */
+export type VeinStep = { title: string; text: string; ids: string[]; src: string; view: "superior" | "midsagittal" | "posterior" | "left" };
 export const VEIN_STEPS: VeinStep[] = [
   {
     title: "Superficial veins to the superior sagittal sinus",
     text: "Veins on the surface of the brain (subarachnoid space) reach the dural sinuses through bridging veins, which pass through the inner (meningeal) layer of the dura.",
     ids: ["bridging", "sss"],
+    view: "superior", // the superior sagittal sinus runs along the top of the brain
     src: "Lecture 16, slide 29",
   },
   {
     title: "Deep veins to the straight sinus",
     text: "Deep cerebral veins do not use bridging veins. They converge into the great cerebral vein, which drains directly into the straight sinus.",
     ids: ["gcv", "straight"],
+    view: "midsagittal", // deep midline veins and the straight sinus along the falx/tentorium junction
     src: "Lecture 16, slide 30",
   },
   {
     title: "The confluence of sinuses",
     text: "Most dural sinuses drain toward the confluence of sinuses, at the junction of the falx cerebri and the tentorium cerebelli.",
     ids: ["confluence"],
+    view: "posterior", // the confluence sits at the back, behind the occipital lobes
     src: "Lecture 16, slide 28",
   },
   {
     title: "Sigmoid sinus to the jugular vein",
     text: "From the confluence the sigmoid sinus wraps around the posterior cranial fossa and drains into the internal jugular vein, then to the heart.",
     ids: ["transverse", "sigmoid", "ijv"],
+    view: "left", // transverse and sigmoid sinuses wrap the side of the posterior fossa
     src: "Lecture 16, slide 28",
   },
 ];

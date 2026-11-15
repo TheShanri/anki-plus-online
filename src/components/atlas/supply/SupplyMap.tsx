@@ -433,6 +433,10 @@ export function SupplyMap() {
     // the viewer eases to the named view with its own (looser) fit; then the brain is fitted like the first frame
     setFrame((f) => ({ n: f.n + 1, dir: VIEW_DIR[view], after: 540 }));
   }, []);
+  // Drainage: each step opens from the view that shows its sinuses (the superior sagittal sinus is dorsal: Superior, not Inferior)
+  useEffect(() => {
+    if (mode === "veins") askView(VEIN_STEPS[vstep].view);
+  }, [mode, vstep, askView]);
 
   useEffect(() => {
     if (quizOn) return;

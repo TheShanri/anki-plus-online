@@ -330,7 +330,8 @@ def main():
             add(f"{prefix or slug}.{side}" if side != "M" else (prefix or slug), slug, side, m, kind, approx, note, name)
 
     real("base-of-peduncle", "cerebral-peduncles")
-    real("superior-cerebellar-peduncle", "superior-cerebellar-peduncle", keep=lambda c, s: c[:, 2] > -31.0, note="Cut where it enters the cerebellum.")
+    for side, m in load("superior-cerebellar-peduncle").items():  # a clean cut (exact split) where it enters the cerebellum
+        add(f"superior-cerebellar-peduncle.{side}", "superior-cerebellar-peduncle", side, split(m, m.V[:, 2] + 30.5)[0], "mesh", note="Cut where it enters the cerebellum.")
     real("mni-inferior-cerebellar-peduncle", "inferior-cerebellar-peduncle", note="Cut where it enters the cerebellum.")
     midD = Dist(M.cat(list(host["midbrain"].values())), 60000)
     real("inferior-colliculus", "brachium-of-the-inferior-colliculus",
@@ -357,14 +358,14 @@ def main():
     NERVES = [
         ("olfactory-nerve-i", "olfactory-nerve", 20, 0.0),
         ("optic-nerve-ii", "optic-nerve", 14, 0.0),
-        ("oculomotor-nerve-iii", "oculomotor-nerve", 15, 0.35),
-        ("trochlear-nerve-iv", "trochlear-nerve", 16, 0.15),
-        ("abducens-nerve-vi", "abducens-nerve", 14, 0.2),
-        ("facial-nerve-vii", "facial-nerve", 10, 0.3),
-        ("vestibulocochlear-nerve-viii", "vestibulocochlear-nerve", 9, 0.45),
-        ("glossopharyngeal-nerve-ix", "glossopharyngeal-nerve", 10, 0.15),
-        ("vagus-nerve-x", "vagus-nerve", 11, 0.2),
-        ("hypoglossal-nerve-xii", "hypoglossal-nerve", 9, 0.1),
+        ("oculomotor-nerve-iii", "oculomotor-nerve", 15, 0.1),
+        ("trochlear-nerve-iv", "trochlear-nerve", 16, 0.02),
+        ("abducens-nerve-vi", "abducens-nerve", 14, 0.04),
+        ("facial-nerve-vii", "facial-nerve", 10, 0.08),
+        ("vestibulocochlear-nerve-viii", "vestibulocochlear-nerve", 9, 0.12),
+        ("glossopharyngeal-nerve-ix", "glossopharyngeal-nerve", 10, 0.03),
+        ("vagus-nerve-x", "vagus-nerve", 11, 0.05),
+        ("hypoglossal-nerve-xii", "hypoglossal-nerve", 9, 0.02),
     ]
     exits = {}
     for sid, slug, R, infl in NERVES:
@@ -398,7 +399,9 @@ def main():
                 v_, f_ = fast_simplification.simplify(cm.vertices, cm.faces, target_reduction=0.8)
                 cm = trimesh.Trimesh(v_, f_, process=False)
             mm = M(cm.vertices, cm.faces)
-            mm.V = mm.V + mm.N * infl
+            de = np.linalg.norm(mm.V - ex, axis=1)
+            tap = np.clip((de - (R - 2.5)) / 2.5, 0, 1) ** 1.5 if slug not in ("olfactory-nerve", "optic-nerve") else np.zeros(len(mm.V))
+            mm.V = mm.V + mm.N * (infl * (1 - tap) - 0.22 * tap)[:, None]
             exits[f"{slug}.{side}"] = ex
             add(f"{slug}.{side}", slug, side, mm, "nerve")
 
@@ -415,7 +418,8 @@ def main():
         ref = np.array([0, 0, 1.0]) if abs(T[0, 2]) < 0.9 else np.array([1.0, 0, 0])
         for i in range(steps):
             a = np.cross(T[i], ref); a /= np.linalg.norm(a); b = np.cross(T[i], a)
-            rr = r(i / (steps - 1)) if callable(r) else r
+            u_ = i / (steps - 1)
+            rr = (r(u_) if callable(r) else r) * (1 - 0.6 * min(1.0, max(0.0, (u_ - 0.82) / 0.18)) ** 1.5)
             for j in range(n):
                 th = 2 * np.pi * j / n
                 d = np.cos(th) * a + np.sin(th) * b
@@ -424,13 +428,13 @@ def main():
             for j in range(n):
                 a0, a1 = i * n + j, i * n + (j + 1) % n
                 b0, b1 = a0 + n, a1 + n
-                F += [(a0, b0, a1), (a1, b0, b1)]
+                F += [(a0, a1, b0), (a1, b1, b0)]  # outward-facing
         # end caps
         for i, rev in ((0, True), (steps - 1, False)):
             ci = len(V); V.append(C[i]); Nn.append(-T[i] if rev else T[i])
             for j in range(n):
                 a0, a1 = i * n + j, i * n + (j + 1) % n
-                F.append((ci, a1, a0) if rev else (ci, a0, a1))
+                F.append((ci, a0, a1) if rev else (ci, a1, a0))
         return M(np.array(V), np.array(F), np.array(Nn))
 
     # trochlear: the dorsal exit just below the inferior colliculus, around the lateral midbrain to the Z-Anatomy root
@@ -441,7 +445,7 @@ def main():
             end = V[np.argmin(V[:, 2])]  # its posterior-most point
             pts = [np.array([sg * 2.4, 1600.8, -21.4]), np.array([sg * 6.5, 1601.4, -21.2]), np.array([sg * 11.0, 1602.2, -17.0]), np.array([sg * 14.2, 1602.6, -10.5])]
             pts = [bodyD.pts[bodyD.kd.query(q)[1]] + bodyD.nrm[bodyD.kd.query(q)[1]] * 0.6 for q in pts]
-            iv[0]["m"] = M.cat([iv[0]["m"], tube(pts + [end], 0.42)])
+            iv[0]["m"] = M.cat([iv[0]["m"], tube(pts + [end], 0.28)])
             iv[0]["note"] = "Its dorsal exit below the inferior colliculus and the turn around the midbrain are drawn (approximate); the rest is the Z-Anatomy nerve."
     # trigeminal: the Z-Anatomy root attaches ~6 mm higher than on the course specimen (V at 43 % of the pons height on the
     # Lab 7 ventral photo, Z-Anatomy 22 %); the root is drawn at the course level, where the model's own intrapontine motor
@@ -454,8 +458,8 @@ def main():
         ex = bodyD.pts[i]
         nn = bodyD.nrm[i]
         pts = [ex - nn * 1.0, ex + np.array([sg * 3.2, 0.6, 4.2]), ex + np.array([sg * 6.5, 1.4, 9.0]), ex + np.array([sg * 9.0, 2.2, 13.5])]
-        root = tube(pts, lambda u: 2.0 - 0.25 * u, 14, 40)
-        motor = tube([p + np.array([-sg * 0.3, 2.0, -0.4]) for p in pts], 0.55, 8, 30)
+        root = tube(pts, lambda u: 1.25 - 0.2 * u, 14, 40)
+        motor = tube([p + np.array([-sg * 0.25, 1.5, -0.3]) for p in pts], 0.32, 8, 30)
         exits[f"trigeminal-nerve.{side}"] = ex
         add(f"trigeminal-nerve.{side}", "trigeminal-nerve", side, M.cat([root, motor]), "nerve", True,
             "Drawn at the course specimen's level (Lab 7 ventral view: about 43 % down the pons, at the junction with the middle cerebellar peduncle); the large sensory root with the small motor root above it.")
@@ -463,14 +467,14 @@ def main():
     # accessory: spinal rootlets up the lateral cord to the jugular foramen with the vagus (the course specimens lack it)
     for side, sg in (("L", 1), ("R", -1)):
         pts = [(sg * 6.4, 1523.0, -27.4), (sg * 6.9, 1530.0, -26.8), (sg * 8.2, 1544.0, -25.0), (sg * 10.6, 1558.0, -21.5), (sg * 13.5, 1566.0, -18.0), (sg * 17.5, 1569.5, -14.5)]
-        add(f"accessory-nerve.{side}", "accessory-nerve", side, tube(pts, 0.45), "nerve", True,
+        add(f"accessory-nerve.{side}", "accessory-nerve", side, tube(pts, 0.32), "nerve", True,
             "Drawn (approximate): the spinal accessory root rising along the lateral cord beside the medulla to join the vagus at the jugular foramen. The course notes it is not present on the lab brainstems.")
         for k, yy in enumerate([1527.0, 1536.0, 1546.0]):
             q = np.interp(yy, [p[1] for p in pts], np.arange(len(pts)))
             i = int(q); f = q - i
             a = np.array(pts[i]) * (1 - f) + np.array(pts[min(i + 1, len(pts) - 1)]) * f
             root = np.array([sg * 5.0, yy - 2.5, a[2] - 0.8])
-            parts[-1 - 0]["m"] = M.cat([parts[-1]["m"], tube([root, (root + a) / 2 + np.array([sg * 0.6, 0, 0]), a], 0.18, 6, 12)])
+            parts[-1 - 0]["m"] = M.cat([parts[-1]["m"], tube([root, (root + a) / 2 + np.array([sg * 0.6, 0, 0]), a], 0.12, 6, 12)])
 
     # ---- names and anchors
     ROMAN = {"olfactory-nerve": "I", "optic-nerve": "II", "oculomotor-nerve": "III", "trochlear-nerve": "IV", "trigeminal-nerve": "V", "abducens-nerve": "VI",
@@ -572,6 +576,32 @@ def main():
         rec["radius"] = 0.024 if lv != "midsagittal" else 0.05
         levels[lv] = rec
 
+    # ---- baked occlusion (vertex colour): for every vertex, the share of the surrounding surface (within 2.4 mm) that
+    # lies in front of it; grooves, sulci, the roots of nerves and the borders of bumps darken, crests stay light
+    for q in parts:  # a few non-finite vertices come with the mni-pulvinar carving: drop their faces first
+        bad = ~np.isfinite(q["m"].V).all(1)
+        if bad.any():
+            q["m"] = q["m"].faces(~bad[q["m"].F].any(1))
+    allv = np.vstack([q["m"].V for q in parts])
+    alln = np.vstack([q["m"].N for q in parts])
+    tm_all = trimesh.Trimesh(allv, np.vstack([q["m"].F + o for q, o in zip(parts, np.cumsum([0] + [len(q["m"].V) for q in parts[:-1]]))]), process=False)
+    samp, _ = trimesh.sample.sample_surface(tm_all, 160000, seed=2)
+    kd_all = cKDTree(samp)
+    for q in parts:
+        V, Nn = q["m"].V, q["m"].N
+        ao = np.ones(len(V))
+        for a0 in range(0, len(V), 20000):
+            v, n = V[a0:a0 + 20000], Nn[a0:a0 + 20000]
+            d, idx = kd_all.query(v, k=64, distance_upper_bound=2.4)
+            ok = np.isfinite(d)
+            idx = np.where(ok, idx, 0)
+            rel = samp[idx] - v[:, None, :]
+            front = ((rel * n[:, None, :]).sum(-1) > 0.25) & ok
+            w = np.where(ok, 1.0 - d / 2.4, 0)
+            frac = (front * w).sum(1) / np.maximum(w.sum(1), 1e-6)
+            ao[a0:a0 + 20000] = np.clip(1.0 - 1.35 * frac, 0.5, 1.0)
+        q["ao"] = ao
+
     # ---- export
     sc = trimesh.Scene()
     meta = []
@@ -583,7 +613,9 @@ def main():
             print("non-finite vertices in", p["id"], int(bad.sum()))
             m = m.faces(~bad[m.F].any(1))
             p["m"] = m
-        tm = trimesh.Trimesh(m.V / 1000.0, m.F, vertex_normals=m.N, process=False)
+        ao = p.get("ao", np.ones(len(m.V)))
+        g8 = (np.clip(ao, 0, 1) * 255).astype(np.uint8)
+        tm = trimesh.Trimesh(m.V / 1000.0, m.F, vertex_normals=m.N, vertex_colors=np.stack([g8, g8, g8, np.full_like(g8, 255)], 1), process=False)
         sc.add_geometry(tm, geom_name=p["id"], node_name=p["id"])
         tot += len(m.F)
         meta.append({k: v for k, v in {

@@ -547,6 +547,8 @@ function flatInside(m: THREE.MeshStandardMaterial) {
 
 /** Solid look: every gyral mesh is pushed out along its normals by ~0.45 mm, so neighbouring patches overlap and the cracks between them close. */
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
+/** The cranial-nerve layer stops 2 cm below the brain (kept side: y >= 1.445). */
+const NERVE_FLOOR = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.445);
 const INFLATE = { value: 0 };
 function inflate(m: THREE.MeshStandardMaterial, onPlane = false) {
   m.onBeforeCompile = (s) => {
@@ -1565,6 +1567,7 @@ function Scene({
     setSectionPlanes(gp, midsagittal ? clipPlane : null);
     setPlanes(boneMat, gp, true);
     setPlanes(nerveMat, gp, true);
+    nerveMat.clippingPlanes = [...gp, NERVE_FLOOR]; // the vagus and the spinal accessory run on into the neck and thorax
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();

@@ -1,5 +1,6 @@
 "use client";
 
+import { withCranialNumeral } from "@/lib/atlas/cranial";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { resolveMediaSrc } from "@/components/cards/media";
@@ -87,7 +88,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
   return (
     <section className="panel struct-info grid grid-cols-[minmax(0,1fr)] gap-4 !p-3" aria-label={`${d.name}: course notes`}>
       <header className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h2 className="font-display text-xl tracking-wide">{d.name}</h2>
+        <h2 className="font-display text-xl tracking-wide">{withCranialNumeral(d.name)}</h2>
         <SpeakButton text={d.name} />
         {d.latin && <span className="text-sm italic text-text-dim">{d.latin}</span>}
         <span className="ml-auto flex flex-wrap items-center gap-2 text-sm text-text-dim">
@@ -121,8 +122,8 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
           )}
           {d.topics.length > 0 && (
             <ul className="grid gap-0.5">
-              {d.topics.map((t) => (
-                <li key={t.title} className="text-text-dim">
+              {d.topics.map((t, i) => (
+                <li key={`${t.title}-${i}`} className="text-text-dim">
                   {t.title} <span className="text-text-faint">({t.count})</span>
                 </li>
               ))}

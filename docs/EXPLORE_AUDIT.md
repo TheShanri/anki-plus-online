@@ -114,3 +114,33 @@ Owner feedback: the surface looked good but the inside was "a ghost town" of "co
 - **Internal capsule**: drawn under the nuclei (no depth write, painted first), its outline dropped inside a nucleus' cut, so it reads as the white band between caudate/thalamus and the lentiform nucleus.
 - Open: no interthalamic adhesion in the Z-Anatomy thalamus (both thalami stop short of the midline), so the plate's massa intermedia is not shown; the fornix and mammillary bodies sit just off the midline and appear as surfaces, not cut faces.
 
+
+## Crisp section faces from the official template (2026-11-14, shots `_atlas/explore_shots/s2`)
+
+Owner feedback: the cut faces looked "blurry af" (a 1 mm intensity volume, bilinear, soft class steps); "is there nothing you can pull from an official atlas?"; and (2026-11-14) "import rather than remake the inside".
+
+**Sources checked (licence read at the primary source)**
+
+| Source | Resolution | Licence | Decision |
+| --- | --- | --- | --- |
+| ICBM 2009b nonlinear symmetric (MNI/McGill), T1, T2, PD | 0.5 mm | Permission to use, copy, modify and distribute for any purpose with the copyright notice (COPYING in the zip) | **used**: T1 and T2 at full resolution |
+| ICBM 2009c nonlinear symmetric tissue probability maps (TemplateFlow tpl-MNI152NLin2009cSym, GM/WM/CSF probseg) | 1 mm | same McGill notice (LICENSE file) | used as the **check** of our 0.5 mm classes (no 0.5 mm tissue maps are published) |
+| Allen Human Reference Atlas 3D, 2020 | 0.5 mm labels | CC BY 4.0 (README.pdf) | **used**: class seeds (lateral ventricle, cortex, forebrain white matter), brainstem/diencephalon tones, registration (as before) |
+| BigBrain (Amunts 2013), 20/100/200/400 um histology, also in ICBM 2009b sym space | to 20 um | CC BY-NC-SA 4.0 (BigBrain forum licence page); the LORIS FTP says "research purposes only, no commercial use without written consent" | **not used, owner decision**: NonCommercial means the app may not be "primarily intended for or directed towards commercial advantage"; ShareAlike means every adapted file (a warped section volume) must itself be CC BY-NC-SA 4.0, which conflicts with the CC BY-SA 4.0 Z-Anatomy adaptation unless kept as a separate file. Fine for a free university course only if the owner accepts NC terms and the FTP's research-only clause (or gets written consent from the BigBrain team) |
+| MNI PD25 (Xiao 2017) | 0.5 mm | CC BY-NC-SA 3.0 (MNI NIST page, as indexed; the page itself was down when checked) | not used: same NC/SA issue, and it is a Parkinson's cohort template |
+| HCP-derived templates (MNI152NLin6, HCP 0.7 mm group averages) | 0.7-1 mm | HCP Open Access Data Use Terms (registration, no redistribution of the data) | not used |
+
+**What the face shows now**
+- `tools/atlas/section_hires.py`: the ICBM 2009b T1 and T2 at 0.5 mm, combined into one contrast that orders CSF < grey < white; the field `s` is linear in it between the Allen-seeded class medians, so the `s = 0.25` and `0.75` contours are the 50 % partial-volume borders. Cerebellum: local T1 contrast (3 mm) for the folia. Agreement with the official 2009c tissue maps (1 mm, hard labels): 88.5 % (grey Dice 0.89, white 0.92, CSF 0.62; 2009c's CSF class includes the extracerebral CSF). Warped with the existing registration (Dice brain 0.98); template nuclei/ventricle outside the Z-Anatomy meshes forced to white matter, aqueduct and fourth ventricle from the meshes.
+- File: `public/atlas/section.bin.gz` 4.7 MB (was 2.5 MB at 1 mm): field R8 284x360x368 (0.5 mm) + aux RGBA8 142x180x184 (1 mm: brainstem tone and weight, midline-section mask, fissure mask). GPU 56 MB, loaded on the first cut only. Only a +-0.075 band around each contour is stored exactly, flat plateaus elsewhere, and everything more than 3 mm outside the brain solid is one value (`--repack` re-encodes without a rebuild).
+- Shader: tricubic B-spline on both volumes (8 trilinear taps each), class borders as `fwidth()`-wide anti-aliased steps (one screen pixel at any zoom), flat tones like a printed plate; brainstem parts named by the Allen atlas drawn grey-ish or white-ish with the same crisp borders; deep nuclei flat with their hairline mesh outlines.
+- Tones per theme (`section/palette.ts`): Clinical light and dark, Dark Academia (sepia/parchment), Synthwave (lavender/cool white); grey matter is mid-tone in every theme.
+- Anatomy: midsagittal stays a true section only for midline structures (callosum, septum, commissures, diencephalic walls, brainstem, vermis); elsewhere the medial surface shows. A near-sagittal cut leaves the interhemispheric fissure open (the face is discarded where the template has fissure CSF within 6 mm of the midline), so a parasagittal slice no longer paints a fake surface there.
+
+**Shots** (1440x900 `w_*`, 390x844 `p_*`, before `before_*`): coronal at AC and thalamus, transverse, parasagittal 22 mm, near-midline 4 mm (the owner's view), midsagittal; 3x zooms `w_zoom_bg`, `w_zoom_cb`, `w_zoom_cbmid`; themes `academia_*`, `synth_*`, `clindark_*`; sheets `compare_lab.png`, `compare_mid.png`, `compare_zoom.png`, `compare_themes.png`.
+
+**Open**: the template is a 152-brain average, so medial gyri near the midline still appear as rounded islands (that is the template, not the renderer); a single-subject 0.25 mm in-vivo scan or BigBrain would show real sulcal detail but brings registration (one brain) or NC licence questions. The aux tones are 1 mm, so brainstem part borders are smooth curves on a 1 mm scale.
+
+## Layer toggles and nerve numerals (2026-11-14)
+- Toolbar, next to Skull and spine: Cranial nerves (E; the 30 cranial-nerve meshes, fetched the first time) and Brainstem (W; the gross brainstem meshes), remembered per device (`atlas.layer.nerves`, `atlas.layer.brainstem`). Generic: they hide/show mesh groups only.
+- Cranial-nerve names always carry the numeral (`src/lib/atlas/cranial.ts`, applied to the atlas index, the curriculum list and course names): Oculomotor nerve (III), Ophthalmic nerve (V1), Nucleus of hypoglossal nerve (XII).

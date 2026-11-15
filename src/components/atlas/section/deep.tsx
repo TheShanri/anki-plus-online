@@ -98,13 +98,9 @@ uniform vec3 uTint;
 uniform float uTintAmt;
 vec3 secPaint(vec3 w) {
   ${opts.midSkip ? "if (uMidIdx >= 0 && secEntry(w) == uMidIdx) discard;" : ""}
-  vec3 p = secOnPlane(w);
-  vec3 tone = uHasTissue > 0.5 ? secTone(p) : uKind.x * uGM + uKind.y * uWM + uKind.z * uCSF;
-  // pull toward the clean tone of its tissue: a nucleus reads as one grey mass, a tract as white, a ventricle as an empty dark space
-  vec3 clean = uKind.x * uGM + uKind.y * uWM + uKind.z * uCSF;
-  float t = uHasTissue > 0.5 ? secIntensity(p) : 0.5;
-  clean *= 1.0 + 0.25 * (t - (uKind.x * 0.51 + uKind.y * 0.86 + uKind.z * 0.12));
-  tone = mix(tone, clean, uKind.z > 0.5 ? 0.85 : 0.75);
+  // a nucleus reads as one grey mass, a tract as white, a ventricle as an empty dark space: the flat tone of its tissue, as on
+  // an atlas plate (the mesh outline gives the crisp edge); the pallidum and thalamus a shade paler (more myelin)
+  vec3 tone = uKind.x * uGM + uKind.y * uWM + uKind.z * uCSF;
   return mix(tone, uTint, uTintAmt);
 }
 ` +

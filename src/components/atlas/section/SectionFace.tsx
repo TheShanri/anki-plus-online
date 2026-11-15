@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { bakeGeometry } from "./geometry";
-import { SEC, SEC_GLSL, SEC_VERT_DECL, SEC_VERT_MAIN } from "./shader";
+import { SEC, SEC_CAP_GLSL, SEC_GLSL, SEC_VERT_DECL, SEC_VERT_MAIN } from "./shader";
 
 const CAP_SCALE = 0.985;
 /** The face sits a hair in front of its plane, so the cut edges of the meshes behind it never show through. */
@@ -110,7 +110,7 @@ function tissueCap(m: THREE.MeshBasicMaterial, kind: Kind) {
   m.onBeforeCompile = (s) => {
     Object.assign(s.uniforms, SEC);
     s.vertexShader = SEC_VERT_DECL + s.vertexShader.replace("#include <project_vertex>", "#include <project_vertex>\n" + SEC_VERT_MAIN);
-    s.fragmentShader = SEC_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${mode} ), opacity );`);
+    s.fragmentShader = SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${mode} ), opacity );`);
   };
   m.customProgramCacheKey = () => "atlas-section-cap-" + kind;
 }

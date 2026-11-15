@@ -256,7 +256,7 @@ and a 1.1 mm invisible pick radius; occlusion shading baked per vertex in the bu
 each vertex), an oblique camera key light and a cool fill; see-through thalamus (pulvinar solid); hairline level rings,
 the current level a stronger ring with a light fill drawn behind nearer surfaces; recessed rhomboid fossa with warm
 facial colliculi / area postrema; clean cut on the SCP; phone chips at the bottom; the locator's current level filled.
-Before/after:  vs , , . Model now 756 KB (vertex colours).
+Before/after: `_atlas/bs3d_shots/before2/` vs `w_3d_*.png`, `after_views.png`, `p_sheet.png`. Model now 756 KB (vertex colours).
 
 **Open.** The optic tracts are the Z-Anatomy round tubes (thicker than the flat band of a specimen). Labels are hover only. Rebuild: `tools/.venv/Scripts/python.exe -I tools/brainstem/bs3d/build.py` (~2 min).
 

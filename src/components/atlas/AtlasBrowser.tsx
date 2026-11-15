@@ -36,8 +36,9 @@ const Loading = ({ what }: { what: string }) => (
 );
 const AtlasViewer = dynamic(() => import("./AtlasViewer"), { ssr: false, loading: () => <Loading what="3D viewer" /> });
 const SliceViewer = dynamic(() => import("./SliceViewer"), { ssr: false, loading: () => <Loading what="MRI viewer" /> });
+const BrainstemFocus = dynamic(() => import("./brainstem/three/BrainstemFocus"), { ssr: false, loading: () => <Loading what="3D brainstem" /> });
 
-type Tab = "model" | "slices" | "sections";
+type Tab = "model" | "slices" | "sections" | "brainstem";
 const VIEW_PARAM: Record<string, SliceView> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", transverse: "axial", multi: "multi", multiplanar: "multi", render: "render" };
 const VIEW_NAME: Record<SliceView, string> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", multi: "multi", render: "render" };
 
@@ -111,9 +112,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [extraKeys, setExtraKeys] = useState<string[]>(() => (initialAdd ? initialAdd.split(",").filter(Boolean) : []));
   const [neighbors, setNeighbors] = useState(initialNb === "1");
   const [nbSide, setNbSide] = useState<Side>("L");
-  const [tab, setTabRaw] = useState<Tab>(initialView && VIEW_PARAM[initialView] ? "slices" : "model");
+  const [tab, setTabRaw] = useState<Tab>(initialView === "brainstem" ? "brainstem" : initialView && VIEW_PARAM[initialView] ? "slices" : "model");
   // both viewers stay mounted once opened, so flipping back restores the 3D camera and look
-  const [seen, setSeen] = useState({ model: !(initialView && VIEW_PARAM[initialView]), slices: !!(initialView && VIEW_PARAM[initialView]), sections: false });
+  const [seen, setSeen] = useState({ model: !(initialView && VIEW_PARAM[initialView]), slices: !!(initialView && VIEW_PARAM[initialView]), sections: false, brainstem: initialView === "brainstem" });
   const [secLevel, setSecLevel] = useState<string | null>(null);
   const [atMm, setAtMm] = useState<number[] | null>(null);
   const [request, setRequest] = useState<{ n: number; view?: ViewName; multi?: boolean } | null>(null);
@@ -344,6 +345,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       if (primary) p.set("s", primary.slug && tab === "slices" ? primary.slug : primary.key.replace(/^slug:/, ""));
       else if (lockedPick && !lockedPick.id.startsWith("skull:")) p.set("s", lockedPick.id);
       if (tab === "slices") p.set("view", VIEW_NAME[sliceView]);
+      else if (tab === "brainstem") p.set("view", "brainstem");
       if (extraKeys.length) p.set("add", extraKeys.join(","));
       if (neighbors) p.set("nb", "1");
       const qs = p.toString();
@@ -486,7 +488,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   /** Switch 3D <-> MRI, translating the view: multi-view <-> multiplanar, cut <-> same slice, anterior/lateral/superior <-> coronal/sagittal/transverse. */
   function changeTab(next: Tab) {
     if (next === tab) return;
-    if (next === "sections") {
+    if (next === "brainstem") {
+      // the Brainstem focus keeps the selection; nothing to translate
+    } else if (next === "sections") {
       // the transverse cut (or the structure's own level) picks the section level
       const s = cam3d.current;
       const sl = infoSlug ?? primary?.slug ?? null;
@@ -631,6 +635,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               items={[
                 { id: "model", label: "3D model", text: "3D", dim: !!primary && modeAvail.d3 === "none", note: primary && modeAvail.d3 === "none" ? `3D model: ${modeAvail.d3Why}` : primary && modeAvail.d3 === "partial" ? `3D model: ${modeAvail.d3Why}` : "3D model" },
                 { id: "slices", label: "MRI slices", text: "MRI", dim: !!primary && modeAvail.mri === "none", note: primary ? `MRI slices: ${modeAvail.mriWhy}` : "MRI slices" },
+                { id: "brainstem", label: "Brainstem focus", text: "Brainstem", note: "Brainstem focus: the brainstem with its landmarks, cranial nerves and the section planes linked to the plates" },
                 { id: "sections", label: "Course sections", text: "Sections", dim: !!primary && modeAvail.sec === "none", note: primary ? `Course sections: ${modeAvail.secWhy}` : "Course sections (brainstem and spinal cord levels)" },
               ]}
             />
@@ -704,12 +709,17 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 )}
               </div>
             )}
+            {seen.brainstem && (
+              <div className={tab === "brainstem" ? "absolute inset-0" : "pointer-events-none invisible absolute inset-0"} aria-hidden={tab !== "brainstem"}>
+                <BrainstemFocus slug={infoSlug} onPick={(s) => (LINKS[s] ? pickSlug(s) : undefined)} />
+              </div>
+            )}
             {modalityNote && (
               <div className="atl-card-in pointer-events-none absolute left-1/2 top-12 z-[7] max-w-[90%] -translate-x-1/2" role="status">
                 <div className="atl-chip text-text-dim">{modalityNote}</div>
               </div>
             )}
-            {overlayNode}
+            {tab !== "brainstem" && overlayNode}
             {tab === "model" && primary && primary.approximate && primary.slug && primary.slices !== "regional" && (
               <div className="pointer-events-auto absolute bottom-16 left-2 z-[6]">
                 <button type="button" className="atl-chip text-accent-2 underline underline-offset-2" onClick={() => changeTab("slices")}>

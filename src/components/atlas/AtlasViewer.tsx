@@ -1024,6 +1024,7 @@ function Picker({
         const lid = m.userData.lid as string | undefined;
         const gross = m.userData.gid !== undefined || lid !== undefined;
         if (clippedBy(gross ? grossPlanes.current : ownPlanes.current, _hit)) continue;
+        if (m.userData.nerve && NERVE_FLOOR.distanceToPoint(_hit) < 0) continue; // the nerve's lower run is clipped away (NERVE_FLOOR): not pickable either
         const ms = m.userData.side as "L" | "R" | undefined;
         if (ms && (ms === "L") !== _hit.x > 0) continue; // the clipped-away hemisphere of a one-sided overlay
         const side: "L" | "R" | undefined = _hit.x > 0.002 ? "L" : _hit.x < -0.002 ? "R" : undefined;

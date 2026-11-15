@@ -73,11 +73,11 @@ def build(level):
 
     pending = {}
 
-    def emit(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False, aout=None):
+    def emit(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False, aout=None, parent=None):
         """Collect a structure (mR: its right-half mask, canvas px); emitted after the extras have clipped/cut."""
-        pending[slug] = dict(mR=mR, tissue_kind=tissue_kind, src=src, approx=approx, note=note, photoL=photoL, mid_struct=mid_struct, aout=aout)
+        pending[slug] = dict(mR=mR, tissue_kind=tissue_kind, src=src, approx=approx, note=note, photoL=photoL, mid_struct=mid_struct, aout=aout, parent=parent)
 
-    def emit_now(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False, aout=None):
+    def emit_now(slug, mR, tissue_kind, src, approx=False, note=None, photoL=None, mid_struct=False, aout=None, parent=None):
         """mR: the structure on the plate's right half (canvas px). Emits the right, left (mirror) or midline instance.
         aout: slugs whose area the label anchor avoids (a funiculus is a container: its name sits beside its tracts)."""
         if mR.sum() < 4:
@@ -89,16 +89,17 @@ def build(level):
                 am = am & (1 - pending[o]["mR"])
         if am.sum() < 4:
             am = mR
+        par = {"parent": parent} if parent else {}
         if mid_struct:
             m = mirror(mR)
             a, clr = anchor(m * right)
-            regions.append({"id": f"{slug}-M", "slug": slug, "slugs": [slug], "side": "M", "tissue": tissue_kind, "d": mask_paths(m), "c": centroid(m), "a": a, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(m, tissue_kind)})
+            regions.append({"id": f"{slug}-M", "slug": slug, "slugs": [slug], "side": "M", "tissue": tissue_kind, "d": mask_paths(m), "c": centroid(m), "a": a, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(m, tissue_kind), **par})
             return
         mL = np.zeros_like(mR)
         mL[:, : w2 - mid] = mR[:, mid:][:, ::-1][:, : w2 - mid]
         aR, _ = anchor(am)
         aL = [round(W - aR[0], 1), aR[1]]
-        base = {"slug": slug, "slugs": [slug], "tissue": tissue_kind, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(mR, tissue_kind)}
+        base = {"slug": slug, "slugs": [slug], "tissue": tissue_kind, "src": src, **({"approx": True} if approx else {}), **({"note": note} if note else {}), **is_open(mR, tissue_kind), **par}
         regions.append({"id": f"{slug}-R", "side": "R", "d": mask_paths(mR), "c": centroid(mR), "a": aR, **base})
         rl = {"id": f"{slug}-L", "side": "L", "d": mask_paths(mL), "c": centroid(mL), "a": aL, **base}
         if photoL is not None and photoL.sum() > 4:
@@ -146,12 +147,7 @@ def build(level):
             emit(slug, mR, kind, ["course overlay (left, mirrored)"], photoL=mPL)
             report.append(f"  {slug}: left mirrored")
 
-    # authored extras (right-side polygons or ellipses in plate units)
-    for slug, e in ex.items():
-        if slug.startswith("_"):
-            continue
-        if "pts" not in e and "ellipse" not in e:
-            continue
+    def shape_mask(e):
         if "ellipse" in e:
             cx, cy, rx, ry, rot = e["ellipse"]
             t = np.linspace(0, 2 * math.pi, 72, endpoint=False)
@@ -159,28 +155,73 @@ def build(level):
             pts = [[cx + rx * math.cos(a) * c - ry * math.sin(a) * s_, cy + rx * math.cos(a) * s_ + ry * math.sin(a) * c] for a in t]
         else:
             pts = e["pts"]
-            if level in SURFACES:  # surface outlines are organic: authored polygons become smooth curves
+            if level in SURFACES or e.get("smooth"):  # organic outlines: authored polygons become smooth curves
                 pts = smooth(resample(pts, 3.0, True), e.get("soft", 3.0), True).tolist()
-        kind = e.get("tissue") or tissue_of(slug)
         m = raster([pts], tissue.shape)
-        if "pale" in e:  # grey matter as the section shows it: the unstained (pale) tissue inside the polygon
-            pb = cv2.GaussianBlur(dens, (0, 0), 2.0 * SS)
-            pm = ((pb < e["pale"]) & (m > 0) & (tissue > 0)).astype(np.uint8)
-            pm = cv2.morphologyEx(pm, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9)))
-            pm = cv2.morphologyEx(pm, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (13, 13)))
+        if "pale" in e or "dense" in e:
+            # traced from the stain: the unstained (pale = grey matter) or the densely stained (dense = a fibre bundle)
+            # tissue inside the polygon, smoothed; the polygon only bounds the search
+            pb = cv2.GaussianBlur(dens, (0, 0), e.get("blur", 2.0) * SS)
+            sel = (pb < e["pale"]) if "pale" in e else (pb > e["dense"])
+            pm = (sel & (m > 0) & (tissue > 0)).astype(np.uint8)
+            ko, kc = int(e.get("open", 9)), int(e.get("close", 13))
+            if ko > 1:
+                pm = cv2.morphologyEx(pm, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (ko, ko)))
+            if kc > 1:
+                pm = cv2.morphologyEx(pm, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (kc, kc)))
+            if e.get("fill", True):  # holes (vessels, a few myelinated fascicles) belong to the structure
+                cn, _ = cv2.findContours(pm, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                pm = np.zeros_like(pm)
+                cv2.drawContours(pm, cn, -1, 1, -1)
+            pm &= (m > 0).astype(np.uint8)
             n_, lab_, st_, _ = cv2.connectedComponentsWithStats(pm, 8)
-            m = (lab_ == 1 + int(np.argmax(st_[1:, cv2.CC_STAT_AREA]))).astype(np.uint8) if n_ > 1 else pm
+            if e.get("largest", True):
+                m = (lab_ == 1 + int(np.argmax(st_[1:, cv2.CC_STAT_AREA]))).astype(np.uint8) if n_ > 1 else pm
+            else:  # every piece above a minimum size
+                keep = [i for i in range(1, n_) if st_[i, cv2.CC_STAT_AREA] >= e.get("min_px", 120)]
+                m = np.isin(lab_, keep).astype(np.uint8)
+        return m
+
+    # hidden helper masks (e.g. the whole grey matter traced from the stain), cut into named parts with "from"/"within"
+    hidden = {}
+    for name, e in ex.get("_masks", {}).items():
+        m = shape_mask(e)
+        hidden[name] = (mirror(m * right) * right) if e.get("midline") else (m * right)
+        for other in e.get("minus", []):
+            if other in hidden:
+                hidden[name] = hidden[name] & (1 - hidden[other])
+        report.append(f"  [{name}] helper mask")
+
+    # authored extras (right-side polygons or ellipses in plate units)
+    for slug, e in ex.items():
+        if slug.startswith("_"):
+            continue
+        if "pts" not in e and "ellipse" not in e and "from" not in e:
+            continue
+        kind = e.get("tissue") or tissue_of(slug)
+        if "from" in e:  # a named part of a hidden mask (or of a region), no shape of its own
+            m = np.zeros_like(tissue)
+            for f_ in ([e["from"]] if isinstance(e["from"], str) else e["from"]):  # a list: their union
+                m |= hidden[f_] if f_ in hidden else pending[f_]["mR"]
+        else:
+            m = shape_mask(e)
         mR = clip(mirror(m * right), kind) * right if e.get("midline") else clip(m, kind) * right
+        if "pts_cut" in e:  # with "from": the part of the parent inside this polygon
+            mR = mR & raster([e["pts_cut"]], tissue.shape)
+            if e.get("midline"):
+                mR = mirror(mR) * right
         for other in e.get("within", []):  # a zone inside another region (a motor neuron pool inside the ventral horn)
             if other in pending:
                 mR = mR & pending[other]["mR"]
+            elif other in hidden:
+                mR = mR & hidden[other]
         for other in e.get("clip_out", []):  # keep a clean partition: drop what an existing region already covers
             if other in pending:
                 mR = mR & (1 - pending[other]["mR"])
         for other in e.get("cut_from", []):  # the extra takes its part out of a broader course region
             if other in pending:
                 pending[other]["mR"] = pending[other]["mR"] & (1 - mR)
-        emit(slug, mR, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=bool(e.get("midline")), aout=e.get("anchor_out"))
+        emit(slug, mR, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=bool(e.get("midline")), aout=e.get("anchor_out"), parent=e.get("parent"))
         report.append(f"  {slug}: authored" + (" (approx)" if e.get("approx", True) else ""))
 
     # course regions the second source does not confirm closely: shown as approximate, with the reason
@@ -195,6 +236,9 @@ def build(level):
 
     # fibre courses (open paths)
     for slug, lst in shapes["fibres"].items():
+        if slug in ex.get("_skip_fibres", []):
+            report.append(f"  {slug}: overlay fibres replaced by the authored bundle")
+            continue
         R = [s for s in lst if s["side"] in ("R", "M")]
         use = R if R else [{"pts": mirror_pts(s["pts"]), "closed": s["closed"]} for s in lst]
         kind = "nerve" if slug in NERVE_FIBRES else "fibres"
@@ -207,7 +251,7 @@ def build(level):
     for slug, e in ex.get("_fibres", {}).items():  # authored fibre courses (right side, plate units)
         kind = "nerve" if slug in NERVE_FIBRES else "fibres"
         for k, pts in enumerate(e["paths"]):
-            extra = {**({"approx": True} if e.get("approx", True) else {}), **({"note": e["note"]} if e.get("note") else {}), "src": e.get("src", [])}
+            extra = {**({"approx": True} if e.get("approx", True) else {}), **({"note": e["note"]} if e.get("note") else {}), "src": e.get("src", []), **({"fine": True} if e.get("fine") else {})}
             fibres.append({"id": f"{slug}-R{k}", "slug": slug, "side": "R", "tissue": kind, "d": curve(pts, False, step=2.0, sigma=1.0, eps=0.25), **extra})
             fibres.append({"id": f"{slug}-L{k}", "slug": slug, "side": "L", "tissue": kind, "d": curve(mirror_pts(pts), False, step=2.0, sigma=1.0, eps=0.25), **extra})
         report.append(f"  {slug}: authored fibres" + (" (approx)" if e.get("approx", True) else ""))

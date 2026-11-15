@@ -14,10 +14,12 @@ const plateFiles = rev
   ? execFileSync("git", ["ls-tree", "--name-only", rev, "src/data/brainstem-plates/"], { cwd: root }).toString().split("\n").filter((f) => f.endsWith(".json"))
   : readdirSync(join(root, "src/data/brainstem-plates")).filter((f) => f.endsWith(".json")).map((f) => `src/data/brainstem-plates/${f}`);
 
-// level -> structure slugs drawn on it (regions and fibre courses)
+// level -> structure slugs drawn on it (regions and fibre courses); the plates themselves for the per-level detail
 const plates = {};
+const plateData = {};
 for (const f of plateFiles) {
   const p = JSON.parse(read(f));
+  plateData[p.level] = p;
   plates[p.level] = new Set([...p.regions.map((r) => r.slug), ...p.fibres.map((x) => x.slug)]);
 }
 const structs = JSON.parse(read("content/nsci3250/structures.json"));
@@ -85,6 +87,24 @@ for (const [g, rs] of byGroup) {
     seen.add(r.slug);
     console.log(`  ${mark} ${r.name.padEnd(42)} ${r.on.length ? r.on.join(", ") : "-"}${r.exc ? `  [${r.exc}]` : ""}`);
   }
+}
+// per-level detail: what each plate draws beyond the list, how it is drawn (traced / approximate / fine fibre bundle)
+const LEVEL_GROUPS = {};
+// only the lists tied to this one plate (a list shared by several plates is checked above, on any of them)
+for (const [g, lv] of Object.entries(GROUPS)) if (lv?.length === 1) (LEVEL_GROUPS[lv[0]] ??= []).push(g);
+const listed = (lv) => new Set(rows.filter((r) => (LEVEL_GROUPS[lv] ?? []).includes(r.group)).map((r) => r.slug));
+console.log("\nPer level (listed = on a course list tied to this plate alone's course list; + = drawn beyond it; * = approximate; ~ = fine fibre bundle)");
+for (const [lv, p] of Object.entries(plateData)) {
+  const L = listed(lv);
+  const slugs = [...plates[lv]];
+  const approx = new Set(p.regions.filter((r) => r.approx).map((r) => r.slug));
+  for (const f of p.fibres) if (f.approx) approx.add(f.slug);
+  const fine = new Set(p.fibres.filter((f) => f.fine).map((f) => f.slug));
+  const missing = [...L].filter((x) => !plates[lv].has(x) && !EXCEPTIONS[x]);
+  const mark = (x) => `${x}${approx.has(x) ? "*" : ""}${fine.has(x) ? "~" : ""}`;
+  const on = slugs.filter((x) => L.has(x)).map(mark), extra = slugs.filter((x) => !L.has(x)).map(mark);
+  console.log(`  ${lv.padEnd(20)} ${slugs.length} structures (${on.length}/${L.size} listed${missing.length ? `, MISSING ${missing.join(", ")}` : ""}), ${p.regions.length} regions, ${p.fibres.filter((f) => f.fine).length} fine fibres`);
+  if (extra.length) console.log(`  ${"".padEnd(20)} + ${extra.join(", ")}`);
 }
 const uniq = new Set(rows.map((r) => r.slug));
 const missing = new Set(rows.filter((r) => !r.ok && !r.exc).map((r) => r.slug));

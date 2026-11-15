@@ -26,7 +26,7 @@ AB = {
     "location-of-limb-lower-motor-neurons": "limb", "location-of-trunk-lower-motor-neurons": "trunk", "dorsal-horn": "DH",
     "ventral-horn": "VH", "cerebellum": "Cb", "pontine-protuberance": "PP", "midbrain": "MB", "pons": "PONS", "medulla": "MED",
     "olives": "ol", "interpeduncular-cistern": "IPC", "oculomotor-nerve": "3n", "glossopharyngeal-nerve": "9n", "pulvinar": "Pul",
-    "pineal-gland": "Pin", "gracile-tubercle": "grT", "cuneate-tubercle": "cuT", "obex": "obex", "area-postrema": "AP", "locus-coeruleus": "LC", "choroid-plexus": "chp", "accessory-nerve": "11n",
+    "pineal-gland": "Pin", "substantia-gelatinosa": "SG", "intermediate-zone": "IZ", "central-canal": "cc", "ventral-commissure-of-spinal-cord": "vwc", "dorsal-columns": "DC", "central-gray": "CG", "substantia-nigra-pars-compacta": "SNc", "substantia-nigra-pars-reticulata": "SNr", "reticular-formation": "RF", "paramedian-pontine-reticular-formation": "PPRF", "spinal-trigeminal-tract": "sp5t", "lateral-lemniscus": "ll", "accessory-nucleus": "11N", "gracile-tubercle": "grT", "cuneate-tubercle": "cuT", "obex": "obex", "area-postrema": "AP", "locus-coeruleus": "LC", "choroid-plexus": "chp", "accessory-nerve": "11n",
 }
 SS = 1.6
 COLS = [(0, 0, 230), (0, 140, 0), (200, 0, 0), (0, 120, 200), (160, 0, 160), (0, 150, 150), (30, 30, 30), (200, 100, 0)]

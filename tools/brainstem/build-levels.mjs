@@ -26,11 +26,11 @@ const LEVELS = [
 
 // group per slug; anything not listed: *-nerve -> nerves, otherwise landmarks
 const G = {
-  "cn-nuclei": "oculomotor-nucleus edinger-westphal-nucleus trochlear-nucleus motor-trigeminal-nucleus principal-sensory-nucleus-of-trigeminal spinal-trigeminal-nucleus abducens-nucleus facial-nucleus vestibulocochlear-complex hypoglossal-nucleus dorsal-motor-nucleus-of-the-vagus solitary-nucleus nucleus-ambiguus",
+  "cn-nuclei": "accessory-nucleus spinal-trigeminal-tract oculomotor-nucleus edinger-westphal-nucleus trochlear-nucleus motor-trigeminal-nucleus principal-sensory-nucleus-of-trigeminal spinal-trigeminal-nucleus abducens-nucleus facial-nucleus vestibulocochlear-complex hypoglossal-nucleus dorsal-motor-nucleus-of-the-vagus solitary-nucleus nucleus-ambiguus",
   ascending: "medial-lemniscus anterolateral-spinothalamic-tract dorsal-spinocerebellar-tract fasciculus-gracilis fasciculus-cuneatus internal-arcuate-fibers lateral-lemniscus",
   descending: "anterior-corticospinal-tract lateral-corticospinal-tract motor-decussation longitudinal-fibers-of-the-pons pyramids cerebral-peduncles",
-  nuclei: "location-of-limb-lower-motor-neurons location-of-trunk-lower-motor-neurons dorsal-horn ventral-horn olives cuneate-tubercle gracile-tubercle red-nucleus substantia-nigra periaqueductal-gray pontine-nuclei inferior-olivary-nucleus gracile-nucleus cuneate-nucleus superior-colliculus inferior-colliculus locus-coeruleus medial-geniculate-nucleus lateral-geniculate-nucleus pulvinar thalamus hypothalamus cerebellum pineal-gland",
-  bundles: "lateral-funiculus anterior-funiculus medial-longitudinal-fasciculus superior-cerebellar-peduncle middle-cerebellar-peduncle inferior-cerebellar-peduncle cerebellar-peduncles decussation-of-the-superior-cerebellar-peduncle transverse-fibers-of-the-pons brachium-of-the-inferior-colliculus",
+  nuclei: "substantia-nigra-pars-compacta substantia-nigra-pars-reticulata central-gray reticular-formation paramedian-pontine-reticular-formation intermediate-zone substantia-gelatinosa location-of-limb-lower-motor-neurons location-of-trunk-lower-motor-neurons dorsal-horn ventral-horn olives cuneate-tubercle gracile-tubercle red-nucleus substantia-nigra periaqueductal-gray pontine-nuclei inferior-olivary-nucleus gracile-nucleus cuneate-nucleus superior-colliculus inferior-colliculus locus-coeruleus medial-geniculate-nucleus lateral-geniculate-nucleus pulvinar thalamus hypothalamus cerebellum pineal-gland",
+  bundles: "dorsal-columns ventral-commissure-of-spinal-cord lateral-funiculus anterior-funiculus medial-longitudinal-fasciculus superior-cerebellar-peduncle middle-cerebellar-peduncle inferior-cerebellar-peduncle cerebellar-peduncles decussation-of-the-superior-cerebellar-peduncle transverse-fibers-of-the-pons brachium-of-the-inferior-colliculus",
 };
 const groupOf = (slug) => {
   for (const [g, s] of Object.entries(G)) if (s.split(" ").includes(slug)) return g;
@@ -44,7 +44,28 @@ const EXTRA = {
   "medulla-caudal": ["motor-decussation", "lateral-corticospinal-tract", "pyramids"],
   cervicomedullary: ["lateral-corticospinal-tract", "spinal-trigeminal-nucleus", "anterolateral-spinothalamic-tract", "dorsal-spinocerebellar-tract"],
 };
-const EXTRA_NAMES = { "lateral-lemniscus": "Lateral lemniscus", "locus-coeruleus": "Locus coeruleus" };
+const EXTRA_NAMES = {
+  "lateral-lemniscus": "Lateral lemniscus",
+  "locus-coeruleus": "Locus coeruleus",
+  // plate structures that are not separate entries on the course lists (named in the course slides, or sub-parts)
+  "substantia-nigra-pars-compacta": "Substantia nigra, pars compacta",
+  "substantia-nigra-pars-reticulata": "Substantia nigra, pars reticulata",
+  "central-canal": "Central canal",
+  "central-gray": "Central gray",
+  "reticular-formation": "Reticular formation",
+  "spinal-trigeminal-tract": "Spinal trigeminal tract",
+  "accessory-nucleus": "Accessory nucleus",
+};
+// cranial nerves always carry their Roman numeral; the nuclei name the nerve they serve (course style: "CN XII")
+const CN = {
+  "olfactory-nerve": "I", "optic-nerve": "II", "oculomotor-nerve": "III", "trochlear-nerve": "IV", "trigeminal-nerve": "V", "abducens-nerve": "VI",
+  "facial-nerve": "VII", "vestibulocochlear-nerve": "VIII", "glossopharyngeal-nerve": "IX", "vagus-nerve": "X", "accessory-nerve": "XI", "hypoglossal-nerve": "XII",
+  "oculomotor-nucleus": "CN III", "edinger-westphal-nucleus": "CN III", "trochlear-nucleus": "CN IV", "motor-trigeminal-nucleus": "CN V",
+  "principal-sensory-nucleus-of-trigeminal": "CN V", "spinal-trigeminal-nucleus": "CN V", "spinal-trigeminal-tract": "CN V", "mesencephalic-trigeminal-nucleus": "CN V",
+  "abducens-nucleus": "CN VI", "facial-nucleus": "CN VII", "vestibulocochlear-complex": "CN VIII", "vestibular-nuclei": "CN VIII",
+  "solitary-nucleus": "CN VII, IX, X", "nucleus-ambiguus": "CN IX, X", "dorsal-motor-nucleus-of-the-vagus": "CN X", "hypoglossal-nucleus": "CN XII", "accessory-nucleus": "CN XI",
+};
+const withCN = (slug, name) => (CN[slug] && !name.includes("(") ? `${name} (${CN[slug]})` : name);
 
 const byLevel = Object.fromEntries(LEVELS.map((l) => [l.slug, new Map()]));
 for (const im of course) for (const lb of im.labels) if (byLevel[im.level] && !byLevel[im.level].has(lb.slug)) byLevel[im.level].set(lb.slug, { slug: lb.slug, source: "course" });
@@ -90,7 +111,7 @@ keys.forEach((k) => {
   const i = prev[k] ? prevKeys.indexOf(k) : nextIdx++;
   const s = structs.get(k);
   structures[k] = {
-    name: s?.name ?? EXTRA_NAMES[k] ?? k,
+    name: withCN(k, s?.name ?? EXTRA_NAMES[k] ?? k),
     slug: s ? k : null,
     onList: !!s,
     group: groupOf(k),

@@ -105,7 +105,7 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
         </g>
       ))}
       {plate.fibres.map((f) => (
-        <path key={f.id} d={f.d} className={`${f.tissue === "nerve" ? "bsp-nerve" : "bsp-fibre"}${f.approx ? " bsp-approx" : ""}`} />
+        <path key={f.id} d={f.d} className={`${f.tissue === "nerve" ? "bsp-nerve" : f.fine ? "bsp-fibre bsp-fibre-fine" : "bsp-fibre"}${f.approx ? " bsp-approx" : ""}`} />
       ))}
       {nerves.map((r) => (
         <path key={r.id} d={r.d} className="bsp-wm bsp-wm-nerve" fillRule="evenodd" />
@@ -322,7 +322,7 @@ export function PlateArt({ plate, view: askedView, hot, hotSide, selected, lit, 
           <path key={r.id} d={dFor(r, view)} fillRule="evenodd" className={`bsp-hl bsp-hl-${kindOf(r.side)}${selected === r.slug ? " bsp-sel" : ""}`} />
         ))}
         {hotFibres.map((f) => (
-          <path key={f.id} d={f.d} className={`bsp-hlf${pulse && !hiSlugs.has(f.slug) ? " bsp-breathe" : ""}`} />
+          <path key={f.id} d={f.d} className={`bsp-hlf${f.fine ? " bsp-hlf-fine" : ""}${pulse && !hiSlugs.has(f.slug) ? " bsp-breathe" : ""}`} />
         ))}
       </g>
 
@@ -356,7 +356,7 @@ export function PlateArt({ plate, view: askedView, hot, hotSide, selected, lit, 
             />
           ))}
           {plate.fibres.map((f) => (
-            <path key={f.id} d={f.d} fill="none" stroke="transparent" strokeWidth={10} pointerEvents="stroke" onPointerEnter={() => onHover?.(f.slug, f.side)} onPointerLeave={() => onHover?.(null)} onClick={() => onPick?.(f.slug)} />
+            <path key={f.id} d={f.d} fill="none" stroke="transparent" strokeWidth={f.fine ? 7 : 10} pointerEvents="stroke" aria-label={nameOf(names, f.slug)} onPointerEnter={() => onHover?.(f.slug, f.side)} onPointerLeave={() => onHover?.(null)} onClick={() => onPick?.(f.slug)} />
           ))}
         </g>
       )}

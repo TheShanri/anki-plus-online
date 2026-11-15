@@ -124,6 +124,13 @@ export function matches(input: string, label: BsLabel): boolean {
   });
 }
 
+/** Plate sub-parts without course notes of their own open the notes of the structure they belong to. */
+export const INFO_PARENT: Record<string, string> = {
+  "substantia-nigra-pars-compacta": "substantia-nigra",
+  "substantia-nigra-pars-reticulata": "substantia-nigra",
+};
+export const infoSlugOf = (slug: string): string => INFO_PARENT[slug] ?? slug;
+
 export function colorOf(slug: string | null, fallback = "var(--accent)"): string {
   return (slug && STRUCTURES[slug]?.color) || fallback;
 }

@@ -207,26 +207,67 @@ EXTRAS = {
         },
     },
     "cervicomedullary": {
-        # the grey matter as the section shows it (pale, unstained), so the motor neuron pools sit in a real ventral horn
+        # The grey matter H traced from the stain itself (the unstained, pale tissue: Weil stains myelin only), then cut into
+        # the parts Lecture 4 / Lab 5 name: dorsal horn (with the substantia gelatinosa cap), intermediate zone (with the grey
+        # commissure and the central canal) and ventral horn (with the course's limb and trunk motor pools).
+        "_masks": {
+            "grey": {
+                "pts": [[500, 324], [540, 320], [575, 310], [605, 293], [622, 268], [628, 240], [630, 205], [650, 188], [678, 172], [688, 140],
+                        [692, 100], [712, 88], [742, 98], [746, 150], [746, 200], [748, 242], [734, 262], [708, 282], [700, 300], [724, 318],
+                        [790, 332], [852, 348], [884, 374], [874, 410], [832, 432], [782, 452], [732, 472], [672, 490], [618, 492], [584, 478],
+                        [570, 442], [574, 396], [566, 368], [500, 356]],
+                "pale": 0.55, "blur": 1.6, "open": 5, "close": 11,
+            },
+        },
         "dorsal-horn": {
-            "pts": [[717, 125], [733, 143], [727, 173], [707, 200], [700, 227], [693, 247], [667, 254], [637, 248], [632, 228], [650, 213],
-                    [673, 200], [690, 173], [700, 143], [706, 126]],
-            "tissue": "grey", "approx": False, "clip_out": ["fasciculus-cuneatus", "fasciculus-gracilis"],
-            "src": ["the section itself (unstained grey matter)", "Lab 5 / Lecture 4 (dorsal horn)", COU + ", plate 45"],
-            "note": "Context for the cervical cord: the posterior grey column, drawn on the pale (unmyelinated) tissue of the section.",
+            "from": "grey", "pts_cut": [[560, 60], [800, 60], [800, 306], [560, 306]],
+            "tissue": "grey", "approx": False,
+            "cut_from": ["fasciculus-cuneatus", "fasciculus-gracilis"],
+            "src": ["the section itself (unstained grey matter, traced)", "Lecture 4 slides 30-31 (course: dorsal horn, intermediate zone, ventral horn)", "Lab 5 (course)", COU + ", plate 45"],
+            "note": "The posterior grey column, traced from the pale (unmyelinated) tissue of the section. Its apex reaches the dorsolateral sulcus, where the dorsal roots enter (the dorsal root entry zone, Lecture 4).",
+        },
+        "substantia-gelatinosa": {
+            "pts": [[626, 188], [748, 188], [748, 266], [626, 266]], "pale": 0.3, "blur": 1.4, "open": 5, "close": 9,
+            "tissue": "grey", "approx": False, "within": ["dorsal-horn"],
+            "src": ["the section itself (the palest, cell-dense cap of the dorsal horn)", "Lab 5 and Lecture 4 (course: substantia gelatinosa)", COU + ", plate 45 (SGe)"],
+            "note": "The pale cap of the dorsal horn (lamina II), where pain and temperature fibres synapse. At this upper cervical level it runs on rostrally as the caudal part of the spinal trigeminal nucleus.",
+        },
+        "intermediate-zone": {
+            "from": "grey", "pts_cut": [[500, 300], [800, 300], [880, 330], [880, 338], [700, 350], [585, 356], [576, 374], [500, 374]],
+            "tissue": "grey", "approx": False, "midline": True,
+            "cut_from": ["fasciculus-cuneatus", "fasciculus-gracilis"],
+            "src": ["the section itself (unstained grey matter, traced)", "Lecture 4 slides 30-31 (course: intermediate zone between the horns)", COU + ", plate 45"],
+            "note": "The grey matter between the dorsal and ventral horns, joined across the midline by the grey commissure around the central canal. (The lateral horn of the intermediate zone exists only from T1 to L2, not at this cervical level.)",
+        },
+        "central-canal": {
+            "ellipse": [500, 341, 4.5, 4, 0], "tissue": "space", "midline": True,
+            "src": ["Lecture 7 slide 9 (course: the central canal continues the fourth ventricle below the obex)", "Lecture 1 (course)", STD],
+            "note": "In the middle of the grey commissure. Usually obliterated in adult sections, as here, so its place is marked rather than traced.",
         },
         "ventral-horn": {
-            "pts": [[590, 373], [600, 363], [640, 353], [687, 350], [733, 352], [787, 357], [823, 367], [832, 383], [817, 400], [787, 413],
-                    [753, 420], [720, 428], [687, 442], [660, 460], [633, 465], [603, 460], [592, 433], [589, 400]],
+            "from": "grey", "pts_cut": [[577, 374], [586, 357], [700, 350], [880, 338], [900, 338], [900, 520], [577, 520]],
             "tissue": "grey", "approx": False,
-            "src": ["the section itself (unstained grey matter)", "Lab 5 / Lecture 4 (ventral horn)", COU + ", plate 45"],
-            "note": "Context for the cervical cord: the anterior grey column, drawn on the pale (unmyelinated) tissue of the section.",
+            "src": ["the section itself (unstained grey matter, traced)", "Lecture 4 slides 30-31 (course: ventral horn)", "Lab 5 (course)", COU + ", plate 45"],
+            "note": "The anterior grey column, traced from the pale tissue of the section: the lower motor neurons of the neck and upper limb (the course's limb and trunk pools are inside it).",
+        },
+        "ventral-commissure-of-spinal-cord": {
+            "pts": [[500, 351], [520, 351], [545, 354], [568, 360], [566, 368], [540, 366], [515, 364], [500, 364]], "midline": True,
+            "tissue": "white", "approx": False, "clip_out": ["intermediate-zone", "ventral-horn"],
+            "src": ["the section itself (the thin dark band below the grey commissure)", "Lab 5 (course: ventral commissure)", "Lecture 5 (course: spinothalamic fibres cross here)", COU + ", plate 45"],
+            "note": "The thin white band between the grey commissure and the anterior median fissure, where the spinothalamic (anterolateral) fibres cross.",
+        },
+        "dorsal-columns": {
+            "from": ["fasciculus-gracilis", "fasciculus-cuneatus"], "tissue": "landmark", "approx": False,
+            "anchor_out": ["fasciculus-gracilis", "fasciculus-cuneatus"],
+            "src": ["Lecture 4 slide 30 (course: the dorsal, lateral and ventral funiculi)", "Lab 5 (course: dorsal columns)", STD],
+            "note": "The posterior funiculus: fasciculus gracilis (medial, lower body) and fasciculus cuneatus (lateral, upper body), both hoverable inside.",
         },
         "lateral-funiculus": {
-            "pts": [[724, 120], [770, 132], [830, 166], [890, 210], [940, 262], [975, 322], [995, 385], [985, 440], [955, 488], [905, 525],
-                    [855, 548], [805, 560], [790, 530], [772, 490], [752, 452], [740, 426], [790, 413], [818, 401], [833, 383], [824, 366],
-                    [790, 355], [742, 351], [742, 330], [748, 300], [752, 260], [745, 215], [740, 175], [735, 145]],
-            "tissue": "white", "approx": False, "clip_out": ["dorsal-horn", "ventral-horn", "fasciculus-cuneatus", "fasciculus-gracilis"],
+            "pts": [[722, 92], [770, 132], [830, 166], [890, 210], [940, 262], [975, 322], [995, 385], [985, 440], [955, 488], [905, 525],
+                    [855, 548], [805, 560], [790, 530], [772, 490], [752, 452], [740, 426], [700, 420], [640, 360], [640, 300], [662, 262],
+                    [700, 236], [716, 180], [714, 120]],
+            "tissue": "white", "approx": False,
+            "clip_out": ["dorsal-horn", "ventral-horn", "intermediate-zone", "substantia-gelatinosa", "fasciculus-cuneatus", "fasciculus-gracilis"],
             "anchor_out": ["dorsal-spinocerebellar-tract", "anterolateral-spinothalamic-tract", "lateral-corticospinal-tract"],
             "src": ["Lab 10 slide 21 (course)", "Unit 2 online lab assignment slide 17 (course)", COU + ", plate 45", STD],
             "note": "The white matter between the dorsal root entry zone and the ventral root exit zone; it holds the dorsal spinocerebellar, lateral corticospinal and anterolateral tracts (hover them on top).",
@@ -234,20 +275,20 @@ EXTRAS = {
         "anterior-funiculus": {
             "pts": [[502, 352], [545, 356], [588, 372], [590, 400], [592, 433], [603, 461], [633, 467], [660, 462], [687, 443], [720, 429],
                     [740, 426], [752, 452], [772, 490], [790, 530], [805, 560], [760, 600], [502, 600]],
-            "tissue": "white", "approx": False, "clip_out": ["ventral-horn", "lateral-funiculus"],
-            "anchor_out": ["anterior-corticospinal-tract", "anterolateral-spinothalamic-tract"],
+            "tissue": "white", "approx": False, "clip_out": ["ventral-horn", "intermediate-zone", "central-canal", "lateral-funiculus"],
+            "anchor_out": ["anterior-corticospinal-tract", "anterolateral-spinothalamic-tract", "ventral-commissure-of-spinal-cord"],
             "src": ["Lab 10 slides 21-22 (course)", "Unit 2 online lab assignment slide 17 (course)", COU + ", plate 45", STD],
             "note": "The white matter between the anterior median fissure and the ventral root exit zone; the anterior corticospinal tract runs along its medial edge.",
         },
         "location-of-limb-lower-motor-neurons": {
-            "pts": [[712, 346], [790, 352], [838, 368], [838, 396], [815, 410], [770, 422], [728, 432], [712, 436]],
-            "tissue": "grey", "within": ["ventral-horn"],
+            "from": "ventral-horn", "pts_cut": [[712, 330], [900, 330], [900, 520], [700, 520], [694, 440], [700, 380]],
+            "tissue": "grey",
             "src": ["Lab 10 slide 22 and its answer key (course: the limb motor neuron pool, lateral ventral horn)", "Lecture 10 slide 24 (course)", STD],
             "note": "Lower motor neurons for the limbs lie in the lateral part of the ventral horn (the course's Lab 10 drawing); not visible as such in a myelin stain.",
         },
         "location-of-trunk-lower-motor-neurons": {
-            "pts": [[586, 366], [640, 350], [672, 348], [672, 452], [650, 468], [600, 468], [584, 432]],
-            "tissue": "grey", "within": ["ventral-horn"],
+            "from": "ventral-horn", "pts_cut": [[540, 340], [652, 340], [660, 400], [654, 520], [540, 520]],
+            "tissue": "grey",
             "src": ["Lab 10 slide 22 and its answer key (course: the trunk motor neuron pool, medial ventral horn)", "Lecture 10 slide 24 (course)", STD],
             "note": "Lower motor neurons for the trunk (axial) muscles lie in the medial part of the ventral horn (the course's Lab 10 drawing); not visible as such in a myelin stain.",
         },
@@ -560,3 +601,250 @@ EXTRAS["external-posterior"]["_detail"] = (
      {"pts": [[505, 809], [545, 807], [586, 816]], "k": "fine"},
      {"pts": [[570, 975], [566, 1060], [560, 1150], [556, 1240]], "k": "fine"}]  # posterior intermediate sulcus
 )
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Atlas resolution, round 3 (2026-11-14, owner: "more resolution and specific highlights"): real shapes traced from the
+# stain (substantia nigra and its two parts, the cord's grey matter, the central grey), fibre systems as fine bundles that
+# follow the stain, and the grey/white architecture each level needs (central canal, central grey, reticular formation,
+# PPRF). Course wins over the open atlases; parts not visible in a myelin stain are marked approximate.
+L4 = "Lecture 4 slides 30-31 (course: dorsal horn, intermediate zone, ventral horn; dorsal, lateral and ventral funiculi)"
+L7 = "Lecture 7 slide 9 (course: fourth ventricle, central canal)"
+L8_9 = "Lab 8 slide 9 (course: 'axons sweeping down and across the midline from the gracile and cuneate nuclei ... internal arcuate fibers')"
+L9_7 = "Lab 9 slide 7 (course: the internal arcuate fibers sweep ventrally and cross the midline to a space just above the pyramid)"
+L10_15 = "Lab 10 slide 15 (course: 'In the reticular formation is an ill-defined nucleus called Nucleus Ambiguus')"
+L10P = "Lecture 10 slide 22 (course: pyramidal decussation, 80% of corticospinal fibres cross to form the lateral corticospinal tract)"
+L11 = "Lab 11 slide 4 (course: the lateral gaze center = the nucleus of the MLF = the PPRF)"
+L14 = "Lecture 14 slides 28-29 (course: substantia nigra pars compacta, dopamine to the striatum)"
+U3 = "Unit 3 lab assignment answer key (course: 'divided into two parts: the pars compacta (SNc) and the pars reticulata (SNr)')"
+TRACED = "the section itself (traced from the stain)"
+
+
+def _bundle(inner, outer, n, jitter=1.6, seed=0):
+    """n fine fibre courses between two guide curves (same direction): each one interpolated between the guides at an even
+    spacing, with a little deterministic waviness so the bundle reads as fibres, not as hatching."""
+    import numpy as _np
+
+    def norm(c, k):
+        c = _np.asarray(c, float)
+        seg = _np.sqrt(((c[1:] - c[:-1]) ** 2).sum(1))
+        L = _np.concatenate([[0], _np.cumsum(seg)])
+        t = _np.linspace(0, L[-1], k)
+        return _np.stack([_np.interp(t, L, c[:, 0]), _np.interp(t, L, c[:, 1])], 1)
+
+    k = 24
+    a, b = norm(inner, k), norm(outer, k)
+    rng = _np.random.default_rng(seed)
+    out = []
+    for i in range(n):
+        t = i / max(1, n - 1)
+        p = a * (1 - t) + b * t
+        ph = rng.uniform(0, 6.28)
+        w = _np.sin(_np.linspace(0, 3.2, k) + ph) * jitter
+        d = _np.gradient(p, axis=0)
+        nrm = _np.stack([-d[:, 1], d[:, 0]], 1) / (_np.linalg.norm(d, axis=1, keepdims=True) + 1e-6)
+        q = p + nrm * w[:, None]
+        q[0], q[-1] = p[0], p[-1]
+        out.append([[round(float(x), 1), round(float(y), 1)] for x, y in q[::2].tolist() + [q[-1].tolist()]])
+    return out
+
+
+# --- rostral midbrain: the substantia nigra traced, with its two parts -----------------------------------------------
+_SN_NOTE = ("The pale band between the cerebral peduncle and the tegmentum (Lecture 14 / Lab 14), traced from the stain. "
+            "Its dopaminergic neurons (pars compacta) degenerate in Parkinson's disease.")
+EXTRAS["midbrain-sc"].setdefault("_skip", []).append("substantia-nigra")
+EXTRAS["midbrain-sc"].update({
+    "substantia-nigra": {
+        "pts": [[572, 604], [566, 560], [596, 528], [646, 492], [698, 452], [748, 408], [788, 366], [822, 356], [834, 392], [806, 436],
+                [762, 486], [704, 536], [646, 572], [604, 600]],
+        "pale": 0.42, "blur": 1.6, "open": 7, "close": 17, "tissue": "grey", "approx": False,
+        "clip_out": ["cerebral-peduncles", "red-nucleus", "interpeduncular-fossa", "medial-lemniscus"],
+        "src": [TRACED, "course overlay (position)", KEY + ", Fig. 54", COU + ", plate 4 (SNC, SNR)"],
+        "note": _SN_NOTE,
+    },
+    "substantia-nigra-pars-compacta": {
+        "from": "substantia-nigra", "parent": "substantia-nigra",
+        "pts_cut": [[560, 540], [600, 516], [650, 482], [700, 442], [750, 398], [792, 358], [830, 350], [826, 372], [790, 396], [750, 432],
+                    [702, 474], [654, 510], [606, 540], [574, 560]],
+        "tissue": "grey",
+        "src": [U3, L14, KEY + ", Fig. 54", COU + ", plate 4 (SNC)"],
+        "note": "The dorsal, cell-dense strip of the substantia nigra (dopaminergic, neuromelanin) next to the tegmentum. The border between the two parts is not visible in a myelin stain; drawn after the atlases.",
+    },
+    "substantia-nigra-pars-reticulata": {
+        "from": "substantia-nigra", "parent": "substantia-nigra", "clip_out": ["substantia-nigra-pars-compacta"],
+        "tissue": "grey",
+        "src": [U3, KEY + ", Fig. 54", COU + ", plate 4 (SNR)"],
+        "note": "The ventral, larger part of the substantia nigra next to the cerebral peduncle, whose fibres interdigitate with it (GABAergic output of the basal ganglia). The border with the pars compacta is drawn after the atlases.",
+    },
+})
+
+# --- caudal midbrain: the substantia nigra traced; the decussation of the superior cerebellar peduncles as fibres -----
+EXTRAS["midbrain-ic"].setdefault("_skip", []).append("substantia-nigra")
+EXTRAS["midbrain-ic"].update({
+    "substantia-nigra": {
+        "pts": [[540, 560], [548, 520], [590, 488], [650, 462], [700, 440], [750, 414], [796, 402], [806, 430], [780, 466], [730, 500],
+                [680, 530], [628, 560], [580, 584], [548, 586]],
+        "pale": 0.42, "blur": 1.6, "open": 7, "close": 17, "tissue": "grey", "approx": False,
+        "clip_out": ["cerebral-peduncles", "medial-lemniscus", "decussation-of-the-superior-cerebellar-peduncle", "pontine-nuclei"],
+        "src": [TRACED, "course overlay (position)", KEY + ", Fig. 52", COU + ", plate 8 (SNC, SNR)"],
+        "note": _SN_NOTE,
+    },
+    "substantia-nigra-pars-compacta": {
+        "from": "substantia-nigra", "parent": "substantia-nigra",
+        "pts_cut": [[530, 520], [580, 486], [640, 456], [700, 430], [760, 400], [810, 392], [812, 412], [770, 424], [716, 448], [656, 474],
+                    [598, 500], [552, 530], [534, 548]],
+        "tissue": "grey",
+        "src": [U3, L14, KEY + ", Fig. 52", COU + ", plate 8 (SNC)"],
+        "note": "The dorsal, cell-dense strip of the substantia nigra (dopaminergic) next to the medial lemniscus. The border between the two parts is not visible in a myelin stain; drawn after the atlases.",
+    },
+    "substantia-nigra-pars-reticulata": {
+        "from": "substantia-nigra", "parent": "substantia-nigra", "clip_out": ["substantia-nigra-pars-compacta"],
+        "tissue": "grey",
+        "src": [U3, KEY + ", Fig. 52", COU + ", plate 8 (SNR)"],
+        "note": "The ventral part of the substantia nigra, interdigitating with the cerebral peduncle. The border with the pars compacta is drawn after the atlases.",
+    },
+})
+EXTRAS["midbrain-ic"].setdefault("_fibres", {}).update({
+    "decussation-of-the-superior-cerebellar-peduncle": {
+        "paths": _bundle([[702, 300], [662, 314], [612, 328], [560, 340], [500, 350], [445, 360]],
+                         [[708, 424], [672, 446], [622, 470], [562, 486], [500, 492], [445, 492]], 9, 1.4, 11),
+        "fine": True, "approx": False,
+        "src": [TRACED + ": the oblique streaks entering from the dorsolateral tegmentum", KEY + ", Fig. 52", COU + ", plate 8 (xscp)"],
+        "note": "Each superior cerebellar peduncle sweeps ventromedially and crosses the midline here, on its way to the opposite red nucleus and thalamus.",
+    },
+    "transverse-fibers-of-the-pons": {
+        "paths": _bundle([[499, 774], [560, 766], [640, 764], [720, 756], [790, 736], [846, 716]],
+                         [[499, 856], [580, 852], [650, 842], [720, 822], [790, 792], [840, 760]], 6, 1.2, 12),
+        "fine": True, "approx": False,
+        "src": [TRACED, KEY + ", Fig. 52", COU + ", plate 8 (tfp)"],
+        "note": "The rostral end of the basis pontis: transverse fibres crossing to the middle cerebellar peduncle.",
+    },
+})
+
+# --- rostral pons (trigeminal level): transverse fibres as fine bundles that follow the stain; reticular formation -----
+_TFP_NOTE = ("Pontocerebellar fibres: from the pontine nuclei they cross the midline and run laterally, around the longitudinal "
+             "(corticospinal and corticobulbar) bundles, into the opposite middle cerebellar peduncle.")
+EXTRAS["pons-mid"].update({
+    "_skip_fibres": ["transverse-fibers-of-the-pons"],
+    "reticular-formation": {
+        "pts": [[503, 180], [540, 176], [600, 170], [650, 176], [690, 196], [700, 230], [690, 262], [660, 280], [600, 286], [540, 286], [503, 286]],
+        "tissue": "zone", "midline": True,
+        "clip_out": ["medial-longitudinal-fasciculus", "medial-lemniscus", "anterolateral-spinothalamic-tract", "motor-trigeminal-nucleus",
+                     "principal-sensory-nucleus-of-trigeminal", "superior-cerebellar-peduncle", "fourth-ventricle", "pontine-protuberance"],
+        "src": ["Lectures 10-11 (course: the reticular formation of the tegmentum)", KEY + ", Fig. 49", COU + ", plate 20"],
+        "note": "The tegmentum's core between the named nuclei and tracts: a diffuse net of neurons with no sharp borders (shown only when lit).",
+    },
+    "_fibres": {
+        "transverse-fibers-of-the-pons": {
+            "paths": _bundle([[499, 300], [560, 296], [620, 292], [665, 292], [695, 300], [714, 312]],
+                             [[499, 352], [560, 350], [615, 346], [652, 340], [688, 330], [714, 330]], 6, 1.4, 21)
+                     + _bundle([[499, 386], [540, 380], [580, 392], [622, 380], [662, 372], [700, 364]],
+                               [[499, 446], [532, 452], [576, 470], [628, 452], [664, 420], [700, 388]], 3, 1.0, 22)
+                     + _bundle([[499, 502], [560, 502], [612, 490], [646, 462], [668, 422], [684, 382], [704, 350]],
+                               [[499, 538], [570, 540], [630, 522], [672, 490], [700, 450], [712, 410], [720, 378]], 9, 1.4, 23),
+            "fine": True, "approx": False,
+            "src": [TRACED + ": the dark transverse streaks of the basilar pons", "course overlay (dotted transverse fibres)", "Lab 7 (course: 'lateral striations = transverse fibers of the pons')", KEY + ", Fig. 49", COU + ", plate 20"],
+            "note": _TFP_NOTE,
+        },
+    },
+})
+
+# --- caudal pons (facial colliculus level): transverse fibres, the PPRF (Lab 11), reticular formation ------------------
+EXTRAS["pons-caudal"].update({
+    "_skip_fibres": ["transverse-fibers-of-the-pons"],
+    "paramedian-pontine-reticular-formation": {
+        "ellipse": [548, 334, 21, 26, -10], "tissue": "grey",
+        "clip_out": ["medial-longitudinal-fasciculus", "abducens-nucleus", "medial-lemniscus"],
+        "src": [L11, "Lab 11 list: ID on histological images (course)", KEY + ", Fig. 48", STD],
+        "note": "The lateral gaze center (the nucleus of the MLF, the PPRF; the course uses the terms synonymously): paramedian tegmentum, ventral to the abducens nucleus beside the MLF. Not visible in a myelin stain.",
+    },
+    "reticular-formation": {
+        "pts": [[503, 320], [530, 318], [580, 296], [630, 296], [680, 316], [704, 350], [690, 372], [640, 372], [600, 366], [560, 366], [503, 368]],
+        "tissue": "zone", "midline": True,
+        "clip_out": ["medial-longitudinal-fasciculus", "abducens-nucleus", "facial-nucleus", "medial-lemniscus", "anterolateral-spinothalamic-tract",
+                     "spinal-trigeminal-nucleus", "vestibulocochlear-complex", "paramedian-pontine-reticular-formation", "fourth-ventricle", "facial-colliculus"],
+        "src": ["Lectures 10-11 (course: the reticular formation of the tegmentum)", KEY + ", Fig. 48", COU + ", plate 24"],
+        "note": "The tegmentum's core between the named nuclei and tracts: a diffuse net of neurons with no sharp borders (shown only when lit); the PPRF is its paramedian part.",
+    },
+    "_fibres": {
+        "transverse-fibers-of-the-pons": {
+            "paths": _bundle([[499, 462], [560, 458], [620, 456], [680, 456], [722, 450], [750, 438]],
+                             [[499, 524], [560, 524], [620, 518], [680, 506], [724, 482], [752, 466]], 6, 1.4, 31)
+                     + _bundle([[499, 668], [560, 676], [620, 668], [668, 640], [694, 600], [712, 560], [730, 522], [752, 500]],
+                               [[499, 708], [570, 712], [640, 698], [690, 668], [718, 628], [736, 585], [754, 550]], 9, 1.4, 32),
+            "fine": True, "approx": False,
+            "src": [TRACED + ": the transverse streaks dorsal and ventral to the longitudinal bundle", "course overlay (dotted transverse fibres)", KEY + ", Fig. 48", COU + ", plate 24"],
+            "note": _TFP_NOTE,
+        },
+    },
+})
+
+# --- rostral medulla (olive level): reticular formation (the course places nucleus ambiguus in it) --------------------
+EXTRAS["medulla-rostral"].update({
+    "reticular-formation": {
+        "pts": [[503, 360], [540, 350], [600, 330], [660, 320], [720, 330], [745, 372], [760, 420], [770, 470], [740, 500], [690, 486],
+                [640, 470], [590, 440], [550, 420], [503, 420]],
+        "tissue": "zone", "midline": True,
+        "clip_out": ["medial-longitudinal-fasciculus", "medial-lemniscus", "hypoglossal-nucleus", "dorsal-motor-nucleus-of-the-vagus", "solitary-nucleus",
+                     "spinal-trigeminal-nucleus", "nucleus-ambiguus", "inferior-olivary-nucleus", "anterolateral-spinothalamic-tract",
+                     "dorsal-spinocerebellar-tract", "inferior-cerebellar-peduncle", "vestibulocochlear-complex", "fourth-ventricle", "pyramids"],
+        "src": [L10_15, "Lectures 10-11 (course)", KEY + ", Fig. 44", COU + ", plates 28-29"],
+        "note": "The tegmentum's core between the named nuclei and tracts, dorsal to the inferior olive; the course places nucleus ambiguus in it (shown only when lit).",
+    },
+})
+
+# --- caudal medulla (tubercles): internal arcuate fibres as fine bundles; central grey and canal ---------------------
+EXTRAS["medulla-mid"].update({
+    "_skip_fibres": ["internal-arcuate-fibers"],
+    "central-gray": {
+        "pts": [[503, 160], [530, 166], [556, 190], [574, 230], [580, 280], [574, 330], [556, 360], [530, 372], [503, 374]],
+        "pale": 0.5, "blur": 2.0, "open": 7, "close": 19, "tissue": "grey", "midline": True, "approx": False,
+        "clip_out": ["gracile-nucleus", "cuneate-nucleus", "medial-lemniscus", "fasciculus-cuneatus"],
+        "src": [TRACED, L7, KEY + ", Fig. 41", COU + ", plate 38"],
+        "note": "The grey matter around the central canal of the closed medulla, continuous with the cord's intermediate grey. The hypoglossal and dorsal vagal nuclei and the solitary nucleus sit in it (hover them on top).",
+    },
+    "central-canal": {
+        "ellipse": [500, 246, 5, 5, 0], "tissue": "space", "midline": True,
+        "src": [L7, KEY + ", Fig. 41", STD],
+        "note": "The closed medulla has a central canal instead of the fourth ventricle (Lecture 7); it is collapsed in this section, so its place is marked.",
+    },
+    "_fibres": {
+        "internal-arcuate-fibers": {
+            "paths": _bundle([[548, 212], [570, 246], [584, 300], [578, 360], [550, 420], [500, 452], [474, 464], [466, 486]],
+                             [[662, 328], [684, 370], [676, 428], [640, 476], [580, 506], [500, 526], [472, 534], [464, 560]], 13, 1.5, 41),
+            "fine": True, "approx": False,
+            "src": [TRACED + ": the dark arcs from the nuclei around the central grey to the raphe", L8_9, L9_7, "course overlay (arcuate lines)", KEY + ", Fig. 41"],
+            "note": "Axons of the gracile and cuneate nuclei sweep ventrally and medially around the central grey, cross the midline (the sensory decussation) and turn 90 degrees to run up as the opposite medial lemniscus.",
+        },
+    },
+})
+
+# --- motor decussation: central grey, ventral horn, central canal; the pyramidal decussation as fibres ----------------
+EXTRAS["medulla-caudal"].update({
+    "central-gray": {
+        "pts": [[503, 326], [540, 330], [572, 350], [584, 390], [572, 428], [546, 456], [503, 468]],
+        "pale": 0.5, "blur": 2.0, "open": 7, "close": 21, "tissue": "grey", "midline": True, "approx": False,
+        "clip_out": ["gracile-nucleus", "cuneate-nucleus", "motor-decussation", "fasciculus-gracilis"],
+        "src": [TRACED, L7, KEY + ", Fig. 40", COU + ", plate 45"],
+        "note": "The grey matter around the central canal, where the cord's grey commissure and intermediate zone continue into the medulla.",
+    },
+    "central-canal": {
+        "ellipse": [500, 398, 5, 5, 0], "tissue": "space", "midline": True,
+        "src": [L7, KEY + ", Fig. 40", STD],
+        "note": "In the middle of the central grey; collapsed in this section, so its place is marked.",
+    },
+    "ventral-horn": {
+        "pts": [[614, 530], [660, 522], [706, 530], [744, 566], [740, 640], [726, 694], [690, 694], [652, 650], [626, 600]],
+        "pale": 0.6, "blur": 2.6, "open": 5, "close": 25, "tissue": "grey", "approx": False,
+        "clip_out": ["pyramids", "anterolateral-spinothalamic-tract", "lateral-corticospinal-tract", "anterior-corticospinal-tract"],
+        "src": [TRACED + ": the pale islands lateral to the decussating fibres", L4, KEY + ", Fig. 40 (ventral horn, spinal accessory nucleus)", COU + ", plate 45"],
+        "note": "The cord's ventral horn, being cut off from the central grey by the crossing corticospinal fibres; the accessory nerve (XI) rootlets arise from it at this level.",
+    },
+})
+EXTRAS["medulla-caudal"].setdefault("_fibres", {})["motor-decussation"] = {
+    "paths": _bundle([[612, 612], [580, 580], [540, 540], [500, 512], [460, 490], [400, 468], [330, 458], [270, 462], [232, 470]],
+                     [[590, 720], [565, 680], [535, 636], [500, 596], [462, 566], [410, 540], [340, 522], [280, 515], [240, 522]], 10, 2.0, 51),
+    "fine": True, "approx": False,
+    "src": [TRACED + ": the dark interlacing bundles between the central grey and the pyramids", "course overlay ('Pyramids/Motor Decussation')", L10P, KEY + ", Fig. 40"],
+    "note": "About 80% of the corticospinal fibres leave the pyramid dorsally, cross the midline in interlacing bundles and run dorsolaterally into the opposite lateral funiculus as the lateral corticospinal tract.",
+}

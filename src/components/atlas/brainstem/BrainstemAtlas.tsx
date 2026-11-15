@@ -15,7 +15,7 @@ import { MasteryPanel } from "./MasteryPanel";
 import { ComparePane } from "./ComparePane";
 import Link from "next/link";
 import { atlasHrefForCourseName } from "@/lib/atlas/map";
-import { LEVELS, STRUCTURES, levelBySlug } from "./data";
+import { LEVELS, STRUCTURES, infoSlugOf, levelBySlug } from "./data";
 import { OFF_PLATE } from "./offplate";
 
 export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel }: { courseSlug: string; mastery: BrainstemMastery; plateLevels: string[]; initialLevel?: string }) {
@@ -146,7 +146,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel 
                 {Math.round(lm.structures[selected] * 100)}% mastered on this plate
               </p>
             )}
-            <StructureInfo key={selected} slug={selected} name={STRUCTURES[selected]?.name} />
+            <StructureInfo key={selected} slug={infoSlugOf(selected)} name={STRUCTURES[selected]?.name} />
           </>
         )}
       </aside>

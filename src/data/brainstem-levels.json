@@ -80,6 +80,14 @@
     {
      "slug": "pulvinar",
      "source": "course"
+    },
+    {
+     "slug": "substantia-nigra-pars-reticulata",
+     "source": "standard"
+    },
+    {
+     "slug": "substantia-nigra-pars-compacta",
+     "source": "standard"
     }
    ]
   },
@@ -157,8 +165,16 @@
      "source": "standard"
     },
     {
+     "slug": "substantia-nigra-pars-reticulata",
+     "source": "standard"
+    },
+    {
      "slug": "transverse-fibers-of-the-pons",
      "source": "course"
+    },
+    {
+     "slug": "substantia-nigra-pars-compacta",
+     "source": "standard"
     }
    ]
   },
@@ -303,6 +319,10 @@
     {
      "slug": "pontine-protuberance",
      "source": "course"
+    },
+    {
+     "slug": "reticular-formation",
+     "source": "standard"
     }
    ]
   },
@@ -394,6 +414,14 @@
     {
      "slug": "pontine-protuberance",
      "source": "course"
+    },
+    {
+     "slug": "reticular-formation",
+     "source": "standard"
+    },
+    {
+     "slug": "paramedian-pontine-reticular-formation",
+     "source": "course"
     }
    ]
   },
@@ -481,6 +509,10 @@
     {
      "slug": "spinal-trigeminal-nucleus",
      "source": "course"
+    },
+    {
+     "slug": "reticular-formation",
+     "source": "standard"
     }
    ]
   },
@@ -551,8 +583,16 @@
      "source": "course"
     },
     {
+     "slug": "central-gray",
+     "source": "standard"
+    },
+    {
      "slug": "dorsal-motor-nucleus-of-the-vagus",
      "source": "course"
+    },
+    {
+     "slug": "central-canal",
+     "source": "standard"
     }
    ]
   },
@@ -621,6 +661,18 @@
     {
      "slug": "anterior-corticospinal-tract",
      "source": "course"
+    },
+    {
+     "slug": "ventral-horn",
+     "source": "course"
+    },
+    {
+     "slug": "central-gray",
+     "source": "standard"
+    },
+    {
+     "slug": "central-canal",
+     "source": "standard"
     }
    ]
   },
@@ -678,12 +730,32 @@
      "source": "course"
     },
     {
+     "slug": "dorsal-columns",
+     "source": "course"
+    },
+    {
      "slug": "dorsal-horn",
      "source": "course"
     },
     {
      "slug": "ventral-horn",
      "source": "course"
+    },
+    {
+     "slug": "intermediate-zone",
+     "source": "course"
+    },
+    {
+     "slug": "substantia-gelatinosa",
+     "source": "course"
+    },
+    {
+     "slug": "ventral-commissure-of-spinal-cord",
+     "source": "course"
+    },
+    {
+     "slug": "central-canal",
+     "source": "standard"
     }
    ]
   },
@@ -1174,7 +1246,7 @@
  ],
  "structures": {
   "abducens-nerve": {
-   "name": "Abducens nerve",
+   "name": "Abducens nerve (VI)",
    "slug": "abducens-nerve",
    "onList": true,
    "group": "nerves",
@@ -1182,7 +1254,7 @@
    "inAtlas": false
   },
   "abducens-nucleus": {
-   "name": "Abducens nucleus",
+   "name": "Abducens nucleus (CN VI)",
    "slug": "abducens-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1190,7 +1262,7 @@
    "inAtlas": true
   },
   "accessory-nerve": {
-   "name": "Accessory nerve",
+   "name": "Accessory nerve (XI)",
    "slug": "accessory-nerve",
    "onList": true,
    "group": "nerves",
@@ -1269,6 +1341,22 @@
    "color": "#3ee0a3",
    "inAtlas": true
   },
+  "central-canal": {
+   "name": "Central canal",
+   "slug": null,
+   "onList": false,
+   "group": "landmarks",
+   "color": "#e03e64",
+   "inAtlas": false
+  },
+  "central-gray": {
+   "name": "Central gray",
+   "slug": null,
+   "onList": false,
+   "group": "nuclei",
+   "color": "#e03ebc",
+   "inAtlas": false
+  },
   "cerebellar-peduncles": {
    "name": "Cerebellar peduncles",
    "slug": "cerebellar-peduncles",
@@ -1341,6 +1429,14 @@
    "color": "#e03eb7",
    "inAtlas": false
   },
+  "dorsal-columns": {
+   "name": "Dorsal columns",
+   "slug": "dorsal-columns",
+   "onList": true,
+   "group": "bundles",
+   "color": "#3ee047",
+   "inAtlas": false
+  },
   "dorsal-horn": {
    "name": "Dorsal horn",
    "slug": "dorsal-horn",
@@ -1350,7 +1446,7 @@
    "inAtlas": false
   },
   "dorsal-motor-nucleus-of-the-vagus": {
-   "name": "Dorsal motor nucleus of the vagus",
+   "name": "Dorsal motor nucleus of the vagus (CN X)",
    "slug": "dorsal-motor-nucleus-of-the-vagus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1366,7 +1462,7 @@
    "inAtlas": false
   },
   "edinger-westphal-nucleus": {
-   "name": "Edinger-Westphal nucleus",
+   "name": "Edinger-Westphal nucleus (CN III)",
    "slug": "edinger-westphal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1382,7 +1478,7 @@
    "inAtlas": true
   },
   "facial-nerve": {
-   "name": "Facial nerve",
+   "name": "Facial nerve (VII)",
    "slug": "facial-nerve",
    "onList": true,
    "group": "nerves",
@@ -1390,7 +1486,7 @@
    "inAtlas": false
   },
   "facial-nucleus": {
-   "name": "Facial nucleus",
+   "name": "Facial nucleus (CN VII)",
    "slug": "facial-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1422,7 +1518,7 @@
    "inAtlas": true
   },
   "glossopharyngeal-nerve": {
-   "name": "Glossopharyngeal nerve",
+   "name": "Glossopharyngeal nerve (IX)",
    "slug": "glossopharyngeal-nerve",
    "onList": true,
    "group": "nerves",
@@ -1454,7 +1550,7 @@
    "inAtlas": true
   },
   "hypoglossal-nerve": {
-   "name": "Hypoglossal nerve",
+   "name": "Hypoglossal nerve (XII)",
    "slug": "hypoglossal-nerve",
    "onList": true,
    "group": "nerves",
@@ -1462,7 +1558,7 @@
    "inAtlas": false
   },
   "hypoglossal-nucleus": {
-   "name": "Hypoglossal nucleus",
+   "name": "Hypoglossal nucleus (CN XII)",
    "slug": "hypoglossal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1500,6 +1596,14 @@
    "group": "nuclei",
    "color": "#e0bf3e",
    "inAtlas": true
+  },
+  "intermediate-zone": {
+   "name": "Intermediate zone",
+   "slug": "intermediate-zone",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#763ee0",
+   "inAtlas": false
   },
   "internal-arcuate-fibers": {
    "name": "Internal arcuate fibers",
@@ -1678,7 +1782,7 @@
    "inAtlas": false
   },
   "motor-trigeminal-nucleus": {
-   "name": "Motor trigeminal nucleus",
+   "name": "Motor trigeminal nucleus (CN V)",
    "slug": "motor-trigeminal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1686,7 +1790,7 @@
    "inAtlas": true
   },
   "nucleus-ambiguus": {
-   "name": "Nucleus ambiguus",
+   "name": "Nucleus ambiguus (CN IX, X)",
    "slug": "nucleus-ambiguus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1702,7 +1806,7 @@
    "inAtlas": true
   },
   "oculomotor-nerve": {
-   "name": "Oculomotor nerve",
+   "name": "Oculomotor nerve (III)",
    "slug": "oculomotor-nerve",
    "onList": true,
    "group": "nerves",
@@ -1710,7 +1814,7 @@
    "inAtlas": false
   },
   "oculomotor-nucleus": {
-   "name": "Oculomotor nucleus",
+   "name": "Oculomotor nucleus (CN III)",
    "slug": "oculomotor-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1718,7 +1822,7 @@
    "inAtlas": true
   },
   "olfactory-nerve": {
-   "name": "Olfactory nerve",
+   "name": "Olfactory nerve (I)",
    "slug": "olfactory-nerve",
    "onList": true,
    "group": "nerves",
@@ -1742,7 +1846,7 @@
    "inAtlas": false
   },
   "optic-nerve": {
-   "name": "Optic nerve",
+   "name": "Optic nerve (II)",
    "slug": "optic-nerve",
    "onList": true,
    "group": "nerves",
@@ -1755,6 +1859,14 @@
    "onList": true,
    "group": "landmarks",
    "color": "#da3ee0",
+   "inAtlas": true
+  },
+  "paramedian-pontine-reticular-formation": {
+   "name": "Paramedian pontine reticular formation",
+   "slug": "paramedian-pontine-reticular-formation",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#8ce03e",
    "inAtlas": true
   },
   "periaqueductal-gray": {
@@ -1806,7 +1918,7 @@
    "inAtlas": true
   },
   "principal-sensory-nucleus-of-trigeminal": {
-   "name": "Principal sensory nucleus of trigeminal",
+   "name": "Principal sensory nucleus of trigeminal (CN V)",
    "slug": "principal-sensory-nucleus-of-trigeminal",
    "onList": true,
    "group": "cn-nuclei",
@@ -1845,6 +1957,14 @@
    "color": "#3e51e0",
    "inAtlas": true
   },
+  "reticular-formation": {
+   "name": "Reticular formation",
+   "slug": null,
+   "onList": false,
+   "group": "nuclei",
+   "color": "#3e5de0",
+   "inAtlas": false
+  },
   "septum-pellucidum": {
    "name": "Septum pellucidum",
    "slug": "septum-pellucidum",
@@ -1854,7 +1974,7 @@
    "inAtlas": false
   },
   "solitary-nucleus": {
-   "name": "Solitary nucleus",
+   "name": "Solitary nucleus (CN VII, IX, X)",
    "slug": "solitary-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1862,7 +1982,7 @@
    "inAtlas": true
   },
   "spinal-trigeminal-nucleus": {
-   "name": "Spinal trigeminal nucleus",
+   "name": "Spinal trigeminal nucleus (CN V)",
    "slug": "spinal-trigeminal-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1885,6 +2005,14 @@
    "color": "#3ea8e0",
    "inAtlas": false
   },
+  "substantia-gelatinosa": {
+   "name": "Substantia gelatinosa",
+   "slug": "substantia-gelatinosa",
+   "onList": true,
+   "group": "nuclei",
+   "color": "#e0a53e",
+   "inAtlas": false
+  },
   "substantia-nigra": {
    "name": "Substantia nigra",
    "slug": "substantia-nigra",
@@ -1892,6 +2020,22 @@
    "group": "nuclei",
    "color": "#e03e79",
    "inAtlas": true
+  },
+  "substantia-nigra-pars-compacta": {
+   "name": "Substantia nigra, pars compacta",
+   "slug": null,
+   "onList": false,
+   "group": "nuclei",
+   "color": "#e04e3e",
+   "inAtlas": false
+  },
+  "substantia-nigra-pars-reticulata": {
+   "name": "Substantia nigra, pars reticulata",
+   "slug": null,
+   "onList": false,
+   "group": "nuclei",
+   "color": "#3ee07d",
+   "inAtlas": false
   },
   "superior-cerebellar-peduncle": {
    "name": "Superior cerebellar peduncle",
@@ -1934,7 +2078,7 @@
    "inAtlas": true
   },
   "trigeminal-nerve": {
-   "name": "Trigeminal nerve",
+   "name": "Trigeminal nerve (V)",
    "slug": "trigeminal-nerve",
    "onList": true,
    "group": "nerves",
@@ -1942,7 +2086,7 @@
    "inAtlas": false
   },
   "trochlear-nerve": {
-   "name": "Trochlear nerve",
+   "name": "Trochlear nerve (IV)",
    "slug": "trochlear-nerve",
    "onList": true,
    "group": "nerves",
@@ -1950,7 +2094,7 @@
    "inAtlas": false
   },
   "trochlear-nucleus": {
-   "name": "Trochlear nucleus",
+   "name": "Trochlear nucleus (CN IV)",
    "slug": "trochlear-nucleus",
    "onList": true,
    "group": "cn-nuclei",
@@ -1958,11 +2102,19 @@
    "inAtlas": true
   },
   "vagus-nerve": {
-   "name": "Vagus nerve",
+   "name": "Vagus nerve (X)",
    "slug": "vagus-nerve",
    "onList": true,
    "group": "nerves",
    "color": "#3ee068",
+   "inAtlas": false
+  },
+  "ventral-commissure-of-spinal-cord": {
+   "name": "Ventral commissure of spinal cord",
+   "slug": "ventral-commissure-of-spinal-cord",
+   "onList": true,
+   "group": "bundles",
+   "color": "#3ee0d4",
    "inAtlas": false
   },
   "ventral-horn": {
@@ -1974,7 +2126,7 @@
    "inAtlas": false
   },
   "vestibulocochlear-complex": {
-   "name": "Vestibulocochlear complex",
+   "name": "Vestibulocochlear complex (CN VIII)",
    "slug": "vestibulocochlear-complex",
    "onList": true,
    "group": "cn-nuclei",
@@ -1982,7 +2134,7 @@
    "inAtlas": true
   },
   "vestibulocochlear-nerve": {
-   "name": "Vestibulocochlear nerve",
+   "name": "Vestibulocochlear nerve (VIII)",
    "slug": "vestibulocochlear-nerve",
    "onList": true,
    "group": "nerves",

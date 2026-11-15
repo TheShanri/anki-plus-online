@@ -29,6 +29,8 @@ export interface PlateRegion {
   approx?: boolean;
   note?: string;
   src: string[];
+  /** a sub-part (substantia nigra pars compacta): the structure it belongs to, whose course notes it opens */
+  parent?: string;
 }
 
 export interface PlateFibre {
@@ -38,6 +40,8 @@ export interface PlateFibre {
   tissue: "nerve" | "fibres";
   d: string;
   approx?: boolean;
+  /** one fibre of a fine bundle (internal arcuate fibres, transverse pontine fibres, a decussation), drawn as a hairline */
+  fine?: boolean;
   note?: string;
   src?: string[];
 }

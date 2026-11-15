@@ -43,7 +43,9 @@ test("tracts resolve to the bundle that carries them at each level", () => {
   assert.deepEqual(ref.resolveAt("lateral-corticospinal-tract", "medulla-rostral"), ["pyramids"]);
   assert.deepEqual(ref.resolveAt("lateral-corticospinal-tract", "cervicomedullary"), ["lateral-corticospinal-tract"]);
   assert.equal(ref.pickLevel(["lateral-corticospinal-tract"]), "medulla-caudal");
-  assert.deepEqual(ref.resolveAt("dorsal-columns", "cervicomedullary"), ["fasciculus-gracilis", "fasciculus-cuneatus"]);
+  // the cord plate draws the dorsal columns themselves (the posterior funiculus); a level without them uses its fasciculi
+  assert.deepEqual(ref.resolveAt("dorsal-columns", "cervicomedullary"), ["dorsal-columns"]);
+  assert.deepEqual(ref.resolveAt("dorsal-columns", "medulla-caudal"), ["fasciculus-gracilis", "fasciculus-cuneatus"]);
 });
 
 test("a structure not on the plates has no level", () => {

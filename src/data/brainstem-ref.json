@@ -78,7 +78,7 @@
       "R"
      ],
      "approx": false,
-     "area": 93162
+     "area": 105218
     },
     "midbrain-ic": {
      "sides": [
@@ -86,7 +86,27 @@
       "R"
      ],
      "approx": false,
-     "area": 72410
+     "area": 89271
+    }
+   }
+  },
+  "substantia-nigra-pars-reticulata": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 99837
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 82915
     }
    }
   },
@@ -105,6 +125,26 @@
      ],
      "approx": true,
      "area": 4514
+    }
+   }
+  },
+  "substantia-nigra-pars-compacta": {
+   "levels": {
+    "midbrain-sc": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 80352
+    },
+    "midbrain-ic": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 59135
     }
    }
   },
@@ -487,7 +527,9 @@
    "levels": {
     "midbrain-ic": {
      "sides": [
-      "M"
+      "L",
+      "M",
+      "R"
      ],
      "approx": false,
      "area": 71804
@@ -698,6 +740,31 @@
      ],
      "approx": false,
      "area": 99067
+    }
+   }
+  },
+  "reticular-formation": {
+   "levels": {
+    "pons-mid": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 54041
+    },
+    "pons-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 32586
+    },
+    "medulla-rostral": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 98697
     }
    }
   },
@@ -959,6 +1026,18 @@
      ],
      "approx": false,
      "area": 45539
+    }
+   }
+  },
+  "paramedian-pontine-reticular-formation": {
+   "levels": {
+    "pons-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 4392
     }
    }
   },
@@ -1345,6 +1424,24 @@
     }
    }
   },
+  "central-gray": {
+   "levels": {
+    "medulla-mid": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 35962
+    },
+    "medulla-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 22750
+    }
+   }
+  },
   "fasciculus-cuneatus": {
    "levels": {
     "medulla-mid": {
@@ -1369,7 +1466,7 @@
       "R"
      ],
      "approx": false,
-     "area": 105038
+     "area": 98190
     }
    }
   },
@@ -1413,6 +1510,31 @@
     }
    }
   },
+  "central-canal": {
+   "levels": {
+    "medulla-mid": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 87
+    },
+    "medulla-caudal": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 88
+    },
+    "cervicomedullary": {
+     "sides": [
+      "M"
+     ],
+     "approx": true,
+     "area": 58
+    }
+   }
+  },
   "internal-arcuate-fibers": {
    "levels": {
     "medulla-mid": {
@@ -1429,7 +1551,9 @@
    "levels": {
     "medulla-caudal": {
      "sides": [
-      "M"
+      "L",
+      "M",
+      "R"
      ],
      "approx": false,
      "area": 214440
@@ -1440,6 +1564,26 @@
      ],
      "approx": true,
      "area": 3012
+    }
+   }
+  },
+  "ventral-horn": {
+   "levels": {
+    "medulla-caudal": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 33210
+    },
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 68574
     }
    }
   },
@@ -1538,7 +1682,19 @@
       "R"
      ],
      "approx": false,
-     "area": 204249
+     "area": 271461
+    }
+   }
+  },
+  "dorsal-columns": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 127399
     }
    }
   },
@@ -1550,7 +1706,7 @@
       "R"
      ],
      "approx": false,
-     "area": 142839
+     "area": 144206
     }
    }
   },
@@ -1562,31 +1718,7 @@
       "R"
      ],
      "approx": false,
-     "area": 25495
-    }
-   }
-  },
-  "location-of-trunk-lower-motor-neurons": {
-   "levels": {
-    "cervicomedullary": {
-     "sides": [
-      "L",
-      "R"
-     ],
-     "approx": true,
-     "area": 20820
-    }
-   }
-  },
-  "ventral-horn": {
-   "levels": {
-    "cervicomedullary": {
-     "sides": [
-      "L",
-      "R"
-     ],
-     "approx": false,
-     "area": 55954
+     "area": 59117
     }
    }
   },
@@ -1598,7 +1730,53 @@
       "R"
      ],
      "approx": true,
-     "area": 22132
+     "area": 35498
+    }
+   }
+  },
+  "location-of-trunk-lower-motor-neurons": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": true,
+     "area": 20816
+    }
+   }
+  },
+  "intermediate-zone": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 32295
+    }
+   }
+  },
+  "substantia-gelatinosa": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "L",
+      "R"
+     ],
+     "approx": false,
+     "area": 12049
+    }
+   }
+  },
+  "ventral-commissure-of-spinal-cord": {
+   "levels": {
+    "cervicomedullary": {
+     "sides": [
+      "M"
+     ],
+     "approx": false,
+     "area": 2469
     }
    }
   },

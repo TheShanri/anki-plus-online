@@ -17,8 +17,50 @@ illustration / section), single shots `_atlas/bs3_shots/<level>-<view>.png`, spl
 Frame-clipped edges trimmed (2026-11-12): the caudal pons peduncle stumps now end in a rounded cut inside the frame, the
 midbrain-ic tectum is a rounded dome instead of the photo's straight top edge, the rostral medulla's lateral edges are
 no longer frame-ruled, and the rostral pons velum notch is gone (`levels_cfg.py` clip/keep/erase).
-Known weak spot, not an error: the cervical-cord illustration shows no grey-matter butterfly (the course overlay
-outlines only the tracts there).
+The cervical cord's grey-matter H was the weak spot; round 3 (below) traces it from the section.
+
+## Round 3: atlas resolution (2026-11-14/15, owner feedback)
+Owner: "more resolution and specific highlights, such as for the substantia nigra or the internal arcuate fibers";
+"the horns are missing from the spinal section"; "polish and make the brainstem comprehensive"; Roman numerals on
+cranial nerves. Shots (course photos inside, not committed): `_atlas/bs3_shots/r3/before/` and `r3/after/`
+(`<level>-<width>[-<hovered structure>].png`, 1440x900 and 390x844).
+
+**Pipeline** (`build.py`, `extras.py` round-3 block at the end): `pale`/`dense` traces a structure from the stain
+inside a bounding polygon (Weil stains myelin, so pale = grey matter); `_masks` are hidden helper masks cut into named
+parts with `from` + `pts_cut`; `parent` marks a sub-part (opens the parent's course notes, `infoSlugOf` in `data.ts`);
+`_skip_fibres` drops the overlay's few lines for a fibre system and `_bundle()` draws it as 6-13 fine fibres between two
+guide curves laid along the stain's own streaks (`fine: true`, hairline in `PlateArt`).
+
+**Per level**
+- Cervical cord: the whole grey matter traced from the section and cut into dorsal horn (apex to the dorsal root entry
+  zone), substantia gelatinosa (the palest cap; continues as the caudal spinal trigeminal nucleus), intermediate zone
+  (with the grey commissure), ventral horn (the course's limb and trunk pools are now its lateral and medial parts),
+  central canal (marked: obliterated), ventral white commissure, dorsal columns (outline around gracilis + cuneatus).
+  Lateral horn not drawn: T1-L2 only (said in the intermediate-zone note). Sources: Lecture 4 slides 30-31, Lab 5,
+  Lecture 7 slide 9, Coulombe pl. 45.
+- Motor decussation: central grey and central canal, the ventral horn (the pale islands lateral to the crossing
+  fibres, XI rootlets), the pyramidal decussation as 10 interlacing fibres per side from the pyramid across the midline
+  into the opposite lateral funiculus (Lecture 10 slide 22, DeArmond Fig. 40).
+- Caudal medulla (tubercles): internal arcuate fibres as 13 fine arcs per side from the gracile/cuneate nuclei around
+  the central grey, crossing in the medial lemniscus (Lab 8 slide 9, Lab 9 slide 7, Fig. 41); central grey (traced) and
+  central canal.
+- Rostral medulla: reticular formation zone (Lab 10 slide 15 puts nucleus ambiguus in it; shown only when lit).
+- Caudal pons: PPRF / lateral gaze center (Lab 11 slide 4 and the Lab 11 histology list; approximate), reticular
+  formation zone, transverse pontine fibres as fine bundles dorsal and ventral to the longitudinal bundle.
+- Rostral pons: transverse pontine fibres as three fine bundles along the stain's streaks into the middle cerebellar
+  peduncle; reticular formation zone.
+- Caudal midbrain: substantia nigra traced from the pale band, split into pars compacta (dorsal strip) and pars
+  reticulata (ventral, interdigitating with the crus); decussation of the superior cerebellar peduncles as crossing
+  fibres; transverse pontine fibres at the rostral basis pontis.
+- Rostral midbrain: substantia nigra traced and split the same way. SNc/SNr are taught (Lecture 14 slides 28-29, Unit 3
+  lab assignment answer key); the border between them is not visible in a myelin stain, so the parts are approximate
+  while the whole nigra is traced.
+- Names: cranial nerves "Hypoglossal nerve (XII)", nuclei "Hypoglossal nucleus (CN XII)" (`build-levels.mjs`).
+- `coverage.mjs`: still 0 gaps; now prints per level what is listed, what is drawn beyond the list, approximate (*) and
+  fine-bundle (~) structures.
+- Hover test hook for headless shots: React ignores synthetic pointer events in the WebView, so the shot script calls
+  the hit path's React `onFocus` prop (`__reactProps*`); the plate API is cached for an hour, so refetch it with
+  `cache: "reload"` after re-exporting.
 
 ## Done
 - Plates for the 8 course levels, built from the course's Brainstem Overlay deck (the professor's outlines drawn on the

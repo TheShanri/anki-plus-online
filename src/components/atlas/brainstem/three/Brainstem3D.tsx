@@ -50,13 +50,20 @@ const VIEW_LABEL: Record<View3D, string> = { anterior: "Anterior", posterior: "P
 const GREY = new Set(["superior-colliculus", "inferior-colliculus", "olives", "gracile-tubercle", "cuneate-tubercle", "facial-colliculus", "area-postrema", "pulvinar", "medial-geniculate-nucleus", "lateral-geniculate-nucleus", "mammillary-bodies", "pineal-gland"]);
 const SPACE = new Set(["fourth-ventricle", "interpeduncular-fossa", "obex"]);
 function tone(p: Part3D): string {
-  if (p.kind === "nerve") return "#dcbc62";
-  if (p.kind === "context") return "#d9d4ce";
-  if (p.kind === "body") return "#d9c9b5";
-  if (GREY.has(p.slug)) return "#c79a7b";
-  if (SPACE.has(p.slug)) return "#ae9e92";
-  return "#f5f0e8";
+  if (p.kind === "nerve") return "#f1e4bd";
+  if (p.kind === "context") return p.slug === "thalamus" ? "#e9e3dc" : "#ddd6ce";
+  if (p.kind === "body") return "#ddcfbc";
+  if (p.slug === "fourth-ventricle") return "#b8a695";
+  if (p.slug === "facial-colliculus" || p.slug === "area-postrema") return "#e0bf9f";
+  if (GREY.has(p.slug)) return "#cfa98d";
+  if (SPACE.has(p.slug)) return "#b7a597";
+  if (p.slug.endsWith("cerebellar-peduncle")) return "#e4d8c6";
+  if (p.slug.startsWith("optic-")) return "#e6dccb";
+  return "#efe8dc";
 }
+/** Context drawn see-through so the brainstem stays the subject (the pulvinar patch stays solid). */
+const GHOST = new Set(["thalamus"]);
+const GHOST_OPACITY = 0.32;
 
 function cameraDistance(aspect: number, fov: number) {
   const t = Math.tan(((fov / 2) * Math.PI) / 180);
@@ -124,6 +131,27 @@ function boundaryLines(mesh: THREE.Mesh, mat: THREE.LineBasicMaterial): THREE.Li
   return ls;
 }
 
+/** A copy of a geometry pushed out along its normals by `d` (local units), as plain floats. */
+function inflated(src: THREE.BufferGeometry, d: number): THREE.BufferGeometry {
+  const pos = src.getAttribute("position");
+  const nrm = src.getAttribute("normal");
+  const out = new Float32Array(pos.count * 3);
+  const p = new THREE.Vector3();
+  const n = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    p.fromBufferAttribute(pos, i);
+    if (nrm) n.fromBufferAttribute(nrm, i).normalize();
+    out[i * 3] = p.x + n.x * d;
+    out[i * 3 + 1] = p.y + n.y * d;
+    out[i * 3 + 2] = p.z + n.z * d;
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.BufferAttribute(out, 3));
+  if (src.index) g.setIndex(src.index.clone());
+  g.computeBoundingSphere();
+  return g;
+}
+
 interface Loaded {
   root: THREE.Group;
   meshes: Map<string, THREE.Mesh>;
@@ -141,7 +169,9 @@ function useBrainstemModel(): { model: Loaded | null; error: boolean } {
         root.updateMatrixWorld(true);
         const meshes = new Map<string, THREE.Mesh>();
         const mats = new Map<string, THREE.MeshStandardMaterial>();
-        const lineMat = new THREE.LineBasicMaterial({ color: "#4a3c30", transparent: true, opacity: 0.38, depthWrite: false });
+        const lineMat = new THREE.LineBasicMaterial({ color: "#5b4636", transparent: true, opacity: 0.5, depthWrite: false });
+        const hullMat = new THREE.MeshBasicMaterial({ color: "#8a7350", side: THREE.BackSide });
+        const pickMat = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: false, transparent: true, opacity: 0 });
         const found: [THREE.Mesh, Part3D][] = [];
         root.traverse((o) => {
           const mesh = o as THREE.Mesh;
@@ -154,7 +184,19 @@ function useBrainstemModel(): { model: Loaded | null; error: boolean } {
           found.push([mesh, part]);
         });
         for (const [mesh, part] of found) {
-          const mat = new THREE.MeshStandardMaterial({ color: tone(part), roughness: 0.78, metalness: 0, emissive: new THREE.Color(0, 0, 0), side: part.kind === "nerve" ? THREE.FrontSide : THREE.DoubleSide });
+          const ghost = GHOST.has(part.slug);
+          const mat = new THREE.MeshStandardMaterial({
+            color: tone(part),
+            vertexColors: !!mesh.geometry.getAttribute("color"),
+            roughness: 0.82,
+            metalness: 0,
+            emissive: new THREE.Color(0, 0, 0),
+            side: THREE.DoubleSide,
+            transparent: ghost,
+            opacity: ghost ? GHOST_OPACITY : 1,
+            depthWrite: !ghost,
+          });
+          if (ghost) mesh.renderOrder = 1;
           if (part.kind === "patch") {
             mat.polygonOffset = true;
             mat.polygonOffsetFactor = -1;
@@ -168,6 +210,16 @@ function useBrainstemModel(): { model: Loaded | null; error: boolean } {
             const l = boundaryLines(mesh, lineMat);
             if (l) mesh.add(l);
           }
+          if (part.kind === "nerve") {
+            // a fine darker outline (inverted hull) and a fat invisible twin that catches the pointer
+            const scale = mesh.getWorldScale(new THREE.Vector3()).x || 1;
+            const hull = new THREE.Mesh(inflated(mesh.geometry, 0.00009 / scale), hullMat);
+            hull.raycast = () => undefined;
+            mesh.add(hull);
+            const pick = new THREE.Mesh(inflated(mesh.geometry, 0.0011 / scale), pickMat);
+            pick.userData.part = part.id;
+            mesh.add(pick);
+          }
         }
         setModel({ root, meshes, mats });
       })
@@ -179,7 +231,7 @@ function useBrainstemModel(): { model: Loaded | null; error: boolean } {
   return { model, error };
 }
 
-function LevelPlane({ slug, rec, state, accent, onHover, onPick, pickable }: { slug: string; rec: Level3D; state: "idle" | "hover" | "current"; accent: THREE.Color; onHover: (s: string | null, e?: ThreeEvent<PointerEvent>) => void; onPick: (s: string) => void; pickable: boolean }) {
+function LevelPlane({ slug, rec, state, accent, onHover, onPick, pickable, compact }: { slug: string; rec: Level3D; state: "idle" | "hover" | "current"; accent: THREE.Color; onHover: (s: string | null, e?: ThreeEvent<PointerEvent>) => void; onPick: (s: string) => void; pickable: boolean; compact?: boolean }) {
   const mid = slug === "midsagittal";
   const { geo, ring, quat } = useMemo(() => {
     const n = new THREE.Vector3(...rec.n).normalize();
@@ -205,14 +257,14 @@ function LevelPlane({ slug, rec, state, accent, onHover, onPick, pickable }: { s
     },
     [geo, ring],
   );
-  const fill = state === "current" ? 0.24 : state === "hover" ? 0.18 : 0;
-  const line = state === "current" ? 0.95 : state === "hover" ? 0.8 : 0.26;
+  const fill = state === "current" ? (compact ? 0.3 : 0.07) : state === "hover" ? 0.1 : 0;
+  const line = state === "current" ? 0.9 : state === "hover" ? 0.6 : compact ? 0.1 : 0.13;
   const pos = mid ? new THREE.Vector3(rec.p[0], 1.575, -0.008) : new THREE.Vector3(...rec.p);
   return (
     <group position={pos} quaternion={quat}>
       <mesh
         geometry={geo}
-        renderOrder={2}
+        renderOrder={4}
         raycast={pickable && (!mid || state !== "idle") ? THREE.Mesh.prototype.raycast : () => undefined}
         onPointerMove={(e) => {
           e.stopPropagation();
@@ -227,7 +279,7 @@ function LevelPlane({ slug, rec, state, accent, onHover, onPick, pickable }: { s
       >
         <meshBasicMaterial color={accent} transparent opacity={fill} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
-      <lineLoop geometry={ring} renderOrder={3} raycast={() => undefined}>
+      <lineLoop geometry={ring} renderOrder={5} raycast={() => undefined}>
         <lineBasicMaterial color={accent} transparent opacity={line} depthWrite={false} />
       </lineLoop>
     </group>
@@ -350,7 +402,7 @@ function Scene({
 
   return (
     <>
-      <hemisphereLight args={["#fff8ee", "#7a6d62", 1.0]} />
+      <hemisphereLight args={["#fffaf3", "#6d6157", 0.62]} />
       <Headlight />
       <primitive object={model.root} onPointerMove={onMove} onPointerOut={onOut} onClick={onClick} />
       {planes !== "none" &&
@@ -365,6 +417,7 @@ function Scene({
               state={st}
               accent={accent}
               pickable={!!onLevel}
+              compact={compact}
               onHover={(s, e) => {
                 setHoverLevel(s);
                 if (s && e) {
@@ -461,6 +514,7 @@ export default function Brainstem3D({ level = null, selected = null, hover = nul
 /** A key light that rides with the camera (up and to the left of it), so every side is lit like a specimen on a desk. */
 function Headlight() {
   const ref = useRef<THREE.DirectionalLight>(null);
+  const fill = useRef<THREE.DirectionalLight>(null);
   const { camera, scene } = useThree();
   const off = useMemo(() => new THREE.Vector3(), []);
   useEffect(() => {
@@ -473,13 +527,15 @@ function Headlight() {
   useFrame(() => {
     const l = ref.current;
     if (!l) return;
-    off.set(-0.16, 0.24, 0.02).applyQuaternion(camera.quaternion);
+    off.set(-0.2, 0.26, 0.04).applyQuaternion(camera.quaternion);
     l.position.copy(camera.position).add(off);
+    const f = fill.current;
+    if (f) f.position.copy(camera.position).add(off.set(0.22, -0.05, 0).applyQuaternion(camera.quaternion));
   });
   return (
     <>
-      <directionalLight ref={ref} intensity={1.9} />
-      <directionalLight position={[0, 1.9, -0.4]} intensity={0.35} />
+      <directionalLight ref={ref} intensity={2.3} />
+      <directionalLight ref={fill} color="#e8eef5" intensity={0.55} />
     </>
   );
 }

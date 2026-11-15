@@ -1253,6 +1253,12 @@ function Scene({
   const paintMats = useMemo(() => Object.fromEntries(DEEP.map((d) => [d.id, makeSectionPaint(d.tissue, d.shade, { under: d.under, midSkip: d.midSkip })])) as Record<string, THREE.MeshBasicMaterial>, []);
   const targetPaint = useMemo(() => makeSectionPaint("grey"), []);
   useEffect(() => () => [...Object.values(paintMats), targetPaint].forEach((m) => m.dispose()), [paintMats, targetPaint]);
+  // with the Brainstem layer off the section face must not paint brainstem tissue: its back faces clear the section stencil (no colour)
+  const bsClearMat = useMemo(
+    () => new THREE.MeshBasicMaterial({ side: THREE.BackSide, colorWrite: false, depthWrite: false, stencilWrite: true, stencilRef: 0, stencilFunc: THREE.AlwaysStencilFunc, stencilZPass: THREE.ReplaceStencilOp }),
+    [],
+  );
+  useEffect(() => () => bsClearMat.dispose(), [bsClearMat]);
   useEffect(() => {
     setPalette(sectionPalette(sectionLook, secTheme));
     invalidate();
@@ -1560,7 +1566,7 @@ function Scene({
     });
     setPlanes(backMat, gp);
     Object.values(deepMats).forEach((m) => setPlanes(m, gp, true));
-    for (const m of [...Object.values(paintMats), targetPaint]) {
+    for (const m of [...Object.values(paintMats), targetPaint, bsClearMat]) {
       m.clippingPlanes = gp;
       m.needsUpdate = true;
     }
@@ -1571,7 +1577,7 @@ function Scene({
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, boneMat, nerveMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, bsClearMat, boneMat, nerveMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
@@ -1583,6 +1589,28 @@ function Scene({
     for (const [id, m] of grossById) if (m.userData.g === "brainstem") out.add(id);
     return out;
   }, [hiddenIds, showBrainstem, grossById]);
+  useEffect(() => {
+    if (!gross || showBrainstem) return;
+    const added: THREE.Mesh[] = [];
+    for (const m of grossById.values()) {
+      if (m.userData.g !== "brainstem" || !m.parent) continue;
+      const c = new THREE.Mesh(m.geometry, bsClearMat);
+      c.position.copy(m.position);
+      c.quaternion.copy(m.quaternion);
+      c.scale.copy(m.scale);
+      c.userData.hull = true;
+      c.userData.secPaint = true;
+      c.raycast = () => undefined;
+      c.renderOrder = 0.3;
+      m.parent.add(c);
+      added.push(c);
+    }
+    invalidate();
+    return () => {
+      added.forEach((c) => c.removeFromParent());
+      invalidate();
+    };
+  }, [gross, grossById, showBrainstem, bsClearMat, invalidate]);
   const nerveRoot = useMemo(() => {
     if (!nerves || look === "xray") return null;
     const root = new THREE.Group();
@@ -2280,11 +2308,12 @@ export default function AtlasViewer({
       if (hit) out.push({ id: d.id, name: e.name, colour: colourCuts ? d.hue : sectionSwatch(d.tissue, sl, secThemeKey) });
     }
     for (const id of ["brainstem", "cerebellum"]) {
+      if (id === "brainstem" && !showBrainstem) continue; // the Brainstem layer is off: no brainstem in the cut, none in the key
       const e = index.structures[id];
       if (e && planes.every((pl) => behind(e, pl, 0))) out.push({ id, name: e.name, colour: `linear-gradient(135deg, ${pal.gm} 50%, ${pal.wm} 50%)` });
     }
     return out;
-  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts, secThemeKey]);
+  }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts, secThemeKey, showBrainstem]);
   const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;

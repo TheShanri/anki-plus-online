@@ -109,4 +109,38 @@ for (const [lv, p] of Object.entries(plateData)) {
 const uniq = new Set(rows.map((r) => r.slug));
 const missing = new Set(rows.filter((r) => !r.ok && !r.exc).map((r) => r.slug));
 console.log(`\n${uniq.size} brainstem-relevant structures, ${rows.length} list entries, ${Object.keys(plates).length} plates; gaps: ${gaps} entries (${missing.size} structures)${missing.size ? ": " + [...missing].join(", ") : ""}; justified exceptions: ${exc}`);
+// ---- 3D brainstem (src/data/brainstem-3d.json): which external landmarks and nerves on the lists can be picked in 3D.
+// The alias and division tables mirror src/components/atlas/brainstem/three/model.ts (keep them in step).
+const bs3d = JSON.parse(read("src/data/brainstem-3d.json"));
+const ALIAS3D = {
+  "interpeduncular-cistern": ["interpeduncular-fossa"],
+  "cerebellar-peduncles": ["superior-cerebellar-peduncle", "middle-cerebellar-peduncle", "inferior-cerebellar-peduncle"],
+  "pontine-protuberance": ["transverse-fibers-of-the-pons"],
+  "inferior-olivary-nucleus": ["olives"],
+  brainstem: ["midbrain", "pons", "medulla"],
+};
+const parts3d = new Set(bs3d.parts.map((p) => p.slug));
+const pick3d = (slug) => parts3d.has(slug) || (ALIAS3D[slug] ?? []).some((s) => parts3d.has(s));
+// external landmarks and nerves: the Lab 7 wet-specimen and cranial nerve lists, Lab 2 divisions, the surface plates' structures
+const EXT_GROUPS = ["Lab 7|ID on Wet Specimens", "Lab 7|Cranial nerves I-VIII, IX/X, and XII on a wet specimen", "Lab 7|Cranial nerves I-XII on an image or schematic", "Lab 2|Brainstem"];
+// internal (not on the surface): the 3D model does not draw them; they are on the plates
+const INTERNAL = new Set(["third-ventricle", "cerebral-aqueduct", "anterior-nucleus-of-thalamus", "epithalamus", "pituitary-stalk", "mesencephalic-flexure", "hypothalamus"]);
+const ext = new Map();
+for (const s of structs) for (const l of s.lists ?? []) {
+  const k = `${l.lab}|${l.group}`;
+  if (EXT_GROUPS.includes(k)) (ext.get(s.slug) ?? ext.set(s.slug, { name: s.name, groups: [] }).get(s.slug)).groups.push(k);
+}
+for (const lv of ["external-anterior", "external-posterior", "external-lateral"]) for (const sl of plates[lv] ?? []) if (!ext.has(sl)) ext.set(sl, { name: sl, groups: [`plate ${lv}`] });
+let ok3 = 0, gap3 = [], skip3 = [];
+console.log("\n3D brainstem: external landmarks and nerves pickable in public/atlas/brainstem3d.glb");
+for (const [slug, e] of [...ext].sort((a, b) => a[0].localeCompare(b[0]))) {
+  const on = pick3d(slug);
+  const internal = INTERNAL.has(slug);
+  if (on) ok3++;
+  else if (internal) skip3.push(slug);
+  else gap3.push(slug);
+  console.log(`  ${on ? "ok " : internal ? "int" : "GAP"} ${e.name.padEnd(42)} ${e.groups.join("; ")}`);
+}
+const planes = Object.keys(bs3d.levels);
+console.log(`3D: ${ok3} pickable, ${gap3.length} gaps${gap3.length ? ": " + gap3.join(", ") : ""}; not on the surface (plates only): ${skip3.join(", ") || "-"}; section planes: ${planes.length} (${planes.join(", ")}); every plate level has a plane: ${Object.keys(plates).filter((l) => !l.startsWith("external-")).every((l) => planes.includes(l)) ? "yes" : "no"}`);
 process.exit(gaps ? 1 : 0);

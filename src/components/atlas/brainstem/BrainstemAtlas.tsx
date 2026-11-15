@@ -98,7 +98,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
   const inset =
     mode === "plates" ? (
       <div className="bs3d-inset">
-        <Brainstem3D compact view="left" level={levelSlug} selected={selected && in3D(selected) ? selected : null} hover={hover && in3D(hover) ? hover : null} onLevel={goLevel} onSelect={select3D} planes="all" ariaLabel="Where this level is cut, on the 3D brainstem" />
+        <Brainstem3D compact view="oblique" level={levelSlug} selected={selected && in3D(selected) ? selected : null} hover={hover && in3D(hover) ? hover : null} onLevel={goLevel} onSelect={select3D} planes="all" ariaLabel="Where this level is cut, on the 3D brainstem" />
         <button type="button" className="bs3d-open" onClick={() => setMode("3d")}>
           <Box size={13} aria-hidden /> Open the 3D brainstem
         </button>

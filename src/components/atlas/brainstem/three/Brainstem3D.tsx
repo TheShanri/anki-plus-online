@@ -14,7 +14,7 @@ import { brainstemPulse, pulseDisabled } from "../plate/pulse";
 import "./bs3d.css";
 import { BS3D, LEVEL_NAME, PART_BY_ID, PLANE_LEVELS, partsFor, type Level3D, type Part3D } from "./model";
 
-export type View3D = "anterior" | "posterior" | "left" | "right";
+export type View3D = "anterior" | "posterior" | "left" | "right" | "oblique";
 export interface Brainstem3DProps {
   /** the plate level whose plane is highlighted */
   level?: string | null;
@@ -42,8 +42,9 @@ const DIRS: Record<View3D, THREE.Vector3> = {
   posterior: new THREE.Vector3(0, 0.12, -1),
   left: new THREE.Vector3(1, 0.05, 0.08),
   right: new THREE.Vector3(-1, 0.05, 0.08),
+  oblique: new THREE.Vector3(0.8, 0.18, -0.62),
 };
-const VIEW_LABEL: Record<View3D, string> = { anterior: "Anterior", posterior: "Posterior", left: "Left", right: "Right" };
+const VIEW_LABEL: Record<View3D, string> = { anterior: "Anterior", posterior: "Posterior", left: "Left", right: "Right", oblique: "Oblique" };
 
 // quiet tissue tones (fixed, like a printed atlas; the accent comes from the theme)
 const GREY = new Set(["superior-colliculus", "inferior-colliculus", "olives", "gracile-tubercle", "cuneate-tubercle", "facial-colliculus", "area-postrema", "pulvinar", "medial-geniculate-nucleus", "lateral-geniculate-nucleus", "mammillary-bodies", "pineal-gland"]);
@@ -248,8 +249,8 @@ function paintMats(mats: Map<string, THREE.MeshStandardMaterial>, lit: Set<strin
     const on = lit.has(id);
     const hov = hoverPart === id;
     mat.color.set(tone(part));
-    if (on) mat.color.lerp(accent, 0.55);
-    else if (hov) mat.color.lerp(accent, 0.4);
+    if (on) mat.color.lerp(accent, 0.82);
+    else if (hov) mat.color.lerp(accent, 0.5);
     mat.emissive.copy(on || hov ? accent : BLACK);
     mat.emissiveIntensity = on ? 0.35 : hov ? 0.3 : 0;
   }
@@ -257,7 +258,7 @@ function paintMats(mats: Map<string, THREE.MeshStandardMaterial>, lit: Set<strin
 function breatheMats(mats: Map<string, THREE.MeshStandardMaterial>, lit: Set<string>, k: number) {
   for (const id of lit) {
     const m = mats.get(id);
-    if (m) m.emissiveIntensity = 0.18 + 0.32 * k;
+    if (m) m.emissiveIntensity = 0.25 + 0.45 * k;
   }
 }
 
@@ -344,12 +345,12 @@ function Scene({
     e.stopPropagation();
     const id = e.object.userData.part as string | undefined;
     const part = id ? PART_BY_ID.get(id) : undefined;
-    if (part && part.kind !== "context" && onSelect) onSelect(part.slug);
+    if (part && part.slug !== "brachium-of-the-superior-colliculus" && onSelect) onSelect(part.slug);
   };
 
   return (
     <>
-      <hemisphereLight args={["#fff8ee", "#6f6359", 0.75]} />
+      <hemisphereLight args={["#fff8ee", "#7a6d62", 1.0]} />
       <Headlight />
       <primitive object={model.root} onPointerMove={onMove} onPointerOut={onOut} onClick={onClick} />
       {planes !== "none" &&
@@ -477,7 +478,7 @@ function Headlight() {
   });
   return (
     <>
-      <directionalLight ref={ref} intensity={1.55} />
+      <directionalLight ref={ref} intensity={1.9} />
       <directionalLight position={[0, 1.9, -0.4]} intensity={0.35} />
     </>
   );

@@ -75,9 +75,21 @@ export const PICKABLE_SLUGS: string[] = [...new Set([...bySlug.keys(), ...Object
 export function name3D(slug: string): string {
   return bySlug.get(slug)?.[0]?.name ?? STRUCTURES[slug]?.name ?? slug.replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
 }
-/** The plate levels (sections first) that show a structure, and the best one to open. */
+/** A surface landmark and the section structure under it (the plates draw the nucleus, the surface views the bump). */
+const UNDER: Record<string, string[]> = {
+  olives: ["inferior-olivary-nucleus"],
+  "gracile-tubercle": ["gracile-nucleus"],
+  "cuneate-tubercle": ["cuneate-nucleus"],
+  "facial-colliculus": ["abducens-nucleus"],
+  "transverse-fibers-of-the-pons": ["pontine-nuclei"],
+};
+/** The plate levels (sections first, rostral to caudal; then the surface views) that show a structure, and the best
+ *  one to open: a section when one shows it (or the nucleus under it), else the surface view. */
 export function platesFor(slug: string): { levels: string[]; best: string | null } {
-  const levels = REF.levelsFor([slug]);
-  const surf = REF.levelsFor([slug]).length ? REF.levels.filter((l) => !levels.includes(l) && REF.resolveAt(slug, l).length > 0) : [];
-  return { levels: [...levels, ...surf], best: REF.pickLevel([slug]) };
+  const slugs = [slug, ...(UNDER[slug] ?? [])];
+  const surf = new Set(["external-anterior", "external-posterior", "external-lateral", "midsagittal"]);
+  const levels = REF.levels.filter((l) => slugs.some((s) => REF.resolveAt(s, l).length > 0));
+  const secs = levels.filter((l) => !surf.has(l));
+  const best = REF.pickLevel([slug]);
+  return { levels: [...secs, ...levels.filter((l) => surf.has(l))], best: best && !surf.has(best) ? best : (secs.find((l) => REF.resolveAt(slug, l).length) ?? secs[0] ?? best) };
 }

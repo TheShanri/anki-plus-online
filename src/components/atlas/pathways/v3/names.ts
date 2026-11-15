@@ -34,7 +34,7 @@ const SHORT: [RegExp, string][] = [
   [/^Optic nerve \(II\)/i, "Optic nerve (II)"],
   [/^Lateral geniculate body/i, "LGN"],
   [/^Medial geniculate body/i, "MGN"],
-  [/^Calcarine sulcus/i, "Calcarine sulcus (V1)"],
+  [/^Calcarine sulcus(?: \(V1\))?/i, "Calcarine sulcus (V1)"],
   [/^Trigeminal nerve \(V\)/i, "Trigeminal nerve (V)"],
   [/^Vestibulocochlear nerve \(VIII\)/i, "Vestibulocochlear nerve (VIII)"],
   [/^Facial nerve \(VII\)/i, "Facial nerve (VII)"],

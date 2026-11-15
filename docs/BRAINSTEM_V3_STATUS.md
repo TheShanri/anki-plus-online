@@ -251,8 +251,14 @@ epithalamus (pineal is pickable), hypothalamus, pituitary stalk, mesencephalic f
 `w_plate_to_3d_selected` (plate pick -> lit in 3D), `w_plate_inset`, `w_explore_focus`, `w_explore_plane_plate`,
 `p_sheet` (phone: 3D, plate + locator, Explore focus).
 
-**Open.** Lighting is quiet but flat-ish at a distance; patch outlines are faint by design. The 3D view has no labels
-pinned on screen (hover only). Rebuild: `tools/.venv/Scripts/python.exe -I tools/brainstem/bs3d/build.py` (~2 min).
+**Polish round (2026-11-15).** Slender ivory nerve roots with a fine darker outline (inverted hull), tapered cut ends
+and a 1.1 mm invisible pick radius; occlusion shading baked per vertex in the build (share of nearby surface in front of
+each vertex), an oblique camera key light and a cool fill; see-through thalamus (pulvinar solid); hairline level rings,
+the current level a stronger ring with a light fill drawn behind nearer surfaces; recessed rhomboid fossa with warm
+facial colliculi / area postrema; clean cut on the SCP; phone chips at the bottom; the locator's current level filled.
+Before/after:  vs , , . Model now 756 KB (vertex colours).
+
+**Open.** The optic tracts are the Z-Anatomy round tubes (thicker than the flat band of a specimen). Labels are hover only. Rebuild: `tools/.venv/Scripts/python.exe -I tools/brainstem/bs3d/build.py` (~2 min).
 
 ## Next
 - Pathway tracer v3 can swap its `BrainstemInset` adapter for `BrainstemRef` (same props); not done here (its files).

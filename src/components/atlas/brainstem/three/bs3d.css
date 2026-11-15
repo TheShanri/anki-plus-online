@@ -1,0 +1,37 @@
+/* The 3D brainstem (Brainstem3D): quiet frame, hover chip, camera buttons, level list. Theme tokens only. */
+.bs3d { position: relative; width: 100%; height: 560px; min-height: 260px; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--bg-2); touch-action: none; }
+.bs3d-compact { height: 240px; min-height: 0; }
+.bs3d canvas { display: block; }
+.bs3d-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-dim); pointer-events: none; }
+.bs3d-tip { position: absolute; z-index: 5; transform: translate(12px, -110%); pointer-events: none; display: flex; flex-direction: column; max-width: 260px; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 12px; line-height: 1.3; background: var(--panel-solid); color: var(--text); border: 1px solid var(--panel-border-hi); box-shadow: 0 2px 8px color-mix(in srgb, var(--bg) 60%, transparent); }
+.bs3d-tip-t { font-weight: 600; }
+.bs3d-tip-s { color: var(--text-dim); font-size: 11px; }
+.bs3d-views { position: absolute; right: 6px; top: 6px; z-index: 4; display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 12px); }
+.bs3d-vb { height: 26px; min-width: 26px; padding: 0 8px; font-size: 12px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--panel-solid); color: var(--text-dim); cursor: pointer; }
+.bs3d-compact .bs3d-vb { height: 22px; min-width: 22px; padding: 0 5px; font-size: 11px; }
+.bs3d-vb:hover { color: var(--text); border-color: var(--panel-border-hi); }
+.bs3d-vb:focus-visible, .bs3d-levels button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.bs3d-levels { position: absolute; left: 6px; top: 6px; z-index: 4; display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0; list-style: none; max-width: 46%; }
+.bs3d-levels button { width: 100%; text-align: left; font-size: 12px; padding: 2px 7px; border-radius: var(--radius-sm); border: 1px solid transparent; background: color-mix(in srgb, var(--panel-solid) 82%, transparent); color: var(--text-dim); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bs3d-levels button:hover { color: var(--text); border-color: var(--panel-border-hi); }
+.bs3d-levels button[aria-current="true"] { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+@media (max-width: 640px) {
+  .bs3d { height: 440px; }
+  .bs3d-compact { height: 200px; }
+  .bs3d-levels { top: auto; bottom: 6px; left: 6px; right: 6px; max-width: none; flex-direction: row; overflow-x: auto; }
+  .bs3d-levels button { width: auto; }
+}
+.bs3d-inset { margin-top: 12px; }
+.bs3d-open { margin-top: 4px; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--accent-2); background: none; border: 0; padding: 2px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.bs3d-onplates { margin: 4px 0 8px; }
+.bs3d-chip { font-size: 12px; padding: 2px 7px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--panel-solid); color: var(--text-dim); cursor: pointer; }
+.bs3d-chip:hover { color: var(--text); border-color: var(--panel-border-hi); }
+.bs3d-chip[aria-current="true"] { color: var(--accent); border-color: var(--accent); }
+/* Explore: Brainstem focus */
+.bs3d-focus { position: absolute; inset: 0; }
+.bs3d-focus .bs3d-fill { height: 100%; border: 0; border-radius: 0; }
+.bs3d-plate { position: absolute; right: 8px; bottom: 8px; z-index: 6; width: min(340px, calc(100% - 16px)); max-height: calc(100% - 52px); overflow: auto; padding: 6px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border-hi); background: var(--panel-solid); }
+.bs3d-plate-x { position: absolute; right: 6px; top: 6px; z-index: 2; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: var(--radius-sm); border: 1px solid var(--panel-border); background: var(--panel-solid); color: var(--text-dim); cursor: pointer; }
+.bs3d-plate .bsr-head { padding-right: 30px; }
+.bs3d-hint { position: absolute; left: 8px; bottom: 8px; z-index: 5; max-width: 60%; pointer-events: none; color: var(--text-dim); }
+@media (max-width: 640px) { .bs3d-focus .bs3d-levels { bottom: auto; top: 38px; } .bs3d-hint { display: none; } .bs3d-plate { width: calc(100% - 16px); max-height: 55%; } }

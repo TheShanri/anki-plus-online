@@ -1,7 +1,7 @@
 {
  "version": 1,
  "file": "brainstem3d.glb",
- "bytes": 627960,
+ "bytes": 593284,
  "units": "metres, Z-Anatomy model space (+x = subject's left, +y up, +z anterior), the same space as gross.glb",
  "parts": [
   {
@@ -683,18 +683,6 @@
    ]
   },
   {
-   "id": "hypothalamus",
-   "slug": "hypothalamus",
-   "name": "Hypothalamus",
-   "kind": "context",
-   "side": "M",
-   "anchor": [
-    0.0,
-    1.614345,
-    0.011194
-   ]
-  },
-  {
    "id": "pulvinar.R",
    "slug": "pulvinar",
    "name": "Pulvinar",
@@ -751,9 +739,9 @@
    "kind": "nerve",
    "side": "R",
    "anchor": [
-    -0.022353,
-    1.608188,
-    0.019503
+    -0.022133,
+    1.607512,
+    0.019579
    ]
   },
   {
@@ -763,9 +751,9 @@
    "kind": "nerve",
    "side": "L",
    "anchor": [
-    0.022132,
-    1.607611,
-    0.019469
+    0.02206,
+    1.607784,
+    0.019078
    ]
   },
   {

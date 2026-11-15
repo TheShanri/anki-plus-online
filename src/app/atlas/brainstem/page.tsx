@@ -12,8 +12,8 @@ export const metadata = { title: "Brainstem atlas" };
 export const dynamic = "force-dynamic";
 
 /** The brainstem level by level: one clean plate per level, and the mastery path through them. */
-export default async function BrainstemAtlasPage({ searchParams }: { searchParams: Promise<{ level?: string }> }) {
-  const { level } = await searchParams;
+export default async function BrainstemAtlasPage({ searchParams }: { searchParams: Promise<{ level?: string; view?: string }> }) {
+  const { level, view } = await searchParams;
   const [sb, user] = await Promise.all([createClient(), getAuthUser()]);
   if (!sb) return <PageShell title="Brainstem atlas" kicker="Atlas"><p className="text-text-dim">Supabase is not configured.</p></PageShell>;
   if (!user) redirect("/login?next=/atlas/brainstem");
@@ -25,7 +25,7 @@ export default async function BrainstemAtlasPage({ searchParams }: { searchParam
   return (
     <PageShell title="Brainstem atlas" kicker="Atlas">
       <AtlasModes />
-      <BrainstemAtlas courseSlug={course.slug} mastery={mastery} plateLevels={plateLevels} initialLevel={level && /^[a-z0-9-]+$/.test(level) ? level : undefined} />
+      <BrainstemAtlas courseSlug={course.slug} mastery={mastery} plateLevels={plateLevels} initialLevel={level && /^[a-z0-9-]+$/.test(level) ? level : undefined} initialView={view === "3d" ? "3d" : undefined} />
     </PageShell>
   );
 }

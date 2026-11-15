@@ -4,7 +4,7 @@ Builds public/atlas/brainstem3d.glb (one named node per pickable part, Z-Anatomy
 and src/data/brainstem-3d.json (parts, label anchors, the section planes of every plate level, sources).
 
 * Real Z-Anatomy meshes (CC BY-SA 4.0) wherever one exists: midbrain, pons, medulla, cerebral peduncles, SCP/ICP, thalamus,
-  geniculate bodies, pineal, mammillary bodies, optic chiasm/tract/nerve, hypothalamus, cranial nerves III-XII, upper cord.
+  geniculate bodies, pineal, mammillary bodies, optic chiasm/tract/nerve, cranial nerves III-XII, upper cord.
 * Landmarks without a mesh are surface patches cut out of the real surface along a smooth scalar field (exact triangle
   splitting, so the outline is a clean curve, not a staircase): colliculi, facial colliculus, floor of the 4th ventricle,
   obex, area postrema, gracile/cuneate tubercles, olives, pyramids, pyramidal decussation, interpeduncular fossa, basilar
@@ -344,7 +344,7 @@ def main():
     real("mamillary-body", "mammillary-bodies")
     real("optic-chiasm", "optic-chiasm")
     real("optic-tract", "optic-tract")
-    real("hypothalamus", "hypothalamus", kind="context")
+    # (the hypothalamus is left out: it hides the mammillary bodies and the interpeduncular fossa in the anterior view)
     # thalamus with its pulvinar (the pulvinar is the thalamic surface over the MRI-carved mni-pulvinar patch)
     pul = load("mni-pulvinar")
     for side, m in load("thalamus").items():
@@ -355,7 +355,7 @@ def main():
 
     # ---- cranial nerves: the root outside the brainstem, within a radius of the exit, thickened to be pickable
     NERVES = [
-        ("olfactory-nerve-i", "olfactory-nerve", 60, 0.0),
+        ("olfactory-nerve-i", "olfactory-nerve", 20, 0.0),
         ("optic-nerve-ii", "optic-nerve", 14, 0.0),
         ("oculomotor-nerve-iii", "oculomotor-nerve", 15, 0.35),
         ("trochlear-nerve-iv", "trochlear-nerve", 16, 0.15),

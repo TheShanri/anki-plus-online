@@ -1,5 +1,6 @@
 "use client";
 
+import { withRoman } from "../v3/roman";
 import { useId, useMemo } from "react";
 import { Activity, Ear, Eye, Footprints, Hand, Heart, Smile, Wind, Dumbbell, type LucideIcon } from "lucide-react";
 import { FIELD_COLORS, GUIDE_COLORS, ORDER_COLORS, REGION_COLORS } from "@/lib/atlas/pathwayPalette";
@@ -44,7 +45,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     gut.sort((a, b) => a.ty - b.ty);
     let bottom = -1e9;
     for (const g of gut) {
-      const hh = g.lines * 13;
+      const hh = g.lines * 13 + 5;
       const y = Math.max(g.ty, bottom + hh / 2 + 2);
       g.y = y;
       bottom = y + hh / 2;
@@ -211,7 +212,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
         <text x={nd.x} y={y0} textAnchor={nd.anchor} fontSize={fs} fontWeight={st.hot ? 700 : 500} fill={nd.l.ink ? INK : "var(--text)"} stroke={nd.l.ink ? "none" : "var(--bg-2)"} strokeWidth={3.2} paintOrder="stroke" strokeLinejoin="round">
           {lines.map((t, k) => (
             <tspan key={k} x={nd.x} dy={k === 0 ? 0 : fs}>
-              {t}
+              {withRoman(t)}
             </tspan>
           ))}
         </text>

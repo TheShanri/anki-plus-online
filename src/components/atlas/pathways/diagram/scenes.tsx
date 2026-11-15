@@ -88,19 +88,30 @@ export function cerebellarCircuit(): Diagram {
 }
 
 /* ------------------------------------------------------------------ the mid-sagittal brain */
-const CEREBRUM: P[] = [[26, 108], [46, 78], [90, 52], [150, 40], [215, 44], [268, 64], [300, 100], [304, 134], [284, 160], [250, 172], [210, 170], [180, 178], [140, 176], [96, 164], [52, 146]];
+/* One medial-view brain (front on the left): cerebrum with the corpus callosum, thalamus, hypothalamus and a brainstem stub.
+ * Every label sits OUTSIDE the silhouette (left margin, below, or right) with a dotted leader to its node. */
+const CEREBRUM: P[] = [[112, 128], [118, 98], [140, 68], [178, 46], [224, 36], [268, 44], [300, 68], [314, 102], [312, 136], [296, 160], [268, 172], [238, 174], [210, 178], [180, 178], [150, 172], [128, 158]];
 const sagDeco = (): ReactNode => (
   <g>
-    <ellipse cx={282} cy={198} rx={38} ry={24} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.2} />
-    <path d={spline([[198, 150], [204, 196], [216, 238], [242, 240], [246, 196], [240, 150]], true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.2} />
-    <path d={spline(CEREBRUM, true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.3} />
-    <path d={spline([[62, 96], [90, 66], [150, 52], [220, 54], [266, 84]])} {...STROKE} strokeWidth={5} strokeOpacity={0.35} strokeLinecap="round" />
-    <ellipse cx={180} cy={124} rx={32} ry={20} fill="color-mix(in srgb, var(--text-faint) 16%, transparent)" stroke="var(--text-faint)" strokeWidth={0.9} />
-    <text x={20} y={20} fontSize={11} fill="var(--text-faint)">front</text>
-    <text x={320} y={20} fontSize={11} fill="var(--text-faint)" textAnchor="end">back</text>
+    <path d={spline([[204, 170], [200, 196], [208, 226], [220, 256], [248, 256], [252, 226], [248, 196], [240, 172]], true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.2} />
+    <path d={spline(CEREBRUM, true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.4} />
+    {/* corpus callosum: genu at the front, splenium at the back */}
+    <path
+      d={spline([[128, 106], [140, 84], [172, 72], [214, 70], [252, 82], [270, 104], [260, 108], [246, 94], [214, 86], [178, 88], [150, 98], [138, 110]], true)}
+      fill="color-mix(in srgb, var(--text-faint) 26%, var(--bg-2))"
+      stroke="var(--text-faint)"
+      strokeWidth={0.9}
+    />
+    <ellipse cx={198} cy={120} rx={26} ry={17} fill="color-mix(in srgb, var(--text-faint) 16%, transparent)" stroke="var(--text-faint)" strokeWidth={0.9} />
+    <ellipse cx={184} cy={152} rx={15} ry={8} fill="color-mix(in srgb, var(--text-faint) 12%, transparent)" stroke="var(--text-faint)" strokeWidth={0.8} />
+    {/* two sulci for orientation: parieto-occipital and calcarine */}
+    <path d={spline([[262, 68], [256, 96], [262, 120]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.5} />
+    <path d={spline([[310, 126], [286, 130], [262, 124]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.5} />
+    <text x={120} y={20} fontSize={11} fill="var(--text-faint)" textAnchor="middle">front</text>
+    <text x={308} y={20} fontSize={11} fill="var(--text-faint)" textAnchor="middle">back</text>
   </g>
 );
-function sag(b: Builder, h = 262): Diagram {
+function sag(b: Builder, h = 270): Diagram {
   return { w: W, h, mode: "plain", deco: sagDeco(), els: b.els, labels: b.labels };
 }
 const dot = (b: Builder, k: string | string[], x: number, y: number, o: { rx?: number; ry?: number; soma?: boolean } = {}) =>
@@ -109,81 +120,77 @@ const curve = (b: Builder, k: string | string[], pts: P[], end: EndKind = "arrow
   const l = link(pts);
   b.els.push({ id: `c${b.n++}`, keys: arr(k), kind: "path", side: "M", d: l.d, end: l.end, endKind: end });
 };
+/** A label outside the brain with a leader to its node: lines are stacked at (x, y). */
+const tag = (b: Builder, k: string | string[], lines: string[], x: number, y: number, anchor: "start" | "middle" | "end", to: [number, number]) =>
+  lines.forEach((t, i) => b.labels.push({ keys: arr(k), text: t, x, y: y + i * 13, anchor, small: true, to: i === 0 ? to : undefined }));
 
 export function limbicFornix(): Diagram {
   const b = builder();
-  curve(b, "fx", [[250, 152], [268, 130], [264, 96], [236, 72], [180, 68], [130, 78], [110, 102], [112, 128], [124, 148], [130, 158]]);
-  dot(b, "n0", 250, 152, { rx: 9, ry: 5 });
-  dot(b, "end", 130, 160);
-  dot(b, "end", 104, 114, { rx: 5, ry: 5 });
-  dot(b, "end", 92, 142, { rx: 6, ry: 4 });
-  b.text("n0", "Hippocampus", 252, 132, "middle");
-  b.text("end", "Mammillary", 140, 196, "middle");
-  b.text("end", "bodies", 140, 210, "middle");
-  b.text("end", "Septal nuclei", 60, 110, "middle");
-  b.text("end", "Basal", 48, 174, "middle");
-  b.text("end", "forebrain", 48, 188, "middle");
-  b.text("fx", "Fornix", 190, 86, "middle");
+  curve(b, "fx", [[250, 160], [264, 140], [260, 114], [238, 98], [204, 94], [172, 98], [152, 110], [150, 128], [160, 146], [174, 158]]);
+  dot(b, "n0", 250, 160, { rx: 9, ry: 5 });
+  dot(b, "end", 176, 160);
+  dot(b, "end", 148, 116, { rx: 5, ry: 5 });
+  dot(b, "end", 134, 144, { rx: 6, ry: 4 });
+  tag(b, "n0", ["Hippocampus"], 268, 204, "middle", [252, 165]);
+  tag(b, "end", ["Mammillary", "bodies"], 150, 210, "middle", [176, 164]);
+  tag(b, "end", ["Septal nuclei"], 100, 112, "end", [143, 116]);
+  tag(b, "end", ["Basal", "forebrain"], 100, 150, "end", [128, 146]);
+  tag(b, "fx", ["Fornix"], 204, 28, "middle", [204, 91]);
   return sag(b);
 }
 export function limbicAmygdala(): Diagram {
   const b = builder();
-  curve(b, "st", [[170, 166], [206, 150], [216, 112], [190, 92], [140, 90], [120, 104]]);
-  curve(b, "st", [[170, 166], [158, 156], [148, 148]]);
-  dot(b, "n0", 170, 166, { rx: 8, ry: 6 });
-  dot(b, "end", 120, 104, { rx: 6, ry: 5 });
-  dot(b, "end", 148, 146, { rx: 7, ry: 5 });
-  dot(b, "end", 222, 202, { rx: 6, ry: 5 });
-  b.text("n0", "Amygdala", 170, 196, "middle");
-  b.text("end", "BNST", 98, 98, "middle");
-  b.text("end", "Hypothalamus", 106, 178, "middle");
-  b.text("end", "Brainstem", 270, 150, "middle");
-  b.text("end", "autonomic nuclei", 270, 164, "middle");
-  b.text("st", "Stria terminalis", 240, 100, "start");
+  curve(b, "st", [[238, 164], [268, 150], [276, 114], [250, 96], [200, 94], [160, 106], [146, 120]]);
+  curve(b, "st", [[238, 164], [214, 160], [190, 156]]);
+  dot(b, "n0", 238, 164, { rx: 8, ry: 6 });
+  dot(b, "end", 146, 120, { rx: 6, ry: 5 });
+  dot(b, "end", 188, 156, { rx: 7, ry: 5 });
+  dot(b, "end", 242, 214, { rx: 6, ry: 5 });
+  tag(b, "n0", ["Amygdala"], 292, 204, "middle", [242, 168]);
+  tag(b, "end", ["BNST"], 100, 112, "end", [140, 118]);
+  tag(b, "end", ["Hypothalamus"], 100, 168, "end", [184, 158]);
+  tag(b, "end", ["Brainstem", "autonomic", "nuclei"], 292, 232, "middle", [246, 218]);
+  tag(b, "st", ["Stria terminalis"], 204, 28, "middle", [236, 92]);
   return sag(b);
 }
 export function limbicSeptal(): Diagram {
   const b = builder();
-  curve(b, "sm", [[104, 114], [124, 104], [170, 99], [212, 99], [226, 104]]);
-  dot(b, "n0", 104, 114, { rx: 6, ry: 6 });
-  dot(b, "end", 228, 104, { rx: 6, ry: 5 });
-  b.text("n0", "Septal nuclei", 62, 132, "middle");
-  b.text("end", "Habenula", 272, 92, "middle");
-  b.text("sm", "Stria medullaris", 166, 86, "middle");
+  curve(b, "sm", [[146, 116], [166, 102], [204, 96], [236, 98], [250, 104]]);
+  dot(b, "n0", 146, 116, { rx: 6, ry: 6 });
+  dot(b, "end", 252, 106, { rx: 6, ry: 5 });
+  tag(b, "n0", ["Septal nuclei"], 100, 124, "end", [140, 118]);
+  tag(b, "end", ["Habenula"], 292, 204, "middle", [252, 112]);
+  tag(b, "sm", ["Stria medullaris"], 204, 28, "middle", [204, 94]);
   return sag(b);
 }
 export function reward(): Diagram {
   const b = builder();
-  curve(b, "mfb", [[216, 206], [176, 190], [132, 172], [100, 150], [92, 142], [76, 124], [58, 100]]);
-  dot(b, "n0", 216, 206, { rx: 8, ry: 5 });
-  dot(b, "end", 92, 142, { rx: 7, ry: 5 });
-  dot(b, "end", 54, 94, { rx: 9, ry: 7 });
-  b.text("n0", "VTA", 258, 210, "start");
-  b.text("end", "Nucleus", 70, 170, "middle");
-  b.text("end", "accumbens", 70, 184, "middle");
-  b.text("end", "Prefrontal", 44, 66, "middle");
-  b.text("end", "cortex", 44, 80, "middle");
-  b.text("mfb", "MFB", 150, 196, "middle");
+  curve(b, "mfb", [[222, 190], [190, 176], [160, 160], [138, 144], [128, 130], [120, 112]]);
+  dot(b, "n0", 222, 190, { rx: 8, ry: 5 });
+  dot(b, "end", 136, 144, { rx: 7, ry: 5 });
+  dot(b, "end", 118, 108, { rx: 9, ry: 7 });
+  tag(b, "n0", ["VTA"], 292, 226, "middle", [226, 194]);
+  tag(b, "end", ["Nucleus", "accumbens"], 100, 176, "end", [132, 148]);
+  tag(b, "end", ["Prefrontal", "cortex"], 100, 92, "end", [112, 104]);
+  tag(b, "mfb", ["MFB"], 160, 206, "middle", [166, 166]);
   return sag(b);
 }
 export function olfactory(): Diagram {
   const b = builder();
-  b.els.push({ id: "ic", keys: ["start"], kind: "icon", side: "M", x: 24, y: 196, icon: "nose" });
-  curve(b, "startNerve", [[26, 184], [34, 168]]);
-  dot(b, "n0", 34, 164, { rx: 6, ry: 5 });
-  curve(b, "on", [[34, 164], [44, 152], [52, 146]]);
-  dot(b, "n1", 54, 146, { rx: 8, ry: 6 });
-  curve(b, "tr", [[54, 146], [92, 160], [130, 168], [166, 168]]);
-  dot(b, "end", 134, 168, { rx: 8, ry: 5 });
-  dot(b, "end", 168, 164, { rx: 8, ry: 6 });
-  b.text("start", "Nose", 24, 226, "middle");
-  b.text("n1", "Olfactory bulb", 70, 124, "middle");
-  b.text("tr", "Olfactory tract", 104, 192, "middle");
-  b.text("end", "Olfactory", 134, 214, "middle");
-  b.text("end", "tubercle", 134, 228, "middle");
-  b.text("end", "Prepiriform", 184, 192, "start");
-  b.text("end", "cortex", 184, 206, "start");
-  return sag(b, 240);
+  b.els.push({ id: "ic", keys: ["start"], kind: "icon", side: "M", x: 30, y: 206, icon: "nose" });
+  curve(b, "startNerve", [[32, 194], [44, 184]]);
+  dot(b, "n0", 46, 182, { rx: 6, ry: 5 });
+  curve(b, "on", [[46, 182], [84, 178], [118, 170]]);
+  dot(b, "n1", 124, 166, { rx: 8, ry: 6 });
+  curve(b, "tr", [[124, 166], [146, 174], [172, 178], [204, 176]]);
+  dot(b, "end", 170, 178, { rx: 8, ry: 5 });
+  dot(b, "end", 206, 172, { rx: 8, ry: 6 });
+  tag(b, "start", ["Nose"], 30, 238, "middle", [30, 220]);
+  tag(b, "n1", ["Olfactory bulb"], 118, 120, "end", [124, 160]);
+  tag(b, "tr", ["Olfactory tract"], 120, 214, "middle", [140, 173]);
+  tag(b, "end", ["Olfactory", "tubercle"], 168, 244, "middle", [170, 184]);
+  tag(b, "end", ["Prepiriform", "cortex"], 262, 204, "start", [210, 176]);
+  return sag(b, 262);
 }
 
 /* ------------------------------------------------------------------ the visual pathway */
@@ -265,7 +272,7 @@ export function visual(): Diagram {
   L(ret, "Retina", 32, 104, "start");
   L(ret, "Temporal", 68, 152, "end", [82, 126]);
   L(ret, "Nasal", 122, 150, "start", [114, 128]);
-  L(nerve, "Optic nerve", 70, 196, "end", [105, 184]);
+  L(nerve, "Optic nerve", 8, 200, "start", [100, 186]);
   L(crossK, "Nasal fibres", 232, 234, "start", [182, 222]);
   L(crossK, "cross", 232, 247, "start");
   L(stayK, "Temporal", 272, 184, "start", [250, 166]);

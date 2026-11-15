@@ -747,7 +747,7 @@
   {
    "id": "olfactory-nerve.R",
    "slug": "olfactory-nerve",
-   "name": "Olfactory nerve (I) (I)",
+   "name": "Olfactory nerve (I)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -759,7 +759,7 @@
   {
    "id": "olfactory-nerve.L",
    "slug": "olfactory-nerve",
-   "name": "Olfactory nerve (I) (I)",
+   "name": "Olfactory nerve (I)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -771,7 +771,7 @@
   {
    "id": "optic-nerve.R",
    "slug": "optic-nerve",
-   "name": "Optic nerve (II) (II)",
+   "name": "Optic nerve (II)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -783,7 +783,7 @@
   {
    "id": "optic-nerve.L",
    "slug": "optic-nerve",
-   "name": "Optic nerve (II) (II)",
+   "name": "Optic nerve (II)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -795,7 +795,7 @@
   {
    "id": "oculomotor-nerve.R",
    "slug": "oculomotor-nerve",
-   "name": "Oculomotor nerve (III) (III)",
+   "name": "Oculomotor nerve (III)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -807,7 +807,7 @@
   {
    "id": "oculomotor-nerve.L",
    "slug": "oculomotor-nerve",
-   "name": "Oculomotor nerve (III) (III)",
+   "name": "Oculomotor nerve (III)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -819,7 +819,7 @@
   {
    "id": "trochlear-nerve.R",
    "slug": "trochlear-nerve",
-   "name": "Trochlear nerve (IV) (IV)",
+   "name": "Trochlear nerve (IV)",
    "kind": "nerve",
    "side": "R",
    "note": "Its dorsal exit below the inferior colliculus and the turn around the midbrain are drawn (approximate); the rest is the Z-Anatomy nerve.",
@@ -832,7 +832,7 @@
   {
    "id": "trochlear-nerve.L",
    "slug": "trochlear-nerve",
-   "name": "Trochlear nerve (IV) (IV)",
+   "name": "Trochlear nerve (IV)",
    "kind": "nerve",
    "side": "L",
    "note": "Its dorsal exit below the inferior colliculus and the turn around the midbrain are drawn (approximate); the rest is the Z-Anatomy nerve.",
@@ -845,7 +845,7 @@
   {
    "id": "abducens-nerve.R",
    "slug": "abducens-nerve",
-   "name": "Abducens nerve (VI) (VI)",
+   "name": "Abducens nerve (VI)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -857,7 +857,7 @@
   {
    "id": "abducens-nerve.L",
    "slug": "abducens-nerve",
-   "name": "Abducens nerve (VI) (VI)",
+   "name": "Abducens nerve (VI)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -869,7 +869,7 @@
   {
    "id": "facial-nerve.R",
    "slug": "facial-nerve",
-   "name": "Facial nerve (VII) (VII)",
+   "name": "Facial nerve (VII)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -881,7 +881,7 @@
   {
    "id": "facial-nerve.L",
    "slug": "facial-nerve",
-   "name": "Facial nerve (VII) (VII)",
+   "name": "Facial nerve (VII)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -893,7 +893,7 @@
   {
    "id": "vestibulocochlear-nerve.R",
    "slug": "vestibulocochlear-nerve",
-   "name": "Vestibulocochlear nerve (VIII) (VIII)",
+   "name": "Vestibulocochlear nerve (VIII)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -905,7 +905,7 @@
   {
    "id": "vestibulocochlear-nerve.L",
    "slug": "vestibulocochlear-nerve",
-   "name": "Vestibulocochlear nerve (VIII) (VIII)",
+   "name": "Vestibulocochlear nerve (VIII)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -917,7 +917,7 @@
   {
    "id": "glossopharyngeal-nerve.R",
    "slug": "glossopharyngeal-nerve",
-   "name": "Glossopharyngeal nerve (IX) (IX)",
+   "name": "Glossopharyngeal nerve (IX)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -929,7 +929,7 @@
   {
    "id": "glossopharyngeal-nerve.L",
    "slug": "glossopharyngeal-nerve",
-   "name": "Glossopharyngeal nerve (IX) (IX)",
+   "name": "Glossopharyngeal nerve (IX)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -941,7 +941,7 @@
   {
    "id": "vagus-nerve.R",
    "slug": "vagus-nerve",
-   "name": "Vagus nerve (X) (X)",
+   "name": "Vagus nerve (X)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -953,7 +953,7 @@
   {
    "id": "vagus-nerve.L",
    "slug": "vagus-nerve",
-   "name": "Vagus nerve (X) (X)",
+   "name": "Vagus nerve (X)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -965,7 +965,7 @@
   {
    "id": "hypoglossal-nerve.R",
    "slug": "hypoglossal-nerve",
-   "name": "Hypoglossal nerve (XII) (XII)",
+   "name": "Hypoglossal nerve (XII)",
    "kind": "nerve",
    "side": "R",
    "anchor": [
@@ -977,7 +977,7 @@
   {
    "id": "hypoglossal-nerve.L",
    "slug": "hypoglossal-nerve",
-   "name": "Hypoglossal nerve (XII) (XII)",
+   "name": "Hypoglossal nerve (XII)",
    "kind": "nerve",
    "side": "L",
    "anchor": [
@@ -989,7 +989,7 @@
   {
    "id": "trigeminal-nerve.L",
    "slug": "trigeminal-nerve",
-   "name": "Trigeminal nerve (V) (V)",
+   "name": "Trigeminal nerve (V)",
    "kind": "nerve",
    "side": "L",
    "approx": true,
@@ -1003,7 +1003,7 @@
   {
    "id": "trigeminal-nerve.R",
    "slug": "trigeminal-nerve",
-   "name": "Trigeminal nerve (V) (V)",
+   "name": "Trigeminal nerve (V)",
    "kind": "nerve",
    "side": "R",
    "approx": true,
@@ -1017,7 +1017,7 @@
   {
    "id": "accessory-nerve.L",
    "slug": "accessory-nerve",
-   "name": "Accessory nerve (XI) (XI)",
+   "name": "Accessory nerve (XI)",
    "kind": "nerve",
    "side": "L",
    "approx": true,
@@ -1031,7 +1031,7 @@
   {
    "id": "accessory-nerve.R",
    "slug": "accessory-nerve",
-   "name": "Accessory nerve (XI) (XI)",
+   "name": "Accessory nerve (XI)",
    "kind": "nerve",
    "side": "R",
    "approx": true,

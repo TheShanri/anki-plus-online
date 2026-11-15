@@ -480,7 +480,7 @@ def main():
     for p in parts:
         base = p["id"].split(".")[0]
         nm = p["name"] or SPECIAL.get(base) or NAMES.get(p["slug"]) or p["slug"].replace("-", " ").capitalize()
-        if p["slug"] in ROMAN:
+        if p["slug"] in ROMAN and f"({ROMAN[p['slug']]})" not in nm:
             nm = f"{nm} ({ROMAN[p['slug']]})"
         p["name"] = nm
         m = p["m"]

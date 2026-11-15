@@ -180,8 +180,11 @@ def build(level):
             else:  # every piece above a minimum size
                 keep = [i for i in range(1, n_) if st_[i, cv2.CC_STAT_AREA] >= e.get("min_px", 120)]
                 m = np.isin(lab_, keep).astype(np.uint8)
+        if e.get("soften"):  # a drawn, not a digitised, edge: the traced shape smoothed at this radius (plate units)
+            m = (cv2.GaussianBlur(m.astype(np.float32), (0, 0), e["soften"] * SS) > 0.5).astype(np.uint8)
         return m
 
+    subs = set()
     # hidden helper masks (e.g. the whole grey matter traced from the stain), cut into named parts with "from"/"within"
     hidden = {}
     for name, e in ex.get("_masks", {}).items():
@@ -222,6 +225,8 @@ def build(level):
             if other in pending:
                 pending[other]["mR"] = pending[other]["mR"] & (1 - mR)
         emit(slug, mR, kind, e.get("src", []), e.get("approx", True), e.get("note"), mid_struct=bool(e.get("midline")), aout=e.get("anchor_out"), parent=e.get("parent"))
+        if e.get("sub"):
+            subs.add(slug)
         report.append(f"  {slug}: authored" + (" (approx)" if e.get("approx", True) else ""))
 
     # course regions the second source does not confirm closely: shown as approximate, with the reason
@@ -278,6 +283,19 @@ def build(level):
     for x in ex.get("_detail", []):  # drawing lines without a structure (sulci, striations), mirrored unless on the midline
         for pts in [x["pts"]] + ([] if x.get("mid") else [mirror_pts(x["pts"])]):
             detail.append({"d": curve(pts, x.get("closed", False), step=2.0, sigma=1.2, eps=0.25), "k": x.get("k", "line")})
+    # the grey matter's outer contour as one ink line (the cord's H, the central grey): "_edge" lists hidden masks / slugs
+    if ex.get("_edge"):
+        em = np.zeros_like(tissue)
+        for k_ in ex["_edge"]:
+            if k_ in hidden:
+                em |= mirror(hidden[k_])
+            elif k_ in pending:
+                em |= mirror(pending[k_]["mR"])
+        em = cv2.morphologyEx(em, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5)))
+        detail.append({"d": mask_paths(em, step=2.0, sigma=1.6, eps=0.3, min_area=30), "k": "edge"})
+    for r in regions:
+        if r["slug"] in subs:
+            r["sub"] = True
     plate = {
         "level": level,
         "viewBox": [0, 0, W, H],
@@ -289,6 +307,7 @@ def build(level):
         "fibres": fibres,
         "photo": {"w": w2, "h": h2},
         **({"detail": detail} if detail else {}),
+        **({"look": ex["_look"]} if ex.get("_look") else {}),
     }
     # big regions first so small ones sit on top (hover)
     areas = {}

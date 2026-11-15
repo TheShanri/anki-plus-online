@@ -93,6 +93,14 @@ html[data-effects="off"] .plate-region, html[data-effects="off"] .bs-drawer, htm
 .bsp .bsp-outline-photo { stroke-opacity: 0.7; }
 .bsp .bsp-hatch-line { stroke: var(--bsp-ink); stroke-width: 0.5; stroke-opacity: 0.16; }
 .bsp .bsp-gm { fill: var(--bsp-gm); }
+.bsp .bsp-gm-sub { fill: color-mix(in srgb, var(--accent-2) 8%, var(--bsp-gm)); }
+/* the cord look: a strong grey-matter H with one ink contour, the white funiculi light around it (Lab 5 / Lecture 4) */
+.bsp.bsp-look-cord { --bsp-wm: color-mix(in srgb, var(--text) 9%, var(--bsp-paper)); --bsp-gm: color-mix(in srgb, var(--accent-2) 46%, var(--bsp-paper)); }
+.bsp.bsp-look-cord .bsp-band { display: none; }
+.bsp.bsp-look-cord .bsp-hatch { opacity: 0.5; }
+.bsp.bsp-look-cord .bsp-line { stroke: var(--bsp-ink); stroke-opacity: 0.2; stroke-width: 0.6px; }
+.bsp.bsp-look-cord .bsp-line.bsp-approx { stroke-opacity: 0.3; }
+.bsp .bsp-detail-edge { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.8; stroke-width: 1.1px; stroke-dasharray: none; }
 .bsp .bsp-dot { fill: var(--bsp-ink); fill-opacity: 0.16; }
 .bsp .bsp-space { fill: var(--bsp-space); }
 .bsp .bsp-space-rim { fill: none; stroke: var(--bsp-ink); stroke-opacity: 0.08; stroke-width: 5px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }

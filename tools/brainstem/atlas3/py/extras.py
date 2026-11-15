@@ -216,7 +216,7 @@ EXTRAS = {
                         [692, 100], [712, 88], [742, 98], [746, 150], [746, 200], [748, 242], [734, 262], [708, 282], [700, 300], [724, 318],
                         [790, 332], [852, 348], [884, 374], [874, 410], [832, 432], [782, 452], [732, 472], [672, 490], [618, 492], [584, 478],
                         [570, 442], [574, 396], [566, 368], [500, 356]],
-                "pale": 0.55, "blur": 1.6, "open": 5, "close": 11,
+                "pale": 0.55, "blur": 1.6, "open": 5, "close": 25, "soften": 3.0,
             },
         },
         "dorsal-horn": {
@@ -227,7 +227,7 @@ EXTRAS = {
             "note": "The posterior grey column, traced from the pale (unmyelinated) tissue of the section. Its apex reaches the dorsolateral sulcus, where the dorsal roots enter (the dorsal root entry zone, Lecture 4).",
         },
         "substantia-gelatinosa": {
-            "pts": [[626, 188], [748, 188], [748, 266], [626, 266]], "pale": 0.3, "blur": 1.4, "open": 5, "close": 9,
+            "pts": [[626, 188], [748, 188], [748, 266], [626, 266]], "pale": 0.3, "blur": 1.4, "open": 5, "close": 9, "soften": 2.5, "sub": True,
             "tissue": "grey", "approx": False, "within": ["dorsal-horn"],
             "src": ["the section itself (the palest, cell-dense cap of the dorsal horn)", "Lab 5 and Lecture 4 (course: substantia gelatinosa)", COU + ", plate 45 (SGe)"],
             "note": "The pale cap of the dorsal horn (lamina II), where pain and temperature fibres synapse. At this upper cervical level it runs on rostrally as the caudal part of the spinal trigeminal nucleus.",
@@ -282,13 +282,13 @@ EXTRAS = {
         },
         "location-of-limb-lower-motor-neurons": {
             "from": "ventral-horn", "pts_cut": [[712, 330], [900, 330], [900, 520], [700, 520], [694, 440], [700, 380]],
-            "tissue": "grey",
+            "tissue": "grey", "sub": True,
             "src": ["Lab 10 slide 22 and its answer key (course: the limb motor neuron pool, lateral ventral horn)", "Lecture 10 slide 24 (course)", STD],
             "note": "Lower motor neurons for the limbs lie in the lateral part of the ventral horn (the course's Lab 10 drawing); not visible as such in a myelin stain.",
         },
         "location-of-trunk-lower-motor-neurons": {
             "from": "ventral-horn", "pts_cut": [[540, 340], [652, 340], [660, 400], [654, 520], [540, 520]],
-            "tissue": "grey",
+            "tissue": "grey", "sub": True,
             "src": ["Lab 10 slide 22 and its answer key (course: the trunk motor neuron pool, medial ventral horn)", "Lecture 10 slide 24 (course)", STD],
             "note": "Lower motor neurons for the trunk (axial) muscles lie in the medial part of the ventral horn (the course's Lab 10 drawing); not visible as such in a myelin stain.",
         },
@@ -848,3 +848,44 @@ EXTRAS["medulla-caudal"].setdefault("_fibres", {})["motor-decussation"] = {
     "src": [TRACED + ": the dark interlacing bundles between the central grey and the pyramids", "course overlay ('Pyramids/Motor Decussation')", L10P, KEY + ", Fig. 40"],
     "note": "About 80% of the corticospinal fibres leave the pyramid dorsally, cross the midline in interlacing bundles and run dorsolaterally into the opposite lateral funiculus as the lateral corticospinal tract.",
 }
+
+
+# Cord look (owner review 2026-11-15: "the grey H must be unmistakable"): the grey matter in a strong tone with one ink
+# contour, the white funiculi light around it (as in the Lab 5 / Lecture 4 drawings), the motor pools as quiet sub-zones.
+EXTRAS["cervicomedullary"]["_look"] = "cord"
+EXTRAS["cervicomedullary"]["_edge"] = ["grey"]
+EXTRAS["medulla-caudal"]["_look"] = "cord"
+EXTRAS["medulla-caudal"]["_edge"] = ["central-gray", "ventral-horn", "spinal-trigeminal-nucleus", "gracile-nucleus", "cuneate-nucleus"]
+EXTRAS["medulla-caudal"]["ventral-horn"]["soften"] = 4.0
+EXTRAS["medulla-caudal"]["central-gray"]["soften"] = 3.0
+
+# The H drawn as one smooth outline laid on the traced pale tissue (the raw trace is ragged at the neck and merges the
+# substantia gelatinosa with its neighbours): slender dorsal horn with its apex at the dorsal root entry zone and the
+# gelatinosa cap, intermediate zone and grey commissure, stout ventral horn. Checked against the photo half (fill check).
+EXTRAS["cervicomedullary"]["_masks"]["grey"] = {
+    "pts": [[500, 331], [540, 329], [575, 321], [600, 306], [618, 289], [632, 269], [640, 250], [634, 229], [645, 208], [668, 198],
+            [690, 192], [694, 160], [697, 125], [701, 99], [722, 95], [728, 125], [729, 160], [733, 190], [742, 205], [745, 228],
+            [735, 248], [712, 258], [700, 273], [694, 290], [698, 305], [714, 318], [742, 330], [790, 336], [830, 346], [854, 360],
+            [862, 378], [852, 396], [826, 412], [790, 430], [750, 448], [712, 466], [672, 482], [630, 486], [598, 474], [584, 450],
+            [582, 415], [586, 381], [570, 366], [540, 358], [500, 355]],
+    "smooth": True, "soft": 2.5,
+}
+EXTRAS["cervicomedullary"]["substantia-gelatinosa"].update({
+    "pts": [[641, 232], [649, 211], [669, 201], [694, 197], [722, 199], [739, 209], [741, 229], [730, 247], [708, 255], [670, 253], [647, 245]],
+    "smooth": True, "soft": 2.5,
+})
+for _k in ("pale", "blur", "open", "close", "soften"):
+    EXTRAS["cervicomedullary"]["substantia-gelatinosa"].pop(_k, None)
+
+EXTRAS["cervicomedullary"]["intermediate-zone"]["pts_cut"] = [[500, 300], [722, 300], [722, 345], [585, 356], [576, 374], [500, 374]]
+EXTRAS["cervicomedullary"]["ventral-horn"]["pts_cut"] = [[577, 374], [586, 357], [722, 345], [722, 300], [900, 300], [900, 520], [577, 520]]
+
+EXTRAS["cervicomedullary"]["lateral-corticospinal-tract"]["clip_out"] = ["dorsal-spinocerebellar-tract", "anterolateral-spinothalamic-tract", "dorsal-horn", "substantia-gelatinosa", "intermediate-zone", "ventral-horn"]
+
+# the motor-decussation ventral horn drawn as one smooth shape over the traced pale islands (the raw trace is ragged)
+EXTRAS["medulla-caudal"]["ventral-horn"].update({
+    "pts": [[628, 548], [660, 534], [700, 538], [728, 560], [736, 600], [728, 640], [712, 676], [690, 690], [664, 676], [646, 640], [632, 600]],
+    "smooth": True, "soft": 2.5,
+})
+for _k in ("pale", "blur", "open", "close", "soften"):
+    EXTRAS["medulla-caudal"]["ventral-horn"].pop(_k, None)

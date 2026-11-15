@@ -31,6 +31,8 @@ export interface PlateRegion {
   src: string[];
   /** a sub-part (substantia nigra pars compacta): the structure it belongs to, whose course notes it opens */
   parent?: string;
+  /** a quiet sub-zone inside another region (the motor pools in the ventral horn): a deeper tone, no outline of its own */
+  sub?: boolean;
 }
 
 export interface PlateFibre {
@@ -63,7 +65,9 @@ export interface PlateData {
   /** false: a one-sided drawing (midsagittal, lateral view); every region is drawn once ("M") where it lies */
   sym?: boolean;
   /** drawing detail without a structure of its own (sulci, striations, folia, the arbor vitae): never hoverable */
-  detail?: { d: string; k: "line" | "fine" | "core" }[];
+  detail?: { d: string; k: "line" | "fine" | "core" | "edge" }[];
+  /** "cord": the spinal-cord look (strong grey-matter H with an ink contour, light white funiculi) */
+  look?: "cord";
   /** a schematic redrawn from an open atlas because the course has no image of this view */
   schematic?: string;
   /** "surface": a surface view or a midsagittal cut instead of a transverse section */

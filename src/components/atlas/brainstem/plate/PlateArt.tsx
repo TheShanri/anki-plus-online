@@ -94,7 +94,7 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
       ))}
       {grey.map((r) => (
         <g key={r.id}>
-          <path d={r.d} className="bsp-gm" fillRule="evenodd" />
+          <path d={r.d} className={r.sub ? "bsp-gm bsp-gm-sub" : "bsp-gm"} fillRule="evenodd" />
           <path d={r.d} fill={`url(#${ids.stip})`} fillRule="evenodd" className="bsp-stip" />
         </g>
       ))}
@@ -110,14 +110,18 @@ const Illustration = memo(function Illustration({ plate, ids }: { plate: PlateDa
       {nerves.map((r) => (
         <path key={r.id} d={r.d} className="bsp-wm bsp-wm-nerve" fillRule="evenodd" />
       ))}
-      {(plate.detail ?? []).map((x, i) => (
+      {(plate.detail ?? []).filter((x) => x.k !== "edge").map((x, i) => (
         <path key={`x${i}`} d={x.d} className={`bsp-detail bsp-detail-${x.k}`} />
       ))}
-      {[...white, ...grey, ...nerves].map((r) => (
+      {[...white, ...grey.filter((r) => !r.sub), ...nerves].map((r) => (
         <path key={r.id} d={r.d} className={r.approx ? "bsp-line bsp-approx" : "bsp-line"} fillRule="evenodd" />
       ))}
       {land.map((r) => (
         <path key={r.id} d={r.d} className="bsp-land" fillRule="evenodd" />
+      ))}
+      {/* the grey matter's contour in ink (the cord's H), over the gaps between structures */}
+      {(plate.detail ?? []).filter((x) => x.k === "edge").map((x, i) => (
+        <path key={`e${i}`} d={x.d} className="bsp-detail bsp-detail-edge" fillRule="evenodd" />
       ))}
       <path d={plate.outline} className="bsp-outline" fillRule="evenodd" />
     </g>
@@ -264,7 +268,7 @@ export function PlateArt({ plate, view: askedView, hot, hotSide, selected, lit, 
   return (
     <svg
       viewBox={vb}
-      className={`bsp${plate.view === "surface" ? " bsp-surface" : ""}${pulse ? " bsp-pulsing" : ""}${className ? " " + className : ""}`}
+      className={`bsp${plate.view === "surface" ? " bsp-surface" : ""}${plate.look ? ` bsp-look-${plate.look}` : ""}${pulse ? " bsp-pulsing" : ""}${className ? " " + className : ""}`}
       role={interactive ? "group" : "img"}
       aria-label={ariaLabel ?? "Brainstem section plate"}
       ref={svgRef}

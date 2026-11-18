@@ -282,6 +282,7 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
       {d.plane && <PlaneSheet {...d.plane} />}
       {subject === "human" && <Trunks f={f} />}
       {subject === "animal" && <GradCap f={f} />}
+      {subject === "animal" && <Sneakers f={f} />}
       {reveal && label && (
         <Html position={d.labelAt} center zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
           <span className="dir-tag">{label}</span>
@@ -345,6 +346,44 @@ function GradCap({ f }: { f: Frame }) {
         <meshStandardMaterial color="#e0a23a" roughness={0.6} />
       </mesh>
     </group>
+  );
+}
+
+/** Four red sneakers on the hooves: the hoof points (lowest 4 % of the model) split into front/back and left/right. */
+function Sneakers({ f }: { f: Frame }) {
+  const feet = useMemo(() => {
+    const low = f.pts.filter((p) => p.y < f.box.min.y + f.size.y * 0.04);
+    const groups: V3[][] = [[], [], [], []];
+    for (const p of low) groups[(p.z > f.c.z ? 0 : 2) + (p.x > f.c.x ? 0 : 1)].push(p);
+    return groups.filter((g) => g.length).map((g) => {
+      const b = new THREE.Box3().setFromPoints(g);
+      return { c: b.getCenter(new THREE.Vector3()), s: b.getSize(new THREE.Vector3()) };
+    });
+  }, [f]);
+  const u = f.size.y;
+  return (
+    <>
+      {feet.map(({ c, s }, i) => {
+        const w = Math.max(s.x, u * 0.04) * 1.7;
+        const l = Math.max(s.z, u * 0.05) * 2.1;
+        return (
+          <group key={i} position={[c.x, f.box.min.y, c.z + l * 0.12]}>
+            <mesh position={[0, u * 0.012, 0]}>
+              <boxGeometry args={[w * 1.05, u * 0.022, l]} />
+              <meshStandardMaterial color="#f4f1ea" roughness={0.6} />
+            </mesh>
+            <mesh position={[0, u * 0.04, -l * 0.08]}>
+              <boxGeometry args={[w, u * 0.04, l * 0.84]} />
+              <meshStandardMaterial color="#d8312b" roughness={0.55} />
+            </mesh>
+            <mesh position={[0, u * 0.062, l * 0.12]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[u * 0.004, u * 0.004, w * 0.8, 8]} />
+              <meshStandardMaterial color="#ffffff" roughness={0.6} />
+            </mesh>
+          </group>
+        );
+      })}
+    </>
   );
 }
 

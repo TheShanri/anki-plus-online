@@ -110,7 +110,8 @@ function tissueCap(m: THREE.MeshBasicMaterial, kind: Kind) {
   m.onBeforeCompile = (s) => {
     Object.assign(s.uniforms, SEC);
     s.vertexShader = SEC_VERT_DECL + s.vertexShader.replace("#include <project_vertex>", "#include <project_vertex>\n" + SEC_VERT_MAIN);
-    s.fragmentShader = SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${mode} ), opacity );`);
+    s.fragmentShader = SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${mode} ), opacity );
+  if (secDiscard) discard;`);
   };
   m.customProgramCacheKey = () => "atlas-section-cap-" + kind;
 }

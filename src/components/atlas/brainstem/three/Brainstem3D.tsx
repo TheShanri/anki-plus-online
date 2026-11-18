@@ -9,6 +9,7 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { loadAtlasModel } from "@/components/atlas/ui/modelCache";
+import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
 import { readCssColor } from "@/lib/atlas/theme";
 import { brainstemPulse, pulseDisabled } from "../plate/pulse";
 import "./bs3d.css";
@@ -471,7 +472,9 @@ export default function Brainstem3D({ level = null, selected = null, hover = nul
             compact={compact}
           />
         )}
-        <OrbitControls makeDefault enableDamping dampingFactor={0.12} screenSpacePanning zoomToCursor minDistance={0.03} maxDistance={0.6} touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }} />
+        <OrbitControls makeDefault enableDamping dampingFactor={0.12} screenSpacePanning zoomToCursor minDistance={0.03} maxDistance={0.6} mouseButtons={NAV_MOUSE} touches={NAV_TOUCH} />
+        {/* the atlas-wide navigation: trackpad pan, double-click / double-tap pivot (ui/navigation.tsx) */}
+        <NavExtras />
       </Canvas>
       {!model && !error && <div className="bs3d-msg">Loading the 3D brainstem…</div>}
       {error && <div className="bs3d-msg">The 3D brainstem could not be loaded.</div>}

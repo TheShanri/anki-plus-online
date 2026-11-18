@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import type { TissueVolume } from "./tissue";
+import type { Interior } from "./labels";
+import { LAB, LAB_GLSL } from "./labelShader";
 
 /**
  * Shared uniforms of every section material (the cap quads and the deep-structure section paints): the tissue volume,
@@ -20,7 +22,22 @@ export const SEC = {
   uCSF: { value: new THREE.Color() },
   /** which of uPlanes is the midsagittal plane (-1: none) */
   uMidIdx: { value: -1 },
+  // the labelled interior (labels.ts, labelShader.ts)
+  ...LAB,
 };
+
+/** The labelled interior volume: every section face paints its labels once it is in. */
+export function setInterior(I: Interior | null) {
+  SEC.uLab.value = I?.vol ?? null;
+  SEC.uLabPal.value = I?.pal ?? null;
+  SEC.uHasLab.value = I ? 1 : 0;
+  if (!I) return;
+  SEC.uLabCorner.value.copy(I.corner);
+  SEC.uLabSize.value.copy(I.size);
+  SEC.uLabDims.value.set(...I.dims);
+  SEC.uLabGrpV3.value = I.rows.find((r) => r.key === "3V")?.grp ?? -1;
+  SEC.uLabGrpLV.value = I.rows.find((r) => r.key === "bLV")?.grp ?? -1;
+}
 
 export function setTissue(t: TissueVolume | null) {
   SEC.uTissue.value = t?.field ?? null;
@@ -44,6 +61,9 @@ export function setPalette(p: SectionPalette) {
   SEC.uGM.value.set(p.gm);
   SEC.uWM.value.set(p.wm);
   SEC.uCSF.value.set(p.csf);
+  SEC.uLabLine.value.set(p.line).lerp(SEC.uGM.value, 0.25);
+  // choroid plexus: a dull vascular rose between grey matter and CSF, as on a fixed-brain plate
+  SEC.uLabPlexus.value.set("#a05a63").lerp(SEC.uGM.value, 0.35);
 }
 
 export const SEC_VERT_DECL = "varying vec3 vSecW;\n";
@@ -105,17 +125,22 @@ vec2 secClass(vec3 p) {
   float aa = max(fwidth(s), 1e-4) * 0.7;
   return vec2(secStep(s, 0.75, aa), secStep(s, 0.25, aa));
 }
+${LAB_GLSL}
 /** Brainstem and diencephalon parts named by the Allen atlas (tegmentum, basilar pons, pyramids, nigra, colliculi,
  * hypothalamus) override the template's weak grey/white contrast there: each part is drawn as grey-ish or white-ish
  * (a fixed-brain plate's two tones, a shade toward each other), with crisp anti-aliased borders like the rest. */
 vec3 secTone(vec3 p) {
   vec2 k = secClass(p);
+  // inside the labelled interior: every structure as its own region (labelShader.ts)
+  vec4 lb = labSection(p, k);
+  if (lb.r >= 0.0) return lb.rgb;
   vec4 ax = secAuxAt(p);
   vec3 tis = mix(uGM, uWM, k.x);
   float wq = secStep(ax.g, 0.5, max(fwidth(ax.g), 1e-4) * 0.7);
   float uq = secStep(ax.r, 0.5, max(fwidth(ax.r), 1e-4) * 0.7);
   tis = mix(tis, mix(uGM, uWM, mix(0.12, 0.9, uq)), wq);
-  return mix(uCSF, tis, k.y);
+  // the same tissue texture as the labelled interior (no seam at the label box)
+  return labTexture(0, 1, mix(uCSF, tis, k.y), p, length(fwidth(p)), 1.0 - k.x);
 }
 /** Plane i's normal (dynamic index). */
 vec3 secNormal(int i) { return i == 0 ? uPlanes[0].xyz : uPlanes[1].xyz; }
@@ -183,7 +208,12 @@ export const SEC_CAP_GLSL = /* glsl */ `
  * the medial surface beyond it shows, as in a real parasagittal slice. */
 vec3 secCap(vec3 p, vec3 fallback, float mode) {
   if (mode > 1.5) {
-    if (uHasTissue < 0.5 || secAuxAt(p).b < 0.5) discard;
+    if (uHasTissue < 0.5) discard;
+    if (uMidIdx >= 0) {
+      vec4 m = labMidline(p, secNormal(uMidIdx));
+      if (m.r >= 0.0) return m.rgb;
+    }
+    if (secAuxAt(p).b < 0.5) discard;
     return secTone(p);
   }
   if (uHasTissue < 0.5) return fallback;
@@ -212,6 +242,7 @@ export function insideTissue(s: { uniforms: Record<string, unknown>; vertexShade
     SEC_GLSL +
     s.fragmentShader.replace(
       "#include <opaque_fragment>",
-      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.003) outgoingLight = secTone(secFoot(vSecW));\n" : ""}#include <opaque_fragment>`,
+      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.003) outgoingLight = secTone(secFoot(vSecW));\n" : ""}if (secDiscard) discard;
+#include <opaque_fragment>`,
     );
 }

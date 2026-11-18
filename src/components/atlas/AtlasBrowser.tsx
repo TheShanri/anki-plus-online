@@ -403,6 +403,26 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     gate.lock();
   }, [gate]);
 
+  // (interaction overhaul) a clear way to unselect: the X on the selection chip, Esc, or a click on empty space
+  const deselect = useCallback(() => {
+    relock();
+    setCourseName(undefined);
+    setPrimaryKey(null);
+  }, [relock]);
+  const hasSelection = !!primary;
+  useEffect(() => {
+    if (!hasSelection) return;
+    const k = (e: KeyboardEvent) => {
+      if (e.key !== "Escape" || e.defaultPrevented || unlockedRef.current) return;
+      const t = e.target as HTMLElement | null;
+      if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+      if (document.fullscreenElement) return; // the browser's own Esc leaves full screen first
+      deselect();
+    };
+    window.addEventListener("keydown", k);
+    return () => window.removeEventListener("keydown", k);
+  }, [hasSelection, deselect]);
+
   // a bone card that is not a course structure goes away with the layer it belongs to
   const onLayerChange = useCallback(
     (on: boolean) => {
@@ -655,7 +675,9 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 className="!rounded-none !border-0"
                 overlays={overlays3d}
                 onPickMesh={pickMesh}
-                onPickNothing={unlocked || lockedPick ? relock : undefined}
+                onPickNothing={unlocked || lockedPick ? relock : primary ? deselect : undefined}
+                onDeselect={primary ? deselect : undefined}
+                structureTools
                 onLayerChange={onLayerChange}
                 hoverKey={hoverKey}
                 onHoverKey={setHoverKey}
@@ -728,7 +750,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
               </div>
             )}
             {tab === "model" && !primary && !lockedPick && (
-              <div className="atl-chip pointer-events-none absolute bottom-16 left-2 z-[6] max-w-[60%] text-text-dim">Pick a structure, or click one in 3D. Drag to rotate, scroll to zoom.</div>
+              <div className="atl-chip pointer-events-none absolute bottom-16 left-2 z-[6] max-w-[60%] text-text-dim">Pick a structure, or click one in 3D.</div>
             )}
           </div>
         </div>

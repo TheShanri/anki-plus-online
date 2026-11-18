@@ -14,11 +14,14 @@ import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { readCssColor } from "@/lib/atlas/theme";
 import { trackAtlas } from "@/lib/atlas/progress";
 import {
-  Bone, Brain, Cable, ChevronDown, ChevronUp, Crosshair, FlipHorizontal2, LayoutGrid, Lock, LockOpen, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Sprout, Tag,
+  Bone, Brain, Cable, ChevronDown, ChevronUp, Crosshair, FlipHorizontal2, GitBranch, LayoutGrid, Lock, LockOpen, Maximize2, Minimize2, Orbit, Palette, RotateCcw, ScanLine, Sprout, Tag, Undo2, X,
 } from "lucide-react";
 import { Divider, Group, IconBtn, MenuItem, Popover } from "./ui/Toolbar";
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, NeighborIcon, SeeThroughIcon, ShellIcon, SolidIcon } from "./ui/icons";
 import { fitDistance, frameBox } from "./ui/framing";
+import { NAV_MOUSE, NAV_TOUCH, NavExtras, NavHelpButton, NavHint, pivotedRecently } from "./ui/navigation";
+import { PLANE_AXIS, PLANE_LABEL, applySectionOnly, planStructureCut, quietPalette } from "./ui/structureCut";
+import type { CutPlaneName } from "./ui/structureCut";
 import type { CamState } from "./ui/translate";
 import type { SkullFocus } from "@/lib/atlas/catalog";
 import { BrainstemBreathDriver, onBrainstemBreath } from "./brainstem/plate/pulse";
@@ -28,6 +31,10 @@ import { planeSection } from "./section/geometry";
 import { sectionPalette, sectionSwatch, useSectionTheme } from "./section/palette";
 import { insideTissue, setPalette, setSectionPlanes, setTissue } from "./section/shader";
 import { loadTissue } from "./section/tissue";
+// labelled interior (section/labels.ts, section/api.ts): cut faces, their pick, highlight and key come from one label volume
+import { interiorNow, loadInterior } from "./section/labels";
+import { hasLabels, sectionKeyFor, sectionPickRay, setSectionActive, setSectionRedraw, setSectionState } from "./section/api";
+import { setInterior } from "./section/shader";
 
 export type AtlasMode = "focus" | "context";
 
@@ -44,6 +51,9 @@ const VIEWS: { id: ViewName; label: string; dir: [number, number, number]; hidde
   { id: "top", label: "Top", dir: [0, 1, -0.02], hidden: true },
 ];
 const DEFAULT_CTX_CENTER = new THREE.Vector3(0, 1.605, -0.01);
+/** (interaction overhaul) Ventral surface parts shown with the default brain: the inferior view reads like the course's base-of-brain specimen. */
+const VENTRAL_IDS = ["optic-chiasm", "optic-tract", "mamillary-body", "interpeduncular-fossa", "base-of-peduncle", "olive", "pyramid-of-medulla-oblongata"];
+const DEEP_IDS = new Set(DEEP.map((d) => d.id));
 
 export type AtlasViewerProps = {
   /** Atlas ids to highlight (group ids are expanded to their members). */
@@ -119,6 +129,10 @@ export type AtlasViewerProps = {
   overlay?: React.ReactNode;
   /** Extra buttons appended to the toolbar. */
   toolbarExtra?: React.ReactNode;
+  /** Explore: an X on the selection chip (and the hint mentions Esc / empty click) to clear the selection. */
+  onDeselect?: () => void;
+  /** Explore: the selection chip offers "Show its cut" (coronal / sagittal / horizontal through the structure). */
+  structureTools?: boolean;
 };
 
 export type AtlasGuide = { axis: "x" | "y" | "z"; position: number; color: string };
@@ -397,19 +411,28 @@ function Rig({
     fitRef.current = fit;
   });
   // a new view, zoom, layout or camera: refit (eased, after the first fit)
+  // (interaction overhaul) a view change in the same commit as a selection change wins: deselecting restores the view the
+  // student had before "Show its cut", it must not be overridden by the keep-direction move of the deselection
+  const viewFitNow = useRef(false);
   useEffect(() => {
     const m = first.current ? "snap" : "glide";
     first.current = false;
+    viewFitNow.current = true;
     fitRef.current(true, m);
   }, [brain, view, nonce, zoom, multi, camera, controls, invalidate]);
-  // a different selection: an eased move that keeps the viewing direction; never when the view is locked
+  // a different selection: an eased move that keeps the viewing direction; never when the view is locked, nor right after
+  // the student double-clicked a pivot (the double-click's first click is what selected it)
   const prevBox = useRef(box);
   useEffect(() => {
     if (prevBox.current === box) return;
     prevBox.current = box;
-    if (!lockView) fitRef.current(true, "glideKeep");
+    if (viewFitNow.current) return;
+    if (!lockView && !pivotedRecently(controls)) fitRef.current(true, "glideKeep");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [box]);
+  useEffect(() => {
+    viewFitNow.current = false;
+  });
   // F: frame the selection on demand (also when locked)
   useEffect(() => {
     if (frameTick > 0) fitRef.current(true, "glideKeep");
@@ -549,6 +572,157 @@ function flatInside(m: THREE.MeshStandardMaterial) {
 const MEDULLA_CUT = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.52);
 /** The cranial-nerve layer stops 2 cm below the brain (kept side: y >= 1.445). */
 const NERVE_FLOOR = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.445);
+/* ---------- (interaction overhaul) cranial nerves: roots and intracranial course by default ---------- */
+/** Branches that lie wholly outside the skull (or on the dura): only drawn with "Peripheral branches" on. */
+const PERIPHERAL_NERVES = new Set([
+  "anterior-division-of-mandibular-nerve", "posterior-division-of-mandibular-nerve", "buccal-nerve", "chorda-tympani", "inferior-alveolar-nerve",
+  "lingual-nerve", "mental-nerve", "nerve-to-mylohyoid-muscle", "meningeal-branch-of-maxillary-nerve",
+]);
+/** Distance (in voxel steps) from the brain surface, on a 1.5 mm grid around the brain; 255 = far. */
+type BrainField = { o: THREE.Vector3; h: number; nx: number; ny: number; nz: number; d: Uint8Array };
+const FIELD_H = 0.0015;
+const FIELD_MAX = 8;
+function buildBrainField(roots: THREE.Object3D[]): BrainField {
+  roots.forEach((r) => r.updateMatrixWorld(true));
+  const box = new THREE.Box3().setFromObject(roots[0]).expandByScalar(0.014);
+  const h = FIELD_H;
+  const nx = Math.ceil((box.max.x - box.min.x) / h) + 1;
+  const ny = Math.ceil((box.max.y - box.min.y) / h) + 1;
+  const nz = Math.ceil((box.max.z - box.min.z) / h) + 1;
+  const d = new Uint8Array(nx * ny * nz).fill(255);
+  const q: number[] = [];
+  const v = new THREE.Vector3();
+  for (const root of roots) root.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh || m.userData.hull) return;
+    const pos = m.geometry.getAttribute("position");
+    if (!pos) return;
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld);
+      const ix = Math.round((v.x - box.min.x) / h);
+      const iy = Math.round((v.y - box.min.y) / h);
+      const iz = Math.round((v.z - box.min.z) / h);
+      const k = ix + nx * (iy + ny * iz);
+      if (ix < 0 || iy < 0 || iz < 0 || ix >= nx || iy >= ny || iz >= nz) continue;
+      if (d[k] !== 0) {
+        d[k] = 0;
+        q.push(k);
+      }
+    }
+  });
+  // breadth-first growth over the 26 neighbours (Chebyshev distance in steps), up to FIELD_MAX
+  let head = 0;
+  while (head < q.length) {
+    const k = q[head++];
+    const dk = d[k];
+    if (dk >= FIELD_MAX) continue;
+    const ix = k % nx;
+    const iy = Math.floor(k / nx) % ny;
+    const iz = Math.floor(k / (nx * ny));
+    for (let dz = -1; dz <= 1; dz++)
+      for (let dy = -1; dy <= 1; dy++)
+        for (let dx = -1; dx <= 1; dx++) {
+          const x = ix + dx;
+          const y = iy + dy;
+          const z = iz + dz;
+          if (x < 0 || y < 0 || z < 0 || x >= nx || y >= ny || z >= nz) continue;
+          const kk = x + nx * (y + ny * z);
+          if (d[kk] > dk + 1) {
+            d[kk] = dk + 1;
+            q.push(kk);
+          }
+        }
+  }
+  return { o: box.min.clone(), h, nx, ny, nz, d };
+}
+function fieldAt(f: BrainField, p: THREE.Vector3): number {
+  const ix = Math.round((p.x - f.o.x) / f.h);
+  const iy = Math.round((p.y - f.o.y) / f.h);
+  const iz = Math.round((p.z - f.o.z) / f.h);
+  if (ix < 0 || iy < 0 || iz < 0 || ix >= f.nx || iy >= f.ny || iz >= f.nz) return 255;
+  return f.d[ix + f.nx * (iy + f.ny * iz)];
+}
+/** Floor of the intracranial course (just below the foramen magnum and the jugular foramina). */
+const NERVE_SKULL_FLOOR = 1.548;
+/** The orbit starts in front of the optic canal / superior orbital fissure; the face lies lateral to the skull-base exits. */
+const NERVE_ORBIT_Z = 0.047;
+const NERVE_MAX_X = 0.045;
+const SEED_STEPS = 2; // within ~3 mm of the brain: a root
+const KEEP_STEPS = 6; // the course to the skull exit stays within ~9 mm of the brain
+const intraCaches = new WeakMap<BrainField, WeakMap<THREE.BufferGeometry, THREE.BufferGeometry>>();
+/**
+ * Keeps the part of a nerve mesh that is connected to its root on the brain and stays close to the brain: the root and the
+ * intracranial course up to the skull exit. Grown from the root along the mesh, so branches that only come near the brain
+ * again further out (the orbit roof) are not kept.
+ */
+function intracranial(src: THREE.BufferGeometry, matrix: THREE.Matrix4, f: BrainField, onPlate = false): THREE.BufferGeometry {
+  let intraCache = intraCaches.get(f);
+  if (!intraCache) intraCaches.set(f, (intraCache = new WeakMap()));
+  const hit = intraCache.get(src);
+  if (hit) return hit;
+  const pos = src.getAttribute("position");
+  const idx = src.getIndex();
+  const nTri = idx ? idx.count / 3 : pos.count / 3;
+  const vi = (t: number, c: number) => (idx ? idx.getX(t * 3 + c) : t * 3 + c);
+  // weld by position (separate primitives and seams must still connect)
+  const canon = new Int32Array(pos.count);
+  const keyOf = new Map<string, number>();
+  const dist = new Uint8Array(pos.count);
+  const v = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i);
+    const k = `${Math.round(v.x * 2e5)},${Math.round(v.y * 2e5)},${Math.round(v.z * 2e5)}`;
+    const c = keyOf.get(k);
+    if (c !== undefined) canon[i] = c;
+    else {
+      keyOf.set(k, i);
+      canon[i] = i;
+    }
+    v.applyMatrix4(matrix);
+    // (the olfactory bulb and tract lie on the cribriform plate, in front of the orbit line: `onPlate`)
+    dist[i] = v.y < NERVE_SKULL_FLOOR || Math.abs(v.x) > NERVE_MAX_X || (!onPlate && v.z > NERVE_ORBIT_Z) ? 255 : fieldAt(f, v);
+  }
+  const adj = new Map<number, number[]>();
+  for (let t = 0; t < nTri; t++)
+    for (let c = 0; c < 3; c++) {
+      const a = canon[vi(t, c)];
+      const l = adj.get(a);
+      if (l) l.push(t);
+      else adj.set(a, [t]);
+    }
+  const ok = new Uint8Array(pos.count);
+  const q: number[] = [];
+  for (let i = 0; i < pos.count; i++)
+    if (canon[i] === i && dist[i] <= SEED_STEPS) {
+      ok[i] = 1;
+      q.push(i);
+    }
+  for (let head = 0; head < q.length; head++) {
+    for (const t of adj.get(q[head]) ?? [])
+      for (let c = 0; c < 3; c++) {
+        const b = canon[vi(t, c)];
+        if (!ok[b] && dist[b] <= KEEP_STEPS) {
+          ok[b] = 1;
+          q.push(b);
+        }
+      }
+  }
+  const keep: number[] = [];
+  for (let t = 0; t < nTri; t++) {
+    const a = vi(t, 0);
+    const b = vi(t, 1);
+    const c = vi(t, 2);
+    if (ok[canon[a]] && ok[canon[b]] && ok[canon[c]]) keep.push(a, b, c);
+  }
+  const g = new THREE.BufferGeometry();
+  for (const k of Object.keys(src.attributes)) g.setAttribute(k, src.getAttribute(k));
+  g.setIndex(keep);
+  g.boundingBox = src.boundingBox;
+  g.boundingSphere = src.boundingSphere;
+  intraCache.set(src, g);
+  return g;
+}
+
 const INFLATE = { value: 0 };
 function inflate(m: THREE.MeshStandardMaterial, onPlane = false) {
   m.onBeforeCompile = (s) => {
@@ -998,6 +1172,8 @@ function Picker({
     let ly = 0;
     let lastSig = "";
     let down: { x: number; y: number; t: number } | null = null;
+    // (interaction overhaul) a click acts after the double-click window: a double-click only moves the pivot, it does not select
+    let pending = 0;
 
     const pick = (cx: number, cy: number): (PickInfo & { side?: "L" | "R" }) | null => {
       let pane: Pane | null = null;
@@ -1018,7 +1194,13 @@ function Picker({
       ray.setFromCamera(ndc, cam);
       const hits = ray.intersectObjects(pickables.current, false);
       let layerHit: (PickInfo & { side?: "L" | "R" }) | null = null;
+      // labelled interior: the section face names what it shows; it lies in front of every mesh behind the plane
+      const sp = sectionPickRay(ray.ray);
+      const spInfo: (PickInfo & { side?: "L" | "R" }) | null = sp
+        ? { hover: { id: sp.row.ids[0] ?? "" }, name: sp.row.name, side: sp.point.x > 0.002 ? "L" : sp.point.x < -0.002 ? "R" : undefined }
+        : null;
       for (const h of hits) {
+        if (sp && spInfo && h.distance > sp.distance) return spInfo;
         const m = h.object as THREE.Mesh;
         _hit.copy(h.point);
         const lid = m.userData.lid as string | undefined;
@@ -1038,7 +1220,7 @@ function Picker({
         const name = structures[id]?.name ?? id;
         return { hover: m.userData.gid !== undefined ? { id } : { key: m.userData.key as string, id }, name, side };
       }
-      return layerHit;
+      return spInfo ?? layerHit;
     };
     const run = () => {
       raf = 0;
@@ -1068,6 +1250,12 @@ function Picker({
       onHover(null, null);
     };
     const dn = (e: PointerEvent) => {
+      if (pending) {
+        window.clearTimeout(pending); // second press of a double-click
+        pending = 0;
+        down = null;
+        return;
+      }
       down = { x: e.clientX, y: e.clientY, t: performance.now() };
       if (lastSig) {
         lastSig = "";
@@ -1079,8 +1267,11 @@ function Picker({
       down = null;
       if (!d || Math.hypot(e.clientX - d.x, e.clientY - d.y) > 5 || performance.now() - d.t > 600) return;
       const p = pick(e.clientX, e.clientY);
-      if (p?.hover.id) onPick(p.hover.id, p.side);
-      else onMiss?.();
+      pending = window.setTimeout(() => {
+        pending = 0;
+        if (p?.hover.id) onPick(p.hover.id, p.side);
+        else onMiss?.();
+      }, 260);
     };
     el.addEventListener("pointermove", move);
     el.addEventListener("pointerleave", leave);
@@ -1088,6 +1279,7 @@ function Picker({
     el.addEventListener("pointerup", up);
     return () => {
       if (raf) cancelAnimationFrame(raf);
+      if (pending) window.clearTimeout(pending);
       el.style.cursor = "";
       el.removeEventListener("pointermove", move);
       el.removeEventListener("pointerleave", leave);
@@ -1152,6 +1344,9 @@ function Scene({
   layerShow,
   nerves,
   showBrainstem,
+  quiet,
+  ventral,
+  nervePeripheral,
   skullNodes,
   skullNames,
   onWarm,
@@ -1173,6 +1368,12 @@ function Scene({
   nerves: { id: string; g: THREE.Group }[] | null;
   /** the gross brainstem meshes are drawn (the "Brainstem" toggle) */
   showBrainstem: boolean;
+  /** "Show its cut": the section around the selection is drawn quiet (washed toward white matter) */
+  quiet: boolean;
+  /** ventral diencephalon and brainstem surface parts drawn as part of the brain (mammillary bodies, optic chiasm...) */
+  ventral: { id: string; g: THREE.Group }[] | null;
+  /** the cranial-nerve layer shows the whole peripheral tree, not only roots and the intracranial course */
+  nervePeripheral: boolean;
   skullNodes: { prefix: string; slug: string }[];
   skullNames: Record<string, string>;
   onWarm: () => void;
@@ -1236,7 +1437,8 @@ function Scene({
   // the "Cranial nerves" toggle: one cream nerve tone, lit
   const nerveMat = useMemo(() => new THREE.MeshStandardMaterial({ color: "#e9d9a6", emissive: "#5a4a20", emissiveIntensity: 0.25, roughness: 0.6, metalness: 0 }), []);
   useEffect(() => () => nerveMat.dispose(), [nerveMat]);
-  const secPal = sectionPalette(sectionLook, secTheme);
+  const secPalRaw = sectionPalette(sectionLook, secTheme);
+  const secPal = quiet ? quietPalette(secPalRaw) : secPalRaw;
   const deepMats = useMemo(() => {
     const out: Record<string, THREE.MeshStandardMaterial> = {};
     for (const d of DEEP) {
@@ -1261,9 +1463,10 @@ function Scene({
   );
   useEffect(() => () => bsClearMat.dispose(), [bsClearMat]);
   useEffect(() => {
-    setPalette(sectionPalette(sectionLook, secTheme));
+    const p = sectionPalette(sectionLook, secTheme);
+    setPalette(quiet ? quietPalette(p) : p);
     invalidate();
-  }, [sectionLook, secTheme, tissueOk, invalidate]);
+  }, [sectionLook, secTheme, tissueOk, quiet, invalidate]);
   const hoverMat = useMemo(
     () =>
       new THREE.MeshBasicMaterial({ color: hoverColor, transparent: true, opacity: 0.55, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }),
@@ -1546,6 +1749,19 @@ function Scene({
 
   const capPlanes = useMemo(() => [...(midsagittal ? [clipPlane] : []), ...(clip.axis !== "off" ? [cutP] : [])], [midsagittal, clip.axis, clipPlane, cutP]);
   const sectionOn = !!fill && capPlanes.length > 0 && showCtx && look !== "xray" && !!gross && (brainOpacity ?? 1) >= 1;
+  // ---- labelled interior (section/api.ts): with the label volume in, the cut faces draw every structure themselves
+  const labelsOn = sectionOn && tissueOk && !!interiorNow();
+  useEffect(() => {
+    setSectionRedraw(invalidate);
+    return () => setSectionRedraw(null);
+  }, [invalidate]);
+  useEffect(() => {
+    setSectionActive(labelsOn, capPlanes, midsagittal ? clipPlane : null, showBrainstem);
+  });
+  useEffect(() => {
+    setSectionState({ hover: hover?.id && !hover.key ? hover.id : null, selected: loaded.targetIds, colour: colourCuts, accent, hoverColor });
+  }, [hover, loaded.targetIds, colourCuts, accent, hoverColor, labelsOn]); // labelsOn: repaint once the label volume is in
+  // ---- end labelled interior
   useEffect(() => invalidate(), [tissueOk, invalidate]);
   // cut planes
   useEffect(() => {
@@ -1612,15 +1828,22 @@ function Scene({
       invalidate();
     };
   }, [gross, grossById, showBrainstem, bsClearMat, invalidate]);
+  // (interaction overhaul) roots and intracranial course by default; the peripheral tree is a sub-option
+  const wantField = !!nerves && !nervePeripheral;
+  const brainField = useMemo(() => (gross && wantField ? buildBrainField([gross, ...(ventral ?? []).map((x) => x.g)]) : null), [gross, ventral, wantField]);
   const nerveRoot = useMemo(() => {
     if (!nerves || look === "xray") return null;
+    if (!nervePeripheral && !brainField) return null;
     const root = new THREE.Group();
     for (const { id, g } of nerves) {
       if (hiddenIds.has(id)) continue; // a selected nerve is drawn by its own layer
+      if (!nervePeripheral && PERIPHERAL_NERVES.has(id)) continue;
       const c = g.clone(true);
+      c.updateMatrixWorld(true);
       c.traverse((o) => {
         const m = o as THREE.Mesh;
         if (!m.isMesh) return;
+        if (!nervePeripheral && brainField) m.geometry = intracranial(m.geometry, m.matrixWorld, brainField, id === "olfactory-nerve-i");
         m.material = nerveMat;
         m.userData.gid = id;
         m.userData.nerve = true;
@@ -1628,7 +1851,42 @@ function Scene({
       root.add(c);
     }
     return root;
-  }, [nerves, look, hiddenIds, nerveMat]);
+  }, [nerves, look, hiddenIds, nerveMat, nervePeripheral, brainField]);
+  // (interaction overhaul) the ventral diencephalon and brainstem surface parts, drawn and picked as part of the brain
+  const ventralRoot = useMemo(() => {
+    if (!ventral) return null;
+    const root = new THREE.Group();
+    for (const { id, g } of ventral) {
+      const c = g.clone(true);
+      const bs = structures[id]?.region === "brainstem";
+      c.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        m.userData.gid = id;
+        m.userData.g = "brainstem";
+        m.userData.vbs = bs;
+        smoothGeometry(m);
+        // the shared gross materials use vertex colours (baked shading); these meshes have none: plain white, or they render black
+        if (!m.geometry.getAttribute("color")) {
+          const g2 = m.geometry.clone();
+          g2.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(g2.getAttribute("position").count * 3).fill(0.93), 3));
+          m.geometry = g2;
+        }
+      });
+      root.add(c);
+    }
+    return root;
+  }, [ventral, structures]);
+  useEffect(() => {
+    if (!ventralRoot) return;
+    eachMesh(ventralRoot, (m) => {
+      const id = m.userData.gid as string;
+      m.material = lockedSet.has(id) ? grossMats.locked : grossMats.brainstem;
+      // in a section the deep layer draws the chiasm and mammillary bodies (with their cut faces): no second copy
+      m.visible = grossOn && !hiddenIds.has(id) && (showBrainstem || !m.userData.vbs) && !(deep && DEEP_IDS.has(id));
+    });
+    invalidate();
+  }, [ventralRoot, grossMats, lockedSet, grossOn, hiddenIds, showBrainstem, deep, invalidate]);
   const deepRoot = useMemo(() => {
     if (!deep) return null;
     const root = new THREE.Group();
@@ -1662,6 +1920,7 @@ function Scene({
     eachMesh(targetRoot, (m) => list.push(m));
     eachMesh(ovlRoot, (m) => list.push(m));
     if (grossOn && solid) for (const [id, m] of grossById) if (!grossHidden.has(id)) list.push(m);
+    if (ventralRoot && grossOn && solid) eachMesh(ventralRoot, (m) => m.visible && list.push(m));
     if (nerveRoot) eachMesh(nerveRoot, (m) => list.push(m));
     if (deepRoot) eachMesh(deepRoot, (m) => list.push(m));
     for (const r of layerRoots)
@@ -1675,7 +1934,7 @@ function Scene({
     });
     pickables.current = list;
     invalidate();
-  }, [grossById, grossOn, solid, grossHidden, nerveRoot, targetRoot, ovlRoot, deepRoot, layerRoots, skullGroup, invalidate]);
+  }, [grossById, grossOn, solid, grossHidden, nerveRoot, ventralRoot, targetRoot, ovlRoot, deepRoot, layerRoots, skullGroup, showBrainstem, hiddenIds, deep, invalidate]);
 
   // hover highlight: a pooled tinted copy of the hovered mesh(es), parented to the source so transforms follow
   const pool = useMemo(
@@ -1707,6 +1966,8 @@ function Scene({
       if (m && m.visible) {
         list.push(m);
         grossHover = true;
+      } else if (ventralRoot && (eachMesh(ventralRoot, (d) => d.userData.gid === hover.id && d.visible && list.push(d)), list.length)) {
+        grossHover = true;
       } else if (deepRoot && !sectionOn) {
         eachMesh(deepRoot, (d) => d.userData.gid === hover.id && list.push(d));
         grossHover = list.length > 0;
@@ -1720,29 +1981,30 @@ function Scene({
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, nerveRoot, layerRoots, perMesh, sectionOn, invalidate]);
+  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, nerveRoot, ventralRoot, layerRoots, perMesh, sectionOn, invalidate]);
 
   // in a section, a hovered deep structure tints its own cut face (not its whole body behind the plane); a selected one is in the accent
   useEffect(() => {
     for (const d of DEEP) {
       const m = paintMats[d.id];
       if (hover?.id === d.id && !hover.key) tintPaint(m, hoverColor, 0.5);
+      else if (quiet) tintPaint(m, secPal.wm, 0.6); // "Show its cut": the neighbours' cut faces recede
       else if (colourCuts) tintPaint(m, d.hue, 0.62);
       else tintPaint(m, null, 0);
     }
-    tintPaint(targetPaint, accent, 0.58);
+    tintPaint(targetPaint, accent, quiet ? 1 : 0.58);
     invalidate();
-  }, [hover, hoverColor, colourCuts, accent, paintMats, targetPaint, invalidate]);
+  }, [hover, hoverColor, colourCuts, quiet, secPal.wm, accent, paintMats, targetPaint, invalidate]);
   useEffect(() => {
-    if (!sectionOn) return;
+    if (!sectionOn || (labelsOn && loaded.targetIds.some(hasLabels))) return; // labelled: the cut face tints itself
     const undo = addSectionPaint(targetRoot, () => targetPaint);
     invalidate();
     return () => {
       undo();
       invalidate();
     };
-  }, [sectionOn, targetRoot, targetPaint, invalidate]);
-  const outlineRoots = useMemo(() => (sectionOn ? [deepRoot, targetRoot].filter((r): r is THREE.Group => !!r) : []), [sectionOn, deepRoot, targetRoot]);
+  }, [sectionOn, labelsOn, loaded.targetIds, targetRoot, targetPaint, invalidate]);
+  const outlineRoots = useMemo(() => (sectionOn && !labelsOn ? [deepRoot, targetRoot].filter((r): r is THREE.Group => !!r) : []), [sectionOn, labelsOn, deepRoot, targetRoot]);
   const outlineKey = `${clip.axis}:${clip.t}:${clip.flip}:${midsagittal}:${clipRange[0]}:${clipRange[1]}`;
 
   // how much of the target can be seen from a direction (rays from the camera to sample points, blocked by the solid brain)
@@ -1808,7 +2070,8 @@ function Scene({
       ))}
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
-      {deepRoot && grossOn && <primitive object={deepRoot} />}
+      {ventralRoot && gross && <primitive object={ventralRoot} />}
+      {deepRoot && grossOn && !labelsOn && <primitive object={deepRoot} />}
       {nerveRoot && <primitive object={nerveRoot} />}
       {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} />}
       {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
@@ -1865,6 +2128,8 @@ export default function AtlasViewer({
   request = null,
   overlay,
   toolbarExtra,
+  onDeselect,
+  structureTools = false,
 }: AtlasViewerProps) {
   const tipText = tipTextProp;
   const [index, setIndex] = useState<AtlasIndex | null>(null);
@@ -1937,6 +2202,9 @@ export default function AtlasViewer({
   const [showBrainstem, setShowBrainstem] = useStoredFlag("atlas.layer.brainstem", true);
   const [nerves, setNerves] = useState<{ id: string; g: THREE.Group }[] | null>(null);
   const [nervesFailed, setNervesFailed] = useState(false);
+  // (interaction overhaul) the nerve layer's peripheral tree is a sub-option, off by default
+  const [nervePeripheral, setNervePeripheral] = useStoredFlag("atlas.layer.nervesPeripheral", false);
+  const [ventral, setVentral] = useState<{ id: string; g: THREE.Group }[] | null>(null);
   const layerOn = layerOv && layerOv.auto === layerAuto ? layerOv.v : layerAuto;
   useEffect(() => {
     onLayerChange?.(layerOn);
@@ -2181,9 +2449,10 @@ export default function AtlasViewer({
   useEffect(() => {
     if (!cutNow || tissueOk) return;
     let alive = true;
-    loadTissue()
-      .then((t) => {
+    Promise.all([loadTissue(), loadInterior().catch(() => null)])
+      .then(([t, interior]) => {
         setTissue(t);
+        setInterior(interior); // the labelled interior; without it the deep meshes paint the cut as before
         if (alive) setTissueOk(true);
       })
       .catch(() => undefined);
@@ -2203,6 +2472,19 @@ export default function AtlasViewer({
       alive = false;
     };
   }, [showNerves, nerves, nervesFailed, index]);
+  // (interaction overhaul) the ventral diencephalon and brainstem surface parts belong to the default brain (inferior view)
+  const ventralWanted = !!gross && look !== "xray" && !!index;
+  useEffect(() => {
+    if (!ventralWanted || ventral || !index) return;
+    let alive = true;
+    const ids = VENTRAL_IDS.filter((id) => index.structures[id]?.file);
+    Promise.all(ids.map((id) => loadAtlasModel(index.structures[id].file as string).then((g) => ({ id, g }))))
+      .then((r) => alive && setVentral(r))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [ventralWanted, ventral, index]);
   const deepLoading = cutNow && !deep && !deepFailed;
   const [keyOpen, setKeyOpen] = useState(() => (typeof window === "undefined" ? true : window.innerWidth >= 640));
   // a narrow viewer (info panel open) drops the view name and the dividers so the bar stays on one row
@@ -2315,6 +2597,21 @@ export default function AtlasViewer({
     }
     return out;
   }, [cutNow, deep, index, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts, secThemeKey, showBrainstem]);
+  // labelled interior: the key lists exactly what the plane cuts, from the same labels as the face (the deep-mesh key above is the fallback)
+  const labelKey = useMemo(() => {
+    if (!cutNow || !tissueOk || !interiorNow()) return null;
+    const mid = view === "midsagittal" && !multi ? new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0) : null;
+    const cut = clip.axis !== "off" ? new THREE.Plane() : null;
+    if (cut) cutPlane(clip.axis, clipRange[0] + clip.t * (clipRange[1] - clipRange[0]), clip.flip, cut);
+    const pal = sectionPalette(look === "regions" ? "regions" : "brain", secThemeKey);
+    const c = new THREE.Color();
+    const swatch = (r: { cls: string; tone: number }) =>
+      r.cls === "csf" ? pal.csf : r.cls === "plx" ? "#" + c.set("#a05a63").lerp(new THREE.Color(pal.gm), 0.35).getHexString() : r.cls === "w" || r.cls === "wm" ? pal.wm
+        : r.tone < 0 ? "#" + c.set(pal.gm).lerp(new THREE.Color(pal.csf), -r.tone * 1.6).getHexString() : "#" + c.set(pal.gm).lerp(new THREE.Color(pal.wm), r.tone).getHexString();
+    const items = sectionKeyFor([mid, cut].filter((p): p is THREE.Plane => !!p), mid, { showBrainstem, colour: colourCuts, swatch });
+    return items?.map((k) => ({ id: "lab:" + k.key, name: k.name, colour: k.colour })) ?? null;
+  }, [cutNow, tissueOk, view, multi, clip.axis, clip.t, clip.flip, clipRange, look, colourCuts, secThemeKey, showBrainstem]);
+  const sectionKeyShown = labelKey ?? sectionKey;
   const boxRaw = useMemo(() => {
     const u = mode === "context" ? null : unionBox(entries);
     return u ? new THREE.Box3(new THREE.Vector3(...u.min), new THREE.Vector3(...u.max)) : null;
@@ -2323,6 +2620,60 @@ export default function AtlasViewer({
   const boxKey = boxRaw ? `${boxRaw.min.toArray().map((v) => v.toFixed(5))}|${boxRaw.max.toArray().map((v) => v.toFixed(5))}` : "";
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const box = useMemo(() => boxRaw, [boxKey]);
+
+  /* ---------- (interaction overhaul) "Show its cut" and deselection: state ---------- */
+  type SCut = { key: string; plane: CutPlaneName; lo: number; hi: number; prev: { clip: ClipState; view: ViewName; keyOpen: boolean } };
+  const [sCut, setSCut] = useState<SCut | null>(null);
+  // the see-through cortex chosen by autoReveal for a deep structure goes back to solid when that selection goes
+  const [autoSolid, setAutoSolid] = useState(false);
+  const selKey = resolved.join(",");
+  function showCut(plane: CutPlaneName) {
+    if (!box) return;
+    const plan = planStructureCut(plane, resolved, box);
+    const ax = plan.axis;
+    const lo = ctxBox ? ctxBox.min[ax] : ax === "x" ? -0.08 : ax === "y" ? 1.53 : -0.11;
+    const hi = ctxBox ? ctxBox.max[ax] : ax === "x" ? 0.08 : ax === "y" ? 1.68 : 0.1;
+    const prev = sCut ? sCut.prev : { clip, view, keyOpen };
+    setSCut({ key: selKey, plane, lo: plan.lo, hi: plan.hi, prev });
+    setMulti(false);
+    setKeyOpen(false); // only the sliced view: the section key folds away (one click opens it)
+    setClip({ axis: ax, t: Math.min(1, Math.max(0, (plan.pos - lo) / (hi - lo))), flip: false });
+    setViewUser(ax === "y" ? "top" : ax === "z" ? "anterior" : "left");
+    trackAtlas({ type: "cut_used", plane: `structure-${plane}` });
+  }
+  /** Back to the whole structure: the cut and the view from before "Show its cut". */
+  function wholeStructure() {
+    if (!sCut) return;
+    setClip(sCut.prev.clip);
+    setView(sCut.prev.view);
+    setKeyOpen(sCut.prev.keyOpen);
+    setNonce((n) => n + 1);
+    setSCut(null);
+  }
+  // a new selection (or none) drops a structure cut that belonged to the previous one, restoring the view from before it
+  const [prevSel, setPrevSel] = useState(selKey);
+  if (prevSel !== selKey) {
+    setPrevSel(selKey);
+    if (autoSolid) {
+      setAutoSolid(false);
+      if (solidPref === false) setSolidPref(null);
+    }
+    if (sCut && sCut.key !== selKey) {
+      setClip(sCut.prev.clip);
+      setView(sCut.prev.view);
+      setKeyOpen(sCut.prev.keyOpen);
+      setNonce((n) => n + 1);
+      setSCut(null);
+    }
+  }
+  const sCutOn = !!sCut && clip.axis === PLANE_AXIS[sCut.plane];
+  useEffect(() => {
+    applySectionOnly(sCutOn && sCut ? resolved : null, sCutOn && sCut ? sCut.plane : null);
+  }, [sCutOn, sCut, resolved]);
+  useEffect(() => () => applySectionOnly(null, null), []);
+  // the tissue around the structure is quietened in both cases: a native structure-only render may still show the template
+  // tissue where it leaves other structures out
+  const quietSection = sCutOn;
 
   // frame the skull / spine target (not the brain) when one is selected
   const skullBox = useMemo(() => {
@@ -2336,6 +2687,7 @@ export default function AtlasViewer({
   }, [skull]);
 
   function pickAxis(axis: ClipAxis) {
+    setSCut(null); // the toolbar's own cut replaces "Show its cut" (nothing to restore)
     if (axis === "off") return setClip((c) => ({ ...c, axis }));
     const lo = ctxBox ? ctxBox.min[axis] : axis === "x" ? -0.08 : axis === "y" ? 1.53 : -0.11;
     const hi = ctxBox ? ctxBox.max[axis] : axis === "x" ? 0.08 : axis === "y" ? 1.68 : 0.1;
@@ -2475,6 +2827,7 @@ export default function AtlasViewer({
         flash(`${nameForNotice} is hidden from that side, so the view turned to ${VIEW_SHORT[best].toLowerCase()}.`);
       } else {
         setSolidPref(false);
+        setAutoSolid(true);
         flash(`${nameForNotice} sits inside the brain, so the cortex is see-through.`);
       }
     }, 300);
@@ -2575,7 +2928,10 @@ export default function AtlasViewer({
     else if (k === "l" && !quiz && !hideLabels) setShowLabels((x) => !x);
     else if (k === "h") setShowCtx((x) => !x);
     else if (k === "k" && shortcuts && !layerMissing) setLayerOv({ auto: layerAuto, v: !layerOn });
-    else if (k === "e" && shortcuts) setShowNerves(!showNerves);
+    else if (k === "e" && shortcuts && e.shiftKey) {
+      if (!showNerves) setShowNerves(true);
+      setNervePeripheral(!nervePeripheral);
+    } else if (k === "e" && shortcuts) setShowNerves(!showNerves);
     else if (k === "w" && shortcuts) setShowBrainstem(!showBrainstem);
     else if (k === "g" && onToggleNeighbors) onToggleNeighbors();
     else if (k === "m" && multiview && !cut) toggleMulti();
@@ -2674,6 +3030,9 @@ export default function AtlasViewer({
             layerShow={layerOn}
             nerves={showNerves ? nerves : null}
             showBrainstem={showBrainstem}
+            quiet={quietSection}
+            ventral={ventral}
+            nervePeripheral={nervePeripheral}
             skullNodes={skullNodes}
             skullNames={skullNames}
             onWarm={onWarm}
@@ -2697,8 +3056,11 @@ export default function AtlasViewer({
           zoomToCursor
           minDistance={0.05}
           maxDistance={1.2}
-          touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}
+          mouseButtons={NAV_MOUSE}
+          touches={NAV_TOUCH}
         />
+        {/* (interaction overhaul) trackpad pan, double-click / double-tap pivot */}
+        <NavExtras el={mainEl} wheelEl={layerEl} />
         <Rig box={skullBox ?? box} brain={skullBox ?? ctxBox} view={view} nonce={nonce} frameTick={frameTick} lockView={lockView} zoom={zoom} multi={multi} dims={dims} fixed={fixedCams} fixedDims={fixedDims} moved={moved} sizeKey={sizeKey} paneView={paneView} fixedBase={fixedBase} />
         {multi && <MultiRender panes={panes} invalidateRef={invalidateRef} />}
       </Canvas>
@@ -2767,21 +3129,71 @@ export default function AtlasViewer({
         </div>
       )}
 
-      <div className="pointer-events-none absolute left-2 top-2 flex max-w-[60%] flex-col gap-1">
-        {title && !multi && (
+      <div className="pointer-events-none absolute left-2 top-2 flex max-w-[60%] flex-col items-start gap-1">
+        {title && !multi && !(structureTools || onDeselect) && (
           <div className="atl-chip">
             <span className="font-display tracking-wide text-accent">{title}</span>
             {latin && <span className="hidden text-xs italic text-text-dim sm:inline">{latin}</span>}
           </div>
         )}
-        {sectionKey.length > 0 && !multi && (
+        {/* (interaction overhaul) selection chip: name, "Show its cut", an obvious X */}
+        {title && !multi && (structureTools || onDeselect) && (
+          <div data-atl-obstacle="" className="atl-chip pointer-events-auto flex-col items-stretch gap-1 !py-1" role="group" aria-label={`Selected: ${title}`}>
+            <div className="flex min-w-0 items-center gap-1.5">
+              <span className="min-w-0 truncate font-display tracking-wide text-accent">{title}</span>
+              {latin && <span className="hidden truncate text-xs italic text-text-dim sm:inline">{latin}</span>}
+              {structureTools && box && solidCuts && !sCut && (
+                <Popover
+                  up={false}
+                  trigger={({ open, toggle }) => (
+                    <button type="button" className="atl-cutbtn" aria-expanded={open} onClick={toggle} title="Show only the section through this structure">
+                      <ScanLine size={13} aria-hidden /> <span className="max-sm:hidden">Show its cut</span>
+                    </button>
+                  )}
+                >
+                  {(close) =>
+                    (Object.keys(PLANE_AXIS) as CutPlaneName[]).map((pl) => (
+                      <MenuItem
+                        key={pl}
+                        label={`${PLANE_LABEL[pl]} cut through it`}
+                        onClick={() => {
+                          showCut(pl);
+                          close();
+                        }}
+                      />
+                    ))
+                  }
+                </Popover>
+              )}
+              {onDeselect && (
+                <button type="button" className="atl-xbtn" aria-label={`Deselect ${title} (Esc)`} title="Deselect (Esc)" onClick={onDeselect}>
+                  <X size={14} aria-hidden />
+                </button>
+              )}
+            </div>
+            {sCut && (
+              <div className="flex flex-wrap items-center gap-1 border-t border-panel-border pt-1 text-[11px]">
+                <span className="text-text-faint">Its cut:</span>
+                <span className="atl-seg" role="radiogroup" aria-label="Plane of the cut through the structure">
+                  {(Object.keys(PLANE_AXIS) as CutPlaneName[]).map((pl) => (
+                    <IconBtn key={pl} radio on={sCut.plane === pl} label={`${PLANE_LABEL[pl]} cut through it`} text={narrow ? PLANE_LABEL[pl].slice(0, 3) : PLANE_LABEL[pl]} onClick={() => showCut(pl)} />
+                  ))}
+                </span>
+                <button type="button" className="atl-cutbtn" onClick={wholeStructure} title="Back to the whole structure">
+                  <Undo2 size={12} aria-hidden /> Whole structure
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+        {sectionKeyShown.length > 0 && !multi && (
           <div className="atl-chip pointer-events-auto flex-col items-stretch gap-1 !py-1.5" role="group" aria-label="Colour key for the section">
             <button type="button" className="flex items-center gap-1.5 rounded-sm font-mono text-[10px] uppercase tracking-widest text-text-dim focus-visible:outline-none focus-visible:[box-shadow:var(--focus-ring)]" onClick={() => setKeyOpen((o) => !o)} aria-expanded={keyOpen}>
               {keyOpen ? <ChevronDown size={11} aria-hidden /> : <ChevronUp size={11} aria-hidden />} Section key
             </button>
             {keyOpen && (
               <ul className="grid gap-0.5 text-[11px] text-text">
-                {sectionKey.map((k) => (
+                {sectionKeyShown.map((k) => (
                   <li key={k.id} className="flex items-center gap-1.5">
                     <span className="inline-block h-2.5 w-2.5 shrink-0 rounded-sm border border-panel-border" style={{ background: k.colour }} aria-hidden />
                     {k.name}
@@ -2835,17 +3247,34 @@ export default function AtlasViewer({
       )}
 
       <div className="pointer-events-none absolute inset-x-2 bottom-2 z-10 flex flex-col items-center gap-1.5">
+        {!quiz && <NavHint deselect={!!onDeselect} />}
         {clipEff.axis !== "off" && !cut && (
           <div className="atl-bar pointer-events-auto items-center gap-2 px-2">
-            <input
-              type="range"
-              min={0}
-              max={1000}
-              value={Math.round(clip.t * 1000)}
-              onChange={(e) => setClip((c) => ({ ...c, t: Number(e.target.value) / 1000 }))}
-              aria-label="Cut position"
-              className="w-40 sm:w-56"
-            />
+            {sCutOn && sCut ? (
+              // (interaction overhaul) "Show its cut": the slider moves the plane within the structure's own extent
+              <input
+                type="range"
+                min={0}
+                max={1000}
+                value={Math.round(Math.min(1, Math.max(0, (clipRange[0] + clip.t * (clipRange[1] - clipRange[0]) - sCut.lo) / Math.max(1e-6, sCut.hi - sCut.lo))) * 1000)}
+                onChange={(e) => {
+                  const pos = sCut.lo + (Number(e.target.value) / 1000) * (sCut.hi - sCut.lo);
+                  setClip((c) => ({ ...c, t: (pos - clipRange[0]) / (clipRange[1] - clipRange[0]) }));
+                }}
+                aria-label={`Cut position through ${title}`}
+                className="w-40 sm:w-56"
+              />
+            ) : (
+              <input
+                type="range"
+                min={0}
+                max={1000}
+                value={Math.round(clip.t * 1000)}
+                onChange={(e) => setClip((c) => ({ ...c, t: Number(e.target.value) / 1000 }))}
+                aria-label="Cut position"
+                className="w-40 sm:w-56"
+              />
+            )}
             <IconBtn label="Flip the cut side" icon={<FlipHorizontal2 />} onClick={() => setClip((c) => ({ ...c, flip: !c.flip }))} />
           </div>
         )}
@@ -2918,14 +3347,16 @@ export default function AtlasViewer({
                 <IconBtn label={showCtx ? "Hide shell" : "Show shell"} keys="H" on={showCtx} onClick={() => setShowCtx((s) => !s)} icon={<ShellIcon />} />
                 {onToggleNeighbors && <IconBtn label="Highlight neighbours" keys="G" on={neighbors} onClick={onToggleNeighbors} icon={<NeighborIcon />} />}
                 {shortcuts && !layerMissing && <IconBtn label={layerOn ? "Hide the skull and spine layer" : "Show the skull and spine layer"} keys="K" on={layerOn} onClick={() => setLayerOv({ auto: layerAuto, v: !layerOn })} icon={<Bone />} />}
-                {shortcuts && <IconBtn label={showNerves ? "Hide the cranial nerves" : "Show the cranial nerves"} keys="E" on={showNerves} onClick={() => setShowNerves(!showNerves)} icon={<Cable />} />}
+                {shortcuts && <IconBtn label={showNerves ? "Hide the cranial nerves" : "Show the cranial nerves (roots and course to the skull exits)"} keys="E" on={showNerves} onClick={() => setShowNerves(!showNerves)} icon={<Cable />} />}
+                {shortcuts && showNerves && <IconBtn label={nervePeripheral ? "Hide the peripheral branches of the cranial nerves" : "Show the peripheral branches of the cranial nerves"} keys="Shift+E" on={nervePeripheral} onClick={() => setNervePeripheral(!nervePeripheral)} icon={<GitBranch />} />}
                 {shortcuts && <IconBtn label={showBrainstem ? "Hide the brainstem" : "Show the brainstem"} keys="W" on={showBrainstem} onClick={() => setShowBrainstem(!showBrainstem)} icon={<Sprout />} />}
               </Group>
-              {(multiview && !cut) || canFs || toolbarExtra ? <Divider /> : null}
+              <Divider />
               <Group label="Layout">
                 {multiview && !cut && <IconBtn label="Multi-view (anterior, lateral, superior, free)" keys="M" on={multi} onClick={toggleMulti} icon={<LayoutGrid />} />}
                 {canFs && <IconBtn label={fsOn ? "Exit full screen" : "Full screen"} keys="Z" on={fsOn} onClick={toggleFs} icon={fsOn ? <Minimize2 /> : <Maximize2 />} />}
                 {toolbarExtra}
+                <NavHelpButton deselect={!!onDeselect} />
               </Group>
             </>
           )}

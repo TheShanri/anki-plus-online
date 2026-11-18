@@ -101,3 +101,56 @@ Shooting note: the viewer renders on demand, so after a view change or selection
 - **Residual.** gross.glb has no pregenual/subcallosal cingulate patch: in the Medial view a small rim of MCA (inner side of the frontal gyri) still shows around that hole in front of the genu, and two small flecks show through wide gaps between medial parietal patches. The medial aspect of the temporal pole is MCA and correctly visible.
 - **Framing (VesselLayer.tsx).** The camera fits the brain itself (every 40th gross.glb vertex down to the medulla plane, a per-point perspective fit, centred on screen): 85% of the canvas height, at most 66% of the width on a wide canvas (margin labels) or 90% on a phone. Only on the first frame, the Frame button and a view button (after the viewer's own eased move, a short glide to the same fit); never on a selection; any drag or wheel by the student stops it. The Medial view fits the remaining right hemisphere only.
 - **Proof.** `_atlas/supply_shots/occl/`: `before_*` vs `after_*` (ACA, MCA, PCA lateral and medial; MCA inferior; PCA posterior; SCA superior) at 1440x900, `m390_*` at 390x844.
+
+## Venous drainage: slide inventory and rebuild (2026-11-18)
+
+Slide numbers are the deck page numbers (`content-build/decks/<deck>/slides.json` `n`), as elsewhere in this file. Sources read: lecture 16 slides 2-3 and 27-30 (text and figure labels), lab 1 slide 22, lab 2 slides 9, 10, 19, lecture 2 slides 8, 11, 13, 14, lecture 18 (strokes) slides 14-17, lecture 18 (CNS pathology) slides 4-5, practice exam U3 / SI 7-8 (Q16). No lab deck covers the dural sinuses beyond the superior sagittal sinus (lab 2).
+
+### What the course names
+
+| Structure | Where taught | In the 3D layer | Notes |
+|---|---|---|---|
+| Superficial (superior) cerebral veins | L16 s3 (surface vessels in the subarachnoid space), s27 and s29 figure labels | yes, 7 per side, on the convexity | posterior ones run obliquely forward against the sinus flow |
+| Inferior cerebral veins | L16 s29 figure label | no (named only on the figure) | |
+| Bridging veins | L16 s27 label, s29 text; L18 s14-16 | yes, the last ~8 mm of each superior vein, entering the sinus wall | clinical: subdural hematoma |
+| Superior sagittal sinus | L16 s27-28; lab 2 s10, s19 (checklist); L2 s11, s13-14; exam Q16 | yes, triangular section in the falx | |
+| Arachnoid granulations / villi, CSF return | lab 2 s9-10, s19; L2 s8, s11, s13-14 | yes, small knobs into the sinus | "CSF and blood mix in the dural sinuses" (lab 2 s10) |
+| Inferior sagittal sinus | L16 s28 and s30 figure labels | yes, free edge of the falx | |
+| Internal cerebral vein | L16 s30 figure label | yes, paired | |
+| Basal vein | L16 s30 figure label | yes, paired | |
+| Great cerebral vein (of Galen) | L16 s28 label, s30 title/text; exam Q16 option | yes | |
+| Straight sinus | L16 s28, s30 | yes, falx-tentorium junction | |
+| Confluence of sinuses | L16 s27-28, s30; exam Q16 option | yes | |
+| Occipital sinus | L16 s27 and s30 figure labels | yes | |
+| Transverse sinus | L16 s27, s28, s30 | yes | |
+| Sigmoid sinus | L16 s27-28 ("wraps around the posterior cranial fossa"), s30 | yes, S-curve to the jugular foramen | |
+| Jugular foramen / superior jugular bulb | L16 s28 label / s30 label | yes (bulb on the jugular vein) | |
+| Internal jugular vein | L16 s27-28 ("> internal jugular vein >> heart"); exam Q16 option | yes, top 4 cm, then "to the heart" | |
+| Superior and inferior petrosal sinuses | L16 s27 label ("superior and inferior petrosal sinuses"), s30 (inferior petrosal) | yes | |
+| Cavernous sinus, anterior intercavernous sinus | L16 s30 figure labels only | yes (both intercavernous sinuses drawn) | no slide text, no clinical content on the slides |
+| Superficial middle cerebral vein | L16 s30 figure label | yes, along the lateral sulcus to the cavernous sinus | |
+| Inferior anastomotic vein (of Labbé) | L16 s30 figure label | yes | |
+| Falx cerebri, tentorium cerebelli (context) | L16 s28 text, s30 labels; lab 1 meninges list | yes, faint | |
+| Dura layers (periosteal, meningeal) | L16 s27-29 | text only | |
+| Emissary and diploic veins | not on any slide | no | out of scope |
+| Venous plexuses, superior anastomotic vein (Trolard), sphenoparietal sinus, ophthalmic veins | not on the slides | no | out of scope |
+
+Flow order taught (L16 s27): deep and superficial cerebral veins > dural sinuses > internal jugular vein >> heart. Superficial: superior cerebral veins > bridging veins > superior sagittal sinus (s29). Deep: deep veins > great cerebral vein > straight sinus (s30), "directly toward the confluence" (s30). Most sinuses > confluence at the falx / tentorium junction > (transverse) > sigmoid sinus around the posterior cranial fossa > internal jugular vein (s28). The cavernous / petrosal route is only in the figures (s27: superior and inferior petrosal sinuses; s30: cavernous sinus, anterior intercavernous sinus, inferior petrosal sinus, superior jugular bulb); the drainage directions drawn for it are textbook anatomy.
+
+Clinical points taught:
+- Bridging veins tear under shearing forces (shaken baby syndrome, falls in the elderly): subdural hematoma (L16 s29; L18 s14-16): between dura and arachnoid, low pressure, more likely to clot on its own, banana-shaped, one hemisphere, stops at the falx (and the tentorium, CNS pathology s4); not a stroke. Low brain-to-skull ratio is a risk factor (CNS pathology s4).
+- A clot in a dural venous sinus backs blood up into the cerebral veins, raising intracranial pressure; the veins can leak or rupture (L18 s17: a venous cause of subarachnoid hemorrhage).
+- CSF return through the arachnoid granulations into the superior sagittal sinus (lab 2, lecture 2); disruption of CSF circulation causes pathologies (L2 s15, hydrocephalus; not repeated here).
+- Not on the slides: cavernous sinus contents and infection spread. They sit behind the Supplementary gate at the cavernous step (CN III, IV, V1, V2 in the lateral wall; ICA and CN VI through it; facial infection via the ophthalmic veins).
+
+### 3D rebuild
+- Data: `public/atlas/veins.json` from `tools/atlas/veins/build.py` (inputs: `tools/atlas/veins/dump_splines.py` run in the bundled Blender on the Z-Anatomy blend; check plots with `--plots <dir>`). Licence: Z-Anatomy is CC BY-SA 4.0; the adapted centrelines are shared under CC BY-SA 4.0 (the atlas footer credit covers it).
+- Why the old sinuses looked clunky: the Z-Anatomy sinuses are splines with a token 0.5 mm bevel, exported as thin low-poly tubes; and the Z-Anatomy straight, inferior sagittal and occipital sinus splines do not fit this brain (the straight sinus ran through the third ventricle; the confluence sat 9 mm below the tentorium).
+- Kept from Z-Anatomy: superior sagittal (last 2 cm re-routed to the confluence and pushed out where the frontal pole bulged into it), transverse (start moved to the confluence), sigmoid, petrosal and intercavernous splines, internal jugular vein, internal carotid artery. Re-routed: straight sinus along the falx-tentorium ridge from behind the splenium to the confluence; inferior sagittal sinus 3 mm above the corpus callosum in the free edge of the falx, then down behind the splenium; occipital sinus from the foramen magnum up behind the vermis; confluence at the posterior end of the junction. Built: superior cerebral veins and bridging veins (snapped to the cortex by ray casting), superficial middle cerebral vein (upper edge of the superior temporal gyrus, then along the sphenoid ridge to the cavernous sinus), Labbé (temporal surface to the transverse sinus), internal cerebral veins (between the third-ventricle roof and the fornix), basal veins (around the peduncles), great cerebral vein (under the splenium to the straight sinus), cavernous sinus body (oval, around the cavernous ICA). Calibres are textbook adult values (sinus 2-4 mm radius, the superior sagittal sinus triangular, base widening backward).
+- Rendering (`VeinLayer.tsx`): swept tubes with an arc-length attribute; one shared shader program; flow = soft bands moving along each vessel; each step draws its vessels in along the flow; hover from the schematic or 3D highlights the vessel; falx and tentorium faint.
+- Performance: all geometry is built and every shader compiled when Blood supply opens; a step only changes uniforms and visibility, never creates or disposes geometry or materials; the viewer gets no overlays in Drainage (the old code created overlay materials and toggled the medial clipping cut per step).
+
+### Known limits
+- Positions are fitted to the Z-Anatomy brain, not to an MRV: the internal cerebral and great cerebral veins share 2-3 mm of space with the fornix / splenium in this mesh (the cisterns are not gaps in it), and the basal vein hugs the midbrain.
+- The internal jugular vein stops 4 cm below the skull base; the neck course is not modelled.
+- Right and left transverse sinuses are drawn the same size (the right is often dominant; not on the slides).

@@ -9,6 +9,10 @@ import { useCallback, useRef, useState } from "react";
 import type { PinImageData, Shape } from "@/lib/study/types";
 import { resolveMediaSrc } from "./media";
 import { PlateImage } from "./PlateImage";
+import dynamic from "next/dynamic";
+
+// directional-terms cards: a small 3D scene, loaded only when such a card shows
+const DirectionScene = dynamic(() => import("./DirectionScene"), { ssr: false, loading: () => <div className="dir-scene" aria-busy="true" /> });
 
 export interface PinImageProps {
   courseSlug: string;
@@ -59,6 +63,7 @@ const MAX_ZOOM = 4;
 /** Re-mounts per image so zoom and load state reset without an effect. */
 export function PinImage(props: PinImageProps) {
   // brainstem plate cards draw the level as a vector plate instead of a bitmap with masks
+  if (props.image.scene) return <DirectionScene subject={props.image.scene.subject} show={props.image.scene.show} label={props.image.scene.label} reveal={props.mode === "reveal"} compact={props.compact} />;
   if (props.image.plate) return <PlateImage level={props.image.plate.level} region={props.image.plate.region} compact={props.compact} className={props.className} alt={props.alt} />;
   return <PinImageView key={props.image.key} {...props} />;
 }

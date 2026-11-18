@@ -4,7 +4,7 @@
   "kind": "pin",
   "topic": "lab-1",
   "structure": "rostral",
-  "status": "live",
+  "status": "retired",
   "position": 100,
   "source": {
    "type": "apkg",
@@ -73,14 +73,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349533294-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "neuraxis",
-  "status": "live",
+  "status": "retired",
   "position": 101,
   "source": {
    "type": "apkg",
@@ -150,14 +151,15 @@
    "kind:pin",
    "source:anki-deck"
   ],
-  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself.",
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349533294-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "ventral",
-  "status": "live",
+  "status": "retired",
   "position": 102,
   "source": {
    "type": "apkg",
@@ -223,14 +225,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349533294-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "dorsal",
-  "status": "live",
+  "status": "retired",
   "position": 103,
   "source": {
    "type": "apkg",
@@ -296,14 +299,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349533294-c5",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "caudal",
-  "status": "live",
+  "status": "retired",
   "position": 104,
   "source": {
    "type": "apkg",
@@ -372,14 +376,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "rostral",
-  "status": "live",
+  "status": "retired",
   "position": 200,
   "source": {
    "type": "apkg",
@@ -489,14 +494,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "dorsal",
-  "status": "live",
+  "status": "retired",
   "position": 201,
   "source": {
    "type": "apkg",
@@ -604,14 +610,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "superior",
-  "status": "live",
+  "status": "retired",
   "position": 202,
   "source": {
    "type": "apkg",
@@ -719,14 +726,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "anterior",
-  "status": "live",
+  "status": "retired",
   "position": 203,
   "source": {
    "type": "apkg",
@@ -834,14 +842,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c5",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "ventral",
-  "status": "live",
+  "status": "retired",
   "position": 204,
   "source": {
    "type": "apkg",
@@ -949,14 +958,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c6",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "dorsal",
-  "status": "live",
+  "status": "retired",
   "position": 205,
   "source": {
    "type": "apkg",
@@ -1064,14 +1074,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c7",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "posterior",
-  "status": "live",
+  "status": "retired",
   "position": 206,
   "source": {
    "type": "apkg",
@@ -1179,14 +1190,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c8",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "neuraxis",
-  "status": "live",
+  "status": "retired",
   "position": 207,
   "source": {
    "type": "apkg",
@@ -1298,14 +1310,15 @@
    "kind:pin",
    "source:anki-deck"
   ],
-  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself.",
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c9",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "ventral",
-  "status": "live",
+  "status": "retired",
   "position": 208,
   "source": {
    "type": "apkg",
@@ -1413,14 +1426,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c10",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "caudal",
-  "status": "live",
+  "status": "retired",
   "position": 209,
   "source": {
    "type": "apkg",
@@ -1528,14 +1542,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349595886-c11",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "inferior",
-  "status": "live",
+  "status": "retired",
   "position": 210,
   "source": {
    "type": "apkg",
@@ -1643,14 +1658,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349694303-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "dorsal",
-  "status": "live",
+  "status": "retired",
   "position": 300,
   "source": {
    "type": "apkg",
@@ -1783,14 +1799,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349694303-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "caudal",
-  "status": "live",
+  "status": "retired",
   "position": 301,
   "source": {
    "type": "apkg",
@@ -1923,14 +1940,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349694303-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "inferior",
-  "status": "live",
+  "status": "retired",
   "position": 302,
   "source": {
    "type": "apkg",
@@ -2063,14 +2081,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349694303-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "superior",
-  "status": "live",
+  "status": "retired",
   "position": 303,
   "source": {
    "type": "apkg",
@@ -2203,14 +2222,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349694303-c5",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "lateral",
-  "status": "live",
+  "status": "retired",
   "position": 304,
   "source": {
    "type": "apkg",
@@ -2373,14 +2393,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349694303-c6",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "medial",
-  "status": "live",
+  "status": "retired",
   "position": 305,
   "source": {
    "type": "apkg",
@@ -2543,14 +2564,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 400,
   "source": {
    "type": "apkg",
@@ -2666,14 +2688,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "posterior",
-  "status": "live",
+  "status": "retired",
   "position": 401,
   "source": {
    "type": "apkg",
@@ -2786,14 +2809,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "neuraxis",
-  "status": "live",
+  "status": "retired",
   "position": 402,
   "source": {
    "type": "apkg",
@@ -2910,14 +2934,15 @@
    "kind:pin",
    "source:anki-deck"
   ],
-  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself.",
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "anterior",
-  "status": "live",
+  "status": "retired",
   "position": 403,
   "source": {
    "type": "apkg",
@@ -3030,14 +3055,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c5",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 404,
   "source": {
    "type": "apkg",
@@ -3153,14 +3179,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c6",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 405,
   "source": {
    "type": "apkg",
@@ -3276,14 +3303,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c7",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 406,
   "source": {
    "type": "apkg",
@@ -3399,14 +3427,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349784018-c8",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "mesencephalic-flexure",
-  "status": "live",
+  "status": "retired",
   "position": 407,
   "source": {
    "type": "apkg",
@@ -3545,14 +3574,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "rostral",
-  "status": "live",
+  "status": "retired",
   "position": 500,
   "source": {
    "type": "apkg",
@@ -3661,14 +3691,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "rostral",
-  "status": "live",
+  "status": "retired",
   "position": 501,
   "source": {
    "type": "apkg",
@@ -3779,14 +3810,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 502,
   "source": {
    "type": "apkg",
@@ -3898,14 +3930,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "caudal",
-  "status": "live",
+  "status": "retired",
   "position": 503,
   "source": {
    "type": "apkg",
@@ -4014,14 +4047,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c5",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "inferior",
-  "status": "live",
+  "status": "retired",
   "position": 504,
   "source": {
    "type": "apkg",
@@ -4130,14 +4164,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c6",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 505,
   "source": {
    "type": "apkg",
@@ -4249,14 +4284,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c7",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "neuraxis",
-  "status": "live",
+  "status": "retired",
   "position": 506,
   "source": {
    "type": "apkg",
@@ -4369,14 +4405,15 @@
    "kind:pin",
    "source:anki-deck"
   ],
-  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself."
+  "explain": "The neuraxis is the long axis of the CNS: the imaginary line drawn through the middle of the nervous-system tube, from nose to tail (the white/blue line through the body). It is bent at the midbrain-diencephalon junction (the mesencephalic flexure), so in the forebrain rostral means toward the nose but in the brainstem and spinal cord rostral means upward (and dorsal/ventral turn into posterior/anterior). In the figure the leader line ends on the back only to point at this line, not at the back itself.",
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349833591-c8",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "mesencephalic-flexure",
-  "status": "live",
+  "status": "retired",
   "position": 507,
   "source": {
    "type": "apkg",
@@ -4507,14 +4544,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349849580-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 600,
   "source": {
    "type": "apkg",
@@ -4562,14 +4600,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349849580-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 601,
   "source": {
    "type": "apkg",
@@ -4617,14 +4656,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349863592-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 700,
   "source": {
    "type": "apkg",
@@ -4686,14 +4726,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349863592-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "posterior",
-  "status": "live",
+  "status": "retired",
   "position": 701,
   "source": {
    "type": "apkg",
@@ -4752,14 +4793,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349863592-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "anterior",
-  "status": "live",
+  "status": "retired",
   "position": 702,
   "source": {
    "type": "apkg",
@@ -4818,14 +4860,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349863592-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 703,
   "source": {
    "type": "apkg",
@@ -4887,14 +4930,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349889275-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "medial",
-  "status": "live",
+  "status": "retired",
   "position": 800,
   "source": {
    "type": "apkg",
@@ -4946,14 +4990,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349889275-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "lateral",
-  "status": "live",
+  "status": "retired",
   "position": 801,
   "source": {
    "type": "apkg",
@@ -5005,14 +5050,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349889275-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "median",
-  "status": "live",
+  "status": "retired",
   "position": 802,
   "source": {
    "type": "apkg",
@@ -5066,14 +5112,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349907014-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "coronal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 900,
   "source": {
    "type": "apkg",
@@ -5133,14 +5180,15 @@
   ],
   "also_called": [
    "coronal plane"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349907014-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "sagittal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 901,
   "source": {
    "type": "apkg",
@@ -5202,14 +5250,15 @@
   ],
   "also_called": [
    "median plane"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349907014-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "horizontal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 902,
   "source": {
    "type": "apkg",
@@ -5272,14 +5321,15 @@
   "also_called": [
    "horizontal plane",
    "axial plane"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "anterior",
-  "status": "live",
+  "status": "retired",
   "position": 1000,
   "source": {
    "type": "apkg",
@@ -5409,14 +5459,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "posterior",
-  "status": "live",
+  "status": "retired",
   "position": 1001,
   "source": {
    "type": "apkg",
@@ -5546,14 +5597,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c3",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "superior",
-  "status": "live",
+  "status": "retired",
   "position": 1002,
   "source": {
    "type": "apkg",
@@ -5683,14 +5735,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c4",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "ventral",
-  "status": "live",
+  "status": "retired",
   "position": 1003,
   "source": {
    "type": "apkg",
@@ -5834,14 +5887,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c5",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "dorsal",
-  "status": "live",
+  "status": "retired",
   "position": 1004,
   "source": {
    "type": "apkg",
@@ -5985,7 +6039,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c6",
@@ -6132,7 +6187,7 @@
   "kind": "pin",
   "topic": "lab-1",
   "structure": "anterior",
-  "status": "live",
+  "status": "retired",
   "position": 1006,
   "source": {
    "type": "apkg",
@@ -6262,14 +6317,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c8",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "posterior",
-  "status": "live",
+  "status": "retired",
   "position": 1007,
   "source": {
    "type": "apkg",
@@ -6399,7 +6455,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768349970360-c9",
@@ -6546,7 +6603,7 @@
   "kind": "pin",
   "topic": "lab-1",
   "structure": "inferior",
-  "status": "live",
+  "status": "retired",
   "position": 1009,
   "source": {
    "type": "apkg",
@@ -6676,14 +6733,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350003725-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "sagittal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 1100,
   "source": {
    "type": "apkg",
@@ -6739,14 +6797,15 @@
   ],
   "also_called": [
    "median plane"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350003725-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "sagittal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 1101,
   "source": {
    "type": "apkg",
@@ -6796,14 +6855,15 @@
    "kind:pin",
    "source:anki-deck",
    "plane:sagittal"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350018599-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "horizontal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 1200,
   "source": {
    "type": "apkg",
@@ -6852,14 +6912,15 @@
   "also_called": [
    "transverse plane",
    "axial plane"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350086792-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "coronal-plane",
-  "status": "live",
+  "status": "retired",
   "position": 1300,
   "source": {
    "type": "apkg",
@@ -6905,14 +6966,15 @@
   ],
   "also_called": [
    "frontal plane"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350114332-c1",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "superficial",
-  "status": "live",
+  "status": "retired",
   "position": 1400,
   "source": {
    "type": "apkg",
@@ -6957,14 +7019,15 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350114332-c2",
   "kind": "pin",
   "topic": "lab-1",
   "structure": "deep",
-  "status": "live",
+  "status": "retired",
   "position": 1401,
   "source": {
    "type": "apkg",
@@ -7009,7 +7072,8 @@
    "unit:u1",
    "kind:pin",
    "source:anki-deck"
-  ]
+  ],
+  "retired_by": "directions-3d"
  },
  {
   "slug": "lab-1-io-1768350188659-c1",

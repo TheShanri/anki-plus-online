@@ -43,6 +43,9 @@ for (const c of cards) {
     const plate = plateData(c.plate.level);
     if (!plate) errors.push(`${c.slug}: no brainstem plate for level ${c.plate.level}`);
     else if (!plate.regions.some((r) => r.slugs.includes(c.plate.region))) errors.push(`${c.slug}: plate ${c.plate.level} has no region for ${c.plate.region}`);
+  } else if (c.kind === "pin" && c.scene) {
+    // directional-terms cards draw a 3D scene (src/components/cards/DirectionScene.tsx) instead of an image
+    if (!["animal", "human", "brain"].includes(c.scene.subject) || !c.scene.show) errors.push(`${c.slug}: bad scene ${JSON.stringify(c.scene)}`);
   } else if (c.kind === "pin") {
     if (!c.image) errors.push(`${c.slug}: pin without image`);
     else if (manifest && !manifest[c.image]) errors.push(`${c.slug}: media not uploaded: ${c.image}`);

@@ -1,0 +1,1107 @@
+[
+ {
+  "slug": "directions-3d-animal-rostral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "rostral",
+  "status": "live",
+  "position": 40,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Rostral",
+  "answer_kind": "direction",
+  "accept": [
+   "anterior",
+   "cranial",
+   "rostral or anterior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "animal",
+   "show": "dir:rostral"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:animal"
+  ]
+ },
+ {
+  "slug": "directions-3d-animal-caudal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "caudal",
+  "status": "live",
+  "position": 41,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Caudal",
+  "answer_kind": "direction",
+  "accept": [
+   "posterior",
+   "caudal or posterior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "animal",
+   "show": "dir:caudal"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:animal"
+  ]
+ },
+ {
+  "slug": "directions-3d-animal-dorsal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "dorsal",
+  "status": "live",
+  "position": 42,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Dorsal",
+  "answer_kind": "direction",
+  "accept": [
+   "superior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "animal",
+   "show": "dir:dorsal"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:animal"
+  ]
+ },
+ {
+  "slug": "directions-3d-animal-ventral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "ventral",
+  "status": "live",
+  "position": 43,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Ventral",
+  "answer_kind": "direction",
+  "accept": [
+   "inferior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "animal",
+   "show": "dir:ventral"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:animal"
+  ]
+ },
+ {
+  "slug": "directions-3d-animal-neuraxis",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "neuraxis",
+  "status": "live",
+  "position": 44,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Neuraxis",
+  "answer_kind": "term",
+  "accept": [
+   "neural axis",
+   "longitudinal axis of the nervous system"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "animal",
+   "show": "axis"
+  },
+  "prompt": "Name the highlighted line through the central nervous system.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:animal"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-superior",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "superior",
+  "status": "live",
+  "position": 45,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Superior",
+  "answer_kind": "direction",
+  "accept": [
+   "cranial",
+   "cephalic"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:superior"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-inferior",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "inferior",
+  "status": "live",
+  "position": 46,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Inferior",
+  "answer_kind": "direction",
+  "accept": [
+   "caudal"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:inferior"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-anterior",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "anterior",
+  "status": "live",
+  "position": 47,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Anterior",
+  "answer_kind": "direction",
+  "accept": [
+   "ventral"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:anterior"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-posterior",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "posterior",
+  "status": "live",
+  "position": 48,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Posterior",
+  "answer_kind": "direction",
+  "accept": [
+   "dorsal"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:posterior"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-medial",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "medial",
+  "status": "live",
+  "position": 49,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Medial",
+  "answer_kind": "direction",
+  "accept": [],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:medial"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-lateral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "lateral",
+  "status": "live",
+  "position": 50,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Lateral",
+  "answer_kind": "direction",
+  "accept": [],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:lateral"
+  },
+  "prompt": "Name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-median",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "median",
+  "status": "live",
+  "position": 51,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Median",
+  "answer_kind": "term",
+  "accept": [
+   "median plane",
+   "midline"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "median"
+  },
+  "prompt": "Name the term for the highlighted plane that divides the body into equal left and right halves.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-proximal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "proximal",
+  "status": "live",
+  "position": 52,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Proximal",
+  "answer_kind": "direction",
+  "accept": [],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:proximal"
+  },
+  "prompt": "On the limb, name the direction the highlighted arrow points (toward the trunk).",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-distal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "distal",
+  "status": "live",
+  "position": 53,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Distal",
+  "answer_kind": "direction",
+  "accept": [],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:distal"
+  },
+  "prompt": "On the limb, name the direction the highlighted arrow points (away from the trunk).",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-superficial",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "superficial",
+  "status": "live",
+  "position": 54,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Superficial",
+  "answer_kind": "direction",
+  "accept": [],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:superficial"
+  },
+  "prompt": "Name the direction the highlighted arrow points (relative to the body surface).",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-deep",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "deep",
+  "status": "live",
+  "position": 55,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Deep",
+  "answer_kind": "direction",
+  "accept": [],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "dir:deep"
+  },
+  "prompt": "Name the direction the highlighted arrow points (relative to the body surface).",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-ipsilateral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "ipsilateral",
+  "status": "live",
+  "position": 56,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Ipsilateral",
+  "answer_kind": "term",
+  "accept": [
+   "same side"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "pair:ipsilateral"
+  },
+  "prompt": "The two marked points lie on the same side of the body. Name the term.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-contralateral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": null,
+  "status": "live",
+  "position": 57,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Contralateral",
+  "answer_kind": "term",
+  "accept": [
+   "opposite side"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "pair:contralateral"
+  },
+  "prompt": "The two marked points lie on opposite sides of the body. Name the term.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-sagittal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "sagittal-plane",
+  "status": "live",
+  "position": 58,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Sagittal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "sagittal",
+   "midsagittal",
+   "midsagittal plane",
+   "median plane"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "plane:sagittal"
+  },
+  "prompt": "Name the plane shown.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-coronal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "coronal-plane",
+  "status": "live",
+  "position": 59,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Coronal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "coronal",
+   "frontal",
+   "frontal plane"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "plane:coronal"
+  },
+  "prompt": "Name the plane shown.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-human-horizontal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "horizontal-plane",
+  "status": "live",
+  "position": 60,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Horizontal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "horizontal",
+   "transverse",
+   "transverse plane",
+   "axial",
+   "axial plane"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "human",
+   "show": "plane:horizontal"
+  },
+  "prompt": "Name the plane shown.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:human"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-rostral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "rostral",
+  "status": "live",
+  "position": 61,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Rostral",
+  "answer_kind": "direction",
+  "accept": [
+   "anterior",
+   "rostral or anterior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:rostral"
+  },
+  "prompt": "In the cerebrum, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-caudal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "caudal",
+  "status": "live",
+  "position": 62,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Caudal",
+  "answer_kind": "direction",
+  "accept": [
+   "posterior",
+   "caudal or posterior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:caudal"
+  },
+  "prompt": "In the cerebrum, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-dorsal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "dorsal",
+  "status": "live",
+  "position": 63,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Dorsal",
+  "answer_kind": "direction",
+  "accept": [
+   "superior",
+   "dorsal or superior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:dorsal"
+  },
+  "prompt": "In the cerebrum, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-ventral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "ventral",
+  "status": "live",
+  "position": 64,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Ventral",
+  "answer_kind": "direction",
+  "accept": [
+   "inferior",
+   "ventral or inferior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:ventral"
+  },
+  "prompt": "In the cerebrum, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-stem-rostral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "rostral",
+  "status": "live",
+  "position": 65,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Rostral",
+  "answer_kind": "direction",
+  "accept": [
+   "superior",
+   "rostral or superior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:stem-rostral"
+  },
+  "prompt": "In the brainstem, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-stem-caudal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "caudal",
+  "status": "live",
+  "position": 66,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Caudal",
+  "answer_kind": "direction",
+  "accept": [
+   "inferior",
+   "caudal or inferior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:stem-caudal"
+  },
+  "prompt": "In the brainstem, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-stem-dorsal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "dorsal",
+  "status": "live",
+  "position": 67,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Dorsal",
+  "answer_kind": "direction",
+  "accept": [
+   "posterior",
+   "dorsal or posterior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:stem-dorsal"
+  },
+  "prompt": "In the brainstem, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-stem-ventral",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "ventral",
+  "status": "live",
+  "position": 68,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Ventral",
+  "answer_kind": "direction",
+  "accept": [
+   "anterior",
+   "ventral or anterior"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "dir:stem-ventral"
+  },
+  "prompt": "In the brainstem, name the direction the highlighted arrow points.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-neuraxis",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "neuraxis",
+  "status": "live",
+  "position": 69,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Neuraxis",
+  "answer_kind": "term",
+  "accept": [
+   "neural axis",
+   "longitudinal axis of the nervous system"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "axis"
+  },
+  "prompt": "Name the highlighted line through the central nervous system.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-flexure",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "mesencephalic-flexure",
+  "status": "live",
+  "position": 70,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Mesencephalic flexure",
+  "answer_kind": "structure",
+  "accept": [
+   "cephalic flexure",
+   "midbrain flexure"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "flexure"
+  },
+  "prompt": "Name the highlighted bend in the neuraxis.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-midsagittal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "sagittal-plane",
+  "status": "live",
+  "position": 71,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Midsagittal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "midsagittal",
+   "median plane",
+   "sagittal"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "plane:sagittal"
+  },
+  "prompt": "Name the plane shown.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-parasagittal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "sagittal-plane",
+  "status": "live",
+  "position": 72,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Parasagittal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "parasagittal",
+   "sagittal"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "plane:parasagittal"
+  },
+  "prompt": "Name the plane shown (it is off the midline).",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-coronal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "coronal-plane",
+  "status": "live",
+  "position": 73,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Coronal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "coronal",
+   "frontal",
+   "frontal plane"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "plane:coronal"
+  },
+  "prompt": "Name the plane shown.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ },
+ {
+  "slug": "directions-3d-brain-horizontal",
+  "kind": "pin",
+  "topic": "lab-1",
+  "structure": "horizontal-plane",
+  "status": "live",
+  "position": 74,
+  "source": {
+   "type": "generated",
+   "ref": "Lab 1: directional terms, planes and the neuraxis (3D)"
+  },
+  "answer": "Horizontal plane",
+  "answer_kind": "plane",
+  "accept": [
+   "horizontal",
+   "transverse",
+   "axial"
+  ],
+  "require_side": false,
+  "scene": {
+   "subject": "brain",
+   "show": "plane:horizontal"
+  },
+  "prompt": "Name the plane shown.",
+  "followups": [],
+  "tags": [
+   "unit:u1",
+   "kind:pin",
+   "lab:1",
+   "directions-3d",
+   "scene:brain"
+  ]
+ }
+]

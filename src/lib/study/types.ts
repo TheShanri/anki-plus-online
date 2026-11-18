@@ -24,6 +24,8 @@ export interface PinImageData {
   pointer?: { type: "mask" | "existing" | "pin" | "arrow"; color?: string };
   /** brainstem plate card: draw this level's vector plate with the structure's region highlighted */
   plate?: { level: string; region: string };
+  /** directional-terms card: a 3D subject with the asked direction / plane drawn (src/components/cards/DirectionScene.tsx) */
+  scene?: { subject: "animal" | "human" | "brain"; show: string; label: string };
 }
 
 export interface AnswerPart {
@@ -144,7 +146,10 @@ export function toStudyCard(row: CardRow): StudyCard {
   let image: PinImageData | undefined;
   const imgKey = str(c.image);
   const plate = c.plate && typeof c.plate === "object" ? (c.plate as { level?: unknown; region?: unknown }) : null;
-  if (plate && str(plate.level)) {
+  const scene = c.scene && typeof c.scene === "object" ? (c.scene as { subject?: unknown; show?: unknown }) : null;
+  if (scene && (scene.subject === "animal" || scene.subject === "human" || scene.subject === "brain") && str(scene.show)) {
+    image = { key: `scene:${scene.subject}:${str(scene.show)}`, w: 4, h: 3, scene: { subject: scene.subject, show: str(scene.show), label: str(c.answer) } };
+  } else if (plate && str(plate.level)) {
     image = { key: `plate:${str(plate.level)}`, plate: { level: str(plate.level), region: str(plate.region) } };
   } else if (imgKey) {
     image = {

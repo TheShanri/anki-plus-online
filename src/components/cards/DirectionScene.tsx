@@ -30,27 +30,32 @@ export interface DirectionSceneProps {
   compact?: boolean;
 }
 
-const FILE: Record<SceneSubject, string> = { animal: "directions/animal.glb?v=2", human: "directions/human.glb?v=2", brain: "gross.glb" };
+const FILE: Record<SceneSubject, string> = { animal: "directions/animal.glb?v=2", human: "directions/human.glb?v=3", brain: "gross.glb" };
 const INK = "#e0a23a";
 
 type V3 = THREE.Vector3;
 const v = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 
 /** Frame of a loaded subject: its box, and (brain) the brainstem's box. */
-type Frame = { box: THREE.Box3; size: V3; c: V3; stem: THREE.Box3 | null };
+type Frame = { box: THREE.Box3; size: V3; c: V3; stem: THREE.Box3 | null; pts: V3[] };
 
 function frameOf(g: THREE.Object3D, subject: SceneSubject): Frame {
   g.updateMatrixWorld(true);
   const box = new THREE.Box3();
   const stem = new THREE.Box3();
+  const pts: V3[] = [];
   g.traverse((o) => {
     if (!(o as THREE.Mesh).isMesh) return;
+    if (subject === "animal" || subject === "human") {
+      const pa = (o as THREE.Mesh).geometry.getAttribute("position");
+      for (let i = 0; i < pa.count; i++) pts.push(new THREE.Vector3().fromBufferAttribute(pa, i).applyMatrix4(o.matrixWorld));
+    }
     const b = new THREE.Box3().setFromObject(o);
     box.union(b);
     const name = `${o.name} ${o.parent?.name ?? ""}`;
     if (subject === "brain" && /(pons|medulla-oblongata|midbrain)/.test(name)) stem.union(b);
   });
-  return { box, size: box.getSize(new THREE.Vector3()), c: box.getCenter(new THREE.Vector3()), stem: stem.isEmpty() ? null : stem };
+  return { box, size: box.getSize(new THREE.Vector3()), c: box.getCenter(new THREE.Vector3()), stem: stem.isEmpty() ? null : stem, pts };
 }
 
 /** What to draw for a card, in the subject's frame. */
@@ -125,57 +130,78 @@ function drawing(subject: SceneSubject, show: string, f: Frame): Drawing {
 
   if (subject === "animal") {
     out.view = v(1, 0.18, 0.12).normalize();
-    const back = v(c.x, box.max.y - S.y * 0.18, c.z);
-    const spineFront = v(c.x, box.max.y - S.y * 0.2, box.max.z - S.z * 0.18);
-    const spineBack = v(c.x, box.max.y - S.y * 0.22, box.min.z + S.z * 0.12);
+    // the spinal cord runs just under the back: for each slice along the body, a point a little below the dorsal surface
+    // (legs excluded), smoothed into one calm line from the back of the skull to the root of the tail
+    const legTop = box.min.y + S.y * 0.45;
+    const spine = (z: number) => {
+      const sl = f.pts.filter((p) => Math.abs(p.z - z) < S.z * 0.03 && p.y > legTop && Math.abs(p.x - c.x) < S.x * 0.45);
+      if (!sl.length) return null;
+      const top = Math.max(...sl.map((p) => p.y));
+      const bot = Math.min(...sl.map((p) => p.y));
+      return v(c.x, top - (top - bot) * 0.22, z);
+    };
+    const zs = Array.from({ length: 24 }, (_, k) => box.max.z - S.z * (0.1 + (k / 23) * 0.74));
+    const trace = zs.map(spine).filter((p): p is V3 => !!p);
+    const sm = trace.map((p, k) => {
+      const nb = trace.slice(Math.max(0, k - 2), k + 3);
+      return v(c.x, nb.reduce((a, q) => a + q.y, 0) / nb.length, p.z);
+    });
+    const head = sm[0];
+    const tail = sm[sm.length - 1];
+    const mid = sm[Math.floor(sm.length / 2)];
     if (kind === "axis") {
-      out.curve = new THREE.CatmullRomCurve3([v(c.x, box.max.y - S.y * 0.08, box.max.z - S.z * 0.02), spineFront, back, spineBack]).getPoints(60);
-      out.labelAt = back.clone().add(v(0, S.y * 0.18, 0));
+      out.curve = sm;
+      out.labelAt = mid.clone().add(v(0, S.y * 0.22, 0));
       return out;
     }
     const d: Record<string, V3> = { rostral: v(0, 0, 1), anterior: v(0, 0, 1), cranial: v(0, 0, 1), caudal: v(0, 0, -1), posterior: v(0, 0, -1), dorsal: v(0, 1, 0), superior: v(0, 1, 0), ventral: v(0, -1, 0), inferior: v(0, -1, 0) };
-    const from = /rostral|anterior|cranial/.test(term) ? spineFront : /caudal|posterior/.test(term) ? spineBack : /ventral|inferior/.test(term) ? v(c.x, c.y - S.y * 0.05, c.z) : back;
+    const from = /rostral|anterior|cranial/.test(term) ? head : /caudal|posterior/.test(term) ? tail : /ventral|inferior/.test(term) ? v(c.x, mid.y - S.y * 0.12, mid.z) : mid;
     arrow(from, d[term] ?? v(0, 0, 1), 0.3 * L);
     return out;
   }
 
-  // human body (standing, anatomical position)
+  // human body (standing, anatomical position); the Z-Anatomy skin faces +z (FZ: its front along z)
+  const FZ = 1;
+  const fwd = v(0, 0, FZ);
   const chest = v(c.x, box.min.y + S.y * 0.7, c.z);
-  const armX = c.x + S.x * 0.36; // the subject's left arm
-  out.view = v(0.35, 0.12, 1).normalize();
+  const side = c.x + S.x * 0.36; // one arm (anatomical position: palms forward)
+  const trunkEdge = c.x + S.x * 0.17; // the side of the trunk on that arm's side
+  out.view = v(0.3, 0.12, FZ).normalize(); // from the front, a little to that side
   if (kind === "median") {
     out.plane = { at: c.clone(), normal: v(1, 0, 0), w: S.z * 1.6, h: S.y * 1.05 };
     out.labelAt = c.clone().add(v(0, S.y * 0.56, 0));
     return out;
   }
   if (kind === "pair") {
-    const handL = v(c.x + S.x * 0.42, box.min.y + S.y * 0.47, c.z);
-    const footL = v(c.x + S.x * 0.12, box.min.y + S.y * 0.04, c.z + S.z * 0.1);
-    const footR = v(c.x - S.x * 0.12, box.min.y + S.y * 0.04, c.z + S.z * 0.1);
-    out.dots = [handL, term === "contralateral" ? footR : footL];
-    out.labelAt = handL.clone().add(v(S.x * 0.15, 0, 0));
+    const hand = v(c.x + S.x * 0.42, box.min.y + S.y * 0.47, c.z);
+    const footSame = v(c.x + S.x * 0.12, box.min.y + S.y * 0.04, c.z + FZ * S.z * 0.1);
+    const footOther = v(c.x - S.x * 0.12, box.min.y + S.y * 0.04, c.z + FZ * S.z * 0.1);
+    out.dots = [hand, term === "contralateral" ? footOther : footSame];
+    out.labelAt = hand.clone().add(v(S.x * 0.15, 0, 0));
     return out;
   }
   if (/medial|lateral/.test(term)) {
-    const elbow = v(armX, box.min.y + S.y * 0.6, c.z);
-    arrow(elbow, term === "medial" ? v(-1, 0, 0) : v(1, 0, 0), 0.26 * L);
+    // a short arrow on the arm: toward the midline (medial) or away from it (lateral); it never crosses the body
+    const y = box.min.y + S.y * 0.6;
+    if (term === "medial") arrow(v(side + S.x * 0.2, y, c.z + FZ * S.z * 0.3), v(-1, 0, 0), side + S.x * 0.2 - trunkEdge);
+    else arrow(v(trunkEdge, y, c.z + FZ * S.z * 0.3), v(1, 0, 0), side + S.x * 0.2 - trunkEdge);
     return out;
   }
   if (/proximal|distal/.test(term)) {
-    const arm = v(armX, box.min.y + S.y * 0.64, c.z);
+    const arm = v(side, box.min.y + S.y * 0.64, c.z + FZ * S.z * 0.25);
     arrow(arm, term === "proximal" ? v(0, 1, 0) : v(0, -1, 0), 0.2 * L);
     return out;
   }
   if (/superficial|deep/.test(term)) {
-    const thighSkin = v(c.x + S.x * 0.12, box.min.y + S.y * 0.36, c.z + S.z * 0.42);
-    const inside = v(c.x + S.x * 0.12, box.min.y + S.y * 0.36, c.z);
-    out.view = v(1, 0.15, 0.6).normalize();
-    if (term === "deep") arrow(thighSkin.clone().add(v(0, 0, S.z * 0.45)), v(0, 0, -1), S.z * 0.85);
-    else arrow(inside, v(0, 0, 1), S.z * 0.95);
+    const thighSkin = v(c.x + S.x * 0.15, box.min.y + S.y * 0.32, c.z + FZ * S.z * 0.42);
+    const inside = v(c.x + S.x * 0.15, box.min.y + S.y * 0.32, c.z);
+    out.view = v(1, 0.15, FZ * 0.6).normalize();
+    if (term === "deep") arrow(thighSkin.clone().addScaledVector(fwd, S.z * 0.45), fwd.clone().negate(), S.z * 0.85);
+    else arrow(inside, fwd, S.z * 0.95);
     return out;
   }
-  const d: Record<string, V3> = { superior: v(0, 1, 0), inferior: v(0, -1, 0), anterior: v(0, 0, 1), ventral: v(0, 0, 1), posterior: v(0, 0, -1), dorsal: v(0, 0, -1), rostral: v(0, 1, 0), caudal: v(0, -1, 0) };
-  if (/anterior|ventral|posterior|dorsal/.test(term)) out.view = v(1, 0.15, 0.15).normalize();
+  const d: Record<string, V3> = { superior: v(0, 1, 0), inferior: v(0, -1, 0), anterior: fwd, ventral: fwd, posterior: fwd.clone().negate(), dorsal: fwd.clone().negate(), rostral: v(0, 1, 0), caudal: v(0, -1, 0) };
+  if (/anterior|ventral|posterior|dorsal/.test(term)) out.view = v(1, 0.15, FZ * 0.15).normalize();
   arrow(chest, d[term] ?? v(0, 1, 0), (/anterior|ventral|posterior|dorsal/.test(term) ? 0.32 : 0.3) * L);
   return out;
 }
@@ -221,7 +247,7 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
         if (!m.isMesh) return;
         const tone = subject === "human" ? "#d9c3b0" : subject === "animal" ? "#c9b8a2" : "#d9b4a8";
         // the brain keeps its baked sulcal shading (vertex colours) under a warm brain tone, like the atlas
-        m.material = new THREE.MeshStandardMaterial({ color: tone, roughness: 0.8, flatShading: subject === "animal", vertexColors: subject === "brain" && !!m.geometry.getAttribute("color") });
+        m.material = new THREE.MeshStandardMaterial({ color: tone, roughness: 0.8, flatShading: false, vertexColors: subject === "brain" && !!m.geometry.getAttribute("color") });
         // brainstem cards and the neuraxis: the cerebrum turns see-through so the brainstem and the bend read
         const inStem = /(pons|medulla-oblongata|midbrain)/.test(`${o.name} ${o.parent?.name ?? ""}`);
         if (subject === "brain" && /stem-|axis|flexure/.test(show) && !inStem) Object.assign(m.material, { transparent: true, opacity: 0.32, depthWrite: false });
@@ -254,12 +280,38 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
         </mesh>
       ))}
       {d.plane && <PlaneSheet {...d.plane} />}
+      {subject === "human" && <Trunks f={f} />}
       {reveal && label && (
         <Html position={d.labelAt} center zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
           <span className="dir-tag">{label}</span>
         </Html>
       )}
     </group>
+  );
+}
+
+/** Plain swim trunks over the pelvis (owner 2026-11-18): an anatomy figure, not a nude. Fitted to the hips of this model. */
+function Trunks({ f }: { f: Frame }) {
+  const geo = useMemo(() => {
+    const H = f.size.y;
+    const y0 = f.box.min.y + H * 0.405;
+    const y1 = f.box.min.y + H * 0.545;
+    const sl = f.pts.filter((p) => p.y > y0 && p.y < y1 && Math.abs(p.x - f.c.x) < f.size.x * 0.28);
+    if (!sl.length) return null;
+    const xs = sl.map((p) => p.x), zs = sl.map((p) => p.z);
+    const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cz = (Math.min(...zs) + Math.max(...zs)) / 2;
+    const rx = ((Math.max(...xs) - Math.min(...xs)) / 2) * 1.05, rz = ((Math.max(...zs) - Math.min(...zs)) / 2) * 1.12;
+    const g = new THREE.CylinderGeometry(1, 0.93, y1 - y0, 48, 1, true);
+    g.scale(rx, 1, rz);
+    g.translate(cx, (y0 + y1) / 2, cz);
+    return g;
+  }, [f]);
+  useEffect(() => () => geo?.dispose(), [geo]);
+  if (!geo) return null;
+  return (
+    <mesh geometry={geo}>
+      <meshStandardMaterial color="#8496a2" roughness={0.85} side={THREE.DoubleSide} />
+    </mesh>
   );
 }
 

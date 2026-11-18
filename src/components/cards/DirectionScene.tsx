@@ -281,6 +281,7 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
       ))}
       {d.plane && <PlaneSheet {...d.plane} />}
       {subject === "human" && <Trunks f={f} />}
+      {subject === "animal" && <GradCap f={f} />}
       {reveal && label && (
         <Html position={d.labelAt} center zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
           <span className="dir-tag">{label}</span>
@@ -312,6 +313,38 @@ function Trunks({ f }: { f: Frame }) {
     <mesh geometry={geo}>
       <meshStandardMaterial color="#8496a2" roughness={0.85} side={THREE.DoubleSide} />
     </mesh>
+  );
+}
+
+/** A small graduation cap on the horse (a nod to the students who make it through Lab 1). */
+function GradCap({ f }: { f: Frame }) {
+  const at = useMemo(() => {
+    const front = f.pts.filter((p) => p.z > f.box.max.z - f.size.z * 0.3);
+    if (!front.length) return null;
+    const top = front.reduce((a, p) => (p.y > a.y ? p : a));
+    return top.clone();
+  }, [f]);
+  if (!at) return null;
+  const u = f.size.y;
+  return (
+    <group position={at} rotation={[0, 0, -0.12]}>
+      <mesh position={[0, u * 0.025, 0]}>
+        <cylinderGeometry args={[u * 0.045, u * 0.05, u * 0.05, 24]} />
+        <meshStandardMaterial color="#22304a" roughness={0.7} />
+      </mesh>
+      <mesh position={[0, u * 0.055, 0]} rotation={[0, Math.PI / 4, 0]}>
+        <boxGeometry args={[u * 0.15, u * 0.01, u * 0.15]} />
+        <meshStandardMaterial color="#22304a" roughness={0.7} />
+      </mesh>
+      <mesh position={[u * 0.05, u * 0.02, u * 0.05]}>
+        <cylinderGeometry args={[u * 0.004, u * 0.004, u * 0.07, 8]} />
+        <meshStandardMaterial color="#e0a23a" roughness={0.6} />
+      </mesh>
+      <mesh position={[u * 0.05, -u * 0.018, u * 0.05]}>
+        <sphereGeometry args={[u * 0.011, 12, 10]} />
+        <meshStandardMaterial color="#e0a23a" roughness={0.6} />
+      </mesh>
+    </group>
   );
 }
 

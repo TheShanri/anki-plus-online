@@ -194,39 +194,129 @@ export const BLOCKABLE: Record<string, string> = {
   "anterior-spinal": "asa",
 };
 
-/** Drainage (lecture 16 slides 27-30). Sinus meshes exist in the atlas; the great cerebral vein, bridging veins and the jugular are schematic. */
-/** `view`: the camera view each step reads best from (the Drainage layer moves to it on entering the step). */
-export type VeinStep = { title: string; text: string; ids: string[]; src: string; view: "superior" | "midsagittal" | "posterior" | "left" };
+/**
+ * Drainage: a guided trace of the venous return (lecture 16 slides 27-30; lab 2 slide 10; lecture 2 slides 13-14; lecture 18
+ * slides 14-17). Slide numbers are the deck's page numbers. Vessel ids are those of public/atlas/veins.json
+ * (tools/atlas/veins/build.py). `cam` is where the camera glides on entering the step: a viewing direction (from the target
+ * toward the camera; +x is the patient's left) and the vessels to frame.
+ */
+export type VeinNote = { title: string; text: string; src: string };
+export type VeinStep = {
+  title: string;
+  text: string;
+  /** vessels drawn (and flowing) in this step */
+  ids: string[];
+  src: string;
+  cam: { dir: [number, number, number]; frame: string[]; fill?: number };
+  clinical?: VeinNote;
+  /** beyond the slides: shown behind the Supplementary gate */
+  supp?: string;
+};
 export const VEIN_STEPS: VeinStep[] = [
   {
-    title: "Superficial veins to the superior sagittal sinus",
-    text: "Veins on the surface of the brain (subarachnoid space) reach the dural sinuses through bridging veins, which pass through the inner (meningeal) layer of the dura.",
-    ids: ["bridging", "sss"],
-    view: "superior", // the superior sagittal sinus runs along the top of the brain
-    src: "Lecture 16, slide 29",
+    title: "Superficial cerebral veins",
+    text: "Veins on the surface of the brain lie in the subarachnoid space, like the arteries. They collect deoxygenated blood from the cortex and run up over the convexity toward the superior sagittal sinus.",
+    ids: ["scv"],
+    src: "Lecture 16, slides 3, 27 and 29",
+    cam: { dir: [0.8, 0.45, 0.4], frame: ["scv", "sss"], fill: 0.86 },
   },
   {
-    title: "Deep veins to the straight sinus",
-    text: "Deep cerebral veins do not use bridging veins. They converge into the great cerebral vein, which drains directly into the straight sinus.",
-    ids: ["gcv", "straight"],
-    view: "midsagittal", // deep midline veins and the straight sinus along the falx/tentorium junction
+    title: "Bridging veins",
+    text: "Near the midline each superficial vein becomes a bridging vein: it leaves the subarachnoid space, crosses the subdural space and passes through the meningeal (inner) layer of dura to open into the superior sagittal sinus.",
+    ids: ["bridging"],
+    src: "Lecture 16, slide 29; lecture 18, slide 14",
+    cam: { dir: [0.42, 0.86, 0.3], frame: ["bridging", "sss"], fill: 0.8 },
+    clinical: {
+      title: "Subdural hematoma",
+      text: "Shearing forces (shaken baby syndrome, falls in the elderly) tear bridging veins. Blood collects between the dura and the arachnoid: a low-pressure, banana-shaped bleed that spreads over one hemisphere and stops at the falx. Not a stroke.",
+      src: "Lecture 18, slides 14-16",
+    },
+  },
+  {
+    title: "Superior sagittal sinus",
+    text: "The sinus runs back along the upper edge of the falx cerebri, between the periosteal and meningeal layers of dura, to the confluence of sinuses. Arachnoid granulations bulge into it and return CSF, so CSF and venous blood mix in the dural sinuses.",
+    ids: ["sss", "granulations"],
+    src: "Lecture 16, slides 27-28; lab 2, slide 10; lecture 2, slides 13-14",
+    cam: { dir: [1, 0.32, -0.08], frame: ["sss"], fill: 0.9 },
+  },
+  {
+    title: "Deep cerebral veins",
+    text: "Deep veins do not use bridging veins. The internal cerebral veins run back in the roof of the third ventricle, the basal veins wind around the cerebral peduncles, and they converge into the great cerebral vein (of Galen) beneath the splenium.",
+    ids: ["icv", "basal", "gcv"],
     src: "Lecture 16, slide 30",
+    cam: { dir: [1, 0.22, 0.12], frame: ["icv", "basal", "gcv", "straight"], fill: 0.62 },
   },
   {
-    title: "The confluence of sinuses",
-    text: "Most dural sinuses drain toward the confluence of sinuses, at the junction of the falx cerebri and the tentorium cerebelli.",
-    ids: ["confluence"],
-    view: "posterior", // the confluence sits at the back, behind the occipital lobes
-    src: "Lecture 16, slide 28",
+    title: "Straight sinus",
+    text: "The great cerebral vein drains directly into the straight sinus, which also receives the inferior sagittal sinus from the lower free edge of the falx. The straight sinus runs back along the junction of the falx cerebri and the tentorium cerebelli.",
+    ids: ["iss", "straight"],
+    src: "Lecture 16, slides 28 and 30",
+    cam: { dir: [0.95, 0.28, -0.3], frame: ["iss", "straight", "gcv"], fill: 0.8 },
   },
   {
-    title: "Sigmoid sinus to the jugular vein",
-    text: "From the confluence the sigmoid sinus wraps around the posterior cranial fossa and drains into the internal jugular vein, then to the heart.",
+    title: "Confluence of sinuses",
+    text: "Most dural sinuses drain toward the confluence of sinuses, at the junction of the falx cerebri and the tentorium cerebelli: the superior sagittal and straight sinuses meet here, and the small occipital sinus joins it from below.",
+    ids: ["confluence", "occipital"],
+    src: "Lecture 16, slides 27-28",
+    cam: { dir: [0.3, 0.3, -1], frame: ["confluence", "occipital", "straight", "transverse"], fill: 0.7 },
+  },
+  {
+    title: "Transverse and sigmoid sinuses to the jugular vein",
+    text: "From the confluence each transverse sinus runs laterally in the attached edge of the tentorium. The sigmoid sinus then wraps around the posterior cranial fossa in an S-curve to the jugular foramen and drains into the internal jugular vein, which returns the blood to the heart.",
     ids: ["transverse", "sigmoid", "ijv"],
-    view: "left", // transverse and sigmoid sinuses wrap the side of the posterior fossa
-    src: "Lecture 16, slide 28",
+    src: "Lecture 16, slides 27-28",
+    cam: { dir: [0.75, -0.1, -0.75], frame: ["transverse", "sigmoid", "ijv", "confluence"], fill: 0.86 },
+    clinical: {
+      title: "A clot in a sinus",
+      text: "A clot in a dural venous sinus backs blood up into the cerebral veins: intracranial pressure rises and the veins can leak or rupture, a venous cause of subarachnoid hemorrhage.",
+      src: "Lecture 18, slide 17",
+    },
+  },
+  {
+    title: "Cavernous and petrosal sinuses",
+    text: "The cavernous sinuses lie on each side of the sella, joined by the intercavernous sinuses. They receive the superficial middle cerebral vein and drain back through the superior petrosal sinus to the transverse and sigmoid sinuses and through the inferior petrosal sinus to the internal jugular vein. The inferior anastomotic vein (of Labbé) links the superficial middle cerebral vein to the transverse sinus.",
+    ids: ["cavernous", "intercavernous", "sps", "ips", "smcv", "labbe"],
+    src: "Lecture 16, slides 27 and 30 (figure labels)",
+    cam: { dir: [0.55, -0.72, 0.42], frame: ["cavernous", "sps", "ips", "smcv"], fill: 0.86 },
+    supp: "The internal carotid artery (faint red) and the abducens nerve (VI) run through the cavernous sinus; the oculomotor (III), trochlear (IV), ophthalmic (V1) and maxillary (V2) nerves run in its lateral wall. Infections of the face can reach it through the ophthalmic veins (cavernous sinus thrombosis).",
+  },
+  {
+    title: "The whole path",
+    text: "Deep and superficial cerebral veins drain into the dural sinuses, the sinuses into the internal jugular vein, and the jugular vein to the heart.",
+    ids: ["scv", "bridging", "sss", "granulations", "icv", "basal", "gcv", "iss", "straight", "confluence", "occipital", "transverse", "sigmoid", "ijv", "cavernous", "intercavernous", "sps", "ips", "smcv", "labbe"],
+    src: "Lecture 16, slide 27",
+    cam: { dir: [0.85, 0.3, -0.42], frame: ["sss", "ijv", "transverse", "cavernous"], fill: 0.9 },
   },
 ];
+/** Names of the drainage vessels (veins.json ids). */
+export const VEIN_NAME: Record<string, string> = {
+  scv: "Superior cerebral veins",
+  bridging: "Bridging veins",
+  sss: "Superior sagittal sinus",
+  granulations: "Arachnoid granulations",
+  iss: "Inferior sagittal sinus",
+  icv: "Internal cerebral veins",
+  basal: "Basal veins",
+  gcv: "Great cerebral vein",
+  straight: "Straight sinus",
+  confluence: "Confluence of sinuses",
+  occipital: "Occipital sinus",
+  transverse: "Transverse sinus",
+  sigmoid: "Sigmoid sinus",
+  ijv: "Internal jugular vein",
+  cavernous: "Cavernous sinus",
+  intercavernous: "Intercavernous sinuses",
+  sps: "Superior petrosal sinus",
+  ips: "Inferior petrosal sinus",
+  smcv: "Superficial middle cerebral vein",
+  labbe: "Inferior anastomotic vein (of Labbé)",
+  ica: "Internal carotid artery",
+};
+/** The first step that draws a vessel (clicking it in the schematic or in 3D goes there). */
+export function veinStepOf(id: string): number {
+  const i = VEIN_STEPS.findIndex((s) => s.ids.includes(id));
+  return i < 0 ? VEIN_STEPS.length - 1 : i;
+}
 
 /** The three bleeds outside the brain and the intracerebral/subarachnoid pair (lecture 18, slides 9-19). */
 export const BLEEDS: { name: string; vessel: string; where: string; shape: string; note: string; stroke: boolean }[] = [

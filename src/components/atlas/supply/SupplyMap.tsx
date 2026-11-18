@@ -9,7 +9,9 @@ import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplem
 import type { AtlasOverlay } from "../AtlasViewer";
 import { VesselLayer, type SegStyle } from "./VesselLayer";
 import { TerritorySurface, type TerritoryCut, type TerritoryShow } from "./TerritorySurface";
-import { VeinLayer } from "./VeinLayer";
+import { VeinLayer, preloadVeins } from "./VeinLayer";
+import { VeinSchematic } from "./VeinSchematic";
+import { Supplementary } from "@/components/supplementary/Supplementary";
 import { MarginLabels, createLabelBus, type LabelBus } from "./margin-labels";
 import { COMM_NOTE, COW_SLUGS, SEG_SHORT, SUPP_SLUGS, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
 import { trackAtlas } from "@/lib/atlas/progress";
@@ -17,7 +19,7 @@ import { LazyAtlasViewer } from "./lazy";
 import { IconBtn } from "../ui/Toolbar";
 import { DeficitIcons } from "../pathways/deficits";
 import { SupplyQuiz } from "./SupplyQuiz";
-import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, BLOCK_LIST, OCCLUSION, OCCLUSION_NAME, TOUR, VEIN_STEPS, type Occlusion } from "./supply-guide";
+import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, BLOCK_LIST, OCCLUSION, OCCLUSION_NAME, TOUR, VEIN_NAME, VEIN_STEPS, veinStepOf, type Occlusion } from "./supply-guide";
 import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, artShort, unitArteries, type SupplyUnit } from "./supply-data";
 
 type Mode = "explore" | "tour" | "block" | "veins" | "bleeds";
@@ -88,13 +90,8 @@ const MEDIAL_CUT: TerritoryCut = { axis: "x", position: 0 };
 const CEREBELLAR = new Set(["Superior cerebellar hemisphere", "Inferior cerebellar hemisphere", "Superior and posterior vermis", "Inferior vermis (pyramis, uvula, nodule)", "Cerebellar tonsil", "Flocculus"]);
 const CEREBELLAR_ARTERIES = new Set(["sca", "aica", "pica"]);
 const CEREBELLUM_NEUTRAL = "#a89b97";
-/** Mesh ids of the dural sinuses drawn in the drainage layer, by step id. */
-const SINUS_MESH: Record<string, string[]> = {
-  sss: ["superior-sagittal-sinus"],
-  straight: ["straight-sinus"],
-  transverse: ["transverse-sinus"],
-  sigmoid: ["sigmoid-sinus"],
-};
+/** Drainage autoplay: milliseconds per step (calm; the draw-in and the camera glide take about two seconds). */
+const PLAY_MS = 9000;
 const SLUG_ARTERY = (() => {
   const m = new Map<string, string>(Object.entries(BLOCKABLE));
   m.set("acom", "aca");
@@ -173,6 +170,10 @@ export function SupplyMap() {
   const [hover, setHover] = useState<string | null>(null);
   /** Medial view: the left hemisphere is cut away (viewer cut at the midline) and seen from the left. */
   const [medial, setMedial] = useState(false);
+  /** Drainage: the vessel hovered in the schematic or in 3D, the autoplay, the phone's schematic toggle. */
+  const [veinFocus, setVeinFocus] = useState<string | null>(null);
+  const [playing, setPlaying] = useState(false);
+  const [veinMap, setVeinMap] = useState(false);
   const gate = useSupplementaryGate("supply");
   const noMesh = useMemo(() => {
     if (!flow) return new Set<string>();
@@ -185,6 +186,7 @@ export function SupplyMap() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (window.matchMedia("(max-width: 1023px)").matches) setDrawer(false);
+    void preloadVeins().catch(() => undefined); // the drainage layer is ready before Drainage is opened
     let alive = true;
     fetch("/atlas/arteries-flow.json")
       .then((r) => r.json())
@@ -288,14 +290,9 @@ export function SupplyMap() {
       const side = blockInfo.seg.side === "l" ? "L" : blockInfo.seg.side === "r" ? "R" : undefined;
       return territoryOverlays(new Set(blockInfo.occ.territory), variant, { opacity: 0.4, shell: 0.25, color: BLOCK_RED, side, keyPrefix: "b:" });
     }
-    if (mode === "veins") {
-      const ids = new Set(VEIN_STEPS.slice(0, vstep + 1).flatMap((s) => s.ids));
-      const out: AtlasOverlay[] = [];
-      for (const [id, meshes] of Object.entries(SINUS_MESH)) if (ids.has(id)) out.push({ key: `v:${id}`, ids: meshes, color: VEIN_BLUE, opacity: VEIN_STEPS[vstep].ids.includes(id) ? 0.95 : 0.7 });
-      return out;
-    }
+    // Drainage draws its own vessels (VeinLayer): no viewer overlays, so a step never creates materials in the viewer
     return [];
-  }, [mode, sel, territories, cow, variant, step, hover, blockInfo, vstep]);
+  }, [mode, sel, territories, cow, variant, step, hover, blockInfo]);
 
   // cortical territories (soft skin): which arteries, how strongly, and in which colours
   const { terr, terrColors, terrSide } = useMemo(() => {
@@ -314,8 +311,6 @@ export function SupplyMap() {
     return { terr: show, terrColors: cols, terrSide: side };
   }, [mode, sel, territories, cow, step, hover, blockInfo, medial]);
 
-  const veinIds = useMemo(() => (mode === "veins" ? new Set(VEIN_STEPS.slice(0, vstep + 1).flatMap((x) => x.ids)) : new Set<string>()), [mode, vstep]);
-  const veinCurrent = useMemo(() => (mode === "veins" ? VEIN_STEPS[vstep].ids : []), [mode, vstep]);
 
   // a matte brain with visible gyri and a crisp edge (about 0.55), so the territory skin and the vessels read on it; the sinuses sit outside it
   const brainOpacity = mode === "veins" ? 0.32 : 0.55;
@@ -404,6 +399,7 @@ export function SupplyMap() {
       setStep(0);
       trackAtlas({ type: "supply_tour_step", step: 1 });
     }
+    setPlaying(false);
     if (m === "veins") {
       setVstep(0);
       trackAtlas({ type: "supply_drainage_step", step: 1 });
@@ -424,6 +420,7 @@ export function SupplyMap() {
   const gotoV = useCallback((i: number) => {
     stamp();
     const n = Math.max(0, Math.min(VEIN_STEPS.length - 1, i));
+    setMedial(false);
     setVstep(n);
     trackAtlas({ type: "supply_drainage_step", step: n + 1 });
   }, []);
@@ -433,10 +430,35 @@ export function SupplyMap() {
     // the viewer eases to the named view with its own (looser) fit; then the brain is fitted like the first frame
     setFrame((f) => ({ n: f.n + 1, dir: VIEW_DIR[view], after: 540 }));
   }, []);
-  // Drainage: each step opens from the view that shows its sinuses (the superior sagittal sinus is dorsal: Superior, not Inferior)
+  // Drainage autoplay: one step every PLAY_MS, stopping at the end (the camera glide and the draw-in are in VeinLayer)
   useEffect(() => {
-    if (mode === "veins") askView(VEIN_STEPS[vstep].view);
-  }, [mode, vstep, askView]);
+    if (!playing || mode !== "veins") return;
+    if (vstep >= VEIN_STEPS.length - 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPlaying(false);
+      return;
+    }
+    const t = window.setTimeout(() => gotoV(vstep + 1), PLAY_MS);
+    return () => window.clearTimeout(t);
+  }, [playing, mode, vstep, gotoV]);
+  const pickVein = useCallback(
+    (id: string) => {
+      setPlaying(false);
+      gotoV(veinStepOf(id));
+    },
+    [gotoV],
+  );
+  const togglePlay = useCallback(() => {
+    if (!playing && vstep >= VEIN_STEPS.length - 1) gotoV(0);
+    setPlaying(!playing);
+  }, [playing, vstep, gotoV]);
+  const stepV = useCallback(
+    (i: number) => {
+      setPlaying(false);
+      gotoV(i);
+    },
+    [gotoV],
+  );
 
   useEffect(() => {
     if (quizOn) return;
@@ -445,8 +467,12 @@ export function SupplyMap() {
       const k = e.key.toLowerCase();
       if (mode === "tour" && (e.key === "ArrowRight" || e.key === "Enter")) return gotoStep(step + 1);
       if (mode === "tour" && e.key === "ArrowLeft") return gotoStep(step - 1);
-      if (mode === "veins" && (e.key === "ArrowRight" || e.key === "Enter")) return gotoV(vstep + 1);
-      if (mode === "veins" && e.key === "ArrowLeft") return gotoV(vstep - 1);
+      if (mode === "veins" && (e.key === "ArrowRight" || e.key === "Enter")) return stepV(vstep + 1);
+      if (mode === "veins" && e.key === "ArrowLeft") return stepV(vstep - 1);
+      if (mode === "veins" && e.key === " ") {
+        e.preventDefault();
+        return togglePlay();
+      }
       const i = ARTERY_KEYS.indexOf(k);
       if (mode === "explore" && i >= 0 && i < ARTERIES.length) toggleArtery(ARTERIES[i].id);
       else if (e.key === "Escape") clear();
@@ -459,7 +485,7 @@ export function SupplyMap() {
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
-  }, [quizOn, mode, step, vstep, toggleArtery, toggleTerritories, clear, circleView, gotoStep, gotoV]);
+  }, [quizOn, mode, step, vstep, toggleArtery, toggleTerritories, clear, circleView, gotoStep, stepV, togglePlay]);
 
   if (quizOn)
     return (
@@ -519,16 +545,31 @@ export function SupplyMap() {
                   <div className="pointer-events-auto absolute left-2 right-2 top-2 rounded-card border border-panel-border bg-panel-solid/95 px-3 py-2 text-[13px] leading-snug shadow-sm lg:hidden">
                     <strong className="text-text">{caption.title}.</strong> <span className="text-text-dim">{caption.text}</span>
                     <span className="mt-1.5 flex items-center gap-2">
-                      <button type="button" className="btn" onClick={() => (mode === "tour" ? gotoStep(step - 1) : gotoV(vstep - 1))} aria-label="Previous step">
+                      <button type="button" className="btn" onClick={() => (mode === "tour" ? gotoStep(step - 1) : stepV(vstep - 1))} aria-label="Previous step">
                         <ChevronLeft size={14} aria-hidden />
                       </button>
                       <span className="font-mono text-xs text-text-dim">
                         {(mode === "tour" ? step : vstep) + 1} / {mode === "tour" ? TOUR.length : VEIN_STEPS.length}
                       </span>
-                      <button type="button" className="btn btn-primary" onClick={() => (mode === "tour" ? gotoStep(step + 1) : gotoV(vstep + 1))}>
+                      <button type="button" className="btn btn-primary" onClick={() => (mode === "tour" ? gotoStep(step + 1) : stepV(vstep + 1))}>
                         Next <ChevronRight size={14} aria-hidden />
                       </button>
+                      {mode === "veins" && (
+                        <>
+                          <button type="button" className="btn" aria-pressed={playing} onClick={togglePlay} aria-label={playing ? "Pause the trace" : "Play the trace"}>
+                            {playing ? <Pause size={14} aria-hidden /> : <Play size={14} aria-hidden />}
+                          </button>
+                          <button type="button" className="btn ml-auto" aria-pressed={veinMap} onClick={() => setVeinMap((v) => !v)}>
+                            Schematic
+                          </button>
+                        </>
+                      )}
                     </span>
+                    {mode === "veins" && veinMap && (
+                      <span className="mt-2 block">
+                        <VeinSchematic step={vstep} focus={veinFocus} onHover={setVeinFocus} onPick={pickVein} compact />
+                      </span>
+                    )}
                   </div>
                 )}
                 <div className="pointer-events-auto absolute bottom-16 left-2 right-2 flex flex-wrap gap-1" role="group" aria-label="Camera view">
@@ -542,7 +583,7 @@ export function SupplyMap() {
             }
           >
             <TerritorySurface show={terr} colors={terrColors} variant={variant} side={terrSide} cut={medial ? MEDIAL_CUT : undefined} />
-            <VeinLayer ids={veinIds} current={veinCurrent} animate={animate} bus={veinBus} />
+            <VeinLayer on={mode === "veins"} step={vstep} focus={mode === "veins" ? veinFocus : null} animate={animate} bus={veinBus} onHover={setVeinFocus} onPick={pickVein} topInset={caption ? 104 : 18} />
             <VesselLayer
               flow={flow}
               colors={colorMap}
@@ -558,6 +599,7 @@ export function SupplyMap() {
               fitSide={medial ? "R" : undefined}
               pad={territories || mode === "tour" ? 0.03 : 0}
               topInset={caption ? 104 : 18}
+              camera={mode !== "veins"}
             />
           </LazyAtlasViewer>
         </div>
@@ -600,7 +642,7 @@ export function SupplyMap() {
           )}
           {mode === "tour" && <TourPanel step={step} goto={gotoStep} askView={askView} />}
           {mode === "block" && <BlockPanel info={blockInfo} blocked={blocked} onClear={() => setBlocked(null)} onBlock={blockSeg} />}
-          {mode === "veins" && <VeinPanel step={vstep} goto={gotoV} />}
+          {mode === "veins" && <VeinPanel step={vstep} goto={stepV} playing={playing} onPlay={togglePlay} focus={veinFocus} onHover={setVeinFocus} onPick={pickVein} />}
           {mode === "bleeds" && <BleedsPanel />}
 
           <p className="help-line mt-auto">
@@ -899,17 +941,41 @@ function BlockPanel({ info, blocked, onClear, onBlock }: { info: { name: string;
   );
 }
 
-function VeinPanel({ step, goto }: { step: number; goto: (i: number) => void }) {
-  const s = VEIN_STEPS[step];
+function VeinPanel(p: { step: number; goto: (i: number) => void; playing: boolean; onPlay: () => void; focus: string | null; onHover: (id: string | null) => void; onPick: (id: string) => void }) {
+  const s = VEIN_STEPS[p.step];
+  const last = p.step >= VEIN_STEPS.length - 1;
   return (
     <>
-      <StepCard n={step + 1} total={VEIN_STEPS.length} title={s.title} text={s.text} src={s.src} onPrev={() => goto(step - 1)} onNext={() => goto(step + 1)} />
-      <div className="text-xs text-text-dim">
-        <p className="flex items-center gap-1.5">
-          <Swatch color={VEIN_BLUE} /> Dural sinuses, between the meningeal and periosteal layers of the dura.
-        </p>
-        <p className="mt-1">Path: deep and superficial cerebral veins, dural sinuses, internal jugular vein, heart.</p>
-      </div>
+      <StepCard
+        n={p.step + 1}
+        total={VEIN_STEPS.length}
+        title={s.title}
+        text={s.text}
+        src={s.src}
+        onPrev={() => p.goto(p.step - 1)}
+        onNext={() => p.goto(p.step + 1)}
+        extra={
+          <button type="button" className="btn justify-self-start" aria-pressed={p.playing} onClick={p.onPlay} title="Play the whole trace, one step at a time (Space)">
+            {p.playing ? <Pause size={14} aria-hidden /> : <Play size={14} aria-hidden />} {p.playing ? "Pause" : last ? "Play again" : "Play the path"}
+          </button>
+        }
+      />
+      {s.clinical && (
+        <div className="rounded-sm border border-again/40 bg-again/5 px-2 py-1.5 text-sm">
+          <strong className="block font-semibold text-again">Clinical: {s.clinical.title}.</strong>
+          <span className="mt-0.5 block">{s.clinical.text}</span>
+          <span className="mt-0.5 block text-xs text-text-faint">{s.clinical.src}</span>
+        </div>
+      )}
+      {s.supp && (
+        <Supplementary section="supply" title="Inside the cavernous sinus">
+          <p className="text-sm">{s.supp}</p>
+        </Supplementary>
+      )}
+      <VeinSchematic step={p.step} focus={p.focus} onHover={p.onHover} onPick={p.onPick} />
+      <p className="flex items-center gap-1.5 text-xs text-text-dim">
+        <Swatch color={VEIN_BLUE} /> {p.focus ? (VEIN_NAME[p.focus] ?? p.focus) : "Dural sinuses lie between the periosteal and meningeal layers of dura; the falx and tentorium are drawn faintly."}
+      </p>
       <Link className="btn justify-self-start" href={`/study/run?scope=${encodeURIComponent("structure:dural-venous-sinuses")}`}>
         Study these cards
       </Link>

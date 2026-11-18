@@ -41,6 +41,8 @@ type Props = {
   fitSide?: "L" | "R";
   /** Pixels kept clear at the top for a caption band. */
   topInset?: number;
+  /** false: this layer leaves the camera alone (the Drainage layer drives it). */
+  camera?: boolean;
 };
 
 const GREY = "#8a9099";
@@ -261,7 +263,7 @@ function initInstances(ref: { current: THREE.InstancedMesh | null }) {
 const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
 
 /** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
-export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, fitSide, topInset = 18 }: Props) {
+export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, fitSide, topInset = 18, camera: driveCamera = true }: Props) {
   const invalidate = useThree((s) => s.invalidate);
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
@@ -567,6 +569,10 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
   }, [controls]);
   useEffect(() => {
     if (!flow || !controls || !built) return;
+    if (!driveCamera) {
+      lastN.current = frame.n;
+      return;
+    }
     const fresh = lastN.current !== frame.n;
     if (fresh) {
       dirRef.current = frame.dir ?? dirRef.current;
@@ -633,7 +639,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
       controls.removeEventListener("change", onChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flow, controls, built, frame, sig, pad, fitSide, size.width, size.height, yMin]);
+  }, [flow, controls, built, frame, sig, pad, fitSide, size.width, size.height, yMin, driveCamera]);
 
   const hovered = useRef<string | null>(null);
   const pickOf = (o: THREE.Object3D) => {

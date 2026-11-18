@@ -186,6 +186,10 @@ function PracticalRun({ started }: { started: Started }) {
         <CardFace card={station.pin} courseSlug={course.slug} hideImage />
         <form
           style={{ display: "grid", gap: 10, marginTop: 14 }}
+          onKeyDown={(e) => {
+            // exam mode has no hints: Tab does nothing and never takes the caret out of the answer (Enter moves on)
+            if (e.key === "Tab" && (e.target as HTMLElement).classList.contains("prac-input")) e.preventDefault();
+          }}
           onSubmit={(e) => {
             e.preventDefault();
             const inputs = Array.from(e.currentTarget.querySelectorAll<HTMLInputElement>(".prac-input"));

@@ -15,7 +15,7 @@ import { setSoundsEnabled, initFallbackBeepFromStorage, emit } from "@/lib/feedb
 import { CardFace } from "@/components/cards/CardFace";
 import { PinImage } from "@/components/cards/PinImage";
 import { resolveMediaSrc } from "@/components/cards/media";
-import { TypeBox } from "./TypeBox";
+import { Live, TypeBox } from "./TypeBox";
 import { PartInputs } from "./PartInputs";
 import { Reveal } from "./Reveal";
 import { GearPopover } from "./Scaffolds";
@@ -298,7 +298,8 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
     }
   };
 
-  // Multi-box answers: Tab / Enter go to the next box, Shift+Tab back; Enter on the last box submits; Alt+H is the ghost hint.
+  // Multi-box answers (desktop ANKI+ keys): Tab is the ghost hint as on every card (focus never moves); Enter goes to
+  // the next box (a part typed right moves on by itself), Enter on the last box submits; Shift+Enter goes back.
   const multiKeys = (i: number, e: React.KeyboardEvent<HTMLInputElement>) => {
     const m = engine.cur?.multi;
     if (!m) return;
@@ -310,7 +311,10 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       engine.focusBox(j);
       boxRefs.current[j]?.focus();
     };
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.shiftKey) {
+      e.preventDefault();
+      if (engine.phase === "prompt" && i > 0) to(i - 1);
+    } else if (e.key === "Enter") {
       e.preventDefault();
       if (engine.phase !== "prompt") return;
       if (!m.anyTyped() && engine.cur?.isFirstLook) engine.submit(false); // nothing typed on a first look: Enter reveals
@@ -318,9 +322,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
       else engine.submit(false);
     } else if (e.key === "Tab") {
       e.preventDefault();
-      if (engine.phase !== "prompt") return;
-      const j = e.shiftKey ? i - 1 : i + 1;
-      if (j >= 0 && j < m.count) to(j);
+      if (engine.phase === "prompt" && !e.shiftKey) engine.hint(true);
     } else if (e.altKey && (e.key === "h" || e.key === "H")) {
       e.preventDefault();
       if (engine.phase === "prompt") engine.hint(true);
@@ -404,7 +406,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
             {c.guard?.has && <span className="chip">{c.guard.armed ? "Trap letters ahead" : "Trap letters"}</span>}
             {(state?.lapses ?? 0) >= 3 && <span className="chip">{state!.lapses} lapses</span>}
           </div>
-          {c.isBoss && <div className="boss-hp" aria-hidden><i style={{ transform: `scaleX(${c.typer && c.typer.state === "bad" ? 0.6 : 1})` }} /></div>}
+          {c.isBoss && <Live engine={engine}>{() => <div className="boss-hp" aria-hidden><i style={{ transform: `scaleX(${c.typer && c.typer.state === "bad" ? 0.6 : 1})` }} /></div>}</Live>}
           <CardFace
             card={c.card}
             courseSlug={initial.course.slug}
@@ -421,11 +423,12 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   {c.guard.armedLevel >= 2 ? "A trap you keep falling into: picture it, then type." : "Trap letters ahead: no hints here."}
                 </div>
               )}
-              {c.mode === "type" && c.multi && <PartInputs engine={engine} c={c} refs={boxRefs} onKeys={multiKeys} />}
+              {c.mode === "type" && c.multi && <Live engine={engine}>{() => <PartInputs engine={engine} c={c} refs={boxRefs} onKeys={multiKeys} />}</Live>}
               {c.mode === "type" && c.typer && !c.multi && (
+                <Live engine={engine}>{() => (
                 <TypeBox
                   ref={inputRef}
-                  typer={c.typer}
+                  typer={c.typer!}
                   label="Type the answer"
                   blind={c.guard?.blindView() ?? null}
                   trapLevel={c.guard?.armedLevel ?? 0}
@@ -438,8 +441,10 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   }}
                   onKeyDown={boxKeys}
                 />
+                )}</Live>
               )}
               {c.mode === "keywords" && (
+                <Live engine={engine}>{() => (
                 <textarea
                   ref={kwRef}
                   className="kw-input"
@@ -452,8 +457,14 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                       e.preventDefault();
                       engine.submit(false);
                     } else if (e.key === "Escape") engine.submit(true);
+                    else if (e.key === "Tab") {
+                      // Tab never leaves the answer; on a first look it reveals (desktop ANKI+), free text has no ghost letters
+                      e.preventDefault();
+                      if (engine.cur?.isFirstLook) engine.hint(true);
+                    }
                   }}
                 />
+                )}</Live>
               )}
               {c.choices && (
                 <div className="choice-grid" role="group" aria-label="Choices">
@@ -480,14 +491,14 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   )
                 ) : c.mode === "type" && c.multi ? (
                   <>
-                    <span><span className="kbd">Tab</span> / <span className="kbd">Enter</span> next box</span>
-                    <span><span className="kbd">Shift Tab</span> back</span>
-                    <span><span className="kbd">Alt H</span> ghost hint</span>
+                    {engine.settings.scaffold.hints && <span><span className="kbd">Tab</span> ghost hint</span>}
+                    <span><span className="kbd">Enter</span> next box</span>
+                    <span><span className="kbd">Shift Enter</span> back</span>
                     <span><span className="kbd">Esc</span> show answer</span>
                   </>
                 ) : c.mode === "type" ? (
                   <>
-                    <span><span className="kbd">Tab</span> ghost hint</span>
+                    {engine.settings.scaffold.hints && <span><span className="kbd">Tab</span> ghost hint</span>}
                     <span><span className="kbd">Enter</span> submit</span>
                     <span><span className="kbd">Esc</span> show answer</span>
                   </>
@@ -505,18 +516,32 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
                   </span>
                 ) : null}
               </div>
+              {c.mode === "type" && engine.settings.scaffold.hints && !c.isFirstLook && (
+                <div className="hint-row">
+                  <button
+                    className="btn"
+                    type="button"
+                    title="Show the next letter (Tab). A hint lowers the rating."
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => engine.hint(true)}
+                  >
+                    Hint <span className="kbd">Tab</span>
+                  </button>
+                </div>
+              )}
               <div className="btn-row touch-only">
-                {c.mode === "type" && engine.settings.scaffold.hints && !c.isFirstLook && <button className="btn" type="button" onClick={() => engine.hint(true)}>Hint</button>}
                 {(c.mode === "type" || c.mode === "keywords") && <button className="btn btn-primary" type="button" onClick={() => engine.submit(false)}>{c.isFirstLook ? "Reveal" : "Submit"}</button>}
                 {(c.mode === "type" || c.mode === "keywords") && !c.isFirstLook && <button className="btn" type="button" onClick={() => engine.submit(true)}>Show answer</button>}
                 {c.mode === "self" && <button className="btn btn-primary" type="button" onClick={() => engine.submit(false)}>Show answer</button>}
               </div>
               {c.mode === "type" && c.typer && !c.isFirstLook && (
+                <Live engine={engine}>{() => (
                 <div className="meter" aria-label="Predicted rating">
                   {([1, 2, 3, 4] as const).map((g) => (
                     <span key={g} className={`g${g}${engine.predicted() === g ? " on" : ""}`}>{["Again", "Hard", "Good", "Easy"][g - 1]}</span>
                   ))}
                 </div>
+                )}</Live>
               )}
             </div>
           )}

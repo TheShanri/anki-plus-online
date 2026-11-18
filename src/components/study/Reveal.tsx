@@ -5,7 +5,8 @@ import type { StudyEngine, Current } from "@/lib/study/engine";
 import type { Grade } from "@/lib/fsrs";
 import type { DiffOp } from "@/lib/study/text";
 import { RUNGS } from "@/lib/study/ladder";
-import { TypeBox } from "./TypeBox";
+import { Live, TypeBox } from "./TypeBox";
+import { keywordMarks } from "@/lib/study/answerstyle";
 import { MnemonicPanel } from "./MnemonicPanel";
 import { SpeakButton } from "@/components/tts/SpeakButton";
 
@@ -57,6 +58,32 @@ function DiffRows({ diff }: { diff: DiffOp[] }) {
     <div className="diff" aria-label="What you typed against the answer">
       <div className="diff-row"><span className="diff-lbl">you</span><span>{top}</span></div>
       <div className="diff-row"><span className="diff-lbl">answer</span><span>{bot}</span></div>
+    </div>
+  );
+}
+
+/** A free-text (explanatory) answer: what was typed with its key ideas highlighted, and which ideas it hit. */
+function KeywordReport({ c }: { c: Current }) {
+  const groups = c.card.keywords;
+  const typed = c.typed;
+  if (!groups?.length || !typed.trim()) return null;
+  const m = keywordMarks(typed, groups);
+  const out: React.ReactNode[] = [];
+  let at = 0;
+  m.spans.forEach(([a, b], i) => {
+    if (a > at) out.push(typed.slice(at, a));
+    out.push(<mark key={i} className="kw-mark">{typed.slice(a, b)}</mark>);
+    at = b;
+  });
+  if (at < typed.length) out.push(typed.slice(at));
+  return (
+    <div className="kw-report" aria-label="Key ideas in your answer">
+      <p className="kw-typed"><span className="diff-lbl">you</span> {out}</p>
+      <ul className="kw-ideas">
+        {m.groups.map((g, i) => (
+          <li key={i} className={g.hit ? "hit" : "miss"}>{g.hit ? "✓" : "✗"} {g.label}</li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -213,6 +240,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
       {c.multi ? <PartResults c={c} /> : null}
       {c.mode !== "self" && !c.multi && <Diff c={c} />}
       {!c.diff && !c.multi && c.card.answer && <p className="answer-line" style={c.right || c.mode === "self" ? undefined : { color: "var(--good)" }}>{c.card.answer}</p>}
+      {c.mode === "keywords" && <KeywordReport c={c} />}
       {c.mode === "keywords" && c.verdict?.why && <p className="v-notes">{c.verdict.why}</p>}
       {c.card.alsoCalled && c.card.alsoCalled.length > 0 && <AlsoCalled c={c} />}
 
@@ -239,6 +267,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
             r.boxes.map((bt, i) => (
               <div key={i} className="part-row">
                 <div className="part-head"><span className="part-label">{i + 1} of {r.boxes!.length}</span></div>
+                <Live engine={engine}>{() => (
                 <TypeBox
                   ref={(el) => {
                     retypeRefs.current[i] = el;
@@ -249,15 +278,17 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
                   placeholder="Type it from memory…"
                   onChange={(v) => engine.retypeInput(v, i)}
                   onKeyDown={(e) => {
-                    if (e.key === "Tab" && !e.shiftKey) {
+                    if (e.key === "Tab") {
                       e.preventDefault();
-                      engine.peekRetype();
+                      if (!e.shiftKey) engine.peekRetype();
                     }
                   }}
                 />
+                )}</Live>
               </div>
             ))
           ) : (
+            <Live engine={engine}>{() => (
             <TypeBox
               ref={retypeRef}
               typer={r.typer}
@@ -272,6 +303,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
                 }
               }}
             />
+            )}</Live>
           )}
           {!r.done && (
             <div className="help-line">

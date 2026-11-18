@@ -76,6 +76,16 @@
 .typebox.state-track { border-color: var(--good); } .typebox.state-bad { border-color: var(--again); } .typebox.state-match { border-color: var(--good); }
 .typebox.nudge { animation: nudge 0.25s; }
 @keyframes nudge { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+/* a letter went wrong: a short shake (desktop ANKI+ nudge-bad) */
+.typebox.nudge-bad { animation: nudge 0.18s; }
+.typebox.kw-done { border-color: var(--good); }
+.kw-mark { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); border-radius: 3px; padding: 0 2px; }
+.kw-ideas { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 0; padding: 0; list-style: none; }
+.kw-ideas li { font-size: 13px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--panel-border); }
+.kw-ideas li.hit { border-color: var(--good); color: var(--good); }
+.kw-ideas li.miss { border-color: var(--again); color: var(--again); }
+.kw-typed { margin: 4px 0 0; white-space: pre-wrap; }
+.hint-row { display: flex; gap: 8px; margin-top: 8px; }
 .typebox.gated { border-color: var(--hard); opacity: 0.85; }
 .typebox.trap-armed { border-color: var(--hard); box-shadow: 0 0 0 2px color-mix(in srgb, var(--hard) 35%, transparent); }
 .typebox.trap-l2 { border-color: var(--again); } .typebox.trap-l3 { border-color: var(--again); box-shadow: 0 0 0 3px color-mix(in srgb, var(--again) 40%, transparent); }
@@ -202,7 +212,7 @@
   .grade-bar { grid-template-columns: repeat(2, 1fr); }
   .typebox { padding: 12px; }
 }
-@media (prefers-reduced-motion: reduce) { .pin-target, .caret, .drift-glow { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .pin-target, .caret, .drift-glow, .typebox.nudge-bad, .typebox.nudge { animation: none; } }
 
 /* ---------- ANKI+ parity: first look, key-first controls ---------- */
 .chip.first { color: var(--accent-2); border-color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 12%, transparent); }

@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef, useSyncExternalStore, type ReactNode } from "react";
 import type { Typer } from "@/lib/study/typer";
 import type { BlindView } from "@/lib/study/trapguard";
 
@@ -20,6 +20,16 @@ export interface TypeBoxProps {
   label: string;
 }
 
+/** Re-renders its children on every keystroke (engine.keyed) without re-rendering the card around it. */
+export function Live({ engine, children }: { engine: { subscribeKeys(fn: () => void): () => void; keyVersion: number }; children: () => ReactNode }) {
+  useSyncExternalStore(
+    (cb) => engine.subscribeKeys(cb),
+    () => engine.keyVersion,
+    () => 0,
+  );
+  return <>{children()}</>;
+}
+
 /** The answer box: typed letters (green/red), a caret, then ghost letters. A transparent input sits on top so phones get their keyboard. */
 export const TypeBox = forwardRef<HTMLInputElement, TypeBoxProps>(function TypeBox(p, ref) {
   const t = p.typer;
@@ -30,9 +40,21 @@ export const TypeBox = forwardRef<HTMLInputElement, TypeBoxProps>(function TypeB
   const later = cut >= 0 ? g.slice(cut + 1) : "";
   const b = p.blind;
   const state = b ? "track" : t.state;
-  const cls = ["typebox", `state-${state}`, p.trapLevel ? `trap-armed trap-l${p.trapLevel}` : "", p.gated ? "gated" : "", p.drifting ? "drifting" : "", p.className ?? ""].filter(Boolean).join(" ");
+  // a letter just went wrong: a short shake (compositor-only; none with reduced motion, see study.css)
+  const boxRef = useRef<HTMLDivElement>(null);
+  const prevState = useRef(state);
+  useEffect(() => {
+    const el = boxRef.current;
+    if (el && state === "bad" && prevState.current !== "bad") {
+      el.classList.remove("nudge-bad");
+      void el.offsetWidth;
+      el.classList.add("nudge-bad");
+    }
+    prevState.current = state;
+  }, [state, v]);
+  const cls = ["typebox", `state-${state}`, t.done ? "kw-done" : "", p.trapLevel ? `trap-armed trap-l${p.trapLevel}` : "", p.gated ? "gated" : "", p.drifting ? "drifting" : "", p.className ?? ""].filter(Boolean).join(" ");
   return (
-    <div className={cls} onClick={(e) => (e.currentTarget.querySelector("input") as HTMLInputElement | null)?.focus()}>
+    <div ref={boxRef} className={cls} data-state={state} onClick={(e) => (e.currentTarget.querySelector("input") as HTMLInputElement | null)?.focus()}>
       {b ? (
         <>
           <span className="t-ok">{b.okText}</span>

@@ -22,6 +22,8 @@ export const SEC = {
   uCSF: { value: new THREE.Color() },
   /** which of uPlanes is the midsagittal plane (-1: none) */
   uMidIdx: { value: -1 },
+  /** 1 while the medial-wall mesh is drawn (midsagittal): the flat medial fill steps aside */
+  uMedialWall: { value: 0 },
   // the labelled interior (labels.ts, labelShader.ts)
   ...LAB,
 };
@@ -88,6 +90,7 @@ uniform int uNPlanes;
 uniform vec3 uGM;
 uniform vec3 uWM;
 uniform int uMidIdx;
+uniform float uMedialWall;
 uniform vec3 uCSF;
 varying vec3 vSecW;
 
@@ -218,6 +221,19 @@ vec3 secCap(vec3 p, vec3 fallback, float mode) {
   }
   if (uHasTissue < 0.5) return fallback;
   if (mode > 0.5) {
+    // behind the midsagittal plane: the medial-wall mesh (Allen labels) shows the real medial surface when it is loaded
+    if (uMedialWall > 0.5 && labInBox(p)) {
+      // the wall exists where the labelled tissue starts within ~12 mm of the plane; elsewhere the fill stays (no hole)
+      vec3 n = uMidIdx >= 0 ? secNormal(uMidIdx) : vec3(-1.0, 0.0, 0.0);
+      bool wall = false;
+      for (int s = 0; s < 24; s++) {
+        int l = labNearest(p + n * (float(s) * 0.0005));
+        if (l == 0) continue;
+        int c = labClass(l);
+        if (c != 6 && c != 7) { wall = true; break; }
+      }
+      if (wall) discard;
+    }
     vec2 k = secClass(p);
     return mix(uGM * 0.92, uWM, k.x);
   }

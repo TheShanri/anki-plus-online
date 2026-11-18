@@ -29,7 +29,7 @@ import { SectionFace } from "./section/SectionFace";
 import { DEEP, SectionOutlines, addSectionPaint, makeSectionPaint, tintPaint } from "./section/deep";
 import { planeSection } from "./section/geometry";
 import { sectionPalette, sectionSwatch, useSectionTheme } from "./section/palette";
-import { insideTissue, setPalette, setSectionPlanes, setTissue } from "./section/shader";
+import { SEC, insideTissue, setPalette, setSectionPlanes, setTissue } from "./section/shader";
 import { loadTissue } from "./section/tissue";
 // labelled interior (section/labels.ts, section/api.ts): cut faces, their pick, highlight and key come from one label volume
 import { interiorNow, loadInterior } from "./section/labels";
@@ -1432,6 +1432,36 @@ function Scene({
   const accentHull = useMemo(() => makeHull("#" + accent.clone().multiplyScalar(1.15).getHexString(), 0.0024), [accent]);
   const grossHull = useMemo(() => makeHull("#6a4e46", 0.0008), []);
   const grossMats = useMemo(() => buildGrossMats(look), [look]);
+  // midsagittal: the hemisphere's medial wall (cingulate gyrus, its sulcus, paraterminal area), built from the Allen labels
+  // (tools/atlas/medial_wall.py): Z-Anatomy's gyral shell has no medial wall in the frontal / callosal region
+  const [medialWall, setMedialWall] = useState<THREE.Group | null>(null);
+  useEffect(() => {
+    if (!midsagittal || medialWall) return;
+    let alive = true;
+    loadAtlasModel("medial-wall.glb?v=2")
+      .then((g) => alive && setMedialWall(g))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [midsagittal, medialWall]);
+  const medialMat = useMemo(() => {
+    const m = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#c9b9c4" : CORTEX_TINT, roughness: 0.62, metalness: 0, side: THREE.DoubleSide });
+    return m;
+  }, [look]);
+  useEffect(() => {
+    medialWall?.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      m.material = medialMat;
+      m.raycast = () => {}; // context only: picking goes to the labelled structures
+    });
+    invalidate();
+  }, [medialWall, medialMat, invalidate]);
+  useEffect(() => {
+    SEC.uMedialWall.value = midsagittal && medialWall ? 1 : 0;
+    invalidate();
+  }, [midsagittal, medialWall, invalidate]);
   const sectionLook = look === "regions" ? "regions" : "brain";
   const secTheme = useSectionTheme();
   // the "Cranial nerves" toggle: one cream nerve tone, lit
@@ -2071,6 +2101,7 @@ function Scene({
       {backer && solid && grossOn && (brainOpacity ?? 1) >= 1 && <primitive object={backer} />}
       {gross && <primitive object={gross} />}
       {ventralRoot && gross && <primitive object={ventralRoot} />}
+      {midsagittal && medialWall && gross && <primitive object={medialWall} />}
       {deepRoot && grossOn && !labelsOn && <primitive object={deepRoot} />}
       {nerveRoot && <primitive object={nerveRoot} />}
       {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} />}
@@ -2942,6 +2973,11 @@ export default function AtlasViewer({
   };
 
   const clipEff = cut ? { axis: cut.axis, t: cut.position, flip: !!cut.flip } : clip;
+  // owner 2026-11-18: a sagittal cut within a few mm of the midline is drawn as the textbook midsagittal view (the medial
+  // surface of the hemisphere as a surface, only the midline structures cut), not as a tangential slice through medial gyri
+  const sagPos = clipEff.axis === "x" && !cut ? clipRange[0] + clipEff.t * (clipRange[1] - clipRange[0]) : null;
+  const nearMid = sagPos !== null && Math.abs(sagPos) < 0.005 && !multi;
+  const sceneClip = nearMid ? { ...clipEff, axis: "off" as const } : clipEff;
 
   // report the camera state to the host (view, multi-view, cut) for the 3D <-> MRI translation
   const camCb = useRef(onCameraState);
@@ -3012,11 +3048,11 @@ export default function AtlasViewer({
             solid={solid}
             mode={mode}
             showCtx={showCtx}
-            midsagittal={view === "midsagittal" && !multi}
+            midsagittal={(view === "midsagittal" && !multi) || nearMid}
             accent={colors.accent}
             dim={colors.dim}
             hoverColor={colors.hover}
-            clip={clipEff}
+            clip={sceneClip}
             clipRange={cut ? [0, 1] : clipRange}
             hover={active}
             quiz={quiz}

@@ -267,7 +267,7 @@ function canPlay(): boolean {
   return cfg.enabled && cfg.volume > 0 && unlocked && typeof document !== "undefined" && document.visibilityState === "visible";
 }
 
-const MIN_GAP: Record<string, number> = { key: 28, ui: 40, hint: 60, practical_tick: 400 };
+const MIN_GAP: Record<string, number> = { key: 28, typo: 60, ui: 40, hint: 60, practical_tick: 400 };
 
 /** Play the active theme's sound for an event (called by the feedback-bus subscriber and by previews). */
 export function play(name: string, payload: Payload = {}, opts: { force?: boolean; theme?: ThemeId } = {}): void {

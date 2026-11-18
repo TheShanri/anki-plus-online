@@ -4,6 +4,7 @@
 import type { CardStateRow } from "../fsrs.ts";
 import type { LearnerSettings } from "./settings.ts";
 import type { TrapSpot } from "./traps.ts";
+import { applyAnswerStyle } from "./answerstyle.ts";
 
 export type CardKind = "pin" | "theory" | "pathway" | "section" | "clinical" | "mcq" | "type_answer";
 export type AnswerFormat = "type" | "keywords" | "tf" | "choice";
@@ -156,7 +157,8 @@ export function toStudyCard(row: CardRow): StudyCard {
     };
   }
   const parts = toParts(c.parts, c.part_accept);
-  return {
+  // a keywords card whose answer is a term / short list is typed out live; only explanatory answers stay free text
+  return applyAnswerStyle<StudyCard>({
     id: row.id,
     slug: row.slug,
     kind,
@@ -183,7 +185,7 @@ export function toStudyCard(row: CardRow): StudyCard {
     followups: strs(c.followups),
     followupCards: strs(c.followup_cards),
     tags: [...strs(c.tags), ...((c.source as { type?: string } | null)?.type === "practical" ? ["practical"] : [])],
-  };
+  });
 }
 
 /** "Name the plane." answered "Coronal plane": the noun the prompt already says is optional ("Coronal"). */

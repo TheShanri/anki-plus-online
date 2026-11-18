@@ -19,6 +19,11 @@ function pad(v: Voice, ms: number[], at: number, dur: number, gain = 0.045) {
 
 export const synthwave: Pack = {
   key: (v, p) => blip(v, LADDER[Math.min(LADDER.length - 1, Math.floor(num(p, "progress") * (LADDER.length - 1)))], v.now(), 0.05, 0.06),
+  // a mistyped letter: a short detuned down-blip
+  typo: (v) => {
+    const t = v.now();
+    v.note(v.midi(52), t, 0.11, { type: "square", gain: 0.04, attack: 0.002, release: 0.09, cutoff: 1800, cutoffEnd: 600, glideTo: v.midi(47), rev: 0.08 });
+  },
   ui: (v) => blip(v, 79, v.now(), 0.045, 0.05),
   card_in: (v) => v.noise(v.now(), 0.2, { gain: 0.03, from: 200, to: 2600, q: 1.2, rev: 0.2, attack: 0.08 }),
   hint: (v) => {

@@ -5,6 +5,7 @@
 //
 // Event vocabulary (payloads are small and optional):
 //   key            a correct key in the answer box            { progress: 0..1 }
+//   typo           a key that makes the typed answer go wrong  { progress: 0..1 }
 //   hint           a ghost letter was revealed                 { auto: boolean, letters: number }
 //   correct        answer right                                { rating: 1..4, combo: number }
 //   easy           answer right, fast and flawless             { combo }
@@ -32,6 +33,7 @@
 
 export interface FeedbackPayloads {
   key: { progress?: number };
+  typo: { progress?: number };
   hint: { auto?: boolean; letters?: number };
   correct: { rating?: number; combo?: number };
   easy: { combo?: number };

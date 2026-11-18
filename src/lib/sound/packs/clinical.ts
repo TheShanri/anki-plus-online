@@ -20,6 +20,12 @@ function soft(v: Voice, midiN: number, at: number, gain = 0.1, dur = 0.28, to = 
 
 export const clinical: Pack = {
   key: (v, p) => tick(v, 1500 + num(p, "progress") * 900, 0.032),
+  // a mistyped letter: a soft low double tick, never a buzzer
+  typo: (v) => {
+    const t = v.now();
+    tick(v, 420, 0.05, t);
+    tick(v, 360, 0.035, t + 0.045);
+  },
   ui: (v) => tick(v, 1250, 0.045),
   card_in: (v) => v.noise(v.now(), 0.12, { gain: 0.012, from: 1500, to: 3200, q: 0.6, type: "bandpass", rev: 0.05, attack: 0.04 }),
   hint: (v) => {

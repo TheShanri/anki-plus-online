@@ -134,6 +134,13 @@ export class Typer {
   /** trap letters: max answer index a hint may reveal from `from` */
   hintStop: ((from: number) => number) | null = null;
   chunked = false;
+  /** keyword cards (src/lib/study/answerstyle.ts): for typed text that left every accepted form, the source index
+   *  up to which it is still on track (a phrasing the key ideas accept is never flagged as a mistype) */
+  lenient: ((typed: string) => { okEnd: number; done: boolean }) | null = null;
+  /** the typed text left every accepted form but `lenient` keeps it on track (no ghost letters then) */
+  offPath = false;
+  /** `lenient` says the key ideas are all there: Enter will count it right */
+  done = false;
   private typedC: Canon = { s: "", map: [] };
 
   constructor(o: TyperOptions) {
@@ -287,6 +294,17 @@ export class Typer {
     this.lcp = lcp;
     this.L = prefix ? Math.min(t.s.length, a.length) : lcp;
     this.typedOk = lcp < t.map.length ? t.map[lcp] : v.length;
+    this.offPath = false;
+    this.done = false;
+    if (this.state === "bad" && this.lenient) {
+      const r = this.lenient(v);
+      this.done = r.done;
+      if (r.okEnd >= v.length) {
+        this.state = "track";
+        this.offPath = true;
+        this.typedOk = v.length;
+      } else this.typedOk = Math.max(this.typedOk, r.okEnd);
+    }
     if (this.state === "bad" && prev !== "bad") {
       this.typos++;
       this.badSince = now;
@@ -308,12 +326,13 @@ export class Typer {
   }
 
   progress(): number {
+    if (this.offPath) return this.a.s.length ? Math.min(1, this.typedC.s.length / this.a.s.length) : 0;
     return this.a.s.length ? Math.min(1, this.L / this.a.s.length) : 0;
   }
 
   /** Reveal the next few letters as ghost text. Returns the number of letters revealed. */
   hint(now: number): number {
-    if (this.state === "match" || this.noHints) return 0;
+    if (this.state === "match" || this.noHints || this.offPath) return 0;
     const ans = this.answer;
     const from = Math.max(this.ghostPos(), this.hintEnd);
     const stop = this.hintStop ? Math.min(ans.length, this.hintStop(from)) : ans.length;
@@ -348,6 +367,7 @@ export class Typer {
 
   /** The ghost text to show after the caret. */
   ghost(): string {
+    if (this.offPath) return "";
     const pos = this.ghostPos();
     const ans = this.answer;
     if (this.mode === "retype") return ans.slice(pos);

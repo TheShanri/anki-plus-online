@@ -68,7 +68,13 @@ export function gradeExamCard(card: StudyCard, typed: string, spelling: ExamSpel
   if (card.format === "keywords" && card.keywords?.length) {
     return verdictFromKeywords(gradeKeywords(typed, card.keywords), typed);
   }
-  return gradeTyped(typed, { answer: card.answer, accept: card.accept, requireSide: card.requireSide }, { mode: "exam", spelling, knownNames, ownSlug });
+  const v = gradeTyped(typed, { answer: card.answer, accept: card.accept, requireSide: card.requireSide }, { mode: "exam", spelling, knownNames, ownSlug });
+  // a keywords card typed out as a term (src/lib/study/answerstyle.ts): a phrasing its key ideas accept still counts
+  if (v.result !== "correct" && card.keywords?.length) {
+    const k = verdictFromKeywords(gradeKeywords(typed, card.keywords), typed);
+    if (k.result === "correct") return k;
+  }
+  return v;
 }
 
 /** A station is worth 1 point for the name plus 1 per follow-up. */

@@ -6,6 +6,7 @@ import { answerVariants, decorativeKeys } from "./variants.ts";
 import { DEFAULT_CANON, diffOps, type DiffOp } from "./text.ts";
 import { gradeTyped, gradeKeywords, verdictFromKeywords, type Verdict } from "./grade.ts";
 import { Typer } from "./typer.ts";
+import { keywordTrack, vocabularyOf } from "./answerstyle.ts";
 import { TrapGuard, GuardGroup, type GuardEvent, type GuardLike } from "./trapguard.ts";
 import { PartBoxes, spotsForPart, type PartResult } from "./parts.ts";
 import { type Attempt, type TrapSpot } from "./traps.ts";
@@ -264,7 +265,27 @@ export class StudyEngine {
   }
   changed(): void {
     this.version++;
+    this.keyVersion++;
     for (const l of this.listeners) l();
+    for (const l of this.keyListeners) l();
+  }
+  /** Keystroke-level changes (the typed letters, their colours, the meter): only the answer box re-renders. */
+  keyVersion = 0;
+  private keyListeners = new Set<() => void>();
+  subscribeKeys(fn: () => void): () => void {
+    this.keyListeners.add(fn);
+    return () => this.keyListeners.delete(fn);
+  }
+  keyed(): void {
+    this.keyVersion++;
+    for (const l of this.keyListeners) l();
+  }
+  /** Per-key sound events (desktop ANKI+): a tick for every right letter typed (not for deletions), a soft
+   *  error the moment a letter goes wrong. */
+  private keyFeedback(t: Typer, before: string, grew: boolean): void {
+    if (!grew) return;
+    if (t.state === "track" || (t.state === "match" && before !== "match")) this.emit("key", { progress: t.progress() });
+    else if (t.state === "bad" && before !== "bad") this.emit("typo", { progress: t.progress() });
   }
   say(text: string): void {
     this.toast = { text, at: this.deps.now() };
@@ -504,6 +525,12 @@ export class StudyEngine {
       });
       typer.chunked = /\s/.test(card.answer.trim());
       if (practice) typer.mask = (answer, from, hintEnd) => scaffold(answer, from, step, hintEnd);
+      // a typed-out keywords card (answerstyle.ts): a phrasing its key ideas accept is never flagged as a mistype
+      const groups = card.keywords;
+      if (groups?.length && !practice) {
+        const vocab = vocabularyOf(card);
+        typer.lenient = (v) => keywordTrack(v, groups, vocab);
+      }
       if (sc.traps && !practice && !isFirstLook) {
         spots = this.traps.get(card.id) ?? [];
         if (spots.length) guard = new TrapGuard(typer, spots, { gate: sc.focus, light: false }, "typing", this.sessionMisses);
@@ -659,20 +686,25 @@ export class StudyEngine {
     const now = this.deps.now();
     this.activity();
     if (c.mode === "keywords") {
+      // free text (an explanatory answer): typing sounds, no per-letter verdict
+      const grew = value.length > c.typed.length;
       c.typed = value;
-      this.changed();
+      if (grew) this.emit("key", { progress: c.card.answer ? Math.min(1, value.length / c.card.answer.length) : 0 });
+      this.keyed();
       return;
     }
     if (c.multi) return this.inputBox(c.multi.active, value);
     const t = c.typer;
     if (!t) return;
     const before = t.state;
+    const grew = value.length > t.typed.length;
     t.set(value, now);
-    if (c.guard) for (const ev of c.guard.update(now)) this.onGuard(ev);
-    if (t.state === "track" || t.state === "match") {
-      if (value.length > 0 && before !== "match") this.emit("key", { progress: t.progress() });
-    }
-    this.changed();
+    const guardEvents = c.guard ? c.guard.update(now) : [];
+    for (const ev of guardEvents) this.onGuard(ev);
+    this.keyFeedback(t, before, grew);
+    // a keystroke repaints only the answer box and its meter (keyed); a trap event changes the card around it
+    if (guardEvents.length || c.guard?.armed) this.changed();
+    else this.keyed();
     if (t.state === "match" && t.params.autoSubmitOnMatch && !t.extendable) {
       const v = this.judge(c);
       // a right name that still lacks the side is not done yet: let the student add it
@@ -696,17 +728,19 @@ export class StudyEngine {
     this.setBoxActive(c, i, now);
     const t = m.boxes[i];
     const before = t.state;
+    const grew = value.length > t.typed.length;
+    const activeBefore = m.active;
     m.input(i, value, now);
-    if (c.guard) for (const ev of c.guard.update(now)) this.onGuard(ev);
-    if (t.state === "track" || t.state === "match") {
-      if (value.length > 0 && before !== "match") this.emit("key", { progress: t.progress() });
-    }
+    const guardEvents = c.guard ? c.guard.update(now) : [];
+    for (const ev of guardEvents) this.onGuard(ev);
+    this.keyFeedback(t, before, grew);
     // a finished box hands the caret to the next one that still needs an answer
     if (m.complete(i) && !m.allComplete()) {
       const nx = m.nextOpen(i);
       if (nx >= 0) this.setBoxActive(c, nx, now);
     }
-    this.changed();
+    if (guardEvents.length || c.guard?.armed || m.active !== activeBefore) this.changed();
+    else this.keyed();
     if (m.allComplete() && t.params.autoSubmitOnMatch) {
       const v = this.judge(c);
       if (!(v.result === "wrong" && v.kind === "side")) {
@@ -801,7 +835,13 @@ export class StudyEngine {
     if (c.multi) return c.multi.grade().verdict;
     const typed = c.typer?.typed ?? c.typed;
     if (c.mode === "keywords" && c.card.keywords) return verdictFromKeywords(gradeKeywords(typed, c.card.keywords), typed);
-    return gradeTyped(typed, { answer: c.card.answer, accept: c.card.accept, requireSide: c.card.requireSide }, { knownNames: this.names, ownSlug: c.structure?.slug ?? null });
+    const v = gradeTyped(typed, { answer: c.card.answer, accept: c.card.accept, requireSide: c.card.requireSide }, { knownNames: this.names, ownSlug: c.structure?.slug ?? null });
+    // a keywords card typed out as a term: a phrasing its key ideas accept still counts as right
+    if (v.result !== "correct" && c.card.keywords?.length) {
+      const k = verdictFromKeywords(gradeKeywords(typed, c.card.keywords), typed);
+      if (k.result === "correct") return { ...k, matched: c.card.answer };
+    }
+    return v;
   }
 
   // ------------------------------------------------------------------ submitting
@@ -1003,19 +1043,25 @@ export class StudyEngine {
     const bt = boxes ? boxes[box] : r.typer;
     if (!bt) return;
     if (boxes) r.typer = bt;
+    const before = bt.state;
+    const grew = value.length > bt.typed.length;
     bt.set(value, now);
-    if (bt.state === "track" || bt.state === "match") this.emit("key", { progress: bt.progress() });
+    this.keyFeedback(bt, before, grew);
     if (boxes && !boxes.every((b) => b.state === "match")) {
       // a finished box hands the caret on to the next one still open
       if (bt.state === "match") {
         const nx = boxes.findIndex((b, k) => k > box && b.state !== "match");
         const open = nx >= 0 ? nx : boxes.findIndex((b) => b.state !== "match");
         if (open >= 0) r.typer = boxes[open];
-      }
-      this.changed();
+        this.changed();
+      } else this.keyed();
       return;
     }
-    if (r.typer.state === "match") {
+    if (r.typer.state !== "match") {
+      this.keyed();
+      return;
+    }
+    {
       r.repsLeft--;
       if (r.repsLeft > 0 && r.kind === "reps") {
         this.emit("save");

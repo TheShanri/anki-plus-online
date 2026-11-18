@@ -23,6 +23,8 @@ const PENT = [72, 74, 76, 79, 81, 84, 86, 88, 91];
 
 export const academia: Pack = {
   key: (v) => scratch(v),
+  // a mistyped letter: the quill catches (a dull tap on wood)
+  typo: (v) => knock(v, 150, v.now(), 0.09),
   ui: (v) => {
     const t = v.now();
     v.note(540, t, 0.05, { type: "sine", gain: 0.06, attack: 0.001, release: 0.045, glideTo: 380, rev: 0.1 });

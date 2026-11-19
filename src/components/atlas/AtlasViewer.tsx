@@ -25,7 +25,7 @@ import type { CutPlaneName } from "./ui/structureCut";
 import type { CamState } from "./ui/translate";
 import type { SkullFocus } from "@/lib/atlas/catalog";
 import { BrainstemBreathDriver, onBrainstemBreath } from "./brainstem/plate/pulse";
-import { SectionFace } from "./section/SectionFace";
+import { SectionFace, prewarmSectionCaps } from "./section/SectionFace";
 import { DEEP, SectionOutlines, addSectionPaint, makeSectionPaint, tintPaint } from "./section/deep";
 import { planeSection } from "./section/geometry";
 import { sectionPalette, sectionSwatch, useSectionTheme } from "./section/palette";
@@ -168,6 +168,17 @@ function setPlanes(m: THREE.MeshStandardMaterial, planes: THREE.Plane[], alwaysD
   m.clippingPlanes = planes;
   m.side = alwaysDouble || planes.length ? THREE.DoubleSide : THREE.FrontSide;
   m.needsUpdate = true;
+}
+
+/** A plane that clips nothing. Materials that carry the heavy section shader always get the same number of clipping
+ * planes (padded with this), so turning a cut on or off never recompiles them: three.js keys its programs on the plane
+ * count, and the first cut used to stall ~1-2 s compiling them again. */
+const INERT_PLANE = new THREE.Plane(new THREE.Vector3(0, 1, 0), 1e4);
+const PAD_PLANES = 2;
+function padPlanes(planes: THREE.Plane[], n = PAD_PLANES): THREE.Plane[] {
+  const out = planes.slice(0, n);
+  while (out.length < n) out.push(INERT_PLANE);
+  return out;
 }
 
 function capOpacity(m: THREE.Material, cap: number | undefined) {
@@ -812,8 +823,9 @@ function configureGross(
     m.opacity = op;
     m.depthWrite = op >= 1; // translucent layers never write depth, so what sits inside them stays visible
     // the lower medulla is an open thin tube (it read as a dark stalk): the brainstem material stops where the medulla stops being a solid body
-    m.clippingPlanes = k === "brainstem" ? [...planes, MEDULLA_CUT] : planes;
-    m.side = planes.length || k === "brainstem" ? THREE.DoubleSide : THREE.FrontSide;
+    m.clippingPlanes = k === "brainstem" ? [...padPlanes(planes), MEDULLA_CUT] : padPlanes(planes);
+    // opaque: always double-sided (the back faces of a closed shell never show), so the side does not change with the cut
+    m.side = planes.length || k === "brainstem" || op >= 1 ? THREE.DoubleSide : THREE.FrontSide;
     m.needsUpdate = true;
   }
   styleHull(hull, look === "regions" ? "#3a3646" : "#6a4e46", solid && op >= 1 && planes.length === 0); // outlines are off while cut: their back faces would show through the section
@@ -1418,6 +1430,8 @@ function Scene({
 }) {
   const invalidate = useThree((s) => s.invalidate);
   const gl = useThree((s) => s.gl);
+  const camera = useThree((s) => s.camera);
+  const scene = useThree((s) => s.scene);
   const sidePlanes = useMemo(() => ({ L: new THREE.Plane(new THREE.Vector3(1, 0, 0), 0), R: new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0) }), []);
   const clipPlane = useMemo(() => new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0), []);
   const cutP = useMemo(() => new THREE.Plane(), []);
@@ -1810,6 +1824,9 @@ function Scene({
   // 2026-11-18: "5-10 seconds before it loads, and huge lag when cross section is selected"). Desktop only (phones fetch
   // on the first cut, as before).
   useEffect(() => {
+    if (process.env.NODE_ENV !== "production") (window as unknown as { __atlasGl?: unknown }).__atlasGl = gl; // perf probes
+  }, [gl]);
+  useEffect(() => {
     if (!gross || typeof window === "undefined" || !window.matchMedia?.("(pointer: fine) and (min-width: 900px)").matches) return;
     let cancelled = false;
     const idle = (fn: () => void) => {
@@ -1826,12 +1843,14 @@ function Scene({
         if (cancelled) return;
         if (tex) gl.initTexture(tex);
       }
+      await nextIdle();
+      if (!cancelled) await prewarmSectionCaps(gl, camera, scene).catch(() => undefined);
     }, 2500);
     return () => {
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [gross, gl]);
+  }, [gross, gl, camera, scene]);
   useEffect(() => {
     setSectionActive(labelsOn, capPlanes, midsagittal ? clipPlane : null, showBrainstem);
   });
@@ -1859,9 +1878,10 @@ function Scene({
       setPlanes(m, sd ? [...own, sidePlanes[sd]] : own, true);
     });
     setPlanes(backMat, gp);
-    Object.values(deepMats).forEach((m) => setPlanes(m, gp, true));
+    const gpPad = padPlanes(gp);
+    Object.values(deepMats).forEach((m) => setPlanes(m, gpPad, true));
     for (const m of [...Object.values(paintMats), targetPaint, bsClearMat]) {
-      m.clippingPlanes = gp;
+      m.clippingPlanes = gpPad;
       m.needsUpdate = true;
     }
     setSectionPlanes(gp, midsagittal ? clipPlane : null);

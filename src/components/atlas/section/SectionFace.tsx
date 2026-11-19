@@ -115,3 +115,23 @@ function tissueCap(m: THREE.MeshBasicMaterial, kind: Kind) {
   };
   m.customProgramCacheKey = () => "atlas-section-cap-" + kind;
 }
+
+/**
+ * Compile the cap shaders before the first cut (they carry the whole section shader, ~0.5 s to compile): materials built
+ * like SectionFace's, on a throwaway quad, compiled with the renderer's parallel compile against the live scene's lights.
+ */
+export async function prewarmSectionCaps(gl: THREE.WebGLRenderer, camera: THREE.Camera, scene: THREE.Scene) {
+  const sc = new THREE.Scene();
+  const geo = new THREE.PlaneGeometry(0.001, 0.001);
+  const mats: THREE.MeshBasicMaterial[] = [];
+  for (const kind of ["plain", "midline", "medial"] as Kind[]) {
+    const m = new THREE.MeshBasicMaterial({ color: "#ffffff", side: THREE.DoubleSide, depthWrite: false, clippingPlanes: [], toneMapped: false, stencilWrite: true });
+    tissueCap(m, kind);
+    mats.push(m);
+    sc.add(new THREE.Mesh(geo, m));
+  }
+  await gl.compileAsync(sc, camera, scene);
+  // kept alive: three.js releases a program when the last material using it is disposed
+  warm.push(...mats);
+}
+const warm: THREE.Material[] = [];

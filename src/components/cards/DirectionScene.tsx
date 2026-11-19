@@ -13,6 +13,7 @@
  */
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
+import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
 import { loadAtlasModel } from "@/lib/atlas/loader";
@@ -30,7 +31,7 @@ export interface DirectionSceneProps {
   compact?: boolean;
 }
 
-const FILE: Record<SceneSubject, string> = { animal: "directions/animal.glb?v=2", human: "directions/human.glb?v=3", brain: "gross.glb" };
+const FILE: Record<SceneSubject, string> = { animal: "directions/animal.glb?v=3", human: "directions/human.glb?v=3", brain: "gross.glb" };
 const INK = "#e0a23a";
 
 type V3 = THREE.Vector3;
@@ -68,6 +69,10 @@ type Drawing = {
   labelAt: V3;
   /** camera direction (from the subject toward the camera) */
   view: V3;
+  /** arrow shaft radius as a fraction of the subject's size (default 0.017) */
+  w?: number;
+  /** the subject is drawn see-through (an arrow inside the body) */
+  seeThrough?: boolean;
 };
 
 function drawing(subject: SceneSubject, show: string, f: Frame): Drawing {
@@ -155,54 +160,123 @@ function drawing(subject: SceneSubject, show: string, f: Frame): Drawing {
       return out;
     }
     const d: Record<string, V3> = { rostral: v(0, 0, 1), anterior: v(0, 0, 1), cranial: v(0, 0, 1), caudal: v(0, 0, -1), posterior: v(0, 0, -1), dorsal: v(0, 1, 0), superior: v(0, 1, 0), ventral: v(0, -1, 0), inferior: v(0, -1, 0) };
-    const from = /rostral|anterior|cranial/.test(term) ? head : /caudal|posterior/.test(term) ? tail : /ventral|inferior/.test(term) ? v(c.x, mid.y - S.y * 0.12, mid.z) : mid;
-    arrow(from, d[term] ?? v(0, 0, 1), 0.3 * L);
+    // each arrow starts just off the body surface it points away from (tip of the nose, the rump, the back, the belly)
+    const gap = L * 0.012;
+    const body = f.pts.filter((p) => p.y > legTop);
+    const near = (z: number) => body.filter((p) => Math.abs(p.z - z) < S.z * 0.03 && Math.abs(p.x - c.x) < S.x * 0.2);
+    const nose = body.reduce((a, p) => (p.z > a.z ? p : a), body[0]);
+    const rumpY = tail.y;
+    const rump = body.filter((p) => Math.abs(p.y - rumpY) < S.y * 0.06).reduce((a, p) => (p.z < a.z ? p : a), tail);
+    const slice = near(mid.z);
+    const back = slice.length ? Math.max(...slice.map((p) => p.y)) : mid.y + S.y * 0.08;
+    const belly = slice.length ? Math.min(...slice.map((p) => p.y)) : mid.y - S.y * 0.12;
+    const from = /rostral|anterior|cranial/.test(term) ? v(c.x, nose.y, nose.z + gap)
+      : /caudal|posterior/.test(term) ? v(c.x, rump.y, rump.z - gap)
+      : /ventral|inferior/.test(term) ? v(c.x, belly - gap, mid.z)
+      : v(c.x, back + gap, mid.z);
+    arrow(from, d[term] ?? v(0, 0, 1), 0.22 * L);
     return out;
   }
 
-  // human body (standing, anatomical position); the Z-Anatomy skin faces +z (FZ: its front along z)
-  const FZ = 1;
-  const fwd = v(0, 0, FZ);
-  const chest = v(c.x, box.min.y + S.y * 0.7, c.z);
-  const side = c.x + S.x * 0.36; // one arm (anatomical position: palms forward)
-  const trunkEdge = c.x + S.x * 0.17; // the side of the trunk on that arm's side
-  out.view = v(0.3, 0.12, FZ).normalize(); // from the front, a little to that side
+  // human body (standing, anatomical position); the Z-Anatomy skin faces +z. Every arrow is thin and sits on the skin
+  // it describes (owner 2026-11-18: "tighter and more specific"): it starts and ends on, or just off, the surface.
+  const H = S.y;
+  out.w = 0.0068;
+  const fwd = v(0, 0, 1);
+  const gap = H * 0.004;
+  const Y = (t: number) => box.min.y + H * t;
+  const near = (x: number, y: number, r = 0.012) => f.pts.filter((p) => Math.abs(p.x - x) < H * r && Math.abs(p.y - y) < H * r);
+  const front = (x: number, y: number) => { const q = near(x, y, 0.007); return q.length ? Math.max(...q.map((p) => p.z)) : c.z + S.z * 0.3; };
+  const back = (x: number, y: number) => { const q = near(x, y, 0.007); return q.length ? Math.min(...q.map((p) => p.z)) : c.z - S.z * 0.3; };
+  // the trunk's edge on the +x side at height y: walk out from the midline to the first empty gap (the arm hangs beyond it)
+  const trunkEdge = (y: number) => {
+    const bin = H * 0.006;
+    const occ = new Set(f.pts.filter((p) => Math.abs(p.y - y) < H * 0.01).map((p) => Math.round((p.x - c.x) / bin)));
+    let k = 0;
+    while (occ.has(k + 1) || occ.has(k + 2)) k++;
+    return c.x + (k + 0.5) * bin;
+  };
+  const limb = (y: number) => {
+    const e = trunkEdge(y);
+    const q = f.pts.filter((p) => Math.abs(p.y - y) < H * 0.01 && p.x > e + H * 0.004);
+    if (!q.length) return null;
+    const xs = q.map((p) => p.x), zs = q.map((p) => p.z);
+    return { x: (Math.min(...xs) + Math.max(...xs)) / 2, z: (Math.min(...zs) + Math.max(...zs)) / 2, x0: Math.min(...xs), x1: Math.max(...xs), zf: Math.max(...zs) };
+  };
+  const seg = (a: V3, b: V3) => {
+    out.arrows.push({ from: a, to: b });
+    out.labelAt = b.clone().add(b.clone().sub(a).normalize().multiplyScalar(H * 0.06));
+  };
+  out.view = v(0.3, 0.12, 1).normalize(); // from the front, a little to the arm's side
   if (kind === "median") {
     out.plane = { at: c.clone(), normal: v(1, 0, 0), w: S.z * 1.6, h: S.y * 1.05 };
     out.labelAt = c.clone().add(v(0, S.y * 0.56, 0));
     return out;
   }
   if (kind === "pair") {
-    const hand = v(c.x + S.x * 0.42, box.min.y + S.y * 0.47, c.z);
-    const footSame = v(c.x + S.x * 0.12, box.min.y + S.y * 0.04, c.z + FZ * S.z * 0.1);
-    const footOther = v(c.x - S.x * 0.12, box.min.y + S.y * 0.04, c.z + FZ * S.z * 0.1);
-    out.dots = [hand, term === "contralateral" ? footOther : footSame];
-    out.labelAt = hand.clone().add(v(S.x * 0.15, 0, 0));
+    const hand = limb(Y(0.46));
+    const handAt = hand ? v(hand.x, Y(0.46), hand.zf) : v(c.x + S.x * 0.42, Y(0.46), c.z);
+    const foot = (sgn: number) => {
+      const q = f.pts.filter((p) => p.y < Y(0.03) && (p.x - c.x) * sgn > 0);
+      if (!q.length) return v(c.x + sgn * S.x * 0.12, Y(0.02), c.z);
+      const top = q.reduce((m, p) => (p.z > m.z ? p : m));
+      return v(top.x, Y(0.025), top.z - H * 0.03);
+    };
+    out.dots = [handAt, foot(term === "contralateral" ? -1 : 1)];
+    out.labelAt = handAt.clone().add(v(S.x * 0.15, 0, 0));
     return out;
   }
   if (/medial|lateral/.test(term)) {
-    // a short arrow on the arm: toward the midline (medial) or away from it (lateral); it never crosses the body
-    const y = box.min.y + S.y * 0.6;
-    if (term === "medial") arrow(v(side + S.x * 0.2, y, c.z + FZ * S.z * 0.3), v(-1, 0, 0), side + S.x * 0.2 - trunkEdge);
-    else arrow(v(trunkEdge, y, c.z + FZ * S.z * 0.3), v(1, 0, 0), side + S.x * 0.2 - trunkEdge);
+    // across the front of the chest, at the nipple line: toward the midline (medial) or away from it (lateral)
+    const y = Y(0.72);
+    const xin = c.x + H * 0.02, xout = c.x + H * 0.12;
+    const z = Math.max(front(xin, y), front(xout, y), front((xin + xout) / 2, y)) + gap;
+    if (term === "medial") seg(v(xout, y, z), v(xin, y, z));
+    else seg(v(xin, y, z), v(xout, y, z));
     return out;
   }
   if (/proximal|distal/.test(term)) {
-    const arm = v(side, box.min.y + S.y * 0.64, c.z + FZ * S.z * 0.25);
-    arrow(arm, term === "proximal" ? v(0, 1, 0) : v(0, -1, 0), 0.2 * L);
+    // along the front of the arm, from the forearm to the upper arm (proximal) or back down (distal)
+    const lo = limb(Y(0.52)), hi = limb(Y(0.66));
+    const a = lo ? v(lo.x, Y(0.52), lo.zf + gap) : v(c.x + S.x * 0.36, Y(0.52), c.z + S.z * 0.25);
+    const b = hi ? v(hi.x, Y(0.66), hi.zf + gap) : v(c.x + S.x * 0.33, Y(0.66), c.z + S.z * 0.25);
+    if (term === "proximal") seg(a, b);
+    else seg(b, a);
     return out;
   }
   if (/superficial|deep/.test(term)) {
-    const thighSkin = v(c.x + S.x * 0.15, box.min.y + S.y * 0.32, c.z + FZ * S.z * 0.42);
-    const inside = v(c.x + S.x * 0.15, box.min.y + S.y * 0.32, c.z);
-    out.view = v(1, 0.15, FZ * 0.6).normalize();
-    if (term === "deep") arrow(thighSkin.clone().addScaledVector(fwd, S.z * 0.45), fwd.clone().negate(), S.z * 0.85);
-    else arrow(inside, fwd, S.z * 0.95);
+    // the thigh, seen through the skin: from its core (the femur) out to the skin, or from the skin in to the core
+    out.seeThrough = true;
+    out.w = 0.008;
+    const y = Y(0.345);
+    const q = f.pts.filter((p) => Math.abs(p.y - y) < H * 0.008 && p.x > c.x + H * 0.01);
+    const xs = q.map((p) => p.x), zs = q.map((p) => p.z);
+    const cx = q.length ? (Math.min(...xs) + Math.max(...xs)) / 2 : c.x + S.x * 0.12;
+    const cz = q.length ? (Math.min(...zs) + Math.max(...zs)) / 2 : c.z;
+    const skin = front(cx, y);
+    const core = v(cx, y, cz), surf = v(cx, y, skin);
+    out.view = v(1, 0.1, 0.12).normalize(); // from the side: the arrow runs across the view
+    if (term === "deep") seg(surf.clone().add(v(0, 0, gap * 4)), core);
+    else seg(core, surf);
     return out;
   }
-  const d: Record<string, V3> = { superior: v(0, 1, 0), inferior: v(0, -1, 0), anterior: fwd, ventral: fwd, posterior: fwd.clone().negate(), dorsal: fwd.clone().negate(), rostral: v(0, 1, 0), caudal: v(0, -1, 0) };
-  if (/anterior|ventral|posterior|dorsal/.test(term)) out.view = v(1, 0.15, FZ * 0.15).normalize();
-  arrow(chest, d[term] ?? v(0, 1, 0), (/anterior|ventral|posterior|dorsal/.test(term) ? 0.32 : 0.3) * L);
+  if (/anterior|ventral|posterior|dorsal/.test(term)) {
+    // straight off the chest wall (anterior) or the back (posterior), seen from the side
+    const y = Y(0.7);
+    const x = c.x + H * 0.04;
+    out.view = v(1, 0.15, 0.15).normalize();
+    if (/anterior|ventral/.test(term)) { const z = front(x, y) + gap; seg(v(x, y, z), v(x, y, z + H * 0.1)); }
+    else { const z = back(x, y) - gap; seg(v(x, y, z), v(x, y, z - H * 0.1)); }
+    return out;
+  }
+  // superior / inferior: along the front of the trunk, from the belly up toward the head, or down toward the feet
+  const x = c.x + H * 0.04;
+  const ya = Y(0.6), yb = Y(0.74);
+  const za = front(x, ya) + gap, zb = front(x, yb) + gap;
+  const z = Math.max(za, zb);
+  void fwd;
+  if (/inferior|caudal/.test(term)) seg(v(x, yb, z), v(x, ya, z));
+  else seg(v(x, ya, z), v(x, yb, z));
   return out;
 }
 
@@ -245,7 +319,7 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
       g.traverse((o) => {
         const m = o as THREE.Mesh;
         if (!m.isMesh) return;
-        const tone = subject === "human" ? "#d9c3b0" : subject === "animal" ? "#c9b8a2" : "#d9b4a8";
+        const tone = subject === "human" ? "#d9c3b0" : subject === "animal" ? "#a0704c" : "#d9b4a8"; // the horse: a chestnut coat
         // the brain keeps its baked sulcal shading (vertex colours) under a warm brain tone, like the atlas
         m.material = new THREE.MeshStandardMaterial({ color: tone, roughness: 0.8, flatShading: false, vertexColors: subject === "brain" && !!m.geometry.getAttribute("color") });
         // brainstem cards and the neuraxis: the cerebrum turns see-through so the brainstem and the bend read
@@ -263,9 +337,19 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
   useEffect(() => {
     if (f && d) onFrame(f, d);
   }, [f, d, onFrame]);
+  // an arrow inside the body (superficial / deep): the skin turns see-through around it
+  useEffect(() => {
+    if (!obj || subject === "brain") return;
+    obj.traverse((o) => {
+      const m = (o as THREE.Mesh).material as THREE.MeshStandardMaterial | undefined;
+      if (!(o as THREE.Mesh).isMesh || !m) return;
+      Object.assign(m, d?.seeThrough ? { transparent: true, opacity: 0.5, depthWrite: false } : { transparent: false, opacity: 1, depthWrite: true });
+      m.needsUpdate = true;
+    });
+  }, [obj, d, subject]);
   if (!obj || !f || !d) return null;
   const L = Math.max(f.size.x, f.size.y, f.size.z);
-  const w = L * 0.017;
+  const w = L * (d.w ?? 0.017);
   return (
     <group>
       <primitive object={obj} />
@@ -280,7 +364,8 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
         </mesh>
       ))}
       {d.plane && <PlaneSheet {...d.plane} />}
-      {subject === "human" && <Trunks f={f} />}
+      {subject === "human" && <Shorts obj={obj} f={f} />}
+      {subject === "human" && <Eyes f={f} tone="#b49a86" />}
       {subject === "animal" && <GradCap f={f} />}
       {subject === "animal" && <Sneakers f={f} />}
       {reveal && label && (
@@ -292,28 +377,107 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
   );
 }
 
-/** Plain swim trunks over the pelvis (owner 2026-11-18): an anatomy figure, not a nude. Fitted to the hips of this model. */
-function Trunks({ f }: { f: Frame }) {
-  const geo = useMemo(() => {
+/** Shorts over the pelvis (owner 2026-11-18: an anatomy figure, not a nude; "wtf are these pants" to a plain cylinder):
+ * the skin itself between the waist and mid-thigh, lifted a few millimetres along its normals, so the cloth follows the
+ * hips, the buttocks and each thigh. The hands hanging beside the thighs are left out (only the trunk's span counts). */
+function Shorts({ obj, f }: { obj: THREE.Object3D; f: Frame }) {
+  const made = useMemo(() => {
     const H = f.size.y;
-    const y0 = f.box.min.y + H * 0.405;
-    const y1 = f.box.min.y + H * 0.545;
-    const sl = f.pts.filter((p) => p.y > y0 && p.y < y1 && Math.abs(p.x - f.c.x) < f.size.x * 0.28);
-    if (!sl.length) return null;
-    const xs = sl.map((p) => p.x), zs = sl.map((p) => p.z);
-    const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cz = (Math.min(...zs) + Math.max(...zs)) / 2;
-    const rx = ((Math.max(...xs) - Math.min(...xs)) / 2) * 1.05, rz = ((Math.max(...zs) - Math.min(...zs)) / 2) * 1.12;
-    const g = new THREE.CylinderGeometry(1, 0.93, y1 - y0, 48, 1, true);
-    g.scale(rx, 1, rz);
-    g.translate(cx, (y0 + y1) / 2, cz);
-    return g;
-  }, [f]);
-  useEffect(() => () => geo?.dispose(), [geo]);
-  if (!geo) return null;
+    const y0 = f.box.min.y + H * 0.39; // hem, mid-thigh
+    const y1 = f.box.min.y + H * 0.565; // waistband
+    // the trunk's half-width at the hips: walk out from the midline over a fine x-histogram to the first empty gap
+    const band = f.pts.filter((p) => Math.abs(p.y - (f.box.min.y + H * 0.5)) < H * 0.02);
+    const bin = H * 0.006;
+    const occ = new Set(band.map((p) => Math.round((p.x - f.c.x) / bin)));
+    let half = 0;
+    while (occ.has(half + 1) || occ.has(half + 2)) half++;
+    let halfL = 0;
+    while (occ.has(-(halfL + 1)) || occ.has(-(halfL + 2))) halfL++;
+    const xMax = f.c.x + (half + 0.5) * bin, xMin = f.c.x - (halfL + 0.5) * bin;
+    const lift = H * 0.005;
+    const pos: number[] = [];
+    obj.updateMatrixWorld(true);
+    obj.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      const P = m.geometry.getAttribute("position"), I = m.geometry.getIndex();
+      const cnt = I ? I.count : P.count;
+      const a = new THREE.Vector3();
+      const tri: number[] = [];
+      for (let t = 0; t < cnt; t += 3) {
+        tri.length = 0;
+        let ok = true;
+        for (let k = 0; k < 3; k++) {
+          a.fromBufferAttribute(P, I ? I.getX(t + k) : t + k).applyMatrix4(m.matrixWorld);
+          // a margin past the hem and waist: the clipping planes cut the cloth to a clean straight edge
+          if (a.y < y0 - H * 0.02 || a.y > y1 + H * 0.02 || a.x < xMin || a.x > xMax) { ok = false; break; }
+          tri.push(a.x, a.y, a.z);
+        }
+        if (ok) pos.push(...tri);
+      }
+    });
+    if (!pos.length) return null;
+    // weld first, then smooth normals: the cloth is lifted along one continuous normal field (no shredding)
+    const raw = new THREE.BufferGeometry();
+    raw.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    const g = mergeVertices(raw, H * 0.0005);
+    g.computeVertexNormals();
+    const P = g.getAttribute("position"), N = g.getAttribute("normal");
+    for (let i = 0; i < P.count; i++) P.setXYZ(i, P.getX(i) + N.getX(i) * lift, P.getY(i) + N.getY(i) * lift, P.getZ(i) + N.getZ(i) * lift);
+    // a modest front: below the waist the cloth hangs straight across the groin (no shape shows through), easing into the
+    // fitted cut toward the thighs and the hips
+    // the groin's most forward point: the front panel hangs flat at that depth, so no shape shows through the cloth
+    const groin = f.pts.filter((p) => p.y > f.box.min.y + H * 0.42 && p.y < y1 - H * 0.03 && Math.abs(p.x - f.c.x) < H * 0.05);
+    const groinFront = groin.length ? Math.max(...groin.map((p) => p.z)) : f.c.z + H * 0.06;
+    for (let i = 0; i < P.count; i++) {
+      const dx = Math.abs(P.getX(i) - f.c.x) / (H * 0.075);
+      const z = P.getZ(i);
+      if (dx >= 1 || z <= f.c.z) continue;
+      const yy = P.getY(i);
+      if (yy > y1 - H * 0.035) continue; // the belly above the groin keeps its shape
+      const k = (1 - dx * dx) ** 2; // 1 at the midline, 0 at the sides
+      const cap = groinFront + lift * 2;
+      if (z < cap) P.setZ(i, z + (cap - z) * k);
+    }
+    g.computeVertexNormals();
+    const planes = [new THREE.Plane(new THREE.Vector3(0, 1, 0), -y0), new THREE.Plane(new THREE.Vector3(0, -1, 0), y1)];
+    return { g, planes };
+  }, [obj, f]);
+  useEffect(() => () => made?.g.dispose(), [made]);
+  if (!made) return null;
   return (
-    <mesh geometry={geo}>
-      <meshStandardMaterial color="#8496a2" roughness={0.85} side={THREE.DoubleSide} />
+    <mesh geometry={made.g}>
+      <meshStandardMaterial color="#3f5b74" roughness={0.9} side={THREE.DoubleSide} clippingPlanes={made.planes} />
     </mesh>
+  );
+}
+
+/** Eyes: the Z-Anatomy skin has open eye slits (dark holes); a sculpture's eyeballs in the skin tone close them. */
+function Eyes({ f, tone }: { f: Frame; tone: string }) {
+  const eyes = useMemo(() => {
+    const H = f.size.y;
+    const top = f.box.max.y;
+    const yE = top - H * 0.068;
+    const out: V3[] = [];
+    for (const s of [-1, 1]) {
+      const xE = f.c.x + s * H * 0.018;
+      const col = f.pts.filter((p) => Math.abs(p.x - xE) < H * 0.008 && Math.abs(p.y - yE) < H * 0.02);
+      if (!col.length) continue;
+      const zf = Math.max(...col.map((p) => p.z));
+      out.push(v(xE, yE, zf - H * 0.011));
+    }
+    return out;
+  }, [f]);
+  const r = f.size.y * 0.0072;
+  return (
+    <>
+      {eyes.map((p, i) => (
+        <mesh key={i} position={p}>
+          <sphereGeometry args={[r, 24, 16]} />
+          <meshStandardMaterial color={tone} roughness={0.9} />
+        </mesh>
+      ))}
+    </>
   );
 }
 
@@ -449,7 +613,7 @@ export default function DirectionScene(p: DirectionSceneProps) {
   const onFrame = useMemo(() => (f: Frame, d: Drawing) => setFrame({ f, d }), []);
   return (
     <div className={`dir-scene${p.compact ? " compact" : ""}`} aria-label={p.reveal && p.label ? `3D model: ${p.label}` : "3D model with a highlighted direction"}>
-      <Canvas dpr={[1, 2]} camera={{ fov: 32, position: [1, 0.3, 0.3] }} gl={{ antialias: true }}>
+      <Canvas dpr={[1, 2]} camera={{ fov: 32, position: [1, 0.3, 0.3] }} gl={{ antialias: true, localClippingEnabled: true }}>
         <ambientLight intensity={0.55} />
         <directionalLight position={[2, 3, 2]} intensity={1.1} />
         <directionalLight position={[-2, 1, -1.5]} intensity={0.35} />

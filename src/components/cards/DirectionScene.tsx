@@ -15,7 +15,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Html, OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls, RoundedBox } from "@react-three/drei";
 import { loadAtlasModel } from "@/lib/atlas/loader";
 import "./direction-scene.css";
 
@@ -528,22 +528,30 @@ function Sneakers({ f }: { f: Frame }) {
   return (
     <>
       {feet.map(({ c, s }, i) => {
-        const w = Math.max(s.x, u * 0.04) * 1.7;
-        const l = Math.max(s.z, u * 0.05) * 2.1;
+        // rounded, not bricks (owner 2026-11-18: the smoothed horse's legs made the boxy shoes look blocky): a rounded sole,
+        // a domed red upper hugging the hoof, a white toe cap and laces
+        const w = Math.max(s.x, u * 0.035) * 1.55;
+        const l = Math.max(s.z, u * 0.045) * 1.9;
+        const sole = u * 0.016;
         return (
-          <group key={i} position={[c.x, f.box.min.y, c.z + l * 0.12]}>
-            <mesh position={[0, u * 0.012, 0]}>
-              <boxGeometry args={[w * 1.05, u * 0.022, l]} />
+          <group key={i} position={[c.x, f.box.min.y, c.z + l * 0.1]}>
+            <RoundedBox args={[w * 1.06, sole, l]} radius={sole * 0.45} smoothness={4} position={[0, sole / 2, 0]}>
+              <meshStandardMaterial color="#f4f1ea" roughness={0.6} />
+            </RoundedBox>
+            <mesh position={[0, sole * 0.9, -l * 0.04]} scale={[w * 0.5, u * 0.05, l * 0.46]}>
+              <sphereGeometry args={[1, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
+              <meshStandardMaterial color="#d8312b" roughness={0.5} />
+            </mesh>
+            <mesh position={[0, sole * 0.9, l * 0.2]} scale={[w * 0.46, u * 0.024, l * 0.26]}>
+              <sphereGeometry args={[1, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
               <meshStandardMaterial color="#f4f1ea" roughness={0.6} />
             </mesh>
-            <mesh position={[0, u * 0.04, -l * 0.08]}>
-              <boxGeometry args={[w, u * 0.04, l * 0.84]} />
-              <meshStandardMaterial color="#d8312b" roughness={0.55} />
-            </mesh>
-            <mesh position={[0, u * 0.062, l * 0.12]} rotation={[0, 0, Math.PI / 2]}>
-              <cylinderGeometry args={[u * 0.004, u * 0.004, w * 0.8, 8]} />
-              <meshStandardMaterial color="#ffffff" roughness={0.6} />
-            </mesh>
+            {[0, 1, 2].map((k) => (
+              <mesh key={k} position={[0, sole * 0.9 + u * (0.04 - k * 0.006), l * (0.02 + k * 0.07)]} rotation={[0, 0, Math.PI / 2]}>
+                <capsuleGeometry args={[u * 0.0028, w * 0.42, 4, 8]} />
+                <meshStandardMaterial color="#ffffff" roughness={0.6} />
+              </mesh>
+            ))}
           </group>
         );
       })}

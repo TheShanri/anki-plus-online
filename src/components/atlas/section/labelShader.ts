@@ -26,6 +26,8 @@ export const LAB = {
   /** group ids of the third ventricle and the lateral ventricle (the midsagittal face looks through them at their wall) */
   uLabGrpV3: { value: -1 },
   uLabGrpLV: { value: -1 },
+  /** label index of the medullary tegmentum (the cord's midline below the label box) */
+  uLabMoTg: { value: -1 },
 };
 
 export const LAB_GLSL = /* glsl */ `
@@ -43,9 +45,12 @@ uniform float uLabColour;
 uniform float uLabOnly;
 uniform float uLabGrpV3;
 uniform float uLabGrpLV;
+uniform float uLabMoTg;
 
 /** set instead of discarding inside helpers (D3D/ANGLE rejects that); the material's main checks it */
 bool secDiscard = false;
+/** >= 0: labSample reads unlabelled and CSF voxels as this label (the cord below the box) */
+int labSub = -1;
 /** palette row 0: tone, class, group, sub-line; row 1: hue (colour mode), state (0 -, 1 hover, 2 selected, 3 not in the structure-only cut) */
 vec4 labPal(int i, int row) { return texelFetch(uLabPal, ivec2(i, row), 0); }
 int labClass(int i) { return int(labPal(i, 0).g * 255.0 + 0.5); }
@@ -75,6 +80,7 @@ bool labSample(vec3 p, out int lw, out int ls, out float d) {
     vec2 t = texelFetch(uLab, clamp(i0 + o, ivec3(0), dmax), 0).rg;
     L[k] = int(t.r * 255.0 + 0.5);
     M[k] = t.g;
+    if (labSub >= 0 && (L[k] == 0 || labClass(L[k]) == 6)) L[k] = labSub;
     vec3 w3 = mix(1.0 - f, f, vec3(o));
     Wt[k] = w3.x * w3.y * w3.z;
   }
@@ -199,14 +205,21 @@ int labGroup(int i) { return int(labPal(i, 0).b * 255.0 + 0.5); }
  * Cortex, hemispheric white matter and unlabelled CSF (the interhemispheric fissure) are left open (discard): the
  * hemisphere's medial surface behind shows there. Returns a negative red channel outside the label box.
  */
-vec4 labMidline(vec3 p, vec3 n) {
+vec4 labMidline(vec3 p0, vec3 n) {
   int lw, ls;
   float d;
-  if (uHasLab < 0.5 || !labSample(p, lw, ls, d)) return vec4(-1.0);
+  // the medulla runs on below the label box: its lowest labelled level continues down (the cord's midline is the same
+  // tissue, the central canal and the median fissure) instead of ending in a flat, unlabelled band
+  vec3 p = p0;
+  float yb = uLabCorner.y + 0.75 * uLabSize.y / uLabDims.y;
+  if (p.y < yb && p.y > yb - 0.04) { p.y = yb; labSub = int(uLabMoTg); }
+  if (uHasLab < 0.5 || !labSample(p, lw, ls, d)) { labSub = -1; return vec4(-1.0); }
   int grp = labGroup(lw);
   bool cavity = float(grp) == uLabGrpV3 || float(grp) == uLabGrpLV;
   if (cavity) {
-    // march into the kept side to the cavity's wall (no derivatives inside the loop: the hit is shaded after it)
+    // the medial-wall mesh (smooth, lit, tools/atlas/medial_wall.py) shows the ventricle's wall behind the open plane
+    if (uMedialWall > 0.5) { secDiscard = true; return vec4(0.0); }
+    // without it: march into the kept side to the cavity's wall (no derivatives inside the loop: the hit is shaded after it)
     float hit = -1.0;
     for (int s = 1; s <= 32; s++) {
       float t = float(s) * 0.0005;
@@ -225,7 +238,9 @@ vec4 labMidline(vec3 p, vec3 n) {
     return vec4(w.rgb * (1.0 - 0.32 * smoothstep(0.0, 0.012, hit)), w.a);
   }
   int c = labClass(lw);
-  if (lw == 0 || c == 1 || c == 2) { secDiscard = true; return vec4(0.0); }
-  return labSection(p, secClass(p));
+  if (lw == 0 || c == 1 || c == 2) { secDiscard = true; labSub = -1; return vec4(0.0); }
+  vec4 r = labSection(p, secClass(p));
+  labSub = -1;
+  return r;
 }
 `;

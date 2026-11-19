@@ -39,6 +39,7 @@ export function setInterior(I: Interior | null) {
   SEC.uLabDims.value.set(...I.dims);
   SEC.uLabGrpV3.value = I.rows.find((r) => r.key === "3V")?.grp ?? -1;
   SEC.uLabGrpLV.value = I.rows.find((r) => r.key === "bLV")?.grp ?? -1;
+  SEC.uLabMoTg.value = I.rows.find((r) => r.key === "MoTg")?.i ?? -1;
 }
 
 export function setTissue(t: TissueVolume | null) {
@@ -235,6 +236,7 @@ vec3 secCap(vec3 p, vec3 fallback, float mode) {
       if (wall) discard;
     }
     vec2 k = secClass(p);
+    return mix(uCSF, uGM, 0.45); // a gap in the gyral shell reads as the shadow of a sulcus
     return mix(uGM * 0.92, uWM, k.x);
   }
   int e = secEntry(vSecW);

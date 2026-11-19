@@ -1438,17 +1438,24 @@ function Scene({
   useEffect(() => {
     if (!midsagittal || medialWall) return;
     let alive = true;
-    loadAtlasModel("medial-wall.glb?v=2")
+    loadAtlasModel("medial-wall.glb?v=5")
       .then((g) => alive && setMedialWall(g))
       .catch(() => {});
     return () => {
       alive = false;
     };
   }, [midsagittal, medialWall]);
+  // the wall's vertex colour says what it is: 1 cortex (the cortex tint), 0 the third ventricle's wall (thalamus,
+  // hypothalamus: a grey-matter tone from the section palette, set below with the theme)
+  const medialWallTone = useMemo(() => ({ value: new THREE.Color() }), []);
   const medialMat = useMemo(() => {
-    const m = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#c9b9c4" : CORTEX_TINT, roughness: 0.62, metalness: 0, side: THREE.DoubleSide });
+    const m = new THREE.MeshStandardMaterial({ color: look === "regions" ? "#c9b9c4" : CORTEX_TINT, roughness: 0.62, metalness: 0, side: THREE.DoubleSide, vertexColors: true });
+    m.onBeforeCompile = (sh) => {
+      sh.uniforms.uWallTone = medialWallTone;
+      sh.fragmentShader = "uniform vec3 uWallTone;\n" + sh.fragmentShader.replace("#include <color_fragment>", "diffuseColor.rgb = mix(uWallTone, diffuseColor.rgb, smoothstep(0.15, 0.85, vColor.r));");
+    };
     return m;
-  }, [look]);
+  }, [look, medialWallTone]);
   useEffect(() => {
     medialWall?.traverse((o) => {
       const m = o as THREE.Mesh;
@@ -1464,6 +1471,11 @@ function Scene({
   }, [midsagittal, medialWall, invalidate]);
   const sectionLook = look === "regions" ? "regions" : "brain";
   const secTheme = useSectionTheme();
+  useEffect(() => {
+    const p = sectionPalette(sectionLook, secTheme);
+    medialWallTone.value.set(p.gm).lerp(new THREE.Color(p.wm), 0.38);
+    invalidate();
+  }, [sectionLook, secTheme, medialWallTone, invalidate]);
   // the "Cranial nerves" toggle: one cream nerve tone, lit
   const nerveMat = useMemo(() => new THREE.MeshStandardMaterial({ color: "#e9d9a6", emissive: "#5a4a20", emissiveIntensity: 0.25, roughness: 0.6, metalness: 0 }), []);
   useEffect(() => () => nerveMat.dispose(), [nerveMat]);

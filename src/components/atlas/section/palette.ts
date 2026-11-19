@@ -14,12 +14,12 @@ type Look = "brain" | "regions";
 const PALETTES: Record<SectionTheme, Record<Look, SectionPalette>> = {
   // UVM Clinical (light page): a printed plate
   clinical: {
-    brain: { gm: "#a28f86", wm: "#f3ede3", csf: "#463a36", line: "#4f403a" },
+    brain: { gm: "#a68e7f", wm: "#f4ece0", csf: "#463a36", line: "#4f403a" },
     regions: { gm: "#9a94a5", wm: "#eeebf2", csf: "#3a3644", line: "#3e3848" },
   },
   // UVM Clinical, dark mode: the same plate a step lighter in grey so it holds against the dark page
   "clinical-dark": {
-    brain: { gm: "#9c8a80", wm: "#ebe4d8", csf: "#1e1a18", line: "#14110f" },
+    brain: { gm: "#a08979", wm: "#ece3d5", csf: "#1e1a18", line: "#14110f" },
     regions: { gm: "#958fa1", wm: "#e7e3ec", csf: "#1b1a22", line: "#121118" },
   },
   // Dark Academia: sepia grey matter on parchment white matter

@@ -1,14 +1,14 @@
-// OBJ (v / f only) -> meshopt-compressed GLB with smooth vertex normals.  usage: node tools/atlas/obj2glb_normals.mjs <in.obj> <out.glb> <name>
+// OBJ (v / f only; "v x y z r g b" adds COLOR_0) -> meshopt-compressed GLB with smooth vertex normals.  usage: node tools/atlas/obj2glb_normals.mjs <in.obj> <out.glb> <name>
 import fs from "node:fs";
 import { Document, NodeIO } from "@gltf-transform/core";
 import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { MeshoptEncoder } from "meshoptimizer";
 import { quantize, meshopt, weld } from "@gltf-transform/functions";
 const [inp, out, name = "mesh"] = process.argv.slice(2);
-const V = [], F = [];
+const V = [], C = [], F = [];
 for (const l of fs.readFileSync(inp, "utf8").split(/\r?\n/)) {
   const p = l.trim().split(/\s+/);
-  if (p[0] === "v") V.push(...p.slice(1, 4).map(Number));
+  if (p[0] === "v") { V.push(...p.slice(1, 4).map(Number)); if (p.length >= 7) C.push(...p.slice(4, 7).map(Number)); }
   else if (p[0] === "f") F.push(...p.slice(1, 4).map((s) => parseInt(s, 10) - 1));
 }
 const N = new Float32Array(V.length);
@@ -25,6 +25,7 @@ const prim = doc.createPrimitive()
   .setAttribute("POSITION", doc.createAccessor().setType("VEC3").setArray(new Float32Array(V)).setBuffer(buf))
   .setAttribute("NORMAL", doc.createAccessor().setType("VEC3").setArray(N).setBuffer(buf))
   .setIndices(doc.createAccessor().setType("SCALAR").setArray(new Uint32Array(F)).setBuffer(buf));
+if (C.length === V.length) prim.setAttribute("COLOR_0", doc.createAccessor().setType("VEC3").setArray(new Float32Array(C)).setBuffer(buf));
 doc.createScene().addChild(doc.createNode(name).setMesh(doc.createMesh(name).addPrimitive(prim)));
 await MeshoptEncoder.ready;
 await doc.transform(weld(), quantize(), meshopt({ encoder: MeshoptEncoder }));

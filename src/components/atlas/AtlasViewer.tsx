@@ -986,8 +986,9 @@ const _p = new THREE.Vector3();
 const _q = new THREE.Vector3();
 const _r = new THREE.Vector3();
 
-/** One anchor per side for paired structures: the surface vertex nearest the centroid of each half (left = +x). */
-function anchorsFor(group: THREE.Object3D, split: boolean): { p: THREE.Vector3; side: "" | "L" | "R" }[] {
+/** One anchor per side for paired structures: the surface vertex nearest the centroid of each half (left = +x). With a
+ * cut, the anchor sits on the cut face: only the vertices near the plane count, and the anchor is moved onto it. */
+function anchorsFor(group: THREE.Object3D, split: boolean, cut?: { axis: "x" | "y" | "z"; pos: number }): { p: THREE.Vector3; side: "" | "L" | "R" }[] {
   group.updateMatrixWorld(true);
   const pts: THREE.Vector3[] = [];
   eachMesh(group, (m) => {
@@ -1002,6 +1003,11 @@ function anchorsFor(group: THREE.Object3D, split: boolean): { p: THREE.Vector3; 
         { side: "R", pts: pts.filter((v) => v.x <= 0) },
       ]
     : [{ side: "", pts }];
+  if (cut)
+    for (const part of parts) {
+      const near = part.pts.filter((v) => Math.abs(v[cut.axis] - cut.pos) < 0.0015);
+      if (near.length >= 3) part.pts = near;
+    }
   const real = parts.filter((x) => x.pts.length >= 3);
   const out: { p: THREE.Vector3; side: "" | "L" | "R" }[] = [];
   for (const part of real.length ? real : [{ side: "" as const, pts }]) {
@@ -1018,7 +1024,9 @@ function anchorsFor(group: THREE.Object3D, split: boolean): { p: THREE.Vector3; 
         best = v;
       }
     }
-    out.push({ p: best.clone(), side: real.length > 1 ? part.side : "" });
+    const p = best.clone();
+    if (cut) p[cut.axis] = cut.pos;
+    out.push({ p, side: real.length > 1 ? part.side : "" });
   }
   return out;
 }
@@ -2774,6 +2782,12 @@ export default function AtlasViewer({
     return s;
   }, [syllabus, grossIds, unlocked]);
 
+  // "Show its cut": the selected structure's label points at its cut face, not at the (cut away) middle of the mesh
+  const cutAxis = sCutOn ? clip.axis : null;
+  const cutLo = cutAxis && cutAxis !== "off" ? (ctxBox ? ctxBox.min[cutAxis] : cutAxis === "x" ? -0.08 : cutAxis === "y" ? 1.53 : -0.11) : 0;
+  const cutHi = cutAxis && cutAxis !== "off" ? (ctxBox ? ctxBox.max[cutAxis] : cutAxis === "x" ? 0.08 : cutAxis === "y" ? 1.68 : 0.1) : 0;
+  const cutPos = cutAxis && cutAxis !== "off" ? +(cutLo + clip.t * (cutHi - cutLo)).toFixed(4) : null;
+  const cutAt = useMemo(() => (cutAxis && cutAxis !== "off" && cutPos !== null ? { axis: cutAxis, pos: cutPos } : undefined), [cutAxis, cutPos]);
   // in-scene name labels (selected structure, added structures, neighbours)
   const labelItems = useMemo<LabelItem[]>(() => {
     if (quiz || hideLabels || !index || !shown) return [];
@@ -2782,7 +2796,7 @@ export default function AtlasViewer({
     const add = (k: string, color: string, g: THREE.Group, id: string, nameOverride?: string, only?: "L" | "R") => {
       const e = index.structures[id];
       if (!e) return;
-      for (const a of anchorsFor(g, e.side === "lr")) {
+      for (const a of anchorsFor(g, e.side === "lr", k === "primary" ? cutAt : undefined)) {
         if (only && a.side && a.side !== only) continue;
         out.push({ key: k, sid: id, text: `${nameOverride ?? e.name}${a.side ? " (" + a.side + ")" : only ? " (" + only + ")" : ""}`, color, anchor: a.p });
       }
@@ -2797,7 +2811,7 @@ export default function AtlasViewer({
       }
     }
     return out.slice(0, MAX_LABELS);
-  }, [quiz, hideLabels, index, shown, colors.accent, label, skull, ctxBox]);
+  }, [quiz, hideLabels, index, shown, colors.accent, label, skull, ctxBox, cutAt]);
   const labelsOn = showLabels && !quiz && !hideLabels;
   const barRef = useRef<HTMLDivElement>(null);
   const [obsTick, setObsTick] = useState(0);

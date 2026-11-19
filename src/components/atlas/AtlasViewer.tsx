@@ -735,19 +735,51 @@ function intracranial(src: THREE.BufferGeometry, matrix: THREE.Matrix4, f: Brain
 }
 
 const INFLATE = { value: 0 };
+/**
+ * The gross brain material. Uncut, it is a plain lit material; while a cut is on (userData.sec) it carries the section
+ * shader, so its inside shows the tissue on the plane. The section variant is one program for every gross material
+ * (onPlane is a uniform) and is compiled in the background while the atlas sits idle (prewarmGross): on a cold Windows
+ * shader cache each variant took seconds, and the page froze ~20 s after loading (owner 2026-11-19: "still laggy").
+ */
 function inflate(m: THREE.MeshStandardMaterial, onPlane = false) {
+  const plane = { value: onPlane ? 1 : 0 };
   m.onBeforeCompile = (s) => {
     s.uniforms.uInflate = INFLATE;
     s.vertexShader = "uniform float uInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uInflate;");
-  };
-  const prev = m.onBeforeCompile;
-  m.onBeforeCompile = (s, r) => {
-    prev.call(m, s, r);
     // a cut mesh shows its inside: the section tissue on the plane (flat in its own colour until the tissue volume is in)
-    insideTissue(s, "outgoingLight = diffuseColor.rgb * 0.93;", onPlane);
+    if (m.userData.sec) insideTissue(s, "outgoingLight = diffuseColor.rgb * 0.93;", plane);
   };
-  m.customProgramCacheKey = () => (onPlane ? "atlas-inflate-plane" : "atlas-inflate");
+  m.customProgramCacheKey = () => (m.userData.sec ? "atlas-inflate-sec" : "atlas-inflate");
 }
+/** Gross materials always carry this many clipping planes (padded): one program per variant, whatever the cut. */
+const GROSS_PLANES = 3;
+/** Compile the gross section variants in the background, against the live lights: one per kind of gross geometry
+ * (RGB and RGBA vertex colours are separate programs). */
+async function prewarmGross(gl: THREE.WebGLRenderer, camera: THREE.Camera, scene: THREE.Scene, gross: THREE.Object3D) {
+  let src: THREE.BufferGeometry | null = null;
+  gross.traverse((o) => {
+    if (!src && (o as THREE.Mesh).isMesh && (o as THREE.Mesh).geometry.getAttribute("normal")) src = (o as THREE.Mesh).geometry;
+  });
+  if (!src) return;
+  const s = src as THREE.BufferGeometry;
+  const sc = new THREE.Scene();
+  for (const size of [3, 4]) {
+    // a small stand-in with the live meshes' attribute layout (position, normal, RGB or RGBA colour)
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(new Float32Array(9), 3));
+    geo.setAttribute("normal", new THREE.Float32BufferAttribute(new Float32Array(9), 3));
+    geo.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(3 * size), size));
+    if (s.getAttribute("uv")) geo.setAttribute("uv", new THREE.Float32BufferAttribute(new Float32Array(6), 2));
+    const m = new THREE.MeshStandardMaterial({ color: CORTEX_TINT, vertexColors: true, roughness: 0.62, metalness: 0, side: THREE.DoubleSide });
+    inflate(m);
+    m.userData.sec = true;
+    m.clippingPlanes = padPlanes([], GROSS_PLANES);
+    sc.add(new THREE.Mesh(geo, m));
+    grossWarm.push(m); // kept alive: three.js releases a program when its last material is disposed
+  }
+  await gl.compileAsync(sc, camera, scene);
+}
+const grossWarm: THREE.Material[] = [];
 function setInflate(on: boolean) {
   INFLATE.value = on ? 0.0006 : 0;
 }
@@ -823,9 +855,10 @@ function configureGross(
     m.opacity = op;
     m.depthWrite = op >= 1; // translucent layers never write depth, so what sits inside them stays visible
     // the lower medulla is an open thin tube (it read as a dark stalk): the brainstem material stops where the medulla stops being a solid body
-    m.clippingPlanes = k === "brainstem" ? [...padPlanes(planes), MEDULLA_CUT] : padPlanes(planes);
+    m.clippingPlanes = k === "brainstem" ? [...padPlanes(planes, GROSS_PLANES - 1), MEDULLA_CUT] : padPlanes(planes, GROSS_PLANES);
     // opaque: always double-sided (the back faces of a closed shell never show), so the side does not change with the cut
     m.side = planes.length || k === "brainstem" || op >= 1 ? THREE.DoubleSide : THREE.FrontSide;
+    m.userData.sec = planes.length > 0;
     m.needsUpdate = true;
   }
   styleHull(hull, look === "regions" ? "#3a3646" : "#6a4e46", solid && op >= 1 && planes.length === 0); // outlines are off while cut: their back faces would show through the section
@@ -1843,6 +1876,10 @@ function Scene({
         if (cancelled) return;
         if (tex) gl.initTexture(tex);
       }
+      // then the section shaders, compiled in parallel off the main thread (KHR_parallel_shader_compile)
+      await nextIdle();
+      if (cancelled) return;
+      await prewarmGross(gl, camera, scene, gross).catch(() => undefined);
       await nextIdle();
       if (!cancelled) await prewarmSectionCaps(gl, camera, scene).catch(() => undefined);
     }, 2500);

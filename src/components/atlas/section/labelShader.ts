@@ -65,42 +65,55 @@ int labNearest(vec3 p) {
   if (any(lessThan(q, ivec3(0))) || any(greaterThanEqual(q, d))) return 0;
   return int(texelFetch(uLab, q, 0).r * 255.0 + 0.5);
 }
-/** Winner and runner-up label at p with the margin d >= 0 between them (0 on the border). False outside the box. */
+/** One corner of the trilinear cell: its label (with the labSub stand-in) and its margin. */
+vec2 labCorner(ivec3 q, ivec3 dmax) {
+  vec2 t = texelFetch(uLab, clamp(q, ivec3(0), dmax), 0).rg;
+  float l = floor(t.r * 255.0 + 0.5);
+  if (labSub >= 0 && (l == 0.0 || labClass(int(l)) == 6)) l = float(labSub);
+  return vec2(l, t.g);
+}
+/**
+ * Winner and runner-up label at p with the margin d >= 0 between them (0 on the border). False outside the box.
+ * f_c = sum_k w_k (L_k == c ? m_k : -m_k) = 2 S_c - T, with S_c the weighted margin of the corners labelled c: the winner
+ * has the largest S, the runner-up the next distinct one (none: S = 0), d = 2 (S_win - S_second). Written branch-free on
+ * vec4s: the nested loops over local arrays it replaces took seconds to compile on Windows (D3D) and, on Intel graphics,
+ * lost the WebGL context.
+ */
 bool labSample(vec3 p, out int lw, out int ls, out float d) {
   vec3 g = (p - uLabCorner) / uLabSize * uLabDims - 0.5;
-  if (any(lessThan(g, vec3(-0.5))) || any(greaterThan(g, uLabDims - 0.5))) return false;
+  // no early return: callers take derivatives of d, which Windows' compiler cannot do behind a branch
+  bool inBox = !(any(lessThan(g, vec3(-0.5))) || any(greaterThan(g, uLabDims - 0.5)));
+  g = clamp(g, vec3(-0.5), uLabDims - 0.5);
   ivec3 i0 = ivec3(floor(g));
   vec3 f = g - vec3(i0);
+  vec3 h = 1.0 - f;
   ivec3 dmax = ivec3(uLabDims) - 1;
-  int L[8];
-  float M[8];
-  float Wt[8];
+  vec2 c0 = labCorner(i0, dmax), c1 = labCorner(i0 + ivec3(1, 0, 0), dmax);
+  vec2 c2 = labCorner(i0 + ivec3(0, 1, 0), dmax), c3 = labCorner(i0 + ivec3(1, 1, 0), dmax);
+  vec2 c4 = labCorner(i0 + ivec3(0, 0, 1), dmax), c5 = labCorner(i0 + ivec3(1, 0, 1), dmax);
+  vec2 c6 = labCorner(i0 + ivec3(0, 1, 1), dmax), c7 = labCorner(i0 + ivec3(1, 1, 1), dmax);
+  vec4 La = vec4(c0.x, c1.x, c2.x, c3.x), Lb = vec4(c4.x, c5.x, c6.x, c7.x);
+  vec4 wxy = vec4(h.x * h.y, f.x * h.y, h.x * f.y, f.x * f.y);
+  vec4 Ma = vec4(c0.y, c1.y, c2.y, c3.y) * wxy * h.z, Mb = vec4(c4.y, c5.y, c6.y, c7.y) * wxy * f.z;
+  // S of each corner's label
+  vec4 Sa, Sb;
+  for (int k = 0; k < 4; k++) {
+    Sa[k] = dot(vec4(equal(La, vec4(La[k]))), Ma) + dot(vec4(equal(Lb, vec4(La[k]))), Mb);
+    Sb[k] = dot(vec4(equal(La, vec4(Lb[k]))), Ma) + dot(vec4(equal(Lb, vec4(Lb[k]))), Mb);
+  }
+  float sb = -1.0, s2 = -1.0, lb = -1.0, l2 = -1.0;
   for (int k = 0; k < 8; k++) {
-    ivec3 o = ivec3(k & 1, (k >> 1) & 1, (k >> 2) & 1);
-    vec2 t = texelFetch(uLab, clamp(i0 + o, ivec3(0), dmax), 0).rg;
-    L[k] = int(t.r * 255.0 + 0.5);
-    M[k] = t.g;
-    if (labSub >= 0 && (L[k] == 0 || labClass(L[k]) == 6)) L[k] = labSub;
-    vec3 w3 = mix(1.0 - f, f, vec3(o));
-    Wt[k] = w3.x * w3.y * w3.z;
+    float s = k < 4 ? Sa[k & 3] : Sb[k & 3];
+    float l = k < 4 ? La[k & 3] : Lb[k & 3];
+    if (l == lb) continue;
+    if (s > sb) { s2 = sb; l2 = lb; sb = s; lb = l; }
+    else if (s > s2) { s2 = s; l2 = l; }
   }
-  float fb = -9.0, fs = -9.0;
-  int lb = 0, l2 = -1;
-  for (int c = 0; c < 8; c++) {
-    int lc = L[c];
-    bool dup = false;
-    for (int j = 0; j < 8; j++) { if (j >= c) break; if (L[j] == lc) dup = true; }
-    if (dup) continue;
-    float fc = 0.0;
-    for (int k = 0; k < 8; k++) fc += Wt[k] * (L[k] == lc ? M[k] : -M[k]);
-    if (fc > fb) { fs = fb; l2 = lb; fb = fc; lb = lc; }
-    else if (fc > fs) { fs = fc; l2 = lc; }
-  }
-  if (l2 < 0) { l2 = lb; fs = -fb; }
-  lw = lb;
-  ls = l2;
-  d = max(fb - fs, 0.0);
-  return true;
+  if (l2 < 0.0 || s2 < 0.0) { l2 = lb; s2 = 0.0; }
+  lw = int(lb);
+  ls = int(l2);
+  d = max(2.0 * (sb - s2), 0.0);
+  return inBox;
 }
 /* ---- tissue texture: a fixed-brain slice is not flat paint. Grey matter is finely granular with a soft density mottle;
  * white matter is fibrous, striated along its fibres where the tract's direction is known (palette row 2: direction, strength);
@@ -140,12 +153,12 @@ vec3 labTexture(int i, int cls, vec3 col, vec3 p, float fp, float greyness) {
   if (i > 0 && labPal(i, 0).r * 1.3 - 0.3 < -0.05 && cls == 4) t += 0.16 * smoothstep(0.62, 0.8, labNoise(p / 0.00028)) * -1.0; // melanin speckle
   return col * (1.0 + t);
 }
-/** The tone of a label at p: flat tissue tone (or the field's tissue for cortex / white matter / cerebellum and label 0), textured. */
-vec3 labTone(int i, vec2 k, vec3 p, float fp) {
+/** The flat tone of a label (or the field's tissue for cortex / white matter / cerebellum and label 0), before texture. */
+vec3 labBase(int i, vec2 k, out float grey) {
   vec4 a = labPal(i, 0);
   int cls = int(a.g * 255.0 + 0.5);
   vec3 col;
-  float grey = 1.0;
+  grey = 1.0;
   if (cls == 0 || cls == 1 || cls == 3) { col = mix(uCSF, mix(uGM, uWM, k.x), k.y); grey = 1.0 - k.x; }
   else if (cls == 2) { col = mix(uCSF, uWM, k.y); grey = 0.0; }
   else if (cls == 6) col = uCSF;
@@ -155,7 +168,11 @@ vec3 labTone(int i, vec2 k, vec3 p, float fp) {
     col = t < 0.0 ? mix(uGM, uCSF, -t * 1.6) : mix(uGM, uWM, t);
     grey = cls == 5 ? 0.0 : 1.0 - clamp(t, 0.0, 1.0) * 0.6;
   }
-  col = labTexture(i, cls, col, p, fp, grey);
+  return col;
+}
+/** A label's state tint (colour mode, hover, selection, structure-only dimming) over its textured tone. */
+vec3 labState(int i, vec3 col) {
+  int cls = labClass(i);
   vec4 b = labPal(i, 1);
   int st = int(b.a * 255.0 + 0.5);
   if (uLabColour > 0.5 && cls >= 4) col = mix(col, b.rgb, 0.62);
@@ -182,18 +199,40 @@ float labLine(int a, int b) {
   return 1.0;
 }
 /** The labelled section tone at p (rgb), or a negative red channel when p is outside the label box. */
+/*
+ * Windows (ANGLE -> D3D) rule for everything below: derivatives (fwidth) are taken first, in uniform control flow, and
+ * every decision (outside the box, hidden, discard) is made after. A derivative behind a branch made the compiler
+ * flatten the whole section shader: seconds to compile, and on Intel graphics the WebGL context was lost (2026-11-19).
+ */
+vec4 labSectionAt(vec3 p, vec2 k, int lw, int ls, float d, float aa, float fp);
 vec4 labSection(vec3 p, vec2 k) {
   int lw, ls;
   float d;
-  if (uHasLab < 0.5 || !labSample(p, lw, ls, d)) return vec4(-1.0);
-  if (labHidden(lw)) { secDiscard = true; return vec4(0.0); }
+  bool ok = labSample(p, lw, ls, d);
   float aa = max(fwidth(d), 1e-4) * 0.75;
   float fp = length(fwidth(p));
-  vec3 cw = labTone(lw, k, p, fp);
-  vec3 cs = labHidden(ls) ? cw : labTone(ls, k, p, fp);
-  vec3 col = mix(cs, cw, smoothstep(-aa, aa, d));
+  vec4 r = labSectionAt(p, k, lw, ls, d, aa, fp);
+  if (uHasLab < 0.5 || !ok) return vec4(-1.0);
+  if (labHidden(lw)) { secDiscard = true; return vec4(0.0); }
+  return r;
+}
+/** The section tone at p for an already sampled winner / runner-up / margin (aa: the margin's pixel width, fp: the
+ * pixel's world size). No derivatives inside. */
+vec4 labSectionAt(vec3 p, vec2 k, int lw, int ls, float d, float aa, float fp) {
+  // both sides' flat tones blend across the border, then one texture pass (the shader is half the size it was: it
+  // compiles in seconds less on a cold Windows shader cache)
+  bool hs = labHidden(ls);
+  float gw, gs;
+  vec3 bw = labBase(lw, k, gw);
+  vec3 bs = labBase(ls, k, gs);
+  if (hs) { bs = bw; gs = gw; }
+  float tw = smoothstep(-aa, aa, d);
+  vec3 tex = labTexture(lw, labClass(lw), mix(bs, bw, tw), p, fp, mix(gs, gw, tw));
+  vec3 cw = labState(lw, tex);
+  vec3 cs = hs ? cw : labState(ls, tex);
+  vec3 col = mix(cs, cw, tw);
   // borders: crisp but quiet, a fine darker seam only where the tissue tone alone would not separate the two regions
-  float ln = labLine(lw, ls) * (1.0 - smoothstep(0.06, 0.22, distance(cw, cs)));
+  float ln = labLine(lw, ls) * (1.0 - smoothstep(0.06, 0.22, distance(labState(lw, bw), hs ? labState(lw, bw) : labState(ls, bs))));
   if (ln > 0.0) col = mix(col, uLabLine, ln * 0.42 * (1.0 - smoothstep(aa * 0.5, aa * 1.4, d)));
   return vec4(col, float(lw));
 }
@@ -212,35 +251,22 @@ vec4 labMidline(vec3 p0, vec3 n) {
   // tissue, the central canal and the median fissure) instead of ending in a flat, unlabelled band
   vec3 p = p0;
   float yb = uLabCorner.y + 0.75 * uLabSize.y / uLabDims.y;
-  if (p.y < yb && p.y > yb - 0.04) { p.y = yb; labSub = int(uLabMoTg); }
-  if (uHasLab < 0.5 || !labSample(p, lw, ls, d)) { labSub = -1; return vec4(-1.0); }
-  int grp = labGroup(lw);
-  bool cavity = float(grp) == uLabGrpV3 || float(grp) == uLabGrpLV;
-  if (cavity) {
-    // the medial-wall mesh (smooth, lit, tools/atlas/medial_wall.py) shows the ventricle's wall behind the open plane
-    if (uMedialWall > 0.5) { secDiscard = true; return vec4(0.0); }
-    // without it: march into the kept side to the cavity's wall (no derivatives inside the loop: the hit is shaded after it)
-    float hit = -1.0;
-    for (int s = 1; s <= 32; s++) {
-      float t = float(s) * 0.0005;
-      int l = labNearest(p + n * t);
-      if (l == 0) break;
-      int g = labGroup(l);
-      if (float(g) == uLabGrpV3 || float(g) == uLabGrpLV) continue;
-      int c = labClass(l);
-      if (c != 1 && c != 2) hit = t;
-      break;
-    }
-    if (hit < 0.0) { secDiscard = true; return vec4(0.0); }
-    vec3 q = p + n * hit;
-    vec4 w = labSection(q, secClass(q));
-    if (w.r < 0.0) { secDiscard = true; return vec4(0.0); }
-    return vec4(w.rgb * (1.0 - 0.32 * smoothstep(0.0, 0.012, hit)), w.a);
-  }
-  int c = labClass(lw);
-  if (lw == 0 || c == 1 || c == 2) { secDiscard = true; labSub = -1; return vec4(0.0); }
-  vec4 r = labSection(p, secClass(p));
+  bool below = p.y < yb && p.y > yb - 0.04;
+  p.y = below ? yb : p.y;
+  labSub = below ? int(uLabMoTg) : -1;
+  bool inBox = labSample(p, lw, ls, d);
   labSub = -1;
+  // derivatives first (see above), decisions after
+  vec2 k = secClass(p);
+  float aa = max(fwidth(d), 1e-4) * 0.75;
+  float fp = length(fwidth(p));
+  vec4 r = labSectionAt(p, k, lw, ls, d, aa, fp);
+  if (uHasLab < 0.5 || !inBox) return vec4(-1.0);
+  int grp = labGroup(lw);
+  // the third / a lateral ventricle stays open: the medial-wall mesh (smooth, lit, tools/atlas/medial_wall.py) shows the
+  // ventricle's wall behind the plane. Cortex and hemispheric white matter are open too (the medial surface shows).
+  int c = labClass(lw);
+  if (float(grp) == uLabGrpV3 || float(grp) == uLabGrpLV || lw == 0 || c == 1 || c == 2 || labHidden(lw)) { secDiscard = true; return vec4(0.0); }
   return r;
 }
 `;

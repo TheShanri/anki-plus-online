@@ -133,11 +133,8 @@ ${LAB_GLSL}
 /** Brainstem and diencephalon parts named by the Allen atlas (tegmentum, basilar pons, pyramids, nigra, colliculi,
  * hypothalamus) override the template's weak grey/white contrast there: each part is drawn as grey-ish or white-ish
  * (a fixed-brain plate's two tones, a shade toward each other), with crisp anti-aliased borders like the rest. */
-vec3 secTone(vec3 p) {
-  vec2 k = secClass(p);
-  // inside the labelled interior: every structure as its own region (labelShader.ts)
-  vec4 lb = labSection(p, k);
-  if (lb.r >= 0.0) return lb.rgb;
+/** The tone outside the labelled interior (or before it is in): the tissue field, with the aux volume's parts. */
+vec3 secToneOutsideK(vec3 p, vec2 k) {
   vec4 ax = secAuxAt(p);
   vec3 tis = mix(uGM, uWM, k.x);
   float wq = secStep(ax.g, 0.5, max(fwidth(ax.g), 1e-4) * 0.7);
@@ -145,6 +142,14 @@ vec3 secTone(vec3 p) {
   tis = mix(tis, mix(uGM, uWM, mix(0.12, 0.9, uq)), wq);
   // the same tissue texture as the labelled interior (no seam at the label box)
   return labTexture(0, 1, mix(uCSF, tis, k.y), p, length(fwidth(p)), 1.0 - k.x);
+}
+vec3 secToneOutside(vec3 p) { return secToneOutsideK(p, secClass(p)); }
+vec3 secTone(vec3 p) {
+  // both tones computed, then chosen: derivatives never sit behind a branch (labelShader.ts, the Windows rule)
+  vec2 k = secClass(p);
+  vec4 lb = labSection(p, k); // inside the labelled interior: every structure as its own region
+  vec3 out3 = secToneOutsideK(p, k);
+  return lb.r >= 0.0 ? lb.rgb : out3;
 }
 /** Plane i's normal (dynamic index). */
 vec3 secNormal(int i) { return i == 0 ? uPlanes[0].xyz : uPlanes[1].xyz; }
@@ -210,18 +215,19 @@ export const SEC_CAP_GLSL = /* glsl */ `
  * inside the volume's midline mask (brainstem, cerebellum), discarded elsewhere so the medial surface shows.
  * A near-sagittal plane passes through the interhemispheric fissure without cutting tissue: there the face is left open, so
  * the medial surface beyond it shows, as in a real parasagittal slice. */
-vec3 secCap(vec3 p, vec3 fallback, float mode) {
-  if (mode > 1.5) {
-    if (uHasTissue < 0.5) discard;
-    if (uMidIdx >= 0) {
-      vec4 m = labMidline(p, secNormal(uMidIdx));
-      if (m.r >= 0.0) return m.rgb;
-    }
-    if (secAuxAt(p).b < 0.5) discard;
-    return secTone(p);
-  }
+vec3 secCap(vec3 p, vec3 fallback) {
+  // every branch's tone is computed before any decision (derivatives in uniform control flow: labelShader.ts)
+#if SEC_CAP_MODE == 2
+  vec4 m = labMidline(p, secNormal(max(uMidIdx, 0)));
+  vec3 o = secToneOutside(p);
+  if (uHasTissue < 0.5) discard;
+  if (uMidIdx >= 0 && m.r >= 0.0) return m.rgb; // (or discarded through secDiscard)
+  secDiscard = false;
+  if (secAuxAt(p).b < 0.5) discard;
+  return o;
+#elif SEC_CAP_MODE == 1
   if (uHasTissue < 0.5) return fallback;
-  if (mode > 0.5) {
+  {
     // behind the midsagittal plane: the medial-wall mesh (Allen labels) shows the real medial surface when it is loaded
     if (uMedialWall > 0.5 && labInBox(p)) {
       // the wall exists where the labelled tissue starts within ~12 mm of the plane; elsewhere the fill stays (no hole)
@@ -235,16 +241,16 @@ vec3 secCap(vec3 p, vec3 fallback, float mode) {
       }
       if (wall) discard;
     }
-    vec2 k = secClass(p);
     return mix(uCSF, uGM, 0.45); // a gap in the gyral shell reads as the shadow of a sulcus
-    return mix(uGM * 0.92, uWM, k.x);
   }
+#elif SEC_CAP_MODE == 0
+  vec3 t = secTone(p);
+  vec2 k = secClass(p);
+  if (uHasTissue < 0.5) { secDiscard = false; return fallback; }
   int e = secEntry(vSecW);
-  if (e >= 0 && abs(secNormal(e).x) > 0.85) {
-    vec2 k = secClass(p);
-    if (k.y < 0.5 && secAuxAt(p).a > 0.5) discard;
-  }
-  return secTone(p);
+  if (e >= 0 && abs(secNormal(e).x) > 0.85 && k.y < 0.5 && secAuxAt(p).a > 0.5) discard;
+  return t;
+#endif
 }
 `;
 
@@ -253,14 +259,28 @@ vec3 secCap(vec3 p, vec3 fallback, float mode) {
  * on the section plane instead of a flat colour, so a cut through the brainstem or the vermis reads like the rest of the
  * section (the arbor vitae in a midsagittal view). Call inside onBeforeCompile; `flat` is the existing back-face line.
  */
-export function insideTissue(s: { uniforms: Record<string, unknown>; vertexShader: string; fragmentShader: string }, flat: string, onPlane = false) {
-  Object.assign(s.uniforms, SEC);
+export function insideTissue(
+  s: { uniforms: Record<string, unknown>; vertexShader: string; fragmentShader: string },
+  flat: string,
+  onPlane: { value: number },
+) {
+  Object.assign(s.uniforms, SEC, { uSecOnPlane: onPlane });
   s.vertexShader = SEC_VERT_DECL + s.vertexShader.replace("#include <project_vertex>", "#include <project_vertex>\n" + SEC_VERT_MAIN);
+  // one program for every gross material (onPlane is a uniform, not a variant): each variant of this shader costs seconds
+  // to compile on a cold Windows (D3D) shader cache. secTone is called once, on the point the branch picks.
   s.fragmentShader =
     SEC_GLSL +
+    "uniform float uSecOnPlane;\n" +
     s.fragmentShader.replace(
       "#include <opaque_fragment>",
-      `if (!gl_FrontFacing) { if (uHasTissue > 0.5 && uNPlanes > 0) outgoingLight = secTone(secOnPlane(vSecW)); else ${flat} }\n${onPlane ? "else if (uHasTissue > 0.5 && secPlaneDist(vSecW) < 0.003) outgoingLight = secTone(secFoot(vSecW));\n" : ""}if (secDiscard) discard;
+      `bool secBack = !gl_FrontFacing;
+// the tone first, the choice after: derivatives never behind a branch (labelShader.ts, the Windows rule)
+vec3 secT = secTone(secBack ? secOnPlane(vSecW) : secFoot(vSecW));
+if (uHasTissue > 0.5 && uNPlanes > 0) {
+  if (secBack || (uSecOnPlane > 0.5 && secPlaneDist(vSecW) < 0.003)) outgoingLight = secT;
+  else secDiscard = false;
+} else { secDiscard = false; if (secBack) { ${flat} } }
+if (secDiscard) discard;
 #include <opaque_fragment>`,
     );
 }

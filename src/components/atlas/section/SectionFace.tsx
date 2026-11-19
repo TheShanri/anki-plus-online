@@ -106,11 +106,12 @@ export function SectionFace({
  * so CSF is shown as the medial grey matter it lies against.
  */
 function tissueCap(m: THREE.MeshBasicMaterial, kind: Kind) {
-  const mode = kind === "midline" ? "2.0" : kind === "medial" ? "1.0" : "0.0";
+  // each kind compiles only its own branch (#if): the three in one shader took seconds to compile on Windows
+  const mode = kind === "midline" ? 2 : kind === "medial" ? 1 : 0;
   m.onBeforeCompile = (s) => {
     Object.assign(s.uniforms, SEC);
     s.vertexShader = SEC_VERT_DECL + s.vertexShader.replace("#include <project_vertex>", "#include <project_vertex>\n" + SEC_VERT_MAIN);
-    s.fragmentShader = SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse, ${mode} ), opacity );
+    s.fragmentShader = `#define SEC_CAP_MODE ${mode}\n` + SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse ), opacity );
   if (secDiscard) discard;`);
   };
   m.customProgramCacheKey = () => "atlas-section-cap-" + kind;

@@ -801,13 +801,10 @@ function StepCard({ n, total, title, text, src, onPrev, onNext, extra }: { n: nu
           <span key={i} className={`h-1.5 flex-1 rounded-full ${i < n ? "bg-accent" : "bg-panel-border"}`} />
         ))}
       </div>
+      {/* Back / Next sit at the top, beside the step count: below the text they moved with every step's length */}
       <p className="eyebrow">
         Step {n} of {total}
       </p>
-      <h2 className="font-display text-base text-accent">{title}</h2>
-      <p className="text-sm">{text}</p>
-      {extra}
-      <p className="text-xs text-text-faint">{src}</p>
       <div className="flex gap-2">
         <button type="button" className="btn" onClick={onPrev} disabled={n <= 1}>
           <ChevronLeft size={14} aria-hidden /> Back
@@ -816,6 +813,10 @@ function StepCard({ n, total, title, text, src, onPrev, onNext, extra }: { n: nu
           Next <ChevronRight size={14} aria-hidden />
         </button>
       </div>
+      <h2 className="font-display text-base text-accent">{title}</h2>
+      <p className="text-sm">{text}</p>
+      {extra}
+      <p className="text-xs text-text-faint">{src}</p>
     </div>
   );
 }

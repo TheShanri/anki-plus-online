@@ -2593,7 +2593,7 @@ export default function AtlasViewer({
     };
   }, [fill, solidCuts]);
   // the deep structures a section passes through: fetched the first time a cut or the midsagittal view is used
-  const cutNow = solidCuts && look !== "xray" && (clip.axis !== "off" || (view === "midsagittal" && !multi));
+  const cutNow = solidCuts && look !== "xray" && (clip.axis !== "off" || !!cut || (view === "midsagittal" && !multi));
   useEffect(() => {
     if (!cutNow || deep || deepFailed || !index) return;
     let alive = true;
@@ -2652,7 +2652,11 @@ export default function AtlasViewer({
   // a narrow viewer (info panel open) drops the view name and the dividers so the bar stays on one row
   const narrow = (Number(sizeKey.split("x")[0]) || 9999) < 880;
 
-  const resolved = useMemo(() => (index ? resolveStructureIds(index, structureIds) : []), [index, structureIds]);
+  // by value: a parent passing a fresh array each render (structureIds={[]}) must not reload the scene, which rebuilt the
+  // tinted cortex backer (~0.7 s) on every click in Blood supply
+  const idsSig = structureIds.join(",");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const resolved = useMemo(() => (index ? resolveStructureIds(index, structureIds) : []), [index, idsSig]);
   const key = resolved.join(",") + "|" + mode;
   const entries = useMemo(() => (index ? resolved.map((id) => index.structures[id]) : []), [index, resolved]);
 
@@ -3363,7 +3367,7 @@ export default function AtlasViewer({
             )}
           </div>
         )}
-        {sectionKeyShown.length > 0 && !multi && (
+        {sectionKeyShown.length > 0 && !multi && !cut && (
           <div className="atl-chip pointer-events-auto flex-col items-stretch gap-1 !py-1.5" role="group" aria-label="Colour key for the section">
             <button type="button" className="flex items-center gap-1.5 rounded-sm font-mono text-[10px] uppercase tracking-widest text-text-dim focus-visible:outline-none focus-visible:[box-shadow:var(--focus-ring)]" onClick={() => setKeyOpen((o) => !o)} aria-expanded={keyOpen}>
               {keyOpen ? <ChevronDown size={11} aria-hidden /> : <ChevronUp size={11} aria-hidden />} Section key

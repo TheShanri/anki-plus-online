@@ -11,15 +11,6 @@ import { readCssColor } from "@/lib/atlas/theme";
 import { PLANE, PLANES, SLIDER_RANGE, TARGET_RANGE, mmPoint, mmToWorld, pointsFor, type Plane } from "./coords";
 
 const ROUNDS = 5;
-/** Deep landmarks drawn inside the see-through brain so a cut plane has something to cross. */
-const LANDMARKS = [
-  ["lateral-ventricle", "third-ventricle", "fourth-ventricle"],
-  ["corpus-callosum", "fornix"],
-  ["caudate-nucleus", "putamen", "globus-pallidus"],
-  ["thalamus", "hypothalamus"],
-  ["hippocampus", "amygdaloid-body"],
-  ["midbrain", "pons", "medulla-oblongata"],
-];
 const BEST_KEY = "anki-plus.slice-match.best";
 
 type Target = { plane: Plane; mm: number };
@@ -181,7 +172,6 @@ export function SliceMatch() {
     return () => window.removeEventListener("keydown", h);
   }, [revealed, check, next, pickPlane, step]);
 
-  const landmarks = useMemo(() => (cols ? LANDMARKS.map((ids, i) => ({ key: `lm${i}`, ids, color: cols.palette[i % cols.palette.length], opacity: 0.9 })) : []), [cols]);
   const keys = useMemo(() => (atlas && revealed ? keyStructures(atlas, target) : []), [atlas, revealed, target]);
   const sliceOverlays = useMemo<SliceOverlay[]>(() => keys.map((k, i) => ({ slug: k.slug, color: cols?.palette[i % (cols?.palette.length || 1)] ?? "#ff2a6d" })), [keys, cols]);
 
@@ -196,13 +186,12 @@ export function SliceMatch() {
   const shownPlane = revealed ? target.plane : plane;
   const cutPlane = revealed ? target : { plane, mm };
   const last = results[results.length - 1];
+  // the brain is cut solid at the plane shown, so that plane needs no sheet over its face (it washed the section out); after
+  // the reveal the cut is the target and your plane is the one translucent sheet
   const guides = cols
     ? revealed
-      ? [
-          { axis: PLANE[target.plane].axis, position: mmToWorld(target.plane, target.mm), color: cols.accent },
-          { axis: PLANE[plane].axis, position: mmToWorld(plane, mm), color: cols.mine },
-        ]
-      : [{ axis: PLANE[plane].axis, position: mmToWorld(plane, mm), color: cols.mine }]
+      ? [{ axis: PLANE[plane].axis, position: mmToWorld(plane, mm), color: cols.mine }]
+      : []
     : [];
 
   return (
@@ -245,7 +234,9 @@ export function SliceMatch() {
             height={440}
             hideLabels
             zoom={0.7}
-            overlays={landmarks}
+            // a solid brain cut like Explore's: the section face itself (grey ribbon, white matter, ventricles, nuclei) is what
+            // the student compares with the MRI; the see-through brain with coloured landmark blobs read as noise and loaded slowly
+            solidCuts
             cut={{ axis: PLANE[cutPlane.plane].axis, position: mmToWorld(cutPlane.plane, cutPlane.mm), flip: PLANE[cutPlane.plane].flip }}
             view={PLANE[shownPlane].view}
             guides={guides}

@@ -70,7 +70,9 @@ vec2 labCorner(ivec3 q, ivec3 dmax) {
   vec2 t = texelFetch(uLab, clamp(q, ivec3(0), dmax), 0).rg;
   float l = floor(t.r * 255.0 + 0.5);
   if (labSub >= 0 && (l == 0.0 || labClass(int(l)) == 6)) l = float(labSub);
-  return vec2(l, t.g);
+  // the margin is stored in steps of 6/255 (tools/atlas/interior_smooth.py): a voxel right at a border rounds to 0, and a
+  // cell of such voxels drew its whole patch as border (dotted, bracket-shaped flecks inside the thalamus). Half a step.
+  return vec2(l, max(t.g, 3.0 / 255.0));
 }
 /**
  * Winner and runner-up label at p with the margin d >= 0 between them (0 on the border). False outside the box.

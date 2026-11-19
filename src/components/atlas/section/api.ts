@@ -79,7 +79,9 @@ export function setSectionState(o: { hover: string | null; selected: string[]; c
   if (I && !Object.keys(st.hues).length) for (const r of I.rows) if (HUE_BY_KEY[r.key]) st.hues[r.grp] = HUE_BY_KEY[r.key];
   // a named part (a thalamic nucleus, the genu) lights alone; the structure's own row (the thalamus' remainder, a
   // hippocampal segment named "hippocampus") lights the whole structure, as its tooltip names it
-  const hoverRow = o.hover && lastPick && lastPick.ids[0] === o.hover && lastPick.slug !== lastPick.ids[0] ? lastPick.i : 0;
+  // drill-down (owner 2026-11-19: "hard to navigate between the thalamus and the nuclei"): a part lights alone only while its
+  // structure is selected; otherwise the whole structure lights, as its tooltip names it
+  const hoverRow = o.hover && lastPick && lastPick.ids[0] === o.hover && isPart(lastPick) && o.selected.includes(o.hover) ? lastPick.i : 0;
   const sel = o.selected.join("|");
   if (painted === I && st.hover === o.hover && st.hoverRow === hoverRow && [...st.selected].join("|") === sel && st.colour === o.colour) return;
   st.hover = o.hover;
@@ -173,7 +175,9 @@ function midlineRow(I: Interior, p: THREE.Vector3, n: THREE.Vector3): LabelRow |
  * cut. Null when no section is drawn, the point is not on the face, or it falls on cortex / white matter (the meshes and
  * the field answer there).
  */
-export function sectionPickRay(ray: THREE.Ray): { row: LabelRow; point: THREE.Vector3; distance: number } | null {
+/** A named part of a larger structure (a thalamic nucleus), not the structure's own row. */
+const isPart = (r: LabelRow) => r.slug !== r.ids[0];
+export function sectionPickRay(ray: THREE.Ray): { row: LabelRow; point: THREE.Vector3; distance: number; part: boolean } | null {
   const I = interiorNow();
   if (!I || !active.on || !active.planes.length) return null;
   let best = -Infinity;
@@ -193,7 +197,8 @@ export function sectionPickRay(ray: THREE.Ray): { row: LabelRow; point: THREE.Ve
   const r = entry === active.mid ? midlineRow(I, _p, entry.normal) : I.byI[labelIndexAt(_p, I)];
   if (!r || isField(r) || !shown(r)) return null;
   lastPick = r;
-  return { row: r, point: _p.clone(), distance: best };
+  // a part answers by its own name only inside its selected structure (drill-down); otherwise as the structure
+  return { row: r, point: _p.clone(), distance: best, part: isPart(r) && st.selected.has(r.ids[0]) };
 }
 
 // ---------------------------------------------------------------- section key

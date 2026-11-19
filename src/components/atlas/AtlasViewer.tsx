@@ -27,7 +27,7 @@ import type { SkullFocus } from "@/lib/atlas/catalog";
 import { BrainstemBreathDriver, onBrainstemBreath } from "./brainstem/plate/pulse";
 import { SectionFace, prewarmSectionCaps } from "./section/SectionFace";
 import { DEEP, SectionOutlines, addSectionPaint, makeSectionPaint, tintPaint } from "./section/deep";
-import { planeSection } from "./section/geometry";
+import { bakeGeometry, planeSection } from "./section/geometry";
 import { sectionPalette, sectionSwatch, useSectionTheme } from "./section/palette";
 import { SEC, insideTissue, setPalette, setSectionPlanes, setTissue } from "./section/shader";
 import { loadTissue } from "./section/tissue";
@@ -1250,7 +1250,7 @@ function Picker({
       // labelled interior: the section face names what it shows; it lies in front of every mesh behind the plane
       const sp = sectionPickRay(ray.ray);
       const spInfo: (PickInfo & { side?: "L" | "R" }) | null = sp
-        ? { hover: { id: sp.row.ids[0] ?? "" }, name: sp.row.name, side: sp.point.x > 0.002 ? "L" : sp.point.x < -0.002 ? "R" : undefined }
+        ? { hover: { id: sp.row.ids[0] ?? "" }, name: sp.part ? sp.row.name : (structures[sp.row.ids[0] ?? ""]?.name ?? sp.row.name), side: sp.point.x > 0.002 ? "L" : sp.point.x < -0.002 ? "R" : undefined }
         : null;
       for (const h of hits) {
         if (sp && spInfo && h.distance > sp.distance) return spInfo;
@@ -1564,11 +1564,18 @@ function Scene({
     setPalette(quiet ? quietPalette(p) : p);
     invalidate();
   }, [sectionLook, secTheme, tissueOk, quiet, invalidate]);
-  const hoverMat = useMemo(
-    () =>
-      new THREE.MeshBasicMaterial({ color: hoverColor, transparent: true, opacity: 0.55, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }),
-    [hoverColor],
-  );
+  const hoverMat = useMemo(() => {
+    const m = new THREE.MeshBasicMaterial({ color: hoverColor, transparent: true, opacity: 0.55, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+    // a gross mesh is drawn inflated (0.6 mm along its normals, inflate()): its hover copy is inflated the same, or the
+    // highlight sinks under the surface and shows only in torn patches when zoomed in (owner 2026-11-19)
+    m.userData.inflate = { value: 0 };
+    m.onBeforeCompile = (s) => {
+      s.uniforms.uHoverInflate = m.userData.inflate;
+      s.vertexShader = "uniform float uHoverInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uHoverInflate;");
+    };
+    m.customProgramCacheKey = () => "atlas-hover";
+    return m;
+  }, [hoverColor]);
   useEffect(
     () => () => {
       hiMat.dispose();
@@ -1933,6 +1940,12 @@ function Scene({
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
   const grossOn = showCtx && look !== "xray" && !!gross;
+  // the gyral meshes do not meet everywhere (orbital surface, insula): through a gap the view used to fall out of the brain
+  // (owner 2026-11-19: "gaps in the brain... looks like Phineas Gage"). The closed brain solid's far, inside faces are drawn
+  // behind them in a deep sulcal shadow: a gap reads as a sulcus. Back faces only, so it never covers a gyrus.
+  const fillBackGeo = useMemo(() => (fill ? bakeGeometry(fill) : null), [fill]);
+  const fillBackMat = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color(CORTEX_TINT).multiplyScalar(0.3), side: THREE.BackSide }), []);
+  useEffect(() => () => fillBackMat.dispose(), [fillBackMat]);
   // ids hidden from the gross brain: a selected structure (drawn by its own layer) and, with the toggle off, the brainstem
   const grossHidden = useMemo(() => {
     if (showBrainstem) return hiddenIds;
@@ -2112,16 +2125,20 @@ function Scene({
       }
     }
     setPickPlanes(hoverMat, grossHover ? grossPlanes.current : ownPlanes.current);
+    const inflated = list.length > 0 && list.every((m) => m.material === grossMats[m.userData.g as string] || m.material === grossMats.locked);
+    (hoverMat.userData.inflate as { value: number }).value = inflated ? INFLATE.value + 0.0001 : 0;
     // in a cut, a labelled structure's cut face is tinted by the label volume (tight to the structure); the mesh copy only
     // tints its outside, never its inside, whose outline is the mesh's, not the structure's
-    if (sectionOn && hover?.id && !hover.key && hasLabels(hover.id) && hoverMat.side !== THREE.FrontSide) {
+    // a gross mesh's inside lies behind the section face (which writes no depth): tinting it painted torn patches of
+    // hover colour over the section (owner 2026-11-19, the angular gyrus across a sagittal cut)
+    if (sectionOn && hover?.id && !hover.key && (grossHover || hasLabels(hover.id)) && hoverMat.side !== THREE.FrontSide) {
       hoverMat.side = THREE.FrontSide;
       hoverMat.needsUpdate = true;
     }
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
-  }, [hover, pool, hoverMat, grossById, targetRoot, ovlRoot, deepRoot, nerveRoot, ventralRoot, layerRoots, perMesh, sectionOn, invalidate]);
+  }, [hover, pool, hoverMat, grossById, grossMats, solid, brainOpacity, targetRoot, ovlRoot, deepRoot, nerveRoot, ventralRoot, layerRoots, perMesh, sectionOn, invalidate]);
 
   // in a section, a hovered deep structure tints its own cut face (not its whole body behind the plane); a selected one is in the accent
   useEffect(() => {
@@ -2214,6 +2231,9 @@ function Scene({
       {midsagittal && medialWall && gross && <primitive object={medialWall} />}
       {deepRoot && grossOn && !labelsOn && <primitive object={deepRoot} />}
       {nerveRoot && <primitive object={nerveRoot} />}
+      {fillBackGeo && grossOn && solid && (brainOpacity ?? 1) >= 1 && capPlanes.length === 0 && !midsagittal && (
+        <mesh geometry={fillBackGeo} material={fillBackMat} renderOrder={-1} raycast={() => undefined} />
+      )}
       {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} />}
       {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
       {outlineRoots.length > 0 && <SectionOutlines roots={outlineRoots} planes={capPlanes} version={outlineKey} color={secPal.line} />}

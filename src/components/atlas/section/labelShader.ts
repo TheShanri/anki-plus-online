@@ -167,6 +167,9 @@ vec3 labBase(int i, vec2 k, out float grey) {
   else if (cls == 7) col = uLabPlexus;
   else {
     float t = a.r * 1.3 - 0.3;
+    // grey nuclei (thalamus, basilar pons, tegmentum) read as grey matter with some myelin, not as near-white: their tones
+    // are compressed toward the grey (owner 2026-11-19: the deep structures looked washed out, flat)
+    if (cls == 4 && t > 0.0) t *= 0.62;
     col = t < 0.0 ? mix(uGM, uCSF, -t * 1.6) : mix(uGM, uWM, t);
     grey = cls == 5 ? 0.0 : 1.0 - clamp(t, 0.0, 1.0) * 0.6;
   }

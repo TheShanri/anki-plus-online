@@ -144,12 +144,34 @@ vec3 secToneOutsideK(vec3 p, vec2 k) {
   return labTexture(0, 1, mix(uCSF, tis, k.y), p, length(fwidth(p)), 1.0 - k.x);
 }
 vec3 secToneOutside(vec3 p) { return secToneOutsideK(p, secClass(p)); }
+/**
+ * Relief: a cut slab is not flat paint. The grey ribbon stands a hair proud of the white matter and the sulci are recessed,
+ * so the face catches the light at every border (owner 2026-11-19: the sagittal face looked "low res and 2D"). The height is
+ * the class field itself (CSF 0, grey 0.5, white 1, inverted toward grey: grey highest); its gradient, from six trilinear
+ * taps 0.35 mm apart (a fixed physical width at any zoom), tilts the face's normal in view space, lit from the upper left.
+ */
+float secHeight(vec3 p) {
+  float s = textureLod(uTissue, secUVW(p), 0.0).r;
+  return s < 0.5 ? s * 2.0 : 1.0 - (s - 0.5) * 0.6; // CSF 0 (deepest), grey 1, white 0.7
+}
+vec3 secRelief(vec3 p, vec3 col) {
+  const float e = 0.00035;
+  vec3 g = vec3(secHeight(p + vec3(e, 0, 0)) - secHeight(p - vec3(e, 0, 0)),
+                secHeight(p + vec3(0, e, 0)) - secHeight(p - vec3(0, e, 0)),
+                secHeight(p + vec3(0, 0, e)) - secHeight(p - vec3(0, 0, e))) / (2.0 * e);
+  vec2 gv = (viewMatrix * vec4(g, 0.0)).xy;      // the height's slope across the screen
+  vec3 n = normalize(vec3(-gv * 0.00055, 1.0));   // relief depth: ~0.5 mm over a border
+  vec3 L = normalize(vec3(-0.45, 0.6, 1.0));
+  float lit = dot(n, L) / L.z;                    // 1 on the flat face
+  float sh = clamp(1.0 + (lit - 1.0) * 0.8, 0.62, 1.22);
+  return col * sh + vec3(0.06) * pow(max(lit - 1.0, 0.0), 1.5); // a faint wet sheen on the lit bevels
+}
 vec3 secTone(vec3 p) {
   // both tones computed, then chosen: derivatives never sit behind a branch (labelShader.ts, the Windows rule)
   vec2 k = secClass(p);
   vec4 lb = labSection(p, k); // inside the labelled interior: every structure as its own region
   vec3 out3 = secToneOutsideK(p, k);
-  return lb.r >= 0.0 ? lb.rgb : out3;
+  return secRelief(p, lb.r >= 0.0 ? lb.rgb : out3);
 }
 /** Plane i's normal (dynamic index). */
 vec3 secNormal(int i) { return i == 0 ? uPlanes[0].xyz : uPlanes[1].xyz; }

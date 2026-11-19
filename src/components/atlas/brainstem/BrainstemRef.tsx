@@ -28,6 +28,8 @@ export interface BrainstemRefProps {
   pulseKey?: number;
   /** a docked inset of about 260-340 px */
   compact?: boolean;
+  /** quiz: the structure is lit but never named (no callout, caption or hover names) */
+  noNames?: boolean;
   onPick?: (slug: string) => void;
 }
 
@@ -40,7 +42,7 @@ export function brainstemRefCovers(structures: string[]): boolean {
   return structures.some((s) => REF.onPlates(s));
 }
 
-export function BrainstemRef({ level, structures = [], side = "both", pulseKey, compact, onPick }: BrainstemRefProps) {
+export function BrainstemRef({ level, structures = [], side = "both", pulseKey, compact, noNames, onPick }: BrainstemRefProps) {
   const key = structures.join("|");
   const auto = REF.pickLevel(structures);
   const stops = REF.levelsFor(structures);
@@ -117,9 +119,9 @@ export function BrainstemRef({ level, structures = [], side = "both", pulseKey, 
             </button>
           </div>
         )}
-        <Link href={`/atlas/brainstem?level=${encodeURIComponent(lv)}`} className="bs-ib bsr-ib no-underline" aria-label="Open in the brainstem atlas" title="Open in the brainstem atlas">
+        {!noNames && <Link href={`/atlas/brainstem?level=${encodeURIComponent(lv)}`} className="bs-ib bsr-ib no-underline" aria-label="Open in the brainstem atlas" title="Open in the brainstem atlas">
           <ExternalLink size={14} aria-hidden />
-        </Link>
+        </Link>}
       </div>
       <div ref={wrap} className={`bsr-plate${flash ? " bsr-flash" : ""}`}>
         {ready ? (
@@ -130,9 +132,9 @@ export function BrainstemRef({ level, structures = [], side = "both", pulseKey, 
             pulse
             hot={hot}
             hotSide={hotSide}
-            callout
+            callout={!noNames}
             names={NAMES}
-            interactive
+            interactive={!noNames}
             onHover={(s, sd) => {
               setHot(s);
               setHotSide(sd ?? null);
@@ -146,7 +148,7 @@ export function BrainstemRef({ level, structures = [], side = "both", pulseKey, 
           <div className="plate-skel" style={{ aspectRatio: "4 / 3" }} aria-busy />
         )}
       </div>
-      <figcaption className="bsr-cap">
+      <figcaption className="bsr-cap" hidden={noNames}>
         {lit.length ? lit.map(nameOf).join(", ") : structures.length ? `${structures.map(nameOf).join(", ")}: not drawn at this level` : ""}
         {approx ? <span className="bsr-approx"> · approximate outline</span> : null}
       </figcaption>

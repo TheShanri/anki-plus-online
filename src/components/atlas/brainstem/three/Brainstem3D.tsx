@@ -28,6 +28,8 @@ export interface Brainstem3DProps {
   /** "all": every plane faintly + the current one; "current": only the current plane */
   planes?: "all" | "current" | "none";
   compact?: boolean;
+  /** quiz: no name tooltips (the structure is to be named) */
+  noNames?: boolean;
   /** the camera's starting side */
   view?: View3D;
   /** the level list beside the model (default: on unless compact) */
@@ -434,7 +436,7 @@ function Scene({
   );
 }
 
-export default function Brainstem3D({ level = null, selected = null, hover = null, onSelect, onLevel, planes = "all", compact, view = "anterior", levelList, className, height, ariaLabel }: Brainstem3DProps) {
+export default function Brainstem3D({ level = null, selected = null, hover = null, onSelect, onLevel, planes = "all", compact, noNames, view = "anterior", levelList, className, height, ariaLabel }: Brainstem3DProps) {
   const { model, error } = useBrainstemModel();
   const accent = useThemeAccent();
   const [hoverPart, setHoverPart] = useState<string | null>(null);
@@ -478,7 +480,7 @@ export default function Brainstem3D({ level = null, selected = null, hover = nul
       </Canvas>
       {!model && !error && <div className="bs3d-msg">Loading the 3D brainstem…</div>}
       {error && <div className="bs3d-msg">The 3D brainstem could not be loaded.</div>}
-      {tip && (
+      {tip && !noNames && (
         <div className="bs3d-tip" style={{ left: tip.x, top: tip.y }} role="status">
           <span className="bs3d-tip-t">{tip.title}</span>
           {tip.sub && <span className="bs3d-tip-s">{tip.sub}</span>}

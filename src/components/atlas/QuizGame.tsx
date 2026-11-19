@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ComponentType } from "react";
 import { buildKnownNames, gradeTyped } from "@/lib/study/grade";
+import { canonStr } from "@/lib/study/text";
+import { BrainstemRef, brainstemRefCovers } from "./brainstem/BrainstemRef";
+import { in3D } from "./brainstem/three/model";
 import { emit } from "@/lib/feedback/events";
 import { trackAtlas } from "@/lib/atlas/progress";
 import "@/components/study/study.css"; // help-line, kbd, choice and verdict styles
@@ -14,6 +17,24 @@ const AtlasViewer = dynamic(() => import("./AtlasViewer"), {
   ssr: false,
   loading: () => <div className="flex h-[480px] items-center justify-center rounded-card border border-panel-border text-sm text-text-dim">Loading 3D model…</div>,
 }) as unknown as ComponentType<Record<string, unknown>>;
+
+// the 3D brainstem (its landmarks lit), beside the brainstem plate, for brainstem structures
+const Brainstem3D = dynamic(() => import("./brainstem/three/Brainstem3D"), {
+  ssr: false,
+  loading: () => <div className="plate-skel" style={{ height: 300 }} aria-busy />,
+}) as unknown as ComponentType<Record<string, unknown>>;
+
+/**
+ * Names the quiz takes for a highlight although the course lists them under another structure (owner 2026-11-19, a
+ * round's misses: "pons" for the pontine protuberance, "motor cortex" for the precentral gyrus, "dural sinus").
+ */
+const ALSO: Record<string, string[]> = {
+  "dural-venous-sinuses": ["dural sinus", "dural sinuses", "dural venous sinus", "venous sinus", "venous sinuses"],
+  "precentral-gyrus": ["primary motor cortex", "motor cortex", "motor strip", "m1"],
+  "postcentral-gyrus": ["primary somatosensory cortex", "somatosensory cortex", "sensory cortex", "s1"],
+  "transverse-temporal-gyrus": ["primary auditory cortex", "auditory cortex", "heschl's gyrus", "heschl gyrus"],
+  "pontine-protuberance": ["pons", "basilar pons", "basis pontis", "ventral pons", "basilar part of the pons", "basilar part of pons"],
+};
 
 export type QuizItem = { slug: string; name: string; synonyms: string[]; meshIds: string[]; unit: string | null; region: string | null; studied: boolean };
 type Pool = "all" | "units" | "studied";
@@ -31,6 +52,24 @@ function shuffle<T>(a: T[]): T[] {
   return x;
 }
 
+/** Two quiz items the 3D model lights identically (the same meshes). */
+function sameHighlight(a: QuizItem, b: QuizItem): boolean {
+  if (a.meshIds.length !== b.meshIds.length) return false;
+  const s = new Set(a.meshIds);
+  return b.meshIds.every((id) => s.has(id));
+}
+
+/** The hint: each word's first letters (about a third of it), the rest as dots. */
+function hintOf(name: string): string {
+  return name
+    .split(/\s+/)
+    .map((w) => {
+      const k = Math.max(1, Math.ceil(w.length / 3));
+      return w.slice(0, k) + "·".repeat(Math.max(0, w.length - k));
+    })
+    .join(" ");
+}
+
 function readBest(): Record<string, number> {
   try {
     return JSON.parse(window.localStorage.getItem(BEST_KEY) ?? "{}") as Record<string, number>;
@@ -41,6 +80,8 @@ function readBest(): Record<string, number> {
 
 export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Array<{ slug: string; canonical_name: string; synonyms: string[] }>; units: Array<{ slug: string; title: string }> }) {
   const known = useMemo(() => buildKnownNames(names), [names]);
+  const byslug = useMemo(() => new Map(items.map((x) => [x.slug, x])), [items]);
+  const [hinted, setHinted] = useState(false);
   const [phase, setPhase] = useState<"setup" | "play" | "done">("setup");
   const [pool, setPool] = useState<Pool>("all");
   const [pickedUnits, setPickedUnits] = useState<string[]>(() => units.map((u) => u.slug));
@@ -87,6 +128,7 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
     setRound(r);
     setI(0);
     setTyped("");
+    setHinted(false);
     setOutcomes([]);
     setStreak(0);
     setBestStreak(0);
@@ -113,8 +155,21 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
   const submitTyped = () => {
     if (!cur || answered) return;
     if (!typed.trim()) return record("skip", "");
-    const v = gradeTyped(typed, { answer: cur.name, accept: cur.synonyms }, { knownNames: known, ownSlug: cur.slug });
-    record(v.result === "correct" ? "right" : v.result === "near_miss" ? "close" : "wrong", typed);
+    const v = gradeTyped(typed, { answer: cur.name, accept: [...cur.synonyms, ...(ALSO[cur.slug] ?? [])] }, { knownNames: known, ownSlug: cur.slug });
+    let res: Outcome["result"] = v.result === "correct" ? "right" : v.result === "near_miss" ? "close" : "wrong";
+    if (res === "wrong") {
+      const t = canonStr(typed);
+      // a name from the extra list (the course's structure list would veto it as another structure's name)
+      if ((ALSO[cur.slug] ?? []).some((a) => canonStr(a) === t)) res = "right";
+      else {
+        // another structure the 3D model draws with exactly this highlight: the picture cannot tell them apart
+        const other = byslug.get(known[t] ?? "");
+        if (other && sameHighlight(other, cur)) res = "right";
+      }
+    }
+    // a hint taken: a right answer still scores, as "close"
+    if (hinted && res === "right") res = "close";
+    record(res, typed);
   };
 
   const next = () => {
@@ -139,6 +194,7 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
     const n = i + 1;
     setI(n);
     setTyped("");
+    setHinted(false);
     setChoices(makeChoices(round[n], items));
   };
 
@@ -273,6 +329,8 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
   }
 
   if (!cur) return null;
+  const bsPlate = brainstemRefCovers([cur.slug]);
+  const bs3d = in3D(cur.slug);
   const score = outcomes.filter((o) => o.result === "right" || o.result === "close").length;
   return (
     <div className="grid gap-3">
@@ -285,6 +343,19 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
         <button type="button" className="btn ml-auto" onClick={() => setPhase("setup")}>Quit</button>
       </div>
       <AtlasViewer key={cur.slug} structureIds={cur.meshIds} mode="focus" label="" quiz height={480} />
+      {(bsPlate || bs3d) && (
+        // a brainstem structure: also lit on the 3D brainstem and on its brainstem-atlas plate (names hidden until answered)
+        <div className={`grid gap-3 ${bsPlate && bs3d ? "md:grid-cols-2" : ""}`}>
+          {bs3d && <Brainstem3D key={cur.slug} selected={cur.slug} planes="none" compact levelList={false} noNames={!answered} height={320} ariaLabel="3D brainstem, the structure lit" />}
+          {bsPlate && <BrainstemRef key={cur.slug} structures={[cur.slug]} compact noNames={!answered} />}
+        </div>
+      )}
+      {hinted && !answered && mode === "type" && (
+        <p className="panel text-sm">
+          Starts with <b className="font-mono">{hintOf(cur.name)}</b> ({cur.name.split(/\s+/).length} word{cur.name.split(/\s+/).length === 1 ? "" : "s"})
+          {cur.region ? <> · region: {cur.region}</> : null}
+        </p>
+      )}
       <div className="panel grid gap-3">
         {!answered ? (
           mode === "type" ? (
@@ -307,6 +378,9 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
                 spellCheck={false}
               />
               <button type="submit" className="btn btn-primary">Answer</button>
+              <button type="button" className="btn" onClick={() => setHinted(true)} disabled={hinted} title="Show the first letters and the region (a right answer then counts as close)">
+                Hint
+              </button>
               <button type="button" className="btn" onClick={() => record("skip", "")}>Don&apos;t know</button>
             </form>
           ) : (

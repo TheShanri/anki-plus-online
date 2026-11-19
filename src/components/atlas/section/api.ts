@@ -77,7 +77,9 @@ export function setSectionState(o: { hover: string | null; selected: string[]; c
   if (o.hoverColor) SEC.uLabHover.value.copy(o.hoverColor);
   SEC.uLabColour.value = o.colour ? 1 : 0;
   if (I && !Object.keys(st.hues).length) for (const r of I.rows) if (HUE_BY_KEY[r.key]) st.hues[r.grp] = HUE_BY_KEY[r.key];
-  const hoverRow = o.hover && lastPick && lastPick.ids[0] === o.hover ? lastPick.i : 0;
+  // a named part (a thalamic nucleus, the genu) lights alone; the structure's own row (the thalamus' remainder, a
+  // hippocampal segment named "hippocampus") lights the whole structure, as its tooltip names it
+  const hoverRow = o.hover && lastPick && lastPick.ids[0] === o.hover && lastPick.slug !== lastPick.ids[0] ? lastPick.i : 0;
   const sel = o.selected.join("|");
   if (painted === I && st.hover === o.hover && st.hoverRow === hoverRow && [...st.selected].join("|") === sel && st.colour === o.colour) return;
   st.hover = o.hover;
@@ -251,4 +253,51 @@ export function sectionKeyFor(planes: THREE.Plane[], mid: THREE.Plane | null, op
     out.push({ id: r.ids[0] ?? "", name, key: r.key, colour: opts.colour ? (st.hues[r.grp] ?? "#b9a9a0") : opts.swatch(r) });
   }
   return out;
+}
+
+/**
+ * Where a structure's name label points on a cut: inside its labelled cut face (not at the mesh, whose outline differs),
+ * one point per side for a paired structure (left = +x). The voxel nearest the centroid of the structure's voxels in the
+ * plane's slice. null when the label volume has no voxels of it there.
+ */
+export function sectionAnchors(id: string, axis: "x" | "y" | "z", pos: number, split: boolean): { p: THREE.Vector3; side: "" | "L" | "R" }[] | null {
+  const I = interiorNow();
+  if (!I) return null;
+  const want = new Uint8Array(256);
+  let any = false;
+  for (const r of I.rows) if (r.ids.includes(id)) { want[r.i] = 1; any = true; }
+  if (!any) return null;
+  const [nx, ny, nz] = I.dims;
+  const ai = "xyz".indexOf(axis);
+  const s = Math.floor((pos - I.corner.getComponent(ai)) / I.step);
+  if (s < 0 || s >= I.dims[ai]) return null;
+  const parts: Record<string, number[][]> = { L: [], R: [], "": [] };
+  const [ua, va] = ai === 0 ? [1, 2] : ai === 1 ? [0, 2] : [0, 1];
+  const nu = I.dims[ua], nv = I.dims[va];
+  const ijk = [0, 0, 0];
+  ijk[ai] = s;
+  for (let b = 0; b < nv; b++)
+    for (let a = 0; a < nu; a++) {
+      ijk[ua] = a;
+      ijk[va] = b;
+      const l = I.data[((ijk[2] * ny + ijk[1]) * nx + ijk[0]) * 2];
+      if (!want[l]) continue;
+      const w = [I.corner.x + (ijk[0] + 0.5) * I.step, I.corner.y + (ijk[1] + 0.5) * I.step, I.corner.z + (ijk[2] + 0.5) * I.step];
+      parts[split ? (w[0] > 0 ? "L" : "R") : ""].push(w);
+    }
+  const out: { p: THREE.Vector3; side: "" | "L" | "R" }[] = [];
+  for (const side of ["L", "R", ""] as const) {
+    const q = parts[side];
+    if (q.length < 3) continue;
+    const c = [0, 1, 2].map((k) => q.reduce((t, w) => t + w[k], 0) / q.length);
+    let best = q[0], bd = Infinity;
+    for (const w of q) {
+      const d = (w[0] - c[0]) ** 2 + (w[1] - c[1]) ** 2 + (w[2] - c[2]) ** 2;
+      if (d < bd) { bd = d; best = w; }
+    }
+    const p = new THREE.Vector3(best[0], best[1], best[2]);
+    p.setComponent(ai, pos);
+    out.push({ p, side: parts.L.length >= 3 && parts.R.length >= 3 ? side : "" });
+  }
+  return out.length ? out : null;
 }

@@ -33,7 +33,7 @@ import { SEC, insideTissue, setPalette, setSectionPlanes, setTissue } from "./se
 import { loadTissue } from "./section/tissue";
 // labelled interior (section/labels.ts, section/api.ts): cut faces, their pick, highlight and key come from one label volume
 import { interiorNow, loadInterior } from "./section/labels";
-import { hasLabels, sectionKeyFor, sectionPickRay, setSectionActive, setSectionRedraw, setSectionState } from "./section/api";
+import { hasLabels, sectionAnchors, sectionKeyFor, sectionPickRay, setSectionActive, setSectionRedraw, setSectionState } from "./section/api";
 import { setInterior } from "./section/shader";
 
 export type AtlasMode = "focus" | "context";
@@ -1446,7 +1446,7 @@ function Scene({
   useEffect(() => {
     if (!midsagittal || medialWall) return;
     let alive = true;
-    loadAtlasModel("medial-wall.glb?v=5")
+    loadAtlasModel("medial-wall.glb?v=6")
       .then((g) => alive && setMedialWall(g))
       .catch(() => {});
     return () => {
@@ -1805,6 +1805,33 @@ function Scene({
     setSectionRedraw(invalidate);
     return () => setSectionRedraw(null);
   }, [invalidate]);
+  // the section volumes (tissue 4.8 MB, labels 3.8 MB, ~80 MB on the GPU) are fetched and uploaded while the atlas sits
+  // idle, one texture per idle slot, so the first cut does not wait for the network or freeze on the uploads (owner
+  // 2026-11-18: "5-10 seconds before it loads, and huge lag when cross section is selected"). Desktop only (phones fetch
+  // on the first cut, as before).
+  useEffect(() => {
+    if (!gross || typeof window === "undefined" || !window.matchMedia?.("(pointer: fine) and (min-width: 900px)").matches) return;
+    let cancelled = false;
+    const idle = (fn: () => void) => {
+      const w = window as unknown as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number };
+      if (w.requestIdleCallback) w.requestIdleCallback(fn, { timeout: 5000 });
+      else setTimeout(fn, 400);
+    };
+    const nextIdle = () => new Promise<void>((r) => idle(r));
+    const timer = setTimeout(async () => {
+      await nextIdle();
+      const [t, I] = await Promise.all([loadTissue().catch(() => null), loadInterior().catch(() => null)]);
+      for (const tex of [t?.aux, I?.vol, I?.pal, t?.field]) {
+        await nextIdle();
+        if (cancelled) return;
+        if (tex) gl.initTexture(tex);
+      }
+    }, 2500);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [gross, gl]);
   useEffect(() => {
     setSectionActive(labelsOn, capPlanes, midsagittal ? clipPlane : null, showBrainstem);
   });
@@ -2028,6 +2055,12 @@ function Scene({
       }
     }
     setPickPlanes(hoverMat, grossHover ? grossPlanes.current : ownPlanes.current);
+    // in a cut, a labelled structure's cut face is tinted by the label volume (tight to the structure); the mesh copy only
+    // tints its outside, never its inside, whose outline is the mesh's, not the structure's
+    if (sectionOn && hover?.id && !hover.key && hasLabels(hover.id) && hoverMat.side !== THREE.FrontSide) {
+      hoverMat.side = THREE.FrontSide;
+      hoverMat.needsUpdate = true;
+    }
     setHoverMeshes(pool, list.slice(0, pool.length), hoverMat);
     invalidate();
     return () => setHoverMeshes(pool, [], hoverMat);
@@ -2783,11 +2816,12 @@ export default function AtlasViewer({
   }, [syllabus, grossIds, unlocked]);
 
   // "Show its cut": the selected structure's label points at its cut face, not at the (cut away) middle of the mesh
-  const cutAxis = sCutOn ? clip.axis : null;
-  const cutLo = cutAxis && cutAxis !== "off" ? (ctxBox ? ctxBox.min[cutAxis] : cutAxis === "x" ? -0.08 : cutAxis === "y" ? 1.53 : -0.11) : 0;
-  const cutHi = cutAxis && cutAxis !== "off" ? (ctxBox ? ctxBox.max[cutAxis] : cutAxis === "x" ? 0.08 : cutAxis === "y" ? 1.68 : 0.1) : 0;
-  const cutPos = cutAxis && cutAxis !== "off" ? +(cutLo + clip.t * (cutHi - cutLo)).toFixed(4) : null;
-  const cutAt = useMemo(() => (cutAxis && cutAxis !== "off" && cutPos !== null ? { axis: cutAxis, pos: cutPos } : undefined), [cutAxis, cutPos]);
+  const cutAxis = clip.axis !== "off" && view !== "midsagittal" ? clip.axis : null;
+  const cutLo = cutAxis ? (ctxBox ? ctxBox.min[cutAxis] : cutAxis === "x" ? -0.08 : cutAxis === "y" ? 1.53 : -0.11) : 0;
+  const cutHi = cutAxis ? (ctxBox ? ctxBox.max[cutAxis] : cutAxis === "x" ? 0.08 : cutAxis === "y" ? 1.68 : 0.1) : 0;
+  const cutPos = cutAxis ? +(cutLo + clip.t * (cutHi - cutLo)).toFixed(4) : null;
+  const anyCut = useMemo(() => (cutAxis && cutPos !== null ? { axis: cutAxis, pos: cutPos } : undefined), [cutAxis, cutPos]);
+  const cutAt = sCutOn ? anyCut : undefined;
   // in-scene name labels (selected structure, added structures, neighbours)
   const labelItems = useMemo<LabelItem[]>(() => {
     if (quiz || hideLabels || !index || !shown) return [];
@@ -2796,7 +2830,10 @@ export default function AtlasViewer({
     const add = (k: string, color: string, g: THREE.Group, id: string, nameOverride?: string, only?: "L" | "R") => {
       const e = index.structures[id];
       if (!e) return;
-      for (const a of anchorsFor(g, e.side === "lr", k === "primary" ? cutAt : undefined)) {
+      // on a cut: inside the structure's labelled cut face; a structure "Show its cut" puts on the plane but the labels
+      // do not cover: on its mesh, near the plane
+      const onCut = anyCut && k === "primary" && tissueOk ? sectionAnchors(id, anyCut.axis, anyCut.pos, e.side === "lr") : null;
+      for (const a of onCut ?? anchorsFor(g, e.side === "lr", k === "primary" ? cutAt : undefined)) {
         if (only && a.side && a.side !== only) continue;
         out.push({ key: k, sid: id, text: `${nameOverride ?? e.name}${a.side ? " (" + a.side + ")" : only ? " (" + only + ")" : ""}`, color, anchor: a.p });
       }
@@ -2811,7 +2848,7 @@ export default function AtlasViewer({
       }
     }
     return out.slice(0, MAX_LABELS);
-  }, [quiz, hideLabels, index, shown, colors.accent, label, skull, ctxBox, cutAt]);
+  }, [quiz, hideLabels, index, shown, colors.accent, label, skull, ctxBox, cutAt, anyCut, tissueOk]);
   const labelsOn = showLabels && !quiz && !hideLabels;
   const barRef = useRef<HTMLDivElement>(null);
   const [obsTick, setObsTick] = useState(0);

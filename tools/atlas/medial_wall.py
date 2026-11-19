@@ -45,7 +45,10 @@ kind = np.clip(ndimage.gaussian_filter(np.where(has, kind, 1.0), 1.5), 0, 1)
 jz, jy = np.meshgrid(np.arange(nz), np.arange(ny), indexing="ij")
 edge = np.minimum.reduce([jz, nz - 1 - jz, ny - 1 - jy]).astype(np.float32)
 d = d + 20.0 * np.clip(1.0 - edge / 16.0, 0, 1) ** 2
-X = -(d + 0.5) * step - 0.0002                    # x of the surface (right hemisphere, negative)
+# x of the surface (right hemisphere, negative). The cortical wall sits 1.5 mm deeper than the labels say: where Z-Anatomy's
+# own gyral shell exists (occipital, parietal: lingual gyrus, cuneus) the shell wins the depth test instead of the two
+# interleaving in patches; where the shell has no medial wall (frontal, callosal) the offset is invisible.
+X = -(d + 0.5) * step - 0.0002 - 0.0015 * kind
 Z, Y = np.meshgrid(cz + (np.arange(nz) + 0.5) * step, cy + (np.arange(ny) + 0.5) * step, indexing="ij")
 idx = -np.ones(has.shape, int)
 idx[has] = np.arange(has.sum())

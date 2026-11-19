@@ -3368,7 +3368,7 @@ export default function AtlasViewer({
               {keyOpen ? <ChevronDown size={11} aria-hidden /> : <ChevronUp size={11} aria-hidden />} Section key
             </button>
             {keyOpen && (
-              <ul className="grid gap-0.5 text-[11px] text-text">
+              <ul className="grid max-h-[40vh] gap-0.5 overflow-y-auto overscroll-contain pr-1 text-[11px] text-text">
                 {sectionKeyShown.map((k) => (
                   <li key={k.id} className="flex items-center gap-1.5">
                     <span className="inline-block h-2.5 w-2.5 shrink-0 rounded-sm border border-panel-border" style={{ background: k.colour }} aria-hidden />

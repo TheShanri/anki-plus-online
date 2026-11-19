@@ -40,6 +40,7 @@ export function setInterior(I: Interior | null) {
   SEC.uLabGrpV3.value = I.rows.find((r) => r.key === "3V")?.grp ?? -1;
   SEC.uLabGrpLV.value = I.rows.find((r) => r.key === "bLV")?.grp ?? -1;
   SEC.uLabMoTg.value = I.rows.find((r) => r.key === "MoTg")?.i ?? -1;
+  SEC.uLabCec.value = I.rows.find((r) => r.key === "cec")?.i ?? -1;
 }
 
 export function setTissue(t: TissueVolume | null) {

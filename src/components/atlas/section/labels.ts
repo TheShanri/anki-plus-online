@@ -140,7 +140,17 @@ export function labelIndexAt(p: THREE.Vector3, I: Interior | null = current): nu
   const j = Math.floor((p.y - I.corner.y) / I.step);
   const k = Math.floor((p.z - I.corner.z) / I.step);
   if (i < 0 || j < 0 || k < 0 || i >= nx || j >= ny || k >= nz) return 0;
-  return I.data[((k * ny + j) * nx + i) * 2];
+  const l = I.data[((k * ny + j) * nx + i) * 2];
+  return l === canalOf(I)?.cec ? canalOf(I)!.moTg : l; // the central canal reads as the medulla (labelShader.ts, labCorner)
+}
+/** The central canal label (an oversized block in the source atlas) and the medullary tegmentum it is drawn as. */
+const canalCache = new WeakMap<Interior, { cec: number; moTg: number } | null>();
+function canalOf(I: Interior) {
+  if (!canalCache.has(I)) {
+    const cec = I.rows.find((r) => r.key === "cec")?.i, moTg = I.rows.find((r) => r.key === "MoTg")?.i;
+    canalCache.set(I, cec !== undefined && moTg !== undefined ? { cec, moTg } : null);
+  }
+  return canalCache.get(I);
 }
 
 /** The labelled structure at a world point. */

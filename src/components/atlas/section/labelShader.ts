@@ -28,6 +28,9 @@ export const LAB = {
   uLabGrpLV: { value: -1 },
   /** label index of the medullary tegmentum (the cord's midline below the label box) */
   uLabMoTg: { value: -1 },
+  /** label index of the central canal: drawn as the medulla (the source atlas labels it as a ~1 cm block that flared into a
+   * dark wedge ending flat at the box's floor; the real canal is a fraction of a millimetre) */
+  uLabCec: { value: -1 },
 };
 
 export const LAB_GLSL = /* glsl */ `
@@ -46,6 +49,7 @@ uniform float uLabOnly;
 uniform float uLabGrpV3;
 uniform float uLabGrpLV;
 uniform float uLabMoTg;
+uniform float uLabCec;
 
 /** set instead of discarding inside helpers (D3D/ANGLE rejects that); the material's main checks it */
 bool secDiscard = false;
@@ -69,6 +73,7 @@ int labNearest(vec3 p) {
 vec2 labCorner(ivec3 q, ivec3 dmax) {
   vec2 t = texelFetch(uLab, clamp(q, ivec3(0), dmax), 0).rg;
   float l = floor(t.r * 255.0 + 0.5);
+  if (l == uLabCec) l = uLabMoTg;
   if (labSub >= 0 && (l == 0.0 || labClass(int(l)) == 6)) l = float(labSub);
   // the margin is stored in steps of 6/255 (tools/atlas/interior_smooth.py): a voxel right at a border rounds to 0, and a
   // cell of such voxels drew its whole patch as border (dotted, bracket-shaped flecks inside the thalamus). Half a step.

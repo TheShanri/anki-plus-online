@@ -7,6 +7,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { Brain, Columns2, Image as ImageIcon, Microscope, PenTool, Tags } from "lucide-react";
 import { STRUCTURES } from "./data";
 import { usePlate } from "./plate/usePlate";
+import { loadPlate } from "./plate/load";
 import { PlateArt, type PlateView } from "./plate/PlateArt";
 import { LevelLocator } from "./plate/LevelLocator";
 
@@ -150,7 +151,12 @@ export function PlateStage({
             />
           </div>
         ) : plate === "missing" ? (
-          <div className="p-6 text-sm text-text-dim">The plate could not be loaded.</div>
+          <div className="p-6 text-sm text-text-dim">
+            The plate could not be loaded.{" "}
+            <button type="button" className="underline underline-offset-2 hover:text-text" onClick={() => void loadPlate(level)}>
+              Try again
+            </button>
+          </div>
         ) : (
           <div className="plate-skel" style={{ aspectRatio: "4 / 3" }} aria-busy />
         )}

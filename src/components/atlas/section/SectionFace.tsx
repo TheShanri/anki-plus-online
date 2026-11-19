@@ -111,7 +111,11 @@ function tissueCap(m: THREE.MeshBasicMaterial, kind: Kind) {
   m.onBeforeCompile = (s) => {
     Object.assign(s.uniforms, SEC);
     s.vertexShader = SEC_VERT_DECL + s.vertexShader.replace("#include <project_vertex>", "#include <project_vertex>\n" + SEC_VERT_MAIN);
-    s.fragmentShader = `#define SEC_CAP_MODE ${mode}\n` + SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec4 diffuseColor = vec4( secCap( secOnPlane( vSecW ), diffuse ), opacity );
+    s.fragmentShader = `#define SEC_CAP_MODE ${mode}\n` + SEC_GLSL + SEC_CAP_GLSL + s.fragmentShader.replace("vec4 diffuseColor = vec4( diffuse, opacity );", `vec3 secC = secCap( secOnPlane( vSecW ), diffuse );
+  // the quad faces the kept side, so its front is seen only from the intact side, through gaps in the gyral meshes: there
+  // it is the inside of the brain (a deep-sulcus tone), never the section (coloured patches in the sulci)
+  if (gl_FrontFacing) { secC = vec3(0.19, 0.13, 0.11); secDiscard = false; }
+  vec4 diffuseColor = vec4( secC, opacity );
   if (secDiscard) discard;`);
   };
   m.customProgramCacheKey = () => "atlas-section-cap-" + kind;

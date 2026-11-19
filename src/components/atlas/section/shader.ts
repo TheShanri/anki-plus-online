@@ -229,6 +229,21 @@ vec3 secOnPlane(vec3 w) {
   if (isOrthographic) return w + rd * best;
   return ro + rd * min(best, tf);
 }
+/** 1 when the view ray reaches w through the cut (the camera is on a removed side), 0 when the camera is inside the kept
+ * region: a back face seen then is the far wall behind a gap in the gyral meshes, not the inside of a cut mesh. */
+float secThroughCut(vec3 w) {
+  vec3 ro = isOrthographic ? w : cameraPosition;
+  vec3 rd = isOrthographic ? -vec3(viewMatrix[0][2], viewMatrix[1][2], viewMatrix[2][2]) : normalize(w - cameraPosition);
+  float best = -1e9;
+  for (int i = 0; i < 2; i++) {
+    if (i >= uNPlanes) break;
+    vec4 pl = uPlanes[i];
+    float dn = dot(pl.xyz, rd);
+    if (dn <= 1e-5) continue;
+    best = max(best, -(dot(pl.xyz, ro) + pl.w) / dn);
+  }
+  return isOrthographic ? step(-1e8, best) : step(0.0, best);
+}
 `;
 
 /** Placed after SEC_GLSL and the ray helpers. */
@@ -299,9 +314,10 @@ export function insideTissue(
       `bool secBack = !gl_FrontFacing;
 // the tone first, the choice after: derivatives never behind a branch (labelShader.ts, the Windows rule)
 vec3 secT = secTone(secBack ? secOnPlane(vSecW) : secFoot(vSecW));
+bool secCutIn = secThroughCut(vSecW) > 0.5;
 if (uHasTissue > 0.5 && uNPlanes > 0) {
-  if (secBack || (uSecOnPlane > 0.5 && secPlaneDist(vSecW) < 0.003)) outgoingLight = secT;
-  else secDiscard = false;
+  if ((secBack && secCutIn) || (uSecOnPlane > 0.5 && secPlaneDist(vSecW) < 0.003)) outgoingLight = secT;
+  else { secDiscard = false; if (secBack) { ${flat} } }
 } else { secDiscard = false; if (secBack) { ${flat} } }
 if (secDiscard) discard;
 #include <opaque_fragment>`,

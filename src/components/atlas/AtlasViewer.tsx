@@ -2231,8 +2231,9 @@ function Scene({
       {midsagittal && medialWall && gross && <primitive object={medialWall} />}
       {deepRoot && grossOn && !labelsOn && <primitive object={deepRoot} />}
       {nerveRoot && <primitive object={nerveRoot} />}
-      {fillBackGeo && grossOn && solid && (brainOpacity ?? 1) >= 1 && capPlanes.length === 0 && !midsagittal && (
-        <mesh geometry={fillBackGeo} material={fillBackMat} renderOrder={-1} raycast={() => undefined} />
+      {fillBackGeo && grossOn && solid && (brainOpacity ?? 1) >= 1 && !midsagittal && (
+        // clipped like the brain: with a cut, a gap seen from the intact side shows the kept part's far wall, never the page
+        <mesh geometry={fillBackGeo} material={fillBackMat} material-clippingPlanes={capPlanes} renderOrder={-1} raycast={() => undefined} />
       )}
       {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} />}
       {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}

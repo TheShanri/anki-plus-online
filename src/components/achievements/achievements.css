@@ -87,3 +87,9 @@ html[data-effects="off"] .ach-toast, html[data-effects="off"] .ach-toast .ach-me
 html[data-effects="off"] .ach-burst { display: none; }
 html[data-effects="subtle"] .ach-flame { animation: none; }
 html[data-effects="subtle"] .ach-burst { display: none; }
+
+/* collapsed to the rank medal and streak; the name, bar and XP open on hover or focus (it sat over panels and credits) */
+.xp-chip { gap: 0.3rem; }
+.xp-chip:hover, .xp-chip:focus-visible { gap: 0.5rem; }
+.xp-chip > :not(.ach-medal):not(.xp-streak) { max-width: 0; opacity: 0; overflow: hidden; transition: max-width 180ms var(--ease-out, ease), opacity 140ms; }
+.xp-chip:hover > *, .xp-chip:focus-visible > * { max-width: 14em; opacity: 1; }

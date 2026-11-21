@@ -1,4 +1,5 @@
 "use client";
+import { LinesSkeleton } from "@/components/ui/Skeleton";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, EyeOff, Flag, Lock, Pencil, Plus, ThumbsUp, Trash2, User, Users, X } from "lucide-react";
 import { Badge, Button, Segmented } from "@/components/ui";
@@ -136,7 +137,7 @@ export function MnemonicPanel({ cardId, structureSlug, onOwnChange, autoOpen, nu
   };
 
   if (failed) return null; // the study flow never depends on this panel
-  if (!data) return <div className="info-panel mnemo" data-testid={NOTES_KEY}><h4>Mnemonics</h4><p className="v-notes">Loading…</p></div>;
+  if (!data) return <div className="info-panel mnemo" data-testid={NOTES_KEY}><h4>Mnemonics</h4><LinesSkeleton lines={2} label="Loading mnemonics" /></div>;
 
   const mine = data.mine;
   const where = data.structure ? ` for ${data.structure.name}` : "";

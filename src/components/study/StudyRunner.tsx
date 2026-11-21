@@ -1,5 +1,6 @@
 "use client";
 // The study screen. Renders a StudyEngine (src/lib/study/engine.ts) and forwards keys; all logic lives in the engine.
+import { CardSkeleton } from "@/components/ui/Skeleton";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -51,7 +52,7 @@ export function StudyRunner({ initial, scope, limit, tz, more = 0 }: { initial: 
       { limit },
     );
   });
-  if (!engine || !sync) return <p className="text-text-dim">Loading…</p>;
+  if (!engine || !sync) return <CardSkeleton />;
   return <Runner engine={engine} initial={initial} scope={scope} sync={sync} />;
 }
 
@@ -348,7 +349,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   };
 
   if (phase === "done") return <Summary engine={engine} scope={scope} sync={sync} syncState={syncState} />;
-  if (phase === "loading" && !c) return <div className="panel"><p className="text-text-dim">Loading your cards…</p></div>;
+  if (phase === "loading" && !c) return <CardSkeleton />;
 
   const state = c ? engine.states.get(c.card.id) ?? null : null;
   const kind = c ? (c.isFirstLook || !state || state.reps === 0 ? ["new", "NEW"] : state.state === 1 || state.state === 3 ? ["learn", state.state === 3 ? "RELEARN" : "LEARNING"] : ["review", "REVIEW"]) : null;

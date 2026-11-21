@@ -64,6 +64,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
           <div key={label} className="panel">
             <p className="label">{label}</p>
             <p className={`font-display text-4xl stat-num${n === 0 ? " num-zero" : ""}`} style={{ color }}>{n}</p>
+            {label === "Due" && <Spark days={days} color={color} />}
           </div>
         ))}
       </div>
@@ -93,6 +94,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
             <section key={un.id}>
               <Link href={q(`unit:${un.slug}`)} className="scope-card" style={{ marginBottom: 8 }}>
                 <h3>{un.title}</h3>
+                <span className="scope-bar" aria-hidden><i style={{ transform: `scaleX(${o.total ? o.learned / o.total : 0})` }} /></span>
                 <div className="scope-nums"><span className="c-new">{o.newCount} new</span><span className="c-learn">{o.learning} learning</span><span className="c-review">{o.due} due</span><span>{o.learned}/{o.total} solid</span></div>
               </Link>
               <div className="scope-grid">
@@ -102,6 +104,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
                   return (
                     <Link key={t.id} href={q(`topic:${t.slug}`)} className="scope-card">
                       <h3>{t.title}</h3>
+                      <span className="scope-bar" aria-label={`${to.learned} of ${to.total} solid`}><i style={{ transform: `scaleX(${to.total ? to.learned / to.total : 0})` }} /></span>
                       <div className="scope-nums"><span className="c-new" title="new" data-z={to.newCount === 0 ? "" : undefined}>{to.newCount}</span><span className="c-learn" title="learning" data-z={to.learning === 0 ? "" : undefined}>{to.learning}</span><span className="c-review" title="due" data-z={to.due === 0 ? "" : undefined}>{to.due}</span><span>{to.total} cards</span></div>
                     </Link>
                   );
@@ -113,5 +116,25 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
       </div>
       {learner.scaffold.streaks && <div style={{ marginTop: 22 }}><ActivityGrid days={days} streak={streakOf(days)} /></div>}
     </PageShell>
+  );
+}
+
+/** Reviews over the last 7 days, a small line under the Due count. */
+function Spark({ days, color }: { days: Array<{ day: string; reviews: number }>; color: string }) {
+  const by = new Map(days.map((d) => [d.day, d.reviews]));
+  const pts: number[] = [];
+  const d = new Date();
+  d.setDate(d.getDate() - 6);
+  for (let i = 0; i < 7; i++, d.setDate(d.getDate() + 1)) pts.push(by.get(fmt(d)) ?? 0);
+  const max = Math.max(1, ...pts);
+  const path = pts.map((v, i) => `${i ? "L" : "M"}${(i * 100) / 6},${28 - (v / max) * 24}`).join(" ");
+  const total = pts.reduce((a, b) => a + b, 0);
+  return (
+    <div className="stat-spark" title={`${total} reviews in the last 7 days`}>
+      <svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden>
+        <path d={path} fill="none" stroke={color} strokeWidth="2" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+      </svg>
+      <span>{total} reviews · 7 days</span>
+    </div>
   );
 }

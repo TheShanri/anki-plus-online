@@ -1,5 +1,6 @@
 "use client";
 
+import { ViewerSkeleton } from "@/components/ui/Skeleton";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -16,7 +17,7 @@ import "@/components/study/study.css"; // help-line, kbd, choice and verdict sty
 // The 3D viewer, with names hidden: label="" (no title) and quiz (no hover names or labels).
 const AtlasViewer = dynamic(() => import("./AtlasViewer"), {
   ssr: false,
-  loading: () => <div className="flex h-[480px] items-center justify-center rounded-card border border-panel-border text-sm text-text-dim">Loading 3D model…</div>,
+  loading: () => <ViewerSkeleton height={480} />,
 }) as unknown as ComponentType<Record<string, unknown>>;
 
 // the 3D brainstem (its landmarks lit), beside the brainstem plate, for brainstem structures

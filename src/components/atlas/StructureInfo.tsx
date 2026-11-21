@@ -1,5 +1,6 @@
 "use client";
 
+import { LinesSkeleton } from "@/components/ui/Skeleton";
 import { withCranialNumeral } from "@/lib/atlas/cranial";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -67,7 +68,7 @@ export function StructureInfo({ slug, name }: { slug: string; name?: string }) {
     };
   }, [slug]);
 
-  if (data === null) return <section className="panel !p-3 text-sm text-text-dim">Loading course notes for {name ?? "this structure"}…</section>;
+  if (data === null) return <section className="panel !p-3"><LinesSkeleton lines={4} label={`Loading course notes for ${name ?? "this structure"}`} /></section>;
   if (data === "signed-out")
     return (
       <section className="panel !p-3 text-sm text-text-dim">

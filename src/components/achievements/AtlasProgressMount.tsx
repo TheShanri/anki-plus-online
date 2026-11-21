@@ -130,7 +130,7 @@ function XpChip() {
       </span>
       <span className="font-mono text-[0.7rem] text-text-dim">{summary.xp}/{r.to ?? RANKS[RANKS.length - 1].xp} XP</span>
       {summary.streak > 0 && (
-        <span className="inline-flex items-center gap-0.5 font-mono text-xs text-hard">
+        <span className="xp-streak inline-flex items-center gap-0.5 font-mono text-xs text-hard">
           <Flame size={14} className="ach-flame" aria-hidden="true" />
           {summary.streak}
         </span>

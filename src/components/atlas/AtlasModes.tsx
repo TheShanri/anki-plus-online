@@ -24,7 +24,7 @@ export function AtlasModes() {
   // any atlas route: warm the index and the brain model while the page is idle, so the next mode opens fast
   useEffect(() => preloadAtlas(), []);
   return (
-    <nav aria-label="Atlas modes" className="mb-2 flex gap-1 overflow-x-auto pb-1 [scrollbar-width:thin]">
+    <nav aria-label="Atlas modes" className="mb-2 flex gap-1 overflow-x-auto pb-1 [scrollbar-width:none] [mask-image:linear-gradient(90deg,#000_88%,transparent)] sm:flex-wrap sm:overflow-visible sm:[mask-image:none]">
       {ATLAS_MODES.map((m) => {
         const on = m.href === "/atlas" ? path === "/atlas" : path === m.href || path.startsWith(m.href + "/");
         const Icon = m.icon;

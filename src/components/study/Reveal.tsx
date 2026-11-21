@@ -357,6 +357,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
               <button key={g} type="button" className={`grade-btn g${g}${g === c.rating ? " suggested" : ""}`} disabled={!canRate} onClick={() => engine.accept(g)}>
                 <b>{GRADE_NAMES[g]}</b>
                 <small>{c.previews?.[g] ?? ""}</small>
+                <span className="kbd grade-key" aria-hidden>{g}</span>
               </button>
             );
           })}

@@ -1,4 +1,5 @@
 "use client";
+import { CardSkeleton } from "@/components/ui/Skeleton";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { StudyPayload } from "@/lib/study/types";
@@ -36,6 +37,6 @@ export function RunLoader({ scope, limit, course, more = 0, initial = null }: { 
   // then the session (a server-built first batch would otherwise mismatch on hydration).
   const client = useSyncExternalStore(() => () => {}, () => true, () => false);
   if (error) return <div className="panel"><p className="field-error">{error}</p><Link className="btn" href="/study">Back</Link></div>;
-  if (!payload || !client) return <div className="panel"><p className="text-text-dim">Loading your cards…</p></div>;
+  if (!payload || !client) return <CardSkeleton />;
   return <StudyRunner initial={payload} scope={scope} limit={limit} tz={tz} more={more} />;
 }

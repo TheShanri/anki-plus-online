@@ -7,7 +7,7 @@
 }
 .atl-narrow .atl-div { display: none; }
 .atl-grp { display: inline-flex; align-items: center; gap: 1px; }
-.atl-div { width: 1px; align-self: stretch; margin: 3px 3px; background: var(--panel-border); flex: none; }
+.atl-div { width: 1px; align-self: stretch; margin: 6px 5px; background: var(--panel-border-hi); flex: none; }
 .atl-btn {
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 4px;
   min-width: 32px; height: 32px; padding: 0 6px; border: 0; border-radius: 4px; cursor: pointer;
@@ -30,7 +30,7 @@
   transition: opacity 120ms, transform 120ms;
 }
 .atl-below[data-tip]::after { bottom: auto; top: calc(100% + 8px); transform: translate(-50%, -3px); }
-.atl-btn[data-tip]:hover::after, .atl-btn[data-tip]:focus-visible::after, .atl-tip[data-tip]:hover::after { opacity: 1; transform: translate(-50%, 0); transition-delay: 350ms; }
+.atl-btn[data-tip]:hover::after, .atl-btn[data-tip]:focus-visible::after, .atl-tip[data-tip]:hover::after { opacity: 1; transform: translate(-50%, 0); transition-delay: 60ms; }
 @media (hover: none) { .atl-btn[data-tip]::after { display: none; } }
 
 .atl-pop {

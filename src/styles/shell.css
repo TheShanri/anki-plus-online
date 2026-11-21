@@ -210,6 +210,11 @@
 .adv[open] > summary { border-bottom: 1px solid var(--panel-border); }
 .fb-fab { position: fixed; left: 12px; bottom: 12px; z-index: 40; border-radius: 99px; background: var(--panel-solid); color: var(--text-dim); box-shadow: var(--shadow-card); }
 .fb-fab:hover { color: var(--text); }
+/* tucked away: a round icon that opens out to "Feedback" on hover or focus, so it never sits over page content */
+.fb-fab { padding: 0; width: 36px; height: 36px; justify-content: center; gap: 0; overflow: hidden; opacity: 0.8; transition: width 160ms var(--ease-out, ease), opacity 160ms, padding 160ms; }
+.fb-fab > span { max-width: 0; opacity: 0; white-space: nowrap; transition: max-width 160ms var(--ease-out, ease), opacity 120ms; }
+.fb-fab:hover, .fb-fab:focus-visible { width: auto; padding: 0 12px; gap: 6px; opacity: 1; }
+.fb-fab:hover > span, .fb-fab:focus-visible > span { max-width: 10em; opacity: 1; }
 .fb-types button { padding: 0 8px; gap: 5px; font-size: 12.5px; }
 @media (max-width: 460px) { .fb-types button svg { display: none; } .fb-types button { padding: 0 4px; font-size: 12px; } }
 .adv > summary .adv-ico { width: 18px; height: 18px; color: var(--accent-2); flex: none; }

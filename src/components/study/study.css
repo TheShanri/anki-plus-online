@@ -278,3 +278,31 @@
 .prac-recent { max-width: 640px; }
 @media (min-width: 1000px) { .prac-layout { grid-template-columns: minmax(0, 640px) minmax(0, 1fr); gap: 32px; } .prac-recent { max-width: none; } }
 
+
+/* polish: rating keys read as four clear buttons, each with its key and a coloured top edge */
+.grade-btn { position: relative; padding: 12px 6px 10px; border-top-width: 3px; transition: transform 100ms var(--ease-out, ease), border-color 120ms; }
+.grade-btn:not(:disabled):hover { transform: translateY(-1px); }
+.grade-btn b { font-size: 14px; }
+.grade-btn.g1 { border-top-color: var(--again); } .grade-btn.g2 { border-top-color: var(--hard); } .grade-btn.g3 { border-top-color: var(--good); } .grade-btn.g4 { border-top-color: var(--easy); }
+.grade-btn .grade-key { margin-top: 3px; font-size: 10px; }
+.meter { font-size: 12px; gap: 6px; }
+.meter span { padding: 3px 10px; }
+
+/* polish: a calmer reveal. The answer block eases in (opacity and a few px) instead of popping, and the card keeps the
+   height it had at the prompt so the image and the text above never jump */
+.reveal { animation: reveal-in 220ms var(--ease-out, ease) both; }
+.reveal > * { animation: reveal-in 260ms var(--ease-out, ease) both; }
+.reveal > *:nth-child(2) { animation-delay: 40ms; } .reveal > *:nth-child(3) { animation-delay: 80ms; } .reveal > *:nth-child(n+4) { animation-delay: 110ms; }
+@keyframes reveal-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.st-card .st-main { min-height: 18rem; }
+@media (prefers-reduced-motion: reduce) { .reveal, .reveal > * { animation: none; } }
+html[data-effects="off"] .reveal, html[data-effects="off"] .reveal > * { animation: none; }
+
+/* polish: tiles line up (the numbers sit on the bottom edge whatever the title length) and show how much is solid */
+.scope-card { grid-template-rows: 1fr auto auto; align-content: start; }
+.scope-grid .scope-card { min-height: 104px; }
+.scope-bar { display: block; height: 4px; border-radius: 99px; background: var(--panel-border); overflow: hidden; }
+.scope-bar > i { display: block; height: 100%; background: var(--good); transform-origin: left; }
+.stat-spark { margin-top: 6px; display: grid; gap: 2px; }
+.stat-spark svg { width: 100%; height: 26px; opacity: 0.85; }
+.stat-spark span { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); }

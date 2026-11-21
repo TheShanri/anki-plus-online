@@ -50,7 +50,7 @@ export function Heatmap({ days, today, weeks = 53 }: { days: ActivityDay[]; toda
           data-l={future ? undefined : level(n)}
           data-future={future ? "" : undefined}
           data-today={key === today ? "" : undefined}
-          title={future ? undefined : `${n ? `${n} review${n === 1 ? "" : "s"}` : "No reviews"} · ${nice}${rec && rec.minutes ? ` · ${rec.minutes} min` : ""}`}
+          title={future ? undefined : `${n ? `${n} review${n === 1 ? "" : "s"}` : "No card reviews"} · ${nice}${rec && rec.minutes ? ` · ${rec.minutes} min studied` : ""}`}
         />,
       );
       cur.setUTCDate(cur.getUTCDate() + 1);

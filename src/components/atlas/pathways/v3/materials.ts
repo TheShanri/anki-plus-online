@@ -44,7 +44,7 @@ export function hullMaterial(color: string, width: number): THREE.MeshBasicMater
     m.userData.shader = sh;
     sh.vertexShader = sh.vertexShader
       .replace("#include <common>", "#include <common>\nuniform float uHull;")
-      .replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uHull;");
+      .replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(normal) * uHull; // MeshBasic declares no objectNormal");
   };
   m.customProgramCacheKey = () => "pw3-hull";
   return m;
@@ -61,9 +61,10 @@ export function ghostMaterial(color: string, strength = 0.55): THREE.ShaderMater
       varying vec3 vN; varying vec3 vV;
       #include <clipping_planes_pars_vertex>
       void main(){
-        vec4 mv = modelViewMatrix * vec4(position,1.0);
-        vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz);
-        gl_Position = projectionMatrix * mv;
+        // named mvPosition: <clipping_planes_vertex> reads it (with a cut the shader failed to compile)
+        vec4 mvPosition = modelViewMatrix * vec4(position,1.0);
+        vN = normalize(normalMatrix * normal); vV = normalize(-mvPosition.xyz);
+        gl_Position = projectionMatrix * mvPosition;
         #include <clipping_planes_vertex>
       }`,
     fragmentShader: `

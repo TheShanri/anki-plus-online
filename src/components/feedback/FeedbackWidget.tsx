@@ -32,6 +32,8 @@ async function takeScreenshot(): Promise<string | null> {
       backgroundColor: getComputedStyle(document.body).backgroundColor,
       style: { transform: `translate(${-window.scrollX}px, ${-window.scrollY}px)`, transformOrigin: "top left" },
       filter: (n) => !(n instanceof Element && n.hasAttribute("data-bug-ignore")),
+      // web fonts are inlined into the picture otherwise: most of the 0.6-5 s the page froze for (sweep 2026-11-20)
+      font: false,
     });
     const url = await Promise.race([run, new Promise<null>((r) => setTimeout(() => r(null), 8000))]);
     return url && url.length < 2_000_000 ? url : null;
@@ -87,7 +89,9 @@ export function FeedbackWidget() {
 
   const start = useCallback((t: FbType = "bug") => {
     if (phase !== "idle") return;
-    shot.current = takeScreenshot(); // silent: rendered from the DOM before the dialog appears
+    // the picture is taken when the report is sent (the dialog is left out of it): taking it here froze the page for
+    // up to 5 s right as the dialog opened
+    shot.current = null;
     const c = currentCard();
     setCard(c);
     setType(t === "bug" && !c ? "bug" : t);
@@ -116,7 +120,7 @@ export function FeedbackWidget() {
     // A second report inside the first one's 60 s: send the first one's "after" logs now. Overwriting `after` lost
     // them, left their listener collecting for the rest of the visit, and the first timer then cut the second short.
     finishAfter();
-    const screenshot = attach ? await shot.current : null;
+    const screenshot = attach ? await (shot.current ??= takeScreenshot()) : null;
     const cap = captureAfter();
     let sent = false;
     try {

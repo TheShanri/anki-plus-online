@@ -34,7 +34,7 @@ export function AtlasModes() {
             href={m.href}
             aria-current={on ? "page" : undefined}
             title={m.label}
-            className={`flex flex-none items-center gap-1.5 rounded-sm border px-2.5 py-1 text-xs no-underline ${on ? "border-accent bg-panel text-accent" : "border-transparent text-text-dim hover:border-panel-border hover:text-text"}`}
+            className={`flex flex-none items-center gap-1.5 rounded-sm border px-2.5 py-1 text-xs no-underline pointer-coarse:min-h-10 pointer-coarse:px-3 ${on ? "border-accent bg-panel text-accent" : "border-transparent text-text-dim hover:border-panel-border hover:text-text"}`}
           >
             <Icon size={14} aria-hidden />
             <span className={on ? "" : "hidden sm:inline"}>{m.label}</span>

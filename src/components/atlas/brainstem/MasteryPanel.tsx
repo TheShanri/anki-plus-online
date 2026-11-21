@@ -72,7 +72,7 @@ export function MasteryPanel({
     <section className="panel !p-3" aria-label="Mastery">
       <h2 className="mb-1 text-base">Mastery</h2>
       <p className="mb-1 text-xs text-text-dim">Built from your answers, on this plate and in the deck cards.</p>
-      <Row title={lv.name} roll={m} scope={`bslevel:${level}`} strong sub="plate coming soon" />
+      <Row title={lv.name} roll={m} scope={`bslevel:${level}`} strong sub={lv.kind === "section" ? "plate coming soon" : "no mastery score for this view"} />
       {region && mastery.regions[region] && <Row title={region === "surface" ? "All surface views" : `Whole ${region}`} roll={mastery.regions[region]} scope={`bsregion:${region}`} />}
       <Row title="Whole brainstem" roll={mastery.all.total ? mastery.all : undefined} scope="bs:all" />
       {mastery.next && mastery.next !== level && (
@@ -87,7 +87,7 @@ export function MasteryPanel({
             <button key={slug} type="button" className={`bs-row${hover === slug ? " bs-hot" : ""}`} onClick={() => onSelect(slug)} onPointerEnter={() => onHover(slug)} onPointerLeave={() => onHover(null)} onFocus={() => onHover(slug)} onBlur={() => onHover(null)}>
               <span className="min-w-0 flex-1 truncate">{STRUCTURES[slug]?.name ?? slug}</span>
               {v === null ? (
-                <span className="w-[5.5rem] flex-none text-right text-xs text-text-faint" title="No study card for this structure on this plate yet">not in the path yet</span>
+                <span className="w-[5.5rem] flex-none text-right text-xs text-text-faint" title="No study card asks about this structure on this plate yet, so there is no score">no cards yet</span>
               ) : (
                 <>
                   <span className="h-1.5 w-14 flex-none overflow-hidden rounded-full bg-bg-3" aria-hidden>

@@ -36,9 +36,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body>
         <ThemeProvider initial={prefs} signedIn={signedIn}>
           <Backdrop />
+          <a href="#main" className="skip-link">Skip to content</a>
           <NavBar />
           <ActivityMount />
-          <main className="page">{children}</main>
+          <main id="main" tabIndex={-1} className="page">{children}</main>
           <footer className="mx-auto max-w-5xl px-4 pb-12 pt-4 text-center text-xs text-text-faint">
             <Link href="/about" className="underline-offset-2 hover:underline">About, credits and privacy</Link>
           </footer>

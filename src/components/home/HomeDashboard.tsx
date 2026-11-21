@@ -145,7 +145,7 @@ export function HomeDashboard({
         <div className="map-entry">
           <div>
             <h2 id="map-h" className="font-display text-xl panel-title"><Layers aria-hidden />Course map</h2>
-            <p className="text-sm text-text-dim">{o.total ? `${solidPct}% solid, ${seenPct}% seen across ${o.total} cards` : "Units and labs with your progress in each"}</p>
+            <p className="text-sm text-text-dim">{o.total ? `${solidPct}% mastered, ${seenPct}% seen across ${o.total} cards` : "Units and labs with your progress in each"}</p>
           </div>
           <div className="toolbar">
             <Button href="/course" icon={MapIcon} iconRight={ArrowRight}>Course map</Button>

@@ -7,7 +7,7 @@ import { ACHIEVEMENTS, tiersOf } from "./catalog";
 import {
   applyEvents, evaluate, localDate, makeSnapshot, newState, rankOf, summarize, totalXp, type EngineState, type InEvent,
 } from "./engine";
-import { PATHWAYS, TERRITORY_ARTERIES, BRAINSTEM_LEVEL_COUNT, TOTAL_CASES } from "./groups";
+import { PATHWAYS, TERRITORY_ARTERIES, BRAINSTEM_SECTION_LEVELS, TOTAL_CASES } from "./groups";
 import type { AchievementProgress, CollectionState, CollectionUnit, ModeStat, PostResult, ProgressPayload } from "./payload";
 import type { Curriculum, Tier } from "./types";
 
@@ -163,7 +163,7 @@ function modeStats(st: EngineState, cur: Curriculum): ModeStat[] {
     { id: "lesion", label: "Lesion lab", href: "/atlas/lesion", done: d("lesion:"), of: TOTAL_CASES, facts: [`${n("lesionattempts")} attempts`] },
     { id: "slice", label: "Slice match", href: "/atlas/slice-match", done: Math.min(n("slice:le5"), 25), of: 25, facts: [`${n("slice:rounds")} rounds`, `${n("slice:le5")} within 5 mm`, `${n("slice:le1")} within 1 mm`] },
     { id: "supply", label: "Blood supply", href: "/atlas/supply", done: d("supply:artery:"), of: TERRITORY_ARTERIES.length, facts: [`${n("supply:correct")} of ${n("supply:answers")} right`] },
-    { id: "brainstem", label: "Brainstem sections", href: "/atlas/brainstem", done: d("bslevel:"), of: BRAINSTEM_LEVEL_COUNT, facts: [`${n("bslabel:ok")} labels right`, `${d("bsperfect:")} perfect levels`] },
+    { id: "brainstem", label: "Brainstem sections", href: "/atlas/brainstem", done: BRAINSTEM_SECTION_LEVELS.filter((l) => n("bslevel:" + l) > 0).length, of: BRAINSTEM_SECTION_LEVELS.length, facts: [`${n("bslabel:ok")} labels right`, `${d("bsperfect:")} perfect levels`] },
     { id: "memory", label: "My memory map", href: "/atlas/memory", done: Math.min(n("memory"), 1), of: 1, facts: [`opened ${n("memory")} times`] },
   ];
 }

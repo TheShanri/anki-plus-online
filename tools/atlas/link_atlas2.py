@@ -135,6 +135,15 @@ APPROX_FIX.update({
     "pontine-protuberance": (["pons"], False),
     "cerebellar-lateral-hemisphere": (["anterior-quadrangular-lobule", "posterior-quadrangular-lobule", "superior-semilunar-lobule", "inferior-semilunar-lobule", "biventral-lobule", "gracile-lobule"], False),
 })
+# Sweep 2026-11-20 (content accuracy): shown as exact but the mesh is the whole containing structure; the epithalamus is
+# the habenula and the pineal gland
+APPROX_FIX.update({
+    "brachium-of-the-inferior-colliculus": (["inferior-colliculus"], True),
+    "columns-of-the-fornix": (["fornix"], True),
+    "temporal-lobe-general-association-area": (["temporal-lobe"], True),
+    "inferior-olivary-nucleus": (["olive"], True),
+    "epithalamus": (["habenula", "mni-pineal-gland"], False),
+})
 IDX_BY_NAME = {}
 for k, e in S.items():
     IDX_BY_NAME.setdefault(norm(e["name"]), k)

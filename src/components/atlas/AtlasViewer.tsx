@@ -782,6 +782,12 @@ async function prewarmGross(gl: THREE.WebGLRenderer, camera: THREE.Camera, scene
   await gl.compileAsync(sc, camera, scene);
 }
 const grossWarm: THREE.Material[] = [];
+/** Dispose replaced materials a little later: three.js frees a shader program as soon as its last material is disposed,
+ *  so the replacements (same program) compiled it all over again, 0.3-0.6 s on every memory-map pick and look switch
+ *  (sweep 2026-11-20). Kept alive until the new ones have drawn, they share the program instead. */
+function disposeLater(mats: THREE.Material[]) {
+  window.setTimeout(() => mats.forEach((m) => m.dispose()), 4000);
+}
 function setInflate(on: boolean) {
   INFLATE.value = on ? 0.0006 : 0;
 }
@@ -813,7 +819,22 @@ function smoothGeometry(m: THREE.Mesh) {
   const merged = mergeVertices(g, 1e-6);
   merged.computeVertexNormals();
   smoothCache.set(src, merged);
+  smoothCache.set(merged, merged); // a mesh already smoothed (presmoothGross) is not smoothed again
   m.geometry = merged;
+}
+/** Smooth every gross mesh a few at a time, yielding between them: done in one go (tagGross) it froze the page ~1 s as
+ *  the brain appeared (sweep 2026-11-20); tagGross then finds them all cached. */
+async function presmoothGross(root: THREE.Object3D) {
+  const meshes: THREE.Mesh[] = [];
+  eachMesh(root, (m) => meshes.push(m));
+  let t0 = performance.now();
+  for (const m of meshes) {
+    smoothGeometry(m);
+    if (performance.now() - t0 > 12) {
+      await new Promise((r) => setTimeout(r, 0));
+      t0 = performance.now();
+    }
+  }
 }
 
 /** Back-face "inverted hull" outline: the mesh is drawn again, pushed outward in view space by a constant number of pixels. */
@@ -898,6 +919,17 @@ function tagGross(root: THREE.Object3D, structures: Record<string, AtlasEntry>):
     byId.set(n.name, m);
   });
   return byId;
+}
+
+/** tintByNearest, kept per source geometry and look: it costs ~0.7 s and was redone on every visit to an atlas mode. */
+const tintCache = new WeakMap<THREE.BufferGeometry, Map<string, THREE.BufferGeometry>>();
+function tintedBacker(geo: THREE.BufferGeometry, matrix: THREE.Matrix4, gross: THREE.Object3D, structures: Record<string, AtlasEntry>, look: Look): THREE.BufferGeometry {
+  let byLook = tintCache.get(geo);
+  if (!byLook) tintCache.set(geo, (byLook = new Map()));
+  const key = `${look}|${gross.uuid}|${matrix.elements.map((v) => v.toFixed(5)).join(",")}`;
+  let g = byLook.get(key);
+  if (!g) byLook.set(key, (g = tintByNearest(geo, matrix, gross, structures, look)));
+  return g;
 }
 
 /** Colours a backer geometry (world metres) vertex by vertex with the tint of the nearest gross mesh, so a gap between gyral patches shows the neighbouring lobe's colour instead of a dark shell. */
@@ -1101,6 +1133,8 @@ function layoutLabels(items: LabelItem[], lab: LabRefs, camera: THREE.Camera, W:
     order.push(i);
   }
   order.sort((a, b) => sy[a] - sy[b]);
+  // 1. each tag's wished-for spot: pushed out from the brain's centre along the anchor's direction
+  const side: number[] = [];
   for (let k = 0; k < n; k++) {
     const i = order[k];
     let ux = sx[i] - cx;
@@ -1116,8 +1150,26 @@ function layoutLabels(items: LabelItem[], lab: LabRefs, camera: THREE.Camera, W:
     const w = lab.w[i] || 100;
     const tx = sx[i] + ux * 50;
     const ty = sy[i] + uy * 38;
-    let bx = Math.min(Math.max(4, ux < 0 ? tx - w : tx), Math.max(4, W - w - 4));
-    let by = Math.min(Math.max(TOP_BAR, ty - LH / 2), Math.max(TOP_BAR, H - LH - lab.bottom));
+    bxA[i] = Math.min(Math.max(4, ux < 0 ? tx - w : tx), Math.max(4, W - w - 4));
+    byA[i] = Math.min(Math.max(TOP_BAR, ty - LH / 2), Math.max(TOP_BAR, H - LH - lab.bottom));
+    side[i] = ux < 0 ? 0 : 1;
+  }
+  // 2. per side, spread the tags vertically: down from the top, then back up from the floor, so a crowd (the cerebellum's
+  // lobules) fans out over the free height instead of piling into one row along the bottom edge (sweep 2026-11-20)
+  const floor = Math.max(TOP_BAR, H - LH - lab.bottom);
+  for (const sd of [0, 1]) {
+    const col = order.filter((i) => side[i] === sd);
+    for (let k = 1; k < col.length; k++) byA[col[k]] = Math.max(byA[col[k]], byA[col[k - 1]] + LH + 3);
+    if (col.length && byA[col[col.length - 1]] > floor) byA[col[col.length - 1]] = floor;
+    for (let k = col.length - 2; k >= 0; k--) byA[col[k]] = Math.min(byA[col[k]], byA[col[k + 1]] - LH - 3);
+    for (const i of col) byA[i] = Math.max(TOP_BAR, byA[i]);
+  }
+  // 3. what still overlaps (the two sides meeting, or a column taller than the view) and the obstacles
+  for (let k = 0; k < n; k++) {
+    const i = order[k];
+    const w = lab.w[i] || 100;
+    let bx = bxA[i];
+    let by = byA[i];
     for (let iter = 0; iter < 12; iter++) {
       let moved = false;
       for (let q = 0; q < k; q++) {
@@ -1136,10 +1188,10 @@ function layoutLabels(items: LabelItem[], lab: LabRefs, camera: THREE.Camera, W:
           moved = true;
         }
       }
-      if (by > H - LH - lab.bottom) {
-        by = Math.max(TOP_BAR, H - LH - lab.bottom);
-        bx += w + 8;
-        if (bx + w > W - 4) bx = 4;
+      if (by > floor) {
+        by = floor;
+        bx += side[i] ? w + 8 : -(w + 8);
+        if (bx + w > W - 4 || bx < 4) bx = side[i] ? 4 : Math.max(4, W - w - 4);
       }
       if (!moved) break;
     }
@@ -1573,7 +1625,7 @@ function Scene({
     m.userData.inflate = { value: 0 };
     m.onBeforeCompile = (s) => {
       s.uniforms.uHoverInflate = m.userData.inflate;
-      s.vertexShader = "uniform float uHoverInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(objectNormal) * uHoverInflate;");
+      s.vertexShader = "uniform float uHoverInflate;\n" + s.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\ntransformed += normalize(normal) * uHoverInflate; // MeshBasic declares no objectNormal");
     };
     m.customProgramCacheKey = () => "atlas-hover";
     return m;
@@ -1588,7 +1640,7 @@ function Scene({
     [hiMat, ctxMat, accentHull, hoverMat],
   );
   useEffect(() => () => grossHull.dispose(), [grossHull]);
-  useEffect(() => () => Object.values(grossMats).forEach((m) => m.dispose()), [grossMats]);
+  useEffect(() => () => disposeLater(Object.values(grossMats)), [grossMats]);
 
   const ovlMats = useMemo(
     () =>
@@ -1608,7 +1660,7 @@ function Scene({
       ),
     [loaded.ovl],
   );
-  useEffect(() => () => ovlMats.forEach((m) => m.dispose()), [ovlMats]);
+  useEffect(() => () => disposeLater(ovlMats), [ovlMats]);
 
   const grossById = useMemo(() => (gross ? tagGross(gross, structures) : new Map<string, THREE.Mesh>()), [gross, structures]);
   useEffect(() => {
@@ -1785,7 +1837,7 @@ function Scene({
       if (m.isMesh) {
         m.updateMatrix();
         m.geometry = withoutStalk(m.geometry, m.matrix);
-        if (gross) m.geometry = tintByNearest(m.geometry, m.matrix, gross, structures, look);
+        if (gross) m.geometry = tintedBacker(m.geometry, m.matrix, gross, structures, look);
         m.material = backMat;
         m.raycast = () => undefined;
       }
@@ -2578,7 +2630,10 @@ export default function AtlasViewer({
     if (look === "xray" || gross) return;
     let alive = true;
     loadAtlasModel("gross.glb", (p) => alive && setGrossProg(p))
-      .then((g) => alive && setGross(g))
+      .then(async (g) => {
+        await presmoothGross(g);
+        if (alive) setGross(g);
+      })
       .catch(() => undefined);
     return () => {
       alive = false;

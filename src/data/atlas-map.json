@@ -830,16 +830,15 @@
   "meshIds": [
    "temporal-lobe"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Temporal lobe",
    "Lobus temporalis"
   ],
   "slug": "temporal-lobe-general-association-area",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "temporal-lobe"
  },
  "Association Fibers": {
   "meshIds": [
@@ -1618,7 +1617,8 @@
  },
  "Epithalamus": {
   "meshIds": [
-   "habenula"
+   "habenula",
+   "mni-pineal-gland"
   ],
   "approximate": false,
   "synonyms": [
@@ -1627,8 +1627,8 @@
   "slug": "epithalamus",
   "slices": "exact",
   "exactIn": [
-   "3d",
-   "slices"
+   "slices",
+   "3d"
   ]
  },
  "Pineal gland": {
@@ -1717,16 +1717,15 @@
   "meshIds": [
    "inferior-colliculus"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Inferior colliculus",
    "Colliculus inferior"
   ],
   "slug": "brachium-of-the-inferior-colliculus",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "inferior-colliculus"
  },
  "Cerebral Peduncles": {
   "meshIds": [
@@ -2484,7 +2483,7 @@
   "meshIds": [
    "olive"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Olive",
    "Oliva"
@@ -2492,9 +2491,9 @@
   "slug": "inferior-olivary-nucleus",
   "slices": "exact",
   "exactIn": [
-   "3d",
    "slices"
-  ]
+  ],
+  "fallbackParentId": "olive"
  },
  "Pyramid": {
   "meshIds": [
@@ -3197,15 +3196,14 @@
   "meshIds": [
    "fornix"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Fornix"
   ],
   "slug": "columns-of-the-fornix",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "fornix"
  },
  "Infundibular stalk (infundibulum or pituitary stalk)": {
   "meshIds": [
@@ -3739,15 +3737,14 @@
   "meshIds": [
    "fornix"
   ],
-  "approximate": false,
+  "approximate": true,
   "synonyms": [
    "Fornix"
   ],
   "slug": "columns-of-the-fornix",
   "slices": null,
-  "exactIn": [
-   "3d"
-  ]
+  "exactIn": [],
+  "fallbackParentId": "fornix"
  },
  "pituitary stalk (infundibular stalk, infundibulum)": {
   "meshIds": [

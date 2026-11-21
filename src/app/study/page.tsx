@@ -7,26 +7,11 @@ import { ActivityGrid } from "@/components/study/ActivityGrid";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { TagPicker, type TagCount } from "@/components/study/TagPicker";
 import { computeOverview, loadIndex, loadSettings, resolveCourse } from "@/lib/study/server";
+import { loadActivity, streakOf, todayStr } from "@/lib/home/data";
 import "@/components/study/study.css";
 
 export const metadata = { title: "Study" };
 export const dynamic = "force-dynamic";
-
-function fmt(d: Date): string {
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-}
-
-function streakOf(days: Array<{ day: string; reviews: number }>): number {
-  const set = new Set(days.filter((d) => d.reviews > 0).map((d) => d.day));
-  const d = new Date();
-  if (!set.has(fmt(d))) d.setDate(d.getDate() - 1);
-  let n = 0;
-  while (set.has(fmt(d))) {
-    n++;
-    d.setDate(d.getDate() - 1);
-  }
-  return n;
-}
 
 export default async function StudyPage({ searchParams }: { searchParams: Promise<{ course?: string }> }) {
   const sp = await searchParams;
@@ -35,7 +20,8 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
   const user = await getAuthUser();
   if (!user) redirect("/login?next=/study");
   const settingsP = loadSettings(sb, user.id);
-  const actP = sb.rpc("engine_activity", { p_days: 150, p_tz_min: 0 });
+  // the same days as the home screen (course time zone): the UTC days here were a day off in the evening
+  const actP = loadActivity(sb, 150);
   settingsP.catch(() => {});
   const course = await resolveCourse(sb, user.id, sp.course);
   if (!course) return <PageShell title="Study" kicker="Study"><p className="text-text-dim">Join a course first.</p></PageShell>;
@@ -47,7 +33,8 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
   ]);
   const tags = ((tagsR.data ?? []) as Array<{ tag: string; n: number }>).map((t): TagCount => ({ tag: t.tag, n: t.n }));
   const ov = computeOverview(idx, new Date());
-  const days = ((act.data ?? []) as Array<{ day: string; reviews: number }>).map((d) => ({ day: String(d.day), reviews: d.reviews }));
+  const days = act;
+  const today = todayStr();
   const q = (s: string) => `/study/run?scope=${encodeURIComponent(s)}${sp.course ? `&course=${sp.course}` : ""}`;
   const ready = ov.all.due + ov.all.learning + Math.min(ov.all.newCount, learner.study.newPerDay);
   const unitsSorted = idx.units.slice().sort((a, b) => a.position - b.position);
@@ -64,7 +51,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
           <div key={label} className="panel">
             <p className="label">{label}</p>
             <p className={`font-display text-4xl stat-num${n === 0 ? " num-zero" : ""}`} style={{ color }}>{n}</p>
-            {label === "Due" && <Spark days={days} color={color} />}
+            {label === "Due" && <Spark days={days} color={color} today={today} />}
           </div>
         ))}
       </div>
@@ -95,7 +82,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
               <Link href={q(`unit:${un.slug}`)} className="scope-card" style={{ marginBottom: 8 }}>
                 <h3>{un.title}</h3>
                 <span className="scope-bar" aria-hidden><i style={{ transform: `scaleX(${o.total ? o.learned / o.total : 0})` }} /></span>
-                <div className="scope-nums"><span className="c-new">{o.newCount} new</span><span className="c-learn">{o.learning} learning</span><span className="c-review">{o.due} due</span><span>{o.learned}/{o.total} solid</span></div>
+                <div className="scope-nums"><span className="c-new">{o.newCount} new</span><span className="c-learn">{o.learning} learning</span><span className="c-review">{o.due} due</span><span>{o.learned}/{o.total} mastered</span></div>
               </Link>
               <div className="scope-grid">
                 {topics.map((t) => {
@@ -104,7 +91,7 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
                   return (
                     <Link key={t.id} href={q(`topic:${t.slug}`)} className="scope-card">
                       <h3>{t.title}</h3>
-                      <span className="scope-bar" aria-label={`${to.learned} of ${to.total} solid`}><i style={{ transform: `scaleX(${to.total ? to.learned / to.total : 0})` }} /></span>
+                      <span className="scope-bar" aria-label={`${to.learned} of ${to.total} mastered`}><i style={{ transform: `scaleX(${to.total ? to.learned / to.total : 0})` }} /></span>
                       <div className="scope-nums"><span className="c-new" title="new" data-z={to.newCount === 0 ? "" : undefined}>{to.newCount}</span><span className="c-learn" title="learning" data-z={to.learning === 0 ? "" : undefined}>{to.learning}</span><span className="c-review" title="due" data-z={to.due === 0 ? "" : undefined}>{to.due}</span><span>{to.total} cards</span></div>
                     </Link>
                   );
@@ -114,18 +101,18 @@ export default async function StudyPage({ searchParams }: { searchParams: Promis
           );
         })}
       </div>
-      {learner.scaffold.streaks && <div style={{ marginTop: 22 }}><ActivityGrid days={days} streak={streakOf(days)} /></div>}
+      {learner.scaffold.streaks && <div style={{ marginTop: 22 }}><ActivityGrid days={days} streak={streakOf(days, today)} today={today} /></div>}
     </PageShell>
   );
 }
 
 /** Reviews over the last 7 days, a small line under the Due count. */
-function Spark({ days, color }: { days: Array<{ day: string; reviews: number }>; color: string }) {
+function Spark({ days, color, today }: { days: Array<{ day: string; reviews: number }>; color: string; today: string }) {
   const by = new Map(days.map((d) => [d.day, d.reviews]));
   const pts: number[] = [];
-  const d = new Date();
-  d.setDate(d.getDate() - 6);
-  for (let i = 0; i < 7; i++, d.setDate(d.getDate() + 1)) pts.push(by.get(fmt(d)) ?? 0);
+  const d = new Date(`${today}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - 6);
+  for (let i = 0; i < 7; i++, d.setUTCDate(d.getUTCDate() + 1)) pts.push(by.get(d.toISOString().slice(0, 10)) ?? 0);
   const max = Math.max(1, ...pts);
   const path = pts.map((v, i) => `${i ? "L" : "M"}${(i * 100) / 6},${28 - (v / max) * 24}`).join(" ");
   const total = pts.reduce((a, b) => a + b, 0);

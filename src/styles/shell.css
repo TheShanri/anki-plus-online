@@ -297,3 +297,8 @@
   .theme-grid[data-size="lg"] .tp { max-height: 96px; }
   .theme-card-snd { display: none; }
 }
+
+/* keyboard users: the first Tab offers to jump past the header's eight stops (sweep 2026-11-20) */
+.skip-link { position: fixed; left: 12px; top: -48px; z-index: 100; padding: 8px 14px; border-radius: var(--radius-sm); background: var(--panel-solid); color: var(--text); border: 1px solid var(--accent); box-shadow: var(--shadow-card); text-decoration: none; transition: top 120ms; }
+.skip-link:focus { top: 12px; }
+main#main:focus { outline: none; }

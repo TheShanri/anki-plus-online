@@ -67,6 +67,8 @@ export const POSTERIOR_CIRCULATION = ["vert", "pica", "aica", "sca", "pontine", 
 
 /** Brainstem section atlas: how many levels / styles per level it offers. Raise these if the section atlas grows. */
 export const BRAINSTEM_LEVEL_COUNT = 9;
+/** The section levels (the surface views and the midline are levels too, but not "sections": 13/9 on the progress page). */
+export const BRAINSTEM_SECTION_LEVELS = ["midbrain-sc", "midbrain-ic", "pons-rostral", "pons-mid", "pons-caudal", "medulla-rostral", "medulla-mid", "medulla-caudal", "cervicomedullary"];
 export const BRAINSTEM_STYLE_COUNT = 3;
 /** Consecutive right labels at one level that count as a perfect label quiz. */
 export const BRAINSTEM_PERFECT_RUN = 6;

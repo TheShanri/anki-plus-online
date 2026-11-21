@@ -73,8 +73,10 @@ export function SectionFace({
     });
     return out;
   }, [planes, color, ghost, medial]);
-  useEffect(() => () => [counts.back, counts.front].forEach((m) => m.dispose()), [counts]);
-  useEffect(() => () => caps.forEach((c) => c.cap.dispose()), [caps]);
+  // disposed a little later: the replacements (same shader programs) then reuse the programs instead of recompiling the
+  // section shader (~0.5 s) on every change of plane, e.g. Slice match's Check (sweep 2026-11-20)
+  useEffect(() => () => void window.setTimeout(() => [counts.back, counts.front].forEach((m) => m.dispose()), 4000), [counts]);
+  useEffect(() => () => void window.setTimeout(() => caps.forEach((c) => c.cap.dispose()), 4000), [caps]);
   useFrame(() => {
     caps.forEach((c, i) => {
       const q = quads.current[i];

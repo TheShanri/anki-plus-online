@@ -104,3 +104,8 @@ html[data-effects="off"] .atl-node, html[data-effects="off"] .atl-tick.active, h
 }
 .atl-xbtn:hover { color: var(--text); background: var(--panel-2, var(--bg-3)); }
 .atl-cutbtn:focus-visible, .atl-xbtn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* touch screens: toolbar buttons at a finger's size (32 px was under the 40 px comfortable minimum; sweep 2026-11-20) */
+@media (pointer: coarse) {
+  .atl-btn { min-width: 40px; height: 40px; }
+}

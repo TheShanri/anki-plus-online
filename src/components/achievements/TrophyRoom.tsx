@@ -67,7 +67,7 @@ function Card({ a, p }: { a: Achievement; p: AchievementProgress }) {
               {a.unit ? ` ${a.unit}` : ""}
             </span>
           ) : (
-            <span>{top ? `${TIER_LABEL[top.tier]}, ${new Date(top.unlockedAt as number).toLocaleDateString()}` : ""}</span>
+            <span>{top ? `${TIER_LABEL[top.tier]}, ${new Date(top.unlockedAt as number).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })}` : ""}</span>
           )}
         </div>
         {!hidden && <Bar pct={pct} tier={tier} />}
@@ -171,7 +171,7 @@ export function TrophyRoom({ initial }: { initial: ProgressPayload }) {
                   <li key={r.id + r.tier} className="flex items-center gap-2 text-sm" data-tier={r.tier}>
                     <span className="ach-medal !h-7 !w-7" data-tier={r.tier}><AchIcon name={a.icon} size={14} /></span>
                     <span className="min-w-0 flex-1 truncate">{a.name} <span className="text-text-dim">({TIER_LABEL[r.tier]})</span></span>
-                    <span className="font-mono text-[0.68rem] text-text-faint">{rel(r.at)}</span>
+                    <span className="font-mono text-[0.68rem] text-text-faint" suppressHydrationWarning>{rel(r.at)}</span>
                   </li>
                 );
               })}

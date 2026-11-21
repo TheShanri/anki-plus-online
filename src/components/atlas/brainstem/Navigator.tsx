@@ -19,7 +19,9 @@ export function MasteryRing({ value, mastered, soon, size = 20 }: { value: numbe
 
 function label(level: string, m: BrainstemMastery) {
   const x = m.levels[level];
-  return x ? `${Math.round(x.mean * 100)}% mastered (${x.done} of ${x.total} structures)` : "plate coming soon";
+  if (x) return `${Math.round(x.mean * 100)}% mastered (${x.done} of ${x.total} structures)`;
+  // surface views and the midline have their plates; only a few section levels still wait for one
+  return LEVELS.find((l) => l.slug === level)?.kind === "section" ? "plate coming soon" : "no mastery score for this view";
 }
 
 export function Navigator({ level, onPick, mastery }: { level: string; onPick: (slug: string) => void; mastery: BrainstemMastery }) {

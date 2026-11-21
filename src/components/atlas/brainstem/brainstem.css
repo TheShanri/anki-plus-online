@@ -170,3 +170,5 @@ html[data-effects="off"] .bsr-flash .bsp-lit { animation: none; }
 .bsr-chev { transition: transform 0.18s var(--ease-out); transform: rotate(-90deg); }
 .bsr-chev-open { transform: none; }
 @media (prefers-reduced-motion: reduce) { .bsr-chev { transition: none; } }
+/* every plate (the docked reference too, not only the atlas page): a keyboard-focused region shows its outline */
+.bsp-hit path:focus-visible { outline: none; stroke: var(--accent); stroke-width: 2.5px; vector-effect: non-scaling-stroke; }

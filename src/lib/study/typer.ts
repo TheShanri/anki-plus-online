@@ -136,7 +136,10 @@ export class Typer {
   chunked = false;
   /** keyword cards (src/lib/study/answerstyle.ts): for typed text that left every accepted form, the source index
    *  up to which it is still on track (a phrasing the key ideas accept is never flagged as a mistype) */
-  lenient: ((typed: string) => { okEnd: number; done: boolean }) | null = null;
+  lenient: ((typed: string) => { okEnd: number; done: boolean; pending?: boolean }) | null = null;
+  /** typed[typedOk..neutralEnd) is neither right nor wrong yet (a partial "the", a partial connective word): shown plain,
+   *  never green (owner 2026-11-21: "why does T work here if it starts with an M") */
+  neutralEnd = 0;
   /** the typed text left every accepted form but `lenient` keeps it on track (no ghost letters then) */
   offPath = false;
   /** `lenient` says the key ideas are all there: Enter will count it right */
@@ -291,9 +294,15 @@ export class Typer {
     // (no green, no red, no typo) until the article is complete
     const lead = this.variants[this.cur].lead;
     if (this.state === "track" && lead === "the " && !t.s.startsWith(lead)) this.state = "idle";
+    this.neutralEnd = 0;
     this.lcp = lcp;
     this.L = prefix ? Math.min(t.s.length, a.length) : lcp;
     this.typedOk = lcp < t.map.length ? t.map[lcp] : v.length;
+    if (this.state === "idle" && v.length) {
+      // a partial article: no letter of it is a sign of being right
+      this.neutralEnd = v.length;
+      this.typedOk = 0;
+    }
     this.offPath = false;
     this.done = false;
     if (this.state === "bad" && this.lenient) {
@@ -303,6 +312,12 @@ export class Typer {
         this.state = "track";
         this.offPath = true;
         this.typedOk = v.length;
+      } else if (r.pending) {
+        // the word being typed so far only starts a connective ("t" for "the"): plain, not green, not a typo
+        this.state = r.okEnd > 0 ? "track" : "idle";
+        this.offPath = true;
+        this.typedOk = r.okEnd;
+        this.neutralEnd = v.length;
       } else this.typedOk = Math.max(this.typedOk, r.okEnd);
     }
     if (this.state === "bad" && prev !== "bad") {

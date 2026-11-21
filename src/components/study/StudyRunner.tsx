@@ -87,8 +87,7 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const started = useRef(false);
   // how many times each card has come up this session: a card that keeps coming back says so (owner 2026-11-21:
   // "Parinaud syndrome had me repeat the card like 10 times... make it a clear reps thing")
-  const shown = useRef(new Map<string, number>());
-  const lastShown = useRef<string | null>(null);
+  const [shown, setShown] = useState<{ key: string | null; counts: Record<string, number> }>({ key: null, counts: {} });
   const warmed = useRef(new Set<string>());
 
   // Warm the next cards' images (each is an auth check + signed-URL redirect + download) so they paint instantly.
@@ -146,11 +145,9 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
   const c = engine.cur;
   const phase = engine.phase;
   const showKey = c ? `${c.card.id}:${c.isFollowup ? "f" : ""}` : null;
-  if (showKey && showKey !== lastShown.current) {
-    lastShown.current = showKey;
-    shown.current.set(showKey, (shown.current.get(showKey) ?? 0) + 1);
-  }
-  const reps = showKey ? (shown.current.get(showKey) ?? 1) : 1;
+  // counted when the card comes up (a new current card), not on every re-render
+  if (showKey && showKey !== shown.key) setShown((s) => (s.key === showKey ? s : { key: showKey, counts: { ...s.counts, [showKey]: (s.counts[showKey] ?? 0) + 1 } }));
+  const reps = showKey ? (shown.counts[showKey] ?? 1) : 1;
 
   // focus the right box whenever the card or phase changes
   useEffect(() => {

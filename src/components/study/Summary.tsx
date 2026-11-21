@@ -89,6 +89,11 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
           </p>
         )}
         {forecast && <p className="v-notes" style={{ marginTop: 8 }}>{comeBack(forecast)}</p>}
+        {s.answered === 0 && (
+          <p className="v-notes" style={{ marginTop: 4 }}>
+            Today&apos;s new cards are done (the daily limit is in Settings). <b>Study more</b> takes 10 more new cards from {scope === "all" ? "the course" : "this section"} right now.
+          </p>
+        )}
         {missed.length > 0 && (
           <div className="info-panel" style={{ marginTop: 12 }}>
             <h4>Worth another look</h4>

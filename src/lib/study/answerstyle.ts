@@ -110,6 +110,7 @@ export function applyAnswerStyle<T extends KeywordCardLike & { format: string }>
 /** inflection endings: "nuclei" and "nucleus", "ganglia" and "ganglion", "arteries" and "artery" share a stem */
 const SUFFIXES = ["ies", "es", "us", "um", "on", "s", "i", "a", "y", "e"];
 const CONNECTORS = ["and", "or", "the", "a", "an", "of", "to", "in", "on", "from", "with", "via", "by", "for", "is", "are", "its", "into", "at", "as", "both", "then", "not", "no", "&"];
+const CONNECTOR_SET = new Set(CONNECTORS);
 
 /** Every word a right answer to this card is likely made of (canonical): the answer, accept forms, keywords. */
 export function vocabularyOf(card: KeywordCardLike): Set<string> {
@@ -121,7 +122,7 @@ export function vocabularyOf(card: KeywordCardLike): Set<string> {
 /** Where typed text stops being on track (source index), for a keyword card whose text left every accepted
  *  form: the keyword grader already accepts it (then all of it is fine), or every finished word is one of the
  *  card's words (or a form of one) and the word being typed starts one. `done`: the keywords are all hit. */
-export function keywordTrack(typed: string, groups: string[][], vocab: Set<string>): { okEnd: number; done: boolean } {
+export function keywordTrack(typed: string, groups: string[][], vocab: Set<string>): { okEnd: number; done: boolean; pending?: boolean } {
   const hitAll = groups.length > 0 && allHit(typed, groups);
   const re = /[\p{L}\p{N}]+/gu;
   const toks = [...typed.matchAll(re)].map((m) => ({ w: canonStr(m[0]), at: m.index ?? 0, end: (m.index ?? 0) + m[0].length }));
@@ -144,7 +145,12 @@ export function keywordTrack(typed: string, groups: string[][], vocab: Set<strin
     const last = i === toks.length - 1 && t.end === typed.length;
     // a card word with junk run on ("pupilagdgdsg" after "pupil"): never green, even once every key idea is in
     const runOn = !known(t.w) && vs.some((v) => v.length >= 4 && lcp(v, t.w) >= 4 && t.w.length > lcp(v, t.w) + 2);
-    const ok = known(t.w) || (last && vs.some((v) => v.startsWith(t.w))) || (hitAll && !misspelt(t.w) && !runOn);
+    // the word being typed is on track only if it starts one of the card's own words; a start shared only with a
+    // connective ("t" -> "the") is pending: plain, neither green nor red
+    const startsContent = last && vs.some((v) => !CONNECTOR_SET.has(v) && v.startsWith(t.w));
+    const startsConnector = last && !startsContent && CONNECTORS.some((v) => v.startsWith(t.w) && v !== t.w);
+    const ok = known(t.w) || startsContent || (hitAll && !misspelt(t.w) && !runOn);
+    if (!ok && startsConnector) return { okEnd: t.at, done: false, pending: true };
     if (!ok) return { okEnd: t.at, done: false };
   }
   return { okEnd: typed.length, done: hitAll };

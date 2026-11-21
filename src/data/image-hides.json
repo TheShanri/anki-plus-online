@@ -1,0 +1,7 @@
+{
+  "_comment": "Regions of course images that give the answers away (a handwritten answer sheet photographed beside the specimen). PinImage covers them in every view. Fractions of the image: x, y, w, h. Found 2026-11-21 by scanning every card image for the answer cards' lilac paper.",
+  "decks/practice-practical-lab3/pages/001.webp": [{ "x": 0.49, "y": 0.1, "w": 0.51, "h": 0.7 }],
+  "decks/practice-practical-lab3/pages/002.webp": [{ "x": 0.64, "y": 0.16, "w": 0.35, "h": 0.46 }],
+  "decks/practice-practical-lab3/pages/003.webp": [{ "x": 0.58, "y": 0.2, "w": 0.37, "h": 0.46 }],
+  "decks/practice-practical-lab3/pages/004.webp": [{ "x": 0.33, "y": 0.17, "w": 0.46, "h": 0.53 }]
+}

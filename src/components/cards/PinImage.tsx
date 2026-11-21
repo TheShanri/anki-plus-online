@@ -5,6 +5,8 @@
 //    in the photo: ring it), pin (drop a pin), arrow (point at it);
 //  - no layout shift: the frame reserves the image's aspect ratio before it loads;
 //  - desktop: click to zoom in/out at the pointer; touch: pinch to zoom, drag to pan (double tap resets).
+import ROTATIONS from "@/data/image-rotations.json";
+import HIDES from "@/data/image-hides.json";
 import { useCallback, useRef, useState } from "react";
 import type { PinImageData, Shape } from "@/lib/study/types";
 import { resolveMediaSrc } from "./media";
@@ -60,6 +62,16 @@ function centerOf(s: Shape): { x: number; y: number } {
 
 const MAX_ZOOM = 4;
 
+/** A shape on an image shown turned by `deg` (90 = a quarter turn clockwise): the same spot on the turned picture. */
+function turnShape(s: Shape, deg: number): Shape {
+  if (!deg) return s;
+  const pt = ([x, y]: [number, number]): [number, number] => (deg === 90 ? [1 - y, x] : deg === 270 ? [y, 1 - x] : [1 - x, 1 - y]);
+  if (s.shape === "polygon") return { ...s, points: s.points.map(pt) };
+  const [x0, y0] = pt([s.x, s.y]);
+  const [x1, y1] = pt([s.x + s.w, s.y + s.h]);
+  return { ...s, x: Math.min(x0, x1), y: Math.min(y0, y1), w: Math.abs(x1 - x0), h: Math.abs(y1 - y0) };
+}
+
 /** Re-mounts per image so zoom and load state reset without an effect. */
 export function PinImage(props: PinImageProps) {
   // brainstem plate cards draw the level as a vector plate instead of a bitmap with masks
@@ -70,7 +82,11 @@ export function PinImage(props: PinImageProps) {
 
 function PinImageView({ courseSlug, image, mode = "prompt", compact, className, alt }: PinImageProps) {
   const src = resolveMediaSrc(courseSlug, image.key);
-  const ratio = image.w && image.h ? image.w / image.h : 4 / 3;
+  // pages scanned on their side are shown turned upright (src/data/image-rotations.json); every mark turns with them
+  const turn = ((ROTATIONS as unknown as Record<string, number>)[image.key] ?? 0) as 0 | 90 | 180 | 270;
+  const side = turn === 90 || turn === 270;
+  const ratio0 = image.w && image.h ? image.w / image.h : 4 / 3;
+  const ratio = side ? 1 / ratio0 : ratio0;
   const frame = useRef<HTMLDivElement>(null);
   const [view, setView] = useState({ s: 1, x: 0, y: 0 });
   const [loaded, setLoaded] = useState(false);
@@ -169,12 +185,14 @@ function PinImageView({ courseSlug, image, mode = "prompt", compact, className, 
   };
 
   const ptr = image.pointer ?? { type: "mask" as const };
-  const target = image.target ?? null;
-  const masks = image.masks ?? [];
+  const target = image.target ? turnShape(image.target, turn) : null;
+  const masks = (image.masks ?? []).map((m) => turnShape(m, turn));
   const showTargetMask = mode === "prompt" && ptr.type === "mask" && target;
   const t = target ? centerOf(target) : null;
   // other masks hide the rest of an image-occlusion note's labels; the target is separate (below)
   const others = masks.filter((m) => !target || JSON.stringify(m) !== JSON.stringify(target));
+  // parts of the photo that give the answer away (an answer sheet beside the specimen): covered in every view
+  const hides = ((HIDES as unknown as Record<string, Array<{ x: number; y: number; w: number; h: number }>>)[image.key] ?? []);
   const counterScale = 1 / view.s;
 
   return (
@@ -201,11 +219,21 @@ function PinImageView({ courseSlug, image, mode = "prompt", compact, className, 
           alt=""
           draggable={false}
           className={loaded ? "pin-img loaded" : "pin-img"}
+          style={
+            turn
+              ? side
+                ? { position: "absolute", left: "50%", top: "50%", width: `${100 / ratio}%`, height: `${100 * ratio}%`, transform: `translate(-50%, -50%) rotate(${turn}deg)` }
+                : { transform: "rotate(180deg)" }
+              : undefined
+          }
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
         />
         {others.map((m, i) => (
           <div key={i} className="pin-mask" style={shapeStyle(m)} />
+        ))}
+        {hides.map((r, i) => (
+          <div key={`h${i}`} className="pin-mask pin-hide" style={{ left: `${r.x * 100}%`, top: `${r.y * 100}%`, width: `${r.w * 100}%`, height: `${r.h * 100}%` }} title="Hidden: this part of the photo shows the answers" />
         ))}
         {target && showTargetMask && <div className="pin-mask pin-target" style={shapeStyle(target)} />}
         {target && !showTargetMask && ptr.type === "mask" && <div className="pin-target-ring" style={shapeStyle(target)} />}

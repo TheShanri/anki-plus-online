@@ -86,6 +86,14 @@ export function alternativesOf(s: string): string[] {
     const tail = last.slice(1).join(" ");
     return [...heads.map((h) => `${h} ${tail}`), parts[parts.length - 1]];
   }
+  // a shared head: "Arachnoid villi / granulations" is "arachnoid villi" or "arachnoid granulations", never a bare
+  // "granulations" (which turned "g" green on that card)
+  const first = parts[0].split(/\s+/);
+  const rest = parts.slice(1);
+  if (first.length > 1 && rest.every((r) => !/\s/.test(r) && !/^[A-Z0-9]+$/.test(r) && r.length >= 5)) {
+    const head = first.slice(0, -1).join(" ");
+    return [parts[0], ...rest.map((r) => `${head} ${r}`)];
+  }
   return parts;
 }
 

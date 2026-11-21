@@ -65,7 +65,8 @@ export const TypeBox = forwardRef<HTMLInputElement, TypeBoxProps>(function TypeB
       ) : (
         <>
           <span className="t-ok">{v.slice(0, t.typedOk)}</span>
-          <span className="t-bad">{v.slice(t.typedOk)}</span>
+          <span className="t-neutral">{v.slice(t.typedOk, Math.max(t.typedOk, t.neutralEnd))}</span>
+          <span className="t-bad">{v.slice(Math.max(t.typedOk, t.neutralEnd))}</span>
           <span className="caret" />
           <span className="ghost">{first}</span>
           <span className="ghost" style={{ opacity: 0.55 }}>{later}</span>

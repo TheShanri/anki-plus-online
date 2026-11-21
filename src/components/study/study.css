@@ -309,3 +309,6 @@ html[data-effects="off"] .reveal, html[data-effects="off"] .reveal > * { animati
 
 /* a card on its second or later showing this session */
 .chip.reps { border-color: var(--hard); color: var(--hard); font-weight: 600; }
+
+/* letters that are not yet right or wrong (a partial "the"): plain text, never green */
+.t-neutral { color: var(--text); }

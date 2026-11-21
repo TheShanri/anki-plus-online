@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { RunLoader } from "@/components/study/RunLoader";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
-import { buildStudyPayload, parseScope, resolveCourse } from "@/lib/study/server";
+import { buildStudyPayload, earlierUnfinished, loadIndex, parseScope, resolveCourse } from "@/lib/study/server";
 import type { StudyPayload } from "@/lib/study/types";
 
 export const metadata = { title: "Study" };
@@ -22,6 +22,7 @@ export default async function RunPage({ searchParams }: { searchParams: Promise<
   const limit = Number(sp.limit);
   const scope = sp.scope ?? "all";
   let initial: StudyPayload | null = null;
+  let warn: { title: string; scope: string; seenPct: number } | null = null;
   let tz = courseTzOffset();
   try {
     const c = Number((await cookies()).get("tzo")?.value);
@@ -29,10 +30,35 @@ export default async function RunPage({ searchParams }: { searchParams: Promise<
     const [sb, user] = await Promise.all([createClient(), getAuthUser()]);
     if (sb && user) {
       const course = await resolveCourse(sb, user.id, sp.course);
-      if (course) initial = await buildStudyPayload(sb, user.id, course, { scope: parseScope(scope), scopeKey: scope, tzOffsetMin: tz, exclude: new Set(), bootstrap: true, extraNew: Number(sp.more) || 0 });
+      if (course) {
+        const sc = parseScope(scope);
+        const [payload, idx] = await Promise.all([
+          buildStudyPayload(sb, user.id, course, { scope: sc, scopeKey: scope, tzOffsetMin: tz, exclude: new Set(), bootstrap: true, extraNew: Number(sp.more) || 0 }),
+          (sc.type === "topic" || sc.type === "unit") && !sp.more ? loadIndex(sb, user.id, course.id) : Promise.resolve(null),
+        ]);
+        initial = payload;
+        warn = idx ? earlierUnfinished(idx, sc) : null;
+      }
     }
   } catch {
     initial = null;
   }
-  return <RunLoader key={`${scope}|${sp.course ?? ""}|${sp.limit ?? ""}|${sp.more ?? ""}`} scope={scope} more={Number(sp.more) || 0} limit={Number.isFinite(limit) && limit > 0 ? limit : undefined} course={sp.course} initial={initial} />;
+  const loader = <RunLoader key={`${scope}|${sp.course ?? ""}|${sp.limit ?? ""}|${sp.more ?? ""}`} scope={scope} more={Number(sp.more) || 0} limit={Number.isFinite(limit) && limit > 0 ? limit : undefined} course={sp.course} initial={initial} />;
+  if (!warn) return loader;
+  const q = new URLSearchParams({ scope: warn.scope });
+  if (sp.course) q.set("course", sp.course);
+  return (
+    <>
+      <div className="banner" role="status" style={{ marginBottom: 12 }}>
+        <span>
+          Heads-up: <b>{warn.title}</b> comes before this section and is only {warn.seenPct}% seen. The course builds on it, so it usually
+          makes sense to finish it first. You can carry on here too.
+        </span>
+        <span className="btn-row">
+          <a className="btn btn-primary" href={`/study/run?${q}`}>Study {warn.title.length > 32 ? "that section" : warn.title} first</a>
+        </span>
+      </div>
+      {loader}
+    </>
+  );
 }

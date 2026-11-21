@@ -262,8 +262,12 @@ export async function buildStudyPayload(
   const reviewsDoneToday = revDone.count ?? 0;
   // cards the client still holds (queued, or answered but not stored yet) count against today's limits too
   const held = { excluded: o.exclude, courseCards: new Set(idx.cards.map((c) => c.id)), states: idx.states, now };
-  const newLeft = dailyLeft({ ...held, kind: "new", perDay: learner.study.newPerDay, extra: o.extraNew, doneToday: newDoneToday });
-  const reviewsLeft = dailyLeft({ ...held, kind: "review", perDay: learner.study.reviewsPerDay, doneToday: reviewsDoneToday });
+  // "Study more" always gives at least 10 more new cards (and every due review), whatever was done today: counting the
+  // extra from today's limit gave nothing once a learner had studied past it (owner 2026-11-21: "Study more is not
+  // working, but there are 56 cards available")
+  const more = (o.extraNew ?? 0) > 0;
+  const newLeft = Math.max(dailyLeft({ ...held, kind: "new", perDay: learner.study.newPerDay, extra: o.extraNew, doneToday: newDoneToday }), more ? 10 : 0);
+  const reviewsLeft = Math.max(dailyLeft({ ...held, kind: "review", perDay: learner.study.reviewsPerDay, doneToday: reviewsDoneToday }), more ? 200 : 0);
 
   // scope
   const topicSet = scopeTopicIds(idx, o.scope);
@@ -469,4 +473,27 @@ export function loadKnownNames(sb: SupabaseClient, courseId: string): Promise<Re
   namesCache.set(courseId, { at: now, p });
   p.catch(() => namesCache.delete(courseId));
   return p;
+}
+
+/**
+ * A section started before the one it follows is under way: the nearest earlier topic (same unit) or unit that is less
+ * than half seen. Not a block, a heads-up (owner 2026-11-21: "one section should not start before the previous one is
+ * done. You can... but it doesn't make sense. So it should be a warning").
+ */
+export function earlierUnfinished(idx: CourseIndex, scope: Scope, now = new Date()): { title: string; scope: string; seenPct: number } | null {
+  if (scope.type !== "topic" && scope.type !== "unit") return null;
+  const ov = computeOverview(idx, now);
+  const seenPct = (o: Overview | undefined) => (o && o.total ? (o.total - o.newCount) / o.total : 1);
+  if (scope.type === "topic") {
+    const t = idx.topics.find((x) => x.slug === scope.slug);
+    if (!t) return null;
+    const before = idx.topics.filter((x) => x.unit_id === t.unit_id && x.position < t.position).sort((a, b) => b.position - a.position);
+    const hit = before.find((x) => seenPct(ov.topics[x.id]) < 0.5);
+    return hit ? { title: hit.title, scope: `topic:${hit.slug}`, seenPct: Math.round(seenPct(ov.topics[hit.id]) * 100) } : null;
+  }
+  const u = idx.units.find((x) => x.slug === scope.slug);
+  if (!u) return null;
+  const before = idx.units.filter((x) => x.position < u.position).sort((a, b) => b.position - a.position);
+  const hit = before.find((x) => seenPct(ov.units[x.id]) < 0.5);
+  return hit ? { title: hit.title, scope: `unit:${hit.slug}`, seenPct: Math.round(seenPct(ov.units[hit.id]) * 100) } : null;
 }

@@ -162,6 +162,11 @@ export function toStudyCard(row: CardRow): StudyCard {
     };
   }
   const parts = toParts(c.parts, c.part_accept);
+  // the prompt asks for a plane: the answer is the plane's name ("Sagittal"), never "Sagittal plane" (owner 2026-11-21:
+  // "if it's asking for plane then the word plane should not be in the answer"); the full form is still accepted
+  const rawAnswer = str(c.answer) || str(c.name) || (parts ? parts.map((p) => p.text).join(", ") : "");
+  const asksPlane = str(c.answer_kind) === "plane" || /^name the plane/i.test(str(c.prompt).trim());
+  const planeName = asksPlane && /\s+plane$/i.test(rawAnswer) ? rawAnswer.replace(/\s+plane$/i, "") : null;
   // a keywords card whose answer is a term / short list is typed out live; only explanatory answers stay free text
   return applyAnswerStyle<StudyCard>({
     id: row.id,
@@ -172,8 +177,8 @@ export function toStudyCard(row: CardRow): StudyCard {
     position: row.position,
     prompt: str(c.prompt) || (kind === "pin" ? "Name the structure." : ""),
     vignette: str(c.vignette) || undefined,
-    answer: str(c.answer) || str(c.name) || (parts ? parts.map((p) => p.text).join(", ") : ""),
-    accept: [...strs(c.accept), ...strs(c.also_called), ...promptNounDropped(str(c.prompt), str(c.answer) || str(c.name))],
+    answer: planeName ?? rawAnswer,
+    accept: [...strs(c.accept), ...strs(c.also_called), ...promptNounDropped(str(c.prompt), str(c.answer) || str(c.name)), ...(planeName ? [rawAnswer] : [])],
     requireSide: !!c.require_side,
     format,
     keywords,

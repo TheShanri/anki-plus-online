@@ -69,7 +69,7 @@ type Drawing = {
   labelAt: V3;
   /** camera direction (from the subject toward the camera) */
   view: V3;
-  /** arrow shaft radius as a fraction of the subject's size (default 0.017) */
+  /** arrow shaft radius as a fraction of the subject's size (default 0.0105) */
   w?: number;
   /** the subject is drawn see-through (an arrow inside the body) */
   seeThrough?: boolean;
@@ -293,7 +293,7 @@ function Arrow({ from, to, w }: { from: V3; to: V3; w: number }) {
         <meshBasicMaterial color={INK} depthTest={false} transparent />
       </mesh>
       <mesh position={[0, len / 2 - head / 2, 0]} renderOrder={10}>
-        <coneGeometry args={[w * 2.6, head, 24]} />
+        <coneGeometry args={[w * 2.3, head, 24]} />
         <meshBasicMaterial color={INK} depthTest={false} transparent />
       </mesh>
     </group>
@@ -349,7 +349,7 @@ function Subject({ subject, show, reveal, label, onFrame }: Omit<DirectionSceneP
   }, [obj, d, subject]);
   if (!obj || !f || !d) return null;
   const L = Math.max(f.size.x, f.size.y, f.size.z);
-  const w = L * (d.w ?? 0.017);
+  const w = L * (d.w ?? 0.0105); // owner 2026-11-21: "arrows too thick" (was 0.017)
   return (
     <group>
       <primitive object={obj} />
@@ -393,7 +393,10 @@ function Shorts({ obj, f }: { obj: THREE.Object3D; f: Frame }) {
     while (occ.has(half + 1) || occ.has(half + 2)) half++;
     let halfL = 0;
     while (occ.has(-(halfL + 1)) || occ.has(-(halfL + 2))) halfL++;
-    const xMax = f.c.x + (half + 0.5) * bin, xMin = f.c.x - (halfL + 0.5) * bin;
+    // capped at the hips' width: a hand against the thigh closes the gap the walk looks for, and the shorts then dressed
+    // the hand as a bulge (owner 2026-11-21)
+    const capW = H * 0.1;
+    const xMax = f.c.x + Math.min((half + 0.5) * bin, capW), xMin = f.c.x - Math.min((halfL + 0.5) * bin, capW);
     const lift = H * 0.005;
     const pos: number[] = [];
     obj.updateMatrixWorld(true);
@@ -454,26 +457,41 @@ function Shorts({ obj, f }: { obj: THREE.Object3D; f: Frame }) {
 
 /** Eyes: the Z-Anatomy skin has open eye slits (dark holes); a sculpture's eyeballs in the skin tone close them. */
 function Eyes({ f, tone }: { f: Frame; tone: string }) {
+  // each eye slit is a hole in the skin: on a fine grid over the eye band, the cell whose front-most point lies deepest is
+  // the socket. The ball sits there, recessed behind the lids (owner 2026-11-21: "eyes are weird... what's with the balls":
+  // fixed offsets put one ball beside its slit, proud of the face)
   const eyes = useMemo(() => {
     const H = f.size.y;
-    const top = f.box.max.y;
-    const yE = top - H * 0.068;
-    const out: V3[] = [];
+    const yE = f.box.max.y - H * 0.068;
+    const cell = H * 0.003;
+    const out: { p: V3; r: number }[] = [];
     for (const s of [-1, 1]) {
-      const xE = f.c.x + s * H * 0.018;
-      const col = f.pts.filter((p) => Math.abs(p.x - xE) < H * 0.008 && Math.abs(p.y - yE) < H * 0.02);
-      if (!col.length) continue;
-      const zf = Math.max(...col.map((p) => p.z));
-      out.push(v(xE, yE, zf - H * 0.011));
+      const band = f.pts.filter((p) => Math.abs(p.y - yE) < H * 0.02 && s * (p.x - f.c.x) > H * 0.006 && s * (p.x - f.c.x) < H * 0.04);
+      if (band.length < 20) continue;
+      const front = Math.max(...band.map((p) => p.z));
+      const grid = new Map<string, { x: number; y: number; z: number }>();
+      for (const p of band) {
+        const k = `${Math.round(p.x / cell)},${Math.round(p.y / cell)}`;
+        const g = grid.get(k);
+        if (!g || p.z > g.z) grid.set(k, { x: Math.round(p.x / cell) * cell, y: Math.round(p.y / cell) * cell, z: p.z });
+      }
+      // the socket: cells well behind the face's front; their centre is the eye
+      const deep = [...grid.values()].filter((g) => g.z < front - H * 0.012);
+      if (!deep.length) continue;
+      const cx = deep.reduce((a, g) => a + g.x, 0) / deep.length;
+      const cy = deep.reduce((a, g) => a + g.y, 0) / deep.length;
+      const rim = band.filter((p) => Math.hypot(p.x - cx, p.y - cy) < H * 0.012);
+      const zr = rim.length ? Math.max(...rim.map((p) => p.z)) : front - H * 0.01;
+      const r = H * 0.0062;
+      out.push({ p: v(cx, cy, zr - r * 1.15), r });
     }
     return out;
   }, [f]);
-  const r = f.size.y * 0.0072;
   return (
     <>
-      {eyes.map((p, i) => (
-        <mesh key={i} position={p}>
-          <sphereGeometry args={[r, 24, 16]} />
+      {eyes.map((e, i) => (
+        <mesh key={i} position={e.p}>
+          <sphereGeometry args={[e.r, 24, 16]} />
           <meshStandardMaterial color={tone} roughness={0.9} />
         </mesh>
       ))}
@@ -484,10 +502,13 @@ function Eyes({ f, tone }: { f: Frame; tone: string }) {
 /** A small graduation cap on the horse (a nod to the students who make it through Lab 1). */
 function GradCap({ f }: { f: Frame }) {
   const at = useMemo(() => {
-    const front = f.pts.filter((p) => p.z > f.box.max.z - f.size.z * 0.3);
-    if (!front.length) return null;
-    const top = front.reduce((a, p) => (p.y > a.y ? p : a));
-    return top.clone();
+    // the poll: the highest point of the head ON the midline (the ears stand off it to each side; the cap used to perch
+    // on an ear tip and float above the head, owner 2026-11-21 "hat misaligned")
+    const head = f.pts.filter((p) => p.z > f.box.max.z - f.size.z * 0.3);
+    if (!head.length) return null;
+    const mid = head.filter((p) => Math.abs(p.x - f.c.x) < f.size.x * 0.06);
+    const top = (mid.length ? mid : head).reduce((a, p) => (p.y > a.y ? p : a));
+    return top.clone().add(v(0, -f.size.y * 0.012, 0)); // seated on the head, not resting on a point
   }, [f]);
   if (!at) return null;
   const u = f.size.y;

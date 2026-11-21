@@ -142,7 +142,9 @@ export function keywordTrack(typed: string, groups: string[][], vocab: Set<strin
   for (let i = 0; i < toks.length; i++) {
     const t = toks[i];
     const last = i === toks.length - 1 && t.end === typed.length;
-    const ok = known(t.w) || (last && vs.some((v) => v.startsWith(t.w))) || (hitAll && !misspelt(t.w));
+    // a card word with junk run on ("pupilagdgdsg" after "pupil"): never green, even once every key idea is in
+    const runOn = !known(t.w) && vs.some((v) => v.length >= 4 && lcp(v, t.w) >= 4 && t.w.length > lcp(v, t.w) + 2);
+    const ok = known(t.w) || (last && vs.some((v) => v.startsWith(t.w))) || (hitAll && !misspelt(t.w) && !runOn);
     if (!ok) return { okEnd: t.at, done: false };
   }
   return { okEnd: typed.length, done: hitAll };

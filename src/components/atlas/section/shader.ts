@@ -170,9 +170,15 @@ vec3 secRelief(vec3 p, vec3 col) {
 vec3 secTone(vec3 p) {
   // both tones computed, then chosen: derivatives never sit behind a branch (labelShader.ts, the Windows rule)
   vec2 k = secClass(p);
-  vec4 lb = labSection(p, k); // inside the labelled interior: every structure as its own region
   vec3 out3 = secToneOutsideK(p, k);
+#ifdef SEC_LITE
+  // the gross meshes' cut insides: the tissue tones only. The cap quads draw the labelled face over them; with the label
+  // sampler inlined here the gross shader took up to 11 s to compile on an Intel/D3D laptop (owner 2026-11-21)
+  return secRelief(p, out3);
+#else
+  vec4 lb = labSection(p, k); // inside the labelled interior: every structure as its own region
   return secRelief(p, lb.r >= 0.0 ? lb.rgb : out3);
+#endif
 }
 /** Plane i's normal (dynamic index). */
 vec3 secNormal(int i) { return i == 0 ? uPlanes[0].xyz : uPlanes[1].xyz; }
@@ -307,6 +313,7 @@ export function insideTissue(
   // one program for every gross material (onPlane is a uniform, not a variant): each variant of this shader costs seconds
   // to compile on a cold Windows (D3D) shader cache. secTone is called once, on the point the branch picks.
   s.fragmentShader =
+    "#define SEC_LITE\n" +
     SEC_GLSL +
     "uniform float uSecOnPlane;\n" +
     s.fragmentShader.replace(

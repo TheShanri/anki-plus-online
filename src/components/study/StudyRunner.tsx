@@ -85,6 +85,10 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
     };
   }, [engine]);
   const started = useRef(false);
+  // how many times each card has come up this session: a card that keeps coming back says so (owner 2026-11-21:
+  // "Parinaud syndrome had me repeat the card like 10 times... make it a clear reps thing")
+  const shown = useRef(new Map<string, number>());
+  const lastShown = useRef<string | null>(null);
   const warmed = useRef(new Set<string>());
 
   // Warm the next cards' images (each is an auth check + signed-URL redirect + download) so they paint instantly.
@@ -141,6 +145,12 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
 
   const c = engine.cur;
   const phase = engine.phase;
+  const showKey = c ? `${c.card.id}:${c.isFollowup ? "f" : ""}` : null;
+  if (showKey && showKey !== lastShown.current) {
+    lastShown.current = showKey;
+    shown.current.set(showKey, (shown.current.get(showKey) ?? 0) + 1);
+  }
+  const reps = showKey ? (shown.current.get(showKey) ?? 1) : 1;
 
   // focus the right box whenever the card or phase changes
   useEffect(() => {
@@ -406,6 +416,11 @@ function Runner({ engine, initial, scope, sync }: { engine: StudyEngine; initial
             {c.mode === "type" && c.practice && <span className="chip ladder">Ladder: {c.step & 1 ? "fading" : ["copy", "skeleton", "first letters"][c.step >> 1]}</span>}
             {c.guard?.has && <span className="chip">{c.guard.armed ? "Trap letters ahead" : "Trap letters"}</span>}
             {(state?.lapses ?? 0) >= 3 && <span className="chip">{state!.lapses} lapses</span>}
+            {reps >= 2 && (
+              <span className="chip reps" title="Missed or still being learned, so it comes back in this session until you type it cleanly. Each clean answer spaces it out.">
+                Rep {reps} · back until it&apos;s clean
+              </span>
+            )}
           </div>
           {c.isBoss && <Live engine={engine}>{() => <div className="boss-hp" aria-hidden><i style={{ transform: `scaleX(${c.typer && c.typer.state === "bad" ? 0.6 : 1})` }} /></div>}</Live>}
           <CardFace

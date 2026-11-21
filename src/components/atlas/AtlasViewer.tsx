@@ -782,6 +782,24 @@ async function prewarmGross(gl: THREE.WebGLRenderer, camera: THREE.Camera, scene
   await gl.compileAsync(sc, camera, scene);
 }
 const grossWarm: THREE.Material[] = [];
+/** The section's shaders and volumes, readied once per page (shared by the idle prefetch and the first cut). */
+let secWarm: Promise<void> | null = null;
+let secWarmDone = false;
+function warmSection(gl: THREE.WebGLRenderer, camera: THREE.Camera, scene: THREE.Scene, gross: THREE.Object3D): Promise<void> {
+  if (!secWarm)
+    secWarm = (async () => {
+      const [t, I] = await Promise.all([loadTissue().catch(() => null), loadInterior().catch(() => null)]);
+      for (const tex of [t?.aux, I?.vol, I?.pal, t?.field]) {
+        if (tex) gl.initTexture(tex);
+        await new Promise((r) => setTimeout(r, 0));
+      }
+      // compiled in parallel off the main thread (KHR_parallel_shader_compile): never a blocking first-use compile
+      await prewarmGross(gl, camera, scene, gross).catch(() => undefined);
+      await prewarmSectionCaps(gl, camera, scene).catch(() => undefined);
+      secWarmDone = true;
+    })();
+  return secWarm;
+}
 /** Dispose replaced materials a little later: three.js frees a shader program as soon as its last material is disposed,
  *  so the replacements (same program) compiled it all over again, 0.3-0.6 s on every memory-map pick and look switch
  *  (sweep 2026-11-20). Kept alive until the new ones have drawn, they share the program instead. */
@@ -1422,6 +1440,8 @@ function useStoredFlag(key: string, initial: boolean): [boolean, (v: boolean) =>
 }
 
 function Scene({
+  wantCut = false,
+  onSecReady,
   loaded,
   gross,
   fill,
@@ -1465,6 +1485,8 @@ function Scene({
   onPick,
   onMiss,
 }: {
+  wantCut?: boolean;
+  onSecReady?: () => void;
   onMiss?: () => void;
   lockedSet: ReadonlySet<string>;
   brainOpacity?: number;
@@ -1909,6 +1931,27 @@ function Scene({
   const sectionOn = !!fill && capPlanes.length > 0 && showCtx && look !== "xray" && !!gross && (brainOpacity ?? 1) >= 1;
   // ---- labelled interior (section/api.ts): with the label volume in, the cut faces draw every structure themselves
   const labelsOn = sectionOn && tissueOk && !!interiorNow();
+  // Every change of the scene's shader set (a cut on or off, the midline, the look) compiles its new programs off the main
+  // thread first and draws only then: a first-use compile on the render path froze the page for seconds on Intel laptops
+  // ("this page is slowing down the browser: close it?", owner 2026-11-21). The last frame stays up meanwhile.
+  const setFrameloop = useThree((s) => s.setFrameloop);
+  const gateKey = `${capPlanes.length}|${midsagittal}|${sectionOn}|${labelsOn}|${look}|${solid}|${!!gross}`;
+  useLayoutEffect(() => {
+    let alive = true;
+    setFrameloop("never");
+    gl.compileAsync(scene, camera)
+      .catch(() => undefined)
+      .finally(() => {
+        if (!alive) return;
+        setFrameloop("demand");
+        invalidate();
+      });
+    return () => {
+      alive = false;
+      setFrameloop("demand");
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gateKey]);
   useEffect(() => {
     setSectionRedraw(invalidate);
     return () => setSectionRedraw(null);
@@ -1920,6 +1963,18 @@ function Scene({
   useEffect(() => {
     if (process.env.NODE_ENV !== "production") (window as unknown as { __atlasGl?: unknown }).__atlasGl = gl; // perf probes
   }, [gl]);
+  // a cut asked for before the idle prefetch finished: ready it now, asynchronously; the viewer shows the cut once this
+  // resolves. Compiling on first use froze the page for seconds (5.7 s on an Intel laptop; "close this tab?").
+  const secReadyCb = useRef(onSecReady);
+  secReadyCb.current = onSecReady;
+  useEffect(() => {
+    if (!wantCut || !gross) return;
+    let alive = true;
+    void warmSection(gl, camera, scene, gross).then(() => alive && secReadyCb.current?.());
+    return () => {
+      alive = false;
+    };
+  }, [wantCut, gross, gl, camera, scene]);
   useEffect(() => {
     if (!gross || typeof window === "undefined" || !window.matchMedia?.("(pointer: fine) and (min-width: 900px)").matches) return;
     let cancelled = false;
@@ -1931,18 +1986,7 @@ function Scene({
     const nextIdle = () => new Promise<void>((r) => idle(r));
     const timer = setTimeout(async () => {
       await nextIdle();
-      const [t, I] = await Promise.all([loadTissue().catch(() => null), loadInterior().catch(() => null)]);
-      for (const tex of [t?.aux, I?.vol, I?.pal, t?.field]) {
-        await nextIdle();
-        if (cancelled) return;
-        if (tex) gl.initTexture(tex);
-      }
-      // then the section shaders, compiled in parallel off the main thread (KHR_parallel_shader_compile)
-      await nextIdle();
-      if (cancelled) return;
-      await prewarmGross(gl, camera, scene, gross).catch(() => undefined);
-      await nextIdle();
-      if (!cancelled) await prewarmSectionCaps(gl, camera, scene).catch(() => undefined);
+      if (!cancelled) await warmSection(gl, camera, scene, gross);
     }, 2500);
     return () => {
       cancelled = true;
@@ -3180,7 +3224,11 @@ export default function AtlasViewer({
   // surface of the hemisphere as a surface, only the midline structures cut), not as a tangential slice through medial gyri
   const sagPos = clipEff.axis === "x" && !cut ? clipRange[0] + clipEff.t * (clipRange[1] - clipRange[0]) : null;
   const nearMid = sagPos !== null && Math.abs(sagPos) < 0.005 && !multi;
-  const sceneClip = nearMid ? { ...clipEff, axis: "off" as const } : clipEff;
+  const sceneClip0 = nearMid ? { ...clipEff, axis: "off" as const } : clipEff;
+  // the cut is drawn once its shaders are compiled (asynchronously); until then the brain stays whole, a moment at most
+  const [secReady, setSecReady] = useState(secWarmDone);
+  const wantCut = sceneClip0.axis !== "off" && !!solidCuts;
+  const sceneClip = wantCut && !secReady ? { ...sceneClip0, axis: "off" as const } : sceneClip0;
 
   // report the camera state to the host (view, multi-view, cut) for the 3D <-> MRI translation
   const camCb = useRef(onCameraState);
@@ -3256,6 +3304,8 @@ export default function AtlasViewer({
             dim={colors.dim}
             hoverColor={colors.hover}
             clip={sceneClip}
+            wantCut={wantCut}
+            onSecReady={() => setSecReady(true)}
             clipRange={cut ? [0, 1] : clipRange}
             hover={active}
             quiz={quiz}

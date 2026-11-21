@@ -835,11 +835,16 @@ export class StudyEngine {
     if (c.multi) return c.multi.grade().verdict;
     const typed = c.typer?.typed ?? c.typed;
     if (c.mode === "keywords" && c.card.keywords) return verdictFromKeywords(gradeKeywords(typed, c.card.keywords), typed);
-    const v = gradeTyped(typed, { answer: c.card.answer, accept: c.card.accept, requireSide: c.card.requireSide }, { knownNames: this.names, ownSlug: c.structure?.slug ?? null });
+    // the live check found junk in the answer (a key word with letters run on): not a clean "correct"
+    const junk = !!c.typer && c.typer.state === "bad" && !!c.typer.lenient;
+    // a direction or plane card lists its synonyms on purpose ("anterior" for rostral): the guard against naming another
+    // structure would reject them (owner 2026-11-21: "anterior should also work here")
+    const listed = c.card.answerKind === "direction" || c.card.answerKind === "plane";
+    const v = gradeTyped(typed, { answer: c.card.answer, accept: c.card.accept, requireSide: c.card.requireSide }, { knownNames: listed ? undefined : this.names, ownSlug: c.structure?.slug ?? null });
     // a keywords card typed out as a term: a phrasing its key ideas accept still counts as right
     if (v.result !== "correct" && c.card.keywords?.length) {
       const k = verdictFromKeywords(gradeKeywords(typed, c.card.keywords), typed);
-      if (k.result === "correct") return { ...k, matched: c.card.answer };
+      if (k.result === "correct") return junk ? { ...k, result: "near_miss", matched: c.card.answer } : { ...k, matched: c.card.answer };
     }
     return v;
   }

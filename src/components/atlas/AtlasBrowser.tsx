@@ -48,6 +48,9 @@ type Props = {
   initialView?: string;
   initialAdd?: string;
   initialNb?: string;
+  /** Deep link: the cut ("z:0.420" or "z:0.420:f") and the camera view. */
+  initialCut?: string;
+  initialCam?: string;
   /** Inside another page (the study overlay): leaves the URL alone. */
   embedded?: boolean;
   /** The course slug, for the Sections view's slide images (hidden when absent). */
@@ -101,7 +104,7 @@ const NODE_BLURBS: Record<string, string> = {
 const nodeTitle = (n: string) => n.replace(/[-_]l$/, " (L)").replace(/[-_]r$/, " (R)").replace(/[-_]/g, " ").replace(/^./, (c) => c.toUpperCase());
 const nodeBlurb = (n: string) => Object.entries(NODE_BLURBS).find(([k]) => n.startsWith(k))?.[1] ?? "Part of the skull and spine model. It is not one of the structures on your course lists.";
 
-export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb, embedded = false, courseSlug, height }: Props) {
+export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, initialNb, initialCut, initialCam, embedded = false, courseSlug, height }: Props) {
   const [index, setIndex] = useState<AtlasIndex | null>(null);
   const [atlas2, setAtlas2] = useState<Atlas2 | null>(null);
   const [error, setError] = useState(false);
@@ -120,6 +123,18 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [request, setRequest] = useState<{ n: number; view?: ViewName; multi?: boolean } | null>(null);
   const [modalityNote, setModalityNote] = useState<string | null>(null);
   const cam3d = useRef<CamState>({ view: "left", multi: false, cut: null });
+  // where the 3D view opens: a deep link's cut and camera, else (a bare /atlas) the view this browser left last time
+  const [startCam, setStartCam] = useState(() => parseCam(initialCut, initialCam));
+  const bare = !initialS && !initialView && !initialAdd && !initialCut && !initialCam;
+  useEffect(() => {
+    if (embedded || !bare) return;
+    const r = readRemembered();
+    if (!r) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (r.s) setPrimaryKey((k) => k ?? r.s!);
+    setStartCam(parseCam(r.cut, r.cam));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const sliceAtSwitch = useRef<SliceView | null>(null);
   const noteT = useRef(0);
   const note = useCallback((m: string) => {
@@ -348,8 +363,10 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       else if (tab === "brainstem") p.set("view", "brainstem");
       if (extraKeys.length) p.set("add", extraKeys.join(","));
       if (neighbors) p.set("nb", "1");
+      if (tab === "model") camParams(p, cam3d.current);
       const qs = p.toString();
       window.history.replaceState(null, "", qs ? `/atlas?${qs}` : "/atlas");
+      if (tab === "model") rememberView({ s: p.get("s") ?? undefined, cut: p.get("cut") ?? undefined, cam: p.get("cam") ?? undefined });
     } catch {
       /* ignore */
     }
@@ -531,9 +548,29 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     setSeen((x) => ({ ...x, [next]: true }));
     setTabRaw(next);
   }
-  const onCameraState = useCallback((s: CamState) => {
-    cam3d.current = s;
-  }, []);
+  const urlTimer = useRef(0);
+  const onCameraState = useCallback(
+    (s: CamState) => {
+      cam3d.current = s;
+      if (embedded) return;
+      // the link and the remembered view follow the cut and camera (debounced: the slider reports every step)
+      window.clearTimeout(urlTimer.current);
+      urlTimer.current = window.setTimeout(() => {
+        try {
+          const p = new URLSearchParams(window.location.search);
+          p.delete("cut");
+          p.delete("cam");
+          if (!p.get("view")) camParams(p, s);
+          const qs = p.toString();
+          window.history.replaceState(window.history.state, "", qs ? `/atlas?${qs}` : "/atlas");
+          rememberView({ s: p.get("s") ?? undefined, cut: p.get("cut") ?? undefined, cam: p.get("cam") ?? undefined });
+        } catch {
+          /* ignore */
+        }
+      }, 400);
+    },
+    [embedded],
+  );
   const onUserView = useCallback((v: ViewName) => {
     if (v === "left") setNbSide("L");
     else if (v === "right") setNbSide("R");
@@ -691,6 +728,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 autoReveal
                 onUserView={onUserView}
                 onCameraState={onCameraState}
+                initialCam={startCam}
+                key={startCam ? `cam:${startCam.view ?? ""}:${startCam.clip?.axis ?? ""}` : "cam"}
                 skull={skullEntry}
                 skullNodes={SKULL_NODES}
                 skullNames={SKULL_NAMES}
@@ -781,4 +820,38 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       </div>
     </div>
   );
+}
+
+// ---------------------------------------------------------------- deep link / remembered view
+const CAM_VIEWS = new Set<ViewName>(["anterior", "posterior", "left", "right", "superior", "inferior", "midsagittal", "top"]);
+type StartCam = { view?: ViewName; clip?: { axis: "x" | "y" | "z"; t: number; flip: boolean } | null } | null;
+function parseCam(cut?: string, cam?: string): StartCam {
+  const out: NonNullable<StartCam> = {};
+  if (cam && CAM_VIEWS.has(cam as ViewName)) out.view = cam as ViewName;
+  const m = cut ? /^([xyz]):(\d*\.?\d+)(:f)?$/.exec(cut) : null;
+  if (m) out.clip = { axis: m[1] as "x" | "y" | "z", t: Math.min(1, Math.max(0, Number(m[2]))), flip: !!m[3] };
+  return out.view || out.clip ? out : null;
+}
+function camParams(p: URLSearchParams, s: CamState) {
+  if (s.clip) p.set("cut", `${s.clip.axis}:${s.clip.t.toFixed(3)}${s.clip.flip ? ":f" : ""}`);
+  if (s.view !== "left") p.set("cam", s.view);
+}
+const REMEMBER_KEY = "atlas.lastView.v1";
+// read once per page load: the URL effect below rewrites the stored view on mount, before a second (StrictMode) mount
+let rememberedAtLoad: { s?: string; cut?: string; cam?: string } | null | undefined;
+function readRemembered(): { s?: string; cut?: string; cam?: string } | null {
+  if (rememberedAtLoad !== undefined) return rememberedAtLoad;
+  try {
+    rememberedAtLoad = JSON.parse(window.localStorage.getItem(REMEMBER_KEY) ?? "null");
+  } catch {
+    rememberedAtLoad = null;
+  }
+  return rememberedAtLoad ?? null;
+}
+function rememberView(v: { s?: string; cut?: string; cam?: string }) {
+  try {
+    window.localStorage.setItem(REMEMBER_KEY, JSON.stringify(v));
+  } catch {
+    /* storage unavailable */
+  }
 }

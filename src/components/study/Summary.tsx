@@ -16,6 +16,20 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
   const seen = new Set<string>();
   const missed = s.missed.filter((m) => (seen.has(m.cardId) ? false : (seen.add(m.cardId), true)));
   const router = useRouter();
+  // when to come back: read once this session's answers have landed (the schedule includes them)
+  const [forecast, setForecast] = useState<{ next: string | null; within24h: number } | null>(null);
+  const landed = syncState.pending === 0;
+  useEffect(() => {
+    if (!landed || forecast) return;
+    let alive = true;
+    fetch("/api/study/forecast")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((f) => alive && f && setForecast(f))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [landed, forecast]);
   const [parked, setParked] = useState<Array<{ text: string; at: number }>>(() => {
     try {
       return JSON.parse(window.localStorage.getItem("anki.parked.v1") ?? "[]") as Array<{ text: string; at: number }>;
@@ -74,6 +88,7 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
             Again {s.ratings[1]} · Hard {s.ratings[2]} · Good {s.ratings[3]} · Easy {s.ratings[4]}
           </p>
         )}
+        {forecast && <p className="v-notes" style={{ marginTop: 8 }}>{comeBack(forecast)}</p>}
         {missed.length > 0 && (
           <div className="info-panel" style={{ marginTop: 12 }}>
             <h4>Worth another look</h4>
@@ -107,4 +122,14 @@ export function Summary({ engine, scope, sync, syncState }: { engine: StudyEngin
       </div>
     </div>
   );
+}
+
+/** "Next card due in 3 h · 24 cards due in the next 24 hours". */
+function comeBack(f: { next: string | null; within24h: number }): string {
+  if (!f.next) return "No reviews scheduled yet.";
+  const ms = new Date(f.next).getTime() - Date.now();
+  const mins = Math.max(1, Math.round(ms / 60000));
+  const when = mins < 60 ? `${mins} min` : mins < 48 * 60 ? `${Math.round(mins / 60)} h` : `${Math.round(mins / 1440)} days`;
+  const soon = f.within24h > 0 ? ` · ${f.within24h} card${f.within24h === 1 ? "" : "s"} due in the next 24 hours` : "";
+  return `Next card due in ${when}${soon}.`;
 }

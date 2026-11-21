@@ -33,6 +33,7 @@ export function setSectionRedraw(fn: (() => void) | null) {
 }
 /** Picker result kept so the hover tint lights the label under the pointer, not every label sharing its atlas id. */
 let lastPick: LabelRow | null = null;
+let lastPickX = 0;
 
 const matches = (r: LabelRow, ids: Set<string>) => r.ids.some((id) => ids.has(id));
 /** The interior the palette was last written for: the label volume loads after the first highlight call, so a state set
@@ -49,7 +50,7 @@ function refresh(I: Interior | null = interiorNow()) {
     // the background tissue (cortex, white matter, cerebellum) keeps the quiet palette the viewer already applies; only the
     // other structures recede, so the label volume's box never shows as a lighter rectangle
     if (st.only && !matches(r, st.only)) s = isField(r) ? 0 : 3;
-    else if (st.hover && (st.hoverRow ? r.i === st.hoverRow || (lastPick?.name === r.name && r.ids[0] === st.hover) : r.ids[0] === st.hover)) s = 1;
+    else if (st.hover && (st.hoverRow ? r.i === st.hoverRow || (lastPick?.name === r.name && r.ids[0] === st.hover) : r.ids[0] === st.hover)) s = matches(r, st.selected) ? 4 : 1;
     // the selection, and in "Show its cut" the structure itself, is drawn in the accent (the rest recedes, s = 3)
     else if (matches(r, st.selected) || (st.only && matches(r, st.only))) s = 2;
     c.set(st.hues[r.grp] ?? "#b9a9a0");
@@ -82,6 +83,12 @@ export function setSectionState(o: { hover: string | null; selected: string[]; c
   // drill-down (owner 2026-11-19: "hard to navigate between the thalamus and the nuclei"): a part lights alone only while its
   // structure is selected; otherwise the whole structure lights, as its tooltip names it
   const hoverRow = o.hover && lastPick && lastPick.ids[0] === o.hover && isPart(lastPick) && o.selected.includes(o.hover) ? lastPick.i : 0;
+  // a hover picked on the cut lights only the pointer's half (owner 2026-11-19); a hover from a mesh or a list lights both
+  const side = o.hover && lastPick && lastPick.ids[0] === o.hover && Math.abs(lastPickX) > 0.002 ? Math.sign(lastPickX) : 0;
+  if (SEC.uLabHoverSide.value !== side) {
+    SEC.uLabHoverSide.value = side;
+    redraw?.();
+  }
   const sel = o.selected.join("|");
   if (painted === I && st.hover === o.hover && st.hoverRow === hoverRow && [...st.selected].join("|") === sel && st.colour === o.colour) return;
   st.hover = o.hover;
@@ -197,6 +204,7 @@ export function sectionPickRay(ray: THREE.Ray): { row: LabelRow; point: THREE.Ve
   const r = entry === active.mid ? midlineRow(I, _p, entry.normal) : I.byI[labelIndexAt(_p, I)];
   if (!r || isField(r) || !shown(r)) return null;
   lastPick = r;
+  lastPickX = _p.x;
   // a part answers by its own name only inside its selected structure (drill-down); otherwise as the structure
   return { row: r, point: _p.clone(), distance: best, part: isPart(r) && st.selected.has(r.ids[0]) };
 }

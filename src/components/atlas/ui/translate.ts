@@ -7,6 +7,8 @@ export type CamState = {
   multi: boolean;
   /** Active cut: axis in glTF metres ("x" left-right, "y" up, "z" anterior) and its position. */
   cut: { axis: "x" | "y" | "z"; position: number } | null;
+  /** The cut as the slider holds it (fraction along the axis, side), for links and "remember my view". */
+  clip?: { axis: "x" | "y" | "z"; t: number; flip: boolean } | null;
 };
 
 /** 3D camera/cut -> MRI view. Multi-view <-> multiplanar; a cut wins over the camera; anterior/posterior = coronal,

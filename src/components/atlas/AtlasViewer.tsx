@@ -123,6 +123,8 @@ export type AtlasViewerProps = {
   skull?: SkullFocus | null;
   /** Camera view, multi-view and cut, reported whenever they change (the MRI tab shows the matching slice). */
   onCameraState?: (s: CamState) => void;
+  /** The view and cut to open on (a deep link or the remembered view); later changes are the user's. */
+  initialCam?: { view?: ViewName; clip?: { axis: "x" | "y" | "z"; t: number; flip: boolean } | null } | null;
   /** Ask the viewer to switch view and/or multi-view (applied once per `n`). */
   request?: { n: number; view?: ViewName; multi?: boolean } | null;
   /** Overlay content (legend, cards) placed over the canvas; wrappers should set their own pointer-events. */
@@ -2280,6 +2282,7 @@ export default function AtlasViewer({
   onPickNothing,
   onLayerChange,
   onCameraState,
+  initialCam,
   children,
   brainOpacity: brainOpacityProp,
   solidCuts = false,
@@ -2320,7 +2323,7 @@ export default function AtlasViewer({
   const tipRef = useRef<HTMLDivElement>(null);
   const tipPos = useRef("translate(0px,0px)");
   const lab = useRef<LabRefs>({ bottom: 56, obs: [], solid: false, tags: [], lines: [], dots: [], w: [] });
-  const [view, setView] = useState<ViewName>(viewProp ?? "left");
+  const [view, setView] = useState<ViewName>(viewProp ?? initialCam?.view ?? "left");
   const [nonce, setNonce] = useState(0);
   const [frameTick, setFrameTick] = useState(0);
   const [lockView, setLockView] = useState(false);
@@ -2332,7 +2335,7 @@ export default function AtlasViewer({
       setNonce((n) => n + 1);
     }
   }
-  const [clip, setClip] = useState<ClipState>({ axis: "off", t: 0.5, flip: false });
+  const [clip, setClip] = useState<ClipState>(() => (initialCam?.clip ? { ...initialCam.clip } : { axis: "off", t: 0.5, flip: false }));
   const [colors, setColors] = useState(readColors);
   const [multi, setMulti] = useState(false);
   const [barOpen, setBarOpen] = useState(() => (typeof window === "undefined" ? true : window.innerWidth >= 640));
@@ -3132,8 +3135,8 @@ export default function AtlasViewer({
   const cutAxisNow = !cut && clip.axis !== "off" ? clip.axis : null;
   const cutPosNow = clipRange[0] + clip.t * (clipRange[1] - clipRange[0]);
   useEffect(() => {
-    camCb.current?.({ view, multi, cut: cutAxisNow ? { axis: cutAxisNow, position: cutPosNow } : null });
-  }, [view, multi, cutAxisNow, cutPosNow]);
+    camCb.current?.({ view, multi, cut: cutAxisNow ? { axis: cutAxisNow, position: cutPosNow } : null, clip: cutAxisNow ? { axis: cutAxisNow, t: clip.t, flip: clip.flip } : null });
+  }, [view, multi, cutAxisNow, cutPosNow, clip.t, clip.flip]);
 
   // meningeal spaces are shown in a midsagittal cut
   const shellsKey = skull?.shells ?? "";

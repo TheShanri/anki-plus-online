@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ComponentType } from "react";
 import { buildKnownNames, gradeTyped } from "@/lib/study/grade";
-import { canonStr } from "@/lib/study/text";
+import { canonStr, diffOps } from "@/lib/study/text";
+import { DiffRows } from "@/components/study/Reveal";
 import { BrainstemRef, brainstemRefCovers } from "./brainstem/BrainstemRef";
 import { in3D } from "./brainstem/three/model";
 import { emit } from "@/lib/feedback/events";
@@ -122,8 +123,8 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
     [],
   );
 
-  const start = () => {
-    const r = shuffle(poolItems).slice(0, Math.min(length, poolItems.length));
+  const start = (only?: QuizItem[]) => {
+    const r = only?.length ? shuffle(only) : shuffle(poolItems).slice(0, Math.min(length, poolItems.length));
     if (!r.length) return;
     setRound(r);
     setI(0);
@@ -285,7 +286,7 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <button type="button" className="btn btn-primary" onClick={start} disabled={!poolItems.length}>
+          <button type="button" className="btn btn-primary" onClick={() => start()} disabled={!poolItems.length}>
             Start ({Math.min(length, poolItems.length)} structures)
           </button>
           <span className="help-line"><span className="kbd">Enter</span> start</span>
@@ -319,7 +320,17 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
           </div>
         )}
         <div className="btn-row">
-          <button type="button" className="btn btn-primary" onClick={start}>Play again</button>
+          {missed.length > 0 && (
+            <button type="button" className="btn btn-primary" onClick={() => start(missed.map((o) => o.item))}>
+              Retry the {missed.length} I missed
+            </button>
+          )}
+          {missed.length > 0 && (
+            <Link className="btn" href={`/study/run?scope=${encodeURIComponent("structures:" + [...new Set(missed.map((o) => o.item.slug))].join(","))}`}>
+              Study their cards
+            </Link>
+          )}
+          <button type="button" className={`btn${missed.length ? "" : " btn-primary"}`} onClick={() => start()}>Play again</button>
           <button type="button" className="btn" onClick={() => setPhase("setup")}>Change settings</button>
           <Link className="btn" href="/atlas">Back to the atlas</Link>
         </div>
@@ -399,9 +410,10 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
                 {last?.result === "right" ? "YES" : last?.result === "close" ? "CLOSE" : last?.result === "skip" ? "HERE IT IS" : "NOT QUITE"}
               </span>
               <b className="text-lg">{cur.name}</b>
-              {last?.result === "close" && <span className="v-notes">watch the spelling: you typed {last.typed}</span>}
+              {last?.result === "close" && last.typed && canonStr(last.typed) !== canonStr(cur.name) && <span className="v-notes">close: check the letters</span>}
               {last?.result === "wrong" && last.typed && <span className="v-notes">you said {last.typed}</span>}
             </p>
+            {last?.result === "close" && last.typed && canonStr(last.typed) !== canonStr(cur.name) && <DiffRows diff={diffOps(last.typed, cur.name)} />}
             <div className="flex flex-wrap items-center gap-3">
               <button type="button" className="btn btn-primary" onClick={next}>{i + 1 >= round.length ? "See results" : "Next"}</button>
               <Link className="text-sm text-accent-2" href={`/atlas?s=${encodeURIComponent(cur.slug)}`} target="_blank">Open it in the atlas</Link>

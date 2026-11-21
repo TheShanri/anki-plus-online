@@ -31,6 +31,8 @@ export const LAB = {
   /** label index of the central canal: drawn as the medulla (the source atlas labels it as a ~1 cm block that flared into a
    * dark wedge ending flat at the box's floor; the real canal is a fraction of a millimetre) */
   uLabCec: { value: -1 },
+  /** the hovered side (+1 left, -1 right, world x), 0 both: a hovered nucleus lights only on the side under the pointer */
+  uLabHoverSide: { value: 0 },
 };
 
 export const LAB_GLSL = /* glsl */ `
@@ -50,6 +52,8 @@ uniform float uLabGrpV3;
 uniform float uLabGrpLV;
 uniform float uLabMoTg;
 uniform float uLabCec;
+uniform float uLabHoverSide;
+float labHoverOk = 1.0;
 
 /** set instead of discarding inside helpers (D3D/ANGLE rejects that); the material's main checks it */
 bool secDiscard = false;
@@ -186,6 +190,9 @@ vec3 labState(int i, vec3 col) {
   vec4 b = labPal(i, 1);
   int st = int(b.a * 255.0 + 0.5);
   if (uLabColour > 0.5 && cls >= 4) col = mix(col, b.rgb, 0.62);
+  // 4: hovered and selected; 1: hovered. On the side away from the pointer a hovered row keeps its plain / selected look.
+  if (st == 4) st = labHoverOk > 0.5 ? 1 : 2;
+  else if (st == 1 && labHoverOk < 0.5) st = 0;
   if (st == 1) col = mix(col, uLabHover, 0.5);
   else if (st == 2) col = mix(col, uLabAccent, uLabOnly > 1.5 ? 0.85 : 0.58); // "Show its cut": the structure stands out
   else if (st == 3 && uLabOnly > 1.5) col = mix(col, uWM, 0.72);
@@ -229,6 +236,7 @@ vec4 labSection(vec3 p, vec2 k) {
 /** The section tone at p for an already sampled winner / runner-up / margin (aa: the margin's pixel width, fp: the
  * pixel's world size). No derivatives inside. */
 vec4 labSectionAt(vec3 p, vec2 k, int lw, int ls, float d, float aa, float fp) {
+  labHoverOk = (uLabHoverSide == 0.0 || p.x * uLabHoverSide > 0.0) ? 1.0 : 0.0;
   // both sides' flat tones blend across the border, then one texture pass (the shader is half the size it was: it
   // compiles in seconds less on a cold Windows shader cache)
   bool hs = labHidden(ls);

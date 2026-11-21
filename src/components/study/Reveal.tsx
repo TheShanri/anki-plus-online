@@ -49,7 +49,7 @@ function AtlasButton({ slug, name }: { slug: string; name: string }) {
 
 const GRADE_NAMES: Record<Grade, string> = { 1: "Again", 2: "Hard", 3: "Good", 4: "Easy" };
 
-function DiffRows({ diff }: { diff: DiffOp[] }) {
+export function DiffRows({ diff }: { diff: DiffOp[] }) {
   const top = diff.map((d, i) =>
     d.op === "eq" ? <span key={i} className="d-eq">{d.typed}</span> : d.op === "sub" ? <span key={i} className="d-wrong">{d.typed}</span> : d.op === "del" ? <span key={i} className="d-extra">{d.typed}</span> : <span key={i} className="d-missing">{d.answer === " " ? "␣" : "_"}</span>,
   );

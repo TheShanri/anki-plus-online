@@ -1,1 +1,7 @@
-{ "_comment": "Course pages scanned on their side: degrees to turn clockwise so they read upright (PinImage). Found by OCR, 2026-11-21." }
+{
+  "_comment": "Course pages scanned on their side: degrees to turn clockwise so they read upright (PinImage, the structure panel's image viewer). Found by OCR over every tall course page and checked by eye, 2026-11-21.",
+  "decks/practical-u3-2025/pages/014.webp": 90,
+  "decks/practical-u3-2025/pages/015.webp": 90,
+  "decks/practical-u3-2025/pages/020.webp": 90,
+  "decks/practical-u3-2025/pages/028.webp": 90
+}

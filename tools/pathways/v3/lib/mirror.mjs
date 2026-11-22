@@ -18,7 +18,13 @@ const MISSING = [];
 const swapHost = (h) => (h.startsWith("u:") ? "u:" : "") + h.replace(/^u:/, "").split("|").map(swapKey).join("|");
 function mirrorBeat(b) {
   const c = JSON.parse(JSON.stringify(b));
-  for (const f of c.f ?? []) { f.pts = flipFlat(f.pts); f.seg = f.seg.map(([i, h]) => [i, swapHost(h)]); }
+  for (const f of c.f ?? []) {
+    f.pts = flipFlat(f.pts);
+    f.seg = f.seg.map(([i, h]) => [i, swapHost(h)]);
+    // a visual-field tag names a side too: the mirror of the left field's Meyer's loop carries the RIGHT field (it was
+    // left "leftUpper", so the right field's loop was drawn in the left field's blue, 2026-11-22)
+    if (typeof f.tag === "string") f.tag = f.tag.replace(/^(left|right)/, (w) => (w === "left" ? "right" : "left"));
+  }
   for (const m of [c.soma, c.syn, c.start]) if (m?.host) m.host = swapKey(m.host);
   for (const m of [c.soma, c.syn, c.start]) if (m?.p) m.p = flipP(m.p);
   if (c.cross?.p) c.cross.p = flipP(c.cross.p);

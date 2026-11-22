@@ -34,10 +34,14 @@ interface Props {
   sideAlpha: { L: number; R: number };
   /** optional: the pathway's name (otherwise it is recognised from the beat captions) */
   slug?: string;
+  /** per beat, the neuron order the 3D scene draws (one order) — the figure's colours follow it, so 2D and 3D agree */
+  drawn?: (number | undefined)[];
+  /** every neuron order the 3D scene draws (for the legend) */
+  drawnAll?: number[];
 }
 
 export function Schematic(props: Props) {
-  const { beats, cur, reveal, hoverKey, onHover, onPick, reduced, sideAlpha, slug: slugProp } = props;
+  const { beats, cur, reveal, hoverKey, onHover, onPick, reduced, sideAlpha, slug: slugProp, drawn, drawnAll } = props;
   const [big, setBig] = useState(false);
   const slug = useMemo(() => slugProp ?? detectSlug(beats), [slugProp, beats]);
   const diagram = useMemo(() => (slug ? diagramFor(slug) : null), [slug]);
@@ -46,9 +50,10 @@ export function Schematic(props: Props) {
 
   const orders = useMemo(() => {
     const s = new Set<number>();
-    beats.forEach((b) => s.add(Math.min(4, b.neuron + 1)));
+    beats.forEach((b, k) => s.add(Math.min(4, drawn?.[k] ?? b.neuron + 1)));
+    for (const o of drawnAll ?? []) s.add(Math.min(4, o));
     return [...s].sort();
-  }, [beats]);
+  }, [beats, drawn, drawnAll]);
   const motor = !!slug && MOTOR.has(slug);
 
   const shownBeat = hoverKey ? beats.findIndex((b) => b.info === hoverKey) : cur;
@@ -63,7 +68,7 @@ export function Schematic(props: Props) {
   }, [big]);
 
   const view = (
-    <DiagramView diagram={diagram!} beats={beats} resolved={resolved!} cur={cur} reveal={reveal} hoverKey={hoverKey} onHover={onHover} onPick={onPick} reduced={reduced} sideAlpha={sideAlpha} ends={ends} />
+    <DiagramView diagram={diagram!} beats={beats} resolved={resolved!} cur={cur} reveal={reveal} hoverKey={hoverKey} onHover={onHover} onPick={onPick} reduced={reduced} sideAlpha={sideAlpha} ends={ends} drawn={drawn} />
   );
   const legend = diagram && (
     <ul className="m-0 flex list-none flex-wrap items-center gap-x-3 gap-y-1 p-1 text-[12px] leading-tight text-text-dim" aria-label="Legend">

@@ -81,6 +81,7 @@ export const withdrawalReflex = {
     await i1.routeTo(["a:grey-matter-of-spinal-cord", "a:anterior-horn-of-spinal-cord"], lmn, { sgn: s, minX: 0.0002, h: 0.0002 });
     // 7 ventral root; 8 brachial plexus and ulnar nerve to its muscular branch for the forearm flexors
     const out = await lmnOut(lmn, "C8", side);
+    out.order = 3; // the alpha motor neuron is the THIRD neuron here (after the interneuron): lmnOut assumes the stretch reflex's 2nd
     // the ulnar nerve to where it runs closest to the forearm flexors (its muscular branches arise there), then into them
     const fx = `b:muscle_forearm_${side}`;
     const ul = curve("Ulnar nerve", side, 0);

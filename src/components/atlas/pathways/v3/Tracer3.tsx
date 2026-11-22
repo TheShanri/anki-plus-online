@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp, CircleHelp, FlipHorizontal2, Focus, LayoutGrid, Maximize2, Minimize2, Orbit, Pause, Play, Tag, X } from "lucide-react";
 import { ORDINAL, PATHWAY_MAP, SITES, autoKeys, checkTyped, neuronForCard, type CoursePathway, type MapPathway, type PathwayCard, type Side } from "@/lib/atlas/pathways";
-import { ORDER_COLORS, FIELD_COLORS, GUIDE_COLORS } from "@/lib/atlas/pathwayPalette";
+import { ORDER_COLORS, FIELD_COLORS, GUIDE_COLORS, REGION_COLORS } from "@/lib/atlas/pathwayPalette";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { Supplementary } from "@/components/supplementary/Supplementary";
 import { StructureInfo } from "@/components/atlas/StructureInfo";
@@ -195,6 +195,21 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
     };
   }, [slug, limbKey, dataKey]);
   const d = data && data.key === dataKey ? data.d : null;
+  // the neuron order each beat draws in 3D (one order per beat, else none): the 2D figure is coloured from it, so the two agree
+  // even where the course map counts fewer neurons than the circuit draws (jaw jerk, gaze, pupillary, solitary, basal ganglia)
+  const drawnOrders = useMemo(() => {
+    if (!d) return { per: undefined, all: undefined };
+    const all = new Set<number>();
+    const per = d.beats.map((b) => {
+      const s = b.L ?? b.R;
+      if (!s) return undefined;
+      const os = [...new Set(s.f.map((f) => f.order))];
+      os.forEach((o) => all.add(o));
+      if (b.kind === "path") return os.length === 1 ? os[0] : undefined;
+      return s.soma?.order ?? s.start?.order;
+    });
+    return { per, all: [...all] };
+  }, [d]);
 
   // quiz gate: "what comes next?" before the arrival at each synapse and before the first node
   const qMap = useMemo(() => {
@@ -601,7 +616,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           {loaded && !all && copy && (
             <div className="pointer-events-none absolute inset-x-12 top-2 z-10 flex flex-col items-center gap-0.5 text-center sm:hidden" aria-hidden>
               <span className="max-w-full whitespace-normal text-balance rounded-sm bg-panel-solid/92 px-2 py-0.5 text-[12px] font-semibold leading-tight text-text">
-                <span className="mr-1 rounded-sm px-1 font-mono text-[10px]" style={{ background: visual ? FIELD_COLORS.leftUpper : ORDER_COLORS[order], color: "#111" }}>{badge}</span>
+                <span className="mr-1 rounded-sm px-1 font-mono text-[10px]" style={{ background: visual ? REGION_COLORS.fill : ORDER_COLORS[order], color: "#111" }}>{badge}</span>
                 {stripGate(copy.title)}
               </span>
               {sideText && <span className="rounded-sm bg-panel-solid/85 px-1.5 text-[10.5px] leading-tight text-text-dim">{sideText}</span>}
@@ -755,7 +770,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
           ) : copy ? (
             <div className="grid gap-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-sm px-1.5 py-0.5 font-mono text-[11px] font-bold" style={{ background: visual ? FIELD_COLORS.leftUpper : ORDER_COLORS[order], color: "#111" }} title={`${badge} neuron`}>
+                <span className="rounded-sm px-1.5 py-0.5 font-mono text-[11px] font-bold" style={{ background: visual ? REGION_COLORS.fill : ORDER_COLORS[order], color: "#111" }} title={`${badge} neuron`}>
                   {badge}
                 </span>
                 <h2 className="font-display text-lg leading-tight">{withGate(copy.title)}</h2>
@@ -820,7 +835,7 @@ export function Tracer3({ courses, cards, courseSlug, initial }: { courses: Cour
         <div className="panel grid gap-1 p-2">
           <p className="eyebrow min-w-0">{cp.name}: the textbook diagram</p>
           <div className="min-h-[300px] lg:h-[560px]">
-            <Schematic slug={slug} beats={bs.beats} cur={curBeat} reveal={reveal} hoverKey={hoverKey} onHover={setHoverKey} onPick={(k) => setOpenKey(k)} reduced={reduced} sideAlpha={sideAlpha} />
+            <Schematic slug={slug} beats={bs.beats} drawn={drawnOrders.per} drawnAll={drawnOrders.all} cur={curBeat} reveal={reveal} hoverKey={hoverKey} onHover={setHoverKey} onPick={(k) => setOpenKey(k)} reduced={reduced} sideAlpha={sideAlpha} />
           </div>
         </div>
         <div className="panel grid gap-2 p-3">
@@ -920,27 +935,30 @@ function stripGate(s: string) {
 }
 
 function Legend({ visual, motor, n, inh, onClose }: { visual: boolean; motor: boolean; n: number; inh: boolean; onClose: () => void }) {
-  const rows = visual
+  // the visual pathway: colour AND line style are the visual field (as in the textbook diagram's legend), upper lighter
+  const rows: [string, string, boolean][] = visual
     ? [
-        ["Left visual field", FIELD_COLORS.leftUpper],
-        ["Right visual field", FIELD_COLORS.rightUpper],
+        ["Left field, upper", FIELD_COLORS.leftUpper, false],
+        ["Left field, lower", FIELD_COLORS.leftLower, false],
+        ["Right field, upper", FIELD_COLORS.rightUpper, true],
+        ["Right field, lower", FIELD_COLORS.rightLower, true],
       ]
-    : Array.from({ length: Math.min(4, n) }, (_, i) => [motor ? (i === 0 ? "Upper motor neuron" : "Lower motor neuron") : `${ORDINAL[i + 1]}-order neuron`, ORDER_COLORS[(i + 1) as 1 | 2 | 3 | 4]]);
+    : Array.from({ length: Math.min(4, n) }, (_, i) => [motor ? (i === 0 ? "Upper motor neuron" : "Lower motor neuron") : `${ORDINAL[i + 1]}-order neuron`, ORDER_COLORS[(i + 1) as 1 | 2 | 3 | 4], false]);
   return (
     <div data-pw-key className="absolute left-2 top-2 z-10 grid gap-1 rounded-sm border border-panel-border bg-panel-solid/92 py-1.5 pl-2 pr-6 text-[11px] leading-none text-text">
       <button type="button" onClick={onClose} className="absolute right-0.5 top-0.5 rounded-sm p-0.5 text-text-dim hover:text-text" aria-label="Hide the key">
         <X size={12} aria-hidden />
       </button>
-      {rows.map(([t, c]) => (
+      {rows.map(([t, c, dashed]) => (
         <span key={t} className="flex items-center gap-1.5">
-          <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="#111" strokeWidth="5" strokeLinecap="round" /><line x1="1" y1="4" x2="21" y2="4" stroke={c} strokeWidth="2.8" strokeLinecap="round" /></svg>
+          <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="#111" strokeWidth="5" strokeLinecap="round" /><line x1="1" y1="4" x2="21" y2="4" stroke={c} strokeWidth="2.8" strokeLinecap={dashed ? "butt" : "round"} strokeDasharray={dashed ? "5 3" : undefined} /></svg>
           {t}
         </span>
       ))}
-      <span className="flex items-center gap-1.5">
+      {!visual && <span className="flex items-center gap-1.5">
         <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="var(--text)" strokeWidth="2.4" /></svg>
         Left side · <svg width="22" height="8" aria-hidden><line x1="1" y1="4" x2="21" y2="4" stroke="var(--text)" strokeWidth="2.4" strokeDasharray="5 3" /></svg> right side
-      </span>
+      </span>}
       {inh && (
         <span className="flex items-center gap-1.5">
           <svg width="22" height="10" aria-hidden><line x1="1" y1="5" x2="14" y2="5" stroke="var(--text)" strokeWidth="2.2" /><line x1="16" y1="0.5" x2="16" y2="9.5" stroke="var(--text)" strokeWidth="3" strokeLinecap="round" /></svg>

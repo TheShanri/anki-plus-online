@@ -26,9 +26,11 @@ interface Props {
   ends: Map<string, EndKind>;
   /** unique mask ids when several diagrams share a page (static sheets) */
   idPrefix?: string;
+  /** per beat, the neuron order the 3D scene draws (overrides the course map's count) */
+  drawn?: (number | undefined)[];
 }
 
-export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, onHover, onPick, reduced, sideAlpha, ends, idPrefix = "" }: Props) {
+export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, onHover, onPick, reduced, sideAlpha, ends, idPrefix = "", drawn: drawnOrder }: Props) {
   const uid = idPrefix + useId().replace(/[^a-zA-Z0-9]/g, "");
   const { w } = diagram;
 
@@ -62,7 +64,7 @@ export function DiagramView({ diagram, beats, resolved, cur, reveal, hoverKey, o
     const hot = cur !== null && idx.includes(cur);
     const hov = idx.some((i) => beats[i]?.info === hoverKey);
     const op = shown ? (hot || cur === null ? 1 : 0.62) : 0.3;
-    return { idx, shown, hot, hov, op, main: idx[0], order: (beats[idx[0]]?.neuron ?? 0) + 1 };
+    return { idx, shown, hot, hov, op, main: idx[0], order: drawnOrder?.[idx[0]] ?? (beats[idx[0]]?.neuron ?? 0) + 1 };
   };
 
   const items = useMemo(

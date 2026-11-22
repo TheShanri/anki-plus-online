@@ -18,7 +18,7 @@ interface Builder {
   labels: DLabel[];
   n: number;
   box: (k: string | string[], x: number, y: number, text: string[], o?: { w?: number; h?: number; soma?: boolean }) => void;
-  line: (k: string | string[], pts: P[], end: EndKind, o?: { dash?: boolean; r?: number }) => void;
+  line: (k: string | string[], pts: P[], end: EndKind, o?: { dash?: boolean; r?: number; order?: number }) => void;
   cross: (k: string | string[], x: number, y: number) => void;
   text: (k: string | string[], t: string, x: number, y: number, anchor?: "start" | "middle" | "end") => void;
 }
@@ -32,7 +32,7 @@ function builder(): Builder {
     },
     line(k, pts, end, o = {}) {
       const l = elbow(pts, o.r ?? 8);
-      b.els.push({ id: `l${b.n++}`, keys: arr(k), kind: "path", side: "M", d: l.d, end: l.end, endKind: end, dash: o.dash });
+      b.els.push({ id: `l${b.n++}`, keys: arr(k), kind: "path", side: "M", d: l.d, end: l.end, endKind: end, dash: o.dash, order: o.order });
     },
     cross(k, x, y) {
       b.els.push({ id: `x${b.n++}`, keys: arr(k), kind: "cross", side: "M", x, y });
@@ -55,11 +55,11 @@ export function basalGanglia(): Diagram {
   b.box("snc", 58, 232, ["SNc", "dopamine"]);
   b.line("cs", [[132, 34], [58, 34], [58, 84]], "arrow");
   b.line("direct", [[100, 104], [116, 104], [116, 166], [132, 166]], "bar");
-  b.line("indirect", [[58, 116], [58, 150]], "bar");
-  b.line("indirect", [[58, 182], [58, 200], [174, 200], [174, 216]], "bar");
-  b.line("indirect", [[216, 232], [226, 232], [226, 176], [216, 176]], "arrow");
-  b.line("pt", [[216, 156], [290, 156], [290, 116]], "bar");
-  b.line("pt", [[290, 84], [290, 34], [216, 34]], "arrow");
+  b.line("indirect", [[58, 116], [58, 150]], "bar", { order: 2 });
+  b.line("indirect", [[58, 182], [58, 200], [174, 200], [174, 216]], "bar", { order: 3 });
+  b.line("indirect", [[216, 232], [226, 232], [226, 176], [216, 176]], "arrow", { order: 3 });
+  b.line("pt", [[216, 156], [290, 156], [290, 116]], "bar", { order: 3 });
+  b.line("pt", [[290, 84], [290, 34], [216, 34]], "arrow", { order: 4 });
   b.line("snc", [[16, 232], [7, 232], [7, 100], [16, 100]], "arrow", { dash: true });
   b.text("direct", "Direct (go)", 121, 132);
   b.text("indirect", "Indirect (no-go)", 66, 194);

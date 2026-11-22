@@ -9,7 +9,8 @@ import { Typer } from "./typer.ts";
 import { answerVariants, decorativeKeys } from "./variants.ts";
 import { keywordTrack, vocabularyOf } from "./answerstyle.ts";
 import { toStudyCard } from "./types.ts";
-import { canonStr } from "./text.ts";
+import { canonStr, lev } from "./text.ts";
+import { gradeKeywords } from "./grade.ts";
 
 const DIR = join(process.cwd(), "content/nsci3250/cards");
 type Raw = Record<string, unknown> & { slug: string; kind?: string; status?: string };
@@ -67,6 +68,24 @@ test("no false green on any course card (first letters, a wrong second letter, j
         t.set(f[0] + wrong, 2);
         if (green(t) > 1) bad.push(`${raw.slug}: "${f[0] + wrong}" all green for "${j.answer}"`);
       }
+      // 4. most of a word right, then a wrong letter ("Parii" for "Parietal bones"): never all green
+      for (const f of j.kw ? [...forms, ...j.kw.groups.flat().map((s) => canonStr(s))] : forms) {
+        const w0 = f.split(" ")[0];
+        if (w0.length < 6) continue;
+        for (let k = 3; k < w0.length - 1; k++) {
+          const pre = w0.slice(0, k);
+          const vocabWords = [...forms, ...words].flatMap((g) => g.split(" "));
+          const x = "qxzjvk".split("").find((c2) => !vocabWords.some((g) => g.startsWith(pre + c2)));
+          if (!x) continue;
+          const typed = pre + x;
+          t.set(typed, 4);
+          if (green(t) >= typed.length) bad.push(`${raw.slug}: "${typed}" all green for "${j.answer}"`);
+          // (one letter off a 6+ letter keyword is a typo the grader forgives on purpose: "insulq" for "insula")
+          // nor is a word built on a keyword the author wrote as a stem ("excit" -> "excitaq": the idea is typed)
+          const typo = j.kw?.groups.flat().some((g) => (canonStr(g).length >= 6 && lev(canonStr(g), typed) <= 1) || typed.startsWith(canonStr(g)));
+          if (j.kw && !typo && gradeKeywords(typed, j.kw.groups).hits === j.kw.groups.length && j.kw.groups.length) bad.push(`${raw.slug}: "${typed}" graded right for "${j.answer}"`);
+        }
+      }
       // 3. junk run on after a full answer
       if (!j.kw) {
         const typed = j.answer + "qzx";
@@ -99,4 +118,18 @@ test("a free-text card: 't' that only starts a connective is plain, a card word'
   t.set("p", 2);
   assert.equal(Number(t.typedOk), 1);
   assert.notEqual(String(t.state), "bad");
+});
+
+test("'Parii' is not 'Parietal bones' (2026-11-21): red in the box and not graded right; real word forms still are", () => {
+  const groups = [["parietal"]];
+  const c = { answer: "Parietal bones", accept: ["two parietal bones", "parietal"], keywords: groups };
+  const t = typerFor(c.answer, c.accept, false, { groups, vocab: vocabularyOf(c) });
+  t.set("Parii", 1);
+  assert.ok(t.typedOk <= 4, `typedOk ${t.typedOk}`);
+  assert.equal(t.state, "bad");
+  assert.equal(gradeKeywords("Parii", groups).hits, 0);
+  assert.equal(gradeKeywords("pari", groups).hits, 0);
+  for (const [w, k] of [["columns", "column"], ["medullary", "medulla"], ["nuclei", "nucleus"], ["ganglia", "ganglion"], ["arteries", "artery"], ["excitatory", "excit"], ["parietl", "parietal"]]) {
+    assert.equal(gradeKeywords(w, [[k]]).hits, 1, `${w} for ${k}`);
+  }
 });

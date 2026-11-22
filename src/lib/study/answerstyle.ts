@@ -152,6 +152,14 @@ export function keywordTrack(typed: string, groups: string[][], vocab: Set<strin
     const ok = known(t.w) || startsContent || (hitAll && !misspelt(t.w) && !runOn);
     if (!ok && startsConnector) return { okEnd: t.at, done: false, pending: true };
     if (!ok) return { okEnd: t.at, done: false };
+    // the word being typed passed only because the key ideas are in: green as far as it follows one of the card's
+    // words (or runs on from a keyword written as a stem), the rest plain red ("excitaq": "excita" green, "q" red)
+    // (words after the key ideas are already in are free phrasing: "decision making")
+    if (last && !known(t.w) && !startsContent && !allHit(typed.slice(0, t.at), groups)) {
+      const stems = groups.flat().map((k) => canonStr(k)).filter((k) => k && !k.includes(" ") && t.w.startsWith(k));
+      const follow = Math.max(0, ...vs.map((v) => lcp(v, t.w)), ...stems.map((k) => k.length));
+      if (follow < t.w.length) return { okEnd: t.at + follow, done: false };
+    }
   }
   return { okEnd: typed.length, done: hitAll };
 }

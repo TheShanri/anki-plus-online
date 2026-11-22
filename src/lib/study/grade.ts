@@ -214,9 +214,20 @@ function stemMatch(word: string, key: string): boolean {
   // "efferent" is one letter from "afferent": the opposite term is never a hit
   const opp = ANTONYM_OF.get(key);
   if (opp && (word === opp || (word.length >= 5 && word.startsWith(opp.slice(0, -1))))) return false;
-  if (key.length >= 5 && word.length >= 5 && (word.startsWith(key.slice(0, key.length - 1)) || key.startsWith(word.slice(0, word.length - 1)))) return true;
+  if (key.length >= 5 && word.length >= 5) {
+    // another form of the same word: "columns"/"column", "medullary"/"medulla", "nuclei"/"nucleus", "ganglia"/"ganglion".
+    // A cut-short word is NOT one: "pari" + any letter hit "parietal" ("Parii" went green and graded right, 2026-11-21).
+    // a keyword written as a stem ("excit", "vomit") hits every word built on it
+    if (word.startsWith(key)) return true;
+    let p = 0;
+    while (p < word.length && p < key.length && word[p] === key[p]) p++;
+    const inflect = (tail: string) => tail === "" || INFLECTIONS.has(tail);
+    if (p >= 4 && inflect(word.slice(p)) && inflect(key.slice(p))) return true;
+  }
   return key.length >= 6 && lev(word, key) <= 1;
 }
+
+const INFLECTIONS = new Set(["s", "es", "ies", "y", "i", "us", "a", "um", "on", "e", "al", "ar", "ic", "ae"]);
 
 /** Each inner list is a set of synonyms; every group must hit. Multi-word keys match as phrases. */
 export function gradeKeywords(typed: string, groups: string[][], flags: CanonFlags = DEFAULT_CANON): KeywordResult {

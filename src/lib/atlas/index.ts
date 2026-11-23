@@ -1,16 +1,19 @@
 import type { AtlasEntry, AtlasIndex } from "./types";
 import { withCranialNumeral } from "./cranial";
+import version from "@/data/atlas-version.json";
 
 export type { AtlasEntry, AtlasIndex, AtlasMapEntry } from "./types";
 
 export const ATLAS_BASE = "/atlas";
+/** index.json is cached for an hour; its content hash (tools/atlas/link_atlas2.py) makes a new deploy fetch the new one. */
+export const ATLAS_INDEX_URL = `${ATLAS_BASE}/index.json?v=${version.index}`;
 
 let indexPromise: Promise<AtlasIndex> | null = null;
 
 /** Fetches /atlas/index.json once per page load. */
 export function loadAtlasIndex(): Promise<AtlasIndex> {
   if (!indexPromise) {
-    indexPromise = fetch(`${ATLAS_BASE}/index.json`)
+    indexPromise = fetch(ATLAS_INDEX_URL)
       .then((r) => {
         if (!r.ok) throw new Error(`atlas index: HTTP ${r.status}`);
         return r.json() as Promise<AtlasIndex>;

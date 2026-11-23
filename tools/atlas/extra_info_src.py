@@ -95,5 +95,23 @@ for v in L.values():
 non = [k for k, e in idx.items() if e.get("file") and k not in syl]
 miss = [k for k in non if k not in B]; extra = [k for k in B if k not in non]
 print(len(non), "non-syllabus meshes;", len(B), "blurbs; missing", miss, "extra", extra)
-out = {k: B[k] for k in sorted(non) if k in B}
+out = {k: B[k] for k in sorted(set(non) | set(B)) if k in B and k in idx}  # blurbs for meshes that later joined the syllabus are kept
+# Landmarks the atlas shows that are not on the course's structure lists (links with atlasOnly, tools/atlas/link_atlas2.py):
+# keyed "landmark:<slug>"
+LANDMARK = {
+"arcuate-fasciculus": "The association bundle that arches around the back of the lateral sulcus, linking the posterior temporal lobe (Wernicke's area) with the inferior frontal gyrus (Broca's area). Damage to it with both language areas spared classically gives conduction aphasia: fluent speech and good comprehension, but poor repetition.",
+"superior-longitudinal-fasciculus": "A long association bundle in the white matter above the insula, running front to back between the frontal and parietal lobes. It carries the fronto-parietal links for spatial attention and movement planning; the arcuate fasciculus is its deepest, curved part.",
+"inferior-longitudinal-fasciculus": "An association bundle running along the underside of the temporal lobe from the occipital lobe to the temporal pole. It carries the ventral visual stream ('what' pathway) for recognising objects and faces.",
+"inferior-fronto-occipital-fasciculus": "A long association bundle linking the occipital lobe with the frontal lobe; it passes through the extreme and external capsules beside the insula. It is involved in reading, semantics and visual attention.",
+"uncinate-fasciculus": "A hook-shaped association bundle linking the anterior temporal lobe (and amygdala region) with the orbitofrontal cortex, curving around the stem of the lateral sulcus. It joins the limbic and prefrontal systems for emotion and memory.",
+"cingulum": "The association bundle inside the cingulate gyrus, arching over the corpus callosum from the frontal lobe back and down to the parahippocampal gyrus. It is the main white-matter route of the limbic lobe.",
+"corona-radiata": "The fan of projection fibres between the internal capsule and the cortex, running up and down beside the lateral ventricles. Fibres to and from the whole cortex (motor, sensory, thalamic radiations) pass through it, so a small infarct here, a common lacunar site, can weaken a limb without touching the cortex. Above the ventricles it continues into the centrum semiovale.",
+"corticospinal-tract": "The voluntary motor pathway shown through the brain: from the motor cortex down through the corona radiata, the posterior limb of the internal capsule, the cerebral peduncle and the basilar pons to the pyramid of the medulla, where most fibres cross to form the lateral corticospinal tract.",
+"locus-coeruleus": "A small, pigmented nucleus in the upper pons beside the floor of the fourth ventricle. It is the brain's main source of noradrenaline, projecting widely to the cortex, cerebellum and spinal cord for arousal, attention and the stress response.",
+"dorsal-raphe-nucleus": "A midline nucleus in the midbrain and upper pons, just below the cerebral aqueduct. It is the largest source of serotonin for the forebrain, involved in mood, sleep and appetite; many antidepressants act on its signalling.",
+"median-raphe-nucleus": "A midline serotonergic nucleus in the upper pons, in front of the dorsal raphe. It sends serotonin to the hippocampus and septum among other targets.",
+}
+for k, v in LANDMARK.items():
+    if L.get(k, {}).get("atlasOnly"): out["landmark:" + k] = v
+    else: print("LANDMARK: not an atlas-only link", k)
 json.dump(out, open(os.path.join(ROOT, "src/data/atlas-extra-info.json"), "w", encoding="utf8"), indent=1, ensure_ascii=False)

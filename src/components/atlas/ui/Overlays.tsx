@@ -161,6 +161,19 @@ export function LockedCard({ name, onCurious, onClose }: { name: string; onCurio
 }
 
 /** Supplementary background for a structure that is not on the syllabus (unlocked on request). */
+/** An atlas landmark that is not on the course's structure lists (the arcuate fasciculus, the locus coeruleus...): shown
+ *  and highlightable like any structure, with the app's own short note. */
+export function LandmarkCard({ name, blurb }: { name: string; blurb?: string }) {
+  return (
+    <section className="atl-card-in rounded-card border border-dashed border-panel-border bg-panel p-4" aria-label={`${name}: landmark`}>
+      <p className="font-mono text-[10px] uppercase tracking-wider text-text-faint">Landmark · not on the lab structure lists</p>
+      <h2 className="mt-1 font-display text-xl tracking-wide text-text">{name}</h2>
+      <p className="mt-2 text-sm leading-relaxed text-text">{blurb ?? "No note has been written for this landmark yet."}</p>
+      <p className="mt-3 text-xs text-text-faint">Shown so you can find it on sections and in 3D. Your lab lists decide what is tested.</p>
+    </section>
+  );
+}
+
 export function ExtraInfoCard({ name, latin, blurb, region, onLock }: { name: string; latin?: string | null; blurb?: string; region?: string; onLock: () => void }) {
   return (
     <section className="atl-card-in rounded-card border border-dashed border-accent-2/60 bg-panel p-4" aria-label={`${name}: supplementary information`}>

@@ -340,6 +340,8 @@ async function via(f, id, side, pts, hosts, o = {}) {
   }
   return f;
 }
+// a side view: these circuits run front to back near the midline, so from behind they collapse to a squiggle
+const SIDE = { view: "left" };
 export const limbicFornix = {
   async build(side) {
     const s = sgnOf(side);
@@ -351,9 +353,9 @@ export const limbicFornix = {
     await via(f, "fornix", side, [[0.013, 1.632, -0.018], [0.005, 1.636, -0.006], [0.003, 1.634, 0.006], [0.003, 1.626, 0.011], [0.003, 1.616, 0.009]], ["a:fornix"]);
     await f.routeTo(["a:fornix", "a:hypothalamus", "a:mamillary-body"], mb, { sgn: s, minX: 0.0006, h: 0.0003 });
     return [
-      B({ soma: soma(hip, "a:hippocampus", 1), stops: [atlasStop("hippocampus", side, "Hippocampus")] }),
-      B({ f: [f.json()], syn: soma(mb, "a:mamillary-body", 1) }),
-      B({ stops: [atlasStop("mamillary-body", side, "Mammillary body"), atlasStop("septal-nuclei", side, "Septal nuclei"), atlasStop("fornix", side, "Fornix")] }),
+      B({ soma: soma(hip, "a:hippocampus", 1), stops: [atlasStop("hippocampus", side, "Hippocampus")], meta: SIDE }),
+      B({ f: [f.json()], syn: soma(mb, "a:mamillary-body", 1), meta: SIDE }),
+      B({ stops: [atlasStop("mamillary-body", side, "Mammillary body"), atlasStop("septal-nuclei", side, "Septal nuclei"), atlasStop("fornix", side, "Fornix")], meta: SIDE }),
     ];
   },
 };
@@ -373,9 +375,9 @@ export const limbicAmygdala = {
     const h = new Fibre(1).from(bnst.c, bnst.key);
     await routeGap(h, [bnst.key, "a:stria-terminalis", "a:hypothalamus", "a:white-matter-of-telencephalon"], hyp, "a:hypothalamus", { sgn: s, minX: 0.0004, h: 0.0003, smooth: 6 }, `bnst-hyp-${side}`);
     return [
-      B({ soma: soma(am, "a:amygdaloid-body", 1), stops: [atlasStop("amygdaloid-body", side, "Amygdala (central nucleus)")] }),
-      B({ f: [joinFibres(1, [f, h]).json()], syn: soma(hyp, "a:hypothalamus", 1) }),
-      B({ stops: [proxyStop(bnst), atlasStop("hypothalamus", side, "Hypothalamus"), atlasStop("posterior-nucleus-of-vagus-nerve", side, "Dorsal motor nucleus of X")] }),
+      B({ soma: soma(am, "a:amygdaloid-body", 1), stops: [atlasStop("amygdaloid-body", side, "Amygdala (central nucleus)")], meta: SIDE }),
+      B({ f: [joinFibres(1, [f, h]).json()], syn: soma(hyp, "a:hypothalamus", 1), meta: SIDE }),
+      B({ stops: [proxyStop(bnst), atlasStop("hypothalamus", side, "Hypothalamus"), atlasStop("posterior-nucleus-of-vagus-nerve", side, "Dorsal motor nucleus of X")], meta: SIDE }),
     ];
   },
 };
@@ -419,9 +421,9 @@ export const limbicSeptal = {
     seam(f, `th-hb-${side}`, "Thalamus edge onto the habenula", [face.q], 0.0012, `the atlas thalamus and habenula meshes do not touch (${(face.t * 1000).toFixed(1)} mm)`);
     hb.splice(0, 3, ...face.q);
     return [
-      B({ soma: soma(sep, "a:septal-nuclei", 1), stops: [atlasStop("septal-nuclei", side, "Septal nuclei")] }),
-      B({ f: [f.json()], syn: soma(hb, "a:habenula", 1) }),
-      B({ stops: [atlasStop("habenula", side, "Habenula"), atlasStop("stria-medullaris-thalami", side, "Stria medullaris thalami")] }),
+      B({ soma: soma(sep, "a:septal-nuclei", 1), stops: [atlasStop("septal-nuclei", side, "Septal nuclei")], meta: SIDE }),
+      B({ f: [f.json()], syn: soma(hb, "a:habenula", 1), meta: SIDE }),
+      B({ stops: [atlasStop("habenula", side, "Habenula"), atlasStop("stria-medullaris-thalami", side, "Stria medullaris thalami")], meta: SIDE }),
     ];
   },
 };
@@ -442,9 +444,9 @@ export const reward = {
     await routeGap(p, ["a:mni-nucleus-accumbens", "a:caudate-nucleus", "a:putamen", "a:white-matter-of-telencephalon", "a:straight-gyrus-gyrus-rectus", "a:orbital-gyri"], pfc, "a:orbital-gyri", { sgn: s, minX: 0.0008, h: 0.0004, smooth: 8 }, `mfb-pfc-${side}`);
     const toPfc = joinFibres(1, [f, p]);
     return [
-      B({ soma: soma(vta.c, vta.key, 1), stops: [proxyStop(vta)] }),
-      B({ f: [f.json(), toPfc.json()], syn: soma(nac, "a:mni-nucleus-accumbens", 1) }),
-      B({ stops: [atlasStop("mni-nucleus-accumbens", side, "Nucleus accumbens"), carve("a:orbital-gyri", pfc, 0.012, "Prefrontal cortex")] }),
+      B({ soma: soma(vta.c, vta.key, 1), stops: [proxyStop(vta)], meta: SIDE }),
+      B({ f: [f.json(), toPfc.json()], syn: soma(nac, "a:mni-nucleus-accumbens", 1), meta: SIDE }),
+      B({ stops: [atlasStop("mni-nucleus-accumbens", side, "Nucleus accumbens"), carve("a:orbital-gyri", pfc, 0.012, "Prefrontal cortex")], meta: SIDE }),
     ];
   },
 };

@@ -92,8 +92,6 @@ OVERRIDE = {
     "somatosensory-association-cortex": (["superior-parietal-lobule"], True),
     "parietal-lobe-general-association-area": (["supramarginal-gyrus", "angular-gyrus"], True),
     "auditory-association-area": (["superior-temporal-gyrus-lateral-part"], True),
-    "crus-of-fornix": (["fornix"], True),
-    "body-of-fornix": (["fornix"], True),
     "interthalamic-adhesion": (["thalamus"], True),
     "suprachiasmatic-nucleus": (["hypothalamus"], True),
     "foramina-of-monro": (["third-ventricle", "lateral-ventricle"], True),
@@ -121,10 +119,7 @@ APPROX_FIX = {
     "interpeduncular-cistern": (["midbrain"], True),
     "motor-trigeminal-nucleus": (["pons"], True),
     "principal-sensory-nucleus-of-trigeminal": (["pons"], True),
-    # these were mapped to an unrelated mesh through a shared short name ("Genu", "Body") or shown as exact
-    "genu-of-corpus-callosum": (["corpus-callosum"], True),
-    "body-of-corpus-callosum": (["corpus-callosum"], True),
-    "splenium-of-corpus-callosum": (["corpus-callosum"], True),
+    # (the corpus callosum and fornix parts are exact since 2026-11-22: carved by tools/atlas/carve_parts.py)
     "callosomarginal-artery": (["pericallosal-artery"], True),
     "circle-of-willis": (["cerebral-arterial-circle", "anterior-communicating-artery", "posterior-communicating-artery", "anterior-cerebral-artery", "posterior-cerebral-artery", "basilar-artery"], False),
     "cerebral-blood-vessels": (["cerebral-arterial-circle", "anterior-cerebral-artery", "pericallosal-artery", "middle-cerebral-artery-m1", "middle-cerebral-artery-m3", "posterior-cerebral-artery", "basilar-artery", "superior-cerebellar-artery"], False),
@@ -139,7 +134,6 @@ APPROX_FIX.update({
 # the habenula and the pineal gland
 APPROX_FIX.update({
     "brachium-of-the-inferior-colliculus": (["inferior-colliculus"], True),
-    "columns-of-the-fornix": (["fornix"], True),
     "temporal-lobe-general-association-area": (["temporal-lobe"], True),
     "inferior-olivary-nucleus": (["olive"], True),
     "epithalamus": (["habenula", "mni-pineal-gland"], False),
@@ -206,7 +200,57 @@ for slug, (ids, ap) in APPROX_FIX.items():
             e["meshIds"] = list(ids); e["approximate"] = ap; e["exactIn"] = l["exactIn"]
             if ap: e["fallbackParentId"] = ids[0]
             else: e.pop("fallbackParentId", None)
+# 2026-11-22 ----------------------------------------------------------------------------------------------------------
+# Atlas-only structures: landmarks with an exact MRI label and a 3D mesh (tools/atlas/wm_meshes.py) that are not on the
+# course's structure list (the arcuate fasciculus and the other association tracts, the corticospinal tract through the
+# brain, the locus coeruleus and raphe nuclei). They are searchable and highlightable; their info card is the app's own.
+course = {st["slug"] for st in structs}
+for slug, mid in added.items():
+    if slug in course or slug in links: continue
+    sl = at["structures"].get(slug)
+    links[slug] = dict(name=sl["name"] if sl else S[mid]["name"], meshIds=[mid], approximate=False, fallbackParentId=None, slices=sl["quality"] if sl else None,
+                       exactIn=["3d"] + (["slices"] if sl and sl["quality"] in ("exact", "derived") else []), registered=True, atlasOnly=True)
+# the fibre groups are now the union of their own tracts (they used to light the whole white matter, as approximate)
+GROUP_MESHES = {
+    "association-fibers": ["mni-arcuate-fasciculus", "mni-superior-longitudinal-fasciculus", "mni-inferior-longitudinal-fasciculus", "mni-inferior-fronto-occipital-fasciculus", "mni-uncinate-fasciculus", "mni-cingulum"],
+    "projection-fibers": ["mni-corona-radiata", "mni-internal-capsule", "mni-corticospinal-tract", "mni-corticopontine-tract"],
+}
+for slug, ids in GROUP_MESHES.items():
+    l = links.get(slug)
+    if not l or not all(i in S for i in ids): print("GROUP_MESHES skipped", slug); continue
+    l.update(meshIds=ids, approximate=False, fallbackParentId=None, registered=True)
+    l["exactIn"] = sorted(set(l["exactIn"]) | {"3d"})
+# Parts nested under their whole in the search list (the whole lights everything, each part can be picked on its own).
+# Besides this table, a structure made of several meshes lists those meshes as its parts (see src/lib/atlas/catalog.ts).
+CHILDREN = {
+    "corpus-callosum": ["genu-of-corpus-callosum", "body-of-corpus-callosum", "splenium-of-corpus-callosum"],
+    "fornix": ["crus-of-fornix", "body-of-fornix", "columns-of-the-fornix"],
+    "internal-capsule": ["anterior-limb-of-internal-capsule", "genu-of-internal-capsule", "posterior-limb-of-internal-capsule"],
+    "caudate-nucleus": ["head-of-caudate-nucleus", "body-of-caudate-nucleus", "tail-of-caudate-nucleus"],
+    "thalamus": ["anterior-nucleus-of-thalamus", "pulvinar", "lateral-geniculate-nucleus", "medial-geniculate-nucleus"],
+    "lateral-ventricle": ["anterior-horn-of-lateral-ventricle", "body-of-lateral-ventricle", "atrium-of-lateral-ventricle", "posterior-horn-of-lateral-ventricle", "inferior-horn-of-lateral-ventricle"],
+    "association-fibers": ["arcuate-fasciculus", "superior-longitudinal-fasciculus", "inferior-longitudinal-fasciculus", "inferior-fronto-occipital-fasciculus", "uncinate-fasciculus", "cingulum"],
+    "projection-fibers": ["corona-radiata", "internal-capsule", "corticospinal-tract", "corticopontine-tract"],
+    "commissural-fibers": ["corpus-callosum", "anterior-commissure"],
+    "basal-ganglia": ["caudate-nucleus", "putamen", "globus-pallidus"],
+    "lentiform-nucleus": ["putamen", "globus-pallidus"],
+    "cerebellar-peduncles": ["superior-cerebellar-peduncle", "middle-cerebellar-peduncle", "inferior-cerebellar-peduncle"],
+    "epithalamus": ["habenula", "pineal-gland"],
+    "dorsal-columns": ["fasciculus-gracilis", "fasciculus-cuneatus"],
+    # mesh ids: the gyral parts that make up a functional area
+    "broca-s-area": ["opercular-part-of-inferior-frontal-gyrus", "triangular-part-of-inferior-frontal-gyrus"],
+    "inferior-parietal-lobule": ["supramarginal-gyrus", "angular-gyrus"],
+}
+for parent, kids in CHILDREN.items():
+    if parent not in links: print("CHILDREN: no link", parent); continue
+    ok = [k for k in kids if k in links or k in S]
+    if len(ok) < len(kids): print("CHILDREN: missing", parent, [k for k in kids if k not in links and k not in S])
+    links[parent]["children"] = ok
 json.dump(amap, open(os.path.join(ROOT, "src/data/atlas-map.json"), "w", encoding="utf8"), indent=1, ensure_ascii=False)
+# the index is cached for an hour (next.config.ts): the app asks for index.json?v=<this>, so links that name a new mesh
+# never meet a stale index
+import hashlib
+json.dump({"index": hashlib.sha1(open(idx_path, "rb").read()).hexdigest()[:10]}, open(os.path.join(ROOT, "src/data/atlas-version.json"), "w"))
 json.dump(links, open(os.path.join(ROOT, "src/data/atlas-links.json"), "w", encoding="utf8"), separators=(",", ":"), ensure_ascii=False)
 ap = [k for k, v in amap.items() if v.get("approximate")]
 print("gap meshes:", len(added), "| links:", len(links), "| approximate entries left:", len(ap))

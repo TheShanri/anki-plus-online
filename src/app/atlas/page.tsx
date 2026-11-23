@@ -4,6 +4,7 @@ import { AtlasBrowser } from "@/components/atlas/AtlasBrowser";
 import { AtlasModes } from "@/components/atlas/AtlasModes";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { resolveCourse } from "@/lib/study/server";
+import { ATLAS_INDEX_URL } from "@/lib/atlas";
 
 export const metadata = { title: "3D atlas" };
 
@@ -14,7 +15,7 @@ export default async function AtlasPage({
 }) {
   const { s, n, view, add, nb, cut, cam } = await searchParams;
   // start the big downloads with the HTML, before the viewer's script even runs (the brain used to appear seconds later)
-  for (const f of ["/atlas/index.json", "/atlas/context.glb", "/atlas/gross.glb"]) preload(f, { as: "fetch", crossOrigin: "anonymous" });
+  for (const f of [ATLAS_INDEX_URL, "/atlas/context.glb", "/atlas/gross.glb"]) preload(f, { as: "fetch", crossOrigin: "anonymous" });
   // the course (for the "Sections" view's slide images); signed-out or no course just hides that view's images
   let courseSlug: string | undefined;
   try {

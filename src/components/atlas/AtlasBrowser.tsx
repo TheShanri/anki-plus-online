@@ -3,7 +3,7 @@
 import { withCranialNumeral } from "@/lib/atlas/cranial";
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Lock, PanelLeft, PanelRight } from "lucide-react";
+import { ChevronRight, Lock, PanelLeft, PanelRight } from "lucide-react";
 import { SectionEmbed, inSections, levelsShowing, nearestLevel } from "./brainstem/SectionEmbed";
 import { AvailIcons, availabilityFor, slugOf } from "./ui/availability";
 import { loadAtlasIndex, normalizeQuery } from "@/lib/atlas";
@@ -23,7 +23,7 @@ import type { SliceOverlay, SliceView } from "./SliceViewer";
 import type { ViewName } from "./AtlasViewer";
 import { AtlasLoader } from "./ui/AtlasLoader";
 import { IconBtn, Segmented } from "./ui/Toolbar";
-import { AddStructure, ExtraInfoCard, Legend, LockedCard } from "./ui/Overlays";
+import { AddStructure, ExtraInfoCard, LandmarkCard, Legend, LockedCard } from "./ui/Overlays";
 import type { LegendRow } from "./ui/Overlays";
 import { preloadAtlas } from "./ui/modelCache";
 import { mmFromWorld, mniFromCut, sliceViewFor, view3dFor } from "./ui/translate";
@@ -110,6 +110,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [error, setError] = useState(false);
   const [q, setQ] = useState("");
   const [region, setRegion] = useState("all");
+  /** Search-list parents opened to show their parts (fornix -> crus, body, columns). */
+  const [openKids, setOpenKids] = useState<Set<string>>(() => new Set());
   const [primaryKey, setPrimaryKey] = useState<string | null>(initialS ?? null);
   const [courseName, setCourseName] = useState<string | undefined>(initialN);
   const [extraKeys, setExtraKeys] = useState<string[]>(() => (initialAdd ? initialAdd.split(",").filter(Boolean) : []));
@@ -255,7 +257,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const via: "3d" | "mri" | "brainstem" = tab === "model" ? "3d" : tab === "slices" ? "mri" : "brainstem";
   const lastViewed = useRef("");
   useEffect(() => {
-    if (!infoSlug) return;
+    if (!infoSlug || LINKS[infoSlug]?.atlasOnly) return; // progress counts course structures only
     const k = `${infoSlug}|${via}`;
     if (lastViewed.current === k) return;
     lastViewed.current = k;
@@ -372,13 +374,16 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     }
   }, [embedded, primary, lockedPick, tab, sliceView, extraKeys, neighbors]);
 
+  // Browsing (no query): a part is listed under its whole (open the whole to see its parts). Searching: every match is
+  // listed, a whole still opens to its parts.
+  const asChild = useMemo(() => new Set(items.flatMap((i) => i.children ?? [])), [items]);
   const results = useMemo(() => {
     const terms = normalizeQuery(q).split(" ").filter(Boolean);
     return items
-      .filter((r) => (region === "all" || r.region === region) && terms.every((t) => r.hay.includes(t)))
+      .filter((r) => (region === "all" || r.region === region) && terms.every((t) => r.hay.includes(t)) && (terms.length > 0 || region !== "all" || !asChild.has(r.key)))
       .sort((a, b) => a.name.localeCompare(b.name))
       .slice(0, 120);
-  }, [items, q, region]);
+  }, [items, q, region, asChild]);
   const addResults = useMemo(() => {
     const terms = normalizeQuery(addQ).split(" ").filter(Boolean);
     if (!terms.length) return [];
@@ -589,26 +594,64 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
     null;
   const rootStyle = height ? { height } : undefined;
 
-  const listItem = (e: CatalogItem) => {
+  const listItem = (e: CatalogItem, depth = 0, trail: string[] = []): React.ReactNode => {
     const locked = !e.group && !onSyllabus(e);
+    const kids = depth < 3 ? (e.children ?? []).filter((k) => !trail.includes(k)) : [];
+    const open = kids.length > 0 && openKids.has(trail.concat(e.key).join(">"));
+    const toggle = () =>
+      setOpenKids((s) => {
+        const n = new Set(s);
+        const id = trail.concat(e.key).join(">");
+        if (n.has(id)) n.delete(id);
+        else n.add(id);
+        return n;
+      });
     return (
-      <li key={e.key}>
-        <button
-          type="button"
-          onClick={() => pick(e.key)}
-          className={`flex w-full flex-col items-start rounded-sm px-2 py-1.5 text-left text-sm hover:bg-panel-2 ${primary?.key === e.key ? "bg-panel-2 text-accent" : locked ? "text-text-faint" : ""}`}
-        >
-          <span className="flex w-full items-center gap-1.5">
-            <span className="min-w-0 flex-1">{e.name}</span>
-            {locked && <Lock size={11} className="flex-none" aria-label="not on your syllabus" />}
-            {!e.group && <AvailIcons a={availabilityFor(e)} />}
-          </span>
-          <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">
-            {index?.regions[e.region] ?? SKULL_REGIONS[e.region] ?? (e.region === "slices" ? "MRI slices" : e.region)}
-            {e.group ? " (group)" : ""}
-            {e.slices ? " · slices" : ""}
-          </span>
-        </button>
+      <li key={trail.concat(e.key).join(">")}>
+        <div className="flex items-stretch" style={depth ? { paddingLeft: depth * 12 } : undefined}>
+          {kids.length > 0 ? (
+            <button
+              type="button"
+              onClick={toggle}
+              aria-expanded={open}
+              aria-label={`${open ? "Hide" : "Show"} the parts of ${e.name}`}
+              title={`${open ? "Hide" : "Show"} its ${kids.length} parts`}
+              className="flex w-5 flex-none items-start justify-center rounded-sm pt-2 text-text-faint hover:bg-panel-2 hover:text-text"
+            >
+              <ChevronRight size={13} className={`transition-transform ${open ? "rotate-90" : ""}`} aria-hidden />
+            </button>
+          ) : (
+            depth > 0 && <span className="w-5 flex-none" aria-hidden />
+          )}
+          <button
+            type="button"
+            onClick={() => {
+              pick(e.key);
+              if (kids.length && !open) toggle();
+            }}
+            className={`flex min-w-0 flex-1 flex-col items-start rounded-sm px-2 py-1.5 text-left text-sm hover:bg-panel-2 ${primary?.key === e.key ? "bg-panel-2 text-accent" : locked ? "text-text-faint" : ""}`}
+          >
+            <span className="flex w-full items-center gap-1.5">
+              <span className="min-w-0 flex-1">{e.name}</span>
+              {locked && <Lock size={11} className="flex-none" aria-label="not on your syllabus" />}
+              {!e.group && <AvailIcons a={availabilityFor(e)} />}
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-wider text-text-faint">
+              {index?.regions[e.region] ?? SKULL_REGIONS[e.region] ?? (e.region === "slices" ? "MRI slices" : e.region)}
+              {e.group ? " (group)" : ""}
+              {e.slices ? " · slices" : ""}
+              {kids.length ? ` · ${kids.length} parts` : ""}
+            </span>
+          </button>
+        </div>
+        {open && (
+          <ul aria-label={`Parts of ${e.name}`}>
+            {kids
+              .map((k) => byKey.get(k))
+              .filter((x): x is CatalogItem => !!x)
+              .map((c) => listItem(c, depth + 1, trail.concat(e.key)))}
+          </ul>
+        )}
       </li>
     );
   };
@@ -675,7 +718,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
         </select>
         {error && <p className="text-sm text-again">Could not load the atlas index.</p>}
         <ul className="-mx-1 min-h-0 flex-1 overflow-y-auto pr-1" aria-label="Structures">
-          {results.map(listItem)}
+          {results.map((e) => listItem(e))}
           {index && results.length === 0 && <li className="px-2 py-3 text-sm text-text-dim">No structures match.</li>}
         </ul>
       </aside>
@@ -811,6 +854,8 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
                 <ExtraInfoCard name={curiousNode.name} blurb={nodeBlurb(curiousNode.id.slice(11))} region="Skull and spine" onLock={relock} />
               ) : extraCard && primary ? (
                 <ExtraInfoCard name={primary.name} latin={ent?.latin} region={ent ? index?.regions[ent.region] : undefined} blurb={EXTRA[primary.key]} onLock={relock} />
+              ) : infoSlug && LINKS[infoSlug]?.atlasOnly ? (
+                <LandmarkCard name={LINKS[infoSlug].name} blurb={EXTRA[`landmark:${infoSlug}`]} />
               ) : (
                 infoSlug && <StructureInfo slug={infoSlug} name={primary?.name} />
               )}

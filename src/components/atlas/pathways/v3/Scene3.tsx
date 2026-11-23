@@ -125,7 +125,10 @@ function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha
   // a receptor or a target muscle in the limb is framed with its surroundings (the digit, the thigh), not from inside it
   const bx = bi !== null ? data.beats[bi][sides[0]] : undefined;
   const limbEnd = node && !!bx && !bx.soma && (!!bx.start || bx.stops.some((st) => !!st.carve)) && (Math.abs(box.getCenter(new THREE.Vector3()).x) > 0.05 || box.max.y < 1.0);
-  const minS = limbEnd ? 0.09 : node ? 0.032 : 0.028;
+  // a small target deep in the head with no cut (the veil view, below) is framed from outside the head: framed tight, the
+  // camera sat inside the brain and the inside of the head filled the view (owner 2026-11-22, the VTA of the reward pathway)
+  const deepHead = !(bi !== null && data.beats[bi].cut) && box.min.y > 1.536 && Math.max(Math.abs(box.min.x), Math.abs(box.max.x)) < 0.08 && box.min.z > -0.11;
+  const minS = limbEnd ? 0.09 : deepHead ? 0.075 : node ? 0.032 : 0.028;
   const c = box.getCenter(new THREE.Vector3());
   for (const a of ["x", "y", "z"] as const) if (size[a] < minS) {
     box.min[a] = c[a] - minS / 2;

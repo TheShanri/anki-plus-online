@@ -158,6 +158,65 @@ for slug, nm, key in [("locus-coeruleus","Locus coeruleus","LC"),("dorsal-raphe-
                       ("pedunculotegmental-nucleus","Pedunculotegmental nucleus","PTg")]:
     add(slug, nm, "exact", AAN, [key]); EXTRA[slug] = key
 
+# ---- 2026-11-22: parts and landmarks the slices showed but could not name (owner: "the projection, commissural and
+# association fibres that form landmarks are not visualized"; corpus callosum and fornix parts; the language tracts).
+# The new vol1 keys are derived in derive_parts() below and appended AFTER the existing leaf ids, so every existing
+# label id (and so labels.nii.gz of older builds) keeps its number.
+NEW1 = ["ccG", "ccB", "ccS", "fxCr", "fxB", "fxCo", "CR", "CSO"]
+CCSRC = "Derived: AHRA corpus callosum split on the midsagittal curve (genu and rostrum anterior to the bend at MNI y = +12 mm, splenium behind y = -28 mm, body between)"
+FXSRC = "Derived: AHRA fornix split by position (crus behind MNI y = -22 mm, columns where it turns down in front of the thalamus, body between)"
+add("genu-of-corpus-callosum", "Genu of corpus callosum", "derived", CCSRC, ["ccG"])
+add("body-of-corpus-callosum", "Body of corpus callosum", "derived", CCSRC, ["ccB"])
+add("splenium-of-corpus-callosum", "Splenium of corpus callosum", "derived", CCSRC, ["ccS"])
+add("crus-of-fornix", "Crus of fornix", "derived", FXSRC, ["fxCr"])
+add("body-of-fornix", "Body of fornix", "derived", FXSRC, ["fxB"])
+add("columns-of-the-fornix", "Columns of the fornix", "derived", FXSRC, ["fxCo"])
+add("corona-radiata", "Corona radiata", "derived", "Derived: AHRA forebrain white matter lateral to the lateral ventricles and caudate, from the top of the internal capsule to the roof of the lateral ventricles (the radiological definition)", ["CR"])
+add("centrum-semiovale", "Centrum semiovale", "derived", "Derived: AHRA forebrain white matter above the roof of the lateral ventricles and the corpus callosum (the radiological definition)", ["CSO"])
+for slug, nm, key in [("arcuate-fasciculus", "Arcuate fasciculus", "AF"), ("superior-longitudinal-fasciculus", "Superior longitudinal fasciculus", "SLF"),
+                      ("inferior-longitudinal-fasciculus", "Inferior longitudinal fasciculus", "ILF"), ("inferior-fronto-occipital-fasciculus", "Inferior fronto-occipital fasciculus", "IFOF"),
+                      ("uncinate-fasciculus", "Uncinate fasciculus", "UF"), ("cingulum", "Cingulum", "CING"), ("corticospinal-tract", "Corticospinal tract", "CST"),
+                      ("corticopontine-tract", "Corticopontine tracts", "CPT")]:
+    add(slug, nm, "exact", HCP, [], [key])
+# the whole structures now also carry their new parts (the old keys stay listed so their ids keep their meaning)
+S["corpus-callosum"]["v1"] += ["ccG", "ccB", "ccS"]
+S["commissural-fibers"]["v1"] += ["ccG", "ccB", "ccS"]
+S["fornix"]["v1"] += ["fxCr", "fxB", "fxCo"]
+
+
+def derive_parts(vol1):
+    """Writes the NEW1 keys into vol1 (see the sources above). Idempotent: parts are re-derived from the whole each run."""
+    def xyz_of(m):
+        ijk = np.argwhere(m); return ijk, ijk @ AFF[:3, :3].T + AFF[:3, 3]
+    yy = (np.arange(vol1.shape[1]) * VOX + AFF[1, 3])[None, :, None]
+    zz = (np.arange(vol1.shape[2]) * VOX + AFF[2, 3])[None, None, :]
+    xx = (np.arange(vol1.shape[0]) * VOX + AFF[0, 3])[:, None, None]
+    cc = np.isin(vol1, [idx1[k] for k in ("cc", "ccG", "ccB", "ccS")])
+    vol1[cc & (yy >= 12)] = idx1["ccG"]; vol1[cc & (yy < 12) & (yy > -28)] = idx1["ccB"]; vol1[cc & (yy <= -28)] = idx1["ccS"]
+    fx = np.isin(vol1, [idx1[k] for k in ("fx", "fxCr", "fxB", "fxCo")])
+    col = fx & (((yy > -12) & (zz < 12)) | (yy > -3))
+    vol1[fx & (yy <= -22)] = idx1["fxCr"]; vol1[fx & ~col & (yy > -22)] = idx1["fxB"]; vol1[col & (yy > -22)] = idx1["fxCo"]
+    # white matter levels: the internal capsule's top (95th percentile, the capsule's few highest voxels are its fan) and the
+    # roof of the lateral ventricles / corpus callosum
+    fwm = (A == AC2ID.get("FWM", 10557)) & ((vol1 == 0) | np.isin(vol1, [idx1["CR"], idx1["CSO"]]))
+    _, icp = xyz_of(np.isin(vol1, [idx1["ICa"], idx1["ICg"], idx1["ICp"]]))
+    ic_top = float(np.percentile(icp[:, 2], 95))
+    lv = np.isin(vol1, [idx1[k] for k in ("aLV", "bLV", "xLV", "pLV")])
+    _, lvp = xyz_of(lv)
+    roof = float(np.percentile(lvp[:, 2], 99))
+    # lateral edge of the ventricle + caudate in each axial slice (per hemisphere): the corona lies lateral to it
+    medial = lv | np.isin(vol1, [idx1[k] for k in ("CaH", "CaB", "CaT")]) | cc
+    edge = np.zeros(vol1.shape[2], np.float32)
+    for k in range(vol1.shape[2]):
+        sl = medial[:, :, k]
+        if sl.any(): edge[k] = np.abs(np.argwhere(sl)[:, 0] * VOX + AFF[0, 3]).max()
+    lateral = np.abs(xx) > edge[None, None, :] + 1.0
+    vol1[fwm & (zz > ic_top) & (zz <= roof) & lateral] = idx1["CR"]
+    vol1[fwm & (zz > roof)] = idx1["CSO"]
+    print("derived parts:", {k: int((vol1 == idx1[k]).sum()) for k in NEW1}, "IC top z", round(ic_top, 1), "LV roof z", round(roof, 1))
+    return vol1
+
+
 # neighbours are only offered for structures that are not enclosing groups
 GROUPS = {"cerebellum","brainstem","midbrain","pons","medulla","basal-ganglia","corpus-striatum","lentiform-nucleus","lateral-ventricle","caudate-nucleus","thalamus","hypothalamus",
           "amygdala","hippocampus","cerebellar-peduncles","epithalamus","internal-capsule","projection-fibers","association-fibers","commissural-fibers","olives","pontine-protuberance"}
@@ -166,7 +225,8 @@ GROUPS = {"cerebellum","brainstem","midbrain","pons","medulla","basal-ganglia","
 leaf1 = []  # ordered list of vol1 leaf keys
 for s in S.values():
     for k in s["v1"]:
-        if k not in leaf1: leaf1.append(k)
+        if k not in leaf1 and k not in NEW1: leaf1.append(k)
+leaf1 += NEW1  # appended last: the existing ids stay the same
 idx1 = {k: i + 1 for i, k in enumerate(leaf1)}
 leaf2 = ["ML", "MLF", "STT", "CST", "CPT", "AF", "IFOF", "ILF", "SLF", "UF", "CING", "PONSL"]
 THR = {"ML": 0.30, "MLF": 0.30, "STT": 0.30, "CST": 0.25, "CPT": 0.25, "AF": 0.20, "IFOF": 0.20, "ILF": 0.20, "SLF": 0.20, "UF": 0.20, "CING": 0.20}
@@ -212,6 +272,7 @@ LUT_ONLY = os.environ.get("LUT_ONLY") == "1"   # reuse vol1/vol2 from a previous
 if LUT_ONLY:
     vol1 = np.load(os.path.join(BUILD, "vol1.npy")); vol2 = np.load(os.path.join(BUILD, "vol2.npy"))
     vol1 = merge_aan(vol1)
+    vol1 = derive_parts(vol1)
     np.save(os.path.join(BUILD, "vol1.npy"), vol1)
     # rewrite labels.nii.gz only, keeping the crop of the existing file
     old = nb.load(os.path.join(OUT, "labels.nii.gz")); lo = np.rint(np.linalg.inv(AFF) @ np.r_[old.affine[:3, 3], 1])[:3].astype(int)
@@ -249,6 +310,7 @@ else:
     print("IC voxel mm3", ic.sum() * VOX ** 3, "anterior thal pole y", ythal)
 
     vol1 = merge_aan(vol1)
+    vol1 = derive_parts(vol1)
     # ---- 2. tract volume (HCP-842 80-bundle atlas, streamlines -> smoothed track density, argmax) ---------
     TR = os.path.join(RAW, "hcp80/x/Atlas_80_Bundles/bundles")
     BUNDLES = {"ML": ["ML_L", "ML_R"], "MLF": ["MLF_L", "MLF_R"], "STT": ["STT_L", "STT_R"], "CST": ["CST_L", "CST_R"],
@@ -319,7 +381,10 @@ else:
 # ---- 4. LUT + neighbours -----------------------------------------------------------------------------
 vox1 = np.argwhere(np.ones((1, 1, 1)))  # unused
 leaf_names = {k: ID2NAME[AC2ID[k]] for k in leaf1 if k in AC2ID}
-leaf_names.update({"PAG": "Periaqueductal gray (Harvard AAN)", **{v: dict(LC="Locus coeruleus",DR="Dorsal raphe",MnR="Median raphe",VTA="Ventral tegmental area",LDTg="Laterodorsal tegmental nucleus",mRt="Mesencephalic reticular formation",PBC="Parabrachial complex",PnO="Pontis oralis (pontine reticular formation)",PTg="Pedunculotegmental nucleus")[v] for v in EXTRA.values()}, "ICa": "Internal capsule, anterior limb (derived)", "ICg": "Internal capsule, genu (derived)", "ICp": "Internal capsule, posterior limb (derived)"})
+leaf_names.update({"PAG": "Periaqueductal gray (Harvard AAN)", **{v: dict(LC="Locus coeruleus",DR="Dorsal raphe",MnR="Median raphe",VTA="Ventral tegmental area",LDTg="Laterodorsal tegmental nucleus",mRt="Mesencephalic reticular formation",PBC="Parabrachial complex",PnO="Pontis oralis (pontine reticular formation)",PTg="Pedunculotegmental nucleus")[v] for v in EXTRA.values()}, "ICa": "Internal capsule, anterior limb (derived)", "ICg": "Internal capsule, genu (derived)", "ICp": "Internal capsule, posterior limb (derived)",
+                   "ccG": "Corpus callosum, genu and rostrum (derived)", "ccB": "Corpus callosum, body (derived)", "ccS": "Corpus callosum, splenium (derived)",
+                   "fxCr": "Fornix, crus (derived)", "fxB": "Fornix, body (derived)", "fxCo": "Fornix, columns (derived)",
+                   "CR": "Corona radiata (derived)", "CSO": "Centrum semiovale (derived)"})
 t_names = {"ML": "Medial lemniscus", "MLF": "Medial longitudinal fasciculus", "STT": "Spinothalamic tract", "CST": "Corticospinal tract", "CPT": "Corticopontine tracts",
            "AF": "Arcuate fasciculus", "IFOF": "Inferior fronto-occipital fasciculus", "ILF": "Inferior longitudinal fasciculus", "SLF": "Superior longitudinal fasciculus",
            "UF": "Uncinate fasciculus", "CING": "Cingulum", "PONSL": "Longitudinal fibers of the pons (derived)"}

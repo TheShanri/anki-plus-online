@@ -182,9 +182,9 @@
  },
  "Body": {
   "meshIds": [
-   "corpus-callosum"
+   "mni-body-of-corpus-callosum"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
@@ -195,8 +195,11 @@
    "lateral-ventricle"
   ],
   "registered": true,
-  "slices": null,
-  "exactIn": []
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "Inferior horn": {
   "meshIds": [
@@ -640,8 +643,7 @@
  },
  "Broca’s Area": {
   "meshIds": [
-   "opercular-part-of-inferior-frontal-gyrus",
-   "triangular-part-of-inferior-frontal-gyrus"
+   "mni-broca-s-area"
   ],
   "approximate": false,
   "synonyms": [
@@ -654,7 +656,12 @@
   "slices": "regional",
   "exactIn": [
    "3d"
-  ]
+  ],
+  "approxMeshIds": [
+   "opercular-part-of-inferior-frontal-gyrus",
+   "triangular-part-of-inferior-frontal-gyrus"
+  ],
+  "registered": true
  },
  "Anterior Cingulate Cortex": {
   "meshIds": [
@@ -808,11 +815,9 @@
  },
  "Wernicke’s Area": {
   "meshIds": [
-   "superior-temporal-gyrus-lateral-part",
-   "angular-gyrus",
-   "supramarginal-gyrus"
+   "mni-wernicke-s-area"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Superior temporal gyrus (Lateral part)",
    "Gyrus temporalis superior",
@@ -824,7 +829,15 @@
   "fallbackParentId": "temporal-lobe",
   "slug": "wernicke-s-area",
   "slices": null,
-  "exactIn": []
+  "exactIn": [
+   "3d"
+  ],
+  "approxMeshIds": [
+   "superior-temporal-gyrus-lateral-part",
+   "angular-gyrus",
+   "supramarginal-gyrus"
+  ],
+  "registered": true
  },
  "Temporal lobe general association area": {
   "meshIds": [
@@ -3000,16 +3013,23 @@
  },
  "Splenium": {
   "meshIds": [
-   "corpus-callosum"
+   "mni-splenium-of-corpus-callosum"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Corpus callosum"
   ],
   "slug": "splenium-of-corpus-callosum",
-  "slices": null,
-  "exactIn": [],
-  "fallbackParentId": "corpus-callosum"
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "fallbackParentId": "corpus-callosum",
+  "approxMeshIds": [
+   "corpus-callosum"
+  ],
+  "registered": true
  },
  "Caudate : head, body, tail": {
   "meshIds": [
@@ -3194,16 +3214,23 @@
  },
  "Columns of the fornix": {
   "meshIds": [
-   "fornix"
+   "mni-columns-of-the-fornix"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Fornix"
   ],
   "slug": "columns-of-the-fornix",
-  "slices": null,
-  "exactIn": [],
-  "fallbackParentId": "fornix"
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "fallbackParentId": "fornix",
+  "approxMeshIds": [
+   "fornix"
+  ],
+  "registered": true
  },
  "Infundibular stalk (infundibulum or pituitary stalk)": {
   "meshIds": [
@@ -3343,9 +3370,9 @@
  },
  "body": {
   "meshIds": [
-   "corpus-callosum"
+   "mni-body-of-corpus-callosum"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Lateral ventricle",
    "Ventriculus lateralis"
@@ -3356,8 +3383,11 @@
    "lateral-ventricle"
   ],
   "registered": true,
-  "slices": null,
-  "exactIn": []
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
  },
  "trigone or atrium": {
   "meshIds": [
@@ -3445,16 +3475,23 @@
  },
  "splenium": {
   "meshIds": [
-   "corpus-callosum"
+   "mni-splenium-of-corpus-callosum"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Corpus callosum"
   ],
   "slug": "splenium-of-corpus-callosum",
-  "slices": null,
-  "exactIn": [],
-  "fallbackParentId": "corpus-callosum"
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "fallbackParentId": "corpus-callosum",
+  "approxMeshIds": [
+   "corpus-callosum"
+  ],
+  "registered": true
  },
  "caudate : head, body, tail": {
   "meshIds": [
@@ -3735,16 +3772,23 @@
  },
  "columns of the fornix": {
   "meshIds": [
-   "fornix"
+   "mni-columns-of-the-fornix"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [
    "Fornix"
   ],
   "slug": "columns-of-the-fornix",
-  "slices": null,
-  "exactIn": [],
-  "fallbackParentId": "fornix"
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "fallbackParentId": "fornix",
+  "approxMeshIds": [
+   "fornix"
+  ],
+  "registered": true
  },
  "pituitary stalk (infundibular stalk, infundibulum)": {
   "meshIds": [
@@ -4880,25 +4924,39 @@
  },
  "Crus of fornix": {
   "meshIds": [
-   "fornix"
+   "mni-crus-of-fornix"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [],
   "slug": "crus-of-fornix",
   "fallbackParentId": "fornix",
-  "slices": null,
-  "exactIn": []
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "approxMeshIds": [
+   "fornix"
+  ],
+  "registered": true
  },
  "Body of fornix": {
   "meshIds": [
-   "fornix"
+   "mni-body-of-fornix"
   ],
-  "approximate": true,
+  "approximate": false,
   "synonyms": [],
   "slug": "body-of-fornix",
   "fallbackParentId": "fornix",
-  "slices": null,
-  "exactIn": []
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ],
+  "approxMeshIds": [
+   "fornix"
+  ],
+  "registered": true
  },
  "Vertebral artery": {
   "meshIds": [
@@ -5223,6 +5281,40 @@
   "slices": null,
   "exactIn": [
    "3d"
+  ]
+ },
+ "Centrum semiovale": {
+  "meshIds": [
+   "mni-centrum-semiovale"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "centrum-semiovale",
+  "approxMeshIds": [
+   "mni-centrum-semiovale"
+  ],
+  "registered": true,
+  "slices": "derived",
+  "exactIn": [
+   "3d",
+   "slices"
+  ]
+ },
+ "Corticopontine tract": {
+  "meshIds": [
+   "mni-corticopontine-tract"
+  ],
+  "approximate": false,
+  "synonyms": [],
+  "slug": "corticopontine-tract",
+  "approxMeshIds": [
+   "mni-corticopontine-tract"
+  ],
+  "registered": true,
+  "slices": "exact",
+  "exactIn": [
+   "3d",
+   "slices"
   ]
  }
 }

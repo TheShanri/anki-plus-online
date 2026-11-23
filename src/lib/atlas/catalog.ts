@@ -34,6 +34,10 @@ export type AtlasLink = {
   registered: boolean;
   /** Shown in the skull and spine layer (src/data/atlas-skull.json), not as a gross mesh. */
   skull?: boolean;
+  /** An atlas landmark that is not on the course's structure lists (arcuate fasciculus, locus coeruleus...). */
+  atlasOnly?: boolean;
+  /** Parts listed under this structure in the search (curriculum slugs or mesh ids); see tools/atlas/link_atlas2.py. */
+  children?: string[];
 };
 export const LINKS = linksJson as unknown as Record<string, AtlasLink>;
 
@@ -49,6 +53,8 @@ export type CatalogItem = {
   slices: SliceQuality | null;
   hay: string;
   group: boolean;
+  /** Keys of the items nested under this one in the search list (its parts). */
+  children?: string[];
 };
 
 function slugForMesh(): Map<string, string> {
@@ -88,6 +94,24 @@ export function buildCatalog(index: AtlasIndex): CatalogItem[] {
       hay: normalizeQuery([e.name, e.latin ?? "", e.id.replace(/-/g, " "), ...(syn.get(e.id) ?? [])].join(" ")),
     });
   }
+  // a structure made of several exact meshes gets one entry of its own that lights all of them (Broca's area used to be
+  // findable only as its two parts, each lighting half of it); its meshes are its parts
+  const byMesh = new Map(items.map((i) => [i.key, i]));
+  for (const [slug, l] of Object.entries(LINKS)) {
+    if (l.approximate || l.meshIds.length < 2 || l.skull) continue;
+    if (byMesh.get(l.meshIds[0])?.group) continue;
+    items.push({
+      key: `slug:${slug}`,
+      name: withCranialNumeral(l.name),
+      region: index.structures[l.meshIds[0]]?.region ?? "other",
+      meshIds: l.meshIds.filter((id) => index.structures[id]),
+      approximate: false,
+      slug,
+      slices: l.slices,
+      group: false,
+      hay: normalizeQuery(l.name + " " + slug.replace(/-/g, " ")),
+    });
+  }
   // curriculum structures without an exact mesh of their own: exact in MRI slices and/or approximate in 3D
   for (const [slug, l] of Object.entries(LINKS)) {
     const hasExact3d = l.meshIds.length > 0 && !l.approximate;
@@ -106,7 +130,36 @@ export function buildCatalog(index: AtlasIndex): CatalogItem[] {
       hay: normalizeQuery(l.name + " " + slug.replace(/-/g, " ")),
     });
   }
+  // nesting: the parts of a structure (the link's own children table, else the meshes it is made of)
+  const itemOf = itemResolver(items);
+  for (const it of items) {
+    const slug = it.key.startsWith("slug:") ? it.key.slice(5) : it.slug;
+    const l = slug ? LINKS[slug] : undefined;
+    if (!l || (slug && it.key !== itemOf(slug)?.key)) continue;
+    const raw = l.children?.length ? l.children : !l.approximate && l.meshIds.length > 1 ? l.meshIds : [];
+    const kids = raw.map((c) => itemOf(c)?.key).filter((k): k is string => !!k && k !== it.key);
+    if (kids.length) it.children = [...new Set(kids)];
+  }
   return items;
+}
+
+/** The search item that stands for a curriculum slug or a mesh id (its own entry, else the mesh that is exactly it). */
+export function itemResolver(items: CatalogItem[]): (k: string) => CatalogItem | undefined {
+  const byKey = new Map(items.map((i) => [i.key, i]));
+  const bySlug = new Map<string, CatalogItem>();
+  for (const i of items) if (i.slug && !i.group && !bySlug.has(i.slug)) bySlug.set(i.slug, i);
+  return (k) => {
+    const own = byKey.get(`slug:${k}`);
+    if (own) return own;
+    const l = LINKS[k];
+    if (l) {
+      const s = bySlug.get(k);
+      if (s) return s;
+      if (!l.approximate && l.meshIds.length === 1) return byKey.get(l.meshIds[0]);
+      return undefined;
+    }
+    return byKey.get(k);
+  };
 }
 
 export type SlugTarget = {

@@ -54,7 +54,6 @@ const DEFAULT_CTX_CENTER = new THREE.Vector3(0, 1.605, -0.01);
 /** (interaction overhaul) Ventral surface parts shown with the default brain: the inferior view reads like the course's base-of-brain specimen. */
 const VENTRAL_IDS = ["optic-chiasm", "optic-tract", "mamillary-body", "interpeduncular-fossa", "base-of-peduncle", "olive", "pyramid-of-medulla-oblongata"];
 const DEEP_IDS = new Set(DEEP.map((d) => d.id));
-
 export type AtlasViewerProps = {
   /** Atlas ids to highlight (group ids are expanded to their members). */
   structureIds: string[];
@@ -139,8 +138,17 @@ export type AtlasViewerProps = {
 
 export type AtlasGuide = { axis: "x" | "y" | "z"; position: number; color: string };
 
-export type AtlasOverlay = { key: string; ids: string[]; color: string; opacity?: number; /** Only this hemisphere of a paired mesh (left = +x). */ side?: "L" | "R" };
-type LoadedOverlay = { key: string; color: string; opacity: number; groups: THREE.Group[]; ids: string[]; side?: "L" | "R" };
+export type AtlasOverlay = {
+  key: string;
+  ids: string[];
+  color: string;
+  opacity?: number;
+  /** Only this hemisphere of a paired mesh (left = +x). */
+  side?: "L" | "R";
+  /** Drawn through whatever is in front of it (a list-hover preview of a deep structure, a sulcus, a tract). */
+  ghost?: boolean;
+};
+type LoadedOverlay = { key: string; color: string; opacity: number; groups: THREE.Group[]; ids: string[]; side?: "L" | "R"; ghost?: boolean };
 type Look = "brain" | "regions" | "xray";
 const LOOKS: { id: Look; label: string; key: string }[] = [
   { id: "brain", label: "Brain", key: "B" },
@@ -1570,8 +1578,7 @@ function Scene({
   );
   const accentHull = useMemo(() => makeHull("#" + accent.clone().multiplyScalar(1.15).getHexString(), 0.0024), [accent]);
   const grossHull = useMemo(() => makeHull("#6a4e46", 0.0008), []);
-  const grossMats = useMemo(() => buildGrossMats(look), [look]);
-  // midsagittal: the hemisphere's medial wall (cingulate gyrus, its sulcus, paraterminal area), built from the Allen labels
+  const grossMats = useMemo(() => buildGrossMats(look), [look]);  // midsagittal: the hemisphere's medial wall (cingulate gyrus, its sulcus, paraterminal area), built from the Allen labels
   // (tools/atlas/medial_wall.py): Z-Anatomy's gyral shell has no medial wall in the frontal / callosal region
   const [medialWall, setMedialWall] = useState<THREE.Group | null>(null);
   useEffect(() => {
@@ -1679,12 +1686,13 @@ function Scene({
           new THREE.MeshStandardMaterial({
             color: o.color,
             emissive: o.color,
-            emissiveIntensity: 0.3,
             roughness: 0.6,
             metalness: 0,
-            transparent: o.opacity < 1,
-            opacity: o.opacity,
-            depthWrite: o.opacity >= 0.9, // a translucent territory must not hide the vessels inside it
+            transparent: o.opacity < 1 || !!o.ghost,
+            opacity: o.ghost ? Math.min(o.opacity, 0.8) : o.opacity,
+            depthWrite: !o.ghost && o.opacity >= 0.9, // a translucent territory must not hide the vessels inside it
+            depthTest: !o.ghost,
+            emissiveIntensity: o.ghost ? 0.85 : 0.3,
             side: THREE.DoubleSide,
           }),
       ),
@@ -1893,7 +1901,8 @@ function Scene({
     eachMesh(ovlRoot, (m) => {
       const k = m.userData.k as number;
       m.material = ovlMats[k];
-      m.renderOrder = (loaded.ovl[k]?.opacity ?? 1) < 0.9 ? 3 : 1; // translucent territories draw after the solid parts
+      // translucent territories draw after the solid parts; a ghost (seen through the brain) last of all
+      m.renderOrder = loaded.ovl[k]?.ghost ? 9 : (loaded.ovl[k]?.opacity ?? 1) < 0.9 ? 3 : 1;
     });
     invalidate();
   }, [ovlRoot, ovlMats, loaded.ovl, invalidate]);
@@ -2792,6 +2801,7 @@ export default function AtlasViewer({
           opacity: o.opacity ?? 0.95,
           ids: o.ids,
           side: o.side,
+          ghost: o.ghost,
           groups: await Promise.all(o.ids.map((id) => loadAtlasModel(index.structures[id].file!))),
         })),
       ),

@@ -112,6 +112,15 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const [region, setRegion] = useState("all");
   /** Search-list parents opened to show their parts (fornix -> crus, body, columns). */
   const [openKids, setOpenKids] = useState<Set<string>>(() => new Set());
+  /** The list row under the pointer (or keyboard focus): previewed in 3D, through the brain. A short delay, so sweeping
+   *  the pointer down the list does not load every structure it crosses. */
+  const [preview, setPreview] = useState<CatalogItem | null>(null);
+  const previewTimer = useRef<number | undefined>(undefined);
+  const previewSoon = useCallback((it: CatalogItem | null) => {
+    window.clearTimeout(previewTimer.current);
+    if (!it) return setPreview(null);
+    previewTimer.current = window.setTimeout(() => setPreview(it), 160);
+  }, []);
   const [primaryKey, setPrimaryKey] = useState<string | null>(initialS ?? null);
   const [courseName, setCourseName] = useState<string | undefined>(initialN);
   const [extraKeys, setExtraKeys] = useState<string[]>(() => (initialAdd ? initialAdd.split(",").filter(Boolean) : []));
@@ -327,11 +336,14 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
   const extraColor = (i: number) => pal.colors[i % pal.colors.length];
   const overlays3d = useMemo(
     () => [
+      // the list row under the pointer, drawn through the brain (owner 2026-11-22: many listed structures could not be
+      // lit by hovering, the deep ones, the sulci, the tracts, are hidden inside or under the cortex)
+      ...(preview && preview.key !== primary?.key && preview.meshIds.length ? [{ key: "preview", ids: preview.meshIds, color: pal.accent, opacity: 0.8, ghost: true }] : []),
       ...extras.map((e, i) => ({ key: e.key, ids: e.meshIds, color: extraColor(i), opacity: 1 })),
       ...nb3d.map((n, i) => ({ key: "nb:" + n.key, ids: n.ids, color: extraColor(extras.length + i), opacity: 1, side: n.side })),
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [extras, nb3d, pal.colors],
+    [extras, nb3d, pal.colors, preview, primary?.key, pal.accent],
   );
   const overlaysSlices: SliceOverlay[] = useMemo(
     () => [
@@ -625,7 +637,12 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
           )}
           <button
             type="button"
+            onPointerEnter={() => previewSoon(e)}
+            onPointerLeave={() => previewSoon(null)}
+            onFocus={() => previewSoon(e)}
+            onBlur={() => previewSoon(null)}
             onClick={() => {
+              previewSoon(null);
               pick(e.key);
               if (kids.length && !open) toggle();
             }}

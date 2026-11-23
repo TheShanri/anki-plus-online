@@ -4,7 +4,7 @@
 // brainstem; practice what is mastered). Compare shows the same level in the other sources, and only there.
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
-import { Box, ChevronDown, ChevronUp, Columns2, Layers, X } from "lucide-react";
+import { Box, ChevronDown, ChevronUp, Columns2, Images, Layers, X } from "lucide-react";
 import type { BrainstemMastery } from "@/lib/brainstem/mastery-server";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { StructureInfo } from "@/components/atlas/StructureInfo";
@@ -23,7 +23,10 @@ import { in3D, name3D, platesFor, LEVEL_NAME } from "./three/model";
 
 // the 3D brainstem loads only when it is shown (three.js and the model stay out of the plate page's first load)
 const Brainstem3D = dynamic(() => import("./three/Brainstem3D"), { ssr: false, loading: () => <div className="plate-skel" style={{ height: 240 }} aria-busy /> });
-type Mode = "plates" | "3d";
+// "split" (the default): the 3D brainstem and the level's plate side by side, the 3D one leading (owner 2026-11-22: make
+// the 3D brainstem a central part of the experience, not a side piece). "plates" keeps the plate alone (with Compare and
+// the small 3D locator); "3d" the model alone.
+type Mode = "split" | "plates" | "3d";
 const mqWide = "(min-width: 768px)";
 function useWide(): boolean {
   return useSyncExternalStore(
@@ -44,7 +47,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
   const [compare, setCompare] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
-  const [mode, setMode] = useState<Mode>(initialView === "3d" ? "3d" : "plates");
+  const [mode, setMode] = useState<Mode>(initialView === "3d" ? "3d" : initialView === "plates" ? "plates" : "split");
   const wide = useWide();
   const level = levelBySlug(levelSlug);
   const hasPlate = plateLevels.includes(levelSlug);
@@ -79,18 +82,18 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
     },
     [select],
   );
-  /** A plane picked in 3D: open that level's plate (the selection stays lit when the plate shows it). */
+  /** A plane picked in 3D: open that level's plate beside the model (the selection stays lit when the plate shows it). */
   const openPlate = useCallback((slug: string) => {
     setLevel(slug);
     setHover(null);
-    setMode("plates");
+    setMode((m) => (m === "plates" ? "plates" : "split"));
   }, []);
   // the URL keeps the level and the view, so a reload or a shared link opens the same thing
   useEffect(() => {
     try {
       const p = new URLSearchParams(window.location.search);
       p.set("level", levelSlug);
-      if (mode === "3d") p.set("view", "3d");
+      if (mode !== "split") p.set("view", mode);
       else p.delete("view");
       window.history.replaceState(null, "", `${window.location.pathname}?${p.toString()}`);
     } catch {}
@@ -112,8 +115,11 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
       const k = e.key.toLowerCase();
       if (k === "arrowdown" || k === "j") step(1);
       else if (k === "arrowup" || k === "k") step(-1);
-      else if (k === "x") setCompare((c) => !c);
-      else if (k === "v") setMode((m) => (m === "3d" ? "plates" : "3d"));
+      else if (k === "x") {
+        // Compare sits beside the plate, so it opens the plate view
+        setMode("plates");
+        setCompare((c) => !c);
+      } else if (k === "v") setMode((m) => (m === "split" ? "plates" : m === "plates" ? "3d" : "split"));
       else if (k === "escape") setSelected(null);
       else return;
       e.preventDefault();
@@ -126,7 +132,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
     <div className="grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-[272px_minmax(0,1fr)]">
       <div className="min-w-0 md:row-span-2">
         <Navigator level={levelSlug} onPick={goLevel} mastery={mastery} />
-        <p className="mt-3 hidden text-xs text-text-dim md:block">Up/Down or J/K: change level. V: plates / 3D. X: compare. Esc: close.</p>
+        <p className="mt-3 hidden text-xs text-text-dim md:block">Up/Down or J/K: change level. V: 3D + plate / plate / 3D. X: compare. Esc: close.</p>
         {wide && inset}
       </div>
 
@@ -140,6 +146,10 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
             </p>
           </div>
           <div className="bs-seg" role="radiogroup" aria-label="View">
+            <button type="button" role="radio" aria-checked={mode === "split"} onClick={() => setMode("split")} title="The 3D brainstem with the level's plate beside it (V)">
+              <Columns2 size={14} aria-hidden />
+              <span className="bs-seg-t">3D + plate</span>
+            </button>
             <button type="button" role="radio" aria-checked={mode === "plates"} onClick={() => setMode("plates")} title="The level's plate (V)">
               <Layers size={14} aria-hidden />
               <span className="bs-seg-t">Plates</span>
@@ -149,12 +159,42 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
               <span className="bs-seg-t">3D</span>
             </button>
           </div>
-          {mode === "plates" && <IconBtn icon={Columns2} label="Compare with other sources" keys="X" pressed={compare} onClick={() => setCompare((c) => !c)} />}
+          {mode === "plates" && <IconBtn icon={Images} label="Compare with other sources" keys="X" pressed={compare} onClick={() => setCompare((c) => !c)} />}
           <IconBtn icon={ChevronUp} label="Previous level" keys="Up / K" onClick={() => step(-1)} disabled={levelSlug === LEVELS[0].slug} />
           <IconBtn icon={ChevronDown} label="Next level" keys="Down / J" onClick={() => step(1)} disabled={levelSlug === LEVELS[LEVELS.length - 1].slug} />
         </div>
 
-        {mode === "3d" ? (
+        {mode === "split" ? (
+          <div className="grid gap-3 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+            <div className="min-w-0">
+              <Brainstem3D
+                level={levelSlug}
+                selected={selected && in3D(selected) ? selected : null}
+                hover={hover && in3D(hover) ? hover : null}
+                onSelect={select3D}
+                onLevel={goLevel}
+                levelList={false}
+                view="oblique"
+                ariaLabel="3D brainstem: landmarks and section planes; the accent plane is this level"
+              />
+              <p className="mt-1.5 text-xs text-text-dim">
+                The accent plane is this level ({LEVEL_NAME(levelSlug)}); its plate is beside it. Click a plane or use Up/Down to change level; hover a landmark to name it, click to open it. Drag to rotate, scroll to zoom.
+              </p>
+            </div>
+            <div key={levelSlug} className="bs-fade-in min-w-0">
+              {hasPlate ? (
+                <div className="plate-wrap">
+                  <PlateStage level={levelSlug} hover={hover} onHover={setHover} selected={selected} onSelect={select} mastery={lm?.structures ?? {}} />
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <p className="panel text-sm text-text-dim">{level.kind === "section" ? "No plate for this level yet; here it is in the other sources." : "Surface views have no plate. These are the course images and the open atlases for this view."}</p>
+                  <ComparePane level={level} courseSlug={courseSlug} />
+                </div>
+              )}
+            </div>
+          </div>
+        ) : mode === "3d" ? (
           <div>
             <Brainstem3D level={levelSlug} selected={selected && in3D(selected) ? selected : null} onSelect={select3D} onLevel={openPlate} levelList={false} ariaLabel="3D brainstem: landmarks and section planes" />
             <p className="mt-1.5 text-xs text-text-dim">
@@ -223,7 +263,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
                 {Math.round(lm.structures[selected] * 100)}% mastered on this plate
               </p>
             )}
-            <OnThePlates slug={selected} current={mode === "plates" ? levelSlug : null} onOpen={openPlate} />
+            <OnThePlates slug={selected} current={mode !== "3d" ? levelSlug : null} onOpen={openPlate} />
             <StructureInfo key={selected} slug={infoSlugOf(selected)} name={STRUCTURES[selected]?.name ?? name3D(selected)} />
           </>
         )}

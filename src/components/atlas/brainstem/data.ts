@@ -62,7 +62,10 @@ export interface BsStructure {
   inAtlas: boolean;
 }
 
-export const LEVELS = (levelsData as unknown as { levels: BsLevel[] }).levels;
+/** Levels not offered in the brainstem atlas: the isthmus ("upper pons") is not one of the course's levels and has no plate
+ *  (owner 2026-11-22: take it out). Its data stays in brainstem-levels.json. */
+export const HIDDEN_LEVELS = new Set(["pons-rostral"]);
+export const LEVELS = (levelsData as unknown as { levels: BsLevel[] }).levels.filter((l) => !HIDDEN_LEVELS.has(l.slug));
 export const STRUCTURES = (levelsData as unknown as { structures: Record<string, BsStructure> }).structures;
 export const IMAGES: BsImage[] = [...(courseData as unknown as BsImage[]), ...(deckData as unknown as BsImage[]), ...(openData as unknown as BsImage[])];
 

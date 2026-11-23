@@ -20,12 +20,14 @@ export default async function BrainstemAtlasPage({ searchParams }: { searchParam
   const course = await resolveCourse(sb, user.id, null);
   if (!course) return <PageShell title="Brainstem atlas" kicker="Atlas"><p className="text-text-dim">Join a course first.</p></PageShell>;
   const mastery = await loadBrainstemMastery(sb, user.id, course.id);
-  // levels that have a plate (with mapped regions): the 8 course levels; the isthmus (not a course level) has none
+  // levels that have a plate (with mapped regions): the 8 course levels (the isthmus, not a course level, is not offered)
   const plateLevels = Object.keys(BRAINSTEM_REGIONS).filter((l) => (getPlate(l)?.regions.length ?? 0) > 0);
+  // full width like the tracer and Explore: the 3D brainstem and the plate sit side by side
   return (
-    <PageShell title="Brainstem atlas" kicker="Atlas">
+    <section className="relative left-1/2 w-[min(1760px,calc(100vw-24px))] -translate-x-1/2">
+      <h1 className="sr-only">Brainstem atlas</h1>
       <AtlasModes />
-      <BrainstemAtlas courseSlug={course.slug} mastery={mastery} plateLevels={plateLevels} initialLevel={level && /^[a-z0-9-]+$/.test(level) ? level : undefined} initialView={view === "3d" ? "3d" : undefined} />
-    </PageShell>
+      <BrainstemAtlas courseSlug={course.slug} mastery={mastery} plateLevels={plateLevels} initialLevel={level && /^[a-z0-9-]+$/.test(level) ? level : undefined} initialView={view === "3d" || view === "plates" ? view : undefined} />
+    </section>
   );
 }

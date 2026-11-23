@@ -111,8 +111,18 @@
    ],
    [
     "Inferior salivatory nucleus",
-    "Its parasympathetic neurons drive salivation through CN IX‹ (parotid gland)›.",
+    "Its preganglionic parasympathetic neurons leave in CN IX.",
     "inferior salivatory"
+   ],
+   [
+    "CN IX to the parotid",
+    "CN IX fibres synapse in a ganglion near the gland‹ (otic ganglion, via the lesser petrosal nerve)›; postganglionic fibres reach the parotid.",
+    "CN IX"
+   ],
+   [
+    "Parotid gland",
+    "The parotid gland secretes saliva: taste drives salivation.",
+    "parotid gland"
    ],
    [
     "To the nucleus ambiguus",
@@ -135,14 +145,44 @@
     "pharynx"
    ],
    [
+    "To the dorsal motor nucleus",
+    "Baroreceptor input reaches the dorsal motor nucleus of the vagus.",
+    "medulla"
+   ],
+   [
+    "Dorsal motor nucleus of X",
+    "Its preganglionic parasympathetic neurons leave in the vagus nerve (X).",
+    "dorsal motor nucleus"
+   ],
+   [
+    "Vagus to the heart",
+    "Long vagal fibres synapse in ganglia in the heart wall; short postganglionic fibres reach the heart.",
+    "vagus nerve"
+   ],
+   [
+    "Heart slows",
+    "When blood pressure rises, the baroreceptor reflex slows the heart through the vagus.",
+    "heart"
+   ],
+   [
     "To the superior salivatory",
     "Taste also reaches the superior salivatory nucleus (CN VII).",
     "pons"
    ],
    [
     "Superior salivatory nucleus",
-    "Its parasympathetic neurons drive salivation through CN VII‹ (submandibular and sublingual glands)›.",
+    "Its preganglionic parasympathetic neurons leave in CN VII.",
     "superior salivatory"
+   ],
+   [
+    "CN VII to the glands",
+    "CN VII fibres synapse in a ganglion by the glands‹ (chorda tympani and lingual nerve to the submandibular ganglion)›; postganglionic fibres reach the glands.",
+    "CN VII"
+   ],
+   [
+    "Submandibular and sublingual glands",
+    "The submandibular and sublingual glands secrete saliva.",
+    "salivary glands"
    ],
    [
     "To the lateral horn",
@@ -151,8 +191,18 @@
    ],
    [
     "Lateral horn (T1-L2)",
-    "Sympathetic preganglionic neurons of T1-L2 adjust heart rate and blood pressure (baroreceptor reflex).",
+    "Its sympathetic preganglionic neurons leave by the ventral root to the sympathetic chain.",
     "lateral horn"
+   ],
+   [
+    "Chain to heart and vessels",
+    "Chain ganglion neurons send postganglionic fibres to the heart and the blood vessels.",
+    "sympathetic chain"
+   ],
+   [
+    "Heart and vessels",
+    "When blood pressure falls, the sympathetic outflow speeds the heart and constricts the vessels (baroreceptor reflex).",
+    "heart"
    ]
   ]
  },
@@ -243,9 +293,19 @@
     "midbrain and thalamus"
    ],
    [
+    "VA/VL thalamus",
+    "The VA/VL thalamus (with the red nucleus) is the next relay: it sends the cerebellum's output on to the motor cortex.",
+    "VA/VL thalamus"
+   ],
+   [
+    "Thalamocortical fibres",
+    "VA/VL axons run up through the internal capsule to the motor cortex on the same side as the thalamus.",
+    "internal capsule"
+   ],
+   [
     "Back to the same side",
-    "The output crosses back to the cortex that drives the same-side body, so a cerebellar lesion affects the same side (double crossing).",
-    "red nucleus, VA/VL"
+    "This motor cortex drives the body on the cerebellum's own side (its tract crosses again), so a cerebellar lesion affects the same side (double crossing).",
+    "motor cortex"
    ]
   ]
  },

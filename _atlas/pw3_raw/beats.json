@@ -1206,10 +1206,28 @@
   },
   {
    "kind": "node",
-   "neuron": 2,
-   "caption": "Contralateral red nucleus and VA/VL thalamus",
+   "neuron": 3,
+   "caption": "VA/VL thalamus (and the red nucleus)",
    "cross": false,
    "info": "n9",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 3,
+   "caption": "Thalamocortical fibres: VA/VL thalamus, internal capsule, motor cortex",
+   "cross": false,
+   "info": "p10",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 3,
+   "caption": "Motor cortex (other side)",
+   "cross": false,
+   "info": "n11",
    "rel": "c",
    "branch": false
   }
@@ -1352,10 +1370,28 @@
   },
   {
    "kind": "node",
-   "neuron": 0,
-   "caption": "lower motor neurons of the contralateral upper limb (flexion)",
+   "neuron": 1,
+   "caption": "Lower motor neuron (ventral horn)",
    "cross": false,
    "info": "n3",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral root and spinal nerve to the muscle",
+   "cross": false,
+   "info": "p4",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Forearm flexors (upper limb flexion)",
+   "cross": false,
+   "info": "n5",
    "rel": "c",
    "branch": false
   }
@@ -1390,10 +1426,28 @@
   },
   {
    "kind": "node",
-   "neuron": 0,
-   "caption": "lower motor neurons at cervical and upper thoracic levels (neck and upper trunk muscles)",
+   "neuron": 1,
+   "caption": "Lower motor neuron (ventral horn)",
    "cross": false,
    "info": "n3",
+   "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral root and spinal nerve to the muscle",
+   "cross": false,
+   "info": "p4",
+   "phys": "c",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Neck muscles (head turns toward the stimulus)",
+   "cross": false,
+   "info": "n5",
    "rel": "c",
    "branch": false
   }
@@ -1419,10 +1473,28 @@
   },
   {
    "kind": "node",
-   "neuron": 0,
-   "caption": "lower motor neurons in the ventral horn",
+   "neuron": 1,
+   "caption": "Lower motor neuron (ventral horn)",
    "cross": false,
    "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral root and spinal nerve to the muscle",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Axial and proximal muscles (posture)",
+   "cross": false,
+   "info": "n4",
    "rel": "i",
    "branch": false
   }
@@ -1448,10 +1520,28 @@
   },
   {
    "kind": "node",
-   "neuron": 0,
-   "caption": "lower motor neurons in the ventral horn for axial muscles",
+   "neuron": 1,
+   "caption": "Lower motor neuron (ventral horn)",
    "cross": false,
    "info": "n2",
+   "rel": "i",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Ventral root and spinal nerve to the muscle",
+   "cross": false,
+   "info": "p3",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Axial (antigravity) muscles (balance)",
+   "cross": false,
+   "info": "n4",
    "rel": "i",
    "branch": false
   }
@@ -1552,7 +1642,7 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "smooth muscle, cardiac muscle, glands",
+   "caption": "Skin: vessels, sweat glands, hair muscles",
    "cross": false,
    "info": "n4",
    "rel": "i",
@@ -1561,7 +1651,7 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "Long postganglionic fibres to the targets",
+   "caption": "Long postganglionic fibres to the organs",
    "cross": false,
    "info": "p5",
    "phys": "i",
@@ -1617,7 +1707,7 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "target organ",
+   "caption": "Heart (cardiac muscle)",
    "cross": false,
    "info": "n4",
    "rel": "i",
@@ -1626,7 +1716,7 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "Short postganglionic fibres to the target organs",
+   "caption": "Short postganglionic fibres to the other target organs",
    "cross": false,
    "info": "p5",
    "phys": "i",
@@ -1635,7 +1725,7 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "Heart, lungs, gut, glands and pupil",
+   "caption": "Lungs, gut, glands and pupil",
    "cross": false,
    "info": "n6",
    "rel": "m",
@@ -1811,11 +1901,29 @@
   },
   {
    "kind": "node",
-   "neuron": 0,
-   "caption": "spinal trigeminal nucleus then bilateral facial nuclei",
+   "neuron": 1,
+   "caption": "Facial nucleus (both sides)",
    "cross": false,
    "info": "n4",
    "rel": "c",
+   "branch": false
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Facial nerve (CN VII) to the orbicularis oculi",
+   "cross": false,
+   "info": "p5",
+   "phys": "i",
+   "branch": false
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Both eyes blink (orbicularis oculi)",
+   "cross": false,
+   "info": "n6",
+   "rel": "i",
    "branch": false
   }
  ],
@@ -2413,11 +2521,11 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "To the nucleus ambiguus",
+   "caption": "CN IX (via the otic ganglion) to the parotid gland",
    "cross": false,
    "info": "p7",
    "phys": "i",
-   "branch": true,
+   "branch": false,
    "fork": {
     "id": "f1",
     "k": 0
@@ -2426,7 +2534,7 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "Nucleus ambiguus",
+   "caption": "Parotid gland",
    "cross": false,
    "info": "n8",
    "rel": "i",
@@ -2439,11 +2547,11 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "Nucleus ambiguus to the pharynx and larynx",
+   "caption": "To the nucleus ambiguus",
    "cross": false,
    "info": "p9",
    "phys": "i",
-   "branch": false,
+   "branch": true,
    "fork": {
     "id": "f1",
     "k": 0
@@ -2452,7 +2560,7 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "Pharynx and larynx",
+   "caption": "Nucleus ambiguus",
    "cross": false,
    "info": "n10",
    "rel": "i",
@@ -2465,9 +2573,35 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "To the superior salivatory nucleus",
+   "caption": "Nucleus ambiguus to the pharynx and larynx",
    "cross": false,
    "info": "p11",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Pharynx and larynx",
+   "cross": false,
+   "info": "n12",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 0
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the dorsal motor nucleus of the vagus",
+   "cross": false,
+   "info": "p13",
    "phys": "i",
    "branch": true,
    "fork": {
@@ -2478,9 +2612,9 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "Superior salivatory nucleus",
+   "caption": "Dorsal motor nucleus of the vagus",
    "cross": false,
-   "info": "n12",
+   "info": "n14",
    "rel": "i",
    "branch": false,
    "fork": {
@@ -2491,9 +2625,35 @@
   {
    "kind": "path",
    "neuron": 1,
-   "caption": "To the lateral horn (T1 to L2)",
+   "caption": "Vagus nerve (X) to the cardiac ganglia",
    "cross": false,
-   "info": "p13",
+   "info": "p15",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 1
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Heart (slows)",
+   "cross": false,
+   "info": "n16",
+   "rel": "m",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 1
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the superior salivatory nucleus",
+   "cross": false,
+   "info": "p17",
    "phys": "i",
    "branch": true,
    "fork": {
@@ -2504,14 +2664,92 @@
   {
    "kind": "node",
    "neuron": 1,
-   "caption": "Lateral horn (T1 to L2)",
+   "caption": "Superior salivatory nucleus",
    "cross": false,
-   "info": "n14",
+   "info": "n18",
    "rel": "i",
    "branch": false,
    "fork": {
     "id": "f1",
     "k": 2
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "CN VII (via the submandibular ganglion) to the glands",
+   "cross": false,
+   "info": "p19",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 2
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Submandibular and sublingual glands",
+   "cross": false,
+   "info": "n20",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 2
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "To the lateral horn (T1 to L2)",
+   "cross": false,
+   "info": "p21",
+   "phys": "i",
+   "branch": true,
+   "fork": {
+    "id": "f1",
+    "k": 3
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Lateral horn (T1 to L2)",
+   "cross": false,
+   "info": "n22",
+   "rel": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 3
+   }
+  },
+  {
+   "kind": "path",
+   "neuron": 1,
+   "caption": "Sympathetic chain to the heart and blood vessels",
+   "cross": false,
+   "info": "p23",
+   "phys": "i",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 3
+   }
+  },
+  {
+   "kind": "node",
+   "neuron": 1,
+   "caption": "Heart and blood vessels",
+   "cross": false,
+   "info": "n24",
+   "rel": "m",
+   "branch": false,
+   "fork": {
+    "id": "f1",
+    "k": 3
    }
   }
  ],

@@ -280,6 +280,16 @@
     "Upper-limb motor neurons",
     "They drive lower motor neurons of the contralateral upper limb, favouring flexion.",
     "ventral horn"
+   ],
+   [
+    "Out to the muscle",
+    "Lower motor neuron axons leave by the ventral root and spinal nerve to the upper limb.",
+    "ventral root"
+   ],
+   [
+    "Forearm flexors",
+    "The flexors of the upper limb contract: the rubrospinal tract favours flexion.",
+    "forearm"
    ]
   ]
  },
@@ -304,6 +314,16 @@
     "Neck motor neurons",
     "They reach lower motor neurons at cervical and upper thoracic levels that turn the head toward a sight or sound.",
     "ventral horn"
+   ],
+   [
+    "Out to the muscle",
+    "Lower motor neuron axons leave by the ventral roots and cervical nerves to the neck muscles.",
+    "ventral root"
+   ],
+   [
+    "Head turns",
+    "The neck muscles turn the head toward the sight or sound.",
+    "neck muscles"
    ]
   ]
  },
@@ -323,6 +343,16 @@
     "Ventral horn",
     "They act on lower motor neurons for posture and stepping.",
     "ventral horn"
+   ],
+   [
+    "Out to the muscle",
+    "Lower motor neuron axons leave by the ventral root and spinal nerve.",
+    "ventral root"
+   ],
+   [
+    "Axial and proximal muscles",
+    "Axial and proximal limb muscles hold posture.",
+    "trunk muscles"
    ]
   ]
  },
@@ -342,6 +372,16 @@
     "Axial motor neurons",
     "They drive lower motor neurons of axial and antigravity muscles for posture and righting.",
     "ventral horn"
+   ],
+   [
+    "Out to the muscle",
+    "Lower motor neuron axons leave by the ventral root and spinal nerve.",
+    "ventral root"
+   ],
+   [
+    "Antigravity muscles",
+    "Axial antigravity (extensor) muscles contract to keep balance.",
+    "trunk muscles"
    ]
   ]
  },

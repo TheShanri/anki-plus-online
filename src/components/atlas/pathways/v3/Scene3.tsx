@@ -389,7 +389,7 @@ export default function Scene3(p: Scene3Props) {
           // one tag per displayed name ("GPi (inhibitory output)" and the GPi region both read "GPi")
           const text = shortName(st.name);
           // the key carries the name: two stops on the same patch ("Spindles in the masseter", "Masseter contracts") are two tags
-          const key = `r:${st.key}|${text}`;
+          let key = `r:${st.key}|${text}`;
           // the stop's own mark: its carve, a cell body / start / synapse inside it (this beat or earlier), a proxy's centre,
           // else the beat's soma or synapse
           const g = p.data.geo[st.key];
@@ -411,8 +411,11 @@ export default function Scene3(p: Scene3Props) {
           // well apart; a duplicate name at the same spot (GPi, GPi (inhibitory output)) stays one tag
           const prev = seen.get(text);
           if (prev && prev.some((q) => q.distanceTo(pos) < 0.008)) continue;
-          if (prev) prev.push(pos);
-          else seen.set(text, [pos]);
+          // (the same patch can carry the name twice at different spots: "Heart (slows)" and "Heart (speeds)" both read "Heart")
+          if (prev) {
+            key = `${key}#${prev.length}`;
+            prev.push(pos);
+          } else seen.set(text, [pos]);
           out.push({ key, text, at: pos, prio: bi === p.cur ? 2 : 1 });
         }
         if (bi === p.cur && b.kind === "path") {

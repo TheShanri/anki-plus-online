@@ -70,8 +70,10 @@ export function cerebellarCircuit(): Diagram {
   const b = builder();
   // the deep nuclei project through the SCP, cross, and end in BOTH the contralateral red nucleus and VA/VL thalamus (two
   // targets of one tract; the red nucleus is not a relay on the way to the thalamus, owner audit 2026-11-22)
-  b.box("rn", 58, 34, ["VA/VL", "thalamus"]);
-  b.box("rn", 290, 34, ["Red", "nucleus"]);
+  // ... and the thalamus projects on to the motor cortex (the loop's last step, added 2026-11-22)
+  b.box("end", 58, 34, ["Motor", "cortex"]);
+  b.box(["rn", "n3"], 58, 100, ["VA/VL", "thalamus"]);
+  b.box(["rn", "n3"], 290, 34, ["Red", "nucleus"]);
   b.box("n2", 174, 100, ["Deep", "nuclei"]);
   b.box("n1", 174, 166, ["Cerebellar", "cortex"]);
   b.box(["n0", "mf"], 58, 232, ["Pontine", "nuclei"]);
@@ -80,7 +82,8 @@ export function cerebellarCircuit(): Diagram {
   b.line("dec", [[248, 104], [290, 104], [290, 72]], "none");
   b.cross("dec", 270, 104);
   b.line("rn", [[290, 72], [290, 50]], "arrow");
-  b.line("rn", [[290, 72], [124, 72], [124, 34], [100, 34]], "arrow");
+  b.line("rn", [[290, 72], [124, 72], [124, 100], [100, 100]], "arrow");
+  b.line("tc", [[58, 84], [58, 50]], "arrow");
   b.line("cx", [[174, 150], [174, 116]], "bar");
   b.line("mf", [[58, 216], [58, 198], [150, 198], [150, 182]], "arrow");
   b.line("cf", [[290, 216], [290, 198], [198, 198], [198, 182]], "arrow");
@@ -88,6 +91,35 @@ export function cerebellarCircuit(): Diagram {
   b.text("cf", "Climbing", 282, 194, "end");
   b.text("scp", "SCP", 222, 94, "start");
   return { w: W, h: 262, mode: "plain", deco: null, els: b.els, labels: b.labels, note: "→ excites  ⊣ inhibits (Purkinje)", hasCross: true };
+}
+
+/* The solitary nucleus as a hub (2026-11-22, owner: its outputs should reach the glands and the heart): inputs down the left
+ * column to the nucleus, then one row per output: the brainstem / cord nucleus, the nerve, the effector. Rows follow the beat
+ * order (inferior salivatory, ambiguus, dorsal motor X, superior salivatory, lateral horn). */
+export function solitaryHub(): Diagram {
+  const b = builder();
+  const ROWS = [34, 92, 150, 208, 266];
+  const rows: { k: string; nuc: string; nucText: string[]; nerveKey: string; nerve: string; endKey: string; endText: string[] }[] = [
+    { k: "ia", nuc: "~inferior salivatory", nucText: ["Inferior", "salivatory"], nerveKey: "~otic ganglion", nerve: "IX", endKey: "~parotid gland", endText: ["Parotid", "gland"] },
+    { k: "na", nuc: "~nucleus ambiguus", nucText: ["Nucleus", "ambiguus"], nerveKey: "~to the pharynx", nerve: "X", endKey: "~pharynx and larynx", endText: ["Pharynx,", "larynx"] },
+    { k: "dm", nuc: "~dorsal motor", nucText: ["Dorsal motor", "nucleus X"], nerveKey: "~cardiac ganglia", nerve: "X", endKey: "~heart (slows)", endText: ["Heart", "(slows)"] },
+    { k: "sa", nuc: "~superior salivatory", nucText: ["Superior", "salivatory"], nerveKey: "~submandibular ganglion", nerve: "VII", endKey: "~submandibular and", endText: ["Submandibular,", "sublingual"] },
+    { k: "lh", nuc: "~lateral horn", nucText: ["Lateral horn", "T1–L2"], nerveKey: "~sympathetic chain", nerve: "chain", endKey: "~heart and blood", endText: ["Heart (speeds),", "vessels"] },
+  ];
+  b.box("start", 50, ROWS[0], ["Tongue,", "viscera"]);
+  b.line("startNerve", [[50, ROWS[0] + 16], [50, ROWS[1] - 16]], "arrow");
+  b.box("n0", 50, ROWS[1], ["Ganglion", "VII, IX, X"]);
+  b.line("cn", [[50, ROWS[1] + 16], [50, ROWS[2] - 16]], "arrow");
+  b.box("n1", 50, ROWS[2], ["Solitary", "nucleus"]);
+  for (const r of rows) {
+    const y = ROWS[rows.indexOf(r)];
+    b.line(r.k, y === ROWS[2] ? [[92, y], [124, y]] : [[92, ROWS[2]], [108, ROWS[2]], [108, y], [124, y]], "arrow");
+    b.box(r.nuc, 166, y, r.nucText, { w: 84 });
+    b.line(r.nerveKey, [[208, y], [240, y]], "arrow");
+    b.text(r.nerveKey, r.nerve, 224, y - 7, "middle");
+    b.box(r.endKey, 290, y, r.endText, { w: 96 });
+  }
+  return { w: W, h: 296, mode: "plain", deco: null, els: b.els, labels: b.labels, note: "Parasympathetic: VII, IX, X · sympathetic: the lateral horn", hasCross: false };
 }
 
 /* ------------------------------------------------------------------ the mid-sagittal brain */
@@ -374,6 +406,7 @@ export function visual(): Diagram {
 export const SCENES: Record<string, () => Diagram> = {
   "basal-ganglia": basalGanglia,
   cerebellar: cerebellarCircuit,
+  solitary: solitaryHub,
   "limbic-fornix": limbicFornix,
   "limbic-amygdala": limbicAmygdala,
   "limbic-septal": limbicSeptal,

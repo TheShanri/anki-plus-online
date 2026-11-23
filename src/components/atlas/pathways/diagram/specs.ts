@@ -347,25 +347,7 @@ export const STACKS: Record<string, StackSpec> = {
       n("thal", "fb.vpl:i", "Thalamus", { rx: 7, ry: 6, soma: false }),
     ],
   },
-  solitary: {
-    levels: ["pons", "medR", "cordT"],
-    capS: { icon: "organ", at: "medR.cnent:i@28,10" },
-    els: [
-      n("start", "capS:i", "Tongue,\nviscera"),
-      p("startNerve", ["capS:i", "medR.cnent:i@8,10"]),
-      n("n0", "medR.cnent:i@8,10", "Ganglion\nVII, IX, X"),
-      p("cn", ["medR.cnent:i@8,10", "medR.cnent:i", "medR.sol:i"]),
-      n("n1", "medR.sol:i", "Solitary\nnucleus", { rx: 5, ry: 4 }),
-      p("ia", ["medR.sol:i", "medR.isn:i"]),
-      n("~inferior salivatory", "medR.isn:i", "Inferior\nsalivatory", { rx: 4, ry: 4, soma: false }),
-      p("na", ["medR.sol:i", "medR.amb:i"]),
-      n("~nucleus ambiguus", "medR.amb:i", "Nucleus\nambiguus", { rx: 4, ry: 4, soma: false }),
-      p("sa", ["medR.sol:i", "pons.ssn:i"]),
-      n("~superior salivatory", "pons.ssn:i", "Superior\nsalivatory", { rx: 4, ry: 4, soma: false }),
-      p("lh", ["medR.sol:i", "medR.rf:i", "cordT.lh:i"]),
-      n("~lateral", "cordT.lh:i", "Lateral horn\nT1–L2", { rx: 5, ry: 4, soma: false }),
-    ],
-  },
+  // solitary: a hub-and-effector box diagram in scenes.tsx (solitaryHub)
   "stretch-reflex": {
     levels: ["cordX"],
     capS: { icon: "muscle", dx: 70 },

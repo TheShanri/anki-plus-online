@@ -3,7 +3,7 @@
 import { Fibre, nuc, inSlice, cortexPoint, sgnOf, synth, seam, dist } from "./common.mjs";
 import { B, soma, stop, corticofugal, joinFibres, cordY, tractRun } from "./relay.mjs";
 import { crossBS, fitProxy as fitProxyC } from "./sensory.mjs";
-import { centreIn, deepIn } from "./autonomic.mjs";
+import { centreIn, deepIn, sympathetic, vagalHeart } from "./autonomic.mjs";
 import { insideNear, hostOf, proxy } from "../lib/fibre.mjs";
 import { curve } from "../lib/nerves.mjs";
 
@@ -86,14 +86,68 @@ export const solitary = {
     nA.curve(v2, sv.s, best.q);
     const pIn = await insideNear(constrictors, best.p, 0.02);
     synth(nA, `pharyngeal-x-sol-${side}`, "Pharyngeal branch of the vagus (X)", [mid(best.p, pIn), pIn], 0.0005, "Z-Anatomy has no pharyngeal branch: the vagus to the pharyngeal constrictors");
-    // to the lateral horn (T1): down the lateral medulla and the lateral funiculus of the cord to the intermediolateral column
-    const iml = await inSlice("intermediolateral-nucleus", side, cordY("T1"), null, 1.2);
+    // to the lateral horn (T2, the level the sympathetic spec leaves from): down the lateral medulla and the lateral funiculus
+    // of the cord to the intermediolateral column
+    const sy = await sympathetic(side);
+    const iml = sy.iml;
     const toLH = new Fibre(2).from(nts.c, nts.key);
     await toLH.routeTo([nts.key, MED], await inSlice("medulla-oblongata", side, 1.552, [0.55, 0.5], 1.0), { sgn: s, minX: 0.0008, h: 0.0003, smooth: 6 });
     const lfTop = await inSlice("lateral-reticulospinal-tract", side, 1.5432);
     await toLH.routeTo([MED, "a:white-matter-of-spinal-cord", "a:lateral-reticulospinal-tract"], lfTop, { sgn: s, minX: 0.0002, h: 0.0003 });
     await tractRun(toLH, "lateral-reticulospinal-tract", side, 1.5425, iml[1] + 0.0025);
     await toLH.routeTo(["a:lateral-reticulospinal-tract", "a:white-matter-of-spinal-cord", "a:grey-matter-of-spinal-cord", "a:intermediolateral-nucleus"], iml, { sgn: s, minX: 0.0002, h: 0.0002 });
+    // the effectors (Lecture 6 slide 22, Lecture 7 slides 22-24): the preganglionic neurons of the salivatory nuclei, DMX and
+    // the lateral horn, their ganglia and the postganglionic fibres to the glands and the heart
+    const OF = { view: "oblique-front" };
+    // inferior salivatory: out in CN IX to its inferior ganglion, the tympanic and lesser petrosal nerves (not in Z-Anatomy) to
+    // the otic ganglion below the foramen ovale, then the auriculotemporal nerve to the parotid
+    const parotid = headPart("gland_parotid", side);
+    const ixIn = new Fibre(3).from(isn, "a:inferior-salivatory-nucleus");
+    const ixRoot = await insideNear(MED, ix.at(0).p, 0.004);
+    await ixIn.routeTo(["a:inferior-salivatory-nucleus", MED], ixRoot, { sgn: s, minX: 0.0006, h: 0.00025 });
+    ixIn.lineTo(ix.at(0).p, `u:${MED}|n:${ix.key}`, 0.0004);
+    ixIn.curve(ix, 0, sG);
+    const otic = [s * 0.026, 1.572, 0.011];
+    synth(ixIn, `lesser-petrosal-${side}`, "Tympanic and lesser petrosal nerves (IX)", [[s * 0.033, 1.574, -0.006], [s * 0.029, 1.575, 0.004], otic], 0.0005, "Z-Anatomy has no tympanic or lesser petrosal nerve: from the inferior ganglion of IX through the middle ear to the otic ganglion");
+    const oticKey = proxy(`otic-ganglion-${side}`, "Otic ganglion", null, otic, [0.0012, 0.0012, 0.0012]);
+    const parIn = await insideNear(parotid, [s * 0.046, 1.558, 0.016], 0.01);
+    const toPar = new Fibre(4).from(otic, oticKey);
+    synth(toPar, `auriculotemporal-${side}`, "Auriculotemporal nerve (V3, carrying IX fibres)", [[s * 0.036, 1.567, 0.006], parIn], 0.0005, "Z-Anatomy has no auriculotemporal nerve: from the otic ganglion behind the mandible into the parotid");
+    // superior salivatory: out in CN VII, the chorda tympani and the lingual nerve to the submandibular ganglion, then the glands
+    const vii = curve("Facial nerve (VII)", side, 0);
+    const ct = curve("Chorda tympani", side, 0);
+    const lingual = curve("Lingual nerve", side, 0);
+    const submand = headPart("gland_submandibular", side);
+    const subling = headPart("gland_sublingual", side);
+    const viiIn = new Fibre(3).from(ssn, "a:superior-salivatory-nucleus");
+    const viiRoot = await insideNear("a:pons", vii.at(0).p, 0.004);
+    await viiIn.routeTo(["a:superior-salivatory-nucleus", "a:pons"], viiRoot, { sgn: s, minX: 0.0006, h: 0.00025 });
+    viiIn.lineTo(vii.at(0).p, `u:a:pons|n:${vii.key}`, 0.0004);
+    const ctJ = vii.nearest(ct.a);
+    viiIn.curve(vii, 0, ctJ.s);
+    seam(viiIn, `chorda-join-${side}`, "Chorda tympani leaves the facial nerve", [ct.a], 0.0008, "the Z-Anatomy chorda tympani curve starts a few mm from the facial nerve curve");
+    viiIn.curve(ct, 0, ct.length);
+    const lnJ = lingual.nearest(ct.b);
+    seam(viiIn, `chorda-lingual-${side}`, "Chorda tympani joins the lingual nerve", [lingual.at(lnJ.s).p], 0.0008, "the Z-Anatomy chorda tympani curve ends beside the lingual nerve curve");
+    const smHost = (await hostOf(submand)).meshes[0];
+    const smMid = [0, 1, 2].map((a) => (smHost.lo[a] + smHost.hi[a]) / 2);
+    const lnG = lingual.nearest(smMid);
+    viiIn.curve(lingual, lnJ.s, lnG.s);
+    const smg = [lnG.q[0] - s * 0.001, lnG.q[1] - 0.004, lnG.q[2]];
+    synth(viiIn, `submandibular-g-${side}`, "To the submandibular ganglion", [smg], 0.0004, "Z-Anatomy has no submandibular ganglion: it hangs from the lingual nerve above the gland");
+    const smgKey = proxy(`submandibular-ganglion-${side}`, "Submandibular ganglion", null, smg, [0.0012, 0.0012, 0.0012]);
+    const smIn = await insideNear(submand, smMid, 0.01);
+    const toSM = new Fibre(4).from(smg, smgKey);
+    synth(toSM, `to-submandibular-${side}`, "Postganglionic fibres to the submandibular gland", [mid(smg, smIn), smIn], 0.0004, "the short postganglionic fibres from the ganglion into the gland");
+    const slHost = (await hostOf(subling)).meshes[0];
+    const slIn = await insideNear(subling, [0, 1, 2].map((a) => (slHost.lo[a] + slHost.hi[a]) / 2), 0.01);
+    const toSL = new Fibre(4).from(smg, smgKey);
+    synth(toSL, `to-sublingual-${side}`, "Postganglionic fibres to the sublingual gland", [mid(smg, slIn, 0.002), slIn], 0.0004, "the postganglionic fibres from the submandibular ganglion, with the lingual nerve, to the sublingual gland");
+    // dorsal motor nucleus of X: the vagus to the cardiac ganglia and the heart (the parasympathetic spec's route)
+    const vh = await vagalHeart(side);
+    const toDMX = await out(vh.dmx, ["a:posterior-nucleus-of-vagus-nerve"]);
+    const o3 = (f) => ({ ...f.json(), order: 3 });
+    const o4 = (f) => ({ ...f.json(), order: 4 });
     const bs = { view: "posterior" };
     return [
       B({ start: soma(bud, tongue, 1), soma: soma(sinP, sinus, 1), stops: [carve(tongue, bud, 0.012, "Tongue (posterior third)"), stop(sinus, "Carotid sinus")], meta: { view: "oblique-front" } }),
@@ -103,14 +157,24 @@ export const solitary = {
       B({ soma: soma(nts.c, nts.key, 2), stops: [proxyStop(nts)], meta: bs }),
       B({ f: [toISN.json()], syn: soma(isn, "a:inferior-salivatory-nucleus", 2), meta: bs }),
       B({ soma: soma(isn, "a:inferior-salivatory-nucleus", 3), stops: [atlasStop("inferior-salivatory-nucleus", side, "Inferior salivatory nucleus")], meta: bs }),
+      B({ f: [ixIn.json(), toPar.json()], syn: soma(parIn, parotid, 4), meta: OF }),
+      B({ stops: [stop(oticKey, "Otic ganglion"), carve(parotid, parIn, 0.02, "Parotid gland")], meta: OF }),
       B({ f: [toAMB.json()], syn: soma(amb, "a:nucleus-ambiguus", 2), meta: bs }),
       B({ soma: soma(amb, "a:nucleus-ambiguus", 3), stops: [atlasStop("nucleus-ambiguus", side, "Nucleus ambiguus")], meta: bs }),
-      B({ f: [nA.json()], syn: soma(pIn, constrictors, 3), meta: { view: "oblique-front" } }),
-      B({ stops: [carve(constrictors, pIn, 0.02, "Pharynx and larynx")], meta: { view: "oblique-front" } }),
+      B({ f: [nA.json()], syn: soma(pIn, constrictors, 3), meta: OF }),
+      B({ stops: [carve(constrictors, pIn, 0.02, "Pharynx and larynx")], meta: OF }),
+      B({ f: [toDMX.json()], syn: soma(vh.dmx, "a:posterior-nucleus-of-vagus-nerve", 2), meta: bs }),
+      B({ soma: soma(vh.dmx, "a:posterior-nucleus-of-vagus-nerve", 3), stops: [atlasStop("posterior-nucleus-of-vagus-nerve", side, "Dorsal motor nucleus of X")], meta: bs }),
+      B({ f: [o3(vh.pre), o4(vh.post)], syn: soma(vh.post.end, vh.heart, 4), meta: { view: "anterior" } }),
+      B({ stops: [stop(vh.gKey, "Cardiac ganglion"), stop(vh.heart, "Heart (slows)")], meta: { view: "anterior" } }),
       B({ f: [toSSN.json()], syn: soma(ssn, "a:superior-salivatory-nucleus", 2), meta: bs }),
       B({ soma: soma(ssn, "a:superior-salivatory-nucleus", 3), stops: [atlasStop("superior-salivatory-nucleus", side, "Superior salivatory nucleus")], meta: bs }),
+      B({ f: [viiIn.json(), toSM.json(), toSL.json()], syn: soma(smIn, submand, 4), meta: OF }),
+      B({ stops: [stop(smgKey, "Submandibular ganglion"), carve(submand, smIn, 0.015, "Submandibular gland"), carve(subling, slIn, 0.015, "Sublingual gland")], meta: OF }),
       B({ f: [toLH.json()], syn: soma(iml, "a:intermediolateral-nucleus", 2) }),
-      B({ soma: soma(iml, "a:intermediolateral-nucleus", 3), stops: [atlasStop("intermediolateral-nucleus", side, "Lateral horn (T1)")] }),
+      B({ soma: soma(iml, "a:intermediolateral-nucleus", 3), stops: [atlasStop("intermediolateral-nucleus", side, `Lateral horn (${sy.seg})`)] }),
+      B({ f: [o3(sy.pre), o4(sy.card), o4(sy.gr)], syn: soma(sy.card.end, sy.heart, 4), meta: { view: "anterior" } }),
+      B({ stops: [stop(sy.gKey, `Chain ganglion (${sy.seg})`), stop(sy.trunk, "Sympathetic chain"), stop(sy.heart, "Heart (speeds)"), carve("b:skin", sy.gr.end, 0.03, "Blood vessels (skin)")], meta: { view: "anterior" } }),
     ];
   },
 };
@@ -211,6 +275,13 @@ export const cerebellar = {
     const toVL = new Fibre(3).from(rn, "a:red-nucleus");
     await toVL.routeTo(["a:red-nucleus", "a:midbrain", "a:thalamus", vavl.key], vavl.c, { sgn: -s, minX: 0.001, h: 0.0004, smooth: 6 });
     const thal = joinFibres(3, [toRN, toVL]);
+    // 10-11 VA/VL -> internal capsule -> motor cortex of that hemisphere (the course card's "then motor cortex")
+    const IC = "a:mni-internal-capsule";
+    const m1 = await cortexPoint("precentral-gyrus", O, [0.03, 1.685, -0.01]);
+    const tc = new Fibre(4).from(vavl.c, vavl.key);
+    const capUp = await inSlice("mni-internal-capsule", O, 1.632, [0.5, 0.4], 1.0);
+    await tc.routeTo([vavl.key, "a:thalamus", IC], capUp, { sgn: -s, minX: 0.002, h: 0.0004, smooth: 8 });
+    await tc.routeTo([IC, "a:white-matter-of-telencephalon", "a:precentral-gyrus"], m1, { sgn: -s, minX: 0.002, h: 0.0006, smooth: 12 });
     return [
       B({ start: soma(pn.c, pn.key, 1), soma: soma(olive, "a:olive", 1), stops: [proxyStop(pn), atlasStop("olive", O, "Inferior olive")] }),
       B({ f: [mossy.json()], syn: soma(goal, "a:posterior-quadrangular-lobule", 1) }),
@@ -221,7 +292,9 @@ export const cerebellar = {
       B({ f: [scp.json()], meta: { view: "superior" } }),
       B({ f: [x.json()], cross: { p: cross, host: "a:midbrain", level: "caudal midbrain", yMin: 1.6, yMax: 1.609, name: "Decussation of the SCP" }, meta: { view: "anterior" } }),
       B({ f: [thal.json()], syn: soma(vavl.c, vavl.key, 3) }),
-      B({ stops: [atlasStop("red-nucleus", O, "Red nucleus (other side)"), stop(vavl.key, "VA/VL thalamus (other side)")] }),
+      B({ soma: soma(vavl.c, vavl.key, 4), stops: [atlasStop("red-nucleus", O, "Red nucleus (other side)"), stop(vavl.key, "VA/VL thalamus (other side)")] }),
+      B({ f: [tc.json()], syn: soma(m1, "a:precentral-gyrus", 4), meta: { view: "anterior" } }),
+      B({ stops: [atlasStop("precentral-gyrus", O, "Motor cortex (other side)")], meta: { view: "anterior" } }),
     ];
   },
 };

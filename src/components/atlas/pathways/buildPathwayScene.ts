@@ -307,7 +307,7 @@ function buildGeneralBeats(o: BuildOpts): BeatScene {
       const m = /^To (?:the )?(.+)$/.exec(st.label);
       if (sts.length > 1 && origin && m && ni === n - 1) {
         addNode(m[1][0].toUpperCase() + m[1].slice(1), pts[pts.length - 1], ni, [["Neuron", ord(ni)], ["Synapse", cp.neurons[ni]?.synapse ?? ""]]);
-        if (site?.end?.after === st.k) addSite(site.end, "end", pts[pts.length - 1], ni);
+        for (const e of [site?.end, ...(site?.ends ?? [])]) if (e?.after === st.k) addSite(e, "end", pts[pts.length - 1], ni);
       }
       const extra = EXTRA_BRANCH[slug]?.[st.k];
       if (extra) {

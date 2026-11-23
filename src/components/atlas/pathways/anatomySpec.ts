@@ -35,6 +35,8 @@ export interface Show {
 export interface AnatCfg {
   start?: Site;
   end?: Site;
+  /** More end sites, each attached after its own branch stretch (`after`), for a hub with several targets. */
+  ends?: Site[];
   /** Objects drawn per file. */
   files: Partial<Record<AnatFile, Show>>;
 }
@@ -44,8 +46,8 @@ const HEAD_EYE: Show = { show: ["organ_eyeball", "organ_cornea"] };
 export const SITES: Record<string, AnatCfg> = {
   solitary: {
     files: {
-      "head-targets": { show: ["organ_tongue", "muscle_pharyngeal", "cartilage_thyroid", "cartilage_cricoid", "cartilage_epiglottis"] },
-      thorax: { show: ["vessel_aortic_arch", "vessel_aorta_ascending", "vessel_brachiocephalic", "vessel_common_carotid", "vessel_carotid_sinus"] },
+      "head-targets": { show: ["organ_tongue", "muscle_pharyngeal", "cartilage_thyroid", "cartilage_cricoid", "cartilage_epiglottis", "gland_parotid", "gland_submandibular", "gland_sublingual"] },
+      thorax: { show: ["vessel_aortic_arch", "vessel_aorta_ascending", "vessel_brachiocephalic", "vessel_common_carotid", "vessel_carotid_sinus", "organ_heart"] },
       gut: { show: ["organ_stomach", "organ_esophagus"] },
     },
     start: {
@@ -75,6 +77,43 @@ export const SITES: Record<string, AnatCfg> = {
         { key: "head-targets:larynx", label: "Larynx", obj: "cartilage_thyroid" },
       ],
     },
+    // the other outputs reach their effectors too (Lecture 6 slide 22: brainstem parasympathetic outflow; L7 slides 22-24)
+    ends: [
+      {
+        after: "ia",
+        name: "Parotid gland",
+        path: "CN IX (via the otic ganglion) to the parotid gland",
+        lines: [["Inferior salivatory nucleus", "preganglionic parasympathetic fibres in CN IX‹ (lesser petrosal nerve)› to the ‹otic› ganglion; postganglionic fibres to the parotid gland: saliva"]],
+        targets: [{ key: "head-targets:parotid", label: "Parotid gland", obj: "gland_parotid" }],
+      },
+      {
+        after: "dm",
+        name: "Heart (slows)",
+        path: "Vagus nerve (X) to the cardiac ganglia",
+        lines: [["Dorsal motor nucleus of X", "preganglionic parasympathetic fibres in the vagus to ganglia in the heart wall; the baroreceptor reflex slows the heart"]],
+        targets: [{ key: "thorax:heart_sa_node", rel: "m", label: "Heart (SA node)", obj: "organ_heart" }],
+      },
+      {
+        after: "sa",
+        name: "Submandibular and sublingual glands",
+        path: "CN VII (via the submandibular ganglion) to the glands",
+        lines: [["Superior salivatory nucleus", "preganglionic parasympathetic fibres in CN VII‹ (chorda tympani, with the lingual nerve)› to the ‹submandibular› ganglion; postganglionic fibres to the submandibular and sublingual glands: saliva"]],
+        targets: [
+          { key: "head-targets:submandibular", label: "Submandibular gland", obj: "gland_submandibular" },
+          { key: "head-targets:sublingual", label: "Sublingual gland", obj: "gland_sublingual" },
+        ],
+      },
+      {
+        after: "lh",
+        name: "Heart and blood vessels",
+        path: "Sympathetic chain to the heart and blood vessels",
+        lines: [["Lateral horn (T1-L2)", "preganglionic sympathetic fibres to the chain ganglia; postganglionic fibres to the heart and the blood vessels: heart rate and blood pressure"]],
+        targets: [
+          { key: "thorax:heart", rel: "m", label: "Heart", obj: "organ_heart" },
+          { key: "thorax:aortic_arch", rel: "m", label: "Blood vessels", obj: "vessel_aortic_arch" },
+        ],
+      },
+    ],
   },
   sympathetic: {
     files: {

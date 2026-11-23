@@ -78,7 +78,7 @@ function splineNearest(name, side, p) {
 // side of the vertebral body to the spinal nerve) but no trunk and no ganglia: the chain is a flagged tube through the rami's
 // chain ends, the ganglion a small ellipsoid on it.
 const SYMP = new Map();
-async function sympathetic(side) {
+export async function sympathetic(side) {
   if (SYMP.has(side)) return SYMP.get(side);
   const p = (async () => {
     const s = sgnOf(side);
@@ -197,7 +197,7 @@ export async function edingerWestphal(side) {
 }
 
 const VAGAL = new Map();
-async function vagalHeart(side) {
+export async function vagalHeart(side) {
   if (VAGAL.has(side)) return VAGAL.get(side);
   const p = (async () => {
     const s = sgnOf(side);

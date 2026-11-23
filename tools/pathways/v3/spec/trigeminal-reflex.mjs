@@ -47,6 +47,21 @@ async function rootIn(f, side) {
   return f;
 }
 
+/** The facial nerve from the facial nucleus to the orbicularis oculi: the Z-Anatomy facial nerve leaves the nucleus (spline 0),
+ *  runs through the parotid (spline 3) into its zygomatic / temporal branch (spline 7), which ends at the lateral orbit. */
+async function facialToEye(vii, side) {
+  const c0 = curve("Facial nerve (VII)", side, 0);
+  const c3 = curve("Facial nerve (VII)", side, 3);
+  const c7 = curve("Facial nerve (VII)", side, 7);
+  const f = new Fibre(3).from(vii, "a:motor-nucleus-of-facial-nerve");
+  f.curve(c0, c0.nearest(vii).s, c0.nearest(c3.a).s);
+  f.curve(c3, 0, c3.nearest(c7.a).s);
+  f.curve(c7, 0, c7.length);
+  const muscle = `b:muscle_face_${side}`;
+  await f.enter(muscle, 0.008);
+  return { f, end: f.end, muscle };
+}
+
 /* ------------------------------------------------------------------ corneal reflex */
 export const corneal = {
   async build(side) {
@@ -84,13 +99,19 @@ export const corneal = {
     const contra = new Fibre(2).from(syn, sv.key);
     const cross = await crossBS(contra, side, "medulla-oblongata", Math.min(1.576, syn[1] + 0.012), [0.2, 0.5], `corneal-x-${side}`);
     await contra.routeTo(["a:medulla-oblongata", "a:pons", "a:motor-nucleus-of-facial-nerve"], viiO, { sgn: -s, minX: 0.001, h: 0.0003, smooth: 6 });
+    // the motor limb (owner audit 2026-11-22: the reflex stopped at the facial nuclei): each facial nucleus sends its
+    // facial nerve (CN VII) to the orbicularis oculi of its own eye, so both eyes blink
+    const eyeL = await facialToEye(vii, side);
+    const eyeO = await facialToEye(viiO, O);
     const top = { view: "posterior" };
     return [
       B({ start: soma(cc, cornea, 1), stops: [carve(cornea, cc, 0.008, "Cornea")], meta: { view: "anterior" } }),
       B({ f: [f1.json()], meta: { view: "oblique-front" } }),
       B({ soma: soma(g.c, g.key, 1), stops: [proxyStop(g)], meta: { view: "oblique-front" } }),
       B({ f: [down.json(), ipsi.json(), contra.json()], syn: soma(vii, "a:motor-nucleus-of-facial-nerve", 2), cross: { p: cross, host: "a:medulla-oblongata", level: "medulla, to the other facial nucleus", yMin: 1.556, yMax: 1.579, name: "Reflex fibres cross" }, meta: top }),
-      B({ soma: soma(syn, sv.key, 2), stops: [proxyStop(sv), atlasStop("motor-nucleus-of-facial-nerve", side, "Facial nucleus (same side)"), atlasStop("motor-nucleus-of-facial-nerve", O, "Facial nucleus (other side)")], meta: top }),
+      B({ soma: soma(vii, "a:motor-nucleus-of-facial-nerve", 3), stops: [proxyStop(sv), atlasStop("motor-nucleus-of-facial-nerve", side, "Facial nucleus (same side)"), atlasStop("motor-nucleus-of-facial-nerve", O, "Facial nucleus (other side)")], meta: top }),
+      B({ f: [eyeL.f.json(), eyeO.f.json()], syn: soma(eyeL.end, eyeL.muscle, 3), meta: { view: "oblique-front" } }),
+      B({ stops: [carve(eyeL.muscle, eyeL.end, 0.015, "Orbicularis oculi"), carve(eyeO.muscle, eyeO.end, 0.015, "Orbicularis oculi")], meta: { view: "anterior" } }),
     ];
   },
 };

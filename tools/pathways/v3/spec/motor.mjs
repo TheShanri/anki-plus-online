@@ -357,6 +357,42 @@ async function bsDown(f, side, way, tract, yEnd) {
 }
 const lmnStop = (side, seg) => stop(`a:anterior-horn-of-spinal-cord@${side}`, `Ventral horn (${seg})`);
 
+/* The lower motor neuron the brainstem tracts drive, out to its muscles (owner audit 2026-11-22: the tracts stopped at the
+ * ventral horn). `order`: the LMN's neuron order. */
+/** C8 LMN to the forearm flexors: ventral root, brachial plexus, ulnar nerve to its muscular branch (as in the withdrawal reflex). */
+export async function forearmOut(lmn, side, order = 2) {
+  const out = await lmnOut(lmn, "C8", side);
+  out.order = order;
+  const fx = `b:muscle_forearm_${side}`;
+  const ul = curve("Ulnar nerve", side, 0);
+  const fm = (await hostOf(fx)).meshes[0];
+  let sBr = ul.length * 0.6, best = Infinity;
+  for (let k = ul.length * 0.35; k < ul.length * 0.95; k += 0.003) {
+    const q = ul.at(k).p;
+    const dd = fm.inside(q) ? 0 : fm.dist(q, 0.03);
+    if (dd < best - 1e-5) {
+      best = dd;
+      sBr = k;
+    }
+  }
+  const nerve = new Fibre(order).from(out.end, out.seg[out.seg.length - 1][1]);
+  chain(nerve, side, [["Roots of brachial plexus", { gap: 0.003 }], "Inferior trunk of brachial plexus", "Anterior division of inferior trunk of brachial plexus", ["Ulnar nerve", { stop: ul.at(sBr).p }]]);
+  const q = await insideNear(fx, nerve.end, 0.02, true);
+  synth(nerve, `ulnar-muscular-${side}`, "Muscular branch of the ulnar nerve", [q], 0.0005, "Z-Anatomy draws no ulnar muscular branch into this flexor group: the branch from the nerve into the forearm flexors");
+  return { f: joinFibres(order, [out, nerve]), end: q, muscle: fx };
+}
+/** An LMN at `seg` to the deep back (axial) muscles by the dorsal ramus (Z-Anatomy has no posterior rami: a flagged connector, as for the anterior corticospinal tract). */
+export async function axialOut(lmn, seg, side, order = 2) {
+  const out = await lmnOut(lmn, seg, side);
+  out.order = order;
+  const back = `b:muscle_back_${side}`;
+  const g = drgAt(seg, side);
+  const into = await insideNear(back, [g[0] + sgnOf(side) * 0.012, g[1] - 0.004, g[2] - 0.02], 0.025);
+  const ramus = new Fibre(order).from(out.end, out.seg[out.seg.length - 1][1]);
+  synth(ramus, `${seg.toLowerCase()}-dorsal-ramus-${side}`, `Dorsal ramus of ${seg}`, [[(g[0] + into[0]) / 2, g[1] - 0.002, (g[2] + into[2]) / 2], into], 0.0006, `Z-Anatomy has no posterior rami: the ${seg} dorsal ramus to the deep back muscles`);
+  return { f: joinFibres(order, [out, ramus]), end: into, muscle: back };
+}
+
 export const rubrospinal = {
   async build(side) {
     // side = the red nucleus; its axons cross at once and the tract and the upper-limb LMNs are on the other side
@@ -368,11 +404,14 @@ export const rubrospinal = {
     const f2 = new Fibre(1).from(f1.end, "a:midbrain");
     await bsDown(f2, O, [["midbrain", 1.603, [0.45, 0.55]], ["pons", 1.592, [0.5, 0.4]], ["pons", 1.58, [0.6, 0.4]], ["medulla-oblongata", 1.565, [0.7, 0.45]], ["medulla-oblongata", 1.55, [0.7, 0.5]]], "rubrospinal-tract", cordY("C8") + 0.0025);
     await intoHorn(f2, ["a:rubrospinal-tract"], lmn, O);
+    const m = await forearmOut(lmn, O);
     return [
       B({ soma: soma(rn, "a:red-nucleus", 1), stops: [atlasStop("red-nucleus", side, "Red nucleus")] }),
       B({ f: [f1.json()], cross: { p: cross, host: "a:midbrain", level: "midbrain", yMin: 1.6015, yMax: 1.6175, name: "Rubrospinal fibres cross" } }),
       B({ f: [f2.json()], syn: soma(lmn, "a:anterior-horn-of-spinal-cord", 1) }),
       B({ soma: soma(lmn, "a:anterior-horn-of-spinal-cord", 2), stops: [lmnStop(O, "C8")] }),
+      B({ f: [m.f.json()], syn: soma(m.end, m.muscle, 2) }),
+      B({ stops: [carve(m.muscle, m.end, 0.04, "Forearm flexors")], meta: { view: "anterior" } }),
     ];
   },
 };
@@ -384,15 +423,20 @@ export const tectospinal = {
     const f1 = new Fibre(1).from(sc, "a:superior-colliculus");
     await f1.routeTo(["a:superior-colliculus", "a:midbrain"], await inSlice("midbrain", side, 1.611, [0.25, 0.35], 1.0), { sgn: sgnOf(side), minX: 0.0006, h: 0.0003 });
     const cross = await crossAt(f1, side, 1.6095, [0.12, 0.4], ["a:midbrain"], `tect-x-${side}`);
-    const lmn = await lmnAt("C5", O, "medial");
+    // (the medial column point at C5 sits on the horn's edge: moved just inside, so the LMN's own fibre starts in the horn)
+    const lm0 = await lmnAt("C5", O, "medial");
+    const lmn = await insideNear("a:anterior-horn-of-spinal-cord", [lm0[0] + sgnOf(O) * 0.0015, lm0[1], lm0[2]], 0.004);
     const f2 = new Fibre(1).from(f1.end, "a:midbrain");
     await bsDown(f2, O, [["midbrain", 1.604, [0.12, 0.45]], ["pons", 1.592, [0.12, 0.3]], ["pons", 1.58, [0.12, 0.35]], ["medulla-oblongata", 1.565, [0.12, 0.45]], ["medulla-oblongata", 1.55, [0.15, 0.6]]], "tectospinal-tract", cordY("C5") + 0.0025);
     await intoHorn(f2, ["a:tectospinal-tract"], lmn, O);
+    const m = await axialOut(lmn, "C5", O);
     return [
       B({ soma: soma(sc, "a:superior-colliculus", 1), stops: [atlasStop("superior-colliculus", side, "Superior colliculus"), atlasStop("inferior-colliculus", side, "Inferior colliculus")] }),
       B({ f: [f1.json()], cross: { p: cross, host: "a:midbrain", level: "midbrain", yMin: 1.6015, yMax: 1.6175, name: "Tectospinal fibres cross" } }),
       B({ f: [f2.json()], syn: soma(lmn, "a:anterior-horn-of-spinal-cord", 1) }),
       B({ soma: soma(lmn, "a:anterior-horn-of-spinal-cord", 2), stops: [lmnStop(O, "C5")] }),
+      B({ f: [m.f.json()], syn: soma(m.end, m.muscle, 2) }),
+      B({ stops: [carve(m.muscle, m.end, 0.03, "Neck muscles")] }),
     ];
   },
 };
@@ -410,10 +454,13 @@ export const reticulospinal = {
     await fm.routeTo([rm.key, "a:medulla-oblongata"], await inSlice("medulla-oblongata", side, 1.552, [0.45, 0.5], 1.0), { sgn: sgnOf(side), minX: 0.0006, h: 0.0003 });
     await bsDown(fm, side, [], "lateral-reticulospinal-tract", cordY("C8") + 0.0025);
     await intoHorn(fm, ["a:lateral-reticulospinal-tract"], lmn, side);
+    const m = await axialOut(lmn, "C8", side);
     return [
       B({ soma: soma(rp.c, rp.key, 1), start: soma(rm.c, rm.key, 1), stops: [proxyStop(rp), proxyStop(rm)] }),
       B({ f: [fp.json(), fm.json()], syn: soma(lmn, "a:anterior-horn-of-spinal-cord", 1) }),
       B({ soma: soma(lmn, "a:anterior-horn-of-spinal-cord", 2), stops: [lmnStop(side, "C8")] }),
+      B({ f: [m.f.json()], syn: soma(m.end, m.muscle, 2) }),
+      B({ stops: [carve(m.muscle, m.end, 0.03, "Axial and proximal muscles")] }),
     ];
   },
 };
@@ -426,10 +473,13 @@ export const vestibulospinal = {
     await f.routeTo(["a:vestibular-nuclei", "a:pons", "a:medulla-oblongata"], await inSlice("medulla-oblongata", side, 1.57, [0.55, 0.4], 1.0), { sgn: sgnOf(side), minX: 0.0006, h: 0.0003 });
     await bsDown(f, side, [["medulla-oblongata", 1.556, [0.5, 0.55]]], "lateral-vestibulospinal-tract", cordY("C8") + 0.0025);
     await intoHorn(f, ["a:lateral-vestibulospinal-tract"], lmn, side);
+    const m = await axialOut(lmn, "C8", side);
     return [
       B({ soma: soma(vn, "a:vestibular-nuclei", 1), stops: [atlasStop("vestibular-nuclei", side, "Vestibular nuclei")] }),
       B({ f: [f.json()], syn: soma(lmn, "a:anterior-horn-of-spinal-cord", 1) }),
       B({ soma: soma(lmn, "a:anterior-horn-of-spinal-cord", 2), stops: [lmnStop(side, "C8")] }),
+      B({ f: [m.f.json()], syn: soma(m.end, m.muscle, 2) }),
+      B({ stops: [carve(m.muscle, m.end, 0.03, "Axial (antigravity) muscles")] }),
     ];
   },
 };

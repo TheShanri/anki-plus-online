@@ -83,6 +83,7 @@ function fibreSpecs(data: V3Data, visual: boolean): FibreSpec[] {
   return out;
 }
 
+const WHOLE_ARC_END = new Set(["stretch-reflex", "withdrawal-reflex", "jaw-jerk"]);
 interface Stage {
   box: THREE.Box3;
   view: ViewDef;
@@ -91,7 +92,10 @@ interface Stage {
 /** The camera box, the canonical view and the auto cut of a beat. */
 function stageOf(data: V3Data, fibres: FibreSpec[], bi: number | null, sideAlpha: { L: number; R: number }, prev: Stage | null): Stage {
   let sides = (["L", "R"] as Side[]).filter((s) => sideAlpha[s] > 0.5);
-  const beats = bi === null ? data.beats.map((_, i) => i) : [bi];
+  // a reflex ends by showing its whole arc (receptor, cord or brainstem, muscle): framed on the muscle alone, the last
+  // step showed a patch of muscle and none of the loop (owner audit 2026-11-22)
+  const wholeEnd = bi !== null && bi === data.beats.length - 1 && WHOLE_ARC_END.has(data.slug);
+  const beats = bi === null || wholeEnd ? data.beats.map((_, i) => i) : [bi];
   const node = bi !== null && data.beats[bi].kind === "node";
   const boxOf = (ss: Side[]) => {
     const b = new THREE.Box3();

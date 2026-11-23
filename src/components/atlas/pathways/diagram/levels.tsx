@@ -51,7 +51,7 @@ const cordDraw = () => (
 );
 const cordAt: Record<string, P> = {
   drg: [49, 9], root: [22, 3], gr: [6, 8], cu: [15, 8], dc: [10, 8], dh: [20, 10], mz: [21, 6], clarke: [9, 17], awc: [0, 29],
-  alst: [31, 33], lcst: [29, 18], dsct: [34, 14], rst: [26, 24], acst: [8, 42], tst: [3, 41], vst: [17, 41], ret: [11, 39],
+  alst: [31, 33], lcst: [29, 18], dsct: [34, 14], rst: [26, 24], acst: [8, 42], tst: [7, 41], vst: [17, 41], ret: [11, 39],
   lh: [25, 25], vh: [21, 32], vhm: [11, 33], vr: [26, 46], gang: [50, 38], mid: [0, 24], vrx: [30, 45], int: [16, 20],
 };
 
@@ -194,7 +194,7 @@ export const LEVELS: Record<string, LevelDef> = {
   },
   mbR: {
     label: ["Midbrain", "rostral"], hw: 50, h: 58, draw: mbRDraw,
-    at: { sc: [13, 7], pt: [10, 10], iii: [3, 20], ew: [5, 14], rn: [18, 29], rst: [20, 42], tst: [3, 40], ml: [33, 33], alst: [42, 28], mlf: [3, 24], ped: [34, 50], pedM: [26, 51], mid: [0, 36], mid2: [0, 41], vtd: [9, 40], pcom: [0, 9], sn: [24, 41], iiix: [6, 30] },
+    at: { sc: [13, 7], pt: [10, 10], iii: [3, 20], ew: [5, 14], rn: [18, 29], rst: [20, 42], tst: [8, 40], ml: [33, 33], alst: [42, 28], mlf: [3, 24], ped: [34, 50], pedM: [26, 51], mid: [0, 36], mid2: [0, 41], vtd: [9, 40], pcom: [0, 9], sn: [24, 41], iiix: [6, 30] },
   },
   mbC: {
     label: ["Midbrain", "caudal"], hw: 50, h: 58, draw: mbCDraw,
@@ -202,15 +202,15 @@ export const LEVELS: Record<string, LevelDef> = {
   },
   pons: {
     label: ["Pons"], hw: 58, h: 64, draw: ponsDraw,
-    at: { mlf: [3, 20], vi: [8, 17], vii: [24, 30], vm: [32, 26], vms: [38, 17], mes: [26, 8], stt: [46, 22], ppr: [9, 22], ml: [10, 36], alst: [44, 32], vn: [38, 12], cn: [47, 14], rf: [15, 27], cst: [15, 50], pn: [28, 52], tl: [16, 35], mcp: [53, 32], mid: [0, 28], midb: [0, 47], pedM: [20, 49], cb1: [20, 44], cb2: [9, 36], rst: [30, 38], tst: [5, 30], gg: [70, 40], ent: [54, 34], ssn: [14, 24], vexit: [58, 36], mlf2: [3, 27], ttt: [44, 34] },
+    at: { mlf: [3, 20], vi: [8, 17], vii: [24, 30], vm: [32, 26], vms: [38, 17], mes: [26, 8], stt: [46, 22], ppr: [9, 22], ml: [10, 36], alst: [44, 32], vn: [38, 12], cn: [47, 14], rf: [15, 27], cst: [15, 50], pn: [28, 52], tl: [16, 35], mcp: [53, 32], mid: [0, 28], midb: [0, 47], pedM: [20, 49], cb1: [20, 44], cb2: [9, 36], rst: [30, 38], tst: [9, 30], gg: [70, 40], ent: [54, 34], ssn: [14, 24], vexit: [58, 36], mlf2: [3, 27], ttt: [44, 34] },
   },
   medR: {
     label: ["Medulla", "rostral"], hw: 44, h: 56, draw: medRDraw,
-    at: { xii: [5, 14], dmv: [11, 15], sol: [18, 16], vn: [28, 11], cn: [36, 12], stt: [35, 23], amb: [23, 29], olive: [24, 38], ml: [4, 32], pyr: [14, 48], icp: [38, 18], alst: [35, 34], rf: [14, 28], rst: [28, 34], tst: [4, 30], vst: [30, 36], isn: [15, 24], cnent: [47, 20], mid: [0, 30], olmid: [0, 36], cnx: [45, 26] },
+    at: { xii: [5, 14], dmv: [11, 15], sol: [18, 16], vn: [28, 11], cn: [36, 12], stt: [35, 23], amb: [23, 29], olive: [24, 38], ml: [4, 32], pyr: [14, 48], icp: [38, 18], alst: [35, 34], rf: [14, 28], rst: [28, 34], tst: [9, 30], vst: [30, 36], isn: [15, 24], cnent: [47, 20], mid: [0, 30], olmid: [0, 36], cnx: [45, 26] },
   },
   medC: {
     label: ["Medulla", "caudal"], hw: 40, h: 50, draw: medCDraw,
-    at: { gr: [8, 8], cu: [17, 10], dcn: [12, 9], arc1: [14, 20], arc2: [7, 28], mid: [0, 30], ml: [4, 35], stt: [32, 17], alst: [33, 34], pyr: [14, 43], vst: [26, 36], rst: [26, 30], tst: [4, 30], ttt: [33, 36] },
+    at: { gr: [8, 8], cu: [17, 10], dcn: [12, 9], arc1: [14, 20], arc2: [7, 28], mid: [0, 30], ml: [4, 35], stt: [32, 17], alst: [33, 34], pyr: [14, 43], vst: [26, 36], rst: [26, 30], tst: [9, 30], ttt: [33, 36] },
   },
   cmj: { label: ["Cervico-", "medullary"], hw: 38, h: 48, draw: cmjDraw, at: { pyr: [13, 40], pd1: [8, 32], mid: [0, 26], pd2: [6, 20], lcst: [27, 16], acst: [8, 41] } },
   cordC: { label: ["Cervical", "cord"], ...cord(38, 46, 1, 1) },

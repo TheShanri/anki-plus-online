@@ -261,12 +261,24 @@ function ImageLightbox({ src, imageKey, n, total, onClose, onStep }: { src: stri
     return () => window.removeEventListener("keydown", onKey, true);
   }, [onClose, onStep]);
   const side = turn === 90 || turn === 270;
+  // The image fits inside the window with a margin all round, whatever its shape (owner 2026-11-22: a tall slide
+  // "takes up the whole screen"): explicit viewport limits, since a percentage max-height inside an auto-sized grid
+  // row resolves to nothing and a tall image overflowed. A sideways scan is sized before it turns, so its limits swap.
+  const W = "min(86vw, 1100px)";
+  const H = "calc(84vh - 56px)";
   return (
-    <div className="overlay" role="dialog" aria-modal="true" aria-label={`Course image ${n + 1} of ${total}`} onClick={(e) => e.target === e.currentTarget && onClose()} style={{ zIndex: 80 }}>
-      <div className="relative grid place-items-center" style={{ width: "min(94vw, 1400px)", height: "88vh" }} onClick={(e) => e.target === e.currentTarget && onClose()}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt="" className="rounded-sm bg-bg-2 object-contain shadow-pop" style={side ? { maxWidth: "88vh", maxHeight: "min(94vw, 1400px)", transform: `rotate(${turn}deg)` } : { maxWidth: "100%", maxHeight: "100%", transform: turn ? `rotate(${turn}deg)` : undefined }} />
-        <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-panel-border bg-panel-solid/95 px-2 py-1 text-sm">
+    <div className="overlay" role="dialog" aria-modal="true" aria-label={`Course image ${n + 1} of ${total}`} onClick={(e) => e.target === e.currentTarget && onClose()} style={{ zIndex: 80, background: "rgb(0 0 0 / 0.72)" }}>
+      <div className="flex flex-col items-center gap-3" onClick={(e) => e.target === e.currentTarget && onClose()}>
+        {side ? (
+          <div className="relative" style={{ width: W, height: H }} onClick={(e) => e.target === e.currentTarget && onClose()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={src} alt="" className="absolute left-1/2 top-1/2 block rounded-md bg-bg-2 object-contain shadow-pop" style={{ maxWidth: H, maxHeight: W, transform: `translate(-50%, -50%) rotate(${turn}deg)` }} />
+          </div>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt="" className="block rounded-md bg-bg-2 object-contain shadow-pop" style={{ maxWidth: W, maxHeight: H, transform: turn ? `rotate(${turn}deg)` : undefined }} />
+        )}
+        <div className="flex items-center gap-2 rounded-full border border-panel-border bg-panel-solid/95 px-2 py-1 text-sm">
           <button type="button" className="btn btn-sm" onClick={() => onStep(-1)} aria-label="Previous image">‹</button>
           <span className="font-mono text-xs text-text-dim">{n + 1} / {total}</span>
           <button type="button" className="btn btn-sm" onClick={() => onStep(1)} aria-label="Next image">›</button>

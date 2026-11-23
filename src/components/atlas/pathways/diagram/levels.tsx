@@ -216,6 +216,7 @@ export const LEVELS: Record<string, LevelDef> = {
   cordC: { label: ["Cervical", "cord"], ...cord(38, 46, 1, 1) },
   cordT: { label: ["Thoracic", "cord"], ...cord(30, 40, 0.8, 0.87) },
   cordL: { label: ["Lumbar", "cord"], ...cord(34, 40, 0.9, 0.87) },
+  cordS: { label: ["Sacral", "cord"], ...cord(30, 36, 0.8, 0.87) },
   cordX: { label: ["Spinal cord"], ...cord(72, 87, 1.9, 1.9) },
   cb: { label: ["Cerebellum"], hw: 58, h: 50, draw: cbDraw, at: { cx: [40, 18], dn: [25, 27], fn: [6, 27], icp: [47, 40], mcp: [53, 30], vn: [10, 38] } },
 };

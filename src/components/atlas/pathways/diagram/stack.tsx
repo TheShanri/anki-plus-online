@@ -105,7 +105,9 @@ export function buildStack(spec: StackSpec): Diagram {
         labels.push({ keys, text: e.lbl, lead: { L: pt(e.pts[i], "L"), R: pt(e.pts[i], "R") } });
       }
     } else {
-      const isIcon = /^cap[SE]/.test(e.at);
+      // the cap itself is the receptor / organ icon; a point offset from it ("capE:i@-6,-30", a terminal ganglion beside
+      // the organ) is an ordinary node
+      const isIcon = /^cap[SE]/.test(e.at) && !e.at.includes("@");
       for (const side of SIDES) {
         const [x, yy] = pt(e.at, side);
         els.push(

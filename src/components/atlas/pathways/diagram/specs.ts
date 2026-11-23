@@ -205,22 +205,21 @@ export const STACKS: Record<string, StackSpec> = {
       n("end", "capE:i", "Target organs"),
     ],
   },
+  // Craniosacral outflow: LONG preganglionic fibres (1st order) from the brainstem nuclei and S2-S4 out to terminal ganglia
+  // in or beside the organs, then SHORT postganglionic fibres (2nd order). (The ganglia used to sit beside the brainstem
+  // with long 2nd-order fibres, the sympathetic pattern; owner audit 2026-11-22.)
   parasympathetic: {
-    levels: ["mbR", "medR", "cordL"],
+    levels: ["mbR", "medR", "cordS"],
     capE: { icon: "organ", dx: 36 },
     els: [
-      n("n0", "mbR.ew:i", "Edinger-\nWestphal", { rx: 4, ry: 4 }),
+      n("n0", "mbR.ew:i", "Edinger-\nWestphal (eye)", { rx: 4, ry: 4 }),
       n("n0", "medR.dmv:i", "Dorsal motor\nnucleus of X", { rx: 4, ry: 4 }),
-      n("n0", "cordL.lh:i", "S2–S4", { rx: 5, ry: 4 }),
-      p("nuc", ["mbR.ew:i", "mbR.alst:i@20,-6"]),
-      p("nuc", ["medR.dmv:i", "medR.cnx:i@12,0"]),
-      p("nuc", ["cordL.lh:i", "cordL.vr:i@10,0"]),
-      n("n1", "mbR.alst:i@20,-6", "Terminal\nganglia", { rx: 4, ry: 4, soma: true }),
-      n("n1", "medR.cnx:i@12,0", undefined, { rx: 4, ry: 4, soma: true }),
-      n("n1", "cordL.vr:i@10,0", undefined, { rx: 4, ry: 4, soma: true }),
-      p(["gang", "endNerve"], ["mbR.alst:i@20,-6", "capE:i"]),
-      p(["gang", "endNerve"], ["medR.cnx:i@12,0", "capE:i"]),
-      p(["gang", "endNerve"], ["cordL.vr:i@10,0", "capE:i"]),
+      n("n0", "cordS.lh:i", "S2–S4", { rx: 5, ry: 4 }),
+      p("nuc", ["mbR.ew:i", "mbR.alst:i@20,-6", "capE:i@-6,-30"]),
+      p("nuc", ["medR.dmv:i", "medR.cnx:i@12,0", "capE:i@-6,-30"]),
+      p("nuc", ["cordS.lh:i", "cordS.vr:i@10,0", "capE:i@-6,-30"]),
+      n("n1", "capE:i@-6,-30", "Terminal\nganglia", { rx: 4, ry: 4, soma: true }),
+      p(["gang", "endNerve"], ["capE:i@-6,-30", "capE:i"]),
       n("end", "capE:i", "Target organs"),
     ],
   },

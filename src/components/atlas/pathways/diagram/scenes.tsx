@@ -68,16 +68,19 @@ export function basalGanglia(): Diagram {
 
 export function cerebellarCircuit(): Diagram {
   const b = builder();
+  // the deep nuclei project through the SCP, cross, and end in BOTH the contralateral red nucleus and VA/VL thalamus (two
+  // targets of one tract; the red nucleus is not a relay on the way to the thalamus, owner audit 2026-11-22)
   b.box("rn", 58, 34, ["VA/VL", "thalamus"]);
-  b.box("dec", 290, 34, ["Red", "nucleus"]);
+  b.box("rn", 290, 34, ["Red", "nucleus"]);
   b.box("n2", 174, 100, ["Deep", "nuclei"]);
   b.box("n1", 174, 166, ["Cerebellar", "cortex"]);
   b.box(["n0", "mf"], 58, 232, ["Pontine", "nuclei"]);
   b.box(["n0", "cf"], 290, 232, ["Inferior", "olive"]);
-  b.line("rn", [[248, 34], [100, 34]], "arrow");
   b.line("scp", [[216, 104], [248, 104]], "none");
-  b.line("dec", [[248, 104], [290, 104], [290, 50]], "arrow");
+  b.line("dec", [[248, 104], [290, 104], [290, 72]], "none");
   b.cross("dec", 270, 104);
+  b.line("rn", [[290, 72], [290, 50]], "arrow");
+  b.line("rn", [[290, 72], [124, 72], [124, 34], [100, 34]], "arrow");
   b.line("cx", [[174, 150], [174, 116]], "bar");
   b.line("mf", [[58, 216], [58, 198], [150, 198], [150, 182]], "arrow");
   b.line("cf", [[290, 216], [290, 198], [198, 198], [198, 182]], "arrow");

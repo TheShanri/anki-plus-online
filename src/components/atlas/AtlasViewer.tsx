@@ -33,7 +33,7 @@ import { SEC, insideTissue, setPalette, setSectionPlanes, setTissue } from "./se
 import { loadTissue } from "./section/tissue";
 // labelled interior (section/labels.ts, section/api.ts): cut faces, their pick, highlight and key come from one label volume
 import { interiorNow, loadInterior } from "./section/labels";
-import { hasLabels, sectionAnchors, sectionKeyFor, sectionPickRay, setSectionActive, setSectionRedraw, setSectionState } from "./section/api";
+import { hasLabels, sectionAnchors, sectionFaceAt, sectionKeyFor, sectionPickRay, setSectionActive, setSectionRedraw, setSectionState } from "./section/api";
 import { setInterior } from "./section/shader";
 
 export type AtlasMode = "focus" | "context";
@@ -1340,8 +1340,12 @@ function Picker({
       const spInfo: (PickInfo & { side?: "L" | "R" }) | null = sp
         ? { hover: { id: sp.row.ids[0] ?? "" }, name: sp.part ? sp.row.name : (structures[sp.row.ids[0] ?? ""]?.name ?? sp.row.name), side: sp.point.x > 0.002 ? "L" : sp.point.x < -0.002 ? "R" : undefined }
         : null;
+      // (white matter and other unnamed parts of the face name nothing, but still hide what is behind them)
+      const face = sp ? sp.distance : sectionFaceAt(ray.ray);
       for (const h of hits) {
         if (sp && spInfo && h.distance > sp.distance) return spInfo;
+        // (a gyrus cut by the plane is met within a few mm of the face: that is the cortex being pointed at, still named)
+        if (face !== null && h.distance > face + 0.004) return layerHit;
         const m = h.object as THREE.Mesh;
         _hit.copy(h.point);
         const lid = m.userData.lid as string | undefined;
@@ -2032,6 +2036,15 @@ function Scene({
     const own = cutting ? [cutP] : [];
     ownPlanes.current = own;
     setPlanes(hiMat, own, true);
+    // the midsagittal medial wall (a patch that fills the solid medial face) only belongs to the solid brain, and it is cut
+    // by a section plane: it stayed opaque and uncut in the see-through brain, a box of solid cortex (owner 2026-11-22
+    // "weird glitch issues"); drawn translucent its rectangular edge still showed, so see-through hides it
+    {
+      const op = brainOpacity ?? (solid ? 1 : 0.2);
+      medialMat.visible = op >= 1;
+      medialMat.clippingPlanes = own;
+      medialMat.needsUpdate = true;
+    }
     ovlMats.forEach((m, k) => {
       const sd = loaded.ovl[k]?.side;
       setPlanes(m, sd ? [...own, sidePlanes[sd]] : own, true);
@@ -2050,7 +2063,7 @@ function Scene({
     shellMats.forEach((m) => setPlanes(m, gp, true));
     setHullPlanes(accentHull, own);
     invalidate();
-  }, [ctxMat, hiMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, bsClearMat, boneMat, nerveMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
+  }, [ctxMat, hiMat, medialMat, ovlMats, grossMats, grossHull, accentHull, backMat, deepMats, paintMats, targetPaint, bsClearMat, boneMat, nerveMat, shellMats, sidePlanes, loaded.ovl, brainOpacity, look, solid, mode, midsagittal, clipPlane, cutP, clip, clipRange, invalidate]);
 
   // which gross meshes are shown / pickable (a target or overlay replaces the gross mesh with the same id)
   const hiddenIds = useMemo(() => new Set<string>([...loaded.targetIds, ...loaded.ovl.flatMap((o) => o.ids)]), [loaded]);
@@ -2350,7 +2363,7 @@ function Scene({
         // clipped like the brain: with a cut, a gap seen from the intact side shows the kept part's far wall, never the page
         <mesh geometry={fillBackGeo} material={fillBackMat} material-clippingPlanes={capPlanes} renderOrder={-1} raycast={() => undefined} />
       )}
-      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} />}
+      {fill && sectionOn && <SectionFace fill={fill} planes={capPlanes} centre={centre} color={secPal.wm} medial={midsagittal ? clipPlane : null} medialFill={solid && (brainOpacity ?? 1) >= 1} />}
       {fill && capPlanes.length > 0 && look === "xray" && <SectionFace ghost fill={fill} planes={capPlanes} centre={centre} color="#1d2522" />}
       {outlineRoots.length > 0 && <SectionOutlines roots={outlineRoots} planes={capPlanes} version={outlineKey} color={secPal.line} />}
       <primitive object={ovlRoot} />

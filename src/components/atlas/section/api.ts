@@ -209,6 +209,33 @@ export function sectionPickRay(ray: THREE.Ray): { row: LabelRow; point: THREE.Ve
   return { row: r, point: _p.clone(), distance: best, part: isPart(r) && st.selected.has(r.ids[0]) };
 }
 
+/**
+ * How far along the ray the section face is, where the ray meets it inside the brain (any label, white matter and the
+ * other unnamed fields included), else null. Whatever lies behind that point is hidden by the face: hovering white matter
+ * on a cut used to name the gyrus under the plane (a transverse cut through the thalamus level named the parahippocampal
+ * gyrus beneath; 3D atlas audit 2026-11-22).
+ */
+export function sectionFaceAt(ray: THREE.Ray): number | null {
+  const I = interiorNow();
+  if (!I || !active.on || !active.planes.length) return null;
+  let best = -Infinity;
+  let entry: THREE.Plane | null = null;
+  for (const pl of active.planes) {
+    const dn = pl.normal.dot(ray.direction);
+    if (dn <= 1e-6) continue;
+    const t = -(pl.normal.dot(ray.origin) + pl.constant) / dn;
+    if (t > best) {
+      best = t;
+      entry = pl;
+    }
+  }
+  if (!entry || best < 0) return null;
+  ray.at(best, _p);
+  if (!kept(_p, active.planes, entry)) return null;
+  const r = entry === active.mid ? midlineRow(I, _p, entry.normal) : I.byI[labelIndexAt(_p, I)];
+  return r ? best : null;
+}
+
 // ---------------------------------------------------------------- section key
 export type KeyItem = { id: string; name: string; colour: string; key: string };
 /** Thalamic nuclei other than the course's named ones, hypothalamic regions and the tegmental extras are listed under their parent. */

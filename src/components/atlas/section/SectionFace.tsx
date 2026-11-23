@@ -30,6 +30,7 @@ export function SectionFace({
   color,
   ghost = false,
   medial = null,
+  medialFill = true,
 }: {
   fill: THREE.Group;
   planes: THREE.Plane[];
@@ -37,6 +38,8 @@ export function SectionFace({
   color: string;
   ghost?: boolean;
   medial?: THREE.Plane | null;
+  /** The midsagittal fill behind the medial surface: only for the solid brain (in the see-through one its volume's box showed). */
+  medialFill?: boolean;
 }) {
   const geo = useMemo(() => bakeGeometry(fill), [fill]);
   const quads = useRef<(THREE.Mesh | null)[]>([]);
@@ -50,7 +53,7 @@ export function SectionFace({
     const out: { pl: THREE.Plane; cap: THREE.MeshBasicMaterial; depth: number }[] = [];
     planes.forEach((pl, i) => {
       const others = planes.filter((_, j) => j !== i);
-      const kinds: Kind[] = ghost ? ["ghost"] : pl === medial ? ["midline", "medial"] : ["plain"];
+      const kinds: Kind[] = ghost ? ["ghost"] : pl === medial ? (medialFill ? ["midline", "medial"] : ["midline"]) : ["plain"];
       for (const kind of kinds) {
         const cap = new THREE.MeshBasicMaterial({
           color,
@@ -72,7 +75,7 @@ export function SectionFace({
       }
     });
     return out;
-  }, [planes, color, ghost, medial]);
+  }, [planes, color, ghost, medial, medialFill]);
   // disposed a little later: the replacements (same shader programs) then reuse the programs instead of recompiling the
   // section shader (~0.5 s) on every change of plane, e.g. Slice match's Check (sweep 2026-11-20)
   useEffect(() => () => void window.setTimeout(() => [counts.back, counts.front].forEach((m) => m.dispose()), 4000), [counts]);

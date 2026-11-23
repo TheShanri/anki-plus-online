@@ -4532,7 +4532,7 @@
     "note": null
    }
   ],
-  "laterality": "paired",
+  "laterality": "left",
   "parent": null,
   "concept": false,
   "info": {
@@ -5282,7 +5282,7 @@
     "note": null
    }
   ],
-  "laterality": "paired",
+  "laterality": "left",
   "parent": null,
   "concept": false,
   "info": {

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { FIELD_COLORS, REGION_COLORS } from "@/lib/atlas/pathwayPalette";
 import { elbow, link, spline, sym, type P } from "./geom";
 import type { DEl, DLabel, Diagram, EndKind, Side } from "./types";
+import { LEVELS } from "./levels";
 
 /* Free-layout diagrams in the canvas's own coordinates (340 wide):
  *  - circuits (basal ganglia, cerebellar): boxes and arrows laid out like the brain (cortex on top, thalamus beside, brainstem below)
@@ -120,6 +121,41 @@ export function solitaryHub(): Diagram {
     b.box(r.endKey, 290, y, r.endText, { w: 96 });
   }
   return { w: W, h: 296, mode: "plain", deco: null, els: b.els, labels: b.labels, note: "Parasympathetic: VII, IX, X · sympathetic: the lateral horn", hasCross: false };
+}
+
+/* The sympathetic outflow (2026-11-22, owner audit: crowded labels on one small cord section): the thoracic cord section for
+ * the lateral horn, the chain ganglion beside it, and the two kinds of target the beats reach (the body wall's skin by the grey
+ * ramus and spinal nerve, the organs by long postganglionic nerves), each with room for its label. */
+export function sympatheticOutflow(): Diagram {
+  const b = builder();
+  const CX = 96;
+  const TOP = 26;
+  const cord = LEVELS.cordX;
+  const at = (k: string): P => [CX + cord.at[k][0], TOP + cord.at[k][1]];
+  const lh = at("lh");
+  const vr = at("vrx");
+  const G: P = [196, 150];
+  dot(b, "n0", lh[0], lh[1], { rx: 7, ry: 5 });
+  curve(b, "ilh", [lh, vr, [vr[0] + 14, vr[1] + 22], [G[0] - 8, G[1] - 4]]);
+  dot(b, "n1", G[0], G[1], { rx: 9, ry: 7 });
+  b.line("gang", [[G[0] + 8, G[1] - 6], [222, 112], [240, 112]], "arrow", { r: 10 });
+  b.box("~skin", 288, 112, ["Skin: vessels,", "sweat glands"], { w: 96 });
+  b.line("endNerve", [[G[0] + 8, G[1] + 6], [222, 206], [240, 206]], "arrow", { r: 10 });
+  b.box("end", 288, 206, ["Heart, lungs,", "gut, glands"], { w: 96 });
+  tag(b, "n0", ["Lateral horn", "T1–L2"], 236, 52, "start", [lh[0] + 7, lh[1] - 2]);
+  tag(b, "ilh", ["Ventral root,", "white ramus"], 150, 160, "end", [vr[0] + 6, vr[1] + 14]);
+  tag(b, "n1", ["Chain", "ganglion"], G[0], G[1] + 26, "middle", [G[0], G[1] + 8]);
+  tag(b, "gang", ["Grey ramus,", "spinal nerve"], 246, 146, "start", [224, 120]);
+  tag(b, "endNerve", ["Long postganglionic", "nerves"], 214, 238, "end", [222, 214]);
+  const deco = (
+    <g transform={`translate(${CX} ${TOP})`}>
+      {cord.draw()}
+      <text x={0} y={cord.h + 16} textAnchor="middle" fontSize={9} fill="var(--text-faint)">
+        Thoracic cord
+      </text>
+    </g>
+  );
+  return { w: W, h: 262, mode: "plain", deco, els: b.els, labels: b.labels, note: "Short preganglionic, long postganglionic", hasCross: false };
 }
 
 /* ------------------------------------------------------------------ the mid-sagittal brain */
@@ -407,6 +443,7 @@ export const SCENES: Record<string, () => Diagram> = {
   "basal-ganglia": basalGanglia,
   cerebellar: cerebellarCircuit,
   solitary: solitaryHub,
+  sympathetic: sympatheticOutflow,
   "limbic-fornix": limbicFornix,
   "limbic-amygdala": limbicAmygdala,
   "limbic-septal": limbicSeptal,

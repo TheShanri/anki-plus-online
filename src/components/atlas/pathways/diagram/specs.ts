@@ -65,7 +65,7 @@ export const STACKS: Record<string, StackSpec> = {
   },
   "trigeminal-discriminative": {
     levels: ["fb", "mbR", "pons"],
-    capS: { icon: "smile", dx: 40 },
+    capS: { icon: "smile", at: "pons.gg:i@4,40" }, // beside the pons, where CN V enters (owner audit: the face sat below the medulla)
     els: [
       n("start", "capS:i", "Face skin"),
       p("startNerve", ["capS:i", "pons.gg:i"]),
@@ -80,7 +80,7 @@ export const STACKS: Record<string, StackSpec> = {
   },
   "trigeminal-pain": {
     levels: ["fb", "mbR", "pons", "medR", "medC"],
-    capS: { icon: "smile", dx: 40 },
+    capS: { icon: "smile", at: "pons.gg:i@4,40" }, // beside the pons, where CN V enters (owner audit: the face sat below the medulla)
     els: [
       n("start", "capS:i", "Face skin"),
       p("startNerve", ["capS:i", "pons.gg:i"]),
@@ -209,18 +209,7 @@ export const STACKS: Record<string, StackSpec> = {
       n("end", "capE:i", "Axial\nmuscles"),
     ],
   },
-  sympathetic: {
-    levels: ["cordX"],
-    capE: { icon: "organ", dx: 50 },
-    els: [
-      n("n0", "cordX.lh:i", "Lateral horn\nT1–L2", { rx: 7, ry: 5 }),
-      p("ilh", ["cordX.lh:i", "cordX.vrx:i", "cordX.gang:i"], "Ventral root", { at: 1 }),
-      n("n1", "cordX.gang:i", "Sympathetic\nganglion", { rx: 7, ry: 5 }),
-      p("gang", ["cordX.gang:i", "cordX.gang:i@0,26"]),
-      p("endNerve", ["cordX.gang:i@0,26", "capE:i"]),
-      n("end", "capE:i", "Target organs"),
-    ],
-  },
+  // sympathetic: the outflow scene in scenes.tsx (sympatheticOutflow)
   // Craniosacral outflow: LONG preganglionic fibres (1st order) from the brainstem nuclei and S2-S4 out to terminal ganglia
   // in or beside the organs, then SHORT postganglionic fibres (2nd order). (The ganglia used to sit beside the brainstem
   // with long 2nd-order fibres, the sympathetic pattern; owner audit 2026-11-22.)

@@ -279,7 +279,7 @@ export const gaze = {
       B({ f: [f1.json(), f2.json(), f3.json()], syn: soma(iiiO, "a:nucleus-of-oculomotor-nerve", 3), cross: { p: cross, host: "a:pons", level: "pons", yMin: 1.578, yMax: 1.595, name: "FEF fibres cross" } }),
       B({ soma: soma(vi, "a:nucleus-of-abducens-nerve", 3), start: soma(iiiO, "a:nucleus-of-oculomotor-nerve", 4), stops: [stop(pprf.key, "PPRF"), stop(`a:nucleus-of-abducens-nerve@${side}`, "Abducens nucleus"), stop(`a:nucleus-of-oculomotor-nerve@${O}`, "Oculomotor nucleus (other side)")] }),
       B({ f: [n6.json(), n3.json()], syn: soma(lrIn, lr, 3), meta: { view: "superior" } }),
-      B({ stops: [carve(lr, lrIn, 0.012, "Lateral rectus (gaze side)"), carve(mr, mrIn, 0.012, "Medial rectus (other eye)")], meta: { view: "superior" } }),
+      B({ stops: [carve(lr, lrIn, 0.012, "Lateral rectus (gaze side)"), carve(mr, mrIn, 0.012, "Medial rectus (other eye)")], meta: { view: "anterior" } }), // face on: both eyes turn (Scene3 GazeEyes)
     ];
   },
 };

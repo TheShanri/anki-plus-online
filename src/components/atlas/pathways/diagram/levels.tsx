@@ -168,11 +168,44 @@ const fbDraw = () => (
 );
 
 /* ---- cerebellum ---- */
+// (owner audit 2026-11-22: it read as one more brainstem slice) A coronal section that reads as the cerebellum: two hemispheres
+// and the vermis with a foliated (scalloped) cortex, the white-matter arbor vitae branching into the folia, and the deep nuclei.
+const CB_HALF: P[] = [[3, 7], [12, 3], [22, 2], [32, 3], [42, 7], [50, 13], [56, 21], [57, 30], [54, 38], [47, 44], [38, 48], [28, 49], [18, 47], [9, 44], [3, 41]];
+/** The half outline as outward bumps (one per folium), mirrored for the other half; the vermis notches sit on the midline. */
+function foliated(): string {
+  const arcs = (pts: P[], flip: boolean) =>
+    pts.slice(1).map((q, i) => {
+      const a = pts[i];
+      const r = (Math.hypot(q[0] - a[0], q[1] - a[1]) / 2) * 1.15;
+      return `A${r.toFixed(2)} ${r.toFixed(2)} 0 0 ${flip ? 0 : 1} ${q[0]} ${q[1]}`;
+    });
+  const R = CB_HALF;
+  const L = CB_HALF.map(([x, y]) => [-x, y] as P).reverse();
+  return [`M${R[0][0]} ${R[0][1]}`, ...arcs(R, false), `Q0 38 ${L[0][0]} ${L[0][1]}`, ...arcs(L, false), "Q0 10 3 7", "Z"].join(" ");
+}
+const CB_PATH = foliated();
+/** Arbor vitae: a stem from the deep white matter to each folium, half side. */
+const ARBOR: P[][] = [
+  [[18, 26], [22, 14], [22, 7]],
+  [[22, 24], [33, 12], [41, 10]],
+  [[26, 25], [44, 18], [52, 20]],
+  [[28, 28], [46, 32], [53, 34]],
+  [[24, 31], [36, 42], [40, 45]],
+  [[18, 32], [22, 42], [21, 45]],
+  [[10, 30], [8, 40], [7, 42]],
+];
 const cbDraw = () => (
   <>
-    <path d={sym([[0, 6], [22, 2], [46, 8], [58, 22], [54, 40], [34, 48], [10, 46], [0, 42]])} {...OUT} />
-    <path d={sym([[0, 10], [20, 8], [40, 14], [50, 24], [46, 36], [30, 42], [8, 40], [0, 36]])} {...WM} />
-    {mirrorLine("M30 12 Q38 20 34 30")}
+    <path d={CB_PATH} {...OUT} />
+    <path d={CB_PATH} fill="color-mix(in srgb, var(--text-faint) 22%, transparent)" stroke="none" />
+    {ARBOR.map((b, i) => (
+      <g key={i}>
+        <path d={spline(b)} fill="none" stroke="var(--bg-2)" strokeWidth={3.2} strokeLinecap="round" />
+        <path d={spline(b.map(([x, y]) => [-x, y] as P))} fill="none" stroke="var(--bg-2)" strokeWidth={3.2} strokeLinecap="round" />
+      </g>
+    ))}
+    <path d={sym([[0, 18], [14, 20], [28, 22], [30, 30], [16, 34], [0, 32]])} fill="var(--bg-2)" stroke="none" />
+    <path d="M0 3 L0 47" {...MID} />
     <Pair x={25} y={27} rx={6} ry={5} />
     <Pair x={15} y={27} rx={3} ry={3} />
     <Pair x={6} y={27} rx={3} ry={3} />

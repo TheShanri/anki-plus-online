@@ -15,6 +15,7 @@ import { LabelUpdater, type LabelDom, type LabelItem } from "./labels";
 import { FIXED_PANES, MultiRender, Rig, VIEW_DEFS, applyPaneCam, fitPanes, type Pane, type PaneBase, type PaneView, type ViewDef, type ViewName } from "./rig";
 import { PALETTES } from "./materials";
 import { BrainVeil } from "./veil";
+import { GazeEyes } from "./eyes";
 import { hostParts, type HostKey, type Side, type V3Data, type V3Fibre, type V3SideBeat } from "./types";
 import { shortName } from "./names";
 import { withRoman } from "./roman";
@@ -683,6 +684,16 @@ export default function Scene3(p: Scene3Props) {
             />
           );
         })}
+        {p.data.slug === "gaze" && (
+          <GazeEyes
+            geo={p.data.geo}
+            dir={p.sideAlpha.L > 0.5 && p.sideAlpha.R > 0.5 ? "swing" : p.sideAlpha.L > 0.5 ? 1 : -1}
+            active={p.reveal >= p.data.beats.length - 1}
+            reduced={p.reduced}
+            color={pal.clay}
+            planes={planes}
+          />
+        )}
         {bands.map((b) => (revealedBeat(b.beat) ? <NerveBand key={b.key} pts={b.pts} color={pal.host} rim={rim} width={curHosts.has(`h:${b.key}`) ? 10 : 8} /> : null))}
         {/* no midline rectangle (owner: a thin red square on some beats): the L | R chips and the crossing marker say it */}
         {fibres.map((f) => (

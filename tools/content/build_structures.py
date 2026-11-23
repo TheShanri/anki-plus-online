@@ -102,6 +102,9 @@ def laterality_for(name, concept, region):
         return "n/a"
     if n in MIDLINE_NAMES:
         return "midline"
+    # language areas: one hemisphere (the dominant one, the left in most people), not a pair (owner audit 2026-11-22)
+    if n in (key("Broca's area"), key("Wernicke's area")):
+        return "left"
     if region in ("vertebral column", "meninges", "brain divisions", "skull"):
         return "n/a"
     if region == "spinal cord":
@@ -195,6 +198,8 @@ for k in order:
     s["region"] = s["region"] or s.pop("_hint", None) or "brain"
     s.pop("_hint", None)
     s["laterality"] = s["laterality"] or laterality_for(s["name"], s["concept"], s["region"])
+    if s["slug"] in ("broca-s-area", "wernicke-s-area"):
+        s["laterality"] = "left"
     if s["parent"] is None and s["slug"] in ("putamen", "globus-pallidus", "caudate-nucleus"):
         s["parent"] = "basal-ganglia"
 

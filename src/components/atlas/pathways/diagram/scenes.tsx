@@ -93,23 +93,56 @@ export function cerebellarCircuit(): Diagram {
 /* ------------------------------------------------------------------ the mid-sagittal brain */
 /* One medial-view brain (front on the left): cerebrum with the corpus callosum, thalamus, hypothalamus and a brainstem stub.
  * Every label sits OUTSIDE the silhouette (left margin, below, or right) with a dotted leader to its node. */
-const CEREBRUM: P[] = [[112, 128], [118, 98], [140, 68], [178, 46], [224, 36], [268, 44], [300, 68], [314, 102], [312, 136], [296, 160], [268, 172], [238, 174], [210, 178], [180, 178], [150, 172], [128, 158]];
+// (redrawn 2026-11-22, owner: "what the hell is this schematic?": it was a blob with a tube hanging from its middle and
+// two unnamed ovals) A medial view as in the course's midsagittal figures: the cerebral hemisphere with its frontal and
+// occipital poles and the orbital and tentorial undersides, the corpus callosum, cingulate, central, parieto-occipital and
+// calcarine sulci, the thalamus and hypothalamus, and the brainstem (midbrain, the bulging pons, medulla) with the
+// cerebellum behind it. The structures are named in small faint type so the student can place the pathway.
+const CEREBRUM: P[] = [
+  [110, 124], [114, 96], [132, 68], [164, 46], [206, 34], [248, 36], [284, 52], [306, 76], [316, 106], [314, 136], [302, 156],
+  [280, 164], [256, 166], [238, 168], [214, 174], [196, 180], [176, 182], [156, 176], [138, 166], [122, 150],
+];
+const BRAINSTEM: P[] = [[210, 168], [204, 184], [198, 200], [200, 214], [210, 226], [216, 244], [220, 262], [236, 262], [238, 244], [240, 226], [244, 206], [244, 186], [242, 170]];
+const CEREBELLUM: P[] = [[246, 176], [270, 168], [296, 172], [312, 188], [310, 212], [290, 226], [262, 228], [246, 216], [244, 196]];
+const tiny = (x: number, y: number, t: string, anchor: "start" | "middle" | "end" = "middle") => (
+  <text x={x} y={y} fontSize={7.5} fill="var(--text-faint)" fillOpacity={0.85} textAnchor={anchor} fontStyle="italic">
+    {t}
+  </text>
+);
 const sagDeco = (): ReactNode => (
   <g>
-    <path d={spline([[204, 170], [200, 196], [208, 226], [220, 256], [248, 256], [252, 226], [248, 196], [240, 172]], true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.2} />
+    {/* cerebellum behind the brainstem, its folia in a fan (the arbor vitae) */}
+    <path d={spline(CEREBELLUM, true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.1} />
+    {[[[252, 198], [272, 184], [300, 182]], [[252, 202], [276, 196], [306, 198]], [[252, 206], [274, 210], [298, 218]]].map((pts, i) => (
+      <path key={i} d={spline(pts as P[])} {...STROKE} strokeWidth={0.7} strokeOpacity={0.45} />
+    ))}
+    {/* brainstem: midbrain, the pons bulging forward, the medulla tapering into the cord */}
+    <path d={spline(BRAINSTEM, true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.2} />
+    <path d={spline([[201, 196], [222, 192], [243, 192]])} {...STROKE} strokeWidth={0.7} strokeOpacity={0.4} />
+    <path d={spline([[204, 220], [224, 218], [241, 220]])} {...STROKE} strokeWidth={0.7} strokeOpacity={0.4} />
     <path d={spline(CEREBRUM, true)} fill="var(--bg-3)" stroke="var(--text-faint)" strokeWidth={1.4} />
-    {/* corpus callosum: genu at the front, splenium at the back */}
+    {/* sulci: cingulate (above the corpus callosum), central (from the top), parieto-occipital and calcarine (at the back) */}
+    <path d={spline([[126, 104], [150, 76], [196, 60], [246, 62], [276, 78]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.45} />
+    <path d={spline([[226, 36], [222, 48], [228, 60]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.45} />
+    <path d={spline([[282, 54], [272, 86], [270, 116]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.5} />
+    <path d={spline([[314, 128], [292, 128], [270, 120]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.5} />
+    {/* corpus callosum: genu at the front, body, splenium at the back */}
     <path
       d={spline([[128, 106], [140, 84], [172, 72], [214, 70], [252, 82], [270, 104], [260, 108], [246, 94], [214, 86], [178, 88], [150, 98], [138, 110]], true)}
       fill="color-mix(in srgb, var(--text-faint) 26%, var(--bg-2))"
       stroke="var(--text-faint)"
       strokeWidth={0.9}
     />
-    <ellipse cx={198} cy={120} rx={26} ry={17} fill="color-mix(in srgb, var(--text-faint) 16%, transparent)" stroke="var(--text-faint)" strokeWidth={0.9} />
-    <ellipse cx={184} cy={152} rx={15} ry={8} fill="color-mix(in srgb, var(--text-faint) 12%, transparent)" stroke="var(--text-faint)" strokeWidth={0.8} />
-    {/* two sulci for orientation: parieto-occipital and calcarine */}
-    <path d={spline([[262, 68], [256, 96], [262, 120]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.5} />
-    <path d={spline([[310, 126], [286, 130], [262, 124]])} {...STROKE} strokeWidth={0.9} strokeOpacity={0.5} />
+    {/* thalamus and hypothalamus (the walls of the third ventricle) */}
+    <ellipse cx={198} cy={122} rx={26} ry={16} fill="color-mix(in srgb, var(--text-faint) 16%, transparent)" stroke="var(--text-faint)" strokeWidth={0.9} />
+    <path d={spline([[170, 146], [186, 142], [204, 146], [208, 160], [196, 170], [178, 166]], true)} fill="color-mix(in srgb, var(--text-faint) 12%, transparent)" stroke="var(--text-faint)" strokeWidth={0.8} />
+    {tiny(198, 125, "thalamus")}
+    {tiny(188, 159, "hypothal.")}
+    {tiny(200, 80, "corpus callosum")}
+    {tiny(222, 182, "midbrain")}
+    {tiny(222, 208, "pons")}
+    {tiny(228, 240, "medulla")}
+    {tiny(284, 204, "cerebellum")}
     <text x={120} y={20} fontSize={11} fill="var(--text-faint)" textAnchor="middle">front</text>
     <text x={308} y={20} fontSize={11} fill="var(--text-faint)" textAnchor="middle">back</text>
   </g>
@@ -134,7 +167,7 @@ export function limbicFornix(): Diagram {
   dot(b, "end", 176, 160);
   dot(b, "end", 148, 116, { rx: 5, ry: 5 });
   dot(b, "end", 134, 144, { rx: 6, ry: 4 });
-  tag(b, "n0", ["Hippocampus"], 268, 204, "middle", [252, 165]);
+  tag(b, "n0", ["Hippocampus"], 296, 250, "middle", [254, 166]);
   tag(b, "end", ["Mammillary", "bodies"], 150, 210, "middle", [176, 164]);
   tag(b, "end", ["Septal nuclei"], 100, 112, "end", [143, 116]);
   tag(b, "end", ["Basal", "forebrain"], 100, 150, "end", [128, 146]);
@@ -143,39 +176,43 @@ export function limbicFornix(): Diagram {
 }
 export function limbicAmygdala(): Diagram {
   const b = builder();
-  curve(b, "st", [[238, 164], [268, 150], [276, 114], [250, 96], [200, 94], [160, 106], [146, 120]]);
-  curve(b, "st", [[238, 164], [214, 160], [190, 156]]);
-  dot(b, "n0", 238, 164, { rx: 8, ry: 6 });
+  // the amygdala sits in the front of the temporal lobe, below and in front of the thalamus (it was drawn at the back);
+  // the stria terminalis arches back around the thalamus and forward over it to the BNST
+  curve(b, "st", [[186, 177], [214, 174], [244, 166], [266, 148], [274, 116], [250, 96], [200, 94], [160, 106], [146, 120]]);
+  curve(b, "st", [[186, 177], [188, 168], [188, 161]]);
+  dot(b, "n0", 186, 177, { rx: 8, ry: 5 });
   dot(b, "end", 146, 120, { rx: 6, ry: 5 });
   dot(b, "end", 188, 156, { rx: 7, ry: 5 });
-  dot(b, "end", 242, 214, { rx: 6, ry: 5 });
-  tag(b, "n0", ["Amygdala"], 292, 204, "middle", [242, 168]);
+  dot(b, "end", 230, 236, { rx: 6, ry: 5 });
+  tag(b, "n0", ["Amygdala"], 140, 214, "middle", [182, 181]);
   tag(b, "end", ["BNST"], 100, 112, "end", [140, 118]);
-  tag(b, "end", ["Hypothalamus"], 100, 168, "end", [184, 158]);
-  tag(b, "end", ["Brainstem", "autonomic", "nuclei"], 292, 232, "middle", [246, 218]);
+  tag(b, "end", ["Hypothalamus"], 100, 168, "end", [182, 158]);
+  tag(b, "end", ["Brainstem", "autonomic", "nuclei"], 292, 244, "middle", [236, 238]);
   tag(b, "st", ["Stria terminalis"], 204, 28, "middle", [236, 92]);
   return sag(b);
 }
 export function limbicSeptal(): Diagram {
   const b = builder();
-  curve(b, "sm", [[146, 116], [166, 102], [204, 96], [236, 98], [250, 104]]);
+  // along the top of the thalamus to the habenula at its back end (it was drawn inside the corpus callosum)
+  curve(b, "sm", [[146, 116], [166, 104], [196, 104], [216, 106], [226, 112]]);
   dot(b, "n0", 146, 116, { rx: 6, ry: 6 });
-  dot(b, "end", 252, 106, { rx: 6, ry: 5 });
+  dot(b, "end", 228, 113, { rx: 5, ry: 4 });
   tag(b, "n0", ["Septal nuclei"], 100, 124, "end", [140, 118]);
-  tag(b, "end", ["Habenula"], 292, 204, "middle", [252, 112]);
+  tag(b, "end", ["Habenula"], 300, 250, "middle", [232, 116]);
   tag(b, "sm", ["Stria medullaris"], 204, 28, "middle", [204, 94]);
   return sag(b);
 }
 export function reward(): Diagram {
   const b = builder();
-  curve(b, "mfb", [[222, 190], [190, 176], [160, 160], [138, 144], [128, 130], [120, 112]]);
-  dot(b, "n0", 222, 190, { rx: 8, ry: 5 });
+  // the VTA in the ventral midbrain; the medial forebrain bundle forward through the lateral hypothalamus
+  curve(b, "mfb", [[214, 182], [198, 170], [178, 160], [156, 152], [138, 144], [128, 130], [120, 112]]);
+  dot(b, "n0", 214, 182, { rx: 7, ry: 5 });
   dot(b, "end", 136, 144, { rx: 7, ry: 5 });
   dot(b, "end", 118, 108, { rx: 9, ry: 7 });
-  tag(b, "n0", ["VTA"], 292, 226, "middle", [226, 194]);
+  tag(b, "n0", ["VTA"], 160, 226, "middle", [210, 186]);
   tag(b, "end", ["Nucleus", "accumbens"], 100, 176, "end", [132, 148]);
   tag(b, "end", ["Prefrontal", "cortex"], 100, 92, "end", [112, 104]);
-  tag(b, "mfb", ["MFB"], 160, 206, "middle", [166, 166]);
+  tag(b, "mfb", ["MFB"], 116, 214, "middle", [168, 157]);
   return sag(b);
 }
 export function olfactory(): Diagram {

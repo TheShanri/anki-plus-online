@@ -30,6 +30,9 @@ export interface StackSpec {
 const SIDES: Side[] = ["L", "R"];
 const arr = (k: string | string[]) => (Array.isArray(k) ? k : [k]);
 
+/** A one-level brainstem figure names its level too (the jaw-jerk figure had a pons section with no name). */
+const NAMED_SINGLE = new Set(["ponsX", "mbRX"]);
+
 export function buildStack(spec: StackSpec): Diagram {
   const TOP = 26;
   const GAP = 22;
@@ -120,5 +123,5 @@ export function buildStack(spec: StackSpec): Diagram {
     }
   });
 
-  return { w: W, h, mode: "instance", midline: { x: CX, y0: TOP - 8, y1: h - 6 }, deco, els, labels, levelNames: spec.levels.length > 1 ? levelNames : undefined, hasCross };
+  return { w: W, h, mode: "instance", midline: { x: CX, y0: TOP - 8, y1: h - 6 }, deco, els, labels, levelNames: spec.levels.length > 1 || NAMED_SINGLE.has(spec.levels[0]) ? levelNames : undefined, hasCross };
 }

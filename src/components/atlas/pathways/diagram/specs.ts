@@ -241,8 +241,8 @@ export const STACKS: Record<string, StackSpec> = {
   },
   "jaw-jerk": {
     levels: ["ponsX"],
-    capS: { icon: "muscle", dx: 62 },
-    capE: { icon: "muscle", dx: 24 },
+    capS: { icon: "muscle", dx: 24 },
+    capE: { icon: "muscle", dx: 62 },
     els: [
       n("start", "capS:i", "Muscle\nspindle"),
       p("startNerve", ["capS:i", "ponsX.ent:i", "ponsX.mes:i"]),

@@ -32,6 +32,36 @@ import { LesionFindings } from "./LesionFindings";
 import { useFullscreen } from "./useFullscreen";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { AtlasLoader, stagesFrom } from "@/components/atlas/ui/AtlasLoader";
+import { loadV3, type V3Data } from "./v3/types";
+
+/* The cut tracts are drawn with the pathway tracer's v3 fibres (the routes built and validated against the real anatomy in
+ * tools/pathways/v3) instead of the old schematic waypoint tubes (owner audit 2026-11-22: "move the lesion lab to the v3
+ * renderer"). A hit stretch is matched to its v3 beat by caption; a pathway without v3 data falls back to the old tube. */
+/** The v3 file's body part for a lesion: the lower-limb fibres for a thoracic / lumbar cord lesion, else the hand's. */
+function v3Limb(slug: string, cord?: CordLevel): string | null {
+  if (slug === "dsct") return "foot";
+  if (slug === "stretch-reflex") return "leg";
+  if (slug === "withdrawal-reflex") return "hand";
+  if (slug === "dcml" || slug === "alst") return cord === "T" || cord === "L" ? "foot" : "hand";
+  return null;
+}
+const capOf = (c: string) => c.replace(/ · crosses the midline$/, "");
+/** v3 fibre points as absolute world waypoints ("@", rel i on the left body: x, y, z as given), thinned to at most ~80. */
+function fibreWPs(pts: number[]): WP[] {
+  const n = pts.length / 3;
+  const step = Math.max(1, Math.ceil(n / 80));
+  const out: WP[] = [];
+  for (let i = 0; i < n; i += step) out.push(["@", "i", pts[i * 3], pts[i * 3 + 1], pts[i * 3 + 2]] as unknown as WP);
+  if ((n - 1) % step) out.push(["@", "i", pts[(n - 1) * 3], pts[(n - 1) * 3 + 1], pts[(n - 1) * 3 + 2]] as unknown as WP);
+  return out;
+}
+/** The v3 fibres of one beat-model path (matched by caption) on one body side. */
+function v3Fibres(d: V3Data | undefined, label: string, side: Side): number[][] | null {
+  if (!d) return null;
+  const b = d.beats.find((x) => x.kind === "path" && capOf(x.caption) === label);
+  const f = b?.[side]?.f;
+  return f?.length ? f.map((x) => x.pts) : null;
+}
 
 /* the white-matter envelope hides the tracts inside it, so it is listed but not pickable in 3D */
 const NOT_PICKABLE = new Set(["white-matter-of-spinal-cord", "central-structures-of-spinal-cord"]);
@@ -107,8 +137,9 @@ function buildLabScene(o: {
   focusPath: string | null;
   zoom: "near" | "wide";
   colors: SceneColors;
+  v3: Record<string, V3Data>;
 }) {
-  const { result, guess, focusPath, zoom, colors } = o;
+  const { result, guess, focusPath, zoom, colors, v3 } = o;
   const layers: SceneLayer[] = [
     // faint enough that the stacked structures do not haze over the lesion (hover still lights each one)
     { key: "ghost", ids: PICK_IDS, side: "both", color: colors.dim, opacity: 0.075, pickable: true },
@@ -135,19 +166,31 @@ function buildLabScene(o: {
       if (focusPath) {
         // the rest of the pathway, faint, so the cut is seen in context
         const body: Side = g.hits[0].bodySides[0];
+        const d = v3[g.pathway];
         PATHWAY_MAP[g.pathway].neurons.forEach((n, ni) =>
           n.stretches.forEach((st) => {
             if (st.noLesion || !st.path || st.path.length < 2) return;
             if (g.hits.some((h) => h.stretch === st)) return;
-            tubes.push({ key: `ctx:${g.pathway}:${ni}:${st.k}`, pts: st.path, body, opacity: 0.55, reveal: 1, width: 0.7 });
+            const fs = v3Fibres(d, st.label, body);
+            if (fs) fs.forEach((f, fi) => tubes.push({ key: `ctx:${g.pathway}:${ni}:${st.k}:${fi}`, pts: fibreWPs(f), body: "L", opacity: 0.55, reveal: 1, width: 0.7 }));
+            else tubes.push({ key: `ctx:${g.pathway}:${ni}:${st.k}`, pts: st.path, body, opacity: 0.55, reveal: 1, width: 0.7 });
           }),
         );
       }
       for (const h of g.hits) {
         const st = h.stretch;
         h.bodySides.forEach((bs) => {
-          if (st.path && st.path.length > 1) tubes.push({ key: `cut:${g.pathway}:${st.k}:${bs}`, pts: st.path, body: bs, color: colors.bad, opacity: 0.95, reveal: 1, pulse: !!focusPath, width: 1.15 });
-          if (zoom === "wide" || focusPath) st.path?.forEach((w) => fit.push({ wp: w, body: bs }));
+          const fs = v3Fibres(v3[g.pathway], st.label, bs);
+          if (fs)
+            fs.forEach((f, fi) => {
+              const wps = fibreWPs(f);
+              tubes.push({ key: `cut:${g.pathway}:${st.k}:${bs}:${fi}`, pts: wps, body: "L", color: colors.bad, opacity: 0.95, reveal: 1, pulse: !!focusPath, width: 1.15 });
+              if (zoom === "wide" || focusPath) wps.filter((_, i) => i % 8 === 0).forEach((w) => fit.push({ wp: w, body: "L" }));
+            });
+          else {
+            if (st.path && st.path.length > 1) tubes.push({ key: `cut:${g.pathway}:${st.k}:${bs}`, pts: st.path, body: bs, color: colors.bad, opacity: 0.95, reveal: 1, pulse: !!focusPath, width: 1.15 });
+            if (zoom === "wide" || focusPath) st.path?.forEach((w) => fit.push({ wp: w, body: bs }));
+          }
         });
         if (st.ids?.length) {
           const ps = h.physSides;
@@ -265,8 +308,26 @@ export function LesionLab({
   const truth = item && truthSite ? predictLesion({ siteId: truthSite.id, side: item.def.side ?? "L", cord: item.def.cord }, courseMap) : null;
 
   const showing: LesionResult | null = mode === "lab" ? lab : revealed ? truth : null;
+  // the v3 data of every pathway the shown lesion cuts (fetched once each; the old tubes stand in until it arrives)
+  const [v3, setV3] = useState<Record<string, V3Data>>({});
+  const v3Want = useMemo(() => (showing ? [...new Set(showing.hits.map((h) => h.pathway))].map((s) => ({ s, limb: v3Limb(s, showing.cord) })) : []), [showing]);
+  const v3WantKey = v3Want.map((w) => `${w.s}:${w.limb}`).join(",");
+  useEffect(() => {
+    let alive = true;
+    for (const { s, limb } of v3Want) {
+      const k = `${s}:${limb}`;
+      loadV3(s, limb)
+        .then((d) => alive && setV3((m) => (m[k] === d ? m : { ...m, [k]: d })))
+        .catch(() => {});
+    }
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [v3WantKey]);
+  const v3ByPath = useMemo(() => Object.fromEntries(v3Want.flatMap(({ s, limb }) => (v3[`${s}:${limb}`] ? [[s, v3[`${s}:${limb}`]]] : []))), [v3Want, v3]);
   const guess = { site, side, cord: effCord };
-  const sceneIn = buildLabScene({ result: showing, guess: mode === "case" && !revealed && placed ? guess : null, focusPath: mode === "lab" || revealed ? focusPath : null, zoom, colors });
+  const sceneIn = buildLabScene({ result: showing, guess: mode === "case" && !revealed && placed ? guess : null, focusPath: mode === "lab" || revealed ? focusPath : null, zoom, colors, v3: v3ByPath });
   const scene = mode === "case" && revealed && truth && guessMarks(sceneIn, guess, colors);
 
   const check = () => {

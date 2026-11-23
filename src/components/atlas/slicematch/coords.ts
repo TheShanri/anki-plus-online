@@ -18,7 +18,8 @@ export const PLANES: { id: Plane; label: string; key: string; axis: "z" | "x" | 
 export const PLANE = Object.fromEntries(PLANES.map((p) => [p.id, p])) as Record<Plane, (typeof PLANES)[number]>;
 
 /** Where the cutting plane may be placed (the brain plus a margin) and where target sections are drawn from. */
-export const SLIDER_RANGE: Record<Plane, [number, number]> = { coronal: [-105, 75], sagittal: [-70, 70], axial: [-50, 85] };
+// sagittal: distance from the midline (the template is symmetric and the 3D cut is viewed from the right)
+export const SLIDER_RANGE: Record<Plane, [number, number]> = { coronal: [-105, 75], sagittal: [0, 70], axial: [-50, 85] };
 export const TARGET_RANGE: Record<Plane, [number, number]> = { coronal: [-65, 45], sagittal: [8, 52], axial: [-28, 62] };
 
 /** glTF position of a plane given MNI mm. */

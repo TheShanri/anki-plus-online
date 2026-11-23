@@ -112,7 +112,9 @@ export function SliceMatch() {
   const check = useCallback(() => {
     if (revealed) return;
     const same = plane === target.plane;
-    const dist = same ? Math.abs(mm - target.mm) : null;
+    // the MRI template is left-right symmetric, so a sagittal section is scored by its distance from the midline (the
+    // mirror-image side looks the same and used to score 0)
+    const dist = !same ? null : plane === "sagittal" ? Math.abs(Math.abs(mm) - Math.abs(target.mm)) : Math.abs(mm - target.mm);
     const points = pointsFor(same, dist ?? 0);
     if (dist !== null) trackAtlas({ type: "slice_match_round", errorMm: dist });
     setResults((r) => [...r, { target, plane, mm, points, dist }]);
@@ -184,7 +186,8 @@ export function SliceMatch() {
   }
 
   const shownPlane = revealed ? target.plane : plane;
-  const cutPlane = revealed ? target : { plane, mm };
+  // (a sagittal target is shown on the right hemisphere, where your plane is: the two sides are mirror images)
+  const cutPlane = revealed ? { plane: target.plane, mm: target.plane === "sagittal" ? Math.abs(target.mm) : target.mm } : { plane, mm };
   const last = results[results.length - 1];
   // the brain is cut solid at the plane shown, so that plane needs no sheet over its face (it washed the section out); after
   // the reveal the cut is the target and your plane is the one translucent sheet
@@ -206,7 +209,9 @@ export function SliceMatch() {
 
       <div className="grid gap-3 lg:grid-cols-2">
         <div className="grid gap-1.5">
-          <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">{revealed ? `Target: ${PLANE[target.plane].label.toLowerCase()} section, ${target.mm} mm` : "Target section (MRI, labels hidden)"}</h2>
+          <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">
+            {revealed ? `Target: ${PLANE[target.plane].label.toLowerCase()} section, ${target.plane === "sagittal" ? `${Math.abs(target.mm)} mm from the midline` : `${target.mm} mm`}` : "Target section (MRI, labels hidden)"}
+          </h2>
           {atlas ? (
             <SliceViewer
               atlas={atlas}
@@ -217,10 +222,10 @@ export function SliceMatch() {
               jumpTo={null}
               atMm={mmPoint(target.plane, target.mm)}
               blind={!revealed}
-              height={440}
+              height={520}
             />
           ) : (
-            <div className="flex h-[440px] items-center justify-center rounded-card border border-panel-border text-sm text-text-dim" role="status">
+            <div className="flex h-[520px] items-center justify-center rounded-card border border-panel-border text-sm text-text-dim" role="status">
               Loading MRI atlas...
             </div>
           )}
@@ -231,9 +236,10 @@ export function SliceMatch() {
             structureIds={[]}
             mode="context"
             label=""
-            height={440}
+            height={520}
             hideLabels
-            zoom={0.7}
+            // a transverse section is seen from above, where the brain is longest front to back: frame it a little wider
+            zoom={shownPlane === "axial" ? 0.92 : 0.86}
             // a solid brain cut like Explore's: the section face itself (grey ribbon, white matter, ventricles, nuclei) is what
             // the student compares with the MRI; the see-through brain with coloured landmark blobs read as noise and loaded slowly
             solidCuts

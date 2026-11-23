@@ -513,9 +513,17 @@ function MultiRender({ panes, invalidateRef }: { panes: React.RefObject<Pane[]>;
 }
 
 
-function GuidePlane({ g, centre }: { g: AtlasGuide; centre: THREE.Vector3 }) {
+/** The cerebrum with a small margin (model metres): a guide sheet covers the brain, not the whole context box (which reaches
+ *  down the brainstem and cord, so the sheet sat low and oversized; owner 2026-11-22 "this abstract square seems off"). */
+const GUIDE_BOX = new THREE.Box3(new THREE.Vector3(-0.076, 1.555, -0.108), new THREE.Vector3(0.076, 1.708, 0.088));
+
+function GuidePlane({ g }: { g: AtlasGuide; centre?: THREE.Vector3 }) {
   const invalidate = useThree((s) => s.invalidate);
-  const geo = useMemo(() => new THREE.PlaneGeometry(0.15, 0.15), []);
+  const size = GUIDE_BOX.getSize(new THREE.Vector3());
+  const centre = GUIDE_BOX.getCenter(new THREE.Vector3());
+  // in-plane extent: sagittal (x) spans depth x height, transverse (y) width x depth, coronal (z) width x height
+  const [w, h] = g.axis === "x" ? [size.z, size.y] : g.axis === "y" ? [size.x, size.z] : [size.x, size.y];
+  const geo = useMemo(() => new THREE.PlaneGeometry(w, h), [w, h]);
   const edges = useMemo(() => new THREE.EdgesGeometry(geo), [geo]);
   useEffect(
     () => () => {

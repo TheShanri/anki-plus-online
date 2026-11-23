@@ -110,7 +110,8 @@ function buildLabScene(o: {
 }) {
   const { result, guess, focusPath, zoom, colors } = o;
   const layers: SceneLayer[] = [
-    { key: "ghost", ids: PICK_IDS, side: "both", color: colors.dim, opacity: 0.11, pickable: true },
+    // faint enough that the stacked structures do not haze over the lesion (hover still lights each one)
+    { key: "ghost", ids: PICK_IDS, side: "both", color: colors.dim, opacity: 0.075, pickable: true },
   ];
   const tubes: SceneTube[] = [];
   const marks: SceneMark[] = [];
@@ -123,7 +124,7 @@ function buildLabScene(o: {
     // the damaged structure itself
     if (result.site.ids.length) {
       const sides: (Side | "both")[] = result.site.sided ? [lesionSide] : ["both"];
-      sides.forEach((s) => layers.push({ key: "lesion-site", ids: result.site.ids, side: s, color: colors.bad, opacity: 0.85 }));
+      sides.forEach((s) => layers.push({ key: "lesion-site", ids: result.site.ids, side: s, color: colors.bad, opacity: 0.85, clipNear: levelClip(result.site, "lesion") }));
     }
     marks.push({ key: "lesion", p: lp.wp, body: lp.body, kind: "lesion", text: "Lesion", color: colors.bad });
     fit.push(lp);
@@ -151,7 +152,8 @@ function buildLabScene(o: {
         if (st.ids?.length) {
           const ps = h.physSides;
           const sideForLayer: Side | "both" = ps.length === 2 ? "both" : (physSide(st.phys, h.bodySides[0]) ?? "both");
-          layers.push({ key: `cutids:${g.pathway}:${st.k}`, ids: st.ids, side: sideForLayer, color: colors.bad, opacity: 0.5 });
+          // the whole stretch the cut interrupts, fainter than the lesion itself (which is lit only at its level)
+          layers.push({ key: `cutids:${g.pathway}:${st.k}`, ids: st.ids, side: sideForLayer, color: colors.bad, opacity: 0.18 });
         }
       }
     }
@@ -160,10 +162,28 @@ function buildLabScene(o: {
     marks.push({ key: "guess", p: lp.wp, body: lp.body, kind: "lesion", text: "Your lesion", color: colors.hi });
     fit.push(lp);
     fit.push({ wp: [lp.wp[0], lp.wp[1], lp.wp[2] as number, 0, 0.03, 0.02] as WP, body: lp.body }, { wp: [lp.wp[0], lp.wp[1], lp.wp[2] as number, 0, -0.03, -0.02] as WP, body: lp.body });
-    if (guess.site.ids.length) layers.push({ key: "guess-site", ids: guess.site.ids, side: guess.site.sided ? guess.side : "both", color: colors.hi, opacity: 0.85 });
+    if (guess.site.ids.length) layers.push({ key: "guess-site", ids: guess.site.ids, side: guess.site.sided ? guess.side : "both", color: colors.hi, opacity: 0.85, clipNear: levelClip(guess.site, "guess") });
   }
+  // nothing placed yet (a new case): the whole neuraxis, so a cord case can be answered without hunting for the cord
+  if (!fit.length) for (const [s, c] of OVERVIEW) fit.push({ wp: sitePos(s, c), body: "L" });
   return { layers, tubes, marks, fit };
 }
+
+/** A lesion of a long tract or nucleus column (cord, brainstem) lights only its stretch at the lesion's level. */
+const LEVEL_CLIP: Record<string, number> = { "Spinal cord": 0.012, Medulla: 0.006, Pons: 0.007, Midbrain: 0.006 };
+function levelClip(site: Site, mark: string) {
+  const half = LEVEL_CLIP[site.group];
+  return half ? { mark, half } : undefined;
+}
+/** Framing for "nothing placed": the top of the cortex down to the lumbar cord. */
+const OVERVIEW: [Site, CordLevel | undefined][] = (() => {
+  const top = SITES.find((s) => s.group === "Cortex");
+  const low = SITES.find((s) => s.cord?.includes("L"));
+  const out: [Site, CordLevel | undefined][] = [];
+  if (top) out.push([top, undefined]);
+  if (low) out.push([low, "L"]);
+  return out;
+})();
 
 type Grade = { site: boolean; side: boolean; close: boolean };
 
@@ -205,6 +225,8 @@ export function LesionLab({
     return [...shuffle(idx.filter((i) => pool[i].card), seed), ...shuffle(idx.filter((i) => !pool[i].card), seed + 1)];
   }, [pool, seed]);
   const [caseNo, setCaseNo] = useState(0);
+  // a case starts with no lesion placed (it used to inherit the lab's lesion, so a case could be "checked" untouched)
+  const [placed, setPlaced] = useState(false);
   const [revealed, setRevealed] = useState<Grade | null>(null);
   const [score, setScore] = useState({ right: 0, total: 0 });
   const item = order.length ? pool[order[caseNo % order.length]] : null;
@@ -244,11 +266,11 @@ export function LesionLab({
 
   const showing: LesionResult | null = mode === "lab" ? lab : revealed ? truth : null;
   const guess = { site, side, cord: effCord };
-  const sceneIn = buildLabScene({ result: showing, guess: mode === "case" && !revealed ? guess : null, focusPath: mode === "lab" || revealed ? focusPath : null, zoom, colors });
+  const sceneIn = buildLabScene({ result: showing, guess: mode === "case" && !revealed && placed ? guess : null, focusPath: mode === "lab" || revealed ? focusPath : null, zoom, colors });
   const scene = mode === "case" && revealed && truth && guessMarks(sceneIn, guess, colors);
 
   const check = () => {
-    if (!item || revealed) return;
+    if (!item || revealed || !placed) return;
     const want = SITE_BY_ID.get(item.def.site)!;
     const siteOk = siteId === want.id;
     const sideOk = !want.sided || !item.def.side ? true : side === item.def.side;
@@ -263,6 +285,7 @@ export function LesionLab({
   const next = () => {
     setCaseNo((n) => n + 1);
     setRevealed(null);
+    setPlaced(false);
     setFocusPath(null);
     setSearch("");
     setFrameNonce((n) => n + 1);
@@ -271,6 +294,7 @@ export function LesionLab({
   const pickSite = (id: string, keepSide?: Side, y?: number) => {
     const s = SITE_BY_ID.get(id)!;
     setSiteId(id);
+    setPlaced(true);
     if (keepSide) setSide(keepSide);
     if (s.cord) setCord(y !== undefined ? nearestCord(s, y) : (c) => (c && s.cord!.includes(c) ? c : s.cord!.includes("T") ? "T" : s.cord![0]));
     setFocusPath(null);
@@ -343,6 +367,7 @@ export function LesionLab({
               setMode(m);
               if (m === "case") setSeed((Date.now() >>> 8) | 1);
               setRevealed(null);
+              setPlaced(false);
               setFocusPath(null);
               setFrameNonce((n) => n + 1);
             }}
@@ -469,9 +494,9 @@ export function LesionLab({
             {!revealed ? (
               <div className="grid gap-2">
                 <p className="rounded-sm border border-panel-border px-3 py-2 text-sm">
-                  Your lesion: <strong>{siteLabel(site, site.sided ? side : "both", effCord)}</strong>
+                  Your lesion: {placed ? <strong>{siteLabel(site, site.sided ? side : "both", effCord)}</strong> : <span className="text-text-dim">none yet: click a structure or pick a site below</span>}
                 </p>
-                <button type="button" className="btn btn-primary" onClick={check} style={{ justifySelf: "start" }}>
+                <button type="button" className="btn btn-primary" onClick={check} disabled={!placed} style={{ justifySelf: "start" }}>
                   Check the lesion
                 </button>
               </div>

@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { TrackballControls } from "@react-three/drei";
-import { ZoomToCursor } from "./zoomToCursor";
+import { OrbitControls } from "@react-three/drei";
+import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
 import { loadAtlasIndex, resolveStructureIds } from "@/lib/atlas";
 import type { AtlasIndex } from "@/lib/atlas";
 import { loadAtlasModel, releaseAtlasCache, retainAtlasCache } from "@/lib/atlas/loader";
@@ -48,6 +48,9 @@ export interface SceneLayer {
   info?: string;
   /** Dimmed (14%) when the camera looks from this side: the near hemisphere would hide the far one. */
   nearView?: View;
+  /** Only the stretch of the structure within `half` metres (up / down) of this mark is drawn: a lesion of the medial
+   *  lemniscus in the pons lights the lemniscus at the pons, not along the whole brainstem. */
+  clipNear?: { mark: string; half: number };
 }
 export interface SceneTube {
   key: string;
@@ -150,14 +153,14 @@ const PLANE_L = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0); // keeps x >= 0 
 const PLANE_R = new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0);
 
 /* Imperative material helpers live outside the components so the immutability lint does not treat GPU objects as state. */
-function styleLayerMat(mat: THREE.MeshStandardMaterial, o: { color: string; opacity: number; pickable?: boolean; hovered: boolean; side: Side | "both"; glow?: boolean }) {
+function styleLayerMat(mat: THREE.MeshStandardMaterial, o: { color: string; opacity: number; pickable?: boolean; hovered: boolean; side: Side | "both"; glow?: boolean; clipY?: [number, number] | null }) {
   mat.color.set(o.color);
   mat.emissive.set(o.color);
   mat.emissiveIntensity = o.pickable ? (o.hovered ? 0.7 : 0.25) : o.glow ? 1.15 : o.hovered ? 0.9 : 0.55;
   mat.opacity = o.hovered ? Math.min(1, o.opacity + 0.25) : o.opacity;
   mat.transparent = mat.opacity < 0.98;
   mat.depthWrite = !mat.transparent;
-  mat.clippingPlanes = o.side === "both" ? [] : [o.side === "L" ? PLANE_L : PLANE_R];
+  mat.clippingPlanes = [...(o.side === "both" ? [] : [o.side === "L" ? PLANE_L : PLANE_R]), ...(o.clipY ? [new THREE.Plane(new THREE.Vector3(0, 1, 0), -o.clipY[0]), new THREE.Plane(new THREE.Vector3(0, -1, 0), o.clipY[1])] : [])];
   mat.needsUpdate = true;
 }
 
@@ -168,7 +171,8 @@ function ContextShell({ file, color }: { file: string; color: string }) {
     let alive = true;
     loadAtlasModel(file).then((m) => {
       if (!alive) return;
-      const mat = new THREE.MeshStandardMaterial({ color, transparent: true, opacity: 0.035, roughness: 0.9, depthWrite: false, side: THREE.DoubleSide });
+      // front faces only and fainter: drawn double-sided, the body's layers stacked into an X-ray haze over the lesion
+      const mat = new THREE.MeshStandardMaterial({ color, transparent: true, opacity: 0.022, roughness: 0.9, depthWrite: false, side: THREE.FrontSide });
       m.traverse((o) => {
         const me = o as THREE.Mesh;
         if (me.isMesh) {
@@ -202,11 +206,13 @@ function LayerMesh({
   onPick,
   onHover,
   onLoaded,
+  clipY,
 }: {
   id: string;
   file: string;
   name: string;
   side: Side | "both";
+  clipY?: [number, number] | null;
   color: string;
   opacity: number;
   pickable?: boolean;
@@ -225,9 +231,9 @@ function LayerMesh({
   const cur = useRef(0);
   useEffect(() => () => mat.dispose(), [mat]);
   useEffect(() => {
-    styleLayerMat(mat, { color, opacity: cur.current, pickable, hovered, side, glow });
+    styleLayerMat(mat, { color, opacity: cur.current, pickable, hovered, side, glow, clipY });
     invalidate();
-  }, [mat, color, pickable, hovered, side, glow, invalidate]);
+  }, [mat, color, pickable, hovered, side, glow, invalidate, clipY?.[0], clipY?.[1]]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     let alive = true;
     loadAtlasModel(file).then((m) => {
@@ -640,6 +646,11 @@ export default function PathwayScene(p: SceneProps) {
   );
   const marks = useMemo(() => p.marks.map((m) => ({ ...m, v: resolveWP(m.p, verts, m.body, LANE) })).filter((m) => m.v), [p.marks, verts]);
   const limbs = useMemo(() => (p.limbs ?? []).map((l) => ({ ...l, v: resolveWP(l.at, verts, l.body, 0) })).filter((l) => l.v), [p.limbs, verts]);
+  const clipOf = (l: SceneLayer): [number, number] | null => {
+    if (!l.clipNear) return null;
+    const m = marks.find((k) => k.key === l.clipNear!.mark);
+    return m?.v ? [m.v.y - l.clipNear.half, m.v.y + l.clipNear.half] : null;
+  };
   const eyes = useMemo(() => {
     if (!p.eyes) return [];
     return (["L", "R"] as Side[])
@@ -715,10 +726,12 @@ export default function PathwayScene(p: SceneProps) {
   const tagLevels = useMemo(() => {
     if (!box || !p.tags) return [] as { key: string; side: Side; v: THREE.Vector3 }[];
     const c = box.getCenter(new THREE.Vector3());
-    const halfX = Math.max(box.getSize(new THREE.Vector3()).x / 2, LANE * 3) * 0.94;
+    // out at the sides and the top of the framed region, clear of the lesion and its labels (they sat in the middle of the
+    // picture, next to the lesion, and read as labels of it)
+    const halfX = Math.max(box.getSize(new THREE.Vector3()).x / 2, LANE * 3, 0.03);
     const out: { key: string; side: Side; v: THREE.Vector3 }[] = [];
     const top = p.view === "top";
-    [0.5].forEach((f, i) => {
+    [0.92].forEach((f, i) => {
       // in the top view the long axis of the picture is front to back (z), otherwise it is vertical
       const y = top ? c.y : box.min.y + (box.max.y - box.min.y) * f;
       const z = top ? box.min.z + (box.max.z - box.min.z) * f : c.z;
@@ -777,9 +790,10 @@ export default function PathwayScene(p: SceneProps) {
         <ambientLight intensity={1.4} />
         <directionalLight position={[1, 2, 3]} intensity={1.3} />
         <directionalLight position={[-2, 1, -2]} intensity={0.7} />
-        {/* a trackball: free rotation on both axes, no pole stops */}
-        <TrackballControls makeDefault staticMoving rotateSpeed={2.4} zoomSpeed={2.4} panSpeed={0.8} minDistance={0.03} maxDistance={4} keys={["F13", "F14", "F15"]} />
-        <ZoomToCursor el={null} />
+        {/* the same navigation as Explore and the brainstem atlas (owner 2026-11-22: the lesion lab's free trackball was hard
+            to steer): the brain stays upright, left drag rotates, right / middle drag pans, the wheel zooms toward the pointer */}
+        <OrbitControls makeDefault enableDamping dampingFactor={0.12} screenSpacePanning zoomToCursor zoomSpeed={0.8} rotateSpeed={0.8} minDistance={0.03} maxDistance={4} mouseButtons={NAV_MOUSE} touches={NAV_TOUCH} />
+        <NavExtras />
         <Rig box={box} view={p.view} nonce={p.frameNonce} resetKey={p.resetKey} onLock={setViewLocked} />
         {index && <ContextShell file={index.context.file} color={p.colors.dim} />}
         {p.anatomy?.map((a) => (
@@ -799,6 +813,7 @@ export default function PathwayScene(p: SceneProps) {
               name={x.name}
               side={x.l.side}
               color={x.l.color}
+              clipY={clipOf(x.l)}
               opacity={lit ? x.l.opacity * sa * strength * near : 0}
               pickable={x.l.pickable}
               hovered={p.hoverId === x.id || (!!x.l.info && hoverKey === x.l.info)}

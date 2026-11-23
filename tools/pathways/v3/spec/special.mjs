@@ -435,9 +435,10 @@ export const vestibular = {
       B({ f: [f3.json()], syn: soma(vnuc, "a:vestibular-nuclei", 1) }),
       B({ f: [f4.json()], syn: soma(floc, "a:flocculus", 1) }),
       B({ soma: soma(vnuc, "a:vestibular-nuclei", 2), stops: [atlasStop("vestibular-nuclei", side, "Vestibular nuclei"), atlasStop("flocculus", side, "Flocculus (cerebellum)")] }),
-      B({ f: [x6.json(), m3.json()], syn: soma(iii, "a:nucleus-of-oculomotor-nerve", 2), cross: { p: cross, host: "a:pons", level: "pons, to the other abducens nucleus", yMin: 1.578, yMax: 1.59, name: "VOR fibres cross" } }),
-      B({ f: [vs.json()], syn: soma(lmn, "a:anterior-horn-of-spinal-cord", 2) }),
-      B({ f: [up.json()], syn: soma(th, "a:thalamus", 2) }),
+      // (each branch names where it arrives: the last steps used to end on an unnamed point, owner audit 2026-11-22)
+      B({ f: [x6.json(), m3.json()], syn: soma(iii, "a:nucleus-of-oculomotor-nerve", 2), cross: { p: cross, host: "a:pons", level: "pons, to the other abducens nucleus", yMin: 1.578, yMax: 1.59, name: "VOR fibres cross" }, stops: [atlasStop("nucleus-of-abducens-nerve", O, "Abducens nucleus (other side)"), atlasStop("nucleus-of-oculomotor-nerve", side, "Oculomotor nucleus")] }),
+      B({ f: [vs.json()], syn: soma(lmn, "a:anterior-horn-of-spinal-cord", 2), stops: [stop(`a:anterior-horn-of-spinal-cord@${side}`, "Ventral horn (axial muscles)")] }),
+      B({ f: [up.json()], syn: soma(th, "a:thalamus", 2), stops: [atlasStop("thalamus", side, "Thalamus")] }),
     ];
   },
 };

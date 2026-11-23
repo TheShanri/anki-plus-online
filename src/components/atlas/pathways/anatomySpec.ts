@@ -84,7 +84,7 @@ export const SITES: Record<string, AnatCfg> = {
     },
     end: {
       name: "Heart, lungs, gut and glands",
-      path: "Long postganglionic fibres to the targets",
+      path: "Long postganglionic fibres to the organs",
       lines: [["Targets", "smooth muscle, cardiac muscle and glands"], ["Cardiac muscle", "the heart"], ["Smooth muscle", "the lungs and the gut"], ["Glands", "salivary glands"]],
       targets: [
         { key: "thorax:heart", rel: "m", label: "Heart (cardiac muscle)", obj: "organ_heart" },
@@ -101,8 +101,8 @@ export const SITES: Record<string, AnatCfg> = {
       "head-targets": { show: ["gland_submandibular", "gland_parotid", "organ_eyeball", "organ_cornea"] },
     },
     end: {
-      name: "Heart, lungs, gut, glands and pupil",
-      path: "Short postganglionic fibres to the target organs",
+      name: "Lungs, gut, glands and pupil",
+      path: "Short postganglionic fibres to the other target organs",
       lines: [["Targets", "the target organ the ganglion sits on or near"], ["Brainstem outflow", "Edinger-Westphal (CN III: pupil), superior salivatory (CN VII), inferior salivatory (CN IX), dorsal motor nucleus of X (heart, lungs, gut)"], ["Sacral outflow", "S2-S4 for the lower gut and pelvic organs"]],
       targets: [
         { key: "thorax:heart", rel: "m", label: "Heart", obj: "organ_heart" },

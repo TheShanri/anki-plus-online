@@ -57,5 +57,10 @@ lmn("tectospinal", "c", "tectospinal-tract", 0.8, "Neck muscles (head turns towa
 lmn("reticulospinal", "i", "lateral-reticulospinal-tract", 0.5, "Axial and proximal muscles (posture)")
 lmn("vestibulospinal", "i", "lateral-vestibulospinal-tract", 0.5, "Axial (antigravity) muscles (balance)")
 
+# the autonomic pathways reach two targets each, one after the other: name the first one for what it is (they read as the
+# same ending twice: "smooth muscle, cardiac muscle, glands" then "heart, lungs, gut and glands")
+pw["sympathetic"]["neurons"][-1]["syn"] = "Skin: vessels, sweat glands, hair muscles"
+pw["parasympathetic"]["neurons"][-1]["syn"] = "Heart (cardiac muscle)"
+
 json.dump(d, open(P, "w", encoding="utf8"), ensure_ascii=False, separators=(",", ":"))
 print("patched", len(pw), "pathways")

@@ -14,7 +14,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 W = os.path.join(ROOT, "_atlas/raw/v3")
 
 m = trimesh.load(os.path.join(W, "hull.raw.glb"), force="mesh")
-z = zmap.mni_to_z(zmap.world_to_mni(np.asarray(m.vertices)))
+z = zmap.mni_to_frame(zmap.world_to_mni(np.asarray(m.vertices)))
 h = trimesh.Trimesh(vertices=z, faces=np.asarray(m.faces), process=False)
 h.fix_normals()
 trimesh.Scene({"brain3_hull": h}).export(os.path.join(W, "hull_z.raw.glb"), file_type="glb")

@@ -71,6 +71,18 @@ embeds Explore; My memory map (`MemoryMap3D`) and Slice match (`CutView3`, exact
 use the new canvas. The previous browser lives on at `/atlas/classic`; Blood supply still uses the old engine (its
 vessels and territories are not in v3 yet).
 
+The Pathway tracer and the Lesion lab live in the Z-Anatomy frame of the old atlas (the whole body). They now draw the
+v3 brain there: `zmap.mni_to_frame` carries MNI into that frame (the v2 registration maps the model mirrored, its left
+to MNI's right: a symmetric brain registers either way, so points are mirrored across the symmetric template's midline
+before the inverse warp; `frame_to_mni` is the way back). `zframe.py` writes the v3 hull there (the tracer's brain
+outline and veil). `tools/pathways/v3/rehost.py`, run after `build.mjs`, re-hosts the built pathways: each old brain
+host is paired with its v3 structure (catalog slug), a thin-plate-spline warp takes the old structures' centres to the
+v3 ones (the body fixed by anchors outside the brain), every pathway point goes through it, fibre ends are pulled
+inside their structures, and `public/pathways/v3/hosts3.glb` holds the v3 structures (or, for thin tracts and the
+caudal medulla, where the warped fibres would leave the v3 shape, the old meshes carried by the same warp). The host
+keys stay `a:<old id>`; `geometry.ts` takes those ids from `hosts3.glb`. It prints, per host, the share of fibre
+points inside (all above 78 % except where a long fibre leaves a small nucleus it starts in).
+
 Before the left/right split only midline structures are despeckled (the smaller side of a small pair is otherwise taken for
 a speck).
 

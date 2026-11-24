@@ -52,6 +52,20 @@ def mni_to_z(mm, iters=30):
     return P
 
 
+def mni_to_frame(mm):
+    """MNI mm -> the frame of the Pathway tracer and Blood supply (the Z-Anatomy model as exported, patient's left = +X).
+    The v2 registration maps that model mirrored (its +X, the patient's left, to MNI +x, the right: a symmetric brain
+    registers equally well either way), so a point is mirrored across the template's midline (the template is symmetric)
+    before the inverse warp: the atlas's left hemisphere lands on the tracer's left."""
+    mm = np.asarray(mm, float) * [-1.0, 1.0, 1.0]
+    return mni_to_z(mm)
+
+
+def frame_to_mni(P):
+    """The inverse of mni_to_frame: a point of the Pathway tracer's frame (patient's left = +X) -> MNI mm."""
+    return z_to_mni(P) * [-1.0, 1.0, 1.0]
+
+
 def mni_to_world(mm):
     mm = np.asarray(mm, float)
     return np.stack([-mm[:, 0], mm[:, 2], mm[:, 1]], 1) / 1000.0

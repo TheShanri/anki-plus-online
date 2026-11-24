@@ -167,6 +167,17 @@ export async function atlasName(id: string): Promise<string> {
   return ix.structures[id]?.name ?? id;
 }
 
+/** Old-atlas hosts the tracer now draws from the 3D atlas v3 (tools/pathways/v3/rehost.py): the v3 structure, or the old
+ * mesh carried by the same warp as the fibres, in public/pathways/v3/hosts3.glb as "<id>.<L|R|M|X>" nodes. */
+let hosts3: Promise<Set<string>> | null = null;
+function hosts3Ids(): Promise<Set<string>> {
+  hosts3 ??= fetch("/pathways/v3/hosts3.json")
+    .then((r) => (r.ok ? r.json() : { hosts: {} }))
+    .then((j: { hosts: Record<string, string | null> }) => new Set(Object.keys(j.hosts).map((k) => k.replace(/\.(L|R|M|X)$/, ""))))
+    .catch(() => new Set<string>());
+  return hosts3;
+}
+
 const GEO = new Map<string, Promise<THREE.BufferGeometry | null>>();
 /** The world geometry of one host key (not a union). Side-restricted atlas keys (a:id@L) are clipped by the caller. */
 export function hostGeometry(key: HostKey, geo: Record<string, V3Geo>): Promise<THREE.BufferGeometry | null> {
@@ -177,7 +188,11 @@ export function hostGeometry(key: HostKey, geo: Record<string, V3Geo>): Promise<
   const [kind, ...rest] = key.split(":");
   const id = rest.join(":").split("@")[0];
   if (kind === "a") {
-    p = atlasIndex().then(async (ix) => {
+    p = Promise.all([atlasIndex(), hosts3Ids()]).then(async ([ix, h3]) => {
+      if (h3.has(id)) {
+        const s = await loadGlb("/pathways/v3/hosts3.glb");
+        return s ? merge(s, (n) => n.startsWith(id + ".")) : null;
+      }
       const ids = resolveStructureIds(ix, [id], 60);
       const parts = await Promise.all(ids.map((k) => loadGlb(`/atlas/${ix.structures[k].file}`).then((s) => (s ? merge(s, () => true) : null))));
       return mergeGeos(parts.filter((x): x is THREE.BufferGeometry => !!x));

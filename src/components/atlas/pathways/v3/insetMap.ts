@@ -70,10 +70,13 @@ function levelOf(y: number): { kind: "cord" | "brainstem"; level: string } | nul
   // plate slugs keep their old names; the course's level names are in brainstem-levels.json
   if (y < 1.5465) return { kind: "brainstem", level: "medulla-caudal" }; // brainstem / spinal cord transition (motor decussation)
   if (y < 1.558) return { kind: "brainstem", level: "medulla-mid" }; // caudal medulla (gracile and cuneate nuclei, internal arcuate fibres)
-  if (y < 1.5765) return { kind: "brainstem", level: "medulla-rostral" }; // rostral medulla (olive)
-  if (y < 1.588) return { kind: "brainstem", level: "pons-caudal" }; // caudal pons (facial and abducens)
-  if (y < 1.6015) return { kind: "brainstem", level: "pons-mid" }; // rostral pons (trigeminal level)
-  if (y < 1.609) return { kind: "brainstem", level: "midbrain-ic" }; // caudal midbrain (inferior colliculus)
+  // above the caudal medulla the brainstem is the 3D atlas's (re-hosted, tools/pathways/v3/rehost.py): the bounds are the
+  // midpoints between the levels' landmarks there (olive, facial nucleus, motor trigeminal nucleus, inferior and superior
+  // colliculi, carried into this frame)
+  if (y < 1.5761) return { kind: "brainstem", level: "medulla-rostral" }; // rostral medulla (olive)
+  if (y < 1.5868) return { kind: "brainstem", level: "pons-caudal" }; // caudal pons (facial and abducens)
+  if (y < 1.6009) return { kind: "brainstem", level: "pons-mid" }; // rostral pons (trigeminal level)
+  if (y < 1.6114) return { kind: "brainstem", level: "midbrain-ic" }; // caudal midbrain (inferior colliculus)
   if (y < 1.618) return { kind: "brainstem", level: "midbrain-sc" }; // rostral midbrain (superior colliculus)
   return null;
 }

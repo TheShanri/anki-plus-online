@@ -3,8 +3,9 @@
 Sources:
   HCP-842 "Advanced atlas of 80 bundles" (Yeh 2018, CC BY 4.0): population tractography in MNI space, the same space as
   the atlas, so its streamlines need no warp. A few dozen streamlines per bundle, spread over its extent.
-  The course's Pathway tracer (public/pathways/v3/*.json): the pathway's own course through the brain, one line per side,
-  drawn in the Z-Anatomy space of the old atlas and carried into MNI space by zmap.py (approximate, a few mm).
+  The course's Pathway tracer (public/pathways/v3/*.json, re-hosted onto the v3 anatomy by tools/pathways/v3/rehost.py):
+  the pathway's own course through the brain, one line per side, carried from the tracer's frame into MNI space by
+  zmap.frame_to_mni (approximate, a few mm).
 
 Writes public/atlas3/fibres/<course-slug>.json: {"src", "credit", "lines": [[x0, y0, z0, x1, ...], ...]} in v3 world
 metres (X = patient's left, Y = up, Z = anterior), and public/atlas3/fibres/index.json (the slugs).
@@ -110,7 +111,7 @@ def pathway_lines(name, beats):
                 z = np.array(f["pts"], float).reshape(-1, 3)
                 if len(z) < 2:
                     continue
-                for piece in clip(resample(zmap.z_to_mni(z))):
+                for piece in clip(resample(zmap.frame_to_mni(z))):
                     lines.append(to_world(piece))
     return lines
 

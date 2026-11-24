@@ -15,6 +15,7 @@ import { SectionEmbed } from "@/components/atlas/brainstem/SectionEmbed";
 import type { Atlas3Props, Cut3, View3 } from "./engine/Atlas3Canvas";
 import type { Index3, Label3, Prog } from "./engine/data";
 import { SECTIONS, hasGeometry, loadCatalog, norm, search, sectionOf, type CatItem } from "./catalog";
+import { STEM, deepSets, inStemOf, isDeep, presentItem } from "./present";
 import "@/components/atlas/ui/atlas-ui.css";
 import "./atlas3.css";
 
@@ -46,21 +47,7 @@ const VIEWS: { id: View3; label: string; text: string; key: string }[] = [
 /** world extents (metres) of the brain for the cut slider, per axis */
 const RANGE: Record<"x" | "y" | "z", [number, number]> = { x: [-0.072, 0.072], y: [-0.072, 0.082], z: [-0.105, 0.072] };
 const CUT_NAME: Record<CutAxis, string> = { off: "No cut", z: "Coronal cut", x: "Sagittal cut", y: "Horizontal cut" };
-/** tissues hidden in the deep-structures view (cortex, white matter, cerebellar cortex) */
-const DEEP_HIDE = new Set(["ctx", "wm", "cbx"]);
-/** below this share of its surface visible from the best standard view, a structure opens in the deep view */
-const DEEP_SHARE = 0.07;
-/** the brainstem: its divisions, and the nuclei and tracts placed from the course plates. In the deep view of a
- * selection inside it, the rest of it is a see-through veil (and its fluid spaces a veil of their own) */
-const STEM = new Set([
-  ...["MTg", "mRt", "PnBa", "PnTg", "PnO", "MoTg", "BSW", "CPd", "Py", "IO", "SC", "ICo", "SCP", "MCP", "ICP", "PAG", "RN", "SN", "VTA", "PTg", "LC", "DR", "MnR", "LDTg", "PBC", "ML", "MLF", "PTR"],
-  ...["III", "EW", "IV", "BIC", "xSCP", "IPF", "Vmo", "Vps", "VI", "VII", "FCol", "PPRF", "LFP", "VCx", "Sp5", "Sol", "DMX", "XII", "Amb", "Gr", "Cu", "IAF", "PyX", "ALS", "DSCT"],
-  // the nerve roots leaving it (context around a nucleus; a nerve in the deep view is seen leaving the see-through stem)
-  ...["CN3", "CN4", "CN5", "CN6", "CN7", "CN8", "CN9", "CN10", "CN12"],
-]);
-const STEM_FLUID = new Set(["Aq", "V4", "CeC"]);
-/** solid context in the deep view of a selection: the ventricles (the brainstem is drawn as a veil) */
-const VENTRICLES = new Set(["aLV", "bLV", "xLV", "pLV", "iLV", "IVF", "V3", "Aq", "V4", "CeC"]);
+
 
 export function Explore3({
   initialS,
@@ -70,6 +57,8 @@ export function Explore3({
   initialSide,
   initialView,
   courseSlug,
+  embedded = false,
+  height,
 }: {
   initialS?: string;
   initialN?: string;
@@ -80,6 +69,9 @@ export function Explore3({
   initialView?: string;
   /** the student's course, for the course-section images (the Sections mode is hidden without it) */
   courseSlug?: string;
+  /** inside another page (the atlas peek over the study cards): no URL changes, a fixed height */
+  embedded?: boolean;
+  height?: number;
 }) {
   const [index, setIndex] = useState<Index3 | null>(null);
   const [items, setItems] = useState<CatItem[] | null>(null);
@@ -98,6 +90,15 @@ export function Explore3({
   const [focus, setFocus] = useState<{ ids: number[]; nonce: number } | null>(null);
   const [prog, setProg] = useState<{ shell?: Prog; inner?: Prog }>({});
   const listRef = useRef<HTMLDivElement>(null);
+  // a wide screen (the card floats over the stage's right side; on a phone it is a bottom sheet)
+  const [wide, setWide] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const on = () => setWide(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
   // the stage: the 3D brain, the MRI atlas, or the course's own brainstem sections, all on the same selection
   const startStage: Stage = initialView && MRI_VIEW[initialView] ? "mri" : initialView === "sections" && courseSlug ? "sections" : "3d";
   const [stage, setStage] = useState<Stage>(startStage);
@@ -153,23 +154,12 @@ export function Explore3({
   // ---- what is shown
   const selIds = useMemo(() => item?.ids ?? [], [item]);
   const selDeep = useMemo(() => isDeep(selIds, byId), [selIds, byId]);
-  // a selection inside the brainstem is seen through the rest of it
-  const inStem = useMemo(() => selIds.length > 0 && selIds.every((id) => STEM.has(byId.get(id)?.key ?? "")), [selIds, byId]);
-  const hiddenIds = useMemo(() => {
-    if (!deep || !index) return [];
-    const keep = new Set(selIds);
-    if (keep.size && inStem) return index.labels.filter((l) => !keep.has(l.id)).map((l) => l.id);
-    // with a selection: the selection, the ventricles (solid) and the brainstem (a veil, so it never hides a deep
-    // cerebellar nucleus or the thalamus behind it); without: every deep structure
-    if (keep.size) return index.labels.filter((l) => !keep.has(l.id) && !VENTRICLES.has(l.key)).map((l) => l.id);
-    return index.labels.filter((l) => DEEP_HIDE.has(l.tissue)).map((l) => l.id);
-  }, [deep, index, selIds, inStem]);
-  const ghostIds = useMemo(() => {
-    if (!deep || !index || !selIds.length) return [];
-    const keep = new Set(selIds);
-    // inside the brainstem its ventricles are a veil too; elsewhere they stay solid context
-    return index.labels.filter((l) => !keep.has(l.id) && (STEM.has(l.key) || (inStem && STEM_FLUID.has(l.key)))).map((l) => l.id);
-  }, [deep, index, selIds, inStem]);
+  // the deep view: what it hides and what it draws as a veil (present.ts); a selection inside the brainstem is seen
+  // through the rest of it
+  const inStem = useMemo(() => inStemOf(selIds, byId), [selIds, byId]);
+  const deepView = useMemo(() => (deep && index ? deepSets(index, selIds, byId) : null), [deep, index, selIds, byId]);
+  const hiddenIds = useMemo(() => deepView?.hiddenIds ?? [], [deepView]);
+  const ghostIds = useMemo(() => deepView?.ghostIds ?? [], [deepView]);
   const cut: Cut3 | null = cutAxis === "off" ? null : { axis: cutAxis, pos: cutPos, flip: cutFlip };
   const hideSides = useMemo<("L" | "R")[]>(() => (sides === "L" ? ["R"] : sides === "R" ? ["L"] : []), [sides]);
   const pins = useMemo(() => {
@@ -194,39 +184,28 @@ export function Explore3({
       if (!it) return;
       if (it.extra) trackAtlas({ type: "curious_unlock", mesh: it.slug, name: it.name });
       else trackAtlas({ type: "structure_viewed", slug: it.slug, via: stageRef.current === "mri" ? "mri" : "3d" });
-      if (!it.ids.length && (it.sulcus !== undefined || it.area !== undefined)) {
+      if (!index) return;
+      const pr = presentItem(it, index, byId);
+      if (!it.ids.length) {
         // a sulcus or a functional area: the outside surface, from the view that shows it
-        const ak = it.area !== undefined ? index?.areas.find((a) => a.bit === it.area)?.key : undefined;
-        const v: View3 = it.sulcus !== undefined ? (SULCUS_VIEW[it.sulcus] ?? "left") : ((ak ? AREA_VIEW[ak] : undefined) ?? "left");
         setDeep(false);
         setCutAxis("off");
-        setView(v);
-        setSides(v === "medial-left" ? "L" : v === "medial-right" ? "R" : "both");
+        setView(pr.view);
+        setSides(pr.sides);
         setViewNonce((n) => n + 1);
         return;
       }
-      const deepNow = isDeep(it.ids, byId);
-      const stemNow = deepNow && cutAxis === "off" && it.ids.every((id) => STEM.has(byId.get(id)?.key ?? ""));
-      if (cutAxis === "off") setDeep(deepNow);
+      if (cutAxis === "off") setDeep(pr.deep);
       if (opts.frame !== false) {
-        // an outside structure is shown from the view that shows it best (medial for the cuneus, inferior for the
-        // mammillary bodies); the medial views hide the other hemisphere
-        if (!deepNow && cutAxis === "off") {
-          // the cranial nerves are seen from below, where they leave the brainstem
-          const nerves = it.ids.length > 0 && it.ids.every((id) => byId.get(id)?.tissue === "nrv");
-          const bv = nerves ? "inferior" : bestView(it.ids, byId).view;
-          setView(bv);
-          setSides(bv === "medial-left" ? "L" : bv === "medial-right" ? "R" : "both");
-          setViewNonce((n) => n + 1);
-        } else if (stemNow) {
-          // a nucleus or tract inside the brainstem: the whole see-through brainstem from behind, so its level
-          // (midbrain, pons, medulla), both sides and the floor of the fourth ventricle are seen at once
-          setView("posterior");
-          setSides("both");
+        // an outside structure from the view that shows it best (a nerve from below); a brainstem nucleus inside the
+        // whole see-through brainstem from behind (its level, both sides and the floor of the fourth ventricle at once);
+        // any other deep structure from the student's current direction
+        if (cutAxis === "off" && (!pr.deep || pr.stem)) {
+          setView(pr.view);
+          setSides(pr.sides);
           setViewNonce((n) => n + 1);
         }
-        const stemIds = stemNow ? (index?.labels ?? []).filter((l) => STEM.has(l.key)).map((l) => l.id) : [];
-        setFocus((f) => ({ ids: stemNow ? [...new Set([...it.ids, ...stemIds])] : it.ids, nonce: (f?.nonce ?? 0) + 1 }));
+        setFocus((f) => ({ ids: cutAxis === "off" ? pr.focusIds : it.ids, nonce: (f?.nonce ?? 0) + 1 }));
       }
     },
     [byId, cutAxis, index],
@@ -303,6 +282,7 @@ export function Explore3({
 
   // ---- URL state
   useEffect(() => {
+    if (embedded) return;
     const u = new URL(window.location.href);
     const set = (k: string, v: string | null) => (v ? u.searchParams.set(k, v) : u.searchParams.delete(k));
     set("s", sel);
@@ -423,6 +403,8 @@ export function Explore3({
     dimOthers: deep,
     look,
     focus,
+    // the structure card covers the right of the stage on a wide screen
+    insetRight: item && stage === "3d" && wide ? 384 : 0,
     pins,
     sulcus: item?.sulcus,
     areaMask: item?.area !== undefined ? 1 << item.area : 0,
@@ -434,7 +416,7 @@ export function Explore3({
   const provenance = item ? provenanceText(item, byId) : "";
 
   return (
-    <div className="atl3-shell" style={{ height: "calc(100dvh - 150px)", minHeight: 560 }}>
+    <div className="atl3-shell" style={embedded ? { height: height ?? 560, minHeight: 0 } : { height: "calc(100dvh - 150px)", minHeight: 560 }}>
       <aside className="atl3-panel" aria-label="Structures">
         <div className="atl3-search">
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search structures" aria-label="Search structures" />
@@ -657,31 +639,6 @@ export function Explore3({
       </section>
     </div>
   );
-}
-
-/** The view that shows a sulcus (by id) or a functional area (by key) best. */
-const SULCUS_VIEW: Record<number, View3> = { 1: "superior", 2: "left", 3: "medial-left", 4: "medial-left", 5: "superior", 6: "left", 7: "left", 8: "left", 9: "left", 10: "superior", 11: "left", 12: "medial-left", 13: "inferior", 14: "superior", [-1]: "left" };
-const AREA_VIEW: Record<string, View3> = { ofc: "inferior", vmpfc: "medial-left", acc: "medial-left", v1: "medial-left", va: "posterior", vvs: "inferior", pga: "left", s2a: "superior", m1: "left", s1: "left" };
-const PX_MM2 = 0.1526;
-/** The standard view that shows a structure best (pixels counted off screen by tools/atlas3/views.py), and how much of
- * its surface that view shows. One side is enough: the left copy (or the midline structure) is measured. */
-function bestView(ids: number[], byId: Map<number, Label3>): { view: View3; share: number } {
-  const ls = ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l);
-  const half = ls.some((l) => l.side === "L") ? ls.filter((l) => l.side !== "R") : ls;
-  const area = half.reduce((s, l) => s + l.area, 0);
-  let best: View3 = "left", px = -1;
-  for (const v of ["left", "right", "anterior", "posterior", "superior", "inferior", "medial-left", "medial-right"] as View3[]) {
-    const n = half.reduce((s, l) => s + (l.vis[v] ?? 0), 0);
-    if (n > px) {
-      px = n;
-      best = v;
-    }
-  }
-  return { view: best, share: area > 0 ? (px * PX_MM2) / area : 0 };
-}
-/** Deep: no standard view shows a fair part of it (thalamus, putamen, insula behind the opercula, hippocampus). */
-function isDeep(ids: number[], byId: Map<number, Label3>): boolean {
-  return ids.length > 0 && bestView(ids, byId).share < DEEP_SHARE;
 }
 
 /** Where the shape comes from, when it is not a source atlas's own label: students should know what is exact. */

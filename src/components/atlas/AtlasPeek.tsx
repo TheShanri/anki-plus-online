@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AtlasBrowser } from "./AtlasBrowser";
+import { Explore3 } from "@/components/atlas3/Explore3";
 
 /**
- * The whole atlas (search, 3D, MRI slices, neighbours) in a window over the study card, so a session is never
- * left to look something up. Keys typed inside it do not reach the study shortcuts; Esc, Close or a click on
+ * The whole atlas (search, 3D, MRI slices) in a window over the study card, so a session is never left to look
+ * something up. Keys typed inside it do not reach the study shortcuts; Esc, Close or a click on
  * the backdrop returns to the same card.
  */
 export default function AtlasPeek({ slug, name, onClose }: { slug: string | null; name?: string; onClose: () => void }) {
@@ -42,7 +42,7 @@ export default function AtlasPeek({ slug, name, onClose }: { slug: string | null
           Back to cards
         </button>
       </div>
-      <AtlasBrowser initialS={slug ?? undefined} embedded height={h} />
+      <Explore3 initialS={slug ?? undefined} embedded height={h} />
     </dialog>
   );
 }

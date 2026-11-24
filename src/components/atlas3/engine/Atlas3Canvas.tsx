@@ -50,6 +50,8 @@ export interface Atlas3Props {
   areaMask?: number;
   /** per-label colour overrides (surface and cut face) */
   colors?: Record<number, string>;
+  /** pixels on the right covered by a panel (the structure card): a focused structure is framed in the free part */
+  insetRight?: number;
   /** fly the camera to these labels (applied once per nonce) */
   focus?: { ids: number[]; nonce: number } | null;
   pins?: Pin3[];
@@ -399,7 +401,17 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     const bq = oc.dot(d), cq = oc.lengthSq() - R * R * 1.02;
     const tOut = -bq + Math.sqrt(Math.max(0, bq * bq - cq));
     dist = Math.max(dist, tOut + 0.01);
-    flyTo(c, d, dist);
+    // a panel over the right of the stage: move the view so the structure sits in the middle of the free part
+    const inset = Math.min(props.insetRight ?? 0, size.width * 0.5);
+    const target = c.clone();
+    if (inset > 0 && size.width > 0) {
+      const right = new THREE.Vector3().crossVectors(d.clone().negate(), new THREE.Vector3(0, 1, 0));
+      if (right.lengthSq() < 1e-8) right.set(1, 0, 0);
+      right.normalize();
+      const halfW = dist * Math.tan((cam.fov * Math.PI) / 360) * (size.width / Math.max(1, size.height));
+      target.addScaledVector(right, (inset / size.width) * halfW);
+    }
+    flyTo(target, d, dist);
   }, [focusNonce, box]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ---------------- GPU picking: the id render of one pixel (label + whether it is a cut face)

@@ -14,11 +14,11 @@ import { emit } from "@/lib/feedback/events";
 import { trackAtlas } from "@/lib/atlas/progress";
 import "@/components/study/study.css"; // help-line, kbd, choice and verdict styles
 
-// The 3D viewer, with names hidden: label="" (no title) and quiz (no hover names or labels).
-const AtlasViewer = dynamic(() => import("./AtlasViewer"), {
+// The 3D atlas showing the structure by itself, every name hidden (no pins, no hover names).
+const StructureView3 = dynamic(() => import("@/components/atlas3/StructureView3"), {
   ssr: false,
   loading: () => <ViewerSkeleton height={480} />,
-}) as unknown as ComponentType<Record<string, unknown>>;
+});
 
 // the 3D brainstem (its landmarks lit), beside the brainstem plate, for brainstem structures
 const Brainstem3D = dynamic(() => import("./brainstem/three/Brainstem3D"), {
@@ -38,6 +38,7 @@ const ALSO: Record<string, string[]> = {
   "pontine-protuberance": ["pons", "basilar pons", "basis pontis", "ventral pons", "basilar part of the pons", "basilar part of pons"],
 };
 
+/** meshIds: what the 3D atlas lights for it (v3 label ids, or a sulcus / area key), compared to accept look-alikes */
 export type QuizItem = { slug: string; name: string; synonyms: string[]; meshIds: string[]; unit: string | null; region: string | null; studied: boolean };
 type Pool = "all" | "units" | "studied";
 type AnswerMode = "type" | "choice";
@@ -354,7 +355,7 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
         <span className={`combo-pill${streak >= 3 ? " on" : ""}`}>streak {streak}</span>
         <button type="button" className="btn ml-auto" onClick={() => setPhase("setup")}>Quit</button>
       </div>
-      <AtlasViewer key={cur.slug} structureIds={cur.meshIds} mode="focus" label="" quiz height={480} />
+      <StructureView3 key={cur.slug} slug={cur.slug} quiz height={480} />
       {(bsPlate || bs3d) && (
         // a brainstem structure: also lit on the 3D brainstem and on its brainstem-atlas plate (names hidden until answered)
         <div className={`grid gap-3 ${bsPlate && bs3d ? "md:grid-cols-2" : ""}`}>
@@ -426,7 +427,7 @@ export function QuizGame({ items, names, units }: { items: QuizItem[]; names: Ar
           <p className="help-line">
             {mode === "type" ? <span><span className="kbd">Enter</span> answer</span> : <span><span className="kbd">1</span>-<span className="kbd">4</span> pick</span>}
             <span><span className="kbd">Esc</span> don&apos;t know</span>
-            <span>drag to rotate, scroll to zoom, cuts at the top right</span>
+            <span>drag to rotate, scroll to zoom</span>
           </p>
         )}
       </div>

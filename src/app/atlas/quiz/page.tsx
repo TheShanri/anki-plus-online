@@ -4,7 +4,20 @@ import { AtlasModes } from "@/components/atlas/AtlasModes";
 import { QuizGame, type QuizItem } from "@/components/atlas/QuizGame";
 import { createClient, getAuthUser } from "@/lib/supabase/server";
 import { fetchAll, loadIndex, resolveCourse } from "@/lib/study/server";
-import { atlasTargetForSlug } from "@/lib/atlas/catalog";
+import catalog3 from "../../../../public/atlas3/catalog.json";
+
+/** course structures too broad to "name" from a highlight (the whole cortex, every gyrus, the brain ...) */
+const QUIZ_SKIP = new Set(["gyrus", "sulcus", "cortical-ribbon", "cerebral-cortex", "allocortex", "paleocortex", "archicortex", "white-matter", "cerebrospinal-fluid",
+  "ventricular-system", "brain", "telencephalon", "prosencephalon", "rhombencephalon", "metencephalon", "commissural-fibers", "projection-fibers",
+  "association-fibers", "cerebellar-cortex", "deep-cerebellar-nuclei", "cranial-nerves", "cerebrum", "brainstem", "cerebellum"]);
+type Cat3 = { slug: string; ids: number[]; sulcus?: number; area?: number; extra?: boolean; concept?: boolean };
+/** what the v3 atlas lights for a course structure, as comparable keys (two structures with the same keys look alike) */
+const HIGHLIGHT = new Map<string, string[]>();
+for (const it of (catalog3 as { items: Cat3[] }).items) {
+  if (it.extra || it.concept || QUIZ_SKIP.has(it.slug)) continue;
+  const keys = it.ids.length ? it.ids.map(String) : it.sulcus !== undefined ? [`sulcus:${it.sulcus}`] : it.area !== undefined ? [`area:${it.area}`] : [];
+  if (keys.length) HIGHLIGHT.set(it.slug, keys);
+}
 
 export const metadata = { title: "Atlas quiz" };
 export const dynamic = "force-dynamic";
@@ -31,13 +44,13 @@ export default async function AtlasQuizPage() {
 
   const items: QuizItem[] = [];
   for (const s of structs) {
-    const t = atlasTargetForSlug(s.slug);
-    if (!t || !t.ids.length || t.approximate) continue; // only structures the 3D model shows exactly
+    const hl = HIGHLIGHT.get(s.slug);
+    if (!hl) continue; // only structures the 3D atlas shows
     items.push({
       slug: s.slug,
       name: s.canonical_name,
       synonyms: s.synonyms ?? [],
-      meshIds: t.ids,
+      meshIds: hl,
       unit: s.unit_id ? unitSlug.get(s.unit_id) ?? null : null,
       region: s.region,
       studied: studied.has(s.id),

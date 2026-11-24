@@ -2,9 +2,9 @@
 // /atlas/brainstem: each level as one clean plate (outlines only; hover names a region, click opens it), a side-view
 // navigator with a mastery ring per level, and the mastery path (learn level by level, then region, then the whole
 // brainstem; practice what is mastered). Compare shows the same level in the other sources, and only there.
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
-import { Box, ChevronDown, ChevronUp, Columns2, Images, Layers, X } from "lucide-react";
+import { Box, ChevronDown, ChevronUp, Columns2, Images, Layers, PanelRightClose, PanelRightOpen, Search, X } from "lucide-react";
 import type { BrainstemMastery } from "@/lib/brainstem/mastery-server";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { StructureInfo } from "@/components/atlas/StructureInfo";
@@ -27,6 +27,128 @@ const Brainstem3D = dynamic(() => import("./three/Brainstem3D"), { ssr: false, l
 // the 3D brainstem a central part of the experience, not a side piece). "plates" keeps the plate alone (with Compare and
 // the small 3D locator); "3d" the model alone.
 type Mode = "split" | "plates" | "3d";
+
+/* the plate beside the 3D brainstem can be folded away (owner 2026-11-24: "Make this pons schematic collapsible"),
+ * remembered per browser */
+const foldListeners = new Set<() => void>();
+function readFold(key: string): boolean {
+  try {
+    return localStorage.getItem(key) === "1";
+  } catch {
+    return false;
+  }
+}
+function writeFold(key: string, v: boolean) {
+  try {
+    localStorage.setItem(key, v ? "1" : "0");
+  } catch {}
+  for (const l of foldListeners) l();
+}
+/** A folded panel, remembered per browser: the plate beside the 3D brainstem ("bs-plate-folded"), the level map. */
+function useFolded(key: string): [boolean, (v: boolean) => void] {
+  const v = useSyncExternalStore(
+    (cb) => {
+      foldListeners.add(cb);
+      return () => foldListeners.delete(cb);
+    },
+    () => readFold(key),
+    () => false,
+  );
+  return [v, (x: boolean) => writeFold(key, x)];
+}
+
+/** Find a structure (owner 2026-11-24: "add a structure search"): its name, then the plate that shows it best. */
+function StructureSearch({ onPick }: { onPick: (slug: string) => void }) {
+  const [q, setQ] = useState("");
+  const [open, setOpen] = useState(false);
+  const [hi, setHi] = useState(0);
+  const box = useRef<HTMLDivElement>(null);
+  const all = useMemo(() => Object.entries(STRUCTURES).map(([slug, st]) => ({ slug, name: st.name })).sort((a, b) => a.name.localeCompare(b.name)), []);
+  const hits = useMemo(() => {
+    const t = q.trim().toLowerCase();
+    if (!t) return [] as { slug: string; name: string }[];
+    const words = t.split(/\s+/);
+    return all
+      .filter((x) => words.every((w) => x.name.toLowerCase().includes(w) || x.slug.includes(w)))
+      .sort((a, b) => Number(!a.name.toLowerCase().startsWith(t)) - Number(!b.name.toLowerCase().startsWith(t)))
+      .slice(0, 12);
+  }, [q, all]);
+  useEffect(() => {
+    const down = (e: PointerEvent) => {
+      if (!box.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", down);
+    return () => document.removeEventListener("pointerdown", down);
+  }, []);
+  const pick = (slug: string) => {
+    onPick(slug);
+    setQ("");
+    setOpen(false);
+  };
+  return (
+    <div ref={box} className="bs-search relative mb-3">
+      <label className="sr-only" htmlFor="bs-search">
+        Find a brainstem structure
+      </label>
+      <Search size={14} aria-hidden className="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-text-faint" />
+      <input
+        id="bs-search"
+        value={q}
+        onChange={(e) => {
+          setQ(e.target.value);
+          setOpen(true);
+          setHi(0);
+        }}
+        onFocus={() => setOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setHi((h) => Math.min(hits.length - 1, h + 1));
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setHi((h) => Math.max(0, h - 1));
+          } else if (e.key === "Enter" && hits[hi]) {
+            e.preventDefault();
+            pick(hits[hi].slug);
+          } else if (e.key === "Escape") {
+            setQ("");
+            setOpen(false);
+          }
+        }}
+        placeholder="Find a structure"
+        autoComplete="off"
+        spellCheck={false}
+        className="w-full rounded-sm border border-panel-border bg-panel-solid py-1.5 pl-7 pr-2 text-sm text-text"
+        role="combobox"
+        aria-expanded={open && hits.length > 0}
+        aria-controls="bs-search-list"
+      />
+      {open && q.trim().length > 2 && hits.length === 0 && (
+        <div className="absolute inset-x-0 top-full z-30 mt-1 rounded-sm border border-panel-border bg-panel-solid px-2 py-1.5 text-sm text-text-dim shadow-lg">
+          Not on the brainstem plates.{" "}
+          <Link href={`/atlas?n=${encodeURIComponent(q.trim())}`} className="text-accent-2 underline underline-offset-2">
+            Find it in Explore
+          </Link>
+        </div>
+      )}
+      {open && hits.length > 0 && (
+        <ul id="bs-search-list" role="listbox" className="absolute inset-x-0 top-full z-30 mt-1 max-h-72 overflow-auto rounded-sm border border-panel-border bg-panel-solid py-1 shadow-lg">
+          {hits.map((h, i) => {
+            const best = platesFor(h.slug).best;
+            return (
+              <li key={h.slug} role="option" aria-selected={i === hi}>
+                <button type="button" className={`flex w-full items-baseline gap-2 px-2 py-1 text-left text-sm ${i === hi ? "bg-bg-3 text-text" : "text-text-dim hover:bg-bg-3"}`} onMouseEnter={() => setHi(i)} onClick={() => pick(h.slug)}>
+                  <span className="min-w-0 flex-1 truncate">{h.name}</span>
+                  {best && <span className="flex-none text-[11px] text-text-faint">{LEVEL_NAME(best)}</span>}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
 const mqWide = "(min-width: 768px)";
 function useWide(): boolean {
   return useSyncExternalStore(
@@ -49,6 +171,8 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
   const [selected, setSelected] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode>(initialView === "3d" ? "3d" : initialView === "plates" ? "plates" : "split");
   const wide = useWide();
+  const [folded, setFolded] = useFolded("bs-plate-folded");
+  const [mapFolded, setMapFolded] = useFolded("bs-map-folded");
   const level = levelBySlug(levelSlug);
   const hasPlate = plateLevels.includes(levelSlug);
   const lm = mastery.levels[levelSlug];
@@ -129,8 +253,21 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
   }, [step]);
 
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-[272px_minmax(0,1fr)]">
-      <div className="min-w-0 md:row-span-2">
+    <div className={`grid grid-cols-[minmax(0,1fr)] gap-4 ${mapFolded ? "md:grid-cols-[44px_minmax(0,1fr)]" : "md:grid-cols-[272px_minmax(0,1fr)]"}`}>
+      {mapFolded ? (
+        <div className="hidden md:block">
+          <button type="button" className="btn !px-2 !py-2" onClick={() => setMapFolded(false)} title="Show the level map and the search" aria-label="Show the level map and the search">
+            <PanelRightOpen size={15} aria-hidden style={{ transform: "scaleX(-1)" }} />
+          </button>
+        </div>
+      ) : null}
+      <div className={`min-w-0 md:row-span-2 ${mapFolded ? "md:hidden" : ""}`}>
+        <div className="mb-2 hidden justify-end md:flex">
+          <button type="button" className="btn !px-1.5 !py-1 text-xs" onClick={() => setMapFolded(true)} title="Fold the level map away (the 3D brainstem and the plate take the width)">
+            <PanelRightClose size={14} aria-hidden style={{ transform: "scaleX(-1)" }} /> Fold
+          </button>
+        </div>
+        <StructureSearch onPick={select3D} />
         <Navigator level={levelSlug} onPick={goLevel} mastery={mastery} />
         <p className="mt-3 hidden text-xs text-text-dim md:block">Up/Down or J/K: change level. V: 3D + plate / plate / 3D. X: compare. Esc: close.</p>
         {wide && inset}
@@ -165,7 +302,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
         </div>
 
         {mode === "split" ? (
-          <div className="grid gap-3 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+          <div className={`grid gap-3 ${folded ? "" : "xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]"}`}>
             <div className="min-w-0">
               <Brainstem3D
                 level={levelSlug}
@@ -181,7 +318,20 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
                 The accent plane is this level ({LEVEL_NAME(levelSlug)}); its plate is beside it. Click a plane or use Up/Down to change level; hover a landmark to name it, click to open it. Drag to rotate, scroll to zoom.
               </p>
             </div>
+            {folded ? (
+              <div className="flex justify-end">
+                <button type="button" className="btn" onClick={() => setFolded(false)} title="Show this level's plate beside the 3D brainstem">
+                  <PanelRightOpen size={14} aria-hidden /> Show the plate ({level.name})
+                </button>
+              </div>
+            ) : (
             <div key={levelSlug} className="bs-fade-in min-w-0">
+              <div className="mb-1.5 flex items-center gap-2">
+                <span className="min-w-0 flex-1 truncate text-xs text-text-dim">The plate: {level.name}</span>
+                <button type="button" className="btn !px-1.5 !py-1 text-xs" onClick={() => setFolded(true)} title="Fold the plate away (the 3D brainstem takes the width)" aria-label="Fold the plate away">
+                  <PanelRightClose size={14} aria-hidden /> Fold
+                </button>
+              </div>
               {hasPlate ? (
                 <div className="plate-wrap">
                   <PlateStage level={levelSlug} hover={hover} onHover={setHover} selected={selected} onSelect={select} mastery={lm?.structures ?? {}} />
@@ -193,6 +343,7 @@ export function BrainstemAtlas({ courseSlug, mastery, plateLevels, initialLevel,
                 </div>
               )}
             </div>
+            )}
           </div>
         ) : mode === "3d" ? (
           <div>

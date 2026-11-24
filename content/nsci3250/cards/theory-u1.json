@@ -1294,9 +1294,7 @@
   "prompt": "From which primary vesicle does the midbrain arise?",
   "format": "type",
   "answer": "Mesencephalon",
-  "accept": [
-   "midbrain"
-  ],
+  "accept": [],
   "keywords": null,
   "choices": null,
   "require_side": false,

@@ -1914,14 +1914,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the oculomotor nucleus?",
+  "prompt": "Which cranial nerve (give its number) arises from the oculomotor nucleus?",
   "format": "type",
-  "answer": "Oculomotor nerve",
+  "answer": "CN III",
   "accept": [
-   "oculomotor",
-   "CN III",
    "III",
-   "3"
+   "3",
+   "cranial nerve III",
+   "Oculomotor nerve (CN III)"
   ],
   "keywords": null,
   "choices": null,
@@ -2581,14 +2581,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the trochlear nucleus?",
+  "prompt": "Which cranial nerve (give its number) arises from the trochlear nucleus?",
   "format": "type",
-  "answer": "Trochlear nerve",
+  "answer": "CN IV",
   "accept": [
-   "trochlear",
-   "CN IV",
    "IV",
-   "4"
+   "4",
+   "cranial nerve IV",
+   "Trochlear nerve (CN IV)"
   ],
   "keywords": null,
   "choices": null,
@@ -2800,16 +2800,16 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the motor trigeminal nucleus?",
+  "prompt": "Which cranial nerve (give its number) arises from the motor trigeminal nucleus?",
   "format": "type",
-  "answer": "Trigeminal nerve",
+  "answer": "CN V",
   "accept": [
-   "trigeminal",
-   "CN V",
    "V",
    "5",
+   "cranial nerve V",
+   "Trigeminal nerve (CN V)",
    "V3",
-   "Trigeminal nerve (CN V, V3)"
+   "CN V3"
   ],
   "keywords": null,
   "choices": null,
@@ -3189,14 +3189,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the abducens nucleus?",
+  "prompt": "Which cranial nerve (give its number) arises from the abducens nucleus?",
   "format": "type",
-  "answer": "Abducens nerve",
+  "answer": "CN VI",
   "accept": [
-   "abducens",
-   "CN VI",
    "VI",
-   "6"
+   "6",
+   "cranial nerve VI",
+   "Abducens nerve (CN VI)"
   ],
   "keywords": null,
   "choices": null,
@@ -3365,14 +3365,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the facial nucleus?",
+  "prompt": "Which cranial nerve (give its number) arises from the facial nucleus?",
   "format": "type",
-  "answer": "Facial nerve",
+  "answer": "CN VII",
   "accept": [
-   "facial",
-   "CN VII",
    "VII",
-   "7"
+   "7",
+   "cranial nerve VII",
+   "Facial nerve (CN VII)"
   ],
   "keywords": null,
   "choices": null,
@@ -3529,14 +3529,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve supplies the vestibulocochlear complex?",
+  "prompt": "Which cranial nerve (give its number) supplies the vestibulocochlear complex?",
   "format": "type",
-  "answer": "Vestibulocochlear nerve",
+  "answer": "CN VIII",
   "accept": [
-   "vestibulocochlear",
-   "CN VIII",
    "VIII",
-   "8"
+   "8",
+   "cranial nerve VIII",
+   "Vestibulocochlear nerve (CN VIII)"
   ],
   "keywords": null,
   "choices": null,
@@ -3774,14 +3774,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the hypoglossal nucleus?",
+  "prompt": "Which cranial nerve (give its number) arises from the hypoglossal nucleus?",
   "format": "type",
-  "answer": "Hypoglossal nerve",
+  "answer": "CN XII",
   "accept": [
-   "hypoglossal",
-   "CN XII",
    "XII",
-   "12"
+   "12",
+   "cranial nerve XII",
+   "Hypoglossal nerve (CN XII)"
   ],
   "keywords": null,
   "choices": null,
@@ -3907,14 +3907,14 @@
    "ref": "content-theory agent"
   },
   "facet": "cranial_nerve",
-  "prompt": "Which cranial nerve arises from the dorsal motor nucleus of the vagus?",
+  "prompt": "Which cranial nerve (give its number) arises from the dorsal motor nucleus of the vagus?",
   "format": "type",
-  "answer": "Vagus nerve",
+  "answer": "CN X",
   "accept": [
-   "vagus",
-   "CN X",
    "X",
-   "10"
+   "10",
+   "cranial nerve X",
+   "Vagus nerve (CN X)"
   ],
   "keywords": null,
   "choices": null,

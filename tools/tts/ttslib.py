@@ -14,13 +14,33 @@ def norm(text: str) -> str:
     return re.sub(r"\s+", " ", unicodedata.normalize("NFKC", text).lower()).strip()
 
 
+REVS = CFG.get("revs", {})
+REV_RE = [(k, re.compile(r"(^|[^a-z0-9])" + re.escape(k) + r"(?=[^a-z0-9]|$)")) for k in REVS]
+
+
+def rev_suffix(t: str) -> str:
+    """|term@rev for each lexicon term in the text whose pronunciation was fixed after its clips existed (hash.ts)."""
+    return "".join(f"|{k}@{REVS[k]}" for k in sorted(k for k, r in REV_RE if r.search(t)))
+
+
 def clip_hash(text: str) -> str:
-    key = f'{CFG["voice"]}|{CFG["lexicon"]}|{norm(text)}'
+    t = norm(text)
+    key = f'{CFG["voice"]}|{CFG["lexicon"]}|{t}{rev_suffix(t)}'
     return hashlib.sha256(key.encode("utf8")).hexdigest()[:20]
 
 
 def source_texts() -> dict:
-    """norm text -> a display form, for every live card answer and structure name."""
+    """norm text -> a display form, for every text the app speaks: each live card's answer exactly as the study
+    page shows it (tools/tts/spoken.ts runs the app's own card mapping: "Midsagittal plane" asked as a plane is
+    spoken "Midsagittal") and every structure name. Falls back to the raw answers when Node is not available."""
+    import subprocess
+    try:
+        res = subprocess.run(["node", str(Path(__file__).parent / "spoken.ts")], cwd=ROOT, capture_output=True, text=True, encoding="utf8", timeout=180)
+        if res.returncode == 0:
+            return {norm(t): t for t in json.loads(res.stdout)}
+        print("spoken.ts failed, using raw answers:", res.stderr[:300])
+    except (OSError, subprocess.TimeoutExpired, json.JSONDecodeError) as ex:
+        print("spoken.ts unavailable, using raw answers:", ex)
     out = {}
     for f in sorted((ROOT / "content/nsci3250/cards").glob("*.json")):
         for c in json.loads(f.read_text(encoding="utf8")):

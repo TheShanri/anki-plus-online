@@ -842,280 +842,155 @@
  },
  {
   "slug": "lab-2-io-1768765147495-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "commissural-fibers",
   "status": "live",
   "position": 300,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768765147495 cloze 1"
+   "ref": "apkg/lab-2 note 1768765147495 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Commissural fibers",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-dde149c9fa74c3ac27dc19cbdc41d755d57a056c.webp",
-  "w": 898,
-  "h": 244,
-  "target": {
-   "shape": "rect",
-   "x": 0.0282,
-   "y": 0.4881,
-   "w": 0.2687,
-   "h": 0.1301
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0282,
-    "y": 0.4881,
-    "w": 0.2687,
-    "h": 0.1301
-   }
+  "accept": [
+   "commissural",
+   "commissural fibres"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The corpus callosum is a large bundle of ______ fibers that connect the left and right cerebral hemispheres.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768765172356-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "thalamus",
   "status": "live",
   "position": 400,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768765172356 cloze 1"
+   "ref": "apkg/lab-2 note 1768765172356 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Thalamus",
-  "answer_kind": "structure",
   "accept": [
    "dorsal thalamus"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-cb16ca59ef089c66fc220843b0498cbd7b227b6f.webp",
-  "w": 823,
-  "h": 378,
-  "target": {
-   "shape": "rect",
-   "x": 0.0344,
-   "y": 0.3538,
-   "w": 0.2245,
-   "h": 0.108
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0421,
-    "y": 0.5007,
-    "w": 0.3299,
-    "h": 0.1093
-   },
-   {
-    "shape": "rect",
-    "x": 0.4705,
-    "y": 0.7164,
-    "w": 0.332,
-    "h": 0.1196
-   },
-   {
-    "shape": "rect",
-    "x": 0.0344,
-    "y": 0.3538,
-    "w": 0.2245,
-    "h": 0.108
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The diencephalon gives rise to the ______ (sensory relay) and the hypothalamus (autonomic, endocrine, homeostasis).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:diencephalon"
-  ]
+   "region:diencephalon",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768765172356-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "hypothalamus",
   "status": "live",
   "position": 401,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768765172356 cloze 2"
+   "ref": "apkg/lab-2 note 1768765172356 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Hypothalamus",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-cb16ca59ef089c66fc220843b0498cbd7b227b6f.webp",
-  "w": 823,
-  "h": 378,
-  "target": {
-   "shape": "rect",
-   "x": 0.0421,
-   "y": 0.5007,
-   "w": 0.3299,
-   "h": 0.1093
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0421,
-    "y": 0.5007,
-    "w": 0.3299,
-    "h": 0.1093
-   },
-   {
-    "shape": "rect",
-    "x": 0.4705,
-    "y": 0.7164,
-    "w": 0.332,
-    "h": 0.1196
-   },
-   {
-    "shape": "rect",
-    "x": 0.0344,
-    "y": 0.3538,
-    "w": 0.2245,
-    "h": 0.108
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The diencephalon gives rise to the thalamus (sensory relay) and the ______ (autonomic, endocrine, homeostasis).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:diencephalon"
-  ]
+   "region:diencephalon",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768765172356-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "third-ventricle",
   "status": "live",
   "position": 402,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768765172356 cloze 3"
+   "ref": "apkg/lab-2 note 1768765172356 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Third ventricle",
-  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
    "3V"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-cb16ca59ef089c66fc220843b0498cbd7b227b6f.webp",
-  "w": 823,
-  "h": 378,
-  "target": {
-   "shape": "rect",
-   "x": 0.4705,
-   "y": 0.7164,
-   "w": 0.332,
-   "h": 0.1196
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0421,
-    "y": 0.5007,
-    "w": 0.3299,
-    "h": 0.1093
-   },
-   {
-    "shape": "rect",
-    "x": 0.4705,
-    "y": 0.7164,
-    "w": 0.332,
-    "h": 0.1196
-   },
-   {
-    "shape": "rect",
-    "x": 0.0344,
-    "y": 0.3538,
-    "w": 0.2245,
-    "h": 0.108
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "The thalamus and the hypothalamus together form the lateral walls of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768765220127-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 500,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768765220127 cloze 1"
+   "ref": "apkg/lab-2 note 1768765220127 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Vital structures",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-0973cc89bf29adf509fa0c71f643d5d3bf006fae.webp",
-  "w": 1155,
-  "h": 285,
-  "target": {
-   "shape": "rect",
-   "x": 0.5119,
-   "y": 0.1511,
-   "w": 0.2714,
-   "h": 0.1844
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5119,
-    "y": 0.1511,
-    "w": 0.2714,
-    "h": 0.1844
-   }
+  "answer": "Vital functions",
+  "accept": [
+   "Vital structures",
+   "vegetative functions",
+   "vital"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The brainstem regulates ______ necessary for life (for example, control of the heart and lungs).",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
   ],
-  "explain": "Vital structures are those whose damage threatens life or major function, such as the brain, brainstem and spinal cord. This is why they are enclosed in bone, three meningeal layers and cerebrospinal fluid."
+  "explain": "Vital structures are those whose damage threatens life or major function, such as the brain, brainstem and spinal cord. This is why they are enclosed in bone, three meningeal layers and cerebrospinal fluid.",
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768765591990-c1",
@@ -4394,92 +4269,61 @@
  },
  {
   "slug": "lab-2-io-1768768912502-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "cerebrospinal-fluid",
   "status": "live",
   "position": 1800,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768768912502 cloze 1"
+   "ref": "apkg/lab-2 note 1768768912502 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cerebrospinal fluid (CSF)",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-db693a37aad2a36fdd1bfd4485c1c41c28599093.webp",
-  "w": 1904,
-  "h": 1146,
-  "target": {
-   "shape": "rect",
-   "x": 0.0381,
-   "y": 0.824,
-   "w": 0.2566,
-   "h": 0.0539
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0381,
-    "y": 0.824,
-    "w": 0.2566,
-    "h": 0.0539
-   }
+  "accept": [
+   "cerebrospinal fluid",
+   "CSF"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "______ is formed mainly by the choroid plexus of the lateral, third and fourth ventricles.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768768924518-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 1900,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768768924518 cloze 1"
+   "ref": "apkg/lab-2 note 1768768924518 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Lateral, 3rd and 4th",
-  "answer_kind": "space",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-db693a37aad2a36fdd1bfd4485c1c41c28599093.webp",
-  "w": 1904,
-  "h": 1146,
-  "target": {
-   "shape": "rect",
-   "x": 0.7545,
-   "y": 0.8295,
-   "w": 0.1949,
-   "h": 0.0484
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7545,
-    "y": 0.8295,
-    "w": 0.1949,
-    "h": 0.0484
-   }
+  "answer": "Lateral, third and fourth ventricles",
+  "accept": [
+   "Lateral, 3rd and 4th",
+   "all four",
+   "all four ventricles",
+   "all of them",
+   "all ventricles"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Cerebrospinal fluid is formed mainly by the choroid plexus of which ventricles?",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
   ],
   "parts": [
    "Lateral",
@@ -4501,7 +4345,23 @@
     "fourth ventricle",
     "IV"
    ]
-  }
+  },
+  "format": "keywords",
+  "keywords": [
+   [
+    "lateral"
+   ],
+   [
+    "3rd",
+    "third"
+   ],
+   [
+    "4th",
+    "fourth"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768768977386-c1",
@@ -7094,303 +6954,124 @@
  },
  {
   "slug": "lab-2-io-1768769980503-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 2600,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768769980503 cloze 1"
+   "ref": "apkg/lab-2 note 1768769980503 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Reabsorb",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
-  "w": 1792,
-  "h": 1233,
-  "target": {
-   "shape": "rect",
-   "x": 0.363,
-   "y": 0.2217,
-   "w": 0.0886,
-   "h": 0.0355
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5803,
-    "y": 0.2215,
-    "w": 0.2018,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.3257,
-    "y": 0.2895,
-    "w": 0.1143,
-    "h": 0.0378
-   },
-   {
-    "shape": "rect",
-    "x": 0.0234,
-    "y": 0.2555,
-    "w": 0.22,
-    "h": 0.0315
-   },
-   {
-    "shape": "rect",
-    "x": 0.634,
-    "y": 0.326,
-    "w": 0.1256,
-    "h": 0.0365
-   },
-   {
-    "shape": "rect",
-    "x": 0.363,
-    "y": 0.2217,
-    "w": 0.0886,
-    "h": 0.0355
-   }
+  "accept": [
+   "absorb",
+   "resorb",
+   "drain",
+   "return"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Arachnoid granulations ______ CSF from the subarachnoid space into the superior sagittal sinus.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768769980503-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "subarachnoid-space",
   "status": "live",
   "position": 2601,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768769980503 cloze 2"
+   "ref": "apkg/lab-2 note 1768769980503 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Subarachnoid space",
-  "answer_kind": "space",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
-  "w": 1792,
-  "h": 1233,
-  "target": {
-   "shape": "rect",
-   "x": 0.5803,
-   "y": 0.2215,
-   "w": 0.2018,
-   "h": 0.0327
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5803,
-    "y": 0.2215,
-    "w": 0.2018,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.3257,
-    "y": 0.2895,
-    "w": 0.1143,
-    "h": 0.0378
-   },
-   {
-    "shape": "rect",
-    "x": 0.0234,
-    "y": 0.2555,
-    "w": 0.22,
-    "h": 0.0315
-   },
-   {
-    "shape": "rect",
-    "x": 0.634,
-    "y": 0.326,
-    "w": 0.1256,
-    "h": 0.0365
-   },
-   {
-    "shape": "rect",
-    "x": 0.363,
-    "y": 0.2217,
-    "w": 0.0886,
-    "h": 0.0355
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Arachnoid granulations reabsorb CSF from the ______ into the superior sagittal sinus.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:meninges"
-  ]
+   "region:meninges",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768769980503-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "superior-sagittal-sinus",
   "status": "live",
   "position": 2602,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768769980503 cloze 3"
+   "ref": "apkg/lab-2 note 1768769980503 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Superior sagittal sinus",
-  "answer_kind": "structure",
   "accept": [
    "SSS"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
-  "w": 1792,
-  "h": 1233,
-  "target": {
-   "shape": "rect",
-   "x": 0.0234,
-   "y": 0.2555,
-   "w": 0.22,
-   "h": 0.0315
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5803,
-    "y": 0.2215,
-    "w": 0.2018,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.3257,
-    "y": 0.2895,
-    "w": 0.1143,
-    "h": 0.0378
-   },
-   {
-    "shape": "rect",
-    "x": 0.0234,
-    "y": 0.2555,
-    "w": 0.22,
-    "h": 0.0315
-   },
-   {
-    "shape": "rect",
-    "x": 0.634,
-    "y": 0.326,
-    "w": 0.1256,
-    "h": 0.0365
-   },
-   {
-    "shape": "rect",
-    "x": 0.363,
-    "y": 0.2217,
-    "w": 0.0886,
-    "h": 0.0355
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Arachnoid granulations reabsorb CSF from the subarachnoid space into the ______ (one of the dural venous sinuses).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:ventricles",
-   "plane:sagittal"
-  ]
+   "plane:sagittal",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768769980503-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "falx-cerebri",
   "status": "live",
   "position": 2603,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768769980503 cloze 4"
+   "ref": "apkg/lab-2 note 1768769980503 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Falx cerebri",
-  "answer_kind": "structure",
   "accept": [
    "falx"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-345e245219362aa55aec21e426111f1f979b8adc.webp",
-  "w": 1792,
-  "h": 1233,
-  "target": {
-   "shape": "rect",
-   "x": 0.3257,
-   "y": 0.2895,
-   "w": 0.1143,
-   "h": 0.0378
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5803,
-    "y": 0.2215,
-    "w": 0.2018,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.3257,
-    "y": 0.2895,
-    "w": 0.1143,
-    "h": 0.0378
-   },
-   {
-    "shape": "rect",
-    "x": 0.0234,
-    "y": 0.2555,
-    "w": 0.22,
-    "h": 0.0315
-   },
-   {
-    "shape": "rect",
-    "x": 0.634,
-    "y": 0.326,
-    "w": 0.1256,
-    "h": 0.0365
-   },
-   {
-    "shape": "rect",
-    "x": 0.363,
-    "y": 0.2217,
-    "w": 0.0886,
-    "h": 0.0355
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The superior sagittal sinus is a blood-filled space between layers of dura at the top of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:meninges"
-  ]
+   "region:meninges",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768769980503-c5",
@@ -8485,7 +8166,9 @@
   },
   "answer": "Dorsal-anterior",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "superior-anterior"
+  ],
   "require_side": false,
   "image": "apkg/lab-2/media/paste-4bfc0fc915bd335c40b8789d990d1ce1c5474248.webp",
   "w": 1943,
@@ -12135,147 +11818,46 @@
  },
  {
   "slug": "lab-2-io-1768772062676-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 3601,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768772062676 cloze 2"
+   "ref": "apkg/lab-2 note 1768772062676 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Anger, fear",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-1e0872684e64f703f66604edd87751714ffdbb55.webp",
-  "w": 1547,
-  "h": 915,
-  "target": {
-   "shape": "rect",
-   "x": 0.168,
-   "y": 0.9111,
-   "w": 0.167,
-   "h": 0.0512
-  },
-  "masks": [
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.3825,
-      0.6497
-     ],
-     [
-      0.2933,
-      0.6456
-     ],
-     [
-      0.2974,
-      0.7092
-     ],
-     [
-      0.0428,
-      0.7023
-     ],
-     [
-      0.0428,
-      0.7562
-     ],
-     [
-      0.3817,
-      0.7576
-     ],
-     [
-      0.3858,
-      0.6483
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.168,
-    "y": 0.9111,
-    "w": 0.167,
-    "h": 0.0512
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7886,
-      0.6594
-     ],
-     [
-      0.9818,
-      0.6633
-     ],
-     [
-      0.9818,
-      0.8206
-     ],
-     [
-      0.6911,
-      0.818
-     ],
-     [
-      0.6895,
-      0.704
-     ],
-     [
-      0.7886,
-      0.7118
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8393,
-      0.824
-     ],
-     [
-      0.8418,
-      0.8696
-     ],
-     [
-      0.6928,
-      0.8779
-     ],
-     [
-      0.6952,
-      0.9803
-     ],
-     [
-      0.9793,
-      0.9789
-     ],
-     [
-      0.9719,
-      0.824
-     ],
-     [
-      0.8426,
-      0.8212
-     ]
-    ]
-   }
+  "answer": "Anger and fear",
+  "accept": [
+   "Anger, fear",
+   "fear and anger",
+   "fear, anger"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The amygdala receives information from every sensory system and is thought to mediate intense emotions such as ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
   ],
   "parts": [
    "Anger",
    "Fear"
-  ]
+  ],
+  "format": "keywords",
+  "keywords": [
+   [
+    "anger",
+    "rage"
+   ],
+   [
+    "fear"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768772062676-c3",
@@ -13494,282 +13076,126 @@
  },
  {
   "slug": "lab-2-io-1768772690586-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "diencephalon",
   "status": "live",
   "position": 4100,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768772690586 cloze 1"
+   "ref": "apkg/lab-2 note 1768772690586 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Diencephalon",
-  "answer_kind": "region",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp",
-  "w": 1828,
-  "h": 1089,
-  "target": {
-   "shape": "rect",
-   "x": 0.0091,
-   "y": 0.1103,
-   "w": 0.1451,
-   "h": 0.0346
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0091,
-    "y": 0.1103,
-    "w": 0.1451,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0841,
-    "y": 0.1545,
-    "w": 0.1179,
-    "h": 0.0387
-   },
-   {
-    "shape": "rect",
-    "x": 0.1385,
-    "y": 0.445,
-    "w": 0.1352,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.188,
-    "y": 0.6898,
-    "w": 0.1245,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "prompt": "The thalamus makes up 80% of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768772690586-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "third-ventricle",
   "status": "live",
   "position": 4101,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768772690586 cloze 2"
+   "ref": "apkg/lab-2 note 1768772690586 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Third ventricle",
-  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
    "3V"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp",
-  "w": 1828,
-  "h": 1089,
-  "target": {
-   "shape": "rect",
-   "x": 0.0841,
-   "y": 0.1545,
-   "w": 0.1179,
-   "h": 0.0387
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0091,
-    "y": 0.1103,
-    "w": 0.1451,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0841,
-    "y": 0.1545,
-    "w": 0.1179,
-    "h": 0.0387
-   },
-   {
-    "shape": "rect",
-    "x": 0.1385,
-    "y": 0.445,
-    "w": 0.1352,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.188,
-    "y": 0.6898,
-    "w": 0.1245,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "The thalamus forms the lateral walls of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768772690586-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "third-ventricle",
   "status": "live",
   "position": 4102,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768772690586 cloze 3"
+   "ref": "apkg/lab-2 note 1768772690586 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Third ventricle",
-  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
    "3V"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp",
-  "w": 1828,
-  "h": 1089,
-  "target": {
-   "shape": "rect",
-   "x": 0.1385,
-   "y": 0.445,
-   "w": 0.1352,
-   "h": 0.0318
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0091,
-    "y": 0.1103,
-    "w": 0.1451,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0841,
-    "y": 0.1545,
-    "w": 0.1179,
-    "h": 0.0387
-   },
-   {
-    "shape": "rect",
-    "x": 0.1385,
-    "y": 0.445,
-    "w": 0.1352,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.188,
-    "y": 0.6898,
-    "w": 0.1245,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "In about 70% of people the two thalami do not completely separate, leaving a plug of grey matter (the massa intermedia) spanning the ______ between them.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768772690586-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "third-ventricle",
   "status": "live",
   "position": 4103,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768772690586 cloze 4"
+   "ref": "apkg/lab-2 note 1768772690586 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Third ventricle",
-  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
    "3V"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-1e1716164db326cee249d2b21bda624c0cf1a520.webp",
-  "w": 1828,
-  "h": 1089,
-  "target": {
-   "shape": "rect",
-   "x": 0.188,
-   "y": 0.6898,
-   "w": 0.1245,
-   "h": 0.0401
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0091,
-    "y": 0.1103,
-    "w": 0.1451,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0841,
-    "y": 0.1545,
-    "w": 0.1179,
-    "h": 0.0387
-   },
-   {
-    "shape": "rect",
-    "x": 0.1385,
-    "y": 0.445,
-    "w": 0.1352,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.188,
-    "y": 0.6898,
-    "w": 0.1245,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "The hypothalamus lies anterior and inferior to the thalamus; it forms the walls of the anterior part of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773407786-c1",
@@ -14261,347 +13687,60 @@
  },
  {
   "slug": "lab-2-io-1768773534376-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "temporal-lobe",
   "status": "live",
   "position": 4300,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 1"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Temporal lobes",
-  "answer_kind": "region",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.7367,
-   "y": 0.1366,
-   "w": 0.1465,
-   "h": 0.0429
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
+  "accept": [
+   "temporal lobe",
+   "temporal"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The anterior commissure, a white matter tract anterior to the columns of the fornix, connects the left and right ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 4301,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 2"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Pain and olfaction",
-  "answer_kind": "structure",
   "accept": [
-   "Pain and olfaction (smell)"
+   "Pain and olfaction (smell)",
+   "olfaction and pain",
+   "pain, olfaction"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.5733,
-   "y": 0.185,
-   "w": 0.2459,
-   "h": 0.0401
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The anterior commissure, which connects the left and right temporal lobes, is involved in ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "modality:olfactory"
+   "modality:olfactory",
+   "kind:theory",
+   "theory:slides"
   ],
   "parts": [
    "Pain",
@@ -14611,7 +13750,20 @@
    "Olfaction": [
     "smell"
    ]
-  }
+  },
+  "format": "keywords",
+  "keywords": [
+   [
+    "pain"
+   ],
+   [
+    "olfaction",
+    "smell",
+    "olfactory"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c3",
@@ -15016,520 +14168,90 @@
  },
  {
   "slug": "lab-2-io-1768773534376-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 4304,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 5"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Acute stress",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.8501,
-   "y": 0.4907,
-   "w": 0.1244,
-   "h": 0.0415
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
+  "accept": [
+   "stress"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The mammillary body is involved in the ______ response.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c6",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "hippocampus",
   "status": "live",
   "position": 4305,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 6"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 6",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Hippocampus",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.5703,
-   "y": 0.5792,
-   "w": 0.1377,
-   "h": 0.047
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The mammillary body receives inputs from the ______ via the fornix.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:cerebrum",
-   "modality:limbic"
-  ]
+   "modality:limbic",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c7",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "fornix",
   "status": "live",
   "position": 4306,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 7"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 7",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Fornix",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.7463,
-   "y": 0.5847,
-   "w": 0.0641,
-   "h": 0.0443
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The mammillary body receives inputs from the hippocampus via the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:limbic",
-   "modality:limbic"
-  ]
+   "modality:limbic",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c8",
@@ -15708,522 +14430,95 @@
  },
  {
   "slug": "lab-2-io-1768773534376-c9",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 4308,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 9"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 9",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Visual inputs",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.7213,
-   "y": 0.7147,
-   "w": 0.1134,
-   "h": 0.047
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
+  "accept": [
+   "visual information",
+   "visual input",
+   "vision",
+   "visual signals"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The optic chiasm (part of cranial nerve II) is where the axons carrying ______ cross (decussate).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c10",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "neural-tube",
   "status": "live",
   "position": 4309,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 10"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 10",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Neural tube",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.5674,
-   "y": 0.8932,
-   "w": 0.1185,
-   "h": 0.036
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The lamina terminalis represents the rostral end of the ______ and forms the anterior wall of the third ventricle.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768773534376-c11",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "third-ventricle",
   "status": "live",
   "position": 4310,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768773534376 cloze 11"
+   "ref": "apkg/lab-2 note 1768773534376 cloze 11",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Third ventricle",
-  "answer_kind": "space",
   "accept": [
    "3rd ventricle",
    "ventricle III",
    "3V"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-735b416f93b0bf5e49e25a7b53317efd654de61e.webp",
-  "w": 1912,
-  "h": 1017,
-  "target": {
-   "shape": "rect",
-   "x": 0.6115,
-   "y": 0.9401,
-   "w": 0.134,
-   "h": 0.0387
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7367,
-    "y": 0.1366,
-    "w": 0.1465,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.5733,
-    "y": 0.185,
-    "w": 0.2459,
-    "h": 0.0401
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8707,
-      0.268
-     ],
-     [
-      0.8707,
-      0.315
-     ],
-     [
-      0.5703,
-      0.3122
-     ],
-     [
-      0.5703,
-      0.3634
-     ],
-     [
-      0.6594,
-      0.362
-     ],
-     [
-      0.6579,
-      0.3136
-     ],
-     [
-      0.9237,
-      0.315
-     ],
-     [
-      0.9245,
-      0.268
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7728,
-      0.3648
-     ],
-     [
-      0.7728,
-      0.4063
-     ],
-     [
-      0.5696,
-      0.4063
-     ],
-     [
-      0.5718,
-      0.445
-     ],
-     [
-      0.9893,
-      0.4547
-     ],
-     [
-      0.9856,
-      0.351
-     ],
-     [
-      0.7721,
-      0.3524
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.8501,
-    "y": 0.4907,
-    "w": 0.1244,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.5703,
-    "y": 0.5792,
-    "w": 0.1377,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.7463,
-    "y": 0.5847,
-    "w": 0.0641,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.7743,
-    "y": 0.6649,
-    "w": 0.1458,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.7213,
-    "y": 0.7147,
-    "w": 0.1134,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.5674,
-    "y": 0.8932,
-    "w": 0.1185,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.6115,
-    "y": 0.9401,
-    "w": 0.134,
-    "h": 0.0387
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "The lamina terminalis forms the anterior wall of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768774020771-c1",
@@ -19023,90 +17318,34 @@
  },
  {
   "slug": "lab-2-io-1768776886492-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 5200,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768776886492 cloze 1"
+   "ref": "apkg/lab-2 note 1768776886492 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Sensory relay",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-00b1889ae89b0819f48082728c1843da8665c8fc.webp",
-  "w": 1111,
-  "h": 460,
-  "target": {
-   "shape": "rect",
-   "x": 0.2616,
-   "y": 0.3789,
-   "w": 0.3537,
-   "h": 0.1462
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2616,
-    "y": 0.3789,
-    "w": 0.3537,
-    "h": 0.1462
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.3867,
-      0.5431
-     ],
-     [
-      0.9738,
-      0.5448
-     ],
-     [
-      0.9738,
-      0.6975
-     ],
-     [
-      0.3575,
-      0.6975
-     ],
-     [
-      0.3561,
-      0.8224
-     ],
-     [
-      0.0105,
-      0.8207
-     ],
-     [
-      0.0112,
-      0.6844
-     ],
-     [
-      0.0201,
-      0.6877
-     ],
-     [
-      0.3861,
-      0.6975
-     ]
-    ]
-   }
+  "accept": [
+   "relay",
+   "sensory relay station"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The diencephalon gives rise to the thalamus (______) and the hypothalamus (autonomic, endocrine, homeostasis).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768776886492-c2",
@@ -19234,76 +17473,32 @@
  },
  {
   "slug": "lab-2-io-1768777108242-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": null,
   "status": "live",
   "position": 5300,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768777108242 cloze 1"
+   "ref": "apkg/lab-2 note 1768777108242 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "True",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp",
-  "w": 1653,
-  "h": 880,
-  "target": {
-   "shape": "rect",
-   "x": 0.1415,
-   "y": 0.1324,
-   "w": 0.0788,
-   "h": 0.0802
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1415,
-    "y": 0.1324,
-    "w": 0.0788,
-    "h": 0.0802
-   },
-   {
-    "shape": "rect",
-    "x": 0.1607,
-    "y": 0.2984,
-    "w": 0.3065,
-    "h": 0.1259
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.5266,
-    "w": 0.1525,
-    "h": 0.065
-   },
-   {
-    "shape": "rect",
-    "x": 0.1629,
-    "y": 0.6954,
-    "w": 0.1614,
-    "h": 0.0539
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.8572,
-    "w": 0.1452,
-    "h": 0.0581
-   }
+  "accept": [
+   "t"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "True or false: a midsagittal section divides the brain into right and left halves.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "tf",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768777108242-c2",
@@ -19382,17 +17577,17 @@
  },
  {
   "slug": "lab-2-io-1768777108242-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "anterior-horn-of-lateral-ventricle",
   "status": "live",
   "position": 5302,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768777108242 cloze 3"
+   "ref": "apkg/lab-2 note 1768777108242 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Anterior horn of lateral ventricle",
-  "answer_kind": "space",
   "accept": [
    "anterior horn",
    "frontal horn",
@@ -19401,79 +17596,33 @@
    "AH"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp",
-  "w": 1653,
-  "h": 880,
-  "target": {
-   "shape": "rect",
-   "x": 0.1636,
-   "y": 0.5266,
-   "w": 0.1525,
-   "h": 0.065
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1415,
-    "y": 0.1324,
-    "w": 0.0788,
-    "h": 0.0802
-   },
-   {
-    "shape": "rect",
-    "x": 0.1607,
-    "y": 0.2984,
-    "w": 0.3065,
-    "h": 0.1259
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.5266,
-    "w": 0.1525,
-    "h": 0.065
-   },
-   {
-    "shape": "rect",
-    "x": 0.1629,
-    "y": 0.6954,
-    "w": 0.1614,
-    "h": 0.0539
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.8572,
-    "w": 0.1452,
-    "h": 0.0581
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Which part of the lateral ventricle lies deep to the frontal lobe cortex?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:ventricles",
-   "modality:motor"
-  ]
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768777108242-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "posterior-horn-of-lateral-ventricle",
   "status": "live",
   "position": 5303,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768777108242 cloze 4"
+   "ref": "apkg/lab-2 note 1768777108242 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Posterior horn of lateral ventricle",
-  "answer_kind": "space",
   "accept": [
    "posterior horn",
    "occipital horn",
@@ -19482,79 +17631,33 @@
    "PH"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp",
-  "w": 1653,
-  "h": 880,
-  "target": {
-   "shape": "rect",
-   "x": 0.1629,
-   "y": 0.6954,
-   "w": 0.1614,
-   "h": 0.0539
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1415,
-    "y": 0.1324,
-    "w": 0.0788,
-    "h": 0.0802
-   },
-   {
-    "shape": "rect",
-    "x": 0.1607,
-    "y": 0.2984,
-    "w": 0.3065,
-    "h": 0.1259
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.5266,
-    "w": 0.1525,
-    "h": 0.065
-   },
-   {
-    "shape": "rect",
-    "x": 0.1629,
-    "y": 0.6954,
-    "w": 0.1614,
-    "h": 0.0539
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.8572,
-    "w": 0.1452,
-    "h": 0.0581
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Which part of the lateral ventricle lies deep to the occipital lobe cortex?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:ventricles",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768777108242-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "inferior-horn-of-lateral-ventricle",
   "status": "live",
   "position": 5304,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768777108242 cloze 5"
+   "ref": "apkg/lab-2 note 1768777108242 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Inferior horn of lateral ventricle",
-  "answer_kind": "space",
   "accept": [
    "inferior horn",
    "temporal horn",
@@ -19564,214 +17667,90 @@
    "IH"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-ae7c00ebecdea902be930fc12cbeb63cae0d65ef.webp",
-  "w": 1653,
-  "h": 880,
-  "target": {
-   "shape": "rect",
-   "x": 0.1636,
-   "y": 0.8572,
-   "w": 0.1452,
-   "h": 0.0581
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1415,
-    "y": 0.1324,
-    "w": 0.0788,
-    "h": 0.0802
-   },
-   {
-    "shape": "rect",
-    "x": 0.1607,
-    "y": 0.2984,
-    "w": 0.3065,
-    "h": 0.1259
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.5266,
-    "w": 0.1525,
-    "h": 0.065
-   },
-   {
-    "shape": "rect",
-    "x": 0.1629,
-    "y": 0.6954,
-    "w": 0.1614,
-    "h": 0.0539
-   },
-   {
-    "shape": "rect",
-    "x": 0.1636,
-    "y": 0.8572,
-    "w": 0.1452,
-    "h": 0.0581
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Which part of the lateral ventricle lies deep to the temporal lobe cortex?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768777402235-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "oligodendrocyte",
   "status": "live",
   "position": 5400,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768777402235 cloze 1"
+   "ref": "apkg/lab-2 note 1768777402235 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Oligodendrocytes",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
-  "w": 1709,
-  "h": 1183,
-  "target": {
-   "shape": "rect",
-   "x": 0.1566,
-   "y": 0.1573,
-   "w": 0.3487,
-   "h": 0.0609
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1566,
-    "y": 0.1573,
-    "w": 0.3487,
-    "h": 0.0609
-   },
-   {
-    "shape": "rect",
-    "x": 0.1585,
-    "y": 0.2943,
-    "w": 0.4589,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.1556,
-    "y": 0.445,
-    "w": 0.7175,
-    "h": 0.1245
-   },
-   {
-    "shape": "rect",
-    "x": 0.1537,
-    "y": 0.6345,
-    "w": 0.796,
-    "h": 0.1286
-   },
-   {
-    "shape": "rect",
-    "x": 0.148,
-    "y": 0.86,
-    "w": 0.7778,
-    "h": 0.1051
-   }
+  "accept": [
+   "oligodendrocyte",
+   "oligodendroglia"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "What glial cells are responsible for the white color of white matter?",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768777402235-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-2",
   "structure": "basal-ganglia",
   "status": "live",
   "position": 5401,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-2 note 1768777402235 cloze 2"
+   "ref": "apkg/lab-2 note 1768777402235 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Basal ganglia",
-  "answer_kind": "region",
+  "answer": "Caudate, putamen, globus pallidus",
   "accept": [
    "basal nuclei"
   ],
   "require_side": false,
-  "image": "apkg/lab-2/media/paste-6e9afce7e69fdc65c5188686fedadb68692e1c29.webp",
-  "w": 1709,
-  "h": 1183,
-  "target": {
-   "shape": "rect",
-   "x": 0.1585,
-   "y": 0.2943,
-   "w": 0.4589,
-   "h": 0.0567
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1566,
-    "y": 0.1573,
-    "w": 0.3487,
-    "h": 0.0609
-   },
-   {
-    "shape": "rect",
-    "x": 0.1585,
-    "y": 0.2943,
-    "w": 0.4589,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.1556,
-    "y": 0.445,
-    "w": 0.7175,
-    "h": 0.1245
-   },
-   {
-    "shape": "rect",
-    "x": 0.1537,
-    "y": 0.6345,
-    "w": 0.796,
-    "h": 0.1286
-   },
-   {
-    "shape": "rect",
-    "x": 0.148,
-    "y": 0.86,
-    "w": 0.7778,
-    "h": 0.1051
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "prompt": "Name the main components of the basal ganglia.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:cerebrum",
-   "modality:motor"
-  ]
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "keywords",
+  "keywords": [
+   [
+    "caudate"
+   ],
+   [
+    "putamen"
+   ],
+   [
+    "globus pallidus",
+    "pallidum"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-2-io-1768777402235-c3",

@@ -1399,17 +1399,14 @@
   "prompt": "The cortical ribbon contains which part of neurons (grey matter)?",
   "format": "keywords",
   "answer": "Neuronal cell bodies",
-  "accept": [
-   "grey matter",
-   "gray matter"
-  ],
+  "accept": [],
   "keywords": [
    [
     "cell bodies",
-    "neurons",
-    "grey matter",
-    "gray matter",
-    "somata"
+    "cell body",
+    "somata",
+    "soma",
+    "perikarya"
    ]
   ],
   "choices": null,

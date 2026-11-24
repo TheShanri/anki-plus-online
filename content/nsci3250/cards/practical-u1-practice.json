@@ -395,7 +395,9 @@
   },
   "answer": "Dorsal",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "superior"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-5f7b06c4bee3da18c57a3b2c56221dd64cd6e144.webp",
   "w": 1548,
@@ -1498,7 +1500,9 @@
   },
   "answer": "Dorsal",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "posterior"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-00cc86967579e125e07500e410c3c25335e0ec6f.webp",
   "w": 1498,
@@ -2455,7 +2459,9 @@
   },
   "answer": "Ventral",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "inferior"
+  ],
   "require_side": false,
   "image": "apkg/unit-1-practice-practicals/media/paste-d02add8cc8fd4d781168d1c6d26f4ccedc5f9a2d.webp",
   "w": 1491,

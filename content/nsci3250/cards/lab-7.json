@@ -7212,141 +7212,63 @@
  },
  {
   "slug": "lab-7-io-1770685384096-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "epithalamus",
   "status": "live",
   "position": 702,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685384096 cloze 3"
+   "ref": "apkg/lab-7 note 1770685384096 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Epithalamus",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
-  "w": 1220,
-  "h": 828,
-  "target": {
-   "shape": "rect",
-   "x": 0.3389,
-   "y": 0.3041,
-   "w": 0.2432,
-   "h": 0.029
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.3324,
-    "y": 0.2251,
-    "w": 0.1625,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.3418,
-    "y": 0.2695,
-    "w": 0.2188,
-    "h": 0.0304
-   },
-   {
-    "shape": "rect",
-    "x": 0.3389,
-    "y": 0.3041,
-    "w": 0.2432,
-    "h": 0.029
-   },
-   {
-    "shape": "rect",
-    "x": 0.338,
-    "y": 0.3525,
-    "w": 0.1277,
-    "h": 0.0318
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The pineal gland (melatonin production) is part of the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685384096-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "pineal-gland",
   "status": "live",
   "position": 703,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685384096 cloze 4"
+   "ref": "apkg/lab-7 note 1770685384096 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Pineal gland",
-  "answer_kind": "structure",
   "accept": [
    "pineal body",
    "pineal",
    "epiphysis"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-469262d43ec33817f4387e999b80b3c74d240ea5.webp",
-  "w": 1220,
-  "h": 828,
-  "target": {
-   "shape": "rect",
-   "x": 0.338,
-   "y": 0.3525,
-   "w": 0.1277,
-   "h": 0.0318
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.3324,
-    "y": 0.2251,
-    "w": 0.1625,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.3418,
-    "y": 0.2695,
-    "w": 0.2188,
-    "h": 0.0304
-   },
-   {
-    "shape": "rect",
-    "x": 0.3389,
-    "y": 0.3041,
-    "w": 0.2432,
-    "h": 0.029
-   },
-   {
-    "shape": "rect",
-    "x": 0.338,
-    "y": 0.3525,
-    "w": 0.1277,
-    "h": 0.0318
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which structure of the epithalamus produces melatonin?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685400546-c1",
@@ -7981,239 +7903,101 @@
  },
  {
   "slug": "lab-7-io-1770685519025-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "pulvinar",
   "status": "live",
   "position": 1002,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685519025 cloze 3"
+   "ref": "apkg/lab-7 note 1770685519025 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Pulvinar",
-  "answer_kind": "structure",
   "accept": [
    "pulvinar nucleus",
    "thalamic pulvinar"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
-  "w": 1951,
-  "h": 1342,
-  "target": {
-   "shape": "rect",
-   "x": 0.0287,
-   "y": 0.2984,
-   "w": 0.155,
-   "h": 0.0443
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0173,
-    "y": 0.0937,
-    "w": 0.0932,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.0486,
-    "y": 0.1933,
-    "w": 0.1608,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.0287,
-    "y": 0.2984,
-    "w": 0.155,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.0268,
-    "y": 0.4049,
-    "w": 0.311,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0325,
-    "y": 0.499,
-    "w": 0.272,
-    "h": 0.0429
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which thalamic nucleus relays information to the posterior cortex, largely the visual and parietal association cortex?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685519025-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "medial-geniculate-nucleus",
   "status": "live",
   "position": 1003,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685519025 cloze 4"
+   "ref": "apkg/lab-7 note 1770685519025 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Medial geniculate nucleus",
-  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
    "MGN"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
-  "w": 1951,
-  "h": 1342,
-  "target": {
-   "shape": "rect",
-   "x": 0.0268,
-   "y": 0.4049,
-   "w": 0.311,
-   "h": 0.0346
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0173,
-    "y": 0.0937,
-    "w": 0.0932,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.0486,
-    "y": 0.1933,
-    "w": 0.1608,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.0287,
-    "y": 0.2984,
-    "w": 0.155,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.0268,
-    "y": 0.4049,
-    "w": 0.311,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0325,
-    "y": 0.499,
-    "w": 0.272,
-    "h": 0.0429
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which thalamic nucleus relays auditory information to the primary auditory cortex?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:visual",
    "modality:visual",
-   "modality:auditory"
-  ]
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685519025-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "lateral-geniculate-nucleus",
   "status": "live",
   "position": 1004,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685519025 cloze 5"
+   "ref": "apkg/lab-7 note 1770685519025 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Lateral geniculate nucleus",
-  "answer_kind": "structure",
   "accept": [
    "lateral geniculate body",
    "lateral geniculate",
    "LGN"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-45dc671a4f6fa11f0ff0f8287f7d897c6321aded.webp",
-  "w": 1951,
-  "h": 1342,
-  "target": {
-   "shape": "rect",
-   "x": 0.0325,
-   "y": 0.499,
-   "w": 0.272,
-   "h": 0.0429
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0173,
-    "y": 0.0937,
-    "w": 0.0932,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.0486,
-    "y": 0.1933,
-    "w": 0.1608,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.0287,
-    "y": 0.2984,
-    "w": 0.155,
-    "h": 0.0443
-   },
-   {
-    "shape": "rect",
-    "x": 0.0268,
-    "y": 0.4049,
-    "w": 0.311,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0325,
-    "y": 0.499,
-    "w": 0.272,
-    "h": 0.0429
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which thalamic nucleus relays visual information to the primary visual cortex?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:visual",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685604391-c1",
@@ -9388,59 +9172,34 @@
  },
  {
   "slug": "lab-7-io-1770685642529-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "superior-colliculus",
   "status": "live",
   "position": 1200,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685642529 cloze 1"
+   "ref": "apkg/lab-7 note 1770685642529 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Superior colliculus",
-  "answer_kind": "structure",
   "accept": [
    "superior colliculi"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp",
-  "w": 1787,
-  "h": 1295,
-  "target": {
-   "shape": "rect",
-   "x": 0.0555,
-   "y": 0.0951,
-   "w": 0.1983,
-   "h": 0.0464
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0588,
-    "y": 0.3434,
-    "w": 0.3042,
-    "h": 0.0441
-   },
-   {
-    "shape": "rect",
-    "x": 0.0555,
-    "y": 0.0951,
-    "w": 0.1983,
-    "h": 0.0464
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which structure tracks visual stimuli and drives visual reflexes?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685642529-c2",
@@ -9743,127 +9502,37 @@
  },
  {
   "slug": "lab-7-io-1770685694563-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "medial-geniculate-nucleus",
   "status": "live",
   "position": 1302,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685694563 cloze 3"
+   "ref": "apkg/lab-7 note 1770685694563 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Medial geniculate nucleus",
-  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
    "MGN"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5132824a15055d3b292afd2c76a23c3ce4f48a76.webp",
-  "w": 1787,
-  "h": 1295,
-  "target": {
-   "shape": "rect",
-   "x": 0.2718,
-   "y": 0.3952,
-   "w": 0.2979,
-   "h": 0.0304
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1204,
-    "y": 0.1753,
-    "w": 0.4132,
-    "h": 0.065
-   },
-   {
-    "shape": "rect",
-    "x": 0.1204,
-    "y": 0.2901,
-    "w": 0.4242,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.2718,
-    "y": 0.3952,
-    "w": 0.2979,
-    "h": 0.0304
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.2799,
-      0.4312
-     ],
-     [
-      0.5827,
-      0.434
-     ],
-     [
-      0.5787,
-      0.5059
-     ],
-     [
-      0.0492,
-      0.5017
-     ],
-     [
-      0.0502,
-      0.463
-     ],
-     [
-      0.2819,
-      0.4685
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.5757,
-      0.6276
-     ],
-     [
-      0.0462,
-      0.6179
-     ],
-     [
-      0.0472,
-      0.5335
-     ],
-     [
-      0.1695,
-      0.5363
-     ],
-     [
-      0.1705,
-      0.5059
-     ],
-     [
-      0.5807,
-      0.5073
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The inferior colliculus is connected to the ______ of the thalamus by the brachium of the inferior colliculus.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:visual",
    "modality:visual",
-   "modality:auditory"
-  ]
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685694563-c4",
@@ -10213,134 +9882,70 @@
  },
  {
   "slug": "lab-7-io-1770685715566-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "brachium-of-the-inferior-colliculus",
   "status": "live",
   "position": 1401,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685715566 cloze 2"
+   "ref": "apkg/lab-7 note 1770685715566 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Brachium of the inferior colliculus",
-  "answer_kind": "structure",
   "accept": [
    "inferior brachium",
    "brachium of inferior colliculus",
    "brachium"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
-  "w": 1979,
-  "h": 1284,
-  "target": {
-   "shape": "rect",
-   "x": 0.4681,
-   "y": 0.4699,
-   "w": 0.341,
-   "h": 0.0277
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4637,
-    "y": 0.4312,
-    "w": 0.1732,
-    "h": 0.029
-   },
-   {
-    "shape": "rect",
-    "x": 0.4681,
-    "y": 0.4699,
-    "w": 0.341,
-    "h": 0.0277
-   },
-   {
-    "shape": "rect",
-    "x": 0.4655,
-    "y": 0.5778,
-    "w": 0.2773,
-    "h": 0.036
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which fiber tract carries axons from the inferior colliculus to the medial geniculate nucleus?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:auditory"
-  ]
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685715566-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "medial-geniculate-nucleus",
   "status": "live",
   "position": 1402,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685715566 cloze 3"
+   "ref": "apkg/lab-7 note 1770685715566 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Medial geniculate nucleus",
-  "answer_kind": "structure",
   "accept": [
    "medial geniculate body",
    "medial geniculate",
    "MGN"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
-  "w": 1979,
-  "h": 1284,
-  "target": {
-   "shape": "rect",
-   "x": 0.4655,
-   "y": 0.5778,
-   "w": 0.2773,
-   "h": 0.036
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4637,
-    "y": 0.4312,
-    "w": 0.1732,
-    "h": 0.029
-   },
-   {
-    "shape": "rect",
-    "x": 0.4681,
-    "y": 0.4699,
-    "w": 0.341,
-    "h": 0.0277
-   },
-   {
-    "shape": "rect",
-    "x": 0.4655,
-    "y": 0.5778,
-    "w": 0.2773,
-    "h": 0.036
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Axons from the inferior colliculus synapse in which thalamic nucleus?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:visual",
    "modality:visual",
-   "modality:auditory"
-  ]
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685753237-c1",
@@ -10442,299 +10047,98 @@
  },
  {
   "slug": "lab-7-io-1770685753237-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 1501,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685753237 cloze 2"
+   "ref": "apkg/lab-7 note 1770685753237 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Auditory System",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
-  "w": 1979,
-  "h": 1284,
-  "target": {
-   "shape": "rect",
-   "x": 0.5767,
-   "y": 0.351,
-   "w": 0.1552,
-   "h": 0.047
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4376,
-    "y": 0.286,
-    "w": 0.1238,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.5767,
-    "y": 0.351,
-    "w": 0.1552,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.4699,
-    "y": 0.5418,
-    "w": 0.1687,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.6225,
-    "y": 0.6151,
-    "w": 0.157,
-    "h": 0.0332
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.5633,
-      0.6885
-     ],
-     [
-      0.8908,
-      0.6912
-     ],
-     [
-      0.8881,
-      0.7687
-     ],
-     [
-      0.4565,
-      0.7687
-     ],
-     [
-      0.4583,
-      0.723
-     ],
-     [
-      0.5651,
-      0.7244
-     ]
-    ]
-   }
+  "accept": [
+   "auditory pathway",
+   "auditory"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The inferior colliculus, its brachium and the medial geniculate nucleus are all part of the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:auditory"
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
   ],
-  "explain": "The brachium of the inferior colliculus carries auditory information from the inferior colliculus to the medial geniculate nucleus of the thalamus, which relays it to the primary auditory cortex."
+  "explain": "The brachium of the inferior colliculus carries auditory information from the inferior colliculus to the medial geniculate nucleus of the thalamus, which relays it to the primary auditory cortex.",
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685753237-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "inferior-colliculus",
   "status": "live",
   "position": 1502,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685753237 cloze 3"
+   "ref": "apkg/lab-7 note 1770685753237 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Inferior colliculus",
-  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
-  "w": 1979,
-  "h": 1284,
-  "target": {
-   "shape": "rect",
-   "x": 0.4699,
-   "y": 0.5418,
-   "w": 0.1687,
-   "h": 0.0332
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4376,
-    "y": 0.286,
-    "w": 0.1238,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.5767,
-    "y": 0.351,
-    "w": 0.1552,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.4699,
-    "y": 0.5418,
-    "w": 0.1687,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.6225,
-    "y": 0.6151,
-    "w": 0.157,
-    "h": 0.0332
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.5633,
-      0.6885
-     ],
-     [
-      0.8908,
-      0.6912
-     ],
-     [
-      0.8881,
-      0.7687
-     ],
-     [
-      0.4565,
-      0.7687
-     ],
-     [
-      0.4583,
-      0.723
-     ],
-     [
-      0.5651,
-      0.7244
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The brachium of the inferior colliculus carries axons from the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:auditory"
-  ]
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685753237-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "inferior-colliculus",
   "status": "live",
   "position": 1503,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685753237 cloze 4"
+   "ref": "apkg/lab-7 note 1770685753237 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Inferior colliculus",
-  "answer_kind": "structure",
   "accept": [
    "inferior colliculi"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-7a6ef68f74861b1a0f1a460d97265cb55a33a158.webp",
-  "w": 1979,
-  "h": 1284,
-  "target": {
-   "shape": "rect",
-   "x": 0.6225,
-   "y": 0.6151,
-   "w": 0.157,
-   "h": 0.0332
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4376,
-    "y": 0.286,
-    "w": 0.1238,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.5767,
-    "y": 0.351,
-    "w": 0.1552,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.4699,
-    "y": 0.5418,
-    "w": 0.1687,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.6225,
-    "y": 0.6151,
-    "w": 0.157,
-    "h": 0.0332
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.5633,
-      0.6885
-     ],
-     [
-      0.8908,
-      0.6912
-     ],
-     [
-      0.8881,
-      0.7687
-     ],
-     [
-      0.4565,
-      0.7687
-     ],
-     [
-      0.4583,
-      0.723
-     ],
-     [
-      0.5651,
-      0.7244
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Axons from the ______ synapse in the medial geniculate nucleus.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:auditory"
-  ]
+   "modality:auditory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685753237-c5",
@@ -11251,129 +10655,36 @@
  },
  {
   "slug": "lab-7-io-1770685863805-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "retina",
   "status": "live",
   "position": 1700,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685863805 cloze 1"
+   "ref": "apkg/lab-7 note 1770685863805 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Retina of the eye",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
-  "w": 1924,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.6009,
-   "y": 0.6872,
-   "w": 0.1544,
-   "h": 0.0327
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.8232,
-    "w": 0.1964,
-    "h": 0.0252
-   },
-   {
-    "shape": "rect",
-    "x": 0.2182,
-    "y": 0.8899,
-    "w": 0.3794,
-    "h": 0.0277
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7117,
-      0.8483
-     ],
-     [
-      0.8661,
-      0.8483
-     ],
-     [
-      0.867,
-      0.8936
-     ],
-     [
-      0.1754,
-      0.8848
-     ],
-     [
-      0.1754,
-      0.915
-     ],
-     [
-      0.068,
-      0.9138
-     ],
-     [
-      0.0697,
-      0.8861
-     ],
-     [
-      0.7159,
-      0.8886
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2409,
-    "y": 0.8571,
-    "w": 0.1133,
-    "h": 0.0239
-   },
-   {
-    "shape": "rect",
-    "x": 0.5254,
-    "y": 0.7552,
-    "w": 0.2854,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.6009,
-    "y": 0.6872,
-    "w": 0.1544,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.6169,
-    "y": 0.725,
-    "w": 0.0705,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.3173,
-    "y": 0.7842,
-    "w": 0.1183,
-    "h": 0.0329
-   }
+  "accept": [
+   "retina",
+   "retinas",
+   "retinal ganglion cells"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The optic nerves contain axons originating from the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685863805-c2",
@@ -11503,128 +10814,27 @@
  },
  {
   "slug": "lab-7-io-1770685863805-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 1702,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685863805 cloze 3"
+   "ref": "apkg/lab-7 note 1770685863805 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Thalamus and superior colliculus",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
-  "w": 1924,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.5254,
-   "y": 0.7552,
-   "w": 0.2854,
-   "h": 0.0289
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.8232,
-    "w": 0.1964,
-    "h": 0.0252
-   },
-   {
-    "shape": "rect",
-    "x": 0.2182,
-    "y": 0.8899,
-    "w": 0.3794,
-    "h": 0.0277
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7117,
-      0.8483
-     ],
-     [
-      0.8661,
-      0.8483
-     ],
-     [
-      0.867,
-      0.8936
-     ],
-     [
-      0.1754,
-      0.8848
-     ],
-     [
-      0.1754,
-      0.915
-     ],
-     [
-      0.068,
-      0.9138
-     ],
-     [
-      0.0697,
-      0.8861
-     ],
-     [
-      0.7159,
-      0.8886
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2409,
-    "y": 0.8571,
-    "w": 0.1133,
-    "h": 0.0239
-   },
-   {
-    "shape": "rect",
-    "x": 0.5254,
-    "y": 0.7552,
-    "w": 0.2854,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.6009,
-    "y": 0.6872,
-    "w": 0.1544,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.6169,
-    "y": 0.725,
-    "w": 0.0705,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.3173,
-    "y": 0.7842,
-    "w": 0.1183,
-    "h": 0.0329
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Visual axons in the optic tract continue to the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:visual"
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
   ],
   "explain": "Retinal axons leave in the optic tract and mainly synapse in the lateral geniculate nucleus of the thalamus (for conscious vision) and in the superior colliculus (for visual reflexes and orienting eye movements).",
   "parts": [
@@ -11639,147 +10849,68 @@
    "Superior colliculus": [
     "superior colliculi"
    ]
-  }
+  },
+  "format": "keywords",
+  "keywords": [
+   [
+    "thalamus",
+    "lateral geniculate",
+    "LGN"
+   ],
+   [
+    "superior colliculus",
+    "colliculus"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685863805-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 1703,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685863805 cloze 4"
+   "ref": "apkg/lab-7 note 1770685863805 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Retinal axons",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
-  "w": 1924,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.3173,
-   "y": 0.7842,
-   "w": 0.1183,
-   "h": 0.0329
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.8232,
-    "w": 0.1964,
-    "h": 0.0252
-   },
-   {
-    "shape": "rect",
-    "x": 0.2182,
-    "y": 0.8899,
-    "w": 0.3794,
-    "h": 0.0277
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7117,
-      0.8483
-     ],
-     [
-      0.8661,
-      0.8483
-     ],
-     [
-      0.867,
-      0.8936
-     ],
-     [
-      0.1754,
-      0.8848
-     ],
-     [
-      0.1754,
-      0.915
-     ],
-     [
-      0.068,
-      0.9138
-     ],
-     [
-      0.0697,
-      0.8861
-     ],
-     [
-      0.7159,
-      0.8886
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2409,
-    "y": 0.8571,
-    "w": 0.1133,
-    "h": 0.0239
-   },
-   {
-    "shape": "rect",
-    "x": 0.5254,
-    "y": 0.7552,
-    "w": 0.2854,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.6009,
-    "y": 0.6872,
-    "w": 0.1544,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.6169,
-    "y": 0.725,
-    "w": 0.0705,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.3173,
-    "y": 0.7842,
-    "w": 0.1183,
-    "h": 0.0329
-   }
+  "accept": [
+   "retinal ganglion cell axons",
+   "axons from the retina",
+   "optic tract axons"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Which axons synapse in the lateral geniculate nucleus?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685863805-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "primary-visual-cortex",
   "status": "live",
   "position": 1704,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685863805 cloze 5"
+   "ref": "apkg/lab-7 note 1770685863805 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Primary visual cortex",
-  "answer_kind": "region",
   "accept": [
    "striate cortex",
    "visual cortex",
@@ -11787,368 +10918,92 @@
    "BA 17"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
-  "w": 1924,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.235,
-   "y": 0.8232,
-   "w": 0.1964,
-   "h": 0.0252
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.8232,
-    "w": 0.1964,
-    "h": 0.0252
-   },
-   {
-    "shape": "rect",
-    "x": 0.2182,
-    "y": 0.8899,
-    "w": 0.3794,
-    "h": 0.0277
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7117,
-      0.8483
-     ],
-     [
-      0.8661,
-      0.8483
-     ],
-     [
-      0.867,
-      0.8936
-     ],
-     [
-      0.1754,
-      0.8848
-     ],
-     [
-      0.1754,
-      0.915
-     ],
-     [
-      0.068,
-      0.9138
-     ],
-     [
-      0.0697,
-      0.8861
-     ],
-     [
-      0.7159,
-      0.8886
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2409,
-    "y": 0.8571,
-    "w": 0.1133,
-    "h": 0.0239
-   },
-   {
-    "shape": "rect",
-    "x": 0.5254,
-    "y": 0.7552,
-    "w": 0.2854,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.6009,
-    "y": 0.6872,
-    "w": 0.1544,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.6169,
-    "y": 0.725,
-    "w": 0.0705,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.3173,
-    "y": 0.7842,
-    "w": 0.1183,
-    "h": 0.0329
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "prompt": "The lateral geniculate nucleus relays visual information to the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:cortex",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685863805-c6",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 1705,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685863805 cloze 6"
+   "ref": "apkg/lab-7 note 1770685863805 cloze 6",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Retinal axons",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
-  "w": 1924,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.2409,
-   "y": 0.8571,
-   "w": 0.1133,
-   "h": 0.0239
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.8232,
-    "w": 0.1964,
-    "h": 0.0252
-   },
-   {
-    "shape": "rect",
-    "x": 0.2182,
-    "y": 0.8899,
-    "w": 0.3794,
-    "h": 0.0277
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7117,
-      0.8483
-     ],
-     [
-      0.8661,
-      0.8483
-     ],
-     [
-      0.867,
-      0.8936
-     ],
-     [
-      0.1754,
-      0.8848
-     ],
-     [
-      0.1754,
-      0.915
-     ],
-     [
-      0.068,
-      0.9138
-     ],
-     [
-      0.0697,
-      0.8861
-     ],
-     [
-      0.7159,
-      0.8886
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2409,
-    "y": 0.8571,
-    "w": 0.1133,
-    "h": 0.0239
-   },
-   {
-    "shape": "rect",
-    "x": 0.5254,
-    "y": 0.7552,
-    "w": 0.2854,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.6009,
-    "y": 0.6872,
-    "w": 0.1544,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.6169,
-    "y": 0.725,
-    "w": 0.0705,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.3173,
-    "y": 0.7842,
-    "w": 0.1183,
-    "h": 0.0329
-   }
+  "accept": [
+   "retinal ganglion cell axons",
+   "axons from the retina",
+   "optic tract axons"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Besides the lateral geniculate nucleus, which axons synapse in the superior colliculus?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685863805-c7",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 1706,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685863805 cloze 7"
+   "ref": "apkg/lab-7 note 1770685863805 cloze 7",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "eliciting visual reflexes and tracking motions",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-4f71cb294f5335db15b54d1d4af9aba291bfaa1b.webp",
-  "w": 1924,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.2182,
-   "y": 0.8899,
-   "w": 0.3794,
-   "h": 0.0277
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.8232,
-    "w": 0.1964,
-    "h": 0.0252
-   },
-   {
-    "shape": "rect",
-    "x": 0.2182,
-    "y": 0.8899,
-    "w": 0.3794,
-    "h": 0.0277
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7117,
-      0.8483
-     ],
-     [
-      0.8661,
-      0.8483
-     ],
-     [
-      0.867,
-      0.8936
-     ],
-     [
-      0.1754,
-      0.8848
-     ],
-     [
-      0.1754,
-      0.915
-     ],
-     [
-      0.068,
-      0.9138
-     ],
-     [
-      0.0697,
-      0.8861
-     ],
-     [
-      0.7159,
-      0.8886
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2409,
-    "y": 0.8571,
-    "w": 0.1133,
-    "h": 0.0239
-   },
-   {
-    "shape": "rect",
-    "x": 0.5254,
-    "y": 0.7552,
-    "w": 0.2854,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.6009,
-    "y": 0.6872,
-    "w": 0.1544,
-    "h": 0.0327
-   },
-   {
-    "shape": "rect",
-    "x": 0.6169,
-    "y": 0.725,
-    "w": 0.0705,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.3173,
-    "y": 0.7842,
-    "w": 0.1183,
-    "h": 0.0329
-   }
+  "answer": "Visual reflexes and tracking motion",
+  "accept": [
+   "eliciting visual reflexes and tracking motions"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The superior colliculus processes visual information and is involved in ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "keywords",
+  "keywords": [
+   [
+    "reflex",
+    "reflexes"
+   ],
+   [
+    "track",
+    "tracking"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685863805-c8",
@@ -12876,191 +11731,95 @@
  },
  {
   "slug": "lab-7-io-1770685961638-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "obex",
   "status": "live",
   "position": 2000,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685961638 cloze 1"
+   "ref": "apkg/lab-7 note 1770685961638 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Obex",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
-  "w": 1758,
-  "h": 1277,
-  "target": {
-   "shape": "rect",
-   "x": 0.0454,
-   "y": 0.2362,
-   "w": 0.1045,
-   "h": 0.0553
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0454,
-    "y": 0.2362,
-    "w": 0.1045,
-    "h": 0.0553
-   },
-   {
-    "shape": "rect",
-    "x": 0.0504,
-    "y": 0.6013,
-    "w": 0.1949,
-    "h": 0.0526
-   },
-   {
-    "shape": "rect",
-    "x": 0.0434,
-    "y": 0.7604,
-    "w": 0.223,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which landmark is the most inferior, pointed end of the fourth ventricle?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685961638-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "gracile-tubercle",
   "status": "live",
   "position": 2001,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685961638 cloze 2"
+   "ref": "apkg/lab-7 note 1770685961638 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Gracile tubercle",
-  "answer_kind": "structure",
   "accept": [
    "tuberculum gracile",
    "gracile tubercles"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
-  "w": 1758,
-  "h": 1277,
-  "target": {
-   "shape": "rect",
-   "x": 0.0504,
-   "y": 0.6013,
-   "w": 0.1949,
-   "h": 0.0526
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0454,
-    "y": 0.2362,
-    "w": 0.1045,
-    "h": 0.0553
-   },
-   {
-    "shape": "rect",
-    "x": 0.0504,
-    "y": 0.6013,
-    "w": 0.1949,
-    "h": 0.0526
-   },
-   {
-    "shape": "rect",
-    "x": 0.0434,
-    "y": 0.7604,
-    "w": 0.223,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which tubercle marks the relay nucleus for somatosensation from the lower body?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685961638-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "cuneate-tubercle",
   "status": "live",
   "position": 2002,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685961638 cloze 3"
+   "ref": "apkg/lab-7 note 1770685961638 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cuneate tubercle",
-  "answer_kind": "structure",
   "accept": [
    "tuberculum cuneatum",
    "cuneate tubercles"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
-  "w": 1758,
-  "h": 1277,
-  "target": {
-   "shape": "rect",
-   "x": 0.0434,
-   "y": 0.7604,
-   "w": 0.223,
-   "h": 0.0401
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0454,
-    "y": 0.2362,
-    "w": 0.1045,
-    "h": 0.0553
-   },
-   {
-    "shape": "rect",
-    "x": 0.0504,
-    "y": 0.6013,
-    "w": 0.1949,
-    "h": 0.0526
-   },
-   {
-    "shape": "rect",
-    "x": 0.0434,
-    "y": 0.7604,
-    "w": 0.223,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which tubercle marks the relay nucleus for somatosensation from the upper body?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685995086-c1",
@@ -13165,206 +11924,65 @@
  },
  {
   "slug": "lab-7-io-1770685995086-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "area-postrema",
   "status": "live",
   "position": 2101,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685995086 cloze 2"
+   "ref": "apkg/lab-7 note 1770685995086 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Area postrema",
-  "answer_kind": "structure",
   "accept": [
    "chemoreceptor trigger zone",
    "AP"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
-  "w": 1758,
-  "h": 1277,
-  "target": {
-   "shape": "rect",
-   "x": 0.0484,
-   "y": 0.4409,
-   "w": 0.1718,
-   "h": 0.0263
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0464,
-    "y": 0.3302,
-    "w": 0.4511,
-    "h": 0.0609
-   },
-   {
-    "shape": "rect",
-    "x": 0.0484,
-    "y": 0.4409,
-    "w": 0.1718,
-    "h": 0.0263
-   },
-   {
-    "shape": "rect",
-    "x": 0.4231,
-    "y": 0.4353,
-    "w": 0.0964,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.1469,
-    "y": 0.6967,
-    "w": 0.3958,
-    "h": 0.065
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.2554,
-      0.8005
-     ],
-     [
-      0.5728,
-      0.7991
-     ],
-     [
-      0.5708,
-      0.889
-     ],
-     [
-      0.1348,
-      0.8849
-     ],
-     [
-      0.1358,
-      0.8364
-     ],
-     [
-      0.2534,
-      0.8378
-     ],
-     [
-      0.2554,
-      0.8129
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The chemically sensitive cells at the obex are called the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685995086-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 2102,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770685995086 cloze 3"
+   "ref": "apkg/lab-7 note 1770685995086 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Vomiting",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-5d39fa44630fb9bb2051304ac630a6d5378dfd4c.webp",
-  "w": 1758,
-  "h": 1277,
-  "target": {
-   "shape": "rect",
-   "x": 0.4231,
-   "y": 0.4353,
-   "w": 0.0964,
-   "h": 0.0332
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0464,
-    "y": 0.3302,
-    "w": 0.4511,
-    "h": 0.0609
-   },
-   {
-    "shape": "rect",
-    "x": 0.0484,
-    "y": 0.4409,
-    "w": 0.1718,
-    "h": 0.0263
-   },
-   {
-    "shape": "rect",
-    "x": 0.4231,
-    "y": 0.4353,
-    "w": 0.0964,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.1469,
-    "y": 0.6967,
-    "w": 0.3958,
-    "h": 0.065
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.2554,
-      0.8005
-     ],
-     [
-      0.5728,
-      0.7991
-     ],
-     [
-      0.5708,
-      0.889
-     ],
-     [
-      0.1348,
-      0.8849
-     ],
-     [
-      0.1358,
-      0.8364
-     ],
-     [
-      0.2534,
-      0.8378
-     ],
-     [
-      0.2554,
-      0.8129
-     ]
-    ]
-   }
+  "accept": [
+   "emesis",
+   "nausea and vomiting"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The area postrema, at the obex, can trigger ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770685995086-c4",
@@ -15036,17 +13654,17 @@
  },
  {
   "slug": "lab-7-io-1770686076690-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "cerebral-aqueduct",
   "status": "live",
   "position": 2401,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686076690 cloze 2"
+   "ref": "apkg/lab-7 note 1770686076690 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cerebral aqueduct",
-  "answer_kind": "space",
   "accept": [
    "aqueduct of Sylvius",
    "mesencephalic aqueduct",
@@ -15054,50 +13672,18 @@
    "CA"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-b20d5a6973bcccab5a8791df5d0c47a7dd41ba84.webp",
-  "w": 1877,
-  "h": 1264,
-  "target": {
-   "shape": "rect",
-   "x": 0.6483,
-   "y": 0.5031,
-   "w": 0.2169,
-   "h": 0.0528
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.6483,
-    "y": 0.5031,
-    "w": 0.2169,
-    "h": 0.0528
-   },
-   {
-    "shape": "rect",
-    "x": 0.639,
-    "y": 0.7057,
-    "w": 0.15,
-    "h": 0.0478
-   },
-   {
-    "shape": "rect",
-    "x": 0.6386,
-    "y": 0.3282,
-    "w": 0.1585,
-    "h": 0.0631
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Which CSF channel lies inside the midbrain?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:ventricles"
-  ]
+   "region:ventricles",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686076690-c3",
@@ -15165,171 +13751,63 @@
  },
  {
   "slug": "lab-7-io-1770686112984-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "cerebral-peduncles",
   "status": "live",
   "position": 2500,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686112984 cloze 1"
+   "ref": "apkg/lab-7 note 1770686112984 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cerebral peduncles",
-  "answer_kind": "structure",
   "accept": [
    "crus cerebri",
    "basis pedunculi",
    "cerebral peduncle"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
-  "w": 1748,
-  "h": 1245,
-  "target": {
-   "shape": "rect",
-   "x": 0.0603,
-   "y": 0.1547,
-   "w": 0.2454,
-   "h": 0.0526
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0511,
-    "y": 0.2365,
-    "w": 0.26,
-    "h": 0.044
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4088,
-      0.4629
-     ],
-     [
-      0.5486,
-      0.4667
-     ],
-     [
-      0.5477,
-      0.5648
-     ],
-     [
-      0.0529,
-      0.5648
-     ],
-     [
-      0.0547,
-      0.4994
-     ],
-     [
-      0.4097,
-      0.5069
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.0603,
-    "y": 0.1547,
-    "w": 0.2454,
-    "h": 0.0526
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The ______ are separated by a space called the interpeduncular fossa.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686112984-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "interpeduncular-fossa",
   "status": "live",
   "position": 2501,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686112984 cloze 2"
+   "ref": "apkg/lab-7 note 1770686112984 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Interpeduncular fossa",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
-  "w": 1748,
-  "h": 1245,
-  "target": {
-   "shape": "rect",
-   "x": 0.0511,
-   "y": 0.2365,
-   "w": 0.26,
-   "h": 0.044
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0511,
-    "y": 0.2365,
-    "w": 0.26,
-    "h": 0.044
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4088,
-      0.4629
-     ],
-     [
-      0.5486,
-      0.4667
-     ],
-     [
-      0.5477,
-      0.5648
-     ],
-     [
-      0.0529,
-      0.5648
-     ],
-     [
-      0.0547,
-      0.4994
-     ],
-     [
-      0.4097,
-      0.5069
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.0603,
-    "y": 0.1547,
-    "w": 0.2454,
-    "h": 0.0526
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The cerebral peduncles are separated by a space called the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686112984-c3",
@@ -15441,137 +13919,73 @@
  },
  {
   "slug": "lab-7-io-1770686160234-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "subarachnoid-space",
   "status": "live",
   "position": 2600,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686160234 cloze 1"
+   "ref": "apkg/lab-7 note 1770686160234 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Subarachnoid space",
-  "answer_kind": "space",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
-  "w": 1748,
-  "h": 1245,
-  "target": {
-   "shape": "rect",
-   "x": 0.1367,
-   "y": 0.279,
-   "w": 0.2258,
-   "h": 0.0346
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1367,
-    "y": 0.279,
-    "w": 0.2258,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0618,
-    "y": 0.3551,
-    "w": 0.2731,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.2905,
-    "y": 0.6193,
-    "w": 0.2652,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Between the cerebral peduncles, the ______ widens into an enlarged pool of CSF, the interpeduncular cistern.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:meninges"
-  ]
+   "region:meninges",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686160234-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "interpeduncular-cistern",
   "status": "live",
   "position": 2601,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686160234 cloze 2"
+   "ref": "apkg/lab-7 note 1770686160234 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Interpeduncular cistern",
-  "answer_kind": "space",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
-  "w": 1748,
-  "h": 1245,
-  "target": {
-   "shape": "rect",
-   "x": 0.0618,
-   "y": 0.3551,
-   "w": 0.2731,
-   "h": 0.036
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1367,
-    "y": 0.279,
-    "w": 0.2258,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0618,
-    "y": 0.3551,
-    "w": 0.2731,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.2905,
-    "y": 0.6193,
-    "w": 0.2652,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "The enlarged pool of CSF in the subarachnoid space between the cerebral peduncles is the ______.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686160234-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "trochlear-nerve",
   "status": "live",
   "position": 2602,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686160234 cloze 3"
+   "ref": "apkg/lab-7 note 1770686160234 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Trochlear nerve",
-  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -15581,51 +13995,19 @@
    "CN IV"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-a44b5603b19e5e013f63b1ecb04e971f40d18f16.webp",
-  "w": 1748,
-  "h": 1245,
-  "target": {
-   "shape": "rect",
-   "x": 0.2905,
-   "y": 0.6193,
-   "w": 0.2652,
-   "h": 0.0401
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1367,
-    "y": 0.279,
-    "w": 0.2258,
-    "h": 0.0346
-   },
-   {
-    "shape": "rect",
-    "x": 0.0618,
-    "y": 0.3551,
-    "w": 0.2731,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.2905,
-    "y": 0.6193,
-    "w": 0.2652,
-    "h": 0.0401
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which cranial nerve arises from the dorsal surface of the brainstem, inferior to the inferior colliculus, and wraps laterally around the peduncles?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:cranial-nerves",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686228689-c1",
@@ -18165,17 +16547,17 @@
  },
  {
   "slug": "lab-7-io-1770686410815-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "trochlear-nerve",
   "status": "live",
   "position": 2900,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686410815 cloze 1"
+   "ref": "apkg/lab-7 note 1770686410815 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Trochlear nerve",
-  "answer_kind": "structure",
   "accept": [
    "cranial nerve IV",
    "cranial nerve 4",
@@ -18185,137 +16567,33 @@
    "CN IV"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
-  "w": 1934,
-  "h": 1307,
-  "target": {
-   "shape": "rect",
-   "x": 0.2049,
-   "y": 0.0522,
-   "w": 0.2385,
-   "h": 0.0456
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2049,
-    "y": 0.0522,
-    "w": 0.2385,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.1928,
-    "y": 0.1878,
-    "w": 0.2694,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.0581,
-    "y": 0.6442,
-    "w": 0.2918,
-    "h": 0.0595
-   },
-   {
-    "shape": "rect",
-    "x": 0.2573,
-    "y": 0.7811,
-    "w": 0.245,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.4387,
-    "y": 0.9222,
-    "w": 0.3713,
-    "h": 0.0484
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7876,
-      0.2749
-     ],
-     [
-      0.9934,
-      0.2804
-     ],
-     [
-      0.9952,
-      0.3772
-     ],
-     [
-      0.0572,
-      0.3745
-     ],
-     [
-      0.0581,
-      0.3261
-     ],
-     [
-      0.7895,
-      0.3316
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7951,
-      0.4616
-     ],
-     [
-      0.9606,
-      0.4616
-     ],
-     [
-      0.9625,
-      0.5875
-     ],
-     [
-      0.0506,
-      0.5833
-     ],
-     [
-      0.0553,
-      0.5031
-     ],
-     [
-      0.7923,
-      0.5252
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which cranial nerve leaves the brainstem in the posterior caudal midbrain?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:cranial-nerves",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686410815-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "abducens-nerve",
   "status": "live",
   "position": 2901,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686410815 cloze 2"
+   "ref": "apkg/lab-7 note 1770686410815 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Abducens nerve",
-  "answer_kind": "structure",
   "accept": [
    "cranial nerve VI",
    "cranial nerve 6",
@@ -18326,137 +16604,33 @@
    "CN VI"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
-  "w": 1934,
-  "h": 1307,
-  "target": {
-   "shape": "rect",
-   "x": 0.1928,
-   "y": 0.1878,
-   "w": 0.2694,
-   "h": 0.0567
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2049,
-    "y": 0.0522,
-    "w": 0.2385,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.1928,
-    "y": 0.1878,
-    "w": 0.2694,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.0581,
-    "y": 0.6442,
-    "w": 0.2918,
-    "h": 0.0595
-   },
-   {
-    "shape": "rect",
-    "x": 0.2573,
-    "y": 0.7811,
-    "w": 0.245,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.4387,
-    "y": 0.9222,
-    "w": 0.3713,
-    "h": 0.0484
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7876,
-      0.2749
-     ],
-     [
-      0.9934,
-      0.2804
-     ],
-     [
-      0.9952,
-      0.3772
-     ],
-     [
-      0.0572,
-      0.3745
-     ],
-     [
-      0.0581,
-      0.3261
-     ],
-     [
-      0.7895,
-      0.3316
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7951,
-      0.4616
-     ],
-     [
-      0.9606,
-      0.4616
-     ],
-     [
-      0.9625,
-      0.5875
-     ],
-     [
-      0.0506,
-      0.5833
-     ],
-     [
-      0.0553,
-      0.5031
-     ],
-     [
-      0.7923,
-      0.5252
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which cranial nerve leaves the brainstem at the medial pontomedullary junction?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:cranial-nerves",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686410815-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "oculomotor-nerve",
   "status": "live",
   "position": 2902,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686410815 cloze 3"
+   "ref": "apkg/lab-7 note 1770686410815 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Oculomotor nerve",
-  "answer_kind": "structure",
   "accept": [
    "cranial nerve III",
    "cranial nerve 3",
@@ -18466,255 +16640,46 @@
    "CN III"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
-  "w": 1934,
-  "h": 1307,
-  "target": {
-   "shape": "rect",
-   "x": 0.0581,
-   "y": 0.6442,
-   "w": 0.2918,
-   "h": 0.0595
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2049,
-    "y": 0.0522,
-    "w": 0.2385,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.1928,
-    "y": 0.1878,
-    "w": 0.2694,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.0581,
-    "y": 0.6442,
-    "w": 0.2918,
-    "h": 0.0595
-   },
-   {
-    "shape": "rect",
-    "x": 0.2573,
-    "y": 0.7811,
-    "w": 0.245,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.4387,
-    "y": 0.9222,
-    "w": 0.3713,
-    "h": 0.0484
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7876,
-      0.2749
-     ],
-     [
-      0.9934,
-      0.2804
-     ],
-     [
-      0.9952,
-      0.3772
-     ],
-     [
-      0.0572,
-      0.3745
-     ],
-     [
-      0.0581,
-      0.3261
-     ],
-     [
-      0.7895,
-      0.3316
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7951,
-      0.4616
-     ],
-     [
-      0.9606,
-      0.4616
-     ],
-     [
-      0.9625,
-      0.5875
-     ],
-     [
-      0.0506,
-      0.5833
-     ],
-     [
-      0.0553,
-      0.5031
-     ],
-     [
-      0.7923,
-      0.5252
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which cranial nerve leaves the brainstem at the interpeduncular fossa?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:cranial-nerves",
-   "modality:visual"
-  ]
+   "modality:visual",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686410815-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 2903,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686410815 cloze 4"
+   "ref": "apkg/lab-7 note 1770686410815 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Pyramids and olive",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
-  "w": 1934,
-  "h": 1307,
-  "target": {
-   "shape": "rect",
-   "x": 0.2573,
-   "y": 0.7811,
-   "w": 0.245,
-   "h": 0.0567
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2049,
-    "y": 0.0522,
-    "w": 0.2385,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.1928,
-    "y": 0.1878,
-    "w": 0.2694,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.0581,
-    "y": 0.6442,
-    "w": 0.2918,
-    "h": 0.0595
-   },
-   {
-    "shape": "rect",
-    "x": 0.2573,
-    "y": 0.7811,
-    "w": 0.245,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.4387,
-    "y": 0.9222,
-    "w": 0.3713,
-    "h": 0.0484
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7876,
-      0.2749
-     ],
-     [
-      0.9934,
-      0.2804
-     ],
-     [
-      0.9952,
-      0.3772
-     ],
-     [
-      0.0572,
-      0.3745
-     ],
-     [
-      0.0581,
-      0.3261
-     ],
-     [
-      0.7895,
-      0.3316
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7951,
-      0.4616
-     ],
-     [
-      0.9606,
-      0.4616
-     ],
-     [
-      0.9625,
-      0.5875
-     ],
-     [
-      0.0506,
-      0.5833
-     ],
-     [
-      0.0553,
-      0.5031
-     ],
-     [
-      0.7923,
-      0.5252
-     ]
-    ]
-   }
+  "accept": [
+   "pyramid and olive",
+   "olive and pyramid"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Between which two structures does the hypoglossal nerve emerge from the brainstem?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:motor"
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
   ],
   "parts": [
    "Pyramids",
@@ -18727,143 +16692,52 @@
    "Olive": [
     "olives"
    ]
-  }
+  },
+  "format": "keywords",
+  "keywords": [
+   [
+    "pyramid"
+   ],
+   [
+    "olive",
+    "olivary"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686410815-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "superior-cerebellar-peduncle",
   "status": "live",
   "position": 2904,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770686410815 cloze 5"
+   "ref": "apkg/lab-7 note 1770686410815 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Superior cerebellar peduncle",
-  "answer_kind": "structure",
   "accept": [
    "brachium conjunctivum",
-   "SCP"
+   "SCP",
+   "superior cerebellar peduncles"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-26ea6fde45e6c4d26244f824f1e449ff1e0a36fe.webp",
-  "w": 1934,
-  "h": 1307,
-  "target": {
-   "shape": "rect",
-   "x": 0.4387,
-   "y": 0.9222,
-   "w": 0.3713,
-   "h": 0.0484
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2049,
-    "y": 0.0522,
-    "w": 0.2385,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.1928,
-    "y": 0.1878,
-    "w": 0.2694,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.0581,
-    "y": 0.6442,
-    "w": 0.2918,
-    "h": 0.0595
-   },
-   {
-    "shape": "rect",
-    "x": 0.2573,
-    "y": 0.7811,
-    "w": 0.245,
-    "h": 0.0567
-   },
-   {
-    "shape": "rect",
-    "x": 0.4387,
-    "y": 0.9222,
-    "w": 0.3713,
-    "h": 0.0484
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7876,
-      0.2749
-     ],
-     [
-      0.9934,
-      0.2804
-     ],
-     [
-      0.9952,
-      0.3772
-     ],
-     [
-      0.0572,
-      0.3745
-     ],
-     [
-      0.0581,
-      0.3261
-     ],
-     [
-      0.7895,
-      0.3316
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7951,
-      0.4616
-     ],
-     [
-      0.9606,
-      0.4616
-     ],
-     [
-      0.9625,
-      0.5875
-     ],
-     [
-      0.0506,
-      0.5833
-     ],
-     [
-      0.0553,
-      0.5031
-     ],
-     [
-      0.7923,
-      0.5252
-     ]
-    ]
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "What fiber bundles cover the ventricular system between the inferior colliculi and the cerebellum?",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:cerebellum",
-   "modality:motor"
-  ]
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770686410815-c6",
@@ -19333,144 +17207,67 @@
  },
  {
   "slug": "lab-7-io-1770744842712-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "pyramids",
   "status": "live",
   "position": 3200,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770744842712 cloze 1"
+   "ref": "apkg/lab-7 note 1770744842712 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Pyramids",
-  "answer_kind": "structure",
   "accept": [
    "medullary pyramids",
    "medullary pyramid",
    "pyramid"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
-  "w": 2000,
-  "h": 1256,
-  "target": {
-   "shape": "rect",
-   "x": 0.4674,
-   "y": 0.1587,
-   "w": 0.1477,
-   "h": 0.0373
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4674,
-    "y": 0.1587,
-    "w": 0.1477,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.4605,
-    "y": 0.286,
-    "w": 0.1095,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.4744,
-    "y": 0.6857,
-    "w": 0.2868,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.4709,
-    "y": 0.5681,
-    "w": 0.391,
-    "h": 0.0775
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The ______ contain longitudinal fibers of the cortical efferent system.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
    "region:brainstem",
-   "modality:motor"
-  ]
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770744842712-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "olives",
   "status": "live",
   "position": 3201,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770744842712 cloze 2"
+   "ref": "apkg/lab-7 note 1770744842712 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Olives",
-  "answer_kind": "structure",
   "accept": [
-   "olive"
+   "olive",
+   "inferior olive"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
-  "w": 2000,
-  "h": 1256,
-  "target": {
-   "shape": "rect",
-   "x": 0.4605,
-   "y": 0.286,
-   "w": 0.1095,
-   "h": 0.0373
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4674,
-    "y": 0.1587,
-    "w": 0.1477,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.4605,
-    "y": 0.286,
-    "w": 0.1095,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.4744,
-    "y": 0.6857,
-    "w": 0.2868,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.4709,
-    "y": 0.5681,
-    "w": 0.391,
-    "h": 0.0775
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The ______ are created by the inferior olivary nuclei under the surface.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770744842712-c3",
@@ -19683,127 +17480,68 @@
  },
  {
   "slug": "lab-7-io-1770744857169-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": null,
   "status": "live",
   "position": 3301,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770744857169 cloze 2"
+   "ref": "apkg/lab-7 note 1770744857169 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cortical efferent",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
-  "w": 2000,
-  "h": 1256,
-  "target": {
-   "shape": "rect",
-   "x": 0.7531,
-   "y": 0.1962,
-   "w": 0.1351,
-   "h": 0.0352
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7531,
-    "y": 0.1962,
-    "w": 0.1351,
-    "h": 0.0352
-   },
-   {
-    "shape": "rect",
-    "x": 0.55,
-    "y": 0.2,
-    "w": 0.1035,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.5755,
-    "y": 0.3256,
-    "w": 0.1791,
-    "h": 0.0329
-   }
+  "accept": [
+   "cortical efferent system",
+   "corticospinal",
+   "corticospinal tract"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The pyramids contain longitudinal fibers of the ______ system.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
   ],
-  "explain": "Cortical efferents are axons that leave the cerebral cortex, such as corticospinal and corticobulbar fibers, which descend through the internal capsule and cerebral peduncle. (Efferent: Latin efferre, 'to carry out'.)"
+  "explain": "Cortical efferents are axons that leave the cerebral cortex, such as corticospinal and corticobulbar fibers, which descend through the internal capsule and cerebral peduncle. (Efferent: Latin efferre, 'to carry out'.)",
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-7-io-1770744857169-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-7",
   "structure": "inferior-olivary-nucleus",
   "status": "live",
   "position": 3302,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-7 note 1770744857169 cloze 3"
+   "ref": "apkg/lab-7 note 1770744857169 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Inferior olivary nucleus",
-  "answer_kind": "structure",
   "accept": [
    "inferior olive",
    "olivary nucleus",
-   "ION"
+   "ION",
+   "inferior olivary nuclei"
   ],
   "require_side": false,
-  "image": "apkg/lab-7/media/paste-5cf5b820b862a52d28c38ecccd0a282599c02d98.webp",
-  "w": 2000,
-  "h": 1256,
-  "target": {
-   "shape": "rect",
-   "x": 0.5755,
-   "y": 0.3256,
-   "w": 0.1791,
-   "h": 0.0329
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7531,
-    "y": 0.1962,
-    "w": 0.1351,
-    "h": 0.0352
-   },
-   {
-    "shape": "rect",
-    "x": 0.55,
-    "y": 0.2,
-    "w": 0.1035,
-    "h": 0.0289
-   },
-   {
-    "shape": "rect",
-    "x": 0.5755,
-    "y": 0.3256,
-    "w": 0.1791,
-    "h": 0.0329
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The olives are created by the ______ under the surface.",
   "tags": [
    "unit:u2",
-   "kind:pin",
    "source:anki-deck",
-   "region:brainstem"
-  ]
+   "region:brainstem",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  }
 ]

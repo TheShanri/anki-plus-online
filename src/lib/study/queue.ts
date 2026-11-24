@@ -234,10 +234,47 @@ export class SessionQueue {
   }
 }
 
+/** An exam question (a practical station, a practice exam, a written exam): asked as itself, or after its own pin
+ *  (`followup_cards`), never as a structure's generic follow-up. Its wording points at its own image ("the
+ *  highlighted vessel") and it belongs to its exam, not to whatever session names the same structure. */
+export function isExamCard(c: StudyCard): boolean {
+  return c.tags.some((t) => t === "practical" || t === "written" || t === "source:practical" || t === "source:practice-exam");
+}
+
+const CN_NAMES = ["olfactory", "optic", "oculomotor", "trochlear", "trigeminal", "abducens", "facial", "vestibulocochlear", "glossopharyngeal", "vagus", "accessory", "hypoglossal"];
+const CN_ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii"];
+const CN_NUM = "(xii|xi|x|ix|viii|vii|vi|v|iv|iii|ii|i|1[0-2]|[1-9])";
+const CN_A = new RegExp(`^(?:cn|cranial nerve)? ?${CN_NUM}(?: ([a-z]+))?(?: nerve)?$`);
+const CN_B = new RegExp(`^(?:spinal )?([a-z]+) nerve(?: (?:cn|cranial nerve) ?${CN_NUM})?$`);
+
+function answerKey(s: string): string {
+  return s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N} ]+/gu, " ").replace(/\s+/g, " ").trim().replace(/^the /, "");
+}
+
+/** The cranial nerve an answer names ("III", "CN III", "CN VII (Facial)", "Oculomotor nerve"), else null. */
+export function cranialNerveOf(s: string): number | null {
+  const t = answerKey(s);
+  let m = CN_A.exec(t);
+  if (m && (!m[2] || CN_NAMES.includes(m[2]))) return CN_ROMAN.indexOf(m[1]) + 1 || Number(m[1]);
+  m = CN_B.exec(t);
+  if (m && CN_NAMES.includes(m[1])) return CN_NAMES.indexOf(m[1]) + 1;
+  return null;
+}
+
+/** The card's answer is what the student just named (the same name, or the same cranial nerve by number):
+ *  "Which cranial nerve adducts the eye?" right after naming the oculomotor nerve gives the answer away. */
+export function asksForSame(c: StudyCard, names: string[]): boolean {
+  const keys = new Set(names.filter(Boolean).map(answerKey));
+  const nums = new Set(names.map(cranialNerveOf).filter((n): n is number => n !== null));
+  return [c.answer, ...c.accept].filter(Boolean).some((a) => keys.has(answerKey(a)) || (nums.size > 0 && nums.has(cranialNerveOf(a) ?? -1)));
+}
+
 /**
  * Follow-ups to ask right after `parent`'s name (at most `max`, default 2): explicit `followup_cards` first, then
  * the structure's theory cards. Only new or due ones; facets rotate over time (never-seen first, then the one
- * reviewed longest ago). Pins without a structure get none.
+ * reviewed longest ago). Pins without a structure get none. Never one whose answer is the name just given
+ * (`names`: the structure's name; the parent's own answer always counts), and never an exam question of another
+ * pin. The caller's pool must already be the session's scope (a Lab 1 session gets Lab 1 theory only).
  */
 export function pickFollowups(
   parent: StudyCard,
@@ -247,10 +284,12 @@ export function pickFollowups(
   now: Date,
   answered: Set<string>,
   max = 2,
+  names: string[] = [],
 ): Entry[] {
   if (!parent.structureId) return [];
   const explicit = new Set(parent.followupCards);
-  const pool = theory.filter((c) => c.kind !== "pin" && c.id !== parent.id && !answered.has(c.id));
+  const named = [parent.answer, ...names];
+  const pool = theory.filter((c) => c.kind !== "pin" && c.id !== parent.id && !answered.has(c.id) && !asksForSame(c, named));
   const lastSeen = (c: StudyCard) => {
     const st = states.get(c.id);
     return st?.last_review ? new Date(st.last_review).getTime() : 0;
@@ -259,7 +298,7 @@ export function pickFollowups(
   const ranked = [
     ...pool.filter((c) => explicit.has(c.slug)).sort((a, b) => lastSeen(a) - lastSeen(b) || a.position - b.position),
     ...pool
-      .filter((c) => c.kind === "theory" && c.structureId === parent.structureId && !explicit.has(c.slug))
+      .filter((c) => c.kind === "theory" && c.structureId === parent.structureId && !explicit.has(c.slug) && !isExamCard(c))
       .sort((a, b) => lastSeen(a) - lastSeen(b) || wanted.indexOf(b.facet ?? "") - wanted.indexOf(a.facet ?? "") || a.position - b.position),
   ];
   const out: Entry[] = [];

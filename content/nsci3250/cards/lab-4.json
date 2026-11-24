@@ -12,7 +12,10 @@
   },
   "answer": "Posterior",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "dorsal",
+   "posterior side"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
   "w": 664,
@@ -100,7 +103,10 @@
   },
   "answer": "Anterior",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "ventral",
+   "anterior side"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-5c7eda4b433598632265f2a3518ad8263111132a.webp",
   "w": 664,
@@ -628,7 +634,10 @@
   },
   "answer": "Anterior",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "ventral",
+   "anterior side"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
   "w": 1062,
@@ -850,7 +859,10 @@
   },
   "answer": "Posterior",
   "answer_kind": "direction",
-  "accept": [],
+  "accept": [
+   "dorsal",
+   "posterior side"
+  ],
   "require_side": false,
   "image": "apkg/lab-4/media/paste-3c23a4a156cbffbd63475a077dec9c2a3645c6de.webp",
   "w": 1062,
@@ -1496,107 +1508,33 @@
  },
  {
   "slug": "lab-4-io-1769516287685-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "cervical-vertebrae",
   "status": "live",
   "position": 700,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516287685 cloze 1"
+   "ref": "apkg/lab-4 note 1769516287685 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Neck region",
-  "answer_kind": "region",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
-  "w": 1815,
-  "h": 1112,
-  "target": {
-   "shape": "rect",
-   "x": 0.3495,
-   "y": 0.2887,
-   "w": 0.1544,
-   "h": 0.0443
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.3495,
-    "y": 0.2887,
-    "w": 0.1544,
-    "h": 0.0443
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4648,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4865
-     ],
-     [
-      0.0161,
-      0.4893
-     ],
-     [
-      0.0178,
-      0.4326
-     ],
-     [
-      0.4665,
-      0.434
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2205,
-    "y": 0.4408,
-    "w": 0.0517,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.3444,
-    "y": 0.582,
-    "w": 0.1442,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.0229,
-    "y": 0.8849,
-    "w": 0.2765,
-    "h": 0.0498
-   }
+  "accept": [
+   "neck"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The 7 cervical vertebrae are in the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516287685-c2",
@@ -1735,317 +1673,94 @@
  },
  {
   "slug": "lab-4-io-1769516287685-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "ribs",
   "status": "live",
   "position": 702,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516287685 cloze 3"
+   "ref": "apkg/lab-4 note 1769516287685 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Ribs",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
-  "w": 1815,
-  "h": 1112,
-  "target": {
-   "shape": "rect",
-   "x": 0.2205,
-   "y": 0.4408,
-   "w": 0.0517,
-   "h": 0.0401
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.3495,
-    "y": 0.2887,
-    "w": 0.1544,
-    "h": 0.0443
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4648,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4865
-     ],
-     [
-      0.0161,
-      0.4893
-     ],
-     [
-      0.0178,
-      0.4326
-     ],
-     [
-      0.4665,
-      0.434
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2205,
-    "y": 0.4408,
-    "w": 0.0517,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.3444,
-    "y": 0.582,
-    "w": 0.1442,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.0229,
-    "y": 0.8849,
-    "w": 0.2765,
-    "h": 0.0498
-   }
+  "accept": [
+   "rib"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The 12 thoracic vertebrae enclose the chest cavity (thorax); the ______ attach to them.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516287685-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "lumbar-vertebrae",
   "status": "live",
   "position": 703,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516287685 cloze 4"
+   "ref": "apkg/lab-4 note 1769516287685 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Lower back",
-  "answer_kind": "region",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
-  "w": 1815,
-  "h": 1112,
-  "target": {
-   "shape": "rect",
-   "x": 0.3444,
-   "y": 0.582,
-   "w": 0.1442,
-   "h": 0.047
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.3495,
-    "y": 0.2887,
-    "w": 0.1544,
-    "h": 0.0443
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4648,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4865
-     ],
-     [
-      0.0161,
-      0.4893
-     ],
-     [
-      0.0178,
-      0.4326
-     ],
-     [
-      0.4665,
-      0.434
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2205,
-    "y": 0.4408,
-    "w": 0.0517,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.3444,
-    "y": 0.582,
-    "w": 0.1442,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.0229,
-    "y": 0.8849,
-    "w": 0.2765,
-    "h": 0.0498
-   }
+  "accept": [
+   "low back",
+   "lumbar region"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The 5 lumbar vertebrae are in the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516287685-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "coccyx",
   "status": "live",
   "position": 704,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516287685 cloze 5"
+   "ref": "apkg/lab-4 note 1769516287685 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Coccyx",
-  "answer_kind": "structure",
   "accept": [
    "tailbone"
   ],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-e8c8af58bdde36034432bf271ed7b4285efc38eb.webp",
-  "w": 1815,
-  "h": 1112,
-  "target": {
-   "shape": "rect",
-   "x": 0.0229,
-   "y": 0.8849,
-   "w": 0.2765,
-   "h": 0.0498
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.3495,
-    "y": 0.2887,
-    "w": 0.1544,
-    "h": 0.0443
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4648,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.3828
-     ],
-     [
-      0.5454,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4381
-     ],
-     [
-      0.2121,
-      0.4865
-     ],
-     [
-      0.0161,
-      0.4893
-     ],
-     [
-      0.0178,
-      0.4326
-     ],
-     [
-      0.4665,
-      0.434
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.2205,
-    "y": 0.4408,
-    "w": 0.0517,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.3444,
-    "y": 0.582,
-    "w": 0.1442,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.0229,
-    "y": 0.8849,
-    "w": 0.2765,
-    "h": 0.0498
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The 2 to 4 coccygeal vertebrae make up the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516313118-c1",
@@ -2807,183 +2522,87 @@
  },
  {
   "slug": "lab-4-io-1769516588424-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "atlas",
   "status": "live",
   "position": 1000,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516588424 cloze 1"
+   "ref": "apkg/lab-4 note 1769516588424 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Atlas",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
-  "w": 1117,
-  "h": 364,
-  "target": {
-   "shape": "rect",
-   "x": 0.235,
-   "y": 0.194,
-   "w": 0.1129,
-   "h": 0.1293
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.194,
-    "w": 0.1129,
-    "h": 0.1293
-   },
-   {
-    "shape": "rect",
-    "x": 0.7963,
-    "y": 0.3608,
-    "w": 0.117,
-    "h": 0.1293
-   },
-   {
-    "shape": "rect",
-    "x": 0.3929,
-    "y": 0.6569,
-    "w": 0.3898,
-    "h": 0.1335
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "C1 is called the ______ (named after the Greek god, because it supports the skull).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516588424-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "axis",
   "status": "live",
   "position": 1001,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516588424 cloze 2"
+   "ref": "apkg/lab-4 note 1769516588424 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Axis",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
-  "w": 1117,
-  "h": 364,
-  "target": {
-   "shape": "rect",
-   "x": 0.7963,
-   "y": 0.3608,
-   "w": 0.117,
-   "h": 0.1293
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.194,
-    "w": 0.1129,
-    "h": 0.1293
-   },
-   {
-    "shape": "rect",
-    "x": 0.7963,
-    "y": 0.3608,
-    "w": 0.117,
-    "h": 0.1293
-   },
-   {
-    "shape": "rect",
-    "x": 0.3929,
-    "y": 0.6569,
-    "w": 0.3898,
-    "h": 0.1335
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "C2 is called the ______ (where most head rotation occurs).",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516588424-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "vertebra-prominens",
   "status": "live",
   "position": 1002,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516588424 cloze 3"
+   "ref": "apkg/lab-4 note 1769516588424 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Vertebra prominens",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-5154cb402aa2f742ae1f4749ead016ff90ff7ca4.webp",
-  "w": 1117,
-  "h": 364,
-  "target": {
-   "shape": "rect",
-   "x": 0.3929,
-   "y": 0.6569,
-   "w": 0.3898,
-   "h": 0.1335
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.235,
-    "y": 0.194,
-    "w": 0.1129,
-    "h": 0.1293
-   },
-   {
-    "shape": "rect",
-    "x": 0.7963,
-    "y": 0.3608,
-    "w": 0.117,
-    "h": 0.1293
-   },
-   {
-    "shape": "rect",
-    "x": 0.3929,
-    "y": 0.6569,
-    "w": 0.3898,
-    "h": 0.1335
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "C7 is sometimes called the ______, because it is easily palpated in your lower neck.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516781814-c1",
@@ -3247,93 +2866,34 @@
  },
  {
   "slug": "lab-4-io-1769516838904-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "ribs",
   "status": "live",
   "position": 1202,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769516838904 cloze 3"
+   "ref": "apkg/lab-4 note 1769516838904 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Rib cage",
-  "answer_kind": "region",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-68427f1c47b164f5f2cc0a4253b7ca1d2a3fac2c.webp",
-  "w": 1668,
-  "h": 909,
-  "target": {
-   "shape": "rect",
-   "x": 0.2024,
-   "y": 0.7175,
-   "w": 0.1465,
-   "h": 0.0609
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.281,
-    "y": 0.3795,
-    "w": 0.1012,
-    "h": 0.0582
-   },
-   {
-    "shape": "rect",
-    "x": 0.2024,
-    "y": 0.7175,
-    "w": 0.1465,
-    "h": 0.0609
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.1541,
-      0.169
-     ],
-     [
-      0.3082,
-      0.1662
-     ],
-     [
-      0.3066,
-      0.241
-     ],
-     [
-      0.1677,
-      0.2382
-     ],
-     [
-      0.1677,
-      0.3186
-     ],
-     [
-      0.0166,
-      0.3186
-     ],
-     [
-      0.0181,
-      0.2382
-     ],
-     [
-      0.1556,
-      0.241
-     ]
-    ]
-   }
+  "accept": [
+   "ribs",
+   "ribcage"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The spinal cord extends from the foramen magnum to the L1/L2 intervertebral disc, so it ends just below your ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769516936642-c1",
@@ -5376,139 +4936,33 @@
  },
  {
   "slug": "lab-4-io-1769517202844-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 1702,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769517202844 cloze 3"
+   "ref": "apkg/lab-4 note 1769517202844 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Motor",
-  "answer_kind": "function",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
-  "w": 1642,
-  "h": 1084,
-  "target": {
-   "shape": "rect",
-   "x": 0.0321,
-   "y": 0.8447,
-   "w": 0.0858,
-   "h": 0.0415
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.212,
-    "y": 0.3524,
-    "w": 0.1077,
-    "h": 0.0456
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.2631,
-      0.6511
-     ],
-     [
-      0.3544,
-      0.6497
-     ],
-     [
-      0.3544,
-      0.7133
-     ],
-     [
-      0.1234,
-      0.7078
-     ],
-     [
-      0.1243,
-      0.7618
-     ],
-     [
-      0.0239,
-      0.7604
-     ],
-     [
-      0.0212,
-      0.6995
-     ],
-     [
-      0.2668,
-      0.7064
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.0321,
-    "y": 0.8447,
-    "w": 0.0858,
-    "h": 0.0415
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8154,
-      0.8392
-     ],
-     [
-      0.9268,
-      0.8392
-     ],
-     [
-      0.9277,
-      0.8932
-     ],
-     [
-      0.2512,
-      0.8932
-     ],
-     [
-      0.2521,
-      0.9416
-     ],
-     [
-      0.0194,
-      0.9443
-     ],
-     [
-      0.0212,
-      0.8945
-     ],
-     [
-      0.8163,
-      0.8932
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.4776,
-    "y": 0.9506,
-    "w": 0.3232,
-    "h": 0.0429
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "prompt": "Just past the dorsal root ganglion, the dorsal roots (sensory) and the ventral roots (______) merge into a single spinal nerve.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:spinal-cord",
-   "modality:motor"
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
   ],
-  "explain": "Motor means efferent: these axons carry commands from the spinal cord out to skeletal muscle, and they leave through the ventral root. (Latin motor, 'mover', from movere 'to move'.)"
+  "explain": "Motor means efferent: these axons carry commands from the spinal cord out to skeletal muscle, and they leave through the ventral root. (Latin motor, 'mover', from movere 'to move'.)",
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769517202844-c4",
@@ -5680,198 +5134,71 @@
  },
  {
   "slug": "lab-4-io-1769517202844-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 1704,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769517202844 cloze 5"
+   "ref": "apkg/lab-4 note 1769517202844 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "mixed motor + sensory",
-  "answer_kind": "function",
+  "answer": "Mixed (motor and sensory)",
   "accept": [
    "mixed",
    "mixed motor and sensory",
-   "mixed motor sensory"
+   "mixed motor sensory",
+   "mixed motor + sensory",
+   "motor and sensory",
+   "sensory and motor",
+   "both motor and sensory"
   ],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-93632e02a6cf8066d97199cabb8493062d23128f.webp",
-  "w": 1642,
-  "h": 1084,
-  "target": {
-   "shape": "rect",
-   "x": 0.4776,
-   "y": 0.9506,
-   "w": 0.3232,
-   "h": 0.0429
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.212,
-    "y": 0.3524,
-    "w": 0.1077,
-    "h": 0.0456
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.2631,
-      0.6511
-     ],
-     [
-      0.3544,
-      0.6497
-     ],
-     [
-      0.3544,
-      0.7133
-     ],
-     [
-      0.1234,
-      0.7078
-     ],
-     [
-      0.1243,
-      0.7618
-     ],
-     [
-      0.0239,
-      0.7604
-     ],
-     [
-      0.0212,
-      0.6995
-     ],
-     [
-      0.2668,
-      0.7064
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.0321,
-    "y": 0.8447,
-    "w": 0.0858,
-    "h": 0.0415
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.8154,
-      0.8392
-     ],
-     [
-      0.9268,
-      0.8392
-     ],
-     [
-      0.9277,
-      0.8932
-     ],
-     [
-      0.2512,
-      0.8932
-     ],
-     [
-      0.2521,
-      0.9416
-     ],
-     [
-      0.0194,
-      0.9443
-     ],
-     [
-      0.0212,
-      0.8945
-     ],
-     [
-      0.8163,
-      0.8932
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.4776,
-    "y": 0.9506,
-    "w": 0.3232,
-    "h": 0.0429
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "What fiber types do the dorsal and ventral rami carry?",
-  "followups": [],
+  "prompt": "The dorsal (sensory) and ventral (motor) roots merge into the spinal nerve, so the spinal nerve is ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:cranial-nerves",
-   "modality:olfactory"
-  ]
+   "modality:olfactory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769517263419-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "dorsal-ramus",
   "status": "live",
   "position": 1800,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769517263419 cloze 1"
+   "ref": "apkg/lab-4 note 1769517263419 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Dorsal ramus",
-  "answer_kind": "structure",
   "accept": [
    "dorsal rami",
    "posterior ramus"
   ],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-f55bdc7b74eb6d82fad0de6f9a8c3214297d1e9f.webp",
-  "w": 816,
-  "h": 1019,
-  "target": {
-   "shape": "rect",
-   "x": 0.0705,
-   "y": 0.1661,
-   "w": 0.2759,
-   "h": 0.0465
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0705,
-    "y": 0.1661,
-    "w": 0.2759,
-    "h": 0.0465
-   },
-   {
-    "shape": "rect",
-    "x": 0.4896,
-    "y": 0.2292,
-    "w": 0.3195,
-    "h": 0.0449
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which ramus goes to the deep muscles and skin of the back?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769517263419-c2",
@@ -6988,111 +6315,63 @@
  },
  {
   "slug": "lab-4-io-1769517649228-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "dural-sac",
   "status": "live",
   "position": 2300,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769517649228 cloze 1"
+   "ref": "apkg/lab-4 note 1769517649228 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Dural sac",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-77b3bdf9378c4f360af489db4305bb554237925e.webp",
-  "w": 1521,
-  "h": 989,
-  "target": {
-   "shape": "rect",
-   "x": 0.5126,
-   "y": 0.0336,
-   "w": 0.1412,
-   "h": 0.0491
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5126,
-    "y": 0.0336,
-    "w": 0.1412,
-    "h": 0.0491
-   },
-   {
-    "shape": "rect",
-    "x": 0.3244,
-    "y": 0.0904,
-    "w": 0.1496,
-    "h": 0.0491
-   }
+  "accept": [
+   "thecal sac"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The filum terminale lies in the ______, alongside the cauda equina.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769517649228-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "pia-mater",
   "status": "live",
   "position": 2301,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769517649228 cloze 2"
+   "ref": "apkg/lab-4 note 1769517649228 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Pia mater",
-  "answer_kind": "structure",
   "accept": [
    "pia"
   ],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-77b3bdf9378c4f360af489db4305bb554237925e.webp",
-  "w": 1521,
-  "h": 989,
-  "target": {
-   "shape": "rect",
-   "x": 0.3244,
-   "y": 0.0904,
-   "w": 0.1496,
-   "h": 0.0491
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5126,
-    "y": 0.0336,
-    "w": 0.1412,
-    "h": 0.0491
-   },
-   {
-    "shape": "rect",
-    "x": 0.3244,
-    "y": 0.0904,
-    "w": 0.1496,
-    "h": 0.0491
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The filum terminale is a strand of ______ in the dural sac, alongside the cauda equina.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:meninges"
-  ]
+   "region:meninges",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769517744257-c1",
@@ -7429,98 +6708,31 @@
  },
  {
   "slug": "lab-4-io-1769518577960-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "lumbosacral-plexus",
   "status": "live",
   "position": 2700,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769518577960 cloze 1"
+   "ref": "apkg/lab-4 note 1769518577960 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Lumbosacral plexus",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
-  "w": 1875,
-  "h": 921,
-  "target": {
-   "shape": "rect",
-   "x": 0.1282,
-   "y": 0.0422,
-   "w": 0.2027,
-   "h": 0.0374
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1282,
-    "y": 0.0422,
-    "w": 0.2027,
-    "h": 0.0374
-   },
-   {
-    "shape": "rect",
-    "x": 0.3398,
-    "y": 0.0962,
-    "w": 0.0565,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.7099,
-    "y": 0.0339,
-    "w": 0.168,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.8827,
-    "y": 0.0948,
-    "w": 0.0721,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.7697,
-    "y": 0.0962,
-    "w": 0.066,
-    "h": 0.0457
-   },
-   {
-    "shape": "rect",
-    "x": 0.1711,
-    "y": 0.0879,
-    "w": 0.0707,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.1201,
-    "y": 0.2069,
-    "w": 0.2088,
-    "h": 0.0512
-   },
-   {
-    "shape": "rect",
-    "x": 0.7344,
-    "y": 0.2111,
-    "w": 0.1211,
-    "h": 0.0471
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which plexus is formed from the ventral rami of L1 to S5 and innervates the muscles and skin of the lower limbs and pelvis?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769518577960-c2",
@@ -7620,98 +6832,31 @@
  },
  {
   "slug": "lab-4-io-1769518577960-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "brachial-plexus",
   "status": "live",
   "position": 2702,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769518577960 cloze 3"
+   "ref": "apkg/lab-4 note 1769518577960 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Brachial plexus",
-  "answer_kind": "structure",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
-  "w": 1875,
-  "h": 921,
-  "target": {
-   "shape": "rect",
-   "x": 0.7099,
-   "y": 0.0339,
-   "w": 0.168,
-   "h": 0.0484
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1282,
-    "y": 0.0422,
-    "w": 0.2027,
-    "h": 0.0374
-   },
-   {
-    "shape": "rect",
-    "x": 0.3398,
-    "y": 0.0962,
-    "w": 0.0565,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.7099,
-    "y": 0.0339,
-    "w": 0.168,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.8827,
-    "y": 0.0948,
-    "w": 0.0721,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.7697,
-    "y": 0.0962,
-    "w": 0.066,
-    "h": 0.0457
-   },
-   {
-    "shape": "rect",
-    "x": 0.1711,
-    "y": 0.0879,
-    "w": 0.0707,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.1201,
-    "y": 0.2069,
-    "w": 0.2088,
-    "h": 0.0512
-   },
-   {
-    "shape": "rect",
-    "x": 0.7344,
-    "y": 0.2111,
-    "w": 0.1211,
-    "h": 0.0471
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which plexus is formed from the ventral rami of C5 to T1 and innervates the muscles and skin of the upper limbs?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769518577960-c4",
@@ -8003,97 +7148,26 @@
  },
  {
   "slug": "lab-4-io-1769518577960-c7",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 2706,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769518577960 cloze 7"
+   "ref": "apkg/lab-4 note 1769518577960 cloze 7",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Lower limbs and pelvis",
-  "answer_kind": "region",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
-  "w": 1875,
-  "h": 921,
-  "target": {
-   "shape": "rect",
-   "x": 0.1201,
-   "y": 0.2069,
-   "w": 0.2088,
-   "h": 0.0512
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1282,
-    "y": 0.0422,
-    "w": 0.2027,
-    "h": 0.0374
-   },
-   {
-    "shape": "rect",
-    "x": 0.3398,
-    "y": 0.0962,
-    "w": 0.0565,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.7099,
-    "y": 0.0339,
-    "w": 0.168,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.8827,
-    "y": 0.0948,
-    "w": 0.0721,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.7697,
-    "y": 0.0962,
-    "w": 0.066,
-    "h": 0.0457
-   },
-   {
-    "shape": "rect",
-    "x": 0.1711,
-    "y": 0.0879,
-    "w": 0.0707,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.1201,
-    "y": 0.2069,
-    "w": 0.2088,
-    "h": 0.0512
-   },
-   {
-    "shape": "rect",
-    "x": 0.7344,
-    "y": 0.2111,
-    "w": 0.1211,
-    "h": 0.0471
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "prompt": "The lumbosacral plexus (ventral rami L1 to S5) innervates the muscles and skin of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
   ],
   "explain": "The lumbar and sacral cord segments (lumbosacral enlargement) supply the lower limbs and pelvis.",
   "parts": [
@@ -8108,103 +7182,55 @@
    "Pelvis": [
     "pelvic region"
    ]
-  }
+  },
+  "format": "keywords",
+  "keywords": [
+   [
+    "lower limb",
+    "lower limbs",
+    "leg",
+    "legs"
+   ],
+   [
+    "pelvis",
+    "pelvic"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769518577960-c8",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 2707,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769518577960 cloze 8"
+   "ref": "apkg/lab-4 note 1769518577960 cloze 8",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Upper limbs",
-  "answer_kind": "region",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-2f970e342c279ba40076dadaaa715b04b186d219.webp",
-  "w": 1875,
-  "h": 921,
-  "target": {
-   "shape": "rect",
-   "x": 0.7344,
-   "y": 0.2111,
-   "w": 0.1211,
-   "h": 0.0471
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1282,
-    "y": 0.0422,
-    "w": 0.2027,
-    "h": 0.0374
-   },
-   {
-    "shape": "rect",
-    "x": 0.3398,
-    "y": 0.0962,
-    "w": 0.0565,
-    "h": 0.0415
-   },
-   {
-    "shape": "rect",
-    "x": 0.7099,
-    "y": 0.0339,
-    "w": 0.168,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.8827,
-    "y": 0.0948,
-    "w": 0.0721,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.7697,
-    "y": 0.0962,
-    "w": 0.066,
-    "h": 0.0457
-   },
-   {
-    "shape": "rect",
-    "x": 0.1711,
-    "y": 0.0879,
-    "w": 0.0707,
-    "h": 0.0484
-   },
-   {
-    "shape": "rect",
-    "x": 0.1201,
-    "y": 0.2069,
-    "w": 0.2088,
-    "h": 0.0512
-   },
-   {
-    "shape": "rect",
-    "x": 0.7344,
-    "y": 0.2111,
-    "w": 0.1211,
-    "h": 0.0471
-   }
+  "accept": [
+   "upper limb",
+   "arms",
+   "arm"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The brachial plexus (ventral rami C5 to T1) innervates the muscles and skin of the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
   ],
-  "explain": "The cervical enlargement (about C5 to T1) supplies the upper limbs, so arm and hand muscles are innervated from this region."
+  "explain": "The cervical enlargement (about C5 to T1) supplies the upper limbs, so arm and hand muscles are innervated from this region.",
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769518631618-c1",
@@ -8290,84 +7316,31 @@
  },
  {
   "slug": "lab-4-io-1769518631618-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 2801,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769518631618 cloze 2"
+   "ref": "apkg/lab-4 note 1769518631618 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Proximal",
-  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
-  "w": 1861,
-  "h": 1300,
-  "target": {
-   "shape": "rect",
-   "x": 0.0461,
-   "y": 0.427,
-   "w": 0.1189,
-   "h": 0.0429
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2569,
-    "y": 0.2735,
-    "w": 0.0986,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.0461,
-    "y": 0.427,
-    "w": 0.1189,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.2433,
-    "y": 0.4713,
-    "w": 0.0996,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.1167,
-    "y": 0.2223,
-    "w": 0.0938,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.0606,
-    "y": 0.5668,
-    "w": 0.0735,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.2462,
-    "y": 0.6151,
-    "w": 0.088,
-    "h": 0.0443
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the directional term.",
-  "followups": [],
+  "prompt": "Within a plexus, the ______ part of a limb is innervated by higher levels of the cord.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769518631618-c3",
@@ -8535,84 +7508,31 @@
  },
  {
   "slug": "lab-4-io-1769518631618-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 2804,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769518631618 cloze 5"
+   "ref": "apkg/lab-4 note 1769518631618 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Distal",
-  "answer_kind": "direction",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-4/media/paste-576efb3dd368a20a641a9317c3004dac7c743714.webp",
-  "w": 1861,
-  "h": 1300,
-  "target": {
-   "shape": "rect",
-   "x": 0.0606,
-   "y": 0.5668,
-   "w": 0.0735,
-   "h": 0.0401
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2569,
-    "y": 0.2735,
-    "w": 0.0986,
-    "h": 0.047
-   },
-   {
-    "shape": "rect",
-    "x": 0.0461,
-    "y": 0.427,
-    "w": 0.1189,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.2433,
-    "y": 0.4713,
-    "w": 0.0996,
-    "h": 0.0429
-   },
-   {
-    "shape": "rect",
-    "x": 0.1167,
-    "y": 0.2223,
-    "w": 0.0938,
-    "h": 0.0456
-   },
-   {
-    "shape": "rect",
-    "x": 0.0606,
-    "y": 0.5668,
-    "w": 0.0735,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.2462,
-    "y": 0.6151,
-    "w": 0.088,
-    "h": 0.0443
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the directional term.",
-  "followups": [],
+  "prompt": "Within a plexus, the ______ parts of a limb are innervated by lower levels of the cord.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769518631618-c6",
@@ -9453,109 +8373,67 @@
  },
  {
   "slug": "lab-4-io-1769546943789-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "posterior",
   "status": "live",
   "position": 3500,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769546943789 cloze 1"
+   "ref": "apkg/lab-4 note 1769546943789 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Posterior",
-  "answer_kind": "direction",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-d519c28d8346316e2c0d05aef870205039eeb33d.webp",
-  "w": 1413,
-  "h": 384,
-  "target": {
-   "shape": "rect",
-   "x": 0.1255,
-   "y": 0.2733,
-   "w": 0.2095,
-   "h": 0.1324
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1255,
-    "y": 0.2733,
-    "w": 0.2095,
-    "h": 0.1324
-   },
-   {
-    "shape": "rect",
-    "x": 0.1289,
-    "y": 0.7854,
-    "w": 0.2354,
-    "h": 0.1424
-   }
+  "accept": [
+   "posteriorly",
+   "dorsal",
+   "dorsally"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the directional term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Do vertebral spines point anteriorly or posteriorly?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769546943789-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "anterior",
   "status": "live",
   "position": 3501,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769546943789 cloze 2"
+   "ref": "apkg/lab-4 note 1769546943789 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Anterior",
-  "answer_kind": "direction",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-d519c28d8346316e2c0d05aef870205039eeb33d.webp",
-  "w": 1413,
-  "h": 384,
-  "target": {
-   "shape": "rect",
-   "x": 0.1289,
-   "y": 0.7854,
-   "w": 0.2354,
-   "h": 0.1424
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1255,
-    "y": 0.2733,
-    "w": 0.2095,
-    "h": 0.1324
-   },
-   {
-    "shape": "rect",
-    "x": 0.1289,
-    "y": 0.7854,
-    "w": 0.2354,
-    "h": 0.1424
-   }
+  "accept": [
+   "anteriorly",
+   "ventral",
+   "ventrally"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the directional term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Do the vertebral bodies lie anterior or posterior?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769546996541-c1",
@@ -9634,77 +8512,34 @@
  },
  {
   "slug": "lab-4-io-1769546996541-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": "cauda-equina",
   "status": "live",
   "position": 3601,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769546996541 cloze 2"
+   "ref": "apkg/lab-4 note 1769546996541 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cauda equina",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-d8ad80dc6559bf1394025307c788cbaf9455075f.webp",
-  "w": 2000,
-  "h": 1224,
-  "target": {
-   "shape": "rect",
-   "x": -0.0019,
-   "y": 0.2831,
-   "w": 0.9276,
-   "h": 0.1217
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": -0.0045,
-    "y": 0.0798,
-    "w": 0.9682,
-    "h": 0.1065
-   },
-   {
-    "shape": "rect",
-    "x": -0.0019,
-    "y": 0.2831,
-    "w": 0.9276,
-    "h": 0.1217
-   },
-   {
-    "shape": "rect",
-    "x": 0.0015,
-    "y": 0.4796,
-    "w": 0.9513,
-    "h": 0.1148
-   },
-   {
-    "shape": "rect",
-    "x": 0.0023,
-    "y": 0.6885,
-    "w": 0.9657,
-    "h": 0.0954
-   },
-   {
-    "shape": "rect",
-    "x": 0.0023,
-    "y": 0.8973,
-    "w": 0.9183,
-    "h": 0.0941
-   }
+  "accept": [
+   "lumbar and sacral roots",
+   "lumbosacral roots"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "A lumbar puncture is done at L3/L4 or L4/L5, safely below the end of the spinal cord. Which nerve roots float in the dural sac at this level?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769546996541-c3",
@@ -11060,63 +9895,36 @@
  },
  {
   "slug": "lab-4-io-1769560432382-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-4",
   "structure": null,
   "status": "live",
   "position": 4000,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-4 note 1769560432382 cloze 1"
+   "ref": "apkg/lab-4 note 1769560432382 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Exit",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-4/media/paste-f8de56be0c85dc21b74bdfc451ab231b53ca691c.webp",
-  "w": 1726,
-  "h": 1332,
-  "target": {
-   "shape": "rect",
-   "x": 0.5219,
-   "y": 0.0896,
-   "w": 0.0993,
-   "h": 0.0581
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5219,
-    "y": 0.0896,
-    "w": 0.0993,
-    "h": 0.0581
-   },
-   {
-    "shape": "rect",
-    "x": 0.335,
-    "y": 0.2528,
-    "w": 0.0993,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.098,
-    "y": 0.6193,
-    "w": 0.0833,
-    "h": 0.036
-   }
+  "accept": [
+   "exit the vertebral column",
+   "leave",
+   "emerge",
+   "exit the spinal column"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "Spinal nerves are numbered according to the vertebrae where they ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-4-io-1769560432382-c2",

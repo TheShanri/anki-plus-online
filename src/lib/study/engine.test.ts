@@ -17,7 +17,8 @@ function payload(cards: StudyCard[], extra: Partial<StudyPayload> = {}): StudyPa
     scope: "all",
     queue: cards.filter((c) => c.kind !== "theory").map((c) => ({ cardId: c.id, source: "new" as const })),
     cards,
-    structures: Object.fromEntries(cards.filter((c) => c.structureId).map((c) => [c.structureId!, { id: c.structureId!, slug: c.structureId!, name: c.answer, synonyms: [], region: null, info: {} }])),
+    // a structure is named by its pin (written last so it wins), as the structures table would name it
+    structures: Object.fromEntries([...cards.filter((c) => c.structureId && c.kind !== "pin"), ...cards.filter((c) => c.structureId && c.kind === "pin")].map((c) => [c.structureId!, { id: c.structureId!, slug: c.structureId!, name: c.answer, synonyms: [], region: null, info: {} }])),
     states: {},
     ladders: {},
     traps: {},

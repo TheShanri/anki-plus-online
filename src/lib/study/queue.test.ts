@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildQueue, SessionQueue, solidStructures, isSolidCard, pickFollowups, phaseOf } from "./queue.ts";
+import { buildQueue, SessionQueue, solidStructures, isSolidCard, pickFollowups, phaseOf, asksForSame, cranialNerveOf } from "./queue.ts";
 import { pickBoss, bossScore, bossWon, nextBossGap } from "./boss.ts";
 import { scheduleReview, newCardState, previews, formatInterval } from "./scheduling.ts";
 import { guardDue, newRun, wanderThreshold } from "./focus.ts";
@@ -173,6 +173,28 @@ test("follow-ups: explicit followup_cards first, rotate facets, none without a s
   const f = pickFollowups(parent, [stem, t1, t2], seen, new Map(), now, new Set(), 2);
   assert.deepEqual(f.map((e) => e.card.id), ["stem-1", "t2"]); // explicit first, then the never-seen facet
   assert.equal(pickFollowups(card("lone", "pin", null), [t1, t2], seen, new Map(), now, new Set(), 2).length, 0);
+});
+
+test("follow-ups: never the name just given, never another pin's exam question", () => {
+  const parent = card("pin", "pin", "cn3", { answer: "III Oculomotor" });
+  const same = card("same", "theory", "cn3", { answer: "III", facet: "written" }); // "Which cranial nerve adducts the eye?"
+  const exam = card("exam", "theory", "cn3", { answer: "Medial rectus", tags: ["source:practical", "practical"] });
+  const written = card("written", "theory", "cn3", { answer: "Ptosis", tags: ["written", "source:practice-exam"] });
+  const ok = card("ok", "theory", "cn3", { answer: "Medial rectus", facet: "function" });
+  const f = pickFollowups(parent, [same, exam, written, ok], new Map(), new Map(), now, new Set(), 2, ["Oculomotor nerve"]);
+  assert.deepEqual(f.map((e) => e.card.id), ["ok"]);
+  // an exam question still follows its own pin
+  const pin23 = card("q23", "pin", "sca", { answer: "Superior cerebellar artery", followupCards: ["q24"] });
+  const q24 = card("q24", "theory", "cerebellum", { slug: "q24", answer: "Cerebellum", tags: ["source:practical", "practical"] });
+  assert.deepEqual(pickFollowups(pin23, [q24], new Map(), new Map(), now, new Set(), 2).map((e) => e.card.id), ["q24"]);
+  // the same nerve in other words; a different structure with a similar name is not the same
+  assert.equal(asksForSame(card("x", "theory", "s", { answer: "CN VII (Facial)" }), ["Facial nerve"]), true);
+  assert.equal(asksForSame(card("x", "theory", "s", { answer: "The cerebellum" }), ["Cerebellum"]), true);
+  assert.equal(asksForSame(card("x", "theory", "s", { answer: "Oculomotor nucleus" }), ["Oculomotor nerve"]), false);
+  assert.equal(cranialNerveOf("Vagus nerve (CN X)"), 10);
+  assert.equal(cranialNerveOf("cranial nerve 5"), 5);
+  assert.equal(cranialNerveOf("Optic chiasm"), null);
+  assert.equal(cranialNerveOf("Lamina I"), null);
 });
 
 test("SessionQueue.peek: look ahead without changing the queue", () => {

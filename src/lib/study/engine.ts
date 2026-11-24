@@ -1257,7 +1257,7 @@ export class StudyEngine {
       const solid = isSolidCard(next, lad) || this.structureSolid(c.card.structureId);
       if (solid) {
         const theory = [...this.cards.values()].filter((x) => x.kind !== "pin");
-        const ups = pickFollowups(c.card, theory, this.states, this.ladders, date, this.answered, 2);
+        const ups = pickFollowups(c.card, theory, this.states, this.ladders, date, this.answered, 2, [c.structure?.name ?? ""]);
         if (ups.length) this.queue.front(ups);
       }
     }

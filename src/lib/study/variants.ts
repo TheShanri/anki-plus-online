@@ -1,3 +1,5 @@
+import { lev } from "./text.ts";
+
 // Accepted spellings of an answer. The grader and the typer match against a SET of variants instead of
 // rewriting the typed text, so per-key prefix tracking and ghost hints keep working for every form.
 //
@@ -183,4 +185,31 @@ function buildVariants(answer: string, accept: string[], opts: VariantOptions): 
     if (/^the\s/i.test(v) || !opts.requireSide) decorative.add(k);
   }
   return { all: out, decorative };
+}
+
+/**
+ * The other answers a card takes that are worth naming on the reveal: a synonym ("hypophysis" for the pituitary
+ * gland), the other direction term ("posterior" for caudal in the cerebrum). Not the spelling forms of the answer
+ * itself (case, "the", cranial-nerve numbers, abbreviations, a shortening or a longer form, grey/gray), and not the
+ * names `alsoCalled` already shows.
+ */
+export function alsoAccepted(answer: string, accept: string[], alsoCalled: string[] = []): string[] {
+  const k = (s: string) => s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/^the /, "");
+  const a = k(answer);
+  if (!a) return [];
+  const own = new Set(buildVariants(answer, [], { max: 96 }).all.map(k));
+  const shown = new Set(alsoCalled.map(k));
+  const seen = new Set<string>([a]);
+  const out: string[] = [];
+  for (const x of accept) {
+    const kx = k(x);
+    if (!kx || seen.has(kx) || shown.has(kx) || own.has(kx)) continue;
+    seen.add(kx);
+    if (a.includes(kx) || kx.includes(a)) continue; // a shortening or a longer form ("pituitary", "sagittal plane")
+    if (/^(?:[ivx]+|\d+)$/.test(kx)) continue; // a bare number: a form of the one in the answer ("III", "3")
+    if (lev(kx, a) <= Math.max(1, Math.floor(a.length / 6))) continue; // a spelling ("gray matter")
+    if (out.some((o) => kx.includes(k(o)) || k(o).includes(kx))) continue; // a form of one already named ("frontal plane")
+    out.push(x.trim());
+  }
+  return out;
 }

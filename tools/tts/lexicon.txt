@@ -209,7 +209,7 @@ aqueduct|ˈækwədˌʌkt
 pontocerebellar|pˌɑntOsˌɛɹəbˈɛlɚ
 cerebellopontine|sˌɛɹəbˌɛlOpˈɑntin
 cervicomedullary|sˌɜɹvɪkOmˈɛdəlˌɛɹi
-medulla|mədˈʌlə
+medulla|mədˈulə
 medullaris|mˌɛdəlˈɛɹɪs
 medullary|mˈɛdəlˌɛɹi
 cauda|kˈɔdə
@@ -346,3 +346,4 @@ ligamentum|lˌɪɡəmˈɛntəm
 denticulati|dɛntˌɪkjəlˈAtI
 filum|fˈIləm
 terminale|tˌɜɹmɪnˈæli
+midsagittal|mˌɪdsˈæʤəTᵊl

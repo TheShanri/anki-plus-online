@@ -15,7 +15,8 @@
   "accept": [
    "anterior",
    "cranial",
-   "rostral or anterior"
+   "rostral or anterior",
+   "cephalic"
   ],
   "require_side": false,
   "scene": {
@@ -173,7 +174,8 @@
   "answer_kind": "direction",
   "accept": [
    "cranial",
-   "cephalic"
+   "cephalic",
+   "rostral"
   ],
   "require_side": false,
   "scene": {
@@ -356,7 +358,9 @@
   "answer_kind": "term",
   "accept": [
    "median plane",
-   "midline"
+   "midline",
+   "midsagittal",
+   "midsagittal plane"
   ],
   "require_side": false,
   "scene": {
@@ -796,7 +800,9 @@
   "answer_kind": "direction",
   "accept": [
    "superior",
-   "rostral or superior"
+   "rostral or superior",
+   "cephalic",
+   "cranial"
   ],
   "require_side": false,
   "scene": {

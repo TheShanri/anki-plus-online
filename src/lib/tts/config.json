@@ -3,7 +3,18 @@
   "lexicon": 1,
   "bucket": "tts",
   "formats": [
-    { "ext": "webm", "mime": "audio/webm; codecs=opus" },
-    { "ext": "m4a", "mime": "audio/mp4; codecs=mp4a.40.2" }
-  ]
+    {
+      "ext": "webm",
+      "mime": "audio/webm; codecs=opus"
+    },
+    {
+      "ext": "m4a",
+      "mime": "audio/mp4; codecs=mp4a.40.2"
+    }
+  ],
+  "revs": {
+    "midsagittal": 1,
+    "medulla": 1
+  },
+  "revsNote": "A lexicon term fixed after its clips existed: texts containing it hash with term@rev, so only those clips are re-made (see docs/TTS.md)."
 }

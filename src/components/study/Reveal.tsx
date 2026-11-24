@@ -7,6 +7,7 @@ import type { DiffOp } from "@/lib/study/text";
 import { RUNGS } from "@/lib/study/ladder";
 import { Live, TypeBox } from "./TypeBox";
 import { keywordMarks } from "@/lib/study/answerstyle";
+import { alsoAccepted } from "@/lib/study/variants";
 import { MnemonicPanel } from "./MnemonicPanel";
 import { SpeakButton } from "@/components/tts/SpeakButton";
 
@@ -207,6 +208,26 @@ function AlsoCalled({ c }: { c: Current }) {
   );
 }
 
+/** Other answers the card takes (a synonym, the other direction term), named on every reveal: a box that stays green
+ *  on "Hypo" while the answer is "Pituitary gland" (hypophysis) is never a mystery, and a student who typed one of
+ *  them is told it counts. */
+function AlsoAccepted({ c }: { c: Current }) {
+  const list = alsoAccepted(c.card.answer, c.card.accept, c.card.alsoCalled ?? []);
+  if (!list.length) return null;
+  const typed = (c.typer?.typed ?? c.typed ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+  const used = typed ? list.find((n) => n.toLowerCase().replace(/\s+/g, " ") === typed) : undefined;
+  return (
+    <p className="v-notes" style={{ marginTop: 2 }}>
+      {used && (
+        <>
+          <b style={{ color: "var(--good)" }}>{used}</b> is right too.{" "}
+        </>
+      )}
+      Also accepted: <b>{list.join(", ")}</b>
+    </p>
+  );
+}
+
 export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Current; courseSlug: string }) {
   const retypeRef = useRef<HTMLInputElement>(null);
   const retypeRefs = useRef<Array<HTMLInputElement | null>>([]);
@@ -243,6 +264,7 @@ export function Reveal({ engine, c, courseSlug }: { engine: StudyEngine; c: Curr
       {c.mode === "keywords" && <KeywordReport c={c} />}
       {c.mode === "keywords" && c.verdict?.why && <p className="v-notes">{c.verdict.why}</p>}
       {c.card.alsoCalled && c.card.alsoCalled.length > 0 && <AlsoCalled c={c} />}
+      {!c.multi && c.mode !== "self" && <AlsoAccepted c={c} />}
 
       {c.trapReport.length > 0 && (
         <div className="info-panel" style={{ marginTop: 8 }}>

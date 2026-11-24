@@ -2574,97 +2574,38 @@
  },
  {
   "slug": "lab-15-io-1775054912050-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-15",
   "structure": "cerebellar-tonsil",
   "status": "live",
   "position": 700,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-15 note 1775054912050 cloze 1"
+   "ref": "apkg/lab-15 note 1775054912050 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cerebellar tonsil",
-  "answer_kind": "structure",
   "accept": [
    "tonsil",
-   "tonsils"
+   "tonsils",
+   "cerebellar tonsils"
   ],
   "require_side": false,
-  "image": "apkg/lab-15/media/paste-c81afee53348667ffafa0c6a608e4e70399ab774.webp",
-  "w": 1351,
-  "h": 736,
-  "target": {
-   "shape": "rect",
-   "x": 0.5521,
-   "y": 0.8592,
-   "w": 0.0729,
-   "h": 0.0682
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.5521,
-    "y": 0.8592,
-    "w": 0.0729,
-    "h": 0.0682
-   },
-   {
-    "shape": "rect",
-    "x": 0.7393,
-    "y": 0.479,
-    "w": 0.15,
-    "h": 0.0446
-   },
-   {
-    "shape": "rect",
-    "x": 0.7507,
-    "y": 0.5498,
-    "w": 0.1171,
-    "h": 0.0551
-   },
-   {
-    "shape": "rect",
-    "x": 0.7193,
-    "y": 0.4135,
-    "w": 0.21,
-    "h": 0.0446
-   },
-   {
-    "shape": "rect",
-    "x": 0.4021,
-    "y": 0.0542,
-    "w": 0.0757,
-    "h": 0.0551
-   },
-   {
-    "shape": "rect",
-    "x": 0.055,
-    "y": 0.1932,
-    "w": 0.0771,
-    "h": 0.0524
-   },
-   {
-    "shape": "rect",
-    "x": 0.0164,
-    "y": 0.2614,
-    "w": 0.0671,
-    "h": 0.0708
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Which part of the cerebellum can herniate through the foramen magnum?",
   "tags": [
    "unit:u3",
-   "kind:pin",
    "source:anki-deck",
    "region:cerebellum",
    "plane:horizontal",
    "plane:coronal",
-   "modality:motor"
-  ]
+   "modality:motor",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-15-io-1775054912050-c2",

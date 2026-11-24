@@ -9015,100 +9015,33 @@
  },
  {
   "slug": "lab-1-io-1768350385936-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": null,
   "status": "live",
   "position": 1900,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350385936 cloze 1"
+   "ref": "apkg/lab-1 note 1768350385936 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Cranial fossae",
-  "answer_kind": "region",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-1/media/paste-cf222cf98440db6bbfa2bb0b9799dc8b0ffea853.webp",
-  "w": 733,
-  "h": 685,
-  "target": {
-   "shape": "rect",
-   "x": 0.2236,
-   "y": 0.1866,
-   "w": 0.41,
-   "h": 0.0825
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.2236,
-    "y": 0.1866,
-    "w": 0.41,
-    "h": 0.0825
-   },
-   {
-    "shape": "rect",
-    "x": 0.1393,
-    "y": 0.3303,
-    "w": 0.3629,
-    "h": 0.0642
-   },
-   {
-    "shape": "rect",
-    "x": 0.145,
-    "y": 0.5443,
-    "w": 0.4329,
-    "h": 0.0688
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.1507,
-      0.7492
-     ],
-     [
-      0.1521,
-      0.8348
-     ],
-     [
-      0.0336,
-      0.8409
-     ],
-     [
-      0.0336,
-      0.902
-     ],
-     [
-      0.4564,
-      0.902
-     ],
-     [
-      0.4521,
-      0.8241
-     ],
-     [
-      0.9093,
-      0.8271
-     ],
-     [
-      0.9021,
-      0.7522
-     ]
-    ]
-   }
+  "accept": [
+   "cranial fossa"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the region.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "The surface of the interior of the skull is divided into three areas, called the ______.",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
   ],
-  "explain": "The floor of the skull is divided into three cranial fossae (anterior, middle, posterior) that cradle the frontal lobes, temporal lobes and cerebellum/brainstem respectively. Fossa is Latin for ditch or hollow."
+  "explain": "The floor of the skull is divided into three cranial fossae (anterior, middle, posterior) that cradle the frontal lobes, temporal lobes and cerebellum/brainstem respectively. Fossa is Latin for ditch or hollow.",
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350385936-c2",
@@ -10674,75 +10607,37 @@
  },
  {
   "slug": "lab-1-io-1768350626824-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "interhemispheric-fissure",
   "status": "live",
   "position": 2503,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350626824 cloze 4"
+   "ref": "apkg/lab-1 note 1768350626824 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Interhemispheric fissure",
-  "answer_kind": "structure",
   "accept": [
    "longitudinal fissure",
    "median longitudinal cerebral fissure",
    "longitudinal cerebral fissure",
-   "cerebral longitudinal fissure"
+   "cerebral longitudinal fissure",
+   "medial longitudinal fissure"
   ],
   "require_side": false,
-  "image": "apkg/lab-1/media/paste-f752d54b8b01743dd79e5890edc4eb8d759fd680.webp",
-  "w": 1309,
-  "h": 537,
-  "target": {
-   "shape": "rect",
-   "x": 0.0126,
-   "y": 0.3612,
-   "w": 0.2034,
-   "h": 0.1508
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.4316,
-    "y": 0.0761,
-    "w": 0.0905,
-    "h": 0.0961
-   },
-   {
-    "shape": "rect",
-    "x": 0.4527,
-    "y": 0.7275,
-    "w": 0.0837,
-    "h": 0.1077
-   },
-   {
-    "shape": "rect",
-    "x": 0.7507,
-    "y": 0.3744,
-    "w": 0.2,
-    "h": 0.1674
-   },
-   {
-    "shape": "rect",
-    "x": 0.0126,
-    "y": 0.3612,
-    "w": 0.2034,
-    "h": 0.1508
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "What is the deep groove separating the right and left cerebral hemispheres?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:cortex"
-  ]
+   "region:cortex",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350670118-c1",
@@ -11016,117 +10911,67 @@
  },
  {
   "slug": "lab-1-io-1768350689204-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "central-sulcus",
   "status": "live",
   "position": 2700,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350689204 cloze 1"
+   "ref": "apkg/lab-1 note 1768350689204 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Central sulcus",
-  "answer_kind": "structure",
   "accept": [
    "central fissure",
    "fissure of Rolando",
    "Rolandic fissure"
   ],
   "require_side": false,
-  "image": "apkg/lab-1/media/paste-32b429968f5882df821a9cf2ecdfb24ed52a279c.webp",
-  "w": 1404,
-  "h": 552,
-  "target": {
-   "shape": "rect",
-   "x": 0.0473,
-   "y": 0.1805,
-   "w": 0.1463,
-   "h": 0.0605
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0473,
-    "y": 0.1805,
-    "w": 0.1463,
-    "h": 0.0605
-   },
-   {
-    "shape": "rect",
-    "x": 0.0514,
-    "y": 0.3898,
-    "w": 0.1469,
-    "h": 0.064
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The ______ separates the frontal lobe from the parietal lobe.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:cortex"
-  ]
+   "region:cortex",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350689204-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "lateral-fissure",
   "status": "live",
   "position": 2701,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350689204 cloze 2"
+   "ref": "apkg/lab-1 note 1768350689204 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Lateral fissure",
-  "answer_kind": "structure",
   "accept": [
    "Sylvian fissure",
    "lateral sulcus",
    "sylvian sulcus"
   ],
   "require_side": false,
-  "image": "apkg/lab-1/media/paste-32b429968f5882df821a9cf2ecdfb24ed52a279c.webp",
-  "w": 1404,
-  "h": 552,
-  "target": {
-   "shape": "rect",
-   "x": 0.0514,
-   "y": 0.3898,
-   "w": 0.1469,
-   "h": 0.064
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.0473,
-    "y": 0.1805,
-    "w": 0.1463,
-    "h": 0.0605
-   },
-   {
-    "shape": "rect",
-    "x": 0.0514,
-    "y": 0.3898,
-    "w": 0.1469,
-    "h": 0.064
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "The ______ separates the temporal lobe from the frontal and parietal lobes.",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:cortex"
-  ]
+   "region:cortex",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350706933-c1",
@@ -11179,275 +11024,134 @@
  },
  {
   "slug": "lab-1-io-1768350782186-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "epidural-space",
   "status": "live",
   "position": 2900,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350782186 cloze 1"
+   "ref": "apkg/lab-1 note 1768350782186 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "External to the dura",
-  "answer_kind": "structure",
   "accept": [
    "superficial to the dura",
    "epidural space",
-   "external (superficial) to the dura"
+   "external (superficial) to the dura",
+   "outside the dura",
+   "between the dura and the skull",
+   "between dura and skull",
+   "between the skull and the dura"
   ],
   "require_side": false,
-  "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
-  "w": 1373,
-  "h": 636,
-  "target": {
-   "shape": "rect",
-   "x": 0.1976,
-   "y": 0.0322,
-   "w": 0.3912,
-   "h": 0.0586
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1976,
-    "y": 0.0322,
-    "w": 0.3912,
-    "h": 0.0586
-   },
-   {
-    "shape": "rect",
-    "x": 0.1935,
-    "y": 0.4542,
-    "w": 0.3545,
-    "h": 0.0777
-   },
-   {
-    "shape": "rect",
-    "x": 0.2594,
-    "y": 0.756,
-    "w": 0.3443,
-    "h": 0.0703
-   },
-   {
-    "shape": "rect",
-    "x": 0.1827,
-    "y": 0.8277,
-    "w": 0.2252,
-    "h": 0.0616
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Where does the epidural space lie, relative to the dura?",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350782186-c2",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "subdural-space",
   "status": "live",
   "position": 2901,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350782186 cloze 2"
+   "ref": "apkg/lab-1 note 1768350782186 cloze 2",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Between dura and arachnoid",
-  "answer_kind": "space",
   "accept": [
-   "subdural space"
+   "subdural space",
+   "between the dura and arachnoid",
+   "between the dura and the arachnoid",
+   "between dura mater and arachnoid mater",
+   "between arachnoid and dura"
   ],
   "require_side": false,
-  "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
-  "w": 1373,
-  "h": 636,
-  "target": {
-   "shape": "rect",
-   "x": 0.1935,
-   "y": 0.4542,
-   "w": 0.3545,
-   "h": 0.0777
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1976,
-    "y": 0.0322,
-    "w": 0.3912,
-    "h": 0.0586
-   },
-   {
-    "shape": "rect",
-    "x": 0.1935,
-    "y": 0.4542,
-    "w": 0.3545,
-    "h": 0.0777
-   },
-   {
-    "shape": "rect",
-    "x": 0.2594,
-    "y": 0.756,
-    "w": 0.3443,
-    "h": 0.0703
-   },
-   {
-    "shape": "rect",
-    "x": 0.1827,
-    "y": 0.8277,
-    "w": 0.2252,
-    "h": 0.0616
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Where is the subdural space?",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350782186-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "subarachnoid-space",
   "status": "live",
   "position": 2902,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350782186 cloze 3"
+   "ref": "apkg/lab-1 note 1768350782186 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Between arachnoid and pia",
-  "answer_kind": "space",
   "accept": [
-   "subarachnoid space"
+   "subarachnoid space",
+   "between the arachnoid and pia",
+   "between the arachnoid and the pia",
+   "between arachnoid mater and pia mater",
+   "between pia and arachnoid"
   ],
   "require_side": false,
-  "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
-  "w": 1373,
-  "h": 636,
-  "target": {
-   "shape": "rect",
-   "x": 0.2594,
-   "y": 0.756,
-   "w": 0.3443,
-   "h": 0.0703
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1976,
-    "y": 0.0322,
-    "w": 0.3912,
-    "h": 0.0586
-   },
-   {
-    "shape": "rect",
-    "x": 0.1935,
-    "y": 0.4542,
-    "w": 0.3545,
-    "h": 0.0777
-   },
-   {
-    "shape": "rect",
-    "x": 0.2594,
-    "y": 0.756,
-    "w": 0.3443,
-    "h": 0.0703
-   },
-   {
-    "shape": "rect",
-    "x": 0.1827,
-    "y": 0.8277,
-    "w": 0.2252,
-    "h": 0.0616
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the space.",
-  "followups": [],
+  "prompt": "Where is the subarachnoid space?",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350782186-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-1",
   "structure": "cerebrospinal-fluid",
-  "status": "live",
+  "status": "retired",
   "position": 2903,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-1 note 1768350782186 cloze 4"
+   "ref": "apkg/lab-1 note 1768350782186 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)",
+   "retired_as_duplicate_of": "theory-subarachnoid-space-connections"
   },
   "answer": "Cerebrospinal fluid",
-  "answer_kind": "term",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-1/media/paste-0e614d165b18ba92bd536d109eabfc7661ddc613.webp",
-  "w": 1373,
-  "h": 636,
-  "target": {
-   "shape": "rect",
-   "x": 0.1827,
-   "y": 0.8277,
-   "w": 0.2252,
-   "h": 0.0616
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1976,
-    "y": 0.0322,
-    "w": 0.3912,
-    "h": 0.0586
-   },
-   {
-    "shape": "rect",
-    "x": 0.1935,
-    "y": 0.4542,
-    "w": 0.3545,
-    "h": 0.0777
-   },
-   {
-    "shape": "rect",
-    "x": 0.2594,
-    "y": 0.756,
-    "w": 0.3443,
-    "h": 0.0703
-   },
-   {
-    "shape": "rect",
-    "x": 0.1827,
-    "y": 0.8277,
-    "w": 0.2252,
-    "h": 0.0616
-   }
+  "accept": [
+   "CSF"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the term.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "What fluid does the subarachnoid space contain?",
   "tags": [
    "unit:u1",
-   "kind:pin",
-   "source:anki-deck"
-  ]
+   "source:anki-deck",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-1-io-1768350839527-c1",

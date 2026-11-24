@@ -13049,92 +13049,33 @@
  },
  {
   "slug": "lab-5-io-1769696547113-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": null,
-  "status": "live",
+  "status": "retired",
   "position": 500,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696547113 cloze 1"
+   "ref": "apkg/lab-5 note 1769696547113 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)",
+   "retired_as_duplicate_of": "theory-dorsal-spinocerebellar-tract-function"
   },
   "answer": "Unconscious proprioception",
-  "answer_kind": "function",
   "accept": [],
   "require_side": false,
-  "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
-  "w": 1478,
-  "h": 1036,
-  "target": {
-   "shape": "rect",
-   "x": 0.1348,
-   "y": 0.4049,
-   "w": 0.7061,
-   "h": 0.0373
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1348,
-    "y": 0.4049,
-    "w": 0.7061,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1348,
-    "y": 0.492,
-    "w": 0.6983,
-    "h": 0.0387
-   },
-   {
-    "shape": "rect",
-    "x": 0.1406,
-    "y": 0.5806,
-    "w": 0.6858,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.1387,
-    "y": 0.6663,
-    "w": 0.6829,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.1397,
-    "y": 0.7452,
-    "w": 0.6799,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.1406,
-    "y": 0.8337,
-    "w": 0.6789,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.1339,
-    "y": 0.918,
-    "w": 0.8186,
-    "h": 0.0719
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "prompt": "What modality (sensation) does the dorsal spinocerebellar pathway carry?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:spinal-cord",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696547113-c2",
@@ -13316,95 +13257,35 @@
  },
  {
   "slug": "lab-5-io-1769696547113-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": "dorsal-spinocerebellar-tract",
   "status": "live",
   "position": 503,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696547113 cloze 4"
+   "ref": "apkg/lab-5 note 1769696547113 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Dorsal spinocerebellar tract",
-  "answer_kind": "structure",
   "accept": [
    "posterior spinocerebellar tract",
    "DSCT"
   ],
   "require_side": false,
-  "image": "apkg/lab-5/media/paste-a1718a33edb6964e3cadc8ff58f77a27c13c5cf2.webp",
-  "w": 1478,
-  "h": 1036,
-  "target": {
-   "shape": "rect",
-   "x": 0.1387,
-   "y": 0.6663,
-   "w": 0.6829,
-   "h": 0.0318
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.1348,
-    "y": 0.4049,
-    "w": 0.7061,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1348,
-    "y": 0.492,
-    "w": 0.6983,
-    "h": 0.0387
-   },
-   {
-    "shape": "rect",
-    "x": 0.1406,
-    "y": 0.5806,
-    "w": 0.6858,
-    "h": 0.036
-   },
-   {
-    "shape": "rect",
-    "x": 0.1387,
-    "y": 0.6663,
-    "w": 0.6829,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.1397,
-    "y": 0.7452,
-    "w": 0.6799,
-    "h": 0.0401
-   },
-   {
-    "shape": "rect",
-    "x": 0.1406,
-    "y": 0.8337,
-    "w": 0.6789,
-    "h": 0.0332
-   },
-   {
-    "shape": "rect",
-    "x": 0.1339,
-    "y": 0.918,
-    "w": 0.8186,
-    "h": 0.0719
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "What tract is formed by the axons of the column of Clarke (nucleus dorsalis) neurons?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:cerebellum",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696547113-c5",
@@ -13988,673 +13869,164 @@
  },
  {
   "slug": "lab-5-io-1769696795188-c3",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": null,
   "status": "live",
   "position": 602,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696795188 cloze 3"
+   "ref": "apkg/lab-5 note 1769696795188 cloze 3",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Ascends on same side (ipsilateral)",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
-  "w": 1752,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.164,
-   "y": 0.7673,
-   "w": 0.2797,
-   "h": 0.0318
-  },
-  "masks": [
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7458,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.1255
-     ],
-     [
-      0.5927,
-      0.1214
-     ],
-     [
-      0.5958,
-      0.084
-     ],
-     [
-      0.7448,
-      0.0854
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4721,
-      0.8212
-     ],
-     [
-      0.5269,
-      0.8226
-     ],
-     [
-      0.5258,
-      0.9402
-     ],
-     [
-      0.0586,
-      0.9416
-     ],
-     [
-      0.0606,
-      0.8489
-     ],
-     [
-      0.4721,
-      0.8475
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.164,
-    "y": 0.7673,
-    "w": 0.2797,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.0687,
-    "y": 0.6788,
-    "w": 0.3669,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.161,
-    "y": 0.4851,
-    "w": 0.2797,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.0667,
-    "y": 0.4063,
-    "w": 0.3588,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1833,
-    "y": 0.3219,
-    "w": 0.2129,
-    "h": 0.036
-   }
+  "answer": "Same side (ipsilateral)",
+  "accept": [
+   "Ascends on same side (ipsilateral)",
+   "same side",
+   "ipsilateral",
+   "same"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "In the dorsal column-medial lemniscus pathway, does a first-order axon from the foot ascend on the same or the opposite side as the sensation?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696795188-c4",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": "fasciculus-cuneatus",
   "status": "live",
   "position": 603,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696795188 cloze 4"
+   "ref": "apkg/lab-5 note 1769696795188 cloze 4",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Fasciculus cuneatus",
-  "answer_kind": "structure",
   "accept": [
    "cuneate fasciculus"
   ],
   "require_side": false,
-  "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
-  "w": 1752,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.0687,
-   "y": 0.6788,
-   "w": 0.3669,
-   "h": 0.0373
-  },
-  "masks": [
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7458,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.1255
-     ],
-     [
-      0.5927,
-      0.1214
-     ],
-     [
-      0.5958,
-      0.084
-     ],
-     [
-      0.7448,
-      0.0854
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4721,
-      0.8212
-     ],
-     [
-      0.5269,
-      0.8226
-     ],
-     [
-      0.5258,
-      0.9402
-     ],
-     [
-      0.0586,
-      0.9416
-     ],
-     [
-      0.0606,
-      0.8489
-     ],
-     [
-      0.4721,
-      0.8475
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.164,
-    "y": 0.7673,
-    "w": 0.2797,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.0687,
-    "y": 0.6788,
-    "w": 0.3669,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.161,
-    "y": 0.4851,
-    "w": 0.2797,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.0667,
-    "y": 0.4063,
-    "w": 0.3588,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1833,
-    "y": 0.3219,
-    "w": 0.2129,
-    "h": 0.036
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "A first-order DCML axon from the hand (entering at T1) ascends in which part of the dorsal column?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:spinal-cord",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696795188-c5",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": null,
   "status": "live",
   "position": 604,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696795188 cloze 5"
+   "ref": "apkg/lab-5 note 1769696795188 cloze 5",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Ascends on same side (ipsilateral)",
-  "answer_kind": "structure",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
-  "w": 1752,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.161,
-   "y": 0.4851,
-   "w": 0.2797,
-   "h": 0.0373
-  },
-  "masks": [
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7458,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.1255
-     ],
-     [
-      0.5927,
-      0.1214
-     ],
-     [
-      0.5958,
-      0.084
-     ],
-     [
-      0.7448,
-      0.0854
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4721,
-      0.8212
-     ],
-     [
-      0.5269,
-      0.8226
-     ],
-     [
-      0.5258,
-      0.9402
-     ],
-     [
-      0.0586,
-      0.9416
-     ],
-     [
-      0.0606,
-      0.8489
-     ],
-     [
-      0.4721,
-      0.8475
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.164,
-    "y": 0.7673,
-    "w": 0.2797,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.0687,
-    "y": 0.6788,
-    "w": 0.3669,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.161,
-    "y": 0.4851,
-    "w": 0.2797,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.0667,
-    "y": 0.4063,
-    "w": 0.3588,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1833,
-    "y": 0.3219,
-    "w": 0.2129,
-    "h": 0.036
-   }
+  "answer": "Same side (ipsilateral)",
+  "accept": [
+   "Ascends on same side (ipsilateral)",
+   "same side",
+   "ipsilateral",
+   "same"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "In the dorsal column-medial lemniscus pathway, does a first-order axon from the hand ascend on the same or the opposite side as the sensation?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
-  ]
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696795188-c6",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": "fasciculus-gracilis",
   "status": "live",
   "position": 605,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696795188 cloze 6"
+   "ref": "apkg/lab-5 note 1769696795188 cloze 6",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Fasciculus gracilis",
-  "answer_kind": "structure",
   "accept": [
    "gracile fasciculus",
    "fasciculus gracile"
   ],
   "require_side": false,
-  "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
-  "w": 1752,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.0667,
-   "y": 0.4063,
-   "w": 0.3588,
-   "h": 0.0373
-  },
-  "masks": [
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7458,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.1255
-     ],
-     [
-      0.5927,
-      0.1214
-     ],
-     [
-      0.5958,
-      0.084
-     ],
-     [
-      0.7448,
-      0.0854
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4721,
-      0.8212
-     ],
-     [
-      0.5269,
-      0.8226
-     ],
-     [
-      0.5258,
-      0.9402
-     ],
-     [
-      0.0586,
-      0.9416
-     ],
-     [
-      0.0606,
-      0.8489
-     ],
-     [
-      0.4721,
-      0.8475
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.164,
-    "y": 0.7673,
-    "w": 0.2797,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.0687,
-    "y": 0.6788,
-    "w": 0.3669,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.161,
-    "y": 0.4851,
-    "w": 0.2797,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.0667,
-    "y": 0.4063,
-    "w": 0.3588,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1833,
-    "y": 0.3219,
-    "w": 0.2129,
-    "h": 0.036
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "A first-order DCML axon from the foot (entering at a sacral level) ascends in which part of the dorsal column?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:spinal-cord",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696795188-c7",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": "medial-dorsal-root-entry-zone",
   "status": "live",
   "position": 606,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769696795188 cloze 7"
+   "ref": "apkg/lab-5 note 1769696795188 cloze 7",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
   "answer": "Medial dorsal root entry zone",
-  "answer_kind": "structure",
   "accept": [
-   "medial DREZ"
+   "medial DREZ",
+   "medial"
   ],
   "require_side": false,
-  "image": "apkg/lab-5/media/paste-03ab07a33e5896dfe27c8447206164112491558d.webp",
-  "w": 1752,
-  "h": 1283,
-  "target": {
-   "shape": "rect",
-   "x": 0.1833,
-   "y": 0.3219,
-   "w": 0.2129,
-   "h": 0.036
-  },
-  "masks": [
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.7458,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.0481
-     ],
-     [
-      0.9718,
-      0.1255
-     ],
-     [
-      0.5927,
-      0.1214
-     ],
-     [
-      0.5958,
-      0.084
-     ],
-     [
-      0.7448,
-      0.0854
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4721,
-      0.8212
-     ],
-     [
-      0.5269,
-      0.8226
-     ],
-     [
-      0.5258,
-      0.9402
-     ],
-     [
-      0.0586,
-      0.9416
-     ],
-     [
-      0.0606,
-      0.8489
-     ],
-     [
-      0.4721,
-      0.8475
-     ]
-    ]
-   },
-   {
-    "shape": "rect",
-    "x": 0.164,
-    "y": 0.7673,
-    "w": 0.2797,
-    "h": 0.0318
-   },
-   {
-    "shape": "rect",
-    "x": 0.0687,
-    "y": 0.6788,
-    "w": 0.3669,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.161,
-    "y": 0.4851,
-    "w": 0.2797,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.0667,
-    "y": 0.4063,
-    "w": 0.3588,
-    "h": 0.0373
-   },
-   {
-    "shape": "rect",
-    "x": 0.1833,
-    "y": 0.3219,
-    "w": 0.2129,
-    "h": 0.036
-   }
-  ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the structure.",
-  "followups": [],
+  "prompt": "Do first-order DCML axons enter the medial or the lateral dorsal root entry zone (DREZ)?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
    "region:spinal-cord",
-   "modality:sensory"
-  ]
+   "modality:sensory",
+   "kind:theory",
+   "theory:slides"
+  ],
+  "format": "type",
+  "keywords": null,
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769696917835-c1",
@@ -15039,161 +14411,46 @@
  },
  {
   "slug": "lab-5-io-1769700348409-c1",
-  "kind": "pin",
+  "kind": "theory",
   "topic": "lab-5",
   "structure": null,
   "status": "live",
   "position": 800,
   "source": {
    "type": "apkg",
-   "ref": "apkg/lab-5 note 1769700348409 cloze 1"
+   "ref": "apkg/lab-5 note 1769700348409 cloze 1",
+   "converted": "text slide -> flash card (2026-11-24)"
   },
-  "answer": "Pain, temperature",
-  "answer_kind": "function",
-  "accept": [],
-  "require_side": false,
-  "image": "apkg/lab-5/media/paste-f5c74a042e668830d5b7b7df0cd8124951ae1561.webp",
-  "w": 1708,
-  "h": 1253,
-  "target": {
-   "shape": "rect",
-   "x": 0.7614,
-   "y": 0.001,
-   "w": 0.1563,
-   "h": 0.0249
-  },
-  "masks": [
-   {
-    "shape": "rect",
-    "x": 0.7614,
-    "y": 0.001,
-    "w": 0.1563,
-    "h": 0.0249
-   },
-   {
-    "shape": "rect",
-    "x": 0.3736,
-    "y": 0.055,
-    "w": 0.5979,
-    "h": 0.1148
-   },
-   {
-    "shape": "rect",
-    "x": 0.1341,
-    "y": 0.3413,
-    "w": 0.4091,
-    "h": 0.0221
-   },
-   {
-    "shape": "rect",
-    "x": 0.0468,
-    "y": 0.5308,
-    "w": 0.5826,
-    "h": 0.0429
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.4833,
-      0.3897
-     ],
-     [
-      0.5878,
-      0.3925
-     ],
-     [
-      0.5848,
-      0.4754
-     ],
-     [
-      0.0387,
-      0.4824
-     ],
-     [
-      0.0397,
-      0.4146
-     ],
-     [
-      0.4863,
-      0.4187
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.5502,
-      0.6649
-     ],
-     [
-      0.599,
-      0.6649
-     ],
-     [
-      0.599,
-      0.7811
-     ],
-     [
-      0.0407,
-      0.7825
-     ],
-     [
-      0.0417,
-      0.6885
-     ],
-     [
-      0.5502,
-      0.6926
-     ]
-    ]
-   },
-   {
-    "shape": "polygon",
-    "points": [
-     [
-      0.2427,
-      0.7991
-     ],
-     [
-      0.6213,
-      0.7977
-     ],
-     [
-      0.6203,
-      0.889
-     ],
-     [
-      0.0376,
-      0.8876
-     ],
-     [
-      0.0407,
-      0.8212
-     ],
-     [
-      0.2427,
-      0.8226
-     ]
-    ]
-   }
+  "answer": "Pain and temperature",
+  "accept": [
+   "Pain, temperature",
+   "temperature and pain"
   ],
-  "pointer": {
-   "type": "mask"
-  },
-  "prompt": "Name the function.",
-  "followups": [],
+  "require_side": false,
+  "prompt": "What modality (sensation) does the anterolateral (spinothalamic) pathway carry?",
   "tags": [
    "unit:u1",
-   "kind:pin",
    "source:anki-deck",
-   "region:spinal-cord"
+   "region:spinal-cord",
+   "kind:theory",
+   "theory:slides"
   ],
   "parts": [
    "Pain",
    "Temperature"
-  ]
+  ],
+  "format": "keywords",
+  "keywords": [
+   [
+    "pain"
+   ],
+   [
+    "temperature",
+    "thermal"
+   ]
+  ],
+  "choices": null,
+  "facet": "slides"
  },
  {
   "slug": "lab-5-io-1769700348409-c2",

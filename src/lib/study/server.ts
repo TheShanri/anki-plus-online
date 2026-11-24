@@ -272,6 +272,8 @@ export async function buildStudyPayload(
   // scope
   const topicSet = scopeTopicIds(idx, o.scope);
   let scoped = light.filter((c) => !o.exclude.has(c.id) && (!topicSet || (c.topicId && topicSet.has(c.topicId))));
+  // a tag scope's cards (the follow-ups below stay inside it too)
+  let tagIds: Set<string> | null = null;
   if (o.scope.type === "structure") {
     // one structure (from the atlas): its name cards, plus its theory cards once the name is solid
     const { data: st } = await sb.from("structures").select("id").eq("course_id", course.id).eq("slug", o.scope.slug).maybeSingle();
@@ -287,6 +289,7 @@ export async function buildStudyPayload(
       sb.from("cards").select("id").eq("course_id", course.id).eq("status", "live").contains("content", { tags: [o.scope.type === "tag" ? o.scope.tag : ""] }).order("id").range(a, b),
     );
     const want = new Set(tagged.map((r) => r.id));
+    tagIds = want;
     scoped = scoped.filter((c) => want.has(c.id));
   }
   const bs = o.scope.type === "bslevel" || o.scope.type === "bsregion" || o.scope.type === "bsall" ? o.scope : null;
@@ -337,7 +340,14 @@ export async function buildStudyPayload(
   // content for the batch, plus theory cards of the batch's structures (for follow-ups)
   const ids = new Set(batch.map((e) => e.card.id));
   const structIds = new Set(batch.map((e) => e.card.structureId).filter((x): x is string => !!x));
-  const theoryIds = o.scope.type === "weak" ? [] : idx.cards.filter((c) => c.kind === "theory" && c.structure_id && structIds.has(c.structure_id)).map((c) => c.id);
+  // follow-ups stay inside the session's scope: a Lab 1 session never gets a unit 3 practical question about the
+  // same structure (a topic or unit scope keeps its topics, a tag scope its tagged cards)
+  const theoryIds =
+    o.scope.type === "weak"
+      ? []
+      : idx.cards
+          .filter((c) => c.kind === "theory" && c.structure_id && structIds.has(c.structure_id) && (!topicSet || (!!c.topic_id && topicSet.has(c.topic_id))) && (!tagIds || tagIds.has(c.id)))
+          .map((c) => c.id);
   type StructRow = { id: string; slug: string; canonical_name: string; synonyms: string[]; region: string | null; info: StructureLite["info"] };
   const STRUCT_COLS = "id, slug, canonical_name, synonyms, region, info";
   const firstIds = [...new Set([...ids, ...theoryIds])];

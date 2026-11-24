@@ -25,10 +25,16 @@ Set-up on a fresh machine: create a venv (outside OneDrive is faster on Windows,
 
 ## Changing a pronunciation
 
-1. Edit `tools/tts/lexicon.txt` (one `term|IPA` per line; phonemes are Kokoro's: `A`=eɪ, `I`=aɪ, `W`=aʊ, `Y`=ɔɪ, `O`=oʊ, `ˈ`/`ˌ` stress).
+1. Edit `tools/tts/lexicon.txt` (one `term|IPA` per line; phonemes are Kokoro's: `A`=eɪ, `I`=aɪ, `W`=aʊ, `Y`=ɔɪ, `O`=oʊ, `ˈ`/`ˌ` stress). To see what Kokoro does with a word now, run its G2P alone (no model load): `KPipeline(lang_code="a", model=False)` over `speakable(text)`.
 2. `python tools/tts/build_lexicon.py`.
-3. Bump `lexicon` in `src/lib/tts/config.json`. This changes every hash, so all clips are regenerated on the next run (the old objects can be deleted from the bucket).
+3. Add or bump the term in `revs` in `src/lib/tts/config.json` (`"medulla": 1`, then 2 on the next fix). A text containing the term hashes with `|term@rev` (hash.ts `revSuffix`, ttslib `rev_suffix`), so only those clips get new names: the next `generate.py` run makes just them, and no browser keeps the old clip (clips are cached as immutable). Bumping the global `lexicon` number instead re-makes every clip.
 4. `python tools/tts/verify.py` round-trips ~55 hard terms through faster-whisper (`small.en`) and prints any that do not come back as the intended word. Listen to `tools/tts/test/*.wav` for the final word on a term; a recogniser cannot judge stress.
+
+Fixed so far: midsagittal (Kokoro stressed "mid-suh-JIT-ul"), medulla (now /məˈduːlə/, "muh-DOO-luh", the owner's choice over /məˈdʌlə/).
+
+What is spoken: `tools/tts/spoken.ts` lists every text the app speaks, through the app's own `toStudyCard` (a plane card's
+"Midsagittal plane" is spoken "Midsagittal"), plus every structure name; `ttslib.source_texts()` reads it. A text with no clip
+falls back to the browser's own voice, which mispronounces anatomy: keep the bucket complete after content changes.
 
 ## Client
 

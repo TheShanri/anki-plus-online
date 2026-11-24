@@ -37,9 +37,24 @@ export interface Label3 {
   /** outline group: cut-face borders are drawn only between labels of different groups */
   og: number;
 }
+export interface Sulcus3 {
+  id: number;
+  key: string;
+  name: string;
+  course: string | null;
+}
+export interface Area3 {
+  bit: number;
+  key: string;
+  name: string;
+  course: string;
+  side: "L" | "LR";
+}
 export interface Index3 {
   version: string;
   labels: Label3[];
+  sulci: Sulcus3[];
+  areas: Area3[];
   /** group key -> leaf ids */
   groups: Record<string, { name: string; ids: number[] }>;
   credits: string[];
@@ -127,6 +142,10 @@ export class LabelState {
     this.data[k + 1] = (v >> 8) & 255;
     this.data[k + 2] = v & 255;
     if (alpha >= 0) this.data[k + 3] = alpha;
+  }
+  /** 0 none; else the ghost class (1 tissue, 2 fluid): borders between ghosted labels of one class are not drawn */
+  setGhost(id: number, cls: number) {
+    this.data[this.i(id, 3) + 3] = cls;
   }
   commit() {
     this.tex.needsUpdate = true;

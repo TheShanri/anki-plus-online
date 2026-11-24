@@ -37,6 +37,22 @@ Not used: BigBrain / Julich-Brain (NC-SA), Brainstem Navigator (no redistributio
 5. `export.py` -> `public/atlas3/index.json`: label table (names, course slugs, centroid, box, anchor, best cut planes).
 6. `pack.mjs` -> `public/atlas3/{shell,inner}.glb`: quantised + meshopt (no welding, no simplification).
 
+Inside `labels.py`:
+
+- `bsnuclei.py`: the cranial-nerve nuclei and brainstem tracts the Allen atlas lacks (III, EW, IV, V motor and principal
+  sensory, VI, VII, VCx, Sp5, Sol, DMX, XII, ambiguus, gracile, cuneate, PPRF, facial colliculus, ALS, DSCT, IAF,
+  decussations ...), from the course's own level plates (`src/data/brainstem-plates`). Each plate is fitted into its
+  section plane by landmarks it shares with the atlas (only those the atlas has at that level; planes ordered, never
+  crossing); shapes are made symmetric (mean of a drawing and the mirror of the other side, or the mirror where one side
+  is drawn), grown to a minimum thickness, moved (mirror-wise per side) into their host tissue, and swept between levels
+  centre-on-centre. `BS_DUMP=1 labels.py` + `bsdev.py` / `bsplot.py` work on this step alone (plate overlays as PNG).
+- `surfregions.py` (in `bake.py`): sulci (the walls of the groove between two gyri) and functional areas (Broca, Wernicke,
+  M1, V1 ...) as per-vertex masks of the outer surface.
+- `zmap.py`: Z-Anatomy space -> MNI (the v2 warp), for objects only Z-Anatomy has (cerebellar lobules, cranial nerves).
+
+Before the left/right split only midline structures are despeckled (the smaller side of a small pair is otherwise taken for
+a speck).
+
 ## Rendering (`src/components/atlas3/engine/`)
 
 One shader for the whole network (`patchMaterial.ts`). A triangle knows both of its regions (a behind, b in front of its
@@ -44,6 +60,11 @@ normal). Per fragment: viewer inside a visible region -> that region's cut face 
 is visible -> its lit surface; else nothing. Hiding a hemisphere, the cortex or any structure is a state-texture update;
 a clip plane turns into cut faces with no extra geometry, and the borders between cut faces are drawn from the very
 triangles the plane crosses (`cutLines.ts`). Picking renders the same network with region ids into one pixel.
+
+A second, transparent pass of the same network (`GHOST`) draws hidden-but-ghosted labels as a fresnel veil: a face is drawn
+when the region beyond it is ghosted and the viewer's side is not of the same ghost class, so a whole group (the
+brainstem) reads as one see-through body with its ventricles as a second veil inside. A brainstem nucleus or tract opens
+in this view, from behind, framed on the whole brainstem.
 
 ## Status
 

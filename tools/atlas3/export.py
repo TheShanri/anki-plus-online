@@ -117,7 +117,10 @@ for r in labels:
 NAMES = {"frontal-lobe": "Frontal lobe", "parietal-lobe": "Parietal lobe", "temporal-lobe": "Temporal lobe", "occipital-lobe": "Occipital lobe",
          "insular-cortex": "Insula", "limbic-lobe": "Limbic lobe"}
 groups = {g: {"name": NAMES.get(g, g), "ids": sorted(i for k in keys for i in key_ids.get(k, []))} for g, keys in GROUPS.items()}
-body = dict(labels=labels, groups=groups, credits=[
+import surfregions  # noqa: E402
+sulci = [dict(id=sid, key=k, name=nm, course=sl) for sid, k, nm, sl, _, _ in surfregions.SULCI]
+areas = [dict(bit=b, key=k, name=nm, course=sl, side=rule[-1]) for b, k, nm, sl, rule in surfregions.AREAS]
+body = dict(labels=labels, groups=groups, sulci=sulci, areas=areas, credits=[
     "Allen Human Reference Atlas 3D, 2020 (Ding et al. 2016; Allen Institute for Brain Science), CC BY 4.0",
     "ICBM 2009b nonlinear symmetric template (Fonov et al. 2009, 2011), (c) McConnell Brain Imaging Centre, MNI",
     "Harvard Ascending Arousal Network atlas v2.0 (Edlow et al. 2023), CC0",
@@ -152,6 +155,21 @@ for r in labels:
     e = extra.setdefault(r["key"], dict(slug="atlas:" + r["key"], name=r["name"], region=REGION_OF.get(r["tissue"], "brain"), syn=[], ids=[], concept=False, extra=True))
     e["ids"].append(r["id"])
 items += list(extra.values())
+sul_of = {s["course"]: s["id"] for s in sulci if s["course"]}
+area_of = {a["course"]: a["bit"] for a in areas}
+for it in items:
+    if it["slug"] in sul_of:
+        it["sulcus"] = sul_of[it["slug"]]
+    if it["slug"] in area_of:
+        it["area"] = area_of[it["slug"]]
+# sulci that are not course structures become atlas items too
+for s_ in sulci:
+    if not s_["course"]:
+        items.append(dict(slug="atlas:sulcus-" + s_["key"], name=s_["name"], region="cerebral cortex", syn=[], ids=[], concept=False, extra=True, sulcus=s_["id"]))
+# the generic "sulcus" lights every named sulcus
+for it in items:
+    if it["slug"] == "sulcus":
+        it["sulcus"] = -1
 # nesting: parent = the smallest other item whose leaves strictly contain this item's leaves. Umbrella terms (gyrus,
 # cortical ribbon, cerebrospinal fluid, fibre classes ...) never act as parents: they would swallow the whole list.
 UMBRELLA = {"gyrus", "cortical-ribbon", "cerebral-cortex", "allocortex", "paleocortex", "archicortex", "white-matter", "cerebrospinal-fluid",

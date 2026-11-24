@@ -119,6 +119,19 @@ for s in range(0, len(ext_v), CH):
 log("ambient occlusion:", len(ext_v), "exterior vertices; mean", round(float(AO[ext_v].mean()), 3))
 del solid
 
+# sulci and functional areas on the outside surface (surfregions.py)
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import surfregions  # noqa: E402
+key_of = {L["id"]: L["key"] for L in meta["labels"]}
+side_of = {L["id"]: L["side"] for L in meta["labels"]}
+SULC = np.zeros(len(P), np.uint8)
+AREAS = np.zeros(len(P), np.uint32)
+s_ext, a_ext, REG = surfregions.compute(P[ext_v], vlab[ext_v, 0], AO[ext_v], key_of, side_of, log=log)
+SULC[ext_v] = s_ext
+AREAS[ext_v] = a_ext
+json.dump(REG, open(os.path.join(W, "surfregions.json"), "w"))
+
 
 def oct_free(n):
     n = n / (np.linalg.norm(n, axis=1, keepdims=True) + 1e-20)
@@ -137,6 +150,8 @@ def write_glb(path, sel_faces, with_b):
         attrs.append(("_NORMALB", oct_free(NB[used] + 1e-9), 5126, "VEC3", False))
     else:
         attrs.append(("_AO", np.round(AO[used] * 255).astype(np.uint8)[:, None], 5121, "SCALAR", True))
+        attrs.append(("_SULC", SULC[used].astype(np.uint8)[:, None], 5121, "SCALAR", False))
+        attrs.append(("_AREAS", AREAS[used].astype(np.float32)[:, None], 5126, "SCALAR", False))
     blobs, views, accs, offs = [], [], [], 0
     def add(arr, ctype, typ, norm=False, target=None, minmax=False):
         nonlocal offs

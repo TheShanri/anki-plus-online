@@ -36,12 +36,17 @@ export interface Atlas3Props {
   /** hemispheres hidden (patient's side): clipped away at the midline */
   hideSides?: ("L" | "R")[];
   hiddenIds?: number[];
+  /** hidden, but drawn as a see-through veil (the brainstem around one of its nuclei); fluid spaces get their own veil */
+  ghostIds?: number[];
   /** the see-through outside surface over whatever is visible (deep-structures mode) */
   ghost?: boolean;
   selected?: number[];
   /** tint the visible labels that are not selected toward grey */
   dimOthers?: boolean;
   look?: "natural" | "regions";
+  /** a sulcus to light (its id; -1 every named sulcus) and functional areas (bit mask) on the outside surface */
+  sulcus?: number;
+  areaMask?: number;
   /** per-label colour overrides (surface and cut face) */
   colors?: Record<number, string>;
   /** fly the camera to these labels (applied once per nonce) */
@@ -65,6 +70,10 @@ function applyCamRange(cam: THREE.PerspectiveCamera, d: number) {
 }
 function setShown(o: THREE.Object3D, v: boolean) {
   o.visible = v;
+}
+function setRegionUniforms(u: PatchUniforms, sulcus: number, areaMask: number) {
+  u.uSulc.value = sulcus;
+  u.uAreaMask.value = areaMask;
 }
 function swapLines(ls: LineSegments2, g: LineSegmentsGeometry, v: boolean) {
   ls.geometry.dispose();
@@ -93,6 +102,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   const hideSides = useMemo(() => props.hideSides ?? [], [props.hideSides]);
   const hideKey = hideSides.join(",");
   const needInner = !!props.cut || hideSides.length > 0 || (props.hiddenIds?.length ?? 0) > 0;
+  const ghosting = (props.ghostIds?.length ?? 0) > 0;
   const onProgress = props.onProgress;
 
   useEffect(() => {
@@ -122,11 +132,12 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   const mats = useMemo(() => {
     const ms = makePatchMaterial(uniforms, true), mi = makePatchMaterial(uniforms, false);
     const ps = makePatchMaterial(pickUniforms, true), pi = makePatchMaterial(pickUniforms, false);
-    for (const m of [ms, mi, ps, pi]) m.clippingPlanes = planes;
-    return { ms, mi, ps, pi, ghost: makeGhostMaterial(planes) };
+    const gs = makePatchMaterial(uniforms, true, true), gi = makePatchMaterial(uniforms, false, true);
+    for (const m of [ms, mi, ps, pi, gs, gi]) m.clippingPlanes = planes;
+    return { ms, mi, ps, pi, gs, gi, ghost: makeGhostMaterial(planes) };
   }, [uniforms, pickUniforms, planes]);
   const meshes = useMemo(() => {
-    const out: { shell?: THREE.Mesh; inner?: THREE.Mesh; pShell?: THREE.Mesh; pInner?: THREE.Mesh; ghost?: THREE.Mesh } = {};
+    const out: { shell?: THREE.Mesh; inner?: THREE.Mesh; pShell?: THREE.Mesh; pInner?: THREE.Mesh; ghost?: THREE.Mesh; gShell?: THREE.Mesh; gInner?: THREE.Mesh } = {};
     const mk = (g: Geo, m: THREE.Material) => {
       const me = new THREE.Mesh(g.geometry, m);
       me.matrixAutoUpdate = false;
@@ -138,6 +149,8 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     if (shell) {
       out.shell = mk(shell, mats.ms);
       out.pShell = mk(shell, mats.ps);
+      out.gShell = mk(shell, mats.gs);
+      out.gShell.renderOrder = 4;
     }
     if (hull) {
       out.ghost = mk(hull, mats.ghost);
@@ -146,6 +159,8 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     if (inner) {
       out.inner = mk(inner, mats.mi);
       out.pInner = mk(inner, mats.pi);
+      out.gInner = mk(inner, mats.gi);
+      out.gInner.renderOrder = 4;
     }
     return out;
   }, [shell, inner, hull, mats]);
@@ -160,6 +175,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   // ---------------- label state: colours, visibility, tints
   const selected = useMemo(() => new Set(props.selected ?? []), [props.selected]);
   const hidden = useMemo(() => new Set(props.hiddenIds ?? []), [props.hiddenIds]);
+  const ghosted = useMemo(() => new Set(props.ghostIds ?? []), [props.ghostIds]);
   const hoverRef = useRef<number | null>(null);
   const dim = !!props.dimOthers && selected.size > 0;
   const quiz = !!props.quiz;
@@ -178,13 +194,20 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       const reg = props.look === "regions" ? regionColor(l) : null;
       state.setSurface(l.id, over ?? reg ?? surfaceColor(l));
       state.setCap(l.id, over ?? capColor(l));
-      state.setVisible(l.id, !hidden.has(l.id) && !(l.side !== "M" && hideSides.includes(l.side)));
+      const sideOff = l.side !== "M" && hideSides.includes(l.side);
+      state.setVisible(l.id, !hidden.has(l.id) && !ghosted.has(l.id) && !sideOff);
+      state.setGhost(l.id, ghosted.has(l.id) && !sideOff ? (l.tissue === "csf" ? 2 : 1) : 0);
       const [c, a] = tintOf(l.id);
       state.setTint(l.id, c, a);
     }
     state.commit();
     invalidate();
-  }, [index, state, props.look, props.colors, hidden, hideSides, tintOf, invalidate]);
+  }, [index, state, props.look, props.colors, hidden, ghosted, hideSides, tintOf, invalidate]);
+
+  useEffect(() => {
+    setRegionUniforms(uniforms, props.sulcus ?? 0, props.areaMask ?? 0);
+    invalidate();
+  }, [uniforms, props.sulcus, props.areaMask, invalidate]);
 
   // ---------------- clip planes: the cut keeps the side below pos (removes the high side), or the other side when flipped
   useEffect(() => {
@@ -256,7 +279,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       invalidate();
     }, 30);
     return () => window.clearTimeout(t);
-  }, [props.cut, arrays, plane, midPlane, state, lines, invalidate, hidden, hideSides, byId]);
+  }, [props.cut, arrays, plane, midPlane, state, lines, invalidate, hidden, ghosted, hideSides, byId]);
 
   // ---------------- camera
   const box = useMemo(() => {
@@ -330,12 +353,21 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     const c = b.getCenter(new THREE.Vector3());
     // look at a cut face square on; else keep the user's direction, or the requested view's
     const dir = props.cut ? plane.normal.clone().negate() : userMoved.current ? cam.position.clone().sub(ctl ? ctl.target : c) : new THREE.Vector3(...VIEW_DIRS[props.view ?? "left"]);
+    // what is drawn: the whole brain, or only a part of it (the brainstem view, one hemisphere)
+    const drawn = new THREE.Box3();
+    if (props.ghost) drawn.copy(box);
+    for (const l of index.labels) {
+      if (!l.bbox) continue;
+      const sideOff = l.side !== "M" && hideSides.includes(l.side);
+      if (!sideOff && (ghosted.has(l.id) || !hidden.has(l.id))) drawn.union(new THREE.Box3(new THREE.Vector3(...l.bbox[0]), new THREE.Vector3(...l.bbox[1])));
+    }
+    if (drawn.isEmpty()) drawn.copy(box);
+    const sc = drawn.getCenter(new THREE.Vector3());
+    const R = drawn.getSize(new THREE.Vector3()).length() / 2;
     const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, 0.018);
-    const home = homeDist();
+    const home = Math.min(homeDist(), (R / Math.sin((cam.fov * Math.PI) / 360)) * 0.9);
     let dist = Math.min(home, Math.max((r / Math.sin((cam.fov * Math.PI) / 360)) * 1.35, home * 0.42));
-    // never inside the brain: at least out to its bounding sphere along the view direction
-    const sc = box.getCenter(new THREE.Vector3());
-    const R = box.getSize(new THREE.Vector3()).length() / 2;
+    // never inside what is drawn: at least out to its bounding sphere along the view direction
     const d = dir.clone().normalize();
     const oc = c.clone().sub(sc);
     const bq = oc.dot(d), cq = oc.lengthSq() - R * R * 1.02;
@@ -481,23 +513,27 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   useFrame(() => {
     const dom = pinDom.current;
     if (!dom || !dom.size) return;
-    const placed: { x: number; y: number; z: number; el: HTMLDivElement }[] = [];
+    const placed: { x: number; y: number; z: number; w: number; el: HTMLDivElement; vis: boolean }[] = [];
     for (const p of pins) {
       const el = dom.get(p.key);
       if (!el) continue;
       v.copy(p.pos).project(camera);
       const x = ((v.x + 1) / 2) * size.width, y = ((1 - v.y) / 2) * size.height;
+      const w = el.offsetWidth || 100;
       let vis = v.z < 1 && Math.abs(v.x) < 1.05 && Math.abs(v.y) < 1.05;
-      // two pins of a pair seen edge-on fall on each other: keep the nearer one
+      // the two pins of a pair whose labels would overlap (seen edge-on, or side by side from behind): keep the nearer
       for (const q of placed) {
-        if (Math.hypot(q.x - x, q.y - y) < 46) {
-          if (v.z < q.z) q.el.style.opacity = "0";
-          else vis = false;
+        if (!q.vis || !vis) continue;
+        if (Math.abs(q.x - x) < (q.w + w) / 2 + 6 && Math.abs(q.y - y) < 26) {
+          if (v.z < q.z) {
+            q.el.style.opacity = "0";
+            q.vis = false;
+          } else vis = false;
         }
       }
       el.style.opacity = vis ? "1" : "0";
       el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -100%)`;
-      placed.push({ x, y, z: v.z, el });
+      placed.push({ x, y, z: v.z, w, el, vis });
     }
   });
 
@@ -506,6 +542,8 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       {meshes.shell && <primitive object={meshes.shell} />}
       {meshes.inner && needInner && <primitive object={meshes.inner} />}
       {meshes.ghost && props.ghost && <primitive object={meshes.ghost} />}
+      {meshes.gShell && ghosting && <primitive object={meshes.gShell} />}
+      {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
       <primitive object={lines} />
       <NavExtras pick={pointAt} />
     </>

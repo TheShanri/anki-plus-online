@@ -242,6 +242,17 @@ if rim.any():
 log("brainstem rims re-assigned", int(rim.sum()))
 del Kc, Ac, thal, lv, cbc, bs
 
+# brainstem nuclei and tracts from the course's level plates (bsnuclei.py)
+import bsnuclei  # noqa: E402
+if os.environ.get("BS_DUMP"):
+    # the volume as the plates find it, for working on bsnuclei.py alone (tools/atlas3/bsdev.py)
+    np.save(os.path.join(OUT, "pre_plates.npy"), K)
+    json.dump(dict(KI=KI, affine=AFF.tolist()), open(os.path.join(OUT, "pre_plates.json"), "w"))
+    log("dumped the pre-plate volume")
+    raise SystemExit(0)
+log("brainstem plates:")
+BS_REPORT = bsnuclei.carve(K, KI, AFF, log=lambda *a: log(*a))
+
 # ------------------------------------------------------------------ 3. holes, closed cortical shell, specks
 CTX = [r["key"] for r in ROWS if r["tissue"] == "ctx"]
 WMK = ["FWM", "CR", "CSO", "EC", "ExC"]
@@ -278,11 +289,11 @@ del ctx_lab, grown, out, touch, left_wm, brain, Kb
 
 
 # specks: islands smaller than MIN_PART voxels merge into the most common neighbouring label
-def despeck(K):
+def despeck(K, skip=frozenset()):
     n_fixed = 0
     objs = ndi.find_objects(K)
     for lab, sl in enumerate(objs, start=1):
-        if sl is None:
+        if sl is None or lab in skip:
             continue
         sl = tuple(slice(max(s.start - 2, 0), s.stop + 2) for s in sl)
         sub = K[sl]
@@ -309,7 +320,9 @@ def despeck(K):
     return n_fixed
 
 
-log("specks merged (pre-split)", despeck(K))
+# before the split only the midline structures: a paired structure is two islands until then, and the smaller side of a
+# small pair (the abducens nuclei) would be taken for a speck; the sides are cleaned after the split
+log("specks merged (pre-split)", despeck(K, skip=frozenset(KI[k] for k in KEYS if BY_KEY[k]["side"] != "M")))
 
 # ------------------------------------------------------------------ 4. left / right split
 names, rows_out = [], []

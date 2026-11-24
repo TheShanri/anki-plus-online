@@ -13,7 +13,11 @@ export interface CatItem {
   extra?: boolean;
   /** the smallest item whose leaves strictly contain this one's (its "part of") */
   parent: string | null;
+  /** a sulcus (its id; -1 all named sulci) or a functional area (bit) on the outside surface */
+  sulcus?: number;
+  area?: number;
 }
+export const hasGeometry = (it: CatItem) => it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined;
 export interface Catalog {
   version: string;
   items: CatItem[];
@@ -59,7 +63,7 @@ export function sectionOf(it: CatItem): string {
 /** Items that have 3D geometry, matched against a query (name, synonyms), best first. */
 export function search(items: CatItem[], q: string): CatItem[] {
   const nq = norm(q);
-  const withGeo = items.filter((it) => it.ids.length);
+  const withGeo = items.filter(hasGeometry);
   if (!nq) return withGeo;
   const words = nq.split(" ");
   const scored: [number, CatItem][] = [];

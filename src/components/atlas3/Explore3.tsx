@@ -37,6 +37,13 @@ const CUT_NAME: Record<CutAxis, string> = { off: "No cut", z: "Coronal cut", x: 
 const DEEP_HIDE = new Set(["ctx", "wm", "cbx"]);
 /** below this share of its surface visible from the best standard view, a structure opens in the deep view */
 const DEEP_SHARE = 0.07;
+/** the brainstem: its divisions, and the nuclei and tracts placed from the course plates. In the deep view of a
+ * selection inside it, the rest of it is a see-through veil (and its fluid spaces a veil of their own) */
+const STEM = new Set([
+  ...["MTg", "mRt", "PnBa", "PnTg", "PnO", "MoTg", "BSW", "CPd", "Py", "IO", "SC", "ICo", "SCP", "MCP", "ICP", "PAG", "RN", "SN", "VTA", "PTg", "LC", "DR", "MnR", "LDTg", "PBC", "ML", "MLF", "PTR"],
+  ...["III", "EW", "IV", "BIC", "xSCP", "IPF", "Vmo", "Vps", "VI", "VII", "FCol", "PPRF", "LFP", "VCx", "Sp5", "Sol", "DMX", "XII", "Amb", "Gr", "Cu", "IAF", "PyX", "ALS", "DSCT"],
+]);
+const STEM_FLUID = new Set(["Aq", "V4", "CeC"]);
 /** kept as context in the deep view of a selection: the ventricles and the brainstem */
 const CONTEXT_KEYS = new Set(["aLV", "bLV", "xLV", "pLV", "iLV", "V3", "Aq", "V4", "CeC", "MTg", "PnBa", "PnTg", "MoTg", "CPd", "Py", "IO", "BSW", "SC", "ICo", "SCP", "MCP", "ICP"]);
 
@@ -86,13 +93,21 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
   // ---- what is shown
   const selIds = useMemo(() => item?.ids ?? [], [item]);
   const selDeep = useMemo(() => isDeep(selIds, byId), [selIds, byId]);
+  // a selection inside the brainstem is seen through the rest of it
+  const inStem = useMemo(() => selIds.length > 0 && selIds.every((id) => STEM.has(byId.get(id)?.key ?? "")), [selIds, byId]);
   const hiddenIds = useMemo(() => {
     if (!deep || !index) return [];
     const keep = new Set(selIds);
+    if (keep.size && inStem) return index.labels.filter((l) => !keep.has(l.id)).map((l) => l.id);
     // with a selection: the selection in its context (ventricles, brainstem); without: every deep structure
     if (keep.size) return index.labels.filter((l) => !keep.has(l.id) && !CONTEXT_KEYS.has(l.key)).map((l) => l.id);
     return index.labels.filter((l) => DEEP_HIDE.has(l.tissue)).map((l) => l.id);
-  }, [deep, index, selIds]);
+  }, [deep, index, selIds, inStem]);
+  const ghostIds = useMemo(() => {
+    if (!deep || !index || !inStem) return [];
+    const keep = new Set(selIds);
+    return index.labels.filter((l) => !keep.has(l.id) && (STEM.has(l.key) || STEM_FLUID.has(l.key))).map((l) => l.id);
+  }, [deep, index, selIds, inStem]);
   const cut: Cut3 | null = cutAxis === "off" ? null : { axis: cutAxis, pos: cutPos, flip: cutFlip };
   const hideSides = useMemo<("L" | "R")[]>(() => (sides === "L" ? ["R"] : sides === "R" ? ["L"] : []), [sides]);
   const pins = useMemo(() => {
@@ -115,7 +130,19 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     (it: CatItem | null, opts: { frame?: boolean } = {}) => {
       setSel(it ? it.slug : null);
       if (!it) return;
+      if (!it.ids.length && (it.sulcus !== undefined || it.area !== undefined)) {
+        // a sulcus or a functional area: the outside surface, from the view that shows it
+        const ak = it.area !== undefined ? index?.areas.find((a) => a.bit === it.area)?.key : undefined;
+        const v: View3 = it.sulcus !== undefined ? (SULCUS_VIEW[it.sulcus] ?? "left") : ((ak ? AREA_VIEW[ak] : undefined) ?? "left");
+        setDeep(false);
+        setCutAxis("off");
+        setView(v);
+        setSides(v === "medial-left" ? "L" : v === "medial-right" ? "R" : "both");
+        setViewNonce((n) => n + 1);
+        return;
+      }
       const deepNow = isDeep(it.ids, byId);
+      const stemNow = deepNow && cutAxis === "off" && it.ids.every((id) => STEM.has(byId.get(id)?.key ?? ""));
       if (cutAxis === "off") setDeep(deepNow);
       if (opts.frame !== false) {
         // an outside structure is shown from the view that shows it best (medial for the cuneus, inferior for the
@@ -125,11 +152,18 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
           setView(bv);
           setSides(bv === "medial-left" ? "L" : bv === "medial-right" ? "R" : "both");
           setViewNonce((n) => n + 1);
+        } else if (stemNow) {
+          // a nucleus or tract inside the brainstem: the whole see-through brainstem from behind, so its level
+          // (midbrain, pons, medulla), both sides and the floor of the fourth ventricle are seen at once
+          setView("posterior");
+          setSides("both");
+          setViewNonce((n) => n + 1);
         }
-        setFocus((f) => ({ ids: it.ids, nonce: (f?.nonce ?? 0) + 1 }));
+        const stemIds = stemNow ? (index?.labels ?? []).filter((l) => STEM.has(l.key)).map((l) => l.id) : [];
+        setFocus((f) => ({ ids: stemNow ? [...new Set([...it.ids, ...stemIds])] : it.ids, nonce: (f?.nonce ?? 0) + 1 }));
       }
     },
-    [byId, cutAxis],
+    [byId, cutAxis, index],
   );
   useEffect(() => {
     // a deep link selects once the data is in
@@ -267,17 +301,20 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     cut,
     hideSides,
     hiddenIds,
-    ghost: deep,
+    ghostIds,
+    ghost: deep && !inStem,
     selected: selIds,
     dimOthers: deep,
     look,
     focus,
     pins,
+    sulcus: item?.sulcus,
+    areaMask: item?.area !== undefined ? 1 << item.area : 0,
     onPick,
     onReady,
     onProgress,
   };
-  const sideNote = item && index ? sideText(item, byId) : "";
+  const sideNote = item && index ? sideText(item, byId, index) : "";
 
   return (
     <div className="atl3-shell" style={{ height: "calc(100dvh - 150px)", minHeight: 560 }}>
@@ -441,6 +478,9 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
   );
 }
 
+/** The view that shows a sulcus (by id) or a functional area (by key) best. */
+const SULCUS_VIEW: Record<number, View3> = { 1: "superior", 2: "left", 3: "medial-left", 4: "medial-left", 5: "superior", 6: "left", 7: "left", 8: "left", 9: "left", 10: "superior", 11: "left", 12: "medial-left", 13: "inferior", 14: "superior", [-1]: "left" };
+const AREA_VIEW: Record<string, View3> = { ofc: "inferior", vmpfc: "medial-left", acc: "medial-left", v1: "medial-left", va: "posterior", vvs: "inferior", pga: "left", s2a: "superior", m1: "left", s1: "left" };
 const PX_MM2 = 0.1526;
 /** The standard view that shows a structure best (pixels counted off screen by tools/atlas3/views.py), and how much of
  * its surface that view shows. One side is enough: the left copy (or the midline structure) is measured. */
@@ -463,11 +503,16 @@ function isDeep(ids: number[], byId: Map<number, Label3>): boolean {
   return ids.length > 0 && bestView(ids, byId).share < DEEP_SHARE;
 }
 
-function sideText(it: CatItem, byId: Map<number, Label3>): string {
-  const sides = new Set(it.ids.map((id) => byId.get(id)?.side).filter(Boolean));
-  if (sides.has("L") && sides.has("R")) return "Both hemispheres";
-  if (sides.has("L")) return "Left hemisphere";
-  if (sides.has("R")) return "Right hemisphere";
+function sideText(it: CatItem, byId: Map<number, Label3>, index: Index3): string {
+  if (!it.ids.length && it.area !== undefined) return index.areas.find((a) => a.bit === it.area)?.side === "L" ? "Left hemisphere (the language-dominant side in most people)" : "Both hemispheres";
+  if (!it.ids.length && it.sulcus !== undefined) return it.sulcus === 14 ? "Between the hemispheres" : "Both hemispheres";
+  const ls = it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l);
+  const sides = new Set(ls.map((l) => l.side));
+  // the brainstem and the cerebellar nuclei have sides, not hemispheres
+  const half = ls.every((l) => STEM.has(l.key) || ["DN", "IPN", "FN"].includes(l.key)) ? "side" : "hemisphere";
+  if (sides.has("L") && sides.has("R")) return half === "side" ? "Paired: left and right" : "Both hemispheres";
+  if (sides.has("L")) return `Left ${half}`;
+  if (sides.has("R")) return `Right ${half}`;
   return "Midline";
 }
 

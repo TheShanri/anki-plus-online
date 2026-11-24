@@ -79,6 +79,59 @@ export type Prog = { loaded: number; total: number };
 /** The copies in the Pathway tracer's frame (Blood supply) and where the files live. */
 export type PatchName = "shell" | "inner" | "hull" | "shell_f" | "inner_f" | "hull_f";
 const PATCH_URL: Partial<Record<PatchName, string>> = { hull_f: "/pathways/v3/brain3-hull.glb" };
+/** The outside surface's normals, welded across structures: each point's normal is the mean of the outside faces around
+ * it, whatever structure they belong to. (The baked normal of a region bends at its border with a neighbour on the
+ * surface, where the wall between the two pulls it inward: the pyramids and the nerve roots came out with dark,
+ * jagged spikes along every border.) Positions are quantised integers: border copies of a point are equal. */
+export function weldOutsideNormals(g: THREE.BufferGeometry): void {
+  const pos = g.getAttribute("position");
+  const idx = g.getIndex();
+  if (!pos || !idx) return;
+  const n = pos.count;
+  const X = new Float64Array(n), Y = new Float64Array(n), Z = new Float64Array(n);
+  for (let i = 0; i < n; i++) {
+    X[i] = pos.getX(i);
+    Y[i] = pos.getY(i);
+    Z[i] = pos.getZ(i);
+  }
+  // point identity: the quantised position (to 1e-6 of the unit: exact for the stored integers)
+  const slot = new Int32Array(n);
+  const ids = new Map<string, number>();
+  for (let i = 0; i < n; i++) {
+    const k = `${Math.round(X[i] * 1e6)},${Math.round(Y[i] * 1e6)},${Math.round(Z[i] * 1e6)}`;
+    let s = ids.get(k);
+    if (s === undefined) {
+      s = ids.size;
+      ids.set(k, s);
+    }
+    slot[i] = s;
+  }
+  const acc = new Float64Array(ids.size * 3);
+  const ix = idx.array;
+  for (let t = 0; t < idx.count; t += 3) {
+    const a = ix[t], b = ix[t + 1], c = ix[t + 2];
+    const ux = X[b] - X[a], uy = Y[b] - Y[a], uz = Z[b] - Z[a];
+    const vx = X[c] - X[a], vy = Y[c] - Y[a], vz = Z[c] - Z[a];
+    // area-weighted face normal (the outside surface's faces all point out of the brain)
+    const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+    for (const v of [a, b, c]) {
+      const s = slot[v] * 3;
+      acc[s] += nx;
+      acc[s + 1] += ny;
+      acc[s + 2] += nz;
+    }
+  }
+  const out = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) {
+    const s = slot[i] * 3;
+    const l = Math.hypot(acc[s], acc[s + 1], acc[s + 2]) || 1;
+    out[i * 3] = acc[s] / l;
+    out[i * 3 + 1] = acc[s + 1] / l;
+    out[i * 3 + 2] = acc[s + 2] / l;
+  }
+  g.setAttribute("normal", new THREE.BufferAttribute(out, 3));
+}
+
 /** The patch geometry of one file with the node transform that de-quantises it. Cached for the page's lifetime. */
 export function loadPatches(name: PatchName, onProgress?: (p: Prog) => void) {
   let p = geos.get(name);
@@ -97,6 +150,7 @@ export function loadPatches(name: PatchName, onProgress?: (p: Prog) => void) {
         });
         if (!mesh) throw new Error(`atlas3 ${name}: no mesh`);
         const m = mesh as THREE.Mesh;
+        if (name === "shell" || name === "shell_f") weldOutsideNormals(m.geometry);
         return { geometry: m.geometry, matrix: m.matrixWorld.clone() };
       });
     p.catch(() => geos.delete(name));
@@ -211,6 +265,14 @@ export class LabelState {
     this.data[k + 1] = (v >> 8) & 255;
     this.data[k + 2] = v & 255;
     if (alpha >= 0) this.data[k + 3] = alpha;
+  }
+  /** the selection (row 3 red): where a cut removes it, it is drawn as a faint veil */
+  setSel(id: number, on: boolean) {
+    this.data[this.i(id, 3)] = on ? 255 : 0;
+  }
+  /** a hollow space (row 3 green): a see-through cast from outside, its lining from inside */
+  setHollow(id: number, on: boolean) {
+    this.data[this.i(id, 3) + 1] = on ? 255 : 0;
   }
   /** 0 none; else the ghost class (1 tissue, 2 fluid): borders between ghosted labels of one class are not drawn */
   setGhost(id: number, cls: number) {

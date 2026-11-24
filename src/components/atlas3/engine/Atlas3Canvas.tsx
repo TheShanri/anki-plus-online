@@ -12,7 +12,7 @@ import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
 import { LabelState, loadBody, loadIndex3, loadPatches, loadVessels, type Index3, type Label3, type Prog } from "./data";
-import { makeGlassMaterial, makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
+import { makeGlassMaterial, makeHollowMaterial, makePatchMaterial, makeSelGhostMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
 import { makeGhostMaterial, setGhostMode } from "./ghostMaterial";
 import { readCssColor } from "@/lib/atlas/theme";
 import { capColor, regionColor, surfaceColor, HOVER, SELECT } from "./palette";
@@ -44,6 +44,8 @@ export interface Atlas3Props {
   hiddenIds?: number[];
   /** hidden, but drawn as a see-through veil (the brainstem around one of its nuclei); fluid spaces get their own veil */
   ghostIds?: number[];
+  /** the veil group of each ghosted label (default: fluid 2, tissue 1): borders inside one group are not drawn */
+  ghostCls?: Record<number, number>;
   /** the see-through outside surface over whatever is visible (deep-structures mode) */
   ghost?: boolean;
   selected?: number[];
@@ -65,7 +67,7 @@ export interface Atlas3Props {
   vessels?: string[] | null;
   /** the body layer (skull, meninges, spine and cord, eye, ear, nose): parts shown, parts lit, and the meninges' cut
    * faces staggered by this many metres per layer (outer layers kept further toward the viewer, so they ring the cut) */
-  body?: { show: string[]; lit: string[]; stagger?: number } | null;
+  body?: { show: string[]; lit: string[]; stagger?: number; glass?: boolean } | null;
   /** a tint over the brain's whole outside surface (the pia) */
   skin?: string | null;
   /** "tracer": the copy of the atlas in the Pathway tracer's frame (Blood supply draws its own vessels there) */
@@ -200,8 +202,17 @@ const BODY_STYLE: Record<string, { color: string; opacity?: number; layer?: numb
   nucleus: { color: "#c98a5a" },
 };
 const BODY_SEE = new Set(Object.entries(BODY_STYLE).filter(([, s]) => s.opacity !== undefined).map(([k]) => k));
-function bodyMaterial(kind: string, lit: boolean): THREE.MeshLambertMaterial {
+/** bone kinds that the skull-and-spine layer can draw see-through */
+const BONE_KINDS = new Set(["bone", "suture", "disc", "region"]);
+function bodyMaterial(kind: string, lit: boolean, glass = false): THREE.MeshLambertMaterial {
   const st = BODY_STYLE[kind] ?? { color: "#cccccc" };
+  if (glass && !lit) {
+    // the skull and spine over the brain: their near surface only, faint, so the brain reads through them
+    // (a suture is a seam in the bone: a faint line at most, never a dark stroke across the brain)
+    const m = new THREE.MeshLambertMaterial({ color: kind === "suture" ? "#9c8466" : st.color, side: THREE.FrontSide, transparent: true, opacity: kind === "suture" ? 0.22 : 0.2, depthWrite: false });
+    m.userData.layer = st.layer ?? 0;
+    return m;
+  }
   const see = st.opacity !== undefined;
   const m = new THREE.MeshLambertMaterial({
     color: lit ? "#ffc14d" : st.color,
@@ -232,7 +243,29 @@ function swapLines(ls: LineSegments2, g: LineSegmentsGeometry, v: boolean) {
 }
 const IN = new THREE.Plane(new THREE.Vector3(1, 0, 0), 1e3);
 type Geo = { geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 };
-type Tip = { name: string; cap: boolean; x: number; y: number };
+type Tip = { name: string; sub: string; x: number; y: number };
+
+/* what the pointer is over, beyond its name: the kind of tissue a cut face shows and where the section is, measured from
+ * the anterior commissure (the atlas's origin) */
+const TISSUE_WORD: Record<string, string> = {
+  ctx: "Cortex (grey matter)",
+  cbx: "Cerebellar cortex (grey matter)",
+  gm: "Grey matter (a nucleus)",
+  wm: "White matter",
+  tract: "White matter tract",
+  bs: "Brainstem tissue",
+  csf: "CSF-filled cavity, opened by the cut",
+  plx: "Choroid plexus",
+  nrv: "Nerve",
+};
+function sectionWhere(cut: Cut3 | null | undefined, midline: boolean): string {
+  if (!cut) return midline ? "the midline (sagittal) cut face" : "";
+  const mm = Math.round(cut.pos * 1000);
+  const n = Math.abs(mm);
+  if (cut.axis === "z") return `coronal section, ${n ? `${n} mm ${mm > 0 ? "anterior" : "posterior"} to` : "through"} the anterior commissure`;
+  if (cut.axis === "y") return `horizontal section, ${n ? `${n} mm ${mm > 0 ? "above" : "below"}` : "at"} the level of the anterior commissure`;
+  return `sagittal section, ${n ? `${n} mm ${mm > 0 ? "left" : "right"} of` : "at"} the midline`;
+}
 
 /* ------------------------------------------------------------------ the scene */
 type PinDom = Map<string, HTMLDivElement>;
@@ -245,6 +278,9 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   const plane = useMemo(() => IN.clone(), []);
   const midPlane = useMemo(() => IN.clone(), []);
   const planes = useMemo(() => [plane, midPlane], [plane, midPlane]);
+  // the side a cut removes (the selection is drawn there as a faint veil)
+  const planeInv = useMemo(() => IN.clone(), []);
+  const selPlanes = useMemo(() => [planeInv, midPlane], [planeInv, midPlane]);
   const [shell, setShell] = useState<Geo | null>(null);
   const [inner, setInner] = useState<Geo | null>(null);
   const [hull, setHull] = useState<Geo | null>(null);
@@ -288,11 +324,14 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     // the glass's depth pass sits a hair behind the surface (polygon offset), so the glass itself always passes its test
     // while every layer behind the nearest one fails it
     const depth = new THREE.MeshBasicMaterial({ colorWrite: false, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 2 });
-    for (const m of [ms, mi, ps, pi, gs, gi, glass, pglass, depth]) m.clippingPlanes = planes;
-    return { ms, mi, ps, pi, gs, gi, glass, pglass, depth, ghost: makeGhostMaterial(planes) };
-  }, [uniforms, pickUniforms, planes]);
+    const hs = makeHollowMaterial(uniforms, true), hi = makeHollowMaterial(uniforms, false);
+    const ss = makeSelGhostMaterial(uniforms, true), si = makeSelGhostMaterial(uniforms, false);
+    for (const m of [ms, mi, ps, pi, gs, gi, glass, pglass, depth, hs, hi]) m.clippingPlanes = planes;
+    for (const m of [ss, si]) m.clippingPlanes = selPlanes;
+    return { ms, mi, ps, pi, gs, gi, glass, pglass, depth, hs, hi, ss, si, ghost: makeGhostMaterial(planes) };
+  }, [uniforms, pickUniforms, planes, selPlanes]);
   const meshes = useMemo(() => {
-    const out: { shell?: THREE.Mesh; inner?: THREE.Mesh; pShell?: THREE.Mesh; pInner?: THREE.Mesh; ghost?: THREE.Mesh; gShell?: THREE.Mesh; gInner?: THREE.Mesh; glass?: THREE.Mesh; glassDepth?: THREE.Mesh; pGlass?: THREE.Mesh } = {};
+    const out: { shell?: THREE.Mesh; inner?: THREE.Mesh; pShell?: THREE.Mesh; pInner?: THREE.Mesh; ghost?: THREE.Mesh; gShell?: THREE.Mesh; gInner?: THREE.Mesh; glass?: THREE.Mesh; glassDepth?: THREE.Mesh; pGlass?: THREE.Mesh; hShell?: THREE.Mesh; hInner?: THREE.Mesh; sShell?: THREE.Mesh; sInner?: THREE.Mesh } = {};
     const mk = (g: Geo, m: THREE.Material) => {
       const me = new THREE.Mesh(g.geometry, m);
       me.matrixAutoUpdate = false;
@@ -312,6 +351,10 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       out.glass = mk(shell, mats.glass);
       out.glass.renderOrder = 11;
       out.pGlass = mk(shell, mats.pglass);
+      out.hShell = mk(shell, mats.hs);
+      out.hShell.renderOrder = 3;
+      out.sShell = mk(shell, mats.ss);
+      out.sShell.renderOrder = 6;
     }
     if (hull) {
       out.ghost = mk(hull, mats.ghost);
@@ -322,6 +365,10 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       out.pInner = mk(inner, mats.pi);
       out.gInner = mk(inner, mats.gi);
       out.gInner.renderOrder = 4;
+      out.hInner = mk(inner, mats.hi);
+      out.hInner.renderOrder = 3;
+      out.sInner = mk(inner, mats.si);
+      out.sInner.renderOrder = 6;
     }
     return out;
   }, [shell, inner, hull, mats]);
@@ -358,13 +405,15 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       state.setCap(l.id, over ?? capColor(l));
       const sideOff = l.side !== "M" && hideSides.includes(l.side);
       state.setVisible(l.id, !hidden.has(l.id) && !ghosted.has(l.id) && !sideOff);
-      state.setGhost(l.id, ghosted.has(l.id) && !sideOff ? (l.tissue === "csf" ? 2 : 1) : 0);
+      state.setGhost(l.id, ghosted.has(l.id) && !sideOff ? (props.ghostCls?.[l.id] ?? (l.tissue === "csf" ? 2 : 1)) : 0);
+      state.setSel(l.id, selected.has(l.id));
+      state.setHollow(l.id, l.tissue === "csf");
       const [c, a] = tintOf(l.id);
       state.setTint(l.id, c, a);
     }
     state.commit();
     invalidate();
-  }, [index, state, props.look, props.colors, hidden, ghosted, hideSides, tintOf, invalidate]);
+  }, [index, state, props.look, props.colors, props.ghostCls, hidden, ghosted, selected, hideSides, tintOf, invalidate]);
 
   // the page's light or dark mode (followed live): the see-through veils change ink
   useEffect(() => {
@@ -403,8 +452,9 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       if (c.flip) plane.set(nrm, -c.pos);
       else plane.set(nrm.negate(), c.pos);
     }
+    planeInv.set(plane.normal.clone().negate(), -plane.constant);
     invalidate();
-  }, [props.cut, plane, invalidate]);
+  }, [props.cut, plane, planeInv, invalidate]);
   useEffect(() => {
     // a hidden hemisphere is clipped away at the midline: midline structures show their midsagittal cut faces
     if (hideSides.includes("R") && !hideSides.includes("L")) midPlane.set(new THREE.Vector3(1, 0, 0), 0);
@@ -527,7 +577,10 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     };
   }, [wantBody, bodyData]);
   const bodyMats = useMemo(
-    () => new Map<string, THREE.MeshLambertMaterial>(Object.keys(BODY_STYLE).flatMap((k) => [[k, bodyMaterial(k, false)] as const, [`${k}:lit`, bodyMaterial(k, true)] as const])),
+    () =>
+      new Map<string, THREE.MeshLambertMaterial>(
+        Object.keys(BODY_STYLE).flatMap((k) => [[k, bodyMaterial(k, false)] as const, [`${k}:lit`, bodyMaterial(k, true)] as const, ...(BONE_KINDS.has(k) ? [[`${k}:glass`, bodyMaterial(k, false, true)] as const] : [])]),
+      ),
     [],
   );
   const bodyGroup = useMemo(() => {
@@ -535,17 +588,23 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     if (!bodyData || !props.body) return g;
     const kindOf = new Map(bodyData.meta.map((p) => [p.key, p.kind]));
     const lit = new Set(props.body.lit);
-    for (const key of [...props.body.show, ...props.body.lit]) {
+    // "@bones": every bone, suture and disc of the skull and the spine (the skull-and-spine layer)
+    const keys = new Set<string>();
+    for (const k of [...props.body.show, ...props.body.lit]) {
+      if (k === "@bones") for (const p of bodyData.meta) if ((p.group === "skull" || p.group === "spine") && (p.kind === "bone" || p.kind === "suture" || p.kind === "disc")) keys.add(p.key);
+      else keys.add(k);
+    }
+    for (const key of keys) {
       const m = bodyData.meshes.get(key);
       const kind = kindOf.get(key);
       if (!m || !kind) continue;
-      const lk = lit.has(key) ? ":lit" : "";
+      const lk = lit.has(key) ? ":lit" : props.body.glass && BONE_KINDS.has(kind) ? ":glass" : "";
       const mat = bodyMats.get(`${kind}${lk}`) ?? bodyMats.get(`bone${lk}`)!;
       const me = new THREE.Mesh(m.geometry, mat);
       me.matrixAutoUpdate = false;
       me.matrix.copy(m.matrix);
       me.frustumCulled = false;
-      me.renderOrder = BODY_SEE.has(kind) ? 4 : 1;
+      me.renderOrder = BODY_SEE.has(kind) || lk === ":glass" ? 7 : 1;
       me.raycast = () => {};
       g.add(me);
     }
@@ -712,7 +771,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     const brainDrawn = !drawn.isEmpty();
     const bodyBoxes = props.body && bodyData ? new Map(bodyData.meta.map((p) => [p.key, p.box])) : null;
     let bodyDrawn = false;
-    for (const k of bodyBoxes ? [...props.body!.show, ...props.body!.lit] : []) {
+    for (const k of bodyBoxes ? [...props.body!.show, ...props.body!.lit].filter((x) => x !== "@bones") : []) {
       const bb = bodyBoxes!.get(k);
       if (!bb) continue;
       drawn.union(new THREE.Box3(new THREE.Vector3(...bb[0]), new THREE.Vector3(...bb[1])));
@@ -819,6 +878,10 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
 
   // ---------------- hover + click
   const onHover = props.onHover, onPick = props.onPick, tipText = props.tipText;
+  const cutRef = useRef(props.cut);
+  useEffect(() => {
+    cutRef.current = props.cut;
+  }, [props.cut]);
   useEffect(() => {
     const el = gl.domElement;
     let raf = 0;
@@ -846,7 +909,9 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
         onHover?.(id !== null ? (byId.get(id) ?? null) : null, !!h?.cap);
       }
       const l = id !== null ? byId.get(id) : undefined;
-      setTip(l && !quiz ? { name: tipText ? tipText(l) : l.name + (l.side === "L" ? " (left)" : l.side === "R" ? " (right)" : ""), cap: !!h?.cap, x: last.clientX - r.left, y: last.clientY - r.top } : null);
+      // over a cut face: what tissue it is and where the section lies, not just "cut face"
+      const sub = l && h?.cap ? [TISSUE_WORD[l.tissue] ?? "", sectionWhere(cutRef.current, hideSides.length === 1)].filter(Boolean).join(" · ") : "";
+      setTip(l && !quiz ? { name: tipText ? tipText(l) : l.name + (l.side === "L" ? " (left)" : l.side === "R" ? " (right)" : ""), sub, x: last.clientX - r.left, y: last.clientY - r.top } : null);
     };
     const move = (e: PointerEvent) => {
       last = e;
@@ -879,7 +944,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       el.removeEventListener("pointerup", pu);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [gl, pick, state, tintOf, invalidate, setTip, onHover, onPick, tipText, byId, quiz]);
+  }, [gl, pick, state, tintOf, invalidate, setTip, onHover, onPick, tipText, byId, quiz, hideSides]);
 
   // ---------------- name pins
   const pins = useMemo(() => {
@@ -940,6 +1005,12 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
         </>
       )}
       {meshes.inner && needInner && <primitive object={meshes.inner} />}
+      {/* the hollow spaces' casts (see-through), wherever the inside of the brain is drawn */}
+      {meshes.hInner && needInner && <primitive object={meshes.hInner} />}
+      {meshes.hShell && needInner && <primitive object={meshes.hShell} />}
+      {/* the selection where the cut removes it: a faint veil */}
+      {meshes.sShell && props.cut && selected.size > 0 && <primitive object={meshes.sShell} />}
+      {meshes.sInner && props.cut && selected.size > 0 && <primitive object={meshes.sInner} />}
       {meshes.ghost && props.ghost && <primitive object={meshes.ghost} />}
       {meshes.gShell && ghosting && <primitive object={meshes.gShell} />}
       {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
@@ -1024,7 +1095,7 @@ export function Atlas3Canvas(props: Atlas3Props) {
       {tip && (
         <div className="atl3-tip" style={{ left: tip.x + 14, top: tip.y + 12 }}>
           {tip.name}
-          {tip.cap && <span className="atl3-tip-sub">cut face</span>}
+          {tip.sub && <span className="atl3-tip-note">{tip.sub}</span>}
         </div>
       )}
     </div>

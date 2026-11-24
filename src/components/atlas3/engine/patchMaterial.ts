@@ -6,8 +6,11 @@ import * as THREE from "three";
  *   else the region beyond is visible -> its SURFACE, lit with that region's own smooth normal
  *   else                              -> nothing (both sides hidden)
  * The per-label state lives in a small texture (rows: 0 surface rgb + visible, 1 cap rgb, 2 tint rgb + strength,
- * 3 ghost class in alpha), so showing, hiding, colouring or highlighting any structure is a texture update, never a new
- * mesh. The GHOST variant draws hidden-but-ghosted labels as a see-through veil (the brainstem around a nucleus). */
+ * 3 selected (r), hollow (g), ghost class (a)), so showing, hiding, colouring or highlighting any structure is a texture
+ * update, never a new mesh. The GHOST variant draws hidden-but-ghosted labels as a see-through veil (the brainstem around
+ * a nucleus). HOLLOW spaces (the ventricles) are not solid: from outside the HOLLOW pass draws their cast see-through,
+ * stronger at its rim, and from inside (through a cut, or through that cast) the main pass draws their lining, lit, so
+ * a cut ventricle reads as an open cavity. SELGHOST draws the selection where a cut removes it, as a faint veil. */
 
 export const STATE_ROWS = 4;
 
@@ -111,11 +114,27 @@ bool vis(int l) { return l > 0 && st(l, 0).a > 0.5; }
 vec3 toLin(vec3 c) { return pow(c, vec3(2.2)); }
 vec3 toSrgb(vec3 c) { return pow(max(c, 0.0), vec3(1.0 / 2.2)); }
 int gcls(int l) { return l > 0 ? int(st(l, 3).a * 255.0 + 0.5) : 0; }
+bool sel(int l) { return l > 0 && st(l, 3).r > 0.5; }
+bool hol(int l) { return l > 0 && st(l, 3).g > 0.5; }
 void main() {
   #include <clipping_planes_fragment>
   bool front = gl_FrontFacing;
   int here = front ? vLab.y : vLab.x;
   int there = front ? vLab.x : vLab.y;
+#ifdef SELGHOST
+  // the part of the selection a cut removes: its outer surface as a faint veil in the selection's colour, stronger at
+  // its silhouette, so the whole structure stays in view while its cut face is the solid part
+  bool sa = sel(here), sb = sel(there);
+  if (sa == sb) discard;
+  int sl = sa ? here : there;
+  vec3 sN = normalize(front ? vNA : vNB);
+  vec3 sV = normalize(vView);
+  if (dot(sN, sV) < 0.0) sN = -sN;
+  float sf = pow(1.0 - max(dot(sN, sV), 0.0), 2.0);
+  vec3 sc = st(sl, 2).rgb * (0.6 + 0.4 * max(dot(sN, uKey), 0.0));
+  outColor = vec4(sc, 0.06 + 0.34 * sf);
+  return;
+#endif
 #ifdef TERR
   // the glass brain (Blood supply): the outside surface whatever is hidden inside it. Through a cut, the inside of the
   // outside surface (the far wall) is drawn flat as the cut face, so the cut brain reads solid behind the deep structures
@@ -145,18 +164,32 @@ void main() {
   outColor = vec4(gc, clamp((0.045 + 0.45 * f) * k * (uOnLight > 0.5 ? 1.3 : 1.0), 0.0, 0.55));
   return;
 #endif
+#ifdef HOLLOW
+  // a hollow space seen from outside: its cast, see-through (the lining inside shows through it)
+  if (!(vis(there) && hol(there) && !vis(here))) discard;
+  int lab = there;
+  bool cap = false;
+  bool lumen = false;
+#else
   int lab;
   bool cap;
   if (vis(here)) { lab = here; cap = true; }
   else if (vis(there)) { lab = there; cap = false; }
   else discard;
+  // a hollow space: its outside is the HOLLOW pass's; seen from inside it is its lining, not a flat cut face
+  bool lumen = cap && hol(lab);
+  if (uPick == 0 && !cap && hol(lab)) discard;
+#endif
 #endif
   if (uPick == 1) {
     outColor = vec4(float(lab & 255) / 255.0, float(lab >> 8) / 255.0, cap ? 1.0 : 0.0, 1.0);
     return;
   }
   vec3 col;
-  if (cap) {
+#ifdef TERR
+  bool lumen = false;
+#endif
+  if (cap && !lumen) {
     col = st(lab, 1).rgb;
 #ifdef TERR
     col = vec3(0.47, 0.45, 0.43);
@@ -186,6 +219,11 @@ void main() {
 #ifdef SHELL
     ao = mix(1.0, vAO, uAO);
 #endif
+    // the lining of a cavity, seen from inside: deeper and duller than the cast's outside, darker where it turns away
+    if (lumen) {
+      base *= 0.42;
+      ao = 0.55 + 0.45 * max(dot(N, V), 0.0);
+    }
     float dk = max(dot(N, uKey), 0.0);
     float df = max(dot(N, uFill), 0.0);
     vec3 H = normalize(uKey + V);
@@ -212,6 +250,16 @@ void main() {
   }
   outColor = vec4(col, uGlass);
   return;
+#endif
+#ifdef HOLLOW
+  {
+    vec3 hN = normalize(front ? vNA : vNB);
+    vec3 hV = normalize(vView);
+    if (dot(hN, hV) < 0.0) hN = -hN;
+    float fr = pow(1.0 - max(dot(hN, hV), 0.0), 1.6);
+    outColor = vec4(col, mix(0.34, 0.94, fr));
+    return;
+  }
 #endif
   outColor = vec4(col, 1.0);
 }
@@ -283,6 +331,22 @@ export function makeGlassMaterial(uniforms: PatchUniforms, pick = false): THREE.
   m.transparent = true;
   m.depthWrite = false;
   m.depthFunc = THREE.LessEqualDepth;
+  return m;
+}
+/** The outside of the hollow spaces (see-through casts), drawn after the opaque network. */
+export function makeHollowMaterial(uniforms: PatchUniforms, shell: boolean): THREE.ShaderMaterial {
+  const m = makePatchMaterial(uniforms, shell);
+  m.defines = { ...m.defines, HOLLOW: 1 };
+  m.transparent = true;
+  m.depthWrite = false;
+  return m;
+}
+/** The selection where a cut removes it: a faint veil (its own clip planes keep the removed side). */
+export function makeSelGhostMaterial(uniforms: PatchUniforms, shell: boolean): THREE.ShaderMaterial {
+  const m = makePatchMaterial(uniforms, shell);
+  m.defines = { ...m.defines, SELGHOST: 1 };
+  m.transparent = true;
+  m.depthWrite = false;
   return m;
 }
 export function makePatchMaterial(uniforms: PatchUniforms, shell: boolean, ghost = false): THREE.ShaderMaterial {

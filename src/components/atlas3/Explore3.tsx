@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
-import { ChevronRight, Palette, RotateCcw, ScanLine, X } from "lucide-react";
-import { Divider, Group, IconBtn, Segmented } from "@/components/atlas/ui/Toolbar";
-import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, SeeThroughIcon, SolidIcon } from "@/components/atlas/ui/icons";
+import { ChevronRight, X } from "lucide-react";
+import { Segmented } from "@/components/atlas/ui/Toolbar";
 import { AtlasLoader } from "@/components/atlas/ui/AtlasLoader";
 import { StructureInfo } from "@/components/atlas/StructureInfo";
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
@@ -12,10 +11,12 @@ import { trackAtlas } from "@/lib/atlas/progress";
 import { loadAtlas2, type Atlas2 } from "@/lib/atlas/slices";
 import type { SliceView } from "@/components/atlas/SliceViewer";
 import { SectionEmbed } from "@/components/atlas/brainstem/SectionEmbed";
-import type { Atlas3Props, Cut3, View3 } from "./engine/Atlas3Canvas";
+import type { Atlas3Props, Cut3, Pin3, View3 } from "./engine/Atlas3Canvas";
 import { loadVessels, type Index3, type Label3, type Prog } from "./engine/data";
 import { SECTIONS, hasGeometry, loadCatalog, loadFibres, norm, search, sectionOf, type CatItem, type Fibres } from "./catalog";
-import { STEM, deepSets, inStemOf, isDeep, presentItem } from "./present";
+import { isDeep, presentItem, STEM } from "./present";
+import { ExploreBar, VIEWS, type CutAxis, type Sides } from "./ExploreBar";
+import { DEEP, WHOLE, autoFor, effective, layerSets, type Group as LayerGroup, type Layers, type Mode } from "./layers";
 import "@/components/atlas/ui/atlas-ui.css";
 import "./atlas3.css";
 
@@ -32,21 +33,31 @@ type Stage = "3d" | "mri" | "sections";
 /** ?view= values of the MRI viewer (the old atlas's links) */
 const MRI_VIEW: Record<string, SliceView> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", transverse: "axial", multi: "multi", multiplanar: "multi", render: "render" };
 
-type Sides = "both" | "L" | "R";
-type CutAxis = "off" | "z" | "x" | "y";
-const VIEWS: { id: View3; label: string; text: string; key: string }[] = [
-  { id: "left", label: "Left lateral", text: "L", key: "1" },
-  { id: "right", label: "Right lateral", text: "R", key: "2" },
-  { id: "anterior", label: "Anterior", text: "Ant", key: "3" },
-  { id: "posterior", label: "Posterior", text: "Post", key: "4" },
-  { id: "superior", label: "Superior", text: "Sup", key: "5" },
-  { id: "inferior", label: "Inferior (base)", text: "Inf", key: "6" },
-  { id: "medial-left", label: "Medial (left hemisphere)", text: "Med", key: "7" },
-  { id: "medial-right", label: "Medial (right hemisphere)", text: "MedR", key: "8" },
-];
 /** world extents (metres) of the brain for the cut slider, per axis */
 const RANGE: Record<"x" | "y" | "z", [number, number]> = { x: [-0.072, 0.072], y: [-0.072, 0.082], z: [-0.105, 0.072] };
-const CUT_NAME: Record<CutAxis, string> = { off: "No cut", z: "Coronal cut", x: "Sagittal cut", y: "Horizontal cut" };
+/** where a cut lies, in words, from the anterior commissure (the atlas's origin) */
+function cutWords(axis: CutAxis, pos: number): string {
+  const mm = Math.round(pos * 1000);
+  const n = Math.abs(mm);
+  if (axis === "z") return `Coronal · ${n ? `${n} mm ${mm > 0 ? "anterior" : "posterior"} to` : "through"} the anterior commissure`;
+  if (axis === "y") return `Horizontal · ${n ? `${n} mm ${mm > 0 ? "above" : "below"}` : "at"} the anterior commissure`;
+  if (axis === "x") return `Sagittal · ${n ? `${n} mm ${mm > 0 ? "left" : "right"} of` : "at"} the midline`;
+  return "";
+}
+/** names shown with the labels toggle, by group (one pin each, the left copy) */
+const OVERVIEW: Record<LayerGroup, string[]> = {
+  cortex: ["frontal-lobe", "parietal-lobe", "temporal-lobe", "occipital-lobe"],
+  deepgm: ["caudate-nucleus", "putamen", "globus-pallidus", "thalamus", "hippocampus", "amygdala", "hypothalamus"],
+  deepwm: ["internal-capsule", "corpus-callosum", "fornix"],
+  ventricles: ["lateral-ventricle", "third-ventricle", "cerebral-aqueduct", "fourth-ventricle"],
+  brainstem: ["midbrain", "pons", "medulla"],
+  cerebellum: ["cerebellum"],
+  nerves: ["optic-nerve", "oculomotor-nerve", "trigeminal-nerve", "facial-nerve", "vagus-nerve", "hypoglossal-nerve"],
+  bones: [],
+};
+const BRAIN_GROUPS: LayerGroup[] = ["cortex", "deepgm", "deepwm", "ventricles", "brainstem", "cerebellum", "nerves"];
+const allBrain = (m: Mode): Partial<Layers> => Object.fromEntries(BRAIN_GROUPS.map((g) => [g, m]));
+const GROUPS_SAME = (a: Layers, b: Layers) => BRAIN_GROUPS.every((g) => a[g] === b[g]);
 
 
 export function Explore3({
@@ -85,7 +96,14 @@ export function Explore3({
   const [cutAxis, setCutAxis] = useState<CutAxis>(() => (initialCut ? (initialCut.split(":")[0] as CutAxis) : "off"));
   const [cutPos, setCutPos] = useState<number>(() => (initialCut ? Number(initialCut.split(":")[1]) || 0 : 0));
   const [cutFlip, setCutFlip] = useState(() => !!initialCut?.endsWith(":f"));
-  const [deep, setDeep] = useState(false);
+  // what is shown, group by group (the student's), and what the current selection needs on top (auto, transient)
+  const [layers, setLayers] = useState<Layers>(WHOLE);
+  const [auto, setAuto] = useState<Partial<Layers>>({});
+  const eff = useMemo(() => effective(layers, auto), [layers, auto]);
+  const [locked, setLocked] = useState(false);
+  const [labels, setLabels] = useState(false);
+  const [full, setFull] = useState(false);
+  const stageEl = useRef<HTMLElement>(null);
   const [look, setLook] = useState<"natural" | "regions">("natural");
   const [focus, setFocus] = useState<{ ids: number[]; box?: [[number, number, number], [number, number, number]]; nonce: number } | null>(null);
   const [prog, setProg] = useState<{ shell?: Prog; inner?: Prog }>({});
@@ -154,11 +172,7 @@ export function Explore3({
   // ---- what is shown
   const selIds = useMemo(() => item?.ids ?? [], [item]);
   const selDeep = useMemo(() => isDeep(selIds, byId), [selIds, byId]);
-  // the deep view: what it hides and what it draws as a veil (present.ts); a selection inside the brainstem is seen
-  // through the rest of it
-  const inStem = useMemo(() => inStemOf(selIds, byId), [selIds, byId]);
-  const deepView = useMemo(() => (deep && index ? deepSets(index, selIds, byId, !!item?.fibre, !!item?.vessels?.length) : null), [deep, index, selIds, byId, item]);
-  const vesselKeys = item?.vessels?.length && deep ? item.vessels : null;
+  const vesselKeys = item?.vessels?.length ? item.vessels : null;
   // a tract drawn as fibres: its polylines, loaded with the selection, and the camera framed on them
   const [fibres, setFibres] = useState<{ slug: string; f: Fibres } | null>(null);
   useEffect(() => {
@@ -186,19 +200,27 @@ export function Explore3({
   // a structure of the body layer (skull, meninges, spine and cord, eye, ear, nose): shown as its spec says (the parts
   // around it, the brain hidden, as a veil, shown, or the deep view of some labels; tools/atlas3/bodyspec.py)
   const bodySpec = item?.body && !item.ids.length ? item.body : null;
-  const bodyView = useMemo(() => {
-    if (!bodySpec || !index) return null;
-    const all = index.labels.map((l) => l.id);
-    if (bodySpec.brain === "hide") return { hiddenIds: all, ghostIds: [] as number[], hull: false };
-    if (bodySpec.brain === "veil") return { hiddenIds: all, ghostIds: [] as number[], hull: true };
-    if (bodySpec.brain === "deep") return deepSets(index, bodySpec.near ?? [], byId);
-    return { hiddenIds: bodySpec.near ?? [], ghostIds: [] as number[], hull: false };
-  }, [bodySpec, index, byId]);
-  const bodyLayer = useMemo(() => (bodySpec ? { show: bodySpec.ctx, lit: bodySpec.keys, stagger: bodySpec.stagger } : null), [bodySpec]);
-  const hiddenIds = useMemo(() => bodyView?.hiddenIds ?? deepView?.hiddenIds ?? [], [bodyView, deepView]);
-  const ghostIds = useMemo(() => bodyView?.ghostIds ?? deepView?.ghostIds ?? [], [bodyView, deepView]);
-  const cut: Cut3 | null = cutAxis === "off" ? null : { axis: cutAxis, pos: cutPos, flip: cutFlip };
+  // the labels a body item needs drawn solid (a "deep" spec's near structures) or hidden (a "show" spec's)
+  const forceIds = useMemo(() => (bodySpec?.brain === "deep" ? (bodySpec.near ?? []) : []), [bodySpec]);
+  const forceHide = useMemo(() => new Set(bodySpec?.brain === "show" ? (bodySpec.near ?? []) : []), [bodySpec]);
+  // the skull and spine: a body item's parts, and every bone when the layer is on (see-through or solid)
+  const bonesOn = eff.bones !== "off";
+  const bodyLayer = useMemo(
+    () => (bodySpec || bonesOn ? { show: [...(bodySpec?.ctx ?? []), ...(bonesOn ? ["@bones"] : [])], lit: bodySpec?.keys ?? [], stagger: bodySpec?.stagger, glass: eff.bones === "glass" } : null),
+    [bodySpec, bonesOn, eff.bones],
+  );
+  // the layers as the canvas's sets: hidden labels, see-through ones (one veil per group), the brain's outline
+  const sets = useMemo(() => (index ? layerSets(index, eff, new Set([...selIds, ...forceIds]), forceHide) : null), [index, eff, selIds, forceIds, forceHide]);
+  const hiddenIds = useMemo(() => sets?.hiddenIds ?? [], [sets]);
+  const ghostIds = useMemo(() => sets?.ghostIds ?? [], [sets]);
   const hideSides = useMemo<("L" | "R")[]>(() => (sides === "L" ? ["R"] : sides === "R" ? ["L"] : []), [sides]);
+  // one hemisphere shown: a sagittal cut keeps its lateral part and stays inside it (the hidden hemisphere and the cut
+  // together would leave a sliver: the medial view plus a sagittal cut drew floating cut faces)
+  const oneSide = cutAxis === "x" && sides !== "both";
+  const cutRange: [number, number] = cutAxis === "off" ? [0, 0] : oneSide ? (sides === "L" ? [0, RANGE.x[1]] : [RANGE.x[0], 0]) : RANGE[cutAxis];
+  const cutPosEff = cutAxis === "off" ? 0 : Math.min(cutRange[1], Math.max(cutRange[0], cutPos));
+  const cutFlipEff = oneSide ? (sides === "L") !== cutFlip : cutFlip;
+  const cut = useMemo<Cut3 | null>(() => (cutAxis === "off" ? null : { axis: cutAxis, pos: cutPosEff, flip: cutFlipEff }), [cutAxis, cutPosEff, cutFlipEff]);
   const pins = useMemo(() => {
     if (!item) return [];
     if (item.body?.marks && !item.ids.length) return item.body.marks.map((m) => ({ id: -1, text: m.text, p: m.p }));
@@ -214,75 +236,127 @@ export function Explore3({
     }
     return out.slice(0, 2);
   }, [item, byId, hideSides]);
+  // the labels toggle: the main structures of each group that is drawn solid, one name each (its left copy)
+  const overview = useMemo(() => {
+    if (!labels || !items || !index) return [] as Pin3[];
+    const out: Pin3[] = [];
+    for (const g of BRAIN_GROUPS) {
+      if (eff[g] !== "solid") continue;
+      for (const slug of OVERVIEW[g]) {
+        const it = bySlug.get(slug);
+        if (!it || it.slug === item?.slug) continue;
+        const ls = it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l && !hideSides.includes(l.side as "L" | "R") && !hiddenIds.includes(l.id));
+        const l = ls.find((x) => x.side === "L") ?? ls.find((x) => x.side === "M") ?? ls[0];
+        if (!l?.centroid) continue;
+        // not where a cut has removed it
+        if (cut) {
+          const k = cut.axis === "x" ? 0 : cut.axis === "y" ? 1 : 2;
+          const c = l.centroid[k];
+          if (cut.flip ? c < cut.pos : c > cut.pos) continue;
+        }
+        out.push({ id: l.id, text: it.name });
+      }
+    }
+    return out;
+  }, [labels, items, index, eff, bySlug, byId, item, hideSides, hiddenIds, cut]);
+  const allPins = useMemo(() => [...pins, ...overview], [pins, overview]);
 
-  // ---- selection
+  // ---- selection: it never turns back what the student set in the Show menu (owner 2026-11-24: "Make sure when a
+  // transparency is set... and you click on a structure... that transparency is maintained"). A deep structure may make
+  // what hides it see-through (auto), only while it is selected; a locked view keeps the camera where it is.
+  const lockedRef = useRef(locked);
+  const layersRef = useRef(layers);
+  useEffect(() => {
+    lockedRef.current = locked;
+    layersRef.current = layers;
+  }, [locked, layers]);
   const selectNow = useCallback(
     (it: CatItem | null, opts: { frame?: boolean } = {}) => {
       setSel(it ? it.slug : null);
-      if (!it) return;
+      if (!it) {
+        setAuto({});
+        return;
+      }
       if (it.extra) trackAtlas({ type: "curious_unlock", mesh: it.slug, name: it.name });
       else trackAtlas({ type: "structure_viewed", slug: it.slug, via: stageRef.current === "mri" ? "mri" : "3d" });
       if (!index) return;
+      const move = opts.frame !== false && !lockedRef.current;
+      const user = layersRef.current;
       if (it.body && !it.ids.length) {
-        // a structure of the body layer: its cut, view and framing as its spec says
+        // a structure of the body layer: its cut, view and framing as its spec says. The brain stays as the student has
+        // it, unless the spec looks into the skull (the cranial floor from above: the brain off), wants it as a veil, or
+        // shows some labels in the deep view
         const b = it.body;
+        setAuto(
+          b.brain === "hide" && b.cut
+            ? allBrain("off")
+            : b.brain === "veil"
+              ? { ...allBrain("off"), cortex: "glass" }
+              : b.brain === "deep"
+                ? { cortex: "glass", cerebellum: "glass", deepgm: "off", deepwm: "off", brainstem: "glass", nerves: "off" }
+                : {},
+        );
         if (b.cut) {
           setCutAxis(b.cut.axis);
           setCutPos(b.cut.pos);
           setCutFlip(b.cut.flip);
         } else setCutAxis("off");
-        setDeep(false);
         setSides(b.sides ?? "both");
-        setView(b.view);
-        setViewNonce((n) => n + 1);
-        const fr = b.frame;
-        if (opts.frame !== false && fr) setFocus((o) => ({ ids: [], box: fr, nonce: (o?.nonce ?? 0) + 1 }));
+        if (move) {
+          setView(b.view);
+          setViewNonce((n) => n + 1);
+          const fr = b.frame;
+          if (fr) setFocus((o) => ({ ids: [], box: fr, nonce: (o?.nonce ?? 0) + 1 }));
+        }
         return;
       }
       if (it.fibre && !it.ids.length) {
-        // a tract drawn as fibres: the deep view around it (the camera follows once the fibres are in)
+        // a tract drawn as fibres: inside the see-through brain, the ventricles solid (the camera follows the fibres in)
+        setAuto({ cortex: "glass", deepgm: "off", deepwm: "off", cerebellum: "off", brainstem: "glass", nerves: "off" });
         setCutAxis("off");
-        setDeep(true);
         setSides("both");
         return;
       }
       if (it.vessels?.length && !it.ids.length) {
         // arteries and sinuses around the see-through brain: the base for the circle and the vertebrobasilar system,
         // the side for the middle cerebral artery and the sinuses, framed on the vessels
+        setAuto({ ...allBrain("off"), cortex: "glass" });
         setCutAxis("off");
-        setDeep(true);
         setSides("both");
+        if (!move) return;
         const v: View3 = it.vessels.some((k) => ["mca1", "mca2", "mca3", "mcap", "mcat", "peri", "sss", "iss", "strs", "trs", "sigs", "occs"].includes(k)) && !it.vessels.includes("acom") ? "left" : "inferior";
         setView(v);
         setViewNonce((n) => n + 1);
-        if (opts.frame !== false)
-          loadVessels().then(({ meta }) => {
-            const ks = new Set(it.vessels);
-            const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
-            for (const m of meta)
-              if (ks.has(m.key))
-                for (let k = 0; k < 3; k++) {
-                  lo[k] = Math.min(lo[k], m.box[0][k]);
-                  hi[k] = Math.max(hi[k], m.box[1][k]);
-                }
-            if (lo[0] < Infinity) setFocus((o) => ({ ids: [], box: [lo as [number, number, number], hi as [number, number, number]], nonce: (o?.nonce ?? 0) + 1 }));
-          });
+        loadVessels().then(({ meta }) => {
+          const ks = new Set(it.vessels);
+          const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+          for (const m of meta)
+            if (ks.has(m.key))
+              for (let k = 0; k < 3; k++) {
+                lo[k] = Math.min(lo[k], m.box[0][k]);
+                hi[k] = Math.max(hi[k], m.box[1][k]);
+              }
+          if (lo[0] < Infinity) setFocus((o) => ({ ids: [], box: [lo as [number, number, number], hi as [number, number, number]], nonce: (o?.nonce ?? 0) + 1 }));
+        });
         return;
       }
       const pr = presentItem(it, index, byId);
       if (!it.ids.length) {
-        // a sulcus or a functional area: the outside surface, from the view that shows it
-        setDeep(false);
+        // a sulcus or a functional area: painted on the outside surface, which must be solid to show it
+        setAuto(user.cortex !== "solid" ? { cortex: "solid" } : {});
         setCutAxis("off");
-        setView(pr.view);
-        setSides(pr.sides);
-        setViewNonce((n) => n + 1);
+        if (move) {
+          setView(pr.view);
+          setSides(pr.sides);
+          setViewNonce((n) => n + 1);
+        }
         return;
       }
-      if (cutAxis === "off") setDeep(pr.deep);
-      if (opts.frame !== false) {
-        // an outside structure from the view that shows it best (a nerve from below); a brainstem nucleus inside the
-        // whole see-through brainstem from behind (its level, both sides and the floor of the fourth ventricle at once);
+      // through a cut the inside is open already: no auto layers (the cut face shows it, the part the cut removes is a
+      // faint veil); else what hides a deep structure becomes see-through
+      setAuto(cutAxis === "off" ? autoFor(it.ids, byId, user) : {});
+      if (move) {
+        // an outside structure from the view that shows it best (a nerve from below); a brainstem nucleus from behind;
         // any other deep structure from the student's current direction
         if (cutAxis === "off" && (!pr.deep || pr.stem)) {
           setView(pr.view);
@@ -294,6 +368,10 @@ export function Explore3({
     },
     [byId, cutAxis, index],
   );
+  const clearSel = useCallback(() => {
+    setSel(null);
+    setAuto({});
+  }, []);
   const { open: gateOpen, request: gateRequest, lock: lockGate } = gate;
   const select = useCallback(
     (it: CatItem | null, opts: { frame?: boolean } = {}) => {
@@ -330,18 +408,18 @@ export function Explore3({
   }, [index, items]); // eslint-disable-line react-hooks/exhaustive-deps
   const onPick = useCallback(
     (l: Label3 | null) => {
-      if (!l) return setSel(null);
+      if (!l) return clearSel();
       const it = itemForLabel(l);
       if (it) select(it, { frame: false });
     },
-    [itemForLabel, select],
+    [itemForLabel, select, clearSel],
   );
   const showCut = (axis: "x" | "y" | "z") => {
     if (!item) return;
     // through the largest cross-section of the selected structure (the first leaf of the visible side)
     const l = item.ids.map((id) => byId.get(id)).find((x) => x?.cut && !hideSides.includes(x.side as "L" | "R"));
     if (!l?.cut) return;
-    setDeep(false);
+    setAuto({});
     setCutAxis(axis);
     setCutPos(l.cut[axis]);
     // keep the half that looks at the camera: from the front (anterior) remove the front part, and so on
@@ -349,6 +427,95 @@ export function Explore3({
     setView(axis === "z" ? "anterior" : axis === "x" ? (l.side === "R" ? "right" : "left") : "superior");
     setViewNonce((n) => n + 1);
   };
+
+  // ---- the toolbar's actions (also on the keyboard)
+  // a medial view shows one hemisphere; leaving it for another view brings the other one back
+  const medialSides = useRef(false);
+  const chooseView = useCallback((v: View3) => {
+    if (v === "medial-left" || v === "medial-right") {
+      setSides(v === "medial-left" ? "L" : "R");
+      medialSides.current = true;
+    } else if (medialSides.current) {
+      setSides("both");
+      medialSides.current = false;
+    }
+    setView(v);
+    setViewNonce((n) => n + 1);
+  }, []);
+  const cutAxisRef = useRef(cutAxis);
+  useEffect(() => {
+    cutAxisRef.current = cutAxis;
+  }, [cutAxis]);
+  const chooseCut = useCallback((a: CutAxis) => {
+    // a new plane starts at its default (the midline, the level of the commissures, the anterior commissure)
+    if (a !== "off" && a !== cutAxisRef.current) setCutPos(a === "x" ? 0.0005 : a === "y" ? 0.012 : 0.0);
+    // a cut opens the inside: what the selection had made see-through goes back to the student's layers
+    if (a !== "off") setAuto({});
+    setCutAxis(a);
+  }, []);
+  const toggleCut = useCallback((a: CutAxis) => chooseCut(cutAxisRef.current === a ? "off" : a), [chooseCut]);
+  const setLayer = useCallback((g: LayerGroup, m: Mode) => {
+    setLayers((l) => ({ ...l, [g]: m }));
+    // the student decides this group now: the selection's auto layer for it goes
+    setAuto((a) => {
+      if (!(g in a)) return a;
+      const n = { ...a };
+      delete n[g];
+      return n;
+    });
+  }, []);
+  const applyPreset = useCallback((l: Layers) => {
+    setLayers(l);
+    setAuto({});
+  }, []);
+  const toggleLayer = useCallback((g: LayerGroup, on: Mode) => {
+    setLayers((l) => ({ ...l, [g]: l[g] === "off" ? on : "off" }));
+    setAuto((a) => {
+      if (!(g in a)) return a;
+      const n = { ...a };
+      delete n[g];
+      return n;
+    });
+  }, []);
+  const itemRef = useRef(item);
+  useEffect(() => {
+    itemRef.current = item;
+  }, [item]);
+  const frame = useCallback(() => {
+    const it = itemRef.current;
+    if (!it || !it.ids.length) {
+      setViewNonce((n) => n + 1);
+      return;
+    }
+    setFocus((f) => ({ ids: it.ids, nonce: (f?.nonce ?? 0) + 1 }));
+  }, []);
+  // (read on the client only: the server renders without it, so hydration matches)
+  const fsEnabled = useSyncExternalStore(
+    () => () => {},
+    () => !!document.fullscreenEnabled,
+    () => false,
+  );
+  const canFull = fsEnabled && !embedded;
+  const toggleFull = useCallback(() => {
+    const el = stageEl.current;
+    if (!el) return;
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void el.requestFullscreen?.();
+  }, []);
+  useEffect(() => {
+    const on = () => setFull(!!document.fullscreenElement);
+    document.addEventListener("fullscreenchange", on);
+    return () => document.removeEventListener("fullscreenchange", on);
+  }, []);
+  const resetAll = useCallback(() => {
+    setCutAxis("off");
+    setSides("both");
+    medialSides.current = false;
+    setLayers(WHOLE);
+    setAuto({});
+    setView("left");
+    setViewNonce((n) => n + 1);
+  }, []);
 
   // ---- progress: views and cuts the student uses
   const firstTrack = useRef(true);
@@ -385,26 +552,30 @@ export function Explore3({
       if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (stageRef.current !== "3d") {
-        if (e.key === "Escape") setSel(null);
+        if (e.key === "Escape") clearSel();
         return;
       }
+      const k = e.key.toLowerCase();
       const v = VIEWS.find((x) => x.key === e.key);
-      if (v) {
-        if (v.id === "medial-left") setSides("L");
-        else if (v.id === "medial-right") setSides("R");
-        setView(v.id);
-        setViewNonce((n) => n + 1);
-      } else if (e.key === "Escape") setSel(null);
-      else if (e.key === "c" || e.key === "C") setCutAxis((a) => (a === "z" ? "off" : "z"));
-      else if (e.key === "s" || e.key === "S") setCutAxis((a) => (a === "x" ? "off" : "x"));
-      else if (e.key === "h" || e.key === "H") setCutAxis((a) => (a === "y" ? "off" : "y"));
-      else if (e.key === "d" || e.key === "D") setDeep((d) => !d);
+      if (v) chooseView(v.id);
+      else if (e.key === "Escape") clearSel();
+      else if (k === "c") toggleCut("z");
+      else if (k === "s") toggleCut("x");
+      else if (k === "h") toggleCut("y");
+      // D: the solid brain or the deep structures (the skull and spine stay as they are)
+      else if (k === "d") applyPreset({ ...(GROUPS_SAME(layersRef.current, DEEP) ? WHOLE : DEEP), bones: layersRef.current.bones });
+      else if (k === "l") setLabels((x) => !x);
+      else if (k === "k") toggleLayer("bones", "glass");
+      else if (k === "e") toggleLayer("nerves", "solid");
+      else if (k === "w") toggleLayer("brainstem", "solid");
+      else if (k === "f") frame();
+      else if (k === "z" && canFull) toggleFull();
       else return;
       e.preventDefault();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [chooseView, toggleCut, applyPreset, toggleLayer, frame, toggleFull, canFull, clearSel]);
 
   // ---- list
   const results = useMemo(() => (items ? search(items, q) : []), [items, q]);
@@ -478,13 +649,17 @@ export function Explore3({
   const canvasProps: Atlas3Props = {
     view,
     viewNonce,
+    // with the skull and spine on, the standard views stand back enough to show the skull around the brain
+    zoom: bonesOn && !bodySpec ? 1.3 : 1,
     cut,
     hideSides,
     hiddenIds,
     ghostIds,
-    ghost: bodyView ? bodyView.hull : deep && !inStem,
+    ghostCls: sets?.ghostCls,
+    ghost: sets?.hull ?? false,
     selected: selIds,
-    dimOthers: deep,
+    // a selection among see-through parts: the other solid structures greyed, so it stands out
+    dimOthers: selIds.length > 0 && BRAIN_GROUPS.some((g) => eff[g] !== "solid"),
     look,
     focus,
     fibres: fibreLines,
@@ -493,7 +668,7 @@ export function Explore3({
     skin: bodySpec?.skin ?? null,
     // the structure card covers the right of the stage on a wide screen
     insetRight: item && stage === "3d" && wide ? 384 : 0,
-    pins,
+    pins: allPins,
     sulcus: item?.sulcus,
     areaMask: item?.area !== undefined ? 1 << item.area : 0,
     onPick,
@@ -537,7 +712,7 @@ export function Explore3({
         </div>
       </aside>
 
-      <section className="atl3-stage" aria-label={stage === "3d" ? "3D brain" : stage === "mri" ? "MRI atlas" : "Course sections"}>
+      <section ref={stageEl} className="atl3-stage" aria-label={stage === "3d" ? "3D brain" : stage === "mri" ? "MRI atlas" : "Course sections"}>
         <div className={stage === "3d" ? "absolute inset-0" : "pointer-events-none invisible absolute inset-0"} aria-hidden={stage !== "3d"}>
           <Atlas3Canvas {...canvasProps} />
         </div>
@@ -616,7 +791,7 @@ export function Explore3({
                 <div className="atl3-sub">
                   {sideNote}
                   {item.extra ? " · atlas structure (supplementary)" : ""}
-                  {selDeep && !deep && cutAxis === "off" ? " · deep: see it with the deep view or a cut" : ""}
+                  {selDeep && cutAxis === "off" && Object.keys(auto).length ? " · seen through what hides it" : ""}
                 </div>
                 {provenance && <div className="atl3-prov">{provenance}</div>}
                 {!hasGeometry(item) && (
@@ -628,7 +803,7 @@ export function Explore3({
                   </div>
                 )}
               </div>
-              <button type="button" className="atl-xbtn" aria-label="Clear the selection (Esc)" onClick={() => setSel(null)}>
+              <button type="button" className="atl-xbtn" aria-label="Clear the selection (Esc)" onClick={clearSel}>
                 <X size={14} />
               </button>
             </div>
@@ -642,11 +817,6 @@ export function Explore3({
               <button type="button" className="atl-cutbtn" onClick={() => showCut("y")}>
                 Horizontal
               </button>
-              {selDeep && (
-                <button type="button" className="atl-cutbtn" onClick={() => setDeep((d) => !d)} aria-pressed={deep}>
-                  {deep ? "Back to the whole brain" : "Deep view"}
-                </button>
-              )}
             </div>
             {!item.extra && (
               <div className="mt-3 border-t border-panel-border pt-3">
@@ -656,86 +826,39 @@ export function Explore3({
           </div>
         )}
 
-        <div className="atl3-bar" hidden={stage !== "3d"}>
-          <div className="atl-bar">
-            <Group label="View">
-              {VIEWS.map((v) => (
-                <IconBtn
-                  key={v.id}
-                  text={v.text}
-                  label={v.label}
-                  keys={v.key}
-                  on={view === v.id}
-                  onClick={() => {
-                    if (v.id === "medial-left") setSides("L");
-                    else if (v.id === "medial-right") setSides("R");
-                    setView(v.id);
-                    setViewNonce((n) => n + 1);
-                  }}
-                />
-              ))}
-            </Group>
-            <Divider />
-            <Segmented<Sides>
-              label="Hemispheres"
-              value={sides}
-              onChange={setSides}
-              items={[
-                { id: "both", label: "Both hemispheres", text: "L+R" },
-                { id: "L", label: "Left hemisphere only", text: "L" },
-                { id: "R", label: "Right hemisphere only", text: "R" },
-              ]}
-            />
-            <Divider />
-            <Group label="Cut">
-              {(["off", "z", "x", "y"] as CutAxis[]).map((a) => (
-                <IconBtn
-                  key={a}
-                  label={CUT_NAME[a]}
-                  keys={a === "z" ? "C" : a === "x" ? "S" : a === "y" ? "H" : undefined}
-                  on={cutAxis === a}
-                  icon={a === "off" ? <CutNoneIcon /> : a === "z" ? <CutCoronalIcon /> : a === "x" ? <CutSagittalIcon /> : <CutTransverseIcon />}
-                  onClick={() => {
-                    setCutAxis(a);
-                    if (a !== "off") {
-                      setDeep(false);
-                      const r = RANGE[a];
-                      if (cutPos < r[0] || cutPos > r[1] || a !== cutAxis) setCutPos(a === "x" ? 0.0005 : a === "y" ? 0.012 : 0.0);
-                    }
-                  }}
-                />
-              ))}
-              {cutAxis !== "off" && (
-                <span className="atl3-slider">
-                  <input
-                    type="range"
-                    min={RANGE[cutAxis][0]}
-                    max={RANGE[cutAxis][1]}
-                    step={0.0005}
-                    value={cutPos}
-                    aria-label="Cut position"
-                    onChange={(e) => setCutPos(Number(e.target.value))}
-                  />
-                  <IconBtn icon={<ScanLine />} label="Keep the other side" on={cutFlip} onClick={() => setCutFlip((f) => !f)} />
-                </span>
-              )}
-            </Group>
-            <Divider />
-            <IconBtn icon={deep ? <SeeThroughIcon /> : <SolidIcon />} label={deep ? "Deep structures (D)" : "Whole brain (D)"} on={deep} onClick={() => setDeep((d) => !d)} />
-            <IconBtn icon={<Palette />} label={look === "regions" ? "Natural colours" : "Lobes in colour"} on={look === "regions"} onClick={() => setLook((l) => (l === "regions" ? "natural" : "regions"))} />
-            <IconBtn
-              icon={<RotateCcw />}
-              label="Reset the view"
-              onClick={() => {
-                setCutAxis("off");
-                setSides("both");
-                setDeep(false);
-                setView("left");
-                setViewNonce((n) => n + 1);
-              }}
-            />
-          </div>
-        </div>
+        {stage === "3d" && (
+          <ExploreBar
+            view={view}
+            onView={chooseView}
+            onFrame={frame}
+            locked={locked}
+            onLock={() => setLocked((l) => !l)}
+            cutAxis={cutAxis}
+            onCut={chooseCut}
+            cutPos={cutPosEff}
+            cutRange={cutRange}
+            onCutPos={setCutPos}
+            onFlip={() => setCutFlip((f) => !f)}
+            cutNote={cutWords(cutAxis, cutPosEff)}
+            look={look}
+            onLook={setLook}
+            layers={eff}
+            auto={auto}
+            onLayer={setLayer}
+            onPreset={applyPreset}
+            sides={sides}
+            onSides={(x) => {
+              setSides(x);
+              medialSides.current = false;
+            }}
+            labels={labels}
+            onLabels={() => setLabels((x) => !x)}
+            full={full}
+            canFull={canFull}
+            onFull={toggleFull}
+            onReset={resetAll}
+          />
+        )}
       </section>
     </div>
   );

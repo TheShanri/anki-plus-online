@@ -18,8 +18,10 @@ export interface CatItem {
   area?: number;
   /** a tract drawn as fibres (public/atlas3/fibres/<slug>.json): from HCP-842 tractography or the Pathway tracer */
   fibre?: "hcp" | "pathway";
+  /** arteries or sinuses (public/atlas3/vessels.glb node keys) */
+  vessels?: string[];
 }
-export const hasGeometry = (it: CatItem) => it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined || !!it.fibre;
+export const hasGeometry = (it: CatItem) => it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined || !!it.fibre || !!it.vessels?.length;
 
 export type Fibres = { src: "hcp" | "pathway"; credit: string; lines: number[][] };
 const fibreP = new Map<string, Promise<Fibres>>();

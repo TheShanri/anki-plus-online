@@ -11,7 +11,7 @@ import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
-import { LabelState, loadIndex3, loadPatches, type Index3, type Label3, type Prog } from "./data";
+import { LabelState, loadIndex3, loadPatches, loadVessels, type Index3, type Label3, type Prog } from "./data";
 import { makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
 import { makeGhostMaterial, setGhostMode } from "./ghostMaterial";
 import { readCssColor } from "@/lib/atlas/theme";
@@ -60,6 +60,8 @@ export interface Atlas3Props {
   focus?: { ids: number[]; box?: [[number, number, number], [number, number, number]]; nonce: number } | null;
   /** a tract drawn as fibres: polylines, world metres */
   fibres?: number[][] | null;
+  /** the arteries and sinuses, these keys lit (null: no vessels) */
+  vessels?: string[] | null;
   pins?: Pin3[];
   guides?: Guide3[];
   /** the standard views' distance, as a share of the one that frames the whole brain (below 1: closer) */
@@ -322,6 +324,52 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     invalidate();
   }, [fibreMats, size, planes, invalidate]);
   useEffect(() => () => fibreObj.gs.forEach((g) => g.dispose()), [fibreObj]);
+
+  // ---------------- the vessels: arteries red, sinuses blue, the selected ones gold, lit by lights that ride the camera
+  const [vessels, setVessels] = useState<Awaited<ReturnType<typeof loadVessels>> | null>(null);
+  const wantVessels = !!props.vessels;
+  useEffect(() => {
+    if (!wantVessels || vessels) return;
+    let alive = true;
+    loadVessels().then((v) => alive && setVessels(v));
+    return () => {
+      alive = false;
+    };
+  }, [wantVessels, vessels]);
+  const vesselMats = useMemo(
+    () => ({
+      artery: new THREE.MeshLambertMaterial({ color: "#b8443c" }),
+      sinus: new THREE.MeshLambertMaterial({ color: "#4a6aa8" }),
+      lit: new THREE.MeshLambertMaterial({ color: "#ffc14d", emissive: "#4a3200" }),
+    }),
+    [],
+  );
+  useEffect(() => {
+    for (const m of Object.values(vesselMats)) m.clippingPlanes = planes;
+  }, [vesselMats, planes]);
+  const vesselGroup = useMemo(() => {
+    const g = new THREE.Group();
+    if (!vessels) return g;
+    const lit = new Set(props.vessels ?? []);
+    for (const v of vessels.meta) {
+      const m = vessels.meshes.get(v.key);
+      if (!m) continue;
+      const me = new THREE.Mesh(m.geometry, lit.has(v.key) ? vesselMats.lit : v.kind === "sinus" ? vesselMats.sinus : vesselMats.artery);
+      me.matrixAutoUpdate = false;
+      me.matrix.copy(m.matrix);
+      me.frustumCulled = false;
+      me.renderOrder = 1;
+      g.add(me);
+    }
+    return g;
+  }, [vessels, props.vessels, vesselMats]);
+  const camLight = useMemo(() => new THREE.DirectionalLight("#ffffff", 1.9), []);
+  useFrame(() => {
+    if (!wantVessels) return;
+    camLight.position.copy(camera.position).add(new THREE.Vector3(-0.2, 0.3, 0).applyQuaternion(camera.quaternion));
+    camLight.target.position.copy((controls as unknown as OrbitControlsImpl | null)?.target ?? new THREE.Vector3());
+    camLight.target.updateMatrixWorld();
+  });
   useEffect(() => {
     const active = [props.cut ? plane : null, hideSides.length === 1 ? midPlane : null].filter((p): p is THREE.Plane => !!p);
     if (!active.length || !arrays.length) {
@@ -633,6 +681,14 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
       <primitive object={lines} />
       <primitive object={fibreObj.grp} />
+      {wantVessels && (
+        <>
+          <ambientLight intensity={0.55} />
+          <primitive object={camLight} />
+          <primitive object={camLight.target} />
+          <primitive object={vesselGroup} />
+        </>
+      )}
       {box &&
         (props.guides ?? []).map((g, i) => {
           const sz = box.getSize(new THREE.Vector3()).multiplyScalar(1.15);

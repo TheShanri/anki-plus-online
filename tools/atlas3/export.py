@@ -199,6 +199,23 @@ fib = json.load(open(FIB)) if os.path.exists(FIB) else {}
 for it in items:
     if it["slug"] in fib:
         it["fibre"] = fib[it["slug"]]
+# arteries and sinuses (vessels.py): the vessel keys a course item lights, shown around a see-through brain
+ARTERIES = ["ica", "mca1", "mca2", "mca3", "mcap", "mcat", "aca", "acao", "peri", "acom", "pcom", "pca", "ba", "va", "sca", "aica", "pica", "ponl", "ponm"]
+VESSEL_OF = {
+    "internal-carotid-artery": ["ica"], "middle-cerebral-artery": ["mca1", "mca2", "mca3", "mcap", "mcat"],
+    "anterior-cerebral-artery": ["aca", "acao"], "pericallosal-artery": ["peri"], "anterior-communicating-artery": ["acom"],
+    "posterior-communicating-artery": ["pcom"], "posterior-cerebral-artery": ["pca"], "basilar-artery": ["ba"],
+    "vertebral-artery": ["va"], "superior-cerebellar-artery": ["sca"], "posterior-inferior-cerebellar-artery": ["pica"],
+    "pontine-arteries": ["ponl", "ponm"], "penetrating-branches-brainstem": ["ponm"],
+    "circle-of-willis": ["acom", "aca", "ica", "pcom", "pca", "ba"], "cerebral-blood-vessels": ARTERIES,
+    "superior-sagittal-sinus": ["sss"], "dural-venous-sinuses": ["sss", "iss", "strs", "trs", "sigs", "occs", "cavs", "sps", "ips"],
+}
+VJ = os.path.join(ROOT, "public/atlas3/vessels.json")
+have_v = {v["key"] for v in json.load(open(VJ))["vessels"]} if os.path.exists(VJ) else set()
+for it in items:
+    ks = [k for k in VESSEL_OF.get(it["slug"], []) if k in have_v]
+    if ks and not it["ids"]:
+        it["vessels"] = ks
 # nesting: parent = the smallest other item whose leaves strictly contain this item's leaves. Umbrella terms (gyrus,
 # cortical ribbon, cerebrospinal fluid, fibre classes ...) never act as parents: they would swallow the whole list.
 UMBRELLA = {"gyrus", "cortical-ribbon", "cerebral-cortex", "allocortex", "paleocortex", "archicortex", "white-matter", "cerebrospinal-fluid",

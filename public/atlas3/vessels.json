@@ -1,0 +1,481 @@
+{
+ "vessels": [
+  {
+   "key": "ica",
+   "name": "Internal carotid artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0266,
+     -0.0749,
+     -0.0295
+    ],
+    [
+     0.027,
+     -0.0267,
+     0.0063
+    ]
+   ]
+  },
+  {
+   "key": "mca1",
+   "name": "Middle cerebral artery (M1)",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0378,
+     -0.0279,
+     0.0024
+    ],
+    [
+     0.0379,
+     -0.0149,
+     0.0098
+    ]
+   ]
+  },
+  {
+   "key": "mca2",
+   "name": "Middle cerebral artery, insular branches (M2)",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0496,
+     -0.0173,
+     0.0029
+    ],
+    [
+     0.0501,
+     -0.0049,
+     0.0107
+    ]
+   ]
+  },
+  {
+   "key": "mca3",
+   "name": "Middle cerebral artery (M3)",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0639,
+     -0.0105,
+     -0.0577
+    ],
+    [
+     0.0644,
+     0.0224,
+     0.0069
+    ]
+   ]
+  },
+  {
+   "key": "mcap",
+   "name": "Middle cerebral artery, parietal branches",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0722,
+     0.0169,
+     -0.0393
+    ],
+    [
+     0.0724,
+     0.0674,
+     -0.0234
+    ]
+   ]
+  },
+  {
+   "key": "mcat",
+   "name": "Middle cerebral artery, temporal branches",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0739,
+     -0.0253,
+     -0.0562
+    ],
+    [
+     0.0741,
+     0.0138,
+     -0.0036
+    ]
+   ]
+  },
+  {
+   "key": "aca",
+   "name": "Anterior cerebral artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0134,
+     -0.0292,
+     0.0046
+    ],
+    [
+     0.0137,
+     -0.0114,
+     0.0195
+    ]
+   ]
+  },
+  {
+   "key": "acao",
+   "name": "Anterior cerebral artery, orbitofrontal branches",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0136,
+     -0.0368,
+     0.0173
+    ],
+    [
+     0.0141,
+     -0.0205,
+     0.0639
+    ]
+   ]
+  },
+  {
+   "key": "peri",
+   "name": "Pericallosal artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0287,
+     -0.0134,
+     -0.0498
+    ],
+    [
+     0.0287,
+     0.0785,
+     0.0348
+    ]
+   ]
+  },
+  {
+   "key": "acom",
+   "name": "Anterior communicating artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.004,
+     -0.0227,
+     0.0068
+    ],
+    [
+     0.0038,
+     -0.021,
+     0.0083
+    ]
+   ]
+  },
+  {
+   "key": "pcom",
+   "name": "Posterior communicating artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0122,
+     -0.0264,
+     -0.0091
+    ],
+    [
+     0.0123,
+     -0.0211,
+     0.0044
+    ]
+   ]
+  },
+  {
+   "key": "pca",
+   "name": "Posterior cerebral artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0596,
+     -0.0358,
+     -0.0798
+    ],
+    [
+     0.06,
+     0.0181,
+     0.0058
+    ]
+   ]
+  },
+  {
+   "key": "ba",
+   "name": "Basilar artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0009,
+     -0.0489,
+     -0.0273
+    ],
+    [
+     0.0012,
+     -0.0253,
+     -0.0109
+    ]
+   ]
+  },
+  {
+   "key": "va",
+   "name": "Vertebral artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0175,
+     -0.075,
+     -0.0548
+    ],
+    [
+     0.0178,
+     -0.0472,
+     -0.0254
+    ]
+   ]
+  },
+  {
+   "key": "sca",
+   "name": "Superior cerebellar artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0489,
+     -0.0348,
+     -0.0806
+    ],
+    [
+     0.0489,
+     0.0033,
+     -0.0111
+    ]
+   ]
+  },
+  {
+   "key": "aica",
+   "name": "Anterior inferior cerebellar artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0382,
+     -0.0505,
+     -0.0444
+    ],
+    [
+     0.0386,
+     -0.0385,
+     -0.0224
+    ]
+   ]
+  },
+  {
+   "key": "pica",
+   "name": "Posterior inferior cerebellar artery",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0585,
+     -0.0634,
+     -0.0882
+    ],
+    [
+     0.0588,
+     -0.0222,
+     -0.0368
+    ]
+   ]
+  },
+  {
+   "key": "ponl",
+   "name": "Pontine arteries (lateral branches)",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0229,
+     -0.0436,
+     -0.0346
+    ],
+    [
+     0.0232,
+     -0.0351,
+     -0.0163
+    ]
+   ]
+  },
+  {
+   "key": "ponm",
+   "name": "Pontine arteries (paramedian branches)",
+   "kind": "artery",
+   "box": [
+    [
+     -0.0089,
+     -0.038,
+     -0.0191
+    ],
+    [
+     0.0091,
+     -0.0344,
+     -0.0136
+    ]
+   ]
+  },
+  {
+   "key": "sss",
+   "name": "Superior sagittal sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0021,
+     -0.0468,
+     -0.102
+    ],
+    [
+     0.0025,
+     0.0843,
+     0.07
+    ]
+   ]
+  },
+  {
+   "key": "iss",
+   "name": "Inferior sagittal sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0012,
+     -0.0077,
+     -0.0467
+    ],
+    [
+     0.0011,
+     0.0297,
+     0.0325
+    ]
+   ]
+  },
+  {
+   "key": "strs",
+   "name": "Straight sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0016,
+     -0.0406,
+     -0.0531
+    ],
+    [
+     0.0016,
+     -0.0108,
+     0.0009
+    ]
+   ]
+  },
+  {
+   "key": "trs",
+   "name": "Transverse sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0638,
+     -0.0308,
+     -0.0931
+    ],
+    [
+     0.064,
+     -0.0182,
+     -0.0525
+    ]
+   ]
+  },
+  {
+   "key": "sigs",
+   "name": "Sigmoid sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0643,
+     -0.0601,
+     -0.0564
+    ],
+    [
+     0.0645,
+     -0.023,
+     -0.0429
+    ]
+   ]
+  },
+  {
+   "key": "occs",
+   "name": "Occipital sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0011,
+     -0.0673,
+     -0.0526
+    ],
+    [
+     0.001,
+     -0.0384,
+     -0.0292
+    ]
+   ]
+  },
+  {
+   "key": "cavs",
+   "name": "Cavernous sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0173,
+     -0.0427,
+     -0.0168
+    ],
+    [
+     0.0176,
+     -0.0254,
+     0.0045
+    ]
+   ]
+  },
+  {
+   "key": "sps",
+   "name": "Superior petrosal sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0638,
+     -0.0392,
+     -0.0534
+    ],
+    [
+     0.064,
+     -0.0224,
+     -0.0159
+    ]
+   ]
+  },
+  {
+   "key": "ips",
+   "name": "Inferior petrosal sinus",
+   "kind": "sinus",
+   "box": [
+    [
+     -0.0497,
+     -0.0603,
+     -0.0448
+    ],
+    [
+     0.05,
+     -0.0387,
+     -0.0139
+    ]
+   ]
+  }
+ ],
+ "credit": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+}

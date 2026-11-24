@@ -13,7 +13,7 @@ import { loadAtlas2, type Atlas2 } from "@/lib/atlas/slices";
 import type { SliceView } from "@/components/atlas/SliceViewer";
 import { SectionEmbed } from "@/components/atlas/brainstem/SectionEmbed";
 import type { Atlas3Props, Cut3, View3 } from "./engine/Atlas3Canvas";
-import type { Index3, Label3, Prog } from "./engine/data";
+import { loadVessels, type Index3, type Label3, type Prog } from "./engine/data";
 import { SECTIONS, hasGeometry, loadCatalog, loadFibres, norm, search, sectionOf, type CatItem, type Fibres } from "./catalog";
 import { STEM, deepSets, inStemOf, isDeep, presentItem } from "./present";
 import "@/components/atlas/ui/atlas-ui.css";
@@ -157,7 +157,8 @@ export function Explore3({
   // the deep view: what it hides and what it draws as a veil (present.ts); a selection inside the brainstem is seen
   // through the rest of it
   const inStem = useMemo(() => inStemOf(selIds, byId), [selIds, byId]);
-  const deepView = useMemo(() => (deep && index ? deepSets(index, selIds, byId, !!item?.fibre) : null), [deep, index, selIds, byId, item]);
+  const deepView = useMemo(() => (deep && index ? deepSets(index, selIds, byId, !!item?.fibre, !!item?.vessels?.length) : null), [deep, index, selIds, byId, item]);
+  const vesselKeys = item?.vessels?.length && deep ? item.vessels : null;
   // a tract drawn as fibres: its polylines, loaded with the selection, and the camera framed on them
   const [fibres, setFibres] = useState<{ slug: string; f: Fibres } | null>(null);
   useEffect(() => {
@@ -214,6 +215,29 @@ export function Explore3({
         setCutAxis("off");
         setDeep(true);
         setSides("both");
+        return;
+      }
+      if (it.vessels?.length && !it.ids.length) {
+        // arteries and sinuses around the see-through brain: the base for the circle and the vertebrobasilar system,
+        // the side for the middle cerebral artery and the sinuses, framed on the vessels
+        setCutAxis("off");
+        setDeep(true);
+        setSides("both");
+        const v: View3 = it.vessels.some((k) => ["mca1", "mca2", "mca3", "mcap", "mcat", "peri", "sss", "iss", "strs", "trs", "sigs", "occs"].includes(k)) && !it.vessels.includes("acom") ? "left" : "inferior";
+        setView(v);
+        setViewNonce((n) => n + 1);
+        if (opts.frame !== false)
+          loadVessels().then(({ meta }) => {
+            const ks = new Set(it.vessels);
+            const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+            for (const m of meta)
+              if (ks.has(m.key))
+                for (let k = 0; k < 3; k++) {
+                  lo[k] = Math.min(lo[k], m.box[0][k]);
+                  hi[k] = Math.max(hi[k], m.box[1][k]);
+                }
+            if (lo[0] < Infinity) setFocus((o) => ({ ids: [], box: [lo as [number, number, number], hi as [number, number, number]], nonce: (o?.nonce ?? 0) + 1 }));
+          });
         return;
       }
       const pr = presentItem(it, index, byId);
@@ -435,6 +459,7 @@ export function Explore3({
     look,
     focus,
     fibres: fibreLines,
+    vessels: vesselKeys,
     // the structure card covers the right of the stage on a wide screen
     insetRight: item && stage === "3d" && wide ? 384 : 0,
     pins,
@@ -445,7 +470,15 @@ export function Explore3({
     onProgress,
   };
   const sideNote = item && index ? sideText(item, byId, index) : "";
-  const provenance = item ? (item.fibre && !item.ids.length ? (fibres?.slug === item.slug ? fibreNote(fibres.f) : "") : provenanceText(item, byId)) : "";
+  const provenance = item
+    ? item.vessels?.length && !item.ids.length
+      ? "Vessels from Z-Anatomy, warped onto this brain and shown around its see-through outline: their course is approximate (a few millimetres)."
+      : item.fibre && !item.ids.length
+        ? fibres?.slug === item.slug
+          ? fibreNote(fibres.f)
+          : ""
+        : provenanceText(item, byId)
+    : "";
 
   return (
     <div className="atl3-shell" style={embedded ? { height: height ?? 560, minHeight: 0 } : { height: "calc(100dvh - 150px)", minHeight: 560 }}>
@@ -699,6 +732,7 @@ function provenanceText(it: CatItem, byId: Map<number, Label3>): string {
 function sideText(it: CatItem, byId: Map<number, Label3>, index: Index3): string {
   if (!hasGeometry(it)) return "";
   if (it.fibre && !it.ids.length) return "Left and right";
+  if (it.vessels?.length && !it.ids.length) return it.vessels.every((k) => ["acom", "ba", "sss", "iss", "strs", "occs"].includes(k)) ? "Midline" : "Left and right";
   if (!it.ids.length && it.area !== undefined) return index.areas.find((a) => a.bit === it.area)?.side === "L" ? "Left hemisphere (the language-dominant side in most people)" : "Both hemispheres";
   if (!it.ids.length && it.sulcus !== undefined) return it.sulcus === 14 ? "Between the hemispheres" : "Both hemispheres";
   const ls = it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l);

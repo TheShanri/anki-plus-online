@@ -102,6 +102,39 @@ export function loadPatches(name: "shell" | "inner" | "hull", onProgress?: (p: P
   return p;
 }
 
+export type Vessel3 = { key: string; name: string; kind: "artery" | "sinus"; box: [[number, number, number], [number, number, number]] };
+let vesselsP: Promise<{ meta: Vessel3[]; meshes: Map<string, { geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 }> }> | null = null;
+/** The arteries and sinuses (one mesh per vessel, by key), loaded once. */
+export function loadVessels() {
+  if (!vesselsP) {
+    if (!loader) {
+      loader = new GLTFLoader();
+      loader.setMeshoptDecoder(MeshoptDecoder);
+    }
+    const l = loader;
+    vesselsP = Promise.all([
+      fetch(`${ATLAS3_BASE}/vessels.json`).then((r) => r.json() as Promise<{ vessels: Vessel3[] }>),
+      l.loadAsync(`${ATLAS3_BASE}/vessels.glb`),
+    ]).then(([meta, gltf]) => {
+      gltf.scene.updateMatrixWorld(true);
+      const meshes = new Map<string, { geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 }>();
+      gltf.scene.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        // the node is named by the vessel key (the mesh inside may carry the same name or a suffix)
+        let n: THREE.Object3D | null = m;
+        while (n && !meta.vessels.some((v) => v.key === n!.name)) n = n.parent;
+        const key = n?.name ?? m.name;
+        if (!m.geometry.getAttribute("normal")) m.geometry.computeVertexNormals();
+        meshes.set(key, { geometry: m.geometry, matrix: m.matrixWorld.clone() });
+      });
+      return { meta: meta.vessels, meshes };
+    });
+    vesselsP.catch(() => (vesselsP = null));
+  }
+  return vesselsP;
+}
+
 /** Per-label render state, mirrored into the shader's state texture. */
 export class LabelState {
   readonly n: number;

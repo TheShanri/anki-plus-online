@@ -81,8 +81,10 @@ export function presentItem(it: CatItem, index: Index3, byId: Map<number, Label3
 }
 
 /** What the deep view hides and what it draws as a veil, for a selection (or none: every deep structure). */
-export function deepSets(index: Index3, selIds: number[], byId: Map<number, Label3>, fibres = false): { hiddenIds: number[]; ghostIds: number[]; hull: boolean } {
+export function deepSets(index: Index3, selIds: number[], byId: Map<number, Label3>, fibres = false, vessels = false): { hiddenIds: number[]; ghostIds: number[]; hull: boolean } {
   const keep = new Set(selIds);
+  // arteries and sinuses: around the brain's see-through outline, nothing inside it
+  if (vessels && !keep.size) return { hiddenIds: index.labels.map((l) => l.id), ghostIds: [], hull: true };
   // a tract drawn as fibres: only the ventricles solid, the brainstem and the brain's outline as veils around it
   if (fibres && !keep.size) {
     return {

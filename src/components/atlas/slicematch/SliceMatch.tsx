@@ -3,12 +3,21 @@
 import "@/components/study/study.css"; // help-line, kbd styles
 import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import SliceViewer, { type SliceOverlay } from "../SliceViewer";
-import { LazyAtlasViewer } from "../supply/lazy";
+import dynamic from "next/dynamic";
+import { mmToWorld3 } from "@/components/atlas3/CutView3";
+
+// the new atlas, cut solid at the plane (its space is the MRI template's own, so the 3D cut and the MRI section match)
+const CutView3 = dynamic(() => import("@/components/atlas3/CutView3"), {
+  ssr: false,
+  loading: () => <div className="h-[520px] rounded-card border border-panel-border" aria-busy />,
+});
+/** the 3D view of each plane: from the side the MRI section is drawn from */
+const VIEW3 = { coronal: "posterior", sagittal: "right", axial: "superior" } as const;
 import { loadAtlas2, type Atlas2 } from "@/lib/atlas/slices";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { overlayPalette } from "@/lib/atlas/palette";
 import { readCssColor } from "@/lib/atlas/theme";
-import { PLANE, PLANES, SLIDER_RANGE, TARGET_RANGE, mmPoint, mmToWorld, pointsFor, type Plane } from "./coords";
+import { PLANE, PLANES, SLIDER_RANGE, TARGET_RANGE, mmPoint, pointsFor, type Plane } from "./coords";
 
 const ROUNDS = 5;
 const BEST_KEY = "anki-plus.slice-match.best";
@@ -193,7 +202,7 @@ export function SliceMatch() {
   // the reveal the cut is the target and your plane is the one translucent sheet
   const guides = cols
     ? revealed
-      ? [{ axis: PLANE[plane].axis, position: mmToWorld(plane, mm), color: cols.mine }]
+      ? [{ axis: PLANE[plane].axis, pos: mmToWorld3(plane, mm), color: cols.mine }]
       : []
     : [];
 
@@ -232,19 +241,12 @@ export function SliceMatch() {
         </div>
         <div className="grid gap-1.5">
           <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">{revealed ? "Target plane on the brain (your plane in the second colour)" : "Your cutting plane"}</h2>
-          <LazyAtlasViewer
-            structureIds={[]}
-            mode="context"
-            label=""
+          {/* the solid brain cut like Explore's: the section face itself (cortical ribbon, white matter, ventricles, nuclei) is
+              what the student compares with the MRI */}
+          <CutView3
             height={520}
-            hideLabels
-            // a transverse section is seen from above, where the brain is longest front to back: frame it a little wider
-            zoom={shownPlane === "axial" ? 0.92 : 0.86}
-            // a solid brain cut like Explore's: the section face itself (grey ribbon, white matter, ventricles, nuclei) is what
-            // the student compares with the MRI; the see-through brain with coloured landmark blobs read as noise and loaded slowly
-            solidCuts
-            cut={{ axis: PLANE[cutPlane.plane].axis, position: mmToWorld(cutPlane.plane, cutPlane.mm), flip: PLANE[cutPlane.plane].flip }}
-            view={PLANE[shownPlane].view}
+            cut={{ axis: PLANE[cutPlane.plane].axis, pos: mmToWorld3(cutPlane.plane, cutPlane.mm), flip: PLANE[cutPlane.plane].flip }}
+            view={VIEW3[shownPlane]}
             guides={guides}
           />
         </div>

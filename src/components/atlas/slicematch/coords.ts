@@ -1,7 +1,6 @@
 /**
- * The 3D atlas (glTF metres, Y-up, left = +x) and the MRI template (MNI mm, right = +x) share one head. Fitted on the
- * curriculum structures that exist in both (median offset, scale 1): the residual is about 6-8 mm per structure, which
- * is well inside the scoring tolerance.
+ * The 3D atlas (v3) is built in the MRI template's own space (MNI), so a plane at MNI millimetres cuts the 3D brain at
+ * exactly the section the MRI shows (mmToWorld3 in atlas3/CutView3).
  */
 export type Plane = "coronal" | "sagittal" | "axial";
 
@@ -21,13 +20,6 @@ export const PLANE = Object.fromEntries(PLANES.map((p) => [p.id, p])) as Record<
 // sagittal: distance from the midline (the template is symmetric and the 3D cut is viewed from the right)
 export const SLIDER_RANGE: Record<Plane, [number, number]> = { coronal: [-105, 75], sagittal: [0, 70], axial: [-50, 85] };
 export const TARGET_RANGE: Record<Plane, [number, number]> = { coronal: [-65, 45], sagittal: [8, 52], axial: [-28, 62] };
-
-/** glTF position of a plane given MNI mm. */
-export function mmToWorld(plane: Plane, mm: number): number {
-  if (plane === "coronal") return (mm + 11.57) / 1000;
-  if (plane === "sagittal") return -mm / 1000;
-  return (mm + 1623.33) / 1000;
-}
 
 /** An MNI point whose coordinate along the plane normal is `mm` (the others at the centre). */
 export function mmPoint(plane: Plane, mm: number): number[] {

@@ -29,6 +29,8 @@ export const VIEW_DIRS: Record<View3, [number, number, number]> = {
 };
 export type Cut3 = { axis: "x" | "y" | "z"; pos: number; flip?: boolean };
 export type Pin3 = { id: number; text: string };
+/** a translucent sheet across the brain at a plane (world metres along the axis) */
+export type Guide3 = { axis: "x" | "y" | "z"; pos: number; color: string };
 export interface Atlas3Props {
   view?: View3;
   /** bump to re-aim the camera at `view` */
@@ -55,9 +57,14 @@ export interface Atlas3Props {
   /** fly the camera to these labels (applied once per nonce) */
   focus?: { ids: number[]; nonce: number } | null;
   pins?: Pin3[];
+  guides?: Guide3[];
+  /** the standard views' distance, as a share of the one that frames the whole brain (below 1: closer) */
+  zoom?: number;
   /** no names anywhere (quiz) */
   quiz?: boolean;
   onHover?: (l: Label3 | null, cap: boolean) => void;
+  /** the hover name of a label (default: its name and side) */
+  tipText?: (l: Label3) => string;
   onPick?: (l: Label3 | null) => void;
   onReady?: (index: Index3) => void;
   onProgress?: (p: Prog, what: "shell" | "inner") => void;
@@ -361,12 +368,12 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     if (!box) return;
     const cam = camera as THREE.PerspectiveCamera;
     const c = box.getCenter(new THREE.Vector3());
-    const d = homeDist();
-    applyCamRange(cam, d);
+    const d = homeDist() * (props.zoom ?? 1);
+    applyCamRange(cam, homeDist());
     flyTo(c, new THREE.Vector3(...VIEW_DIRS[props.view ?? "left"]), d, firstView.current ? 0 : 420);
     firstView.current = false;
     userMoved.current = false;
-  }, [box, camera, props.view, props.viewNonce, homeDist, flyTo]);
+  }, [box, camera, props.view, props.viewNonce, props.zoom, homeDist, flyTo]);
   const focusNonce = props.focus?.nonce;
   useEffect(() => {
     if (!box || !props.focus || !props.focus.ids.length) return;
@@ -467,7 +474,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   );
 
   // ---------------- hover + click
-  const onHover = props.onHover, onPick = props.onPick;
+  const onHover = props.onHover, onPick = props.onPick, tipText = props.tipText;
   useEffect(() => {
     const el = gl.domElement;
     let raf = 0;
@@ -495,7 +502,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
         onHover?.(id !== null ? (byId.get(id) ?? null) : null, !!h?.cap);
       }
       const l = id !== null ? byId.get(id) : undefined;
-      setTip(l && !quiz ? { name: l.name + (l.side === "L" ? " (left)" : l.side === "R" ? " (right)" : ""), cap: !!h?.cap, x: last.clientX - r.left, y: last.clientY - r.top } : null);
+      setTip(l && !quiz ? { name: tipText ? tipText(l) : l.name + (l.side === "L" ? " (left)" : l.side === "R" ? " (right)" : ""), cap: !!h?.cap, x: last.clientX - r.left, y: last.clientY - r.top } : null);
     };
     const move = (e: PointerEvent) => {
       last = e;
@@ -528,7 +535,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       el.removeEventListener("pointerup", pu);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [gl, pick, state, tintOf, invalidate, setTip, onHover, onPick, byId, quiz]);
+  }, [gl, pick, state, tintOf, invalidate, setTip, onHover, onPick, tipText, byId, quiz]);
 
   // ---------------- name pins
   const pins = useMemo(() => {
@@ -583,6 +590,20 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       {meshes.gShell && ghosting && <primitive object={meshes.gShell} />}
       {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
       <primitive object={lines} />
+      {box &&
+        (props.guides ?? []).map((g, i) => {
+          const sz = box.getSize(new THREE.Vector3()).multiplyScalar(1.15);
+          const c = box.getCenter(new THREE.Vector3());
+          const pos: [number, number, number] = g.axis === "x" ? [g.pos, c.y, c.z] : g.axis === "y" ? [c.x, g.pos, c.z] : [c.x, c.y, g.pos];
+          const rot: [number, number, number] = g.axis === "x" ? [0, Math.PI / 2, 0] : g.axis === "y" ? [-Math.PI / 2, 0, 0] : [0, 0, 0];
+          const wh: [number, number] = g.axis === "x" ? [sz.z, sz.y] : g.axis === "y" ? [sz.x, sz.z] : [sz.x, sz.y];
+          return (
+            <mesh key={i} position={pos} rotation={rot} renderOrder={6}>
+              <planeGeometry args={wh} />
+              <meshBasicMaterial color={g.color} transparent opacity={0.32} depthWrite={false} side={THREE.DoubleSide} toneMapped={false} />
+            </mesh>
+          );
+        })}
       <NavExtras pick={pointAt} />
     </>
   );

@@ -2,12 +2,16 @@
 
 import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { AtlasOverlay } from "../AtlasViewer";
-import { LazyAtlasViewer } from "../supply/lazy";
-import { atlasTargetForSlug } from "@/lib/atlas/catalog";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { readCssColor } from "@/lib/atlas/theme";
+import { loadCatalog, type CatItem } from "@/components/atlas3/catalog";
+import type { Label3 } from "@/components/atlas3/engine/data";
+import { ViewerSkeleton } from "@/components/ui/Skeleton";
+
+// the new atlas, every structure coloured by its strength
+const MemoryMap3D = dynamic(() => import("@/components/atlas3/MemoryMap3D"), { ssr: false, loading: () => <ViewerSkeleton height={560} /> });
 
 type Row = {
   slug: string;
@@ -47,9 +51,15 @@ export function MemoryMap() {
   const [data, setData] = useState<Payload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [sel, setSel] = useState<string | null>(null); // slug
+  const [items, setItems] = useState<CatItem[] | null>(null);
 
   useEffect(() => {
     trackAtlas({ type: "memory_map_opened" });
+    let alive = true;
+    loadCatalog().then((c) => alive && setItems(c.items));
+    return () => {
+      alive = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -68,52 +78,46 @@ export function MemoryMap() {
   }, []);
 
   const model = useMemo(() => {
-    if (!data) return null;
+    if (!data || !items) return null;
     const pal = palette();
     const bySlug = new Map(data.structures.map((r) => [r.slug, r]));
-    // mesh id -> the structures drawn by it (a mesh can stand for several curriculum entries)
-    const meshRows = new Map<string, Row[]>();
+    const itemOf = new Map(items.map((it) => [it.slug, it]));
+    // every leaf of the atlas takes the most specific course structure that contains it (the precentral gyrus, not the
+    // frontal lobe), preferring one the student has seen
+    const leafRow = new Map<number, Row>();
+    const leafSize = new Map<number, number>();
     for (const r of data.structures) {
-      const t = atlasTargetForSlug(r.slug);
-      if (!t || t.approximate) continue;
-      for (const id of t.ids) meshRows.set(id, [...(meshRows.get(id) ?? []), r]);
+      const it = itemOf.get(r.slug);
+      if (!it || !it.ids.length) continue;
+      for (const id of it.ids) {
+        const cur = leafRow.get(id);
+        const better = !cur || (cur.strength === null && r.strength !== null) || ((cur.strength === null) === (r.strength === null) && it.ids.length < (leafSize.get(id) ?? 1e9));
+        if (better) {
+          leafRow.set(id, r);
+          leafSize.set(id, it.ids.length);
+        }
+      }
     }
-    const meshValue = (id: string): number | null => {
-      const rows = (meshRows.get(id) ?? []).filter((r) => r.strength !== null);
-      return rows.length ? rows.reduce((s, r) => s + (r.strength as number), 0) / rows.length : null;
-    };
-    const groups = new Map<string, string[]>();
-    for (const id of meshRows.keys()) {
-      const v = meshValue(id);
-      const key = v === null ? "unseen" : `b${Math.min(BUCKETS - 1, Math.floor(v * BUCKETS))}`;
-      groups.set(key, [...(groups.get(key) ?? []), id]);
-    }
-    const overlays: AtlasOverlay[] = [...groups].map(([key, ids]) => ({
-      key,
-      ids,
-      color: key === "unseen" ? pal.unseen : pal.buckets[Number(key.slice(1))],
-      opacity: key === "unseen" ? 0.8 : 0.95,
-    }));
+    const colors: Record<number, string> = {};
+    for (const [id, r] of leafRow) colors[id] = r.strength === null ? pal.unseen : pal.buckets[Math.min(BUCKETS - 1, Math.floor(r.strength * BUCKETS))];
     const seen = data.structures.filter((r) => r.strength !== null);
     const weakest = seen.slice().sort((a, b) => (a.strength as number) - (b.strength as number));
     const red = weakest.filter((r) => (r.strength as number) < RED);
     const mean = seen.length ? seen.reduce((s, r) => s + (r.strength as number), 0) / seen.length : null;
-    return { pal, bySlug, meshRows, overlays, weakest, red, mean, unseen: data.structures.length - seen.length, seenCount: seen.length };
-  }, [data]);
+    return { pal, bySlug, itemOf, leafRow, colors, weakest, red, mean, unseen: data.structures.length - seen.length, seenCount: seen.length };
+  }, [data, items]);
 
   const tipText = useCallback(
-    (id: string, name: string) => {
-      const rows = model?.meshRows.get(id);
-      if (!rows?.length) return name;
-      const r = rows[0];
-      return `${name}: ${pct(r.strength)}`;
+    (l: Label3) => {
+      const r = model?.leafRow.get(l.id);
+      return r ? `${r.name}: ${pct(r.strength)}` : l.name;
     },
     [model],
   );
   const onPick = useCallback(
-    (id: string) => {
-      const rows = model?.meshRows.get(id);
-      if (rows?.length) setSel(rows.slice().sort((a, b) => (a.strength ?? 2) - (b.strength ?? 2))[0].slug);
+    (l: Label3 | null) => {
+      const r = l ? model?.leafRow.get(l.id) : undefined;
+      if (r) setSel(r.slug);
     },
     [model],
   );
@@ -134,24 +138,14 @@ export function MemoryMap() {
   }
 
   const chosen = sel ? model.bySlug.get(sel) ?? null : null;
-  const focusIds = chosen ? (atlasTargetForSlug(chosen.slug)?.ids ?? []) : [];
+  const focusIds = chosen ? (model.itemOf.get(chosen.slug)?.ids ?? []) : [];
   const studySlugs = model.red.slice(0, MAX_SLUGS).map((r) => r.slug);
   const redHref = `/study/run?scope=structures:${studySlugs.join(",")}`;
 
   return (
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
       <div className="grid gap-2">
-        <LazyAtlasViewer
-          structureIds={focusIds}
-          mode="context"
-          label={chosen?.name ?? ""}
-          height={560}
-          overlays={model.overlays}
-          hideLabels
-          pickMode="mesh"
-          tipText={tipText}
-          onPickMesh={onPick}
-        />
+        <MemoryMap3D colors={model.colors} selected={focusIds} tipText={tipText} onPick={onPick} height={560} />
         <p className="help-line">
           <span>
             <span className="kbd">click</span> a structure for its numbers

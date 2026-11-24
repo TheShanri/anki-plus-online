@@ -39,6 +39,8 @@
 .atl3-stage { position: relative; min-height: 420px; border-radius: var(--radius); border: 1px solid var(--panel-border); overflow: hidden; }
 .atl3-bar { position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 20; display: flex; justify-content: center; pointer-events: none; }
 .atl3-bar > * { pointer-events: auto; }
+.atl3-alt { position: absolute; inset: 0; z-index: 3; background: var(--bg); }
+.atl3-modes { position: absolute; left: 12px; top: 12px; z-index: 21; }
 .atl3-card {
   position: absolute; right: 12px; top: 12px; z-index: 20; width: min(360px, calc(100% - 24px)); max-height: calc(100% - 84px); overflow: auto;
   border-radius: var(--radius); border: 1px solid var(--panel-border); background: color-mix(in srgb, var(--panel-solid, var(--bg-2)) 96%, transparent);
@@ -46,7 +48,21 @@
 }
 .atl3-card h2 { font-size: 17px; font-weight: 650; color: var(--text); margin: 0; line-height: 1.25; }
 .atl3-card .atl3-sub { margin-top: 2px; font-size: 12px; color: var(--text-faint); }
+.atl3-card .atl3-prov { margin-top: 4px; font-size: 11.5px; line-height: 1.35; color: var(--text-dim); font-style: italic; }
 .atl3-slider { display: inline-flex; align-items: center; gap: 6px; padding: 0 6px; }
 .atl3-slider input[type="range"] { width: 150px; accent-color: var(--accent-2); }
 .atl3-loading { position: absolute; inset: 0; z-index: 15; }
 .atl3-hint { position: absolute; left: 12px; top: 12px; z-index: 18; }
+
+/* phones and small tablets: the list on top (short), the stage below it taking the screen, the structure card as a bottom
+ * sheet over the lower part of the stage (the brain stays visible above it), the toolbar one scrolling row */
+@media (max-width: 1023px) {
+  .atl3-shell { height: auto !important; min-height: 0 !important; grid-template-rows: auto auto; }
+  .atl3-panel { max-height: 30vh; }
+  .atl3-stage { height: 72dvh; min-height: 420px; }
+  .atl3-card { top: auto; left: 8px; right: 8px; bottom: 58px; width: auto; max-height: 46%; padding: 10px 12px; }
+  .atl3-bar { left: 8px; right: 8px; bottom: 8px; }
+  .atl3-bar .atl-bar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .atl3-bar .atl-bar::-webkit-scrollbar { display: none; }
+  .atl3-modes { left: 8px; top: 8px; }
+}

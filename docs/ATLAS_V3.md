@@ -49,6 +49,18 @@ Inside `labels.py`:
 - `surfregions.py` (in `bake.py`): sulci (the walls of the groove between two gyri) and functional areas (Broca, Wernicke,
   M1, V1 ...) as per-vertex masks of the outer surface.
 - `zmap.py`: Z-Anatomy space -> MNI (the v2 warp), for objects only Z-Anatomy has (cerebellar lobules, cranial nerves).
+- `cblobes.py`: the Allen cerebellar zones (vermis, paravermis, lateral) split by lobe (anterior, posterior, tonsil,
+  flocculonodular): every cortex voxel takes the lobe of the nearest Z-Anatomy lobule surface (zone x lobe leaves; the
+  zone keys are `stage` rows, rewritten before the split).
+- `cnerves.py`: cranial nerves II-X, XII from Z-Anatomy, kept from where they leave the brainstem (or the chiasm) along
+  the nerve for their cisternal length, outside the brain only.
+- `extras.py`: pituitary gland (segmented on the template's T1 in the sella) and stalk, lamina terminalis,
+  interventricular foramina, obex, area postrema, gracile and cuneate tubercles, derived from the labels.
+
+The viewer at `/atlas` (`src/components/atlas3/Explore3.tsx`) shows the same selection as 3D, MRI slices (the atlas2
+viewer) or the course's brainstem sections; structures beyond the syllabus open behind the "just curious" gate; each
+derived structure says where its shape comes from. The previous browser lives on at `/atlas/classic` (and the embedded
+peek, quiz, memory map, slice match and lesion lab still use it).
 
 Before the left/right split only midline structures are despeckled (the smaller side of a small pair is otherwise taken for
 a speck).

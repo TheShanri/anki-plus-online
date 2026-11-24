@@ -20,8 +20,9 @@ Row fields
 ROWS = []
 
 
-def row(key, name, src, tissue, side="LR", course=(), quality="exact"):
-    ROWS.append(dict(key=key, name=name, src=src, tissue=tissue, side=side, course=list(course), quality=quality))
+def row(key, name, src, tissue, side="LR", course=(), quality="exact", stage=False):
+    """stage: an intermediate key, used while composing and fully rewritten into other keys before the split"""
+    ROWS.append(dict(key=key, name=name, src=src, tissue=tissue, side=side, course=list(course), quality=quality, stage=stage))
 
 
 # ------------------------------------------------------------------ cerebral cortex (Allen gyri, Ding et al. 2016)
@@ -232,14 +233,52 @@ row("DSCT", "Dorsal spinocerebellar tract", PL, "tract", course=["dorsal-spinoce
 
 # ------------------------------------------------------------------ cerebellum
 CB = ["cerebellum", "cerebellar-cortex"]
-row("CbV", "Vermis", "ahra:CBV", "cbx", side="M", course=["vermis", *CB])
-row("CbPV", "Paravermis", "ahra:CBPV", "cbx", course=["paravermis", *CB])
-row("CbL", "Cerebellar hemisphere (lateral)", "ahra:CBL", "cbx", course=["cerebellar-lateral-hemisphere", *CB])
+# the Allen zones, split into lobes by cblobes.py (Z-Anatomy lobules): zone x lobe leaves
+row("CbV", "Vermis", "ahra:CBV", "cbx", side="M", stage=True)
+row("CbPV", "Paravermis", "ahra:CBPV", "cbx", stage=True)
+row("CbL", "Cerebellar hemisphere (lateral)", "ahra:CBL", "cbx", stage=True)
+ZL, AL, PL_, FN = "ahra+zanat", "cerebellar-anterior-lobe", "cerebellar-posterior-lobe", "flocculonodular-lobe"
+VE, PV, LH = "vermis", "paravermis", "cerebellar-lateral-hemisphere"
+row("CbVa", "Vermis, anterior lobe", ZL, "cbx", side="M", course=[VE, AL, *CB], quality="derived")
+row("CbVp", "Vermis, posterior lobe", ZL, "cbx", side="M", course=[VE, PL_, *CB], quality="derived")
+row("Nod", "Nodulus", ZL, "cbx", side="M", course=["nodulus", VE, FN, *CB], quality="derived")
+row("CbPVa", "Paravermis, anterior lobe", ZL, "cbx", course=[PV, AL, *CB], quality="derived")
+row("CbPVp", "Paravermis, posterior lobe", ZL, "cbx", course=[PV, PL_, *CB], quality="derived")
+row("TonPV", "Cerebellar tonsil", ZL, "cbx", course=["cerebellar-tonsil", PV, PL_, *CB], quality="derived")
+row("FlocPV", "Flocculus", ZL, "cbx", course=["flocculus", FN, *CB], quality="derived")
+row("CbLa", "Lateral hemisphere, anterior lobe", ZL, "cbx", course=[LH, AL, *CB], quality="derived")
+row("CbLp", "Lateral hemisphere, posterior lobe", ZL, "cbx", course=[LH, PL_, *CB], quality="derived")
+row("TonL", "Cerebellar tonsil", ZL, "cbx", course=["cerebellar-tonsil", LH, PL_, *CB], quality="derived")
+row("FlocL", "Flocculus", ZL, "cbx", course=["flocculus", FN, *CB], quality="derived")
 row("CbW", "Cerebellar white matter", "derived", "wm", course=["cerebellar-white-matter", "cerebellum"], quality="derived")
 DCN = ["deep-cerebellar-nuclei", "cerebellum"]
 row("DN", "Dentate nucleus", "ahra:CbDN", "gm", course=["dentate-nucleus", *DCN], quality="derived")
 row("IPN", "Interposed nuclei (emboliform, globose)", "derived", "gm", course=["interposed-nuclei", "interposed-nucleus", *DCN], quality="derived")
 row("FN", "Fastigial nucleus", "derived", "gm", course=["fastigial-nucleus", *DCN], quality="derived")
+
+# ------------------------------------------------------------------ small structures no source labels (extras.py)
+row("Pit", "Pituitary gland (hypophysis)", "template", "gm", side="M", course=["pituitary-gland"], quality="derived")
+row("PitS", "Pituitary stalk (infundibulum)", "derived", "gm", side="M", course=["pituitary-stalk"], quality="derived")
+row("LT", "Lamina terminalis", "derived", "gm", side="M", course=["lamina-terminalis"], quality="derived")
+row("IVF", "Interventricular foramen (of Monro)", "derived", "csf", course=["foramina-of-monro"], quality="derived")
+row("Obex", "Obex", "derived", "bs", side="M", course=["obex", "medulla"], quality="derived")
+row("AP", "Area postrema", "derived", "bs", course=["area-postrema", "medulla"], quality="derived")
+row("GrT", "Gracile tubercle", "derived", "bs", course=["gracile-tubercle", "medulla"], quality="derived")
+row("CuT", "Cuneate tubercle", "derived", "bs", course=["cuneate-tubercle", "medulla"], quality="derived")
+
+# ------------------------------------------------------------------ cranial nerves (cnerves.py: Z-Anatomy, root to foramen)
+CN = ["cranial-nerves"]
+ZN = "zanat"
+row("CN2", "Optic nerve (II)", ZN, "nrv", course=["optic-nerve", *CN], quality="regional")
+row("CN3", "Oculomotor nerve (III)", ZN, "nrv", course=["oculomotor-nerve", *CN], quality="regional")
+row("CN4", "Trochlear nerve (IV)", ZN, "nrv", course=["trochlear-nerve", *CN], quality="regional")
+row("CN5", "Trigeminal nerve (V)", ZN, "nrv", course=["trigeminal-nerve", *CN], quality="regional")
+row("CN6", "Abducens nerve (VI)", ZN, "nrv", course=["abducens-nerve", *CN], quality="regional")
+row("CN7", "Facial nerve (VII)", ZN, "nrv", course=["facial-nerve", *CN], quality="regional")
+row("CN8", "Vestibulocochlear nerve (VIII)", ZN, "nrv", course=["vestibulocochlear-nerve", *CN], quality="regional")
+row("CN9", "Glossopharyngeal nerve (IX)", ZN, "nrv", course=["glossopharyngeal-nerve", *CN], quality="regional")
+row("CN10", "Vagus nerve (X)", ZN, "nrv", course=["vagus-nerve", *CN], quality="regional")
+row("CN12", "Hypoglossal nerve (XII)", ZN, "nrv", course=["hypoglossal-nerve", *CN], quality="regional")
 
 KEYS = [r["key"] for r in ROWS]
 assert len(KEYS) == len(set(KEYS)), "duplicate keys"

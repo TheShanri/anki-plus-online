@@ -242,6 +242,10 @@ if rim.any():
 log("brainstem rims re-assigned", int(rim.sum()))
 del Kc, Ac, thal, lv, cbc, bs
 
+# cerebellar lobes: the Allen zones split by Z-Anatomy's lobules (cblobes.py)
+import cblobes  # noqa: E402
+CB_REPORT = cblobes.split(K, KI, AFF, log=lambda *a: log(*a))
+
 # brainstem nuclei and tracts from the course's level plates (bsnuclei.py)
 import bsnuclei  # noqa: E402
 if os.environ.get("BS_DUMP"):
@@ -324,12 +328,25 @@ def despeck(K, skip=frozenset()):
 # small pair (the abducens nuclei) would be taken for a speck; the sides are cleaned after the split
 log("specks merged (pre-split)", despeck(K, skip=frozenset(KI[k] for k in KEYS if BY_KEY[k]["side"] != "M")))
 
+# ------------------------------------------------------------------ 3b. cranial nerves, outside the brain (cnerves.py)
+import cnerves  # noqa: E402
+log("cranial nerves:")
+CN_REPORT = cnerves.add(K, lambda k: [KI[k]] if k in KI else [], AFF, {k: KI[k] for k in cnerves.NERVES if k in KI}, log=lambda *a: log(*a))
+# pituitary, lamina terminalis, interventricular foramina, obex, area postrema, tubercles (extras.py)
+import extras  # noqa: E402
+EX_REPORT = extras.add(K, KI, AFF, log=lambda *a: log(*a))
+
 # ------------------------------------------------------------------ 4. left / right split
 names, rows_out = [], []
 SIDE = np.where(xs < 0, 0, 1)  # MNI x < 0 is the patient's left; the x = 0 column goes right
 LUT = np.zeros((len(KEYS) + 1, 2), np.uint16)
+STAGE = [k for k in KEYS if BY_KEY[k].get("stage")]
+left_over = {k: int((K == KI[k]).sum()) for k in STAGE}
+assert not any(left_over.values()), f"intermediate keys left in the volume: {left_over}"
 for k in KEYS:
     r = BY_KEY[k]
+    if r.get("stage"):
+        continue
     if r["side"] == "M":
         rows_out.append(dict(key=k, side="M"))
         LUT[KI[k], :] = len(rows_out)

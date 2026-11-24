@@ -13,6 +13,7 @@ export const SURFACE: Record<Tissue, string> = {
   gm: "#b99a8e",
   csf: "#6f8aa3",
   plx: "#c27b7b",
+  nrv: "#e3cf8f",
 };
 
 export const CAP: Record<Tissue, string> = {
@@ -24,6 +25,7 @@ export const CAP: Record<Tissue, string> = {
   gm: "#a29089",
   csf: "#33465a",
   plx: "#b46d72",
+  nrv: "#efe2b4",
 };
 
 /** Deep nuclei get their own cap tone so neighbours read apart even before the outlines (globus pallidus paler, the
@@ -57,6 +59,10 @@ const LOBES: [string, string[]][] = [
   ["#b484c4", ["Cun", "LiG", "SOG", "IOG", "OP", "FuGo"]],
   ["#d6b35c", ["SIG", "LIG", "LI", "FI", "TI"]],
   ["#d97a8f", ["CgGr", "CgGc", "IsCPH", "SCG", "APH", "PPH", "AG", "HiH", "HiB", "HiT", "Pir", "OB", "AON"]],
+  // cerebellum by lobe: anterior, posterior (with the tonsils), flocculonodular
+  ["#e0a35a", ["CbVa", "CbPVa", "CbLa"]],
+  ["#5fa8a0", ["CbVp", "CbPVp", "CbLp", "TonPV", "TonL"]],
+  ["#c96f6f", ["Nod", "FlocPV", "FlocL"]],
 ];
 for (const [c, keys] of LOBES) for (const k of keys) REGION_KEY[k] = c;
 

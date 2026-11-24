@@ -7,9 +7,14 @@ import { Divider, Group, IconBtn, Segmented } from "@/components/atlas/ui/Toolba
 import { CutCoronalIcon, CutNoneIcon, CutSagittalIcon, CutTransverseIcon, SeeThroughIcon, SolidIcon } from "@/components/atlas/ui/icons";
 import { AtlasLoader } from "@/components/atlas/ui/AtlasLoader";
 import { StructureInfo } from "@/components/atlas/StructureInfo";
+import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
+import { trackAtlas } from "@/lib/atlas/progress";
+import { loadAtlas2, type Atlas2 } from "@/lib/atlas/slices";
+import type { SliceView } from "@/components/atlas/SliceViewer";
+import { SectionEmbed } from "@/components/atlas/brainstem/SectionEmbed";
 import type { Atlas3Props, Cut3, View3 } from "./engine/Atlas3Canvas";
 import type { Index3, Label3, Prog } from "./engine/data";
-import { SECTIONS, loadCatalog, search, sectionOf, type CatItem } from "./catalog";
+import { SECTIONS, hasGeometry, loadCatalog, norm, search, sectionOf, type CatItem } from "./catalog";
 import "@/components/atlas/ui/atlas-ui.css";
 import "./atlas3.css";
 
@@ -17,6 +22,14 @@ const Atlas3Canvas = dynamic(() => import("./engine/Atlas3Canvas").then((m) => m
   ssr: false,
   loading: () => <AtlasLoader label="Loading the 3D atlas" progress={0.05} stages={[{ id: "code", label: "Starting the viewer", state: "active" }]} />,
 });
+const SliceViewer = dynamic(() => import("@/components/atlas/SliceViewer"), {
+  ssr: false,
+  loading: () => <AtlasLoader label="Loading the MRI atlas" progress={0.05} stages={[{ id: "code", label: "Starting the MRI viewer", state: "active" }]} />,
+});
+
+type Stage = "3d" | "mri" | "sections";
+/** ?view= values of the MRI viewer (the old atlas's links) */
+const MRI_VIEW: Record<string, SliceView> = { coronal: "coronal", sagittal: "sagittal", axial: "axial", transverse: "axial", multi: "multi", multiplanar: "multi", render: "render" };
 
 type Sides = "both" | "L" | "R";
 type CutAxis = "off" | "z" | "x" | "y";
@@ -42,16 +55,37 @@ const DEEP_SHARE = 0.07;
 const STEM = new Set([
   ...["MTg", "mRt", "PnBa", "PnTg", "PnO", "MoTg", "BSW", "CPd", "Py", "IO", "SC", "ICo", "SCP", "MCP", "ICP", "PAG", "RN", "SN", "VTA", "PTg", "LC", "DR", "MnR", "LDTg", "PBC", "ML", "MLF", "PTR"],
   ...["III", "EW", "IV", "BIC", "xSCP", "IPF", "Vmo", "Vps", "VI", "VII", "FCol", "PPRF", "LFP", "VCx", "Sp5", "Sol", "DMX", "XII", "Amb", "Gr", "Cu", "IAF", "PyX", "ALS", "DSCT"],
+  // the nerve roots leaving it (context around a nucleus; a nerve in the deep view is seen leaving the see-through stem)
+  ...["CN3", "CN4", "CN5", "CN6", "CN7", "CN8", "CN9", "CN10", "CN12"],
 ]);
 const STEM_FLUID = new Set(["Aq", "V4", "CeC"]);
-/** kept as context in the deep view of a selection: the ventricles and the brainstem */
-const CONTEXT_KEYS = new Set(["aLV", "bLV", "xLV", "pLV", "iLV", "V3", "Aq", "V4", "CeC", "MTg", "PnBa", "PnTg", "MoTg", "CPd", "Py", "IO", "BSW", "SC", "ICo", "SCP", "MCP", "ICP"]);
+/** solid context in the deep view of a selection: the ventricles (the brainstem is drawn as a veil) */
+const VENTRICLES = new Set(["aLV", "bLV", "xLV", "pLV", "iLV", "IVF", "V3", "Aq", "V4", "CeC"]);
 
-export function Explore3({ initialS, initialCam, initialCut, initialSide }: { initialS?: string; initialCam?: string; initialCut?: string; initialSide?: string }) {
+export function Explore3({
+  initialS,
+  initialN,
+  initialCam,
+  initialCut,
+  initialSide,
+  initialView,
+  courseSlug,
+}: {
+  initialS?: string;
+  initialN?: string;
+  initialCam?: string;
+  initialCut?: string;
+  initialSide?: string;
+  /** an MRI view (coronal, sagittal, axial, multi, render) opens the MRI mode; "sections" the course sections */
+  initialView?: string;
+  /** the student's course, for the course-section images (the Sections mode is hidden without it) */
+  courseSlug?: string;
+}) {
   const [index, setIndex] = useState<Index3 | null>(null);
   const [items, setItems] = useState<CatItem[] | null>(null);
   const [q, setQ] = useState("");
-  const [sel, setSel] = useState<string | null>(initialS ?? null);
+  // the deep link (initialS / initialN) is selected once the data is in, through the same gate as a click
+  const [sel, setSel] = useState<string | null>(null);
   const [open, setOpen] = useState<Set<string>>(() => new Set());
   const [view, setView] = useState<View3>((VIEWS.find((v) => v.id === initialCam)?.id ?? "left") as View3);
   const [viewNonce, setViewNonce] = useState(0);
@@ -64,6 +98,32 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
   const [focus, setFocus] = useState<{ ids: number[]; nonce: number } | null>(null);
   const [prog, setProg] = useState<{ shell?: Prog; inner?: Prog }>({});
   const listRef = useRef<HTMLDivElement>(null);
+  // the stage: the 3D brain, the MRI atlas, or the course's own brainstem sections, all on the same selection
+  const startStage: Stage = initialView && MRI_VIEW[initialView] ? "mri" : initialView === "sections" && courseSlug ? "sections" : "3d";
+  const [stage, setStage] = useState<Stage>(startStage);
+  const [seenStage, setSeenStage] = useState<Set<Stage>>(() => new Set([startStage]));
+  const [sliceView, setSliceView] = useState<SliceView>((initialView && MRI_VIEW[initialView]) || "coronal");
+  const [atlas2, setAtlas2] = useState<Atlas2 | null>(null);
+  const [secLevel, setSecLevel] = useState<string | null>(null);
+  const stageRef = useRef(stage);
+  useEffect(() => {
+    stageRef.current = stage;
+  }, [stage]);
+  const showStage = useCallback((st: Stage) => {
+    setStage(st);
+    setSeenStage((o) => (o.has(st) ? o : new Set([...o, st])));
+  }, []);
+  useEffect(() => {
+    if (!seenStage.has("mri") || atlas2) return;
+    let alive = true;
+    loadAtlas2().then((a) => alive && setAtlas2(a));
+    return () => {
+      alive = false;
+    };
+  }, [seenStage, atlas2]);
+  // structures beyond the syllabus (atlas extras) open behind the app's "just curious" heads-up, and lock again after
+  const gate = useSupplementaryGate("atlas-3d");
+  const [pendingExtra, setPendingExtra] = useState<{ it: CatItem; frame: boolean } | null>(null);
 
   useEffect(() => {
     let alive = true;
@@ -99,14 +159,16 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     if (!deep || !index) return [];
     const keep = new Set(selIds);
     if (keep.size && inStem) return index.labels.filter((l) => !keep.has(l.id)).map((l) => l.id);
-    // with a selection: the selection in its context (ventricles, brainstem); without: every deep structure
-    if (keep.size) return index.labels.filter((l) => !keep.has(l.id) && !CONTEXT_KEYS.has(l.key)).map((l) => l.id);
+    // with a selection: the selection, the ventricles (solid) and the brainstem (a veil, so it never hides a deep
+    // cerebellar nucleus or the thalamus behind it); without: every deep structure
+    if (keep.size) return index.labels.filter((l) => !keep.has(l.id) && !VENTRICLES.has(l.key)).map((l) => l.id);
     return index.labels.filter((l) => DEEP_HIDE.has(l.tissue)).map((l) => l.id);
   }, [deep, index, selIds, inStem]);
   const ghostIds = useMemo(() => {
-    if (!deep || !index || !inStem) return [];
+    if (!deep || !index || !selIds.length) return [];
     const keep = new Set(selIds);
-    return index.labels.filter((l) => !keep.has(l.id) && (STEM.has(l.key) || STEM_FLUID.has(l.key))).map((l) => l.id);
+    // inside the brainstem its ventricles are a veil too; elsewhere they stay solid context
+    return index.labels.filter((l) => !keep.has(l.id) && (STEM.has(l.key) || (inStem && STEM_FLUID.has(l.key)))).map((l) => l.id);
   }, [deep, index, selIds, inStem]);
   const cut: Cut3 | null = cutAxis === "off" ? null : { axis: cutAxis, pos: cutPos, flip: cutFlip };
   const hideSides = useMemo<("L" | "R")[]>(() => (sides === "L" ? ["R"] : sides === "R" ? ["L"] : []), [sides]);
@@ -126,10 +188,12 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
   }, [item, byId, hideSides]);
 
   // ---- selection
-  const select = useCallback(
+  const selectNow = useCallback(
     (it: CatItem | null, opts: { frame?: boolean } = {}) => {
       setSel(it ? it.slug : null);
       if (!it) return;
+      if (it.extra) trackAtlas({ type: "curious_unlock", mesh: it.slug, name: it.name });
+      else trackAtlas({ type: "structure_viewed", slug: it.slug, via: stageRef.current === "mri" ? "mri" : "3d" });
       if (!it.ids.length && (it.sulcus !== undefined || it.area !== undefined)) {
         // a sulcus or a functional area: the outside surface, from the view that shows it
         const ak = it.area !== undefined ? index?.areas.find((a) => a.bit === it.area)?.key : undefined;
@@ -148,7 +212,9 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
         // an outside structure is shown from the view that shows it best (medial for the cuneus, inferior for the
         // mammillary bodies); the medial views hide the other hemisphere
         if (!deepNow && cutAxis === "off") {
-          const bv = bestView(it.ids, byId).view;
+          // the cranial nerves are seen from below, where they leave the brainstem
+          const nerves = it.ids.length > 0 && it.ids.every((id) => byId.get(id)?.tissue === "nrv");
+          const bv = nerves ? "inferior" : bestView(it.ids, byId).view;
           setView(bv);
           setSides(bv === "medial-left" ? "L" : bv === "medial-right" ? "R" : "both");
           setViewNonce((n) => n + 1);
@@ -165,9 +231,39 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     },
     [byId, cutAxis, index],
   );
+  const { open: gateOpen, request: gateRequest, lock: lockGate } = gate;
+  const select = useCallback(
+    (it: CatItem | null, opts: { frame?: boolean } = {}) => {
+      if (it?.extra && !gateOpen) {
+        setPendingExtra({ it, frame: opts.frame !== false });
+        gateRequest();
+        return;
+      }
+      if (!it?.extra) lockGate();
+      setPendingExtra(null);
+      selectNow(it, opts);
+    },
+    [gateOpen, gateRequest, lockGate, selectNow],
+  );
   useEffect(() => {
-    // a deep link selects once the data is in
-    if (index && items && initialS && bySlug.has(initialS)) select(bySlug.get(initialS)!, { frame: true });
+    if (!sel) lockGate();
+  }, [sel, lockGate]);
+  useEffect(() => {
+    // the heads-up was confirmed (or was seen before): open the extra
+    if (!gateOpen || !pendingExtra) return;
+    const { it, frame } = pendingExtra;
+    setPendingExtra(null);
+    selectNow(it, { frame });
+  }, [gateOpen, pendingExtra, selectNow]);
+  useEffect(() => {
+    // a deep link selects once the data is in: by slug, or by a course name (study cards link by name)
+    if (!index || !items) return;
+    let it = initialS ? bySlug.get(initialS) : undefined;
+    if (!it && initialN) {
+      const nn = norm(initialN);
+      it = items.find((x) => !x.extra && (norm(x.name) === nn || x.syn.some((y) => norm(y) === nn))) ?? search(items, initialN)[0];
+    }
+    if (it) select(it, { frame: true });
   }, [index, items]); // eslint-disable-line react-hooks/exhaustive-deps
   const onPick = useCallback(
     (l: Label3 | null) => {
@@ -191,6 +287,20 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     setViewNonce((n) => n + 1);
   };
 
+  // ---- progress: views and cuts the student uses
+  const firstTrack = useRef(true);
+  useEffect(() => {
+    if (firstTrack.current) return;
+    trackAtlas({ type: "view_changed", view });
+  }, [view, viewNonce]);
+  useEffect(() => {
+    if (firstTrack.current) return;
+    if (cutAxis !== "off") trackAtlas({ type: "cut_used", plane: cutAxis === "z" ? "coronal" : cutAxis === "x" ? "sagittal" : "horizontal" });
+  }, [cutAxis]);
+  useEffect(() => {
+    firstTrack.current = false;
+  }, []);
+
   // ---- URL state
   useEffect(() => {
     const u = new URL(window.location.href);
@@ -199,8 +309,10 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     set("cam", view === "left" ? null : view);
     set("cut", cut ? `${cut.axis}:${cut.pos.toFixed(4)}${cut.flip ? ":f" : ""}` : null);
     set("side", sides === "both" ? null : sides);
+    set("view", stage === "mri" ? sliceView : stage === "sections" ? "sections" : null);
+    u.searchParams.delete("n");
     window.history.replaceState(null, "", u);
-  }, [sel, view, cut?.axis, cut?.pos, cut?.flip, sides]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sel, view, cut?.axis, cut?.pos, cut?.flip, sides, stage, sliceView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ---- keyboard
   useEffect(() => {
@@ -208,6 +320,10 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
       const t = e.target as HTMLElement | null;
       if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (stageRef.current !== "3d") {
+        if (e.key === "Escape") setSel(null);
+        return;
+      }
       const v = VIEWS.find((x) => x.key === e.key);
       if (v) {
         if (v.id === "medial-left") setSides("L");
@@ -315,6 +431,7 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
     onProgress,
   };
   const sideNote = item && index ? sideText(item, byId, index) : "";
+  const provenance = item ? provenanceText(item, byId) : "";
 
   return (
     <div className="atl3-shell" style={{ height: "calc(100dvh - 150px)", minHeight: 560 }}>
@@ -338,9 +455,52 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
         </div>
       </aside>
 
-      <section className="atl3-stage" aria-label="3D brain">
-        <Atlas3Canvas {...canvasProps} />
-        {loadingShell && (
+      <section className="atl3-stage" aria-label={stage === "3d" ? "3D brain" : stage === "mri" ? "MRI atlas" : "Course sections"}>
+        <div className={stage === "3d" ? "absolute inset-0" : "pointer-events-none invisible absolute inset-0"} aria-hidden={stage !== "3d"}>
+          <Atlas3Canvas {...canvasProps} />
+        </div>
+        {seenStage.has("mri") && (
+          <div className={stage === "mri" ? "atl3-alt" : "atl3-alt pointer-events-none invisible"} aria-hidden={stage !== "mri"}>
+            {atlas2 ? (
+              <SliceViewer
+                atlas={atlas2}
+                primary={item && atlas2.structures[item.slug] ? item.slug : null}
+                primaryColor="#ffc14d"
+                overlays={[]}
+                view={sliceView}
+                jumpTo={item && atlas2.structures[item.slug] ? item.slug : null}
+                onPick={(slug) => {
+                  const it = bySlug.get(slug);
+                  if (it) select(it, { frame: false });
+                }}
+                height="100%"
+                onViewChange={setSliceView}
+                shortcuts
+                notice={item && !atlas2.structures[item.slug] ? `${item.name} has no MRI label: see it in 3D` : null}
+              />
+            ) : (
+              <AtlasLoader label="Loading the MRI atlas" progress={0.1} stages={[{ id: "mri", label: "MRI and labels", state: "active" }]} />
+            )}
+          </div>
+        )}
+        {seenStage.has("sections") && courseSlug && (
+          <div className={stage === "sections" ? "atl3-alt overflow-auto" : "atl3-alt pointer-events-none invisible"} aria-hidden={stage !== "sections"}>
+            <SectionEmbed courseSlug={courseSlug} slug={item?.slug ?? null} level={secLevel} onLevel={setSecLevel} />
+          </div>
+        )}
+        <div className="atl3-modes">
+          <Segmented<Stage>
+            label="What to show"
+            value={stage}
+            onChange={showStage}
+            items={[
+              { id: "3d", label: "3D brain", text: "3D" },
+              { id: "mri", label: "MRI atlas (slices)", text: "MRI" },
+              ...(courseSlug ? [{ id: "sections" as Stage, label: "The course's brainstem sections", text: "Sections" }] : []),
+            ]}
+          />
+        </div>
+        {stage === "3d" && loadingShell && (
           <div className="atl3-loading">
             <AtlasLoader
               label="Loading the 3D atlas"
@@ -354,7 +514,19 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
         )}
         {cutAxis !== "off" && prog.inner && prog.inner.loaded < prog.inner.total && <div className="atl3-hint atl-chip">Loading the inside of the brain… {Math.round((100 * prog.inner.loaded) / Math.max(1, prog.inner.total))}%</div>}
 
-        {item && (
+        {pendingExtra && gate.asking && (
+          <div className="atl3-card atl-card-in" role="region" aria-label={pendingExtra.it.name}>
+            <SupplementaryHeadsUp
+              what={pendingExtra.it.name}
+              onConfirm={gate.confirm}
+              onCancel={() => {
+                gate.cancel();
+                setPendingExtra(null);
+              }}
+            />
+          </div>
+        )}
+        {item && !(pendingExtra && gate.asking) && (
           <div className="atl3-card atl-card-in" role="region" aria-label={item.name}>
             <div className="flex items-start gap-2">
               <div className="min-w-0">
@@ -364,12 +536,21 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
                   {item.extra ? " · atlas structure (supplementary)" : ""}
                   {selDeep && !deep && cutAxis === "off" ? " · deep: see it with the deep view or a cut" : ""}
                 </div>
+                {provenance && <div className="atl3-prov">{provenance}</div>}
+                {!hasGeometry(item) && (
+                  <div className="atl3-prov">
+                    Not in the new 3D model yet.{" "}
+                    <a className="text-accent-2 underline-offset-2 hover:underline" href={`/atlas/classic?s=${encodeURIComponent(item.slug)}`}>
+                      Open it in the classic atlas
+                    </a>
+                  </div>
+                )}
               </div>
               <button type="button" className="atl-xbtn" aria-label="Clear the selection (Esc)" onClick={() => setSel(null)}>
                 <X size={14} />
               </button>
             </div>
-            <div className="mt-2 flex flex-wrap gap-1.5">
+            <div className="mt-2 flex flex-wrap gap-1.5" hidden={!item.ids.length}>
               <button type="button" className="atl-cutbtn" onClick={() => showCut("z")}>
                 Coronal cut through it
               </button>
@@ -393,7 +574,7 @@ export function Explore3({ initialS, initialCam, initialCut, initialSide }: { in
           </div>
         )}
 
-        <div className="atl3-bar">
+        <div className="atl3-bar" hidden={stage !== "3d"}>
           <div className="atl-bar">
             <Group label="View">
               {VIEWS.map((v) => (
@@ -503,7 +684,23 @@ function isDeep(ids: number[], byId: Map<number, Label3>): boolean {
   return ids.length > 0 && bestView(ids, byId).share < DEEP_SHARE;
 }
 
+/** Where the shape comes from, when it is not a source atlas's own label: students should know what is exact. */
+const PROVENANCE: Record<string, string> = {
+  plate: "Drawn from the course's brainstem plates (Lab 8) and fitted into this brainstem: position within about 2 mm.",
+  zanat: "Course of the nerve from Z-Anatomy, warped onto this brain and shown from the brainstem to about its foramen: approximate.",
+  "ahra+zanat": "Lobe borders (the primary and posterolateral fissures) from Z-Anatomy's lobules, warped onto this brain: approximate.",
+  template: "Segmented on the MNI template's own image.",
+  derived: "Derived from the structures around it: approximate.",
+};
+function provenanceText(it: CatItem, byId: Map<number, Label3>): string {
+  const srcs = new Set(it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l && l.quality !== "exact").map((l) => l.src));
+  // one note, for the least exact source the selection uses
+  for (const s of ["zanat", "ahra+zanat", "plate", "derived", "template"]) if (srcs.has(s)) return PROVENANCE[s];
+  return "";
+}
+
 function sideText(it: CatItem, byId: Map<number, Label3>, index: Index3): string {
+  if (!hasGeometry(it)) return "";
   if (!it.ids.length && it.area !== undefined) return index.areas.find((a) => a.bit === it.area)?.side === "L" ? "Left hemisphere (the language-dominant side in most people)" : "Both hemispheres";
   if (!it.ids.length && it.sulcus !== undefined) return it.sulcus === 14 ? "Between the hemispheres" : "Both hemispheres";
   const ls = it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l);

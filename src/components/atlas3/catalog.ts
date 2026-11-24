@@ -53,6 +53,7 @@ export const SECTIONS: { id: string; title: string; test: (region: string) => bo
   { id: "vent", title: "Ventricles", test: (r) => /ventric/.test(r) },
   { id: "stem", title: "Brainstem", test: (r) => /brainstem|midbrain|pons|medulla/.test(r) },
   { id: "cb", title: "Cerebellum", test: (r) => /cerebell/.test(r) },
+  { id: "cn", title: "Cranial nerves", test: (r) => /cranial nerve/.test(r) },
   { id: "other", title: "Other", test: () => true },
 ];
 

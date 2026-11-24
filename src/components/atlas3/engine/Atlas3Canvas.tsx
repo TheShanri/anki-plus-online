@@ -71,6 +71,11 @@ function applyCamRange(cam: THREE.PerspectiveCamera, d: number) {
 function setShown(o: THREE.Object3D, v: boolean) {
   o.visible = v;
 }
+/** sine of the half field of view that limits framing: the vertical one, or the horizontal one on a portrait screen */
+function halfFovSin(cam: THREE.PerspectiveCamera) {
+  const v = (cam.fov * Math.PI) / 360;
+  return Math.sin(Math.atan(Math.tan(v) * Math.min(1, cam.aspect || 1)));
+}
 function setRegionUniforms(u: PatchUniforms, sulcus: number, areaMask: number) {
   u.uSulc.value = sulcus;
   u.uAreaMask.value = areaMask;
@@ -317,7 +322,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   const homeDist = useCallback(() => {
     if (!box) return 0.5;
     const r = box.getSize(new THREE.Vector3()).length() / 2;
-    return (r / Math.sin(((camera as THREE.PerspectiveCamera).fov * Math.PI) / 360)) * 0.9;
+    return (r / halfFovSin(camera as THREE.PerspectiveCamera)) * 0.9;
   }, [box, camera]);
   const firstView = useRef(true);
   // has the user turned the camera since the last view change? (then a new selection keeps their direction)
@@ -365,8 +370,8 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     const sc = drawn.getCenter(new THREE.Vector3());
     const R = drawn.getSize(new THREE.Vector3()).length() / 2;
     const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, 0.018);
-    const home = Math.min(homeDist(), (R / Math.sin((cam.fov * Math.PI) / 360)) * 0.9);
-    let dist = Math.min(home, Math.max((r / Math.sin((cam.fov * Math.PI) / 360)) * 1.35, home * 0.42));
+    const home = Math.min(homeDist(), (R / halfFovSin(cam)) * 0.9);
+    let dist = Math.min(home, Math.max((r / halfFovSin(cam)) * 1.35, home * 0.42));
     // never inside what is drawn: at least out to its bounding sphere along the view direction
     const d = dir.clone().normalize();
     const oc = c.clone().sub(sc);

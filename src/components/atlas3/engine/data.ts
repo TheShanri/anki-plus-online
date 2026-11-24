@@ -8,7 +8,7 @@ import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.j
 
 export const ATLAS3_BASE = "/atlas3";
 
-export type Tissue = "ctx" | "gm" | "wm" | "tract" | "csf" | "plx" | "cbx" | "bs";
+export type Tissue = "ctx" | "gm" | "wm" | "tract" | "csf" | "plx" | "cbx" | "bs" | "nrv";
 export interface Label3 {
   id: number;
   key: string;

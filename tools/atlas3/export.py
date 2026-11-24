@@ -95,7 +95,7 @@ OG = {
     "cau": ["CaH", "CaB", "CaT"],
     "hip": ["HiH", "HiB", "HiT"],
     "hyp": ["HTpo", "HTso", "HTtu"],
-    "cbx": ["CbV", "CbPV", "CbL"],
+    "cbx": ["CbVa", "CbVp", "Nod", "CbPVa", "CbPVp", "TonPV", "FlocPV", "CbLa", "CbLp", "TonL", "FlocL"],
 }
 og_of = {k: g for g, ks in OG.items() for k in ks}
 LVK = {"aLV", "bLV", "xLV", "pLV", "iLV"}
@@ -145,12 +145,14 @@ for s in course:
     ids = sorted(by_course.get(s["slug"], []))
     items.append(dict(slug=s["slug"], name=s["name"], region=s.get("region") or "", syn=list(dict.fromkeys((s.get("synonyms") or []) + (s.get("abbreviations") or []))), ids=ids, concept=bool(s.get("concept"))))
 covered = set(i for it in items for i in it["ids"])
-REGION_OF = {"ctx": "cerebral cortex", "gm": "deep grey matter", "wm": "white matter", "tract": "brainstem", "csf": "ventricular system", "plx": "ventricular system", "cbx": "cerebellum", "bs": "brainstem"}
+REGION_OF = {"ctx": "cerebral cortex", "gm": "deep grey matter", "wm": "white matter", "tract": "brainstem", "csf": "ventricular system", "plx": "ventricular system", "cbx": "cerebellum", "bs": "brainstem", "nrv": "cranial nerves"}
 extra = {}
 for r in labels:
     # a leaf whose course slugs do not single it out (or that has none) becomes its own atlas item, both sides together
     exact = any(set(by_course.get(c, [])) == set(key_ids[r["key"]]) for c in r["course"])
-    if exact:
+    # nor when a course structure of the same name holds it (the two halves of the tonsil, paravermal and lateral)
+    named = any(s["name"].lower() == r["name"].lower() and r["id"] in by_course.get(s["slug"], ()) for s in course)
+    if exact or named:
         continue
     e = extra.setdefault(r["key"], dict(slug="atlas:" + r["key"], name=r["name"], region=REGION_OF.get(r["tissue"], "brain"), syn=[], ids=[], concept=False, extra=True))
     e["ids"].append(r["id"])

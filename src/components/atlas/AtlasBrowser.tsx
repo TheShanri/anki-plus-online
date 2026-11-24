@@ -379,7 +379,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
       if (neighbors) p.set("nb", "1");
       if (tab === "model") camParams(p, cam3d.current);
       const qs = p.toString();
-      window.history.replaceState(null, "", qs ? `/atlas?${qs}` : "/atlas");
+      window.history.replaceState(null, "", qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
       if (tab === "model") rememberView({ s: p.get("s") ?? undefined, cut: p.get("cut") ?? undefined, cam: p.get("cam") ?? undefined });
     } catch {
       /* ignore */
@@ -579,7 +579,7 @@ export function AtlasBrowser({ initialS, initialN, initialView, initialAdd, init
           p.delete("cam");
           if (!p.get("view")) camParams(p, s);
           const qs = p.toString();
-          window.history.replaceState(window.history.state, "", qs ? `/atlas?${qs}` : "/atlas");
+          window.history.replaceState(window.history.state, "", qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
           rememberView({ s: p.get("s") ?? undefined, cut: p.get("cut") ?? undefined, cam: p.get("cam") ?? undefined });
         } catch {
           /* ignore */

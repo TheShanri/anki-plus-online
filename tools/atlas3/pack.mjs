@@ -12,7 +12,7 @@ const OUT = "public/atlas3";
 mkdirSync(OUT, { recursive: true });
 await MeshoptEncoder.ready;
 const io = new NodeIO().registerExtensions([EXTMeshoptCompression, KHRMeshQuantization]).registerDependencies({ "meshopt.encoder": MeshoptEncoder });
-for (const name of ["shell", "inner", "hull", "vessels"]) {
+for (const name of ["shell", "inner", "hull", "vessels", "shell_f", "inner_f"]) {
   const doc = await io.read(`${W}/${name}.raw.glb`);
   await doc.transform(
     reorder({ encoder: MeshoptEncoder, target: "size" }),

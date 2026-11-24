@@ -118,8 +118,8 @@ def main():
             m = closed_mesh(P, F, LAB, sid)
             if m is None:
                 continue
+            # (the mirror and the registration's own reflection cancel: the triangles keep facing outward)
             m.vertices = zmap.mni_to_frame(zmap.world_to_mni(np.asarray(m.vertices)))
-            m.invert()  # the mirror turned the triangles inside out
             if oid not in KEEP_OLD:
                 scene.add_geometry(m, node_name=f"{oid}.{side}", geom_name=f"{oid}.{side}")
                 names[f"{oid}.{side}"] = slug if isinstance(slug, str) else slug[0]

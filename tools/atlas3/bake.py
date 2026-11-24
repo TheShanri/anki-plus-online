@@ -186,3 +186,6 @@ def write_glb(path, sel_faces, with_b):
 ext = LAB[:, 1] == 0
 write_glb(os.path.join(W, "shell.raw.glb"), np.nonzero(ext)[0], False)
 write_glb(os.path.join(W, "inner.raw.glb"), np.nonzero(~ext)[0], True)
+# the per-vertex arrays, for the copy of the network in the Pathway tracer's frame (frameglb.py, Blood supply)
+np.savez(os.path.join(W, "bake_arrays.npz"), NA=NA.astype(np.float32), NB=NB.astype(np.float32), AO=AO, SULC=SULC, AREAS=AREAS, VLAB=vlab.astype(np.int32))
+log("saved bake_arrays.npz")

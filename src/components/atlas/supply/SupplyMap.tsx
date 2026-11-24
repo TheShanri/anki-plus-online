@@ -4,23 +4,31 @@ import { withCranialNumeral } from "@/lib/atlas/cranial";
 import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { ChevronLeft, ChevronRight, Focus, Lock, PanelRight, Pause, Play, RotateCcw } from "lucide-react";
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
-import type { AtlasOverlay } from "../AtlasViewer";
 import { VesselLayer, type SegStyle } from "./VesselLayer";
-import { TerritorySurface, type TerritoryCut, type TerritoryShow } from "./TerritorySurface";
 import { VeinLayer, preloadVeins } from "./VeinLayer";
 import { VeinSchematic } from "./VeinSchematic";
 import { Supplementary } from "@/components/supplementary/Supplementary";
 import { MarginLabels, createLabelBus, type LabelBus } from "./margin-labels";
 import { COMM_NOTE, COW_SLUGS, SEG_SHORT, SUPP_SLUGS, slugOf, type FlowFile, type FlowSegment } from "./vessel-data";
 import { trackAtlas } from "@/lib/atlas/progress";
-import { LazyAtlasViewer } from "./lazy";
+import type { SupplyView } from "@/components/atlas3/SupplyCanvas3";
+import { AtlasLoader } from "../ui/AtlasLoader";
 import { IconBtn } from "../ui/Toolbar";
 import { DeficitIcons } from "../pathways/deficits";
 import { SupplyQuiz } from "./SupplyQuiz";
 import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, BLOCK_LIST, OCCLUSION, OCCLUSION_NAME, TOUR, VEIN_NAME, VEIN_STEPS, veinStepOf, type Occlusion } from "./supply-guide";
-import { ARTERIES, ARTERY, ARTERY_KEYS, MESH_UNIT, SUPPLY, artShort, unitArteries, type SupplyUnit } from "./supply-data";
+import { ARTERIES, ARTERY, ARTERY_KEYS, SUPPLY, artShort, unitArteries, type SupplyUnit } from "./supply-data";
+
+/* The brain is the 3D atlas v3 (in this mode's own frame, where its vessels are): one see-through surface with the
+ * territories painted on it, the deep structures of the territories shown inside it (atlas3/SupplyCanvas3). */
+const SupplyCanvas3 = dynamic(() => import("@/components/atlas3/SupplyCanvas3"), {
+  ssr: false,
+  loading: () => <AtlasLoader label="Loading the 3D brain" progress={0.05} stages={[{ id: "code", label: "Starting the viewer", state: "active" }]} />,
+});
+type TerritoryShow = { artery: string; alpha: number };
 
 type Mode = "explore" | "tour" | "block" | "veins" | "bleeds";
 const MODES: { id: Mode; label: string; short: string }[] = [
@@ -84,12 +92,6 @@ const VIEW_HINT: Record<string, { view: ViewId; text: string }> = {
   aica: { view: "inferior", text: "The flocculus and the anterior inferior cerebellum: Inferior view." },
   pca: { view: "inferior", text: "Inferior temporal and occipital lobes show best from Inferior; the occipital pole from Posterior." },
 };
-/** Medial view: the left hemisphere (+x) is cut away at the midline; the territory occluder is clipped the same way. */
-const MEDIAL_CUT: TerritoryCut = { axis: "x", position: 0 };
-/** Cerebellar surface units: drawn solid so that only the surface facing the camera shows (nothing behind shows through). */
-const CEREBELLAR = new Set(["Superior cerebellar hemisphere", "Inferior cerebellar hemisphere", "Superior and posterior vermis", "Inferior vermis (pyramis, uvula, nodule)", "Cerebellar tonsil", "Flocculus"]);
-const CEREBELLAR_ARTERIES = new Set(["sca", "aica", "pica"]);
-const CEREBELLUM_NEUTRAL = "#a89b97";
 /** Drainage autoplay: milliseconds per step (calm; the draw-in and the camera glide take about two seconds). */
 const PLAY_MS = 9000;
 const SLUG_ARTERY = (() => {
@@ -115,36 +117,6 @@ const unitLabel = (name: string) => {
   const hit = NUCLEUS_CN.find(([re]) => re.test(name));
   return hit ? `${name} (${hit[1]})` : withCranialNumeral(name);
 };
-const CORTEX_END = SUPPLY.units.findIndex((u) => u.name === "Corpus callosum");
-/** Cortical units are drawn by the soft territory skin; the viewer overlays only draw the deep structures. */
-function territoryOverlays(arteries: Set<string>, variant: string, opts: { opacity: number; shell: number; color?: string; side?: "L" | "R"; keyPrefix: string }): AtlasOverlay[] {
-  const groups = new Map<string, string[]>();
-  const neutral: string[] = [];
-  const cerebellar = [...arteries].some((a) => CEREBELLAR_ARTERIES.has(a));
-  for (const [ui, u] of SUPPLY.units.entries()) {
-    if (ui < CORTEX_END || u.name === "Corpus callosum") continue; // the callosum is drawn by TerritorySurface (ACA, splenium PCA)
-    const a = unitArteries(u, variant)[0];
-    const cb = CEREBELLAR.has(u.name);
-    if (!arteries.has(a)) {
-      if (cb && cerebellar) neutral.push(...u.meshes);
-      continue;
-    }
-    // the callosum lies on the midline, seen through the translucent cerebellum from below it reads as a stray ACA patch: tint it like the other deep shells
-    const key = cb ? `${a}~c` : u.shell ? `${a}~s` : a;
-    groups.set(key, [...(groups.get(key) ?? []), ...u.meshes]);
-  }
-  const out = [...groups].map(([key, ids]) => ({
-    key: `${opts.keyPrefix}${key}`,
-    ids,
-    color: opts.color ?? ARTERY.get(key.split("~")[0])?.color ?? "#999999",
-    // cerebellar surfaces are solid (depth-correct); deep structures sit inside a translucent brain, so they need a stronger tint
-    opacity: key.endsWith("~c") ? 0.92 : key.endsWith("~s") ? Math.max(opts.shell, 0.4) : Math.max(opts.opacity, 0.7),
-    side: opts.side,
-  }));
-  if (neutral.length) out.push({ key: `${opts.keyPrefix}cb~n`, ids: neutral, color: CEREBELLUM_NEUTRAL, opacity: 0.92, side: opts.side });
-  return out;
-}
-
 function stamp() {
   const w = window as unknown as { __supplyT0?: number; __supplyFirst?: number };
   w.__supplyT0 = performance.now();
@@ -163,7 +135,7 @@ export function SupplyMap() {
   const [drawer, setDrawer] = useState(true);
   const [flow, setFlow] = useState<FlowFile | null>(null);
   const [frame, setFrame] = useState<{ n: number; dir: [number, number, number] | null; after?: number }>({ n: 1, dir: [0, -1, 0.02] });
-  const [request, setRequest] = useState<{ n: number; view?: ViewId } | null>(null);
+  const [view3, setView3] = useState<{ view: SupplyView; n: number }>({ view: "inferior", n: 0 });
   const [step, setStep] = useState(0);
   const [vstep, setVstep] = useState(0);
   const [blocked, setBlocked] = useState<string | null>(null); // segment name, e.g. "ica.l"
@@ -277,23 +249,6 @@ export function SupplyMap() {
   const circle = (mode === "explore" && cow) || mode === "tour" || mode === "block";
 
   // ---- territories as overlays
-  const overlays = useMemo<AtlasOverlay[]>(() => {
-    if (mode === "explore" || mode === "tour") {
-      const show = new Set<string>();
-      if (mode === "explore" && territories && !cow) sel.forEach((a) => terrOf(a).forEach((t) => show.add(t)));
-      if (mode === "tour") (TOUR[step].territory ?? []).forEach((a) => show.add(a));
-      const out = territoryOverlays(show, variant, { opacity: 0.42, shell: 0.26, keyPrefix: "t:" });
-      if (hover && !show.has(hover) && hover !== "ica") out.push(...territoryOverlays(new Set([hover]), variant, { opacity: 0.3, shell: 0.18, keyPrefix: "h:" }));
-      return out;
-    }
-    if (mode === "block" && blockInfo) {
-      const side = blockInfo.seg.side === "l" ? "L" : blockInfo.seg.side === "r" ? "R" : undefined;
-      return territoryOverlays(new Set(blockInfo.occ.territory), variant, { opacity: 0.4, shell: 0.25, color: BLOCK_RED, side, keyPrefix: "b:" });
-    }
-    // Drainage draws its own vessels (VeinLayer): no viewer overlays, so a step never creates materials in the viewer
-    return [];
-  }, [mode, sel, territories, cow, variant, step, hover, blockInfo]);
-
   // cortical territories (soft skin): which arteries, how strongly, and in which colours
   const { terr, terrColors, terrSide } = useMemo(() => {
     const show: TerritoryShow[] = [];
@@ -315,17 +270,7 @@ export function SupplyMap() {
   // a matte brain with visible gyri and a crisp edge (about 0.55), so the territory skin and the vessels read on it; the sinuses sit outside it
   const brainOpacity = mode === "veins" ? 0.32 : 0.55;
 
-  const tipText = useCallback(
-    (id: string, name: string) => {
-      const u = MESH_UNIT.get(id);
-      return u ? `${name}: ${artShort(unitArteries(u, variant))}` : name;
-    },
-    [variant],
-  );
-  const onPick = useCallback((id: string) => {
-    const u = MESH_UNIT.get(id);
-    if (u) setSelected({ kind: "unit", unit: u });
-  }, []);
+  const onPickUnit = useCallback((u: SupplyUnit) => setSelected({ kind: "unit", unit: u }), []);
 
   const track = useCallback((slug: string) => trackAtlas({ type: "structure_viewed", slug, via: "3d" }), []);
   const onPickVessel = useCallback(
@@ -426,7 +371,7 @@ export function SupplyMap() {
   }, []);
   const askView = useCallback((view: ViewId) => {
     setMedial(view === "midsagittal");
-    setRequest((r) => ({ n: (r?.n ?? 0) + 1, view: view === "midsagittal" ? "left" : view }));
+    setView3((v) => ({ view, n: v.n + 1 }));
     // the viewer eases to the named view with its own (looser) fit; then the brain is fitted like the first frame
     setFrame((f) => ({ n: f.n + 1, dir: VIEW_DIR[view], after: 540 }));
   }, []);
@@ -521,22 +466,16 @@ export function SupplyMap() {
 
       <div className="relative flex min-h-0 flex-1">
         <div className="relative min-h-0 min-w-0 flex-1">
-          <LazyAtlasViewer
-            structureIds={[]}
-            mode="context"
-            label=""
-            height="100%"
-            className="!rounded-none !border-0"
-            overlays={overlays}
-            hideLabels
-            pickMode="mesh"
-            tipText={tipText}
-            onPickMesh={onPick}
-            view="inferior"
-            request={request}
-            cut={medial ? MEDIAL_CUT : undefined}
-            toolbarExtra={<IconBtn label="Frame the shown vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />}
-            brainOpacity={brainOpacity}
+          <SupplyCanvas3
+            show={terr}
+            colors={terrColors}
+            side={terrSide}
+            variant={variant}
+            glass={brainOpacity}
+            medial={medial}
+            view={view3.view}
+            viewNonce={view3.n}
+            onPickUnit={onPickUnit}
             overlay={
               <div className="pointer-events-none absolute inset-0">
                 <MarginLabels bus={bus} />
@@ -572,7 +511,10 @@ export function SupplyMap() {
                     )}
                   </div>
                 )}
-                <div className="pointer-events-auto absolute bottom-16 left-2 right-2 flex flex-wrap gap-1" role="group" aria-label="Camera view">
+                <div className="pointer-events-auto absolute bottom-3 right-3">
+                  <IconBtn label="Frame the shown vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />
+                </div>
+                <div className="pointer-events-auto absolute bottom-3 left-2 right-16 flex flex-wrap gap-1" role="group" aria-label="Camera view">
                   {VIEWS.map((v) => (
                     <button key={v.id} type="button" className="btn !px-1.5 !py-1 text-xs sm:!px-2" onClick={() => askView(v.id)}>
                       {v.label}
@@ -582,7 +524,6 @@ export function SupplyMap() {
               </div>
             }
           >
-            <TerritorySurface show={terr} colors={terrColors} variant={variant} side={terrSide} cut={medial ? MEDIAL_CUT : undefined} />
             <VeinLayer on={mode === "veins"} step={vstep} focus={mode === "veins" ? veinFocus : null} animate={animate} bus={veinBus} onHover={setVeinFocus} onPick={pickVein} topInset={caption ? 104 : 18} />
             <VesselLayer
               flow={flow}
@@ -601,7 +542,7 @@ export function SupplyMap() {
               topInset={caption ? 104 : 18}
               camera={mode !== "veins"}
             />
-          </LazyAtlasViewer>
+          </SupplyCanvas3>
         </div>
 
         <aside

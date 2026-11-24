@@ -76,8 +76,11 @@ let loader: GLTFLoader | null = null;
 const geos = new Map<string, Promise<{ geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 }>>();
 export type Prog = { loaded: number; total: number };
 
+/** The copies in the Pathway tracer's frame (Blood supply) and where the files live. */
+export type PatchName = "shell" | "inner" | "hull" | "shell_f" | "inner_f" | "hull_f";
+const PATCH_URL: Partial<Record<PatchName, string>> = { hull_f: "/pathways/v3/brain3-hull.glb" };
 /** The patch geometry of one file with the node transform that de-quantises it. Cached for the page's lifetime. */
-export function loadPatches(name: "shell" | "inner" | "hull", onProgress?: (p: Prog) => void) {
+export function loadPatches(name: PatchName, onProgress?: (p: Prog) => void) {
   let p = geos.get(name);
   if (!p) {
     if (!loader) {
@@ -85,7 +88,7 @@ export function loadPatches(name: "shell" | "inner" | "hull", onProgress?: (p: P
       loader.setMeshoptDecoder(MeshoptDecoder);
     }
     p = loader
-      .loadAsync(`${ATLAS3_BASE}/${name}.glb`, (e) => onProgress?.({ loaded: e.loaded, total: e.lengthComputable ? e.total : e.loaded }))
+      .loadAsync(PATCH_URL[name] ?? `${ATLAS3_BASE}/${name}.glb`, (e) => onProgress?.({ loaded: e.loaded, total: e.lengthComputable ? e.total : e.loaded }))
       .then((gltf) => {
         let mesh: THREE.Mesh | null = null;
         gltf.scene.updateMatrixWorld(true);

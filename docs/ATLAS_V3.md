@@ -62,14 +62,17 @@ Inside `labels.py`:
   association fibres; MNI space, no warp) or the Pathway tracer's own course of the tract warped by `zmap.py`
   (tectospinal, vestibulospinal, reticulospinal, corticobulbar, trigeminothalamic, medial forebrain bundle, striae,
   corticospinal tracts). `export.py` flags those catalog items (`fibre`).
+- `vessels.py` (before `export.py`): the main arteries and dural sinuses from Z-Anatomy, warped into MNI, as
+  `public/atlas3/vessels.glb` + `vessels.json` (catalog items with `vessels`).
+- `frameglb.py` (after `bake.py`, before `export.py`/`pack.mjs`): `shell_f` / `inner_f`, the network in the Pathway
+  tracer's frame with the arterial territories, for Blood supply (see below). `zframe.py` + `pack_one.mjs`: the hull there.
 
 The viewer at `/atlas` (`src/components/atlas3/Explore3.tsx`) shows the same selection as 3D, MRI slices (the atlas2
 viewer) or the course's brainstem sections; structures beyond the syllabus open behind the "just curious" gate; each
 derived structure says where its shape comes from. `present.ts` decides how one structure is shown (best view, deep
 view, see-through brainstem) for Explore and `StructureView3` (Name that structure); the atlas peek over study cards
 embeds Explore; My memory map (`MemoryMap3D`) and Slice match (`CutView3`, exact: the atlas is in the MRI's own space)
-use the new canvas. The previous browser lives on at `/atlas/classic`; Blood supply still uses the old engine (its
-vessels and territories are not in v3 yet).
+use the new canvas. The previous browser lives on at `/atlas/classic`.
 
 The Pathway tracer and the Lesion lab live in the Z-Anatomy frame of the old atlas (the whole body). They now draw the
 v3 brain there: `zmap.mni_to_frame` carries MNI into that frame (the v2 registration maps the model mirrored, its left
@@ -82,6 +85,19 @@ inside their structures, and `public/pathways/v3/hosts3.glb` holds the v3 struct
 caudal medulla, where the warped fibres would leave the v3 shape, the old meshes carried by the same warp). The host
 keys stay `a:<old id>`; `geometry.ts` takes those ids from `hosts3.glb`. It prints, per host, the share of fibre
 points inside (all above 78 % except where a long fibre leaves a small nucleus it starts in).
+
+Blood supply draws v3 in the same frame (its arteries, veins and flow lines are Z-Anatomy's). `frameglb.py` (after
+`bake.py`, before `export.py`) writes `shell_f` and `inner_f`: the network through `mni_to_frame` (the total map keeps
+orientation, so triangles keep their winding), and on every outside vertex `_TERR`, the index of the artery whose
+territory it lies in. The territories come from the course's supply map (`src/data/supply-map.json`): each label takes
+the arteries of the most specific unit holding it, and a surface two arteries share is split by where it lies and faces
+(ACA/MCA: toward the midline or the vertex; PCA/MCA: facing down or toward the midline, or the occipital pole; ACA/PCA:
+anterior to y = -45; SCA/PICA: facing up), then smoothed by a 4 mm majority vote. The canvas draws it as glass
+(`glass`, `territories`, `territorySide`): a depth pre-pass (with a polygon offset), then the outside surface only
+(`TERR`), transparent, each territory's colour mixed in at its strength; through a cut the far wall is drawn flat as the
+cut face. Inside it the deep structures of the territories shown are drawn solid in their artery's colour
+(`atlas3/SupplyCanvas3.tsx`; `atlas3/supplyUnits.ts` maps supply units to labels, shared with the supply quiz, which
+shows each unit by itself with `StructureView3`).
 
 Before the left/right split only midline structures are despeckled (the smaller side of a small pair is otherwise taken for
 a speck).

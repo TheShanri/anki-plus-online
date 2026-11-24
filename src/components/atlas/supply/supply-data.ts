@@ -28,7 +28,6 @@ export const TERRITORY_ARTERIES = ARTERIES.filter((a) => a.id !== "ica");
 /** Number/letter keys in legend order. */
 export const ARTERY_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "q", "w", "e", "r"];
 
-export const MESH_UNIT = new Map<string, SupplyUnit>(SUPPLY.units.flatMap((u) => u.meshes.map((m) => [m, u] as const)));
 
 /** The arteries of a unit under the chosen reading of the open decision (first = colour). */
 export function unitArteries(u: SupplyUnit, variant: string): string[] {

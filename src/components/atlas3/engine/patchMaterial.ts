@@ -22,6 +22,11 @@ attribute float _areas;
 varying float vAO;
 flat varying int vSulc;
 flat varying int vAreas;
+#ifdef TERR
+attribute float _terr;
+varying float vTerr;
+varying float vWX;
+#endif
 #else
 attribute vec3 _normalb;
 #endif
@@ -37,6 +42,10 @@ void main() {
   vAO = _ao;
   vSulc = int(_sulc + 0.5);
   vAreas = int(_areas + 0.5);
+#ifdef TERR
+  vTerr = _terr;
+  vWX = (modelMatrix * vec4(position, 1.0)).x;
+#endif
 #else
   vNB = normalize(normalMatrix * _normalb);
 #endif
@@ -62,6 +71,14 @@ uniform int uSulc;
 uniform int uAreaMask;
 uniform vec3 uRegionTint;
 uniform float uOnLight;
+#ifdef TERR
+uniform sampler2D uTerr;
+uniform float uGlass;
+uniform float uTerrSide;
+uniform float uGlassCap;
+varying float vTerr;
+varying float vWX;
+#endif
 flat varying ivec2 vLab;
 varying vec3 vNA;
 varying vec3 vNB;
@@ -81,6 +98,16 @@ void main() {
   bool front = gl_FrontFacing;
   int here = front ? vLab.y : vLab.x;
   int there = front ? vLab.x : vLab.y;
+#ifdef TERR
+  // the glass brain (Blood supply): the outside surface whatever is hidden inside it. Through a cut, the inside of the
+  // outside surface (the far wall) is drawn flat as the cut face, so the cut brain reads solid behind the deep structures
+  // (which stay in front of it); it is not pickable.
+  bool cap = uGlassCap > 0.5 && here > 0 && there == 0;
+  if (!(here == 0 && there > 0) && !cap) discard;
+  if (cap && uPick == 1) discard;
+  int lab = cap ? here : there;
+  here = 0;
+#else
 #ifdef GHOST
   // the see-through pass: a face is drawn, from the viewer's side, when the region beyond it is ghosted and the viewer's
   // region is not of the same ghost class. So the borders between ghosted divisions of one kind vanish (one veil for the
@@ -105,6 +132,7 @@ void main() {
   if (vis(here)) { lab = here; cap = true; }
   else if (vis(there)) { lab = there; cap = false; }
   else discard;
+#endif
   if (uPick == 1) {
     outColor = vec4(float(lab & 255) / 255.0, float(lab >> 8) / 255.0, cap ? 1.0 : 0.0, 1.0);
     return;
@@ -112,6 +140,9 @@ void main() {
   vec3 col;
   if (cap) {
     col = st(lab, 1).rgb;
+#ifdef TERR
+    col = vec3(0.47, 0.45, 0.43);
+#endif
     // a whisper of depth so stacked cut faces never look like a flat sticker
     col *= uCapShade;
   } else {
@@ -136,6 +167,17 @@ void main() {
 #ifdef SHELL
   // a selected sulcus (its walls) or functional area, drawn over the outside surface only
   if (!cap && ((uSulc > 0 && vSulc == uSulc) || (uSulc == -1 && vSulc > 0) || (uAreaMask != 0 && (vAreas & uAreaMask) != 0))) col = mix(col, uRegionTint, 0.62);
+#endif
+#ifdef TERR
+  // the arterial territory of this point of the outside surface: its colour and strength from a 16 x 1 texture (row: the
+  // artery index, alpha: how strongly it shows now). The index is interpolated across a triangle: the nearest one wins.
+  // (one side only when uTerrSide is +1, the patient's left = +x, or -1)
+  if (!cap && (uTerrSide == 0.0 || sign(vWX) == uTerrSide)) {
+    vec4 tc = texelFetch(uTerr, ivec2(int(vTerr + 0.5), 0), 0);
+    col = mix(col, tc.rgb, tc.a);
+  }
+  outColor = vec4(col, uGlass);
+  return;
 #endif
   outColor = vec4(col, 1.0);
 }
@@ -164,6 +206,12 @@ export type PatchUniforms = {
   uRegionTint: { value: THREE.Color };
   /** 1 on a light page: the see-through veils are drawn darker than the page */
   uOnLight: { value: number };
+  /** Blood supply: the territory colours (16 x 1, rgb + strength) and the see-through brain's opacity */
+  uTerr: { value: THREE.DataTexture | null };
+  uGlass: { value: number };
+  uTerrSide: { value: number };
+  /** 1 when the glass brain is cut: its far wall is drawn as the cut face */
+  uGlassCap: { value: number };
 };
 
 export function makeUniforms(state: THREE.DataTexture): PatchUniforms {
@@ -179,9 +227,24 @@ export function makeUniforms(state: THREE.DataTexture): PatchUniforms {
     uAreaMask: { value: 0 },
     uRegionTint: { value: new THREE.Color("#ffb347") },
     uOnLight: { value: 0 },
+    uTerr: { value: null },
+    uGlass: { value: 1 },
+    uTerrSide: { value: 0 },
+    uGlassCap: { value: 0 },
   };
 }
 
+/** The outside surface with territories, drawn as one see-through layer (Blood supply): after a depth-only pass of the same
+ * surface, only its nearest fragments pass (depthFunc LessEqual against that pass), blended over what is inside. */
+export function makeGlassMaterial(uniforms: PatchUniforms, pick = false): THREE.ShaderMaterial {
+  const m = makePatchMaterial(uniforms, true);
+  m.defines = { ...m.defines, TERR: 1 };
+  if (pick) return m; // the pick pass: the same surface, opaque, every region pickable through the glass
+  m.transparent = true;
+  m.depthWrite = false;
+  m.depthFunc = THREE.LessEqualDepth;
+  return m;
+}
 export function makePatchMaterial(uniforms: PatchUniforms, shell: boolean, ghost = false): THREE.ShaderMaterial {
   const defines: Record<string, number> = {};
   if (shell) defines.SHELL = 1;

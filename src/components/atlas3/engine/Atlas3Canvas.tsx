@@ -12,7 +12,7 @@ import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
 import { LabelState, loadIndex3, loadPatches, loadVessels, type Index3, type Label3, type Prog } from "./data";
-import { makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
+import { makeGlassMaterial, makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
 import { makeGhostMaterial, setGhostMode } from "./ghostMaterial";
 import { readCssColor } from "@/lib/atlas/theme";
 import { capColor, regionColor, surfaceColor, HOVER, SELECT } from "./palette";
@@ -62,6 +62,16 @@ export interface Atlas3Props {
   fibres?: number[][] | null;
   /** the arteries and sinuses, these keys lit (null: no vessels) */
   vessels?: string[] | null;
+  /** "tracer": the copy of the atlas in the Pathway tracer's frame (Blood supply draws its own vessels there) */
+  frame?: "atlas" | "tracer";
+  /** the outside surface as one see-through layer of this opacity, with the arterial territories (tracer frame only) */
+  glass?: number | null;
+  /** the territories: per artery index (1..), a colour and how strongly it shows (0 none) */
+  territories?: { color: string; alpha: number }[] | null;
+  /** the territories on one side only (the patient's side) */
+  territorySide?: "L" | "R";
+  /** extra three.js content drawn in the same scene (Blood supply's vessels and veins) */
+  children?: React.ReactNode;
   pins?: Pin3[];
   guides?: Guide3[];
   /** the standard views' distance, as a share of the one that frames the whole brain (below 1: closer) */
@@ -101,6 +111,25 @@ function setLightUniforms(us: PatchUniforms[], ghost: THREE.ShaderMaterial, ligh
   for (const u of us) u.uOnLight.value = light ? 1 : 0;
   setGhostMode(ghost, light);
 }
+function setTerritories(u: PatchUniforms, pu: PatchUniforms, tex: THREE.DataTexture, terr: { color: string; alpha: number }[] | null, glass: number, side: number, cut: boolean) {
+  const d = tex.image.data as Uint8Array;
+  d.fill(0);
+  (terr ?? []).forEach((t, i) => {
+    if (i >= 16 || !t) return;
+    const c = new THREE.Color(t.color);
+    d[i * 4] = Math.round(c.r * 255);
+    d[i * 4 + 1] = Math.round(c.g * 255);
+    d[i * 4 + 2] = Math.round(c.b * 255);
+    d[i * 4 + 3] = Math.round(Math.max(0, Math.min(1, t.alpha)) * 255);
+  });
+  tex.needsUpdate = true;
+  for (const x of [u, pu]) {
+    x.uTerr.value = tex;
+    x.uGlass.value = glass;
+    x.uTerrSide.value = side;
+    x.uGlassCap.value = cut ? 1 : 0;
+  }
+}
 function setRegionUniforms(u: PatchUniforms, sulcus: number, areaMask: number) {
   u.uSulc.value = sulcus;
   u.uAreaMask.value = areaMask;
@@ -131,43 +160,48 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   const byId = useMemo(() => new Map(index.labels.map((l) => [l.id, l])), [index]);
   const hideSides = useMemo(() => props.hideSides ?? [], [props.hideSides]);
   const hideKey = hideSides.join(",");
-  const needInner = !!props.cut || hideSides.length > 0 || (props.hiddenIds?.length ?? 0) > 0;
+  const needInner = !!props.cut || hideSides.length > 0 || (props.hiddenIds?.length ?? 0) > 0 || props.glass != null;
+  const fr = props.frame === "tracer" ? "_f" : "";
   const ghosting = (props.ghostIds?.length ?? 0) > 0;
   const onProgress = props.onProgress;
 
   useEffect(() => {
     let alive = true;
-    loadPatches("shell", (p) => onProgress?.(p, "shell")).then((g) => alive && setShell(g));
+    loadPatches(`shell${fr}` as "shell", (p) => onProgress?.(p, "shell")).then((g) => alive && setShell(g));
     return () => {
       alive = false;
     };
-  }, [onProgress]);
+  }, [onProgress, fr]);
   useEffect(() => {
     if (!props.ghost || hull) return;
     let alive = true;
-    loadPatches("hull").then((g) => alive && setHull(g));
+    loadPatches(`hull${fr}` as "hull").then((g) => alive && setHull(g));
     return () => {
       alive = false;
     };
-  }, [props.ghost, hull]);
+  }, [props.ghost, hull, fr]);
   useEffect(() => {
     if (!needInner || inner) return;
     let alive = true;
-    loadPatches("inner", (p) => onProgress?.(p, "inner")).then((g) => alive && setInner(g));
+    loadPatches(`inner${fr}` as "inner", (p) => onProgress?.(p, "inner")).then((g) => alive && setInner(g));
     return () => {
       alive = false;
     };
-  }, [needInner, inner, onProgress]);
+  }, [needInner, inner, onProgress, fr]);
 
   const mats = useMemo(() => {
     const ms = makePatchMaterial(uniforms, true), mi = makePatchMaterial(uniforms, false);
     const ps = makePatchMaterial(pickUniforms, true), pi = makePatchMaterial(pickUniforms, false);
     const gs = makePatchMaterial(uniforms, true, true), gi = makePatchMaterial(uniforms, false, true);
-    for (const m of [ms, mi, ps, pi, gs, gi]) m.clippingPlanes = planes;
-    return { ms, mi, ps, pi, gs, gi, ghost: makeGhostMaterial(planes) };
+    const glass = makeGlassMaterial(uniforms), pglass = makeGlassMaterial(pickUniforms, true);
+    // the glass's depth pass sits a hair behind the surface (polygon offset), so the glass itself always passes its test
+    // while every layer behind the nearest one fails it
+    const depth = new THREE.MeshBasicMaterial({ colorWrite: false, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 2 });
+    for (const m of [ms, mi, ps, pi, gs, gi, glass, pglass, depth]) m.clippingPlanes = planes;
+    return { ms, mi, ps, pi, gs, gi, glass, pglass, depth, ghost: makeGhostMaterial(planes) };
   }, [uniforms, pickUniforms, planes]);
   const meshes = useMemo(() => {
-    const out: { shell?: THREE.Mesh; inner?: THREE.Mesh; pShell?: THREE.Mesh; pInner?: THREE.Mesh; ghost?: THREE.Mesh; gShell?: THREE.Mesh; gInner?: THREE.Mesh } = {};
+    const out: { shell?: THREE.Mesh; inner?: THREE.Mesh; pShell?: THREE.Mesh; pInner?: THREE.Mesh; ghost?: THREE.Mesh; gShell?: THREE.Mesh; gInner?: THREE.Mesh; glass?: THREE.Mesh; glassDepth?: THREE.Mesh; pGlass?: THREE.Mesh } = {};
     const mk = (g: Geo, m: THREE.Material) => {
       const me = new THREE.Mesh(g.geometry, m);
       me.matrixAutoUpdate = false;
@@ -181,6 +215,12 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       out.pShell = mk(shell, mats.ps);
       out.gShell = mk(shell, mats.gs);
       out.gShell.renderOrder = 4;
+      // the glass brain: the surface's depth after everything opaque inside it, then its colour over it, nearest layer only
+      out.glassDepth = mk(shell, mats.depth);
+      out.glassDepth.renderOrder = 10;
+      out.glass = mk(shell, mats.glass);
+      out.glass.renderOrder = 11;
+      out.pGlass = mk(shell, mats.pglass);
     }
     if (hull) {
       out.ghost = mk(hull, mats.ghost);
@@ -195,12 +235,13 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     return out;
   }, [shell, inner, hull, mats]);
   const pickScene = useMemo(() => new THREE.Scene(), []);
+  const glassOn = props.glass != null;
   useEffect(() => {
     pickScene.clear();
-    if (meshes.pShell) pickScene.add(meshes.pShell);
+    if (glassOn ? meshes.pGlass : meshes.pShell) pickScene.add((glassOn ? meshes.pGlass : meshes.pShell)!);
     if (meshes.pInner && needInner) pickScene.add(meshes.pInner);
     pickScene.updateMatrixWorld(true);
-  }, [meshes, pickScene, needInner]);
+  }, [meshes, pickScene, needInner, glassOn]);
 
   // ---------------- label state: colours, visibility, tints
   const selected = useMemo(() => new Set(props.selected ?? []), [props.selected]);
@@ -245,6 +286,18 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "data-mode", "class"] });
     return () => mo.disconnect();
   }, [uniforms, mats, invalidate]);
+  // ---------------- the territories (Blood supply): a 16 x 1 colour table, the glass's opacity
+  const terrTex = useMemo(() => {
+    const t = new THREE.DataTexture(new Uint8Array(16 * 4), 16, 1, THREE.RGBAFormat, THREE.UnsignedByteType);
+    t.minFilter = THREE.NearestFilter;
+    t.magFilter = THREE.NearestFilter;
+    t.colorSpace = THREE.NoColorSpace;
+    return t;
+  }, []);
+  useEffect(() => {
+    setTerritories(uniforms, pickUniforms, terrTex, props.territories ?? null, props.glass ?? 1, props.territorySide === "L" ? 1 : props.territorySide === "R" ? -1 : 0, !!props.cut);
+    invalidate();
+  }, [uniforms, pickUniforms, terrTex, props.territories, props.glass, props.territorySide, props.cut, invalidate]);
   useEffect(() => {
     setRegionUniforms(uniforms, props.sulcus ?? 0, props.areaMask ?? 0);
     invalidate();
@@ -674,13 +727,20 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
 
   return (
     <>
-      {meshes.shell && <primitive object={meshes.shell} />}
+      {meshes.shell && props.glass == null && <primitive object={meshes.shell} />}
+      {meshes.glass && meshes.glassDepth && props.glass != null && (
+        <>
+          <primitive object={meshes.glassDepth} />
+          <primitive object={meshes.glass} />
+        </>
+      )}
       {meshes.inner && needInner && <primitive object={meshes.inner} />}
       {meshes.ghost && props.ghost && <primitive object={meshes.ghost} />}
       {meshes.gShell && ghosting && <primitive object={meshes.gShell} />}
       {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
       <primitive object={lines} />
       <primitive object={fibreObj.grp} />
+      {props.children}
       {wantVessels && (
         <>
           <ambientLight intensity={0.55} />

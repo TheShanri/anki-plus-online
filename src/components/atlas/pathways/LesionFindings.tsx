@@ -81,7 +81,7 @@ export function LesionFindings({
       {mode === "lab" && (
         <div>
           <p className="eyebrow">Lesion</p>
-          <h2 className="font-display text-xl leading-tight">{siteLabel(showing.site, showing.side, showing.cord)}</h2>
+          <h2 className="font-display text-xl leading-tight">{siteLabel(showing.site, showing.side, showing.cord, showing.seg)}</h2>
         </div>
       )}
       {mode === "case" && <p className="label">Explanation</p>}
@@ -97,7 +97,7 @@ export function LesionFindings({
               </span>
             </p>
           ))}
-          {showing.cord && <p className="text-xs text-text-dim">Cord level {CORD[showing.cord].label}: deficits are below it.</p>}
+          {showing.cord && <p className="text-xs text-text-dim">Cord level {showing.seg ?? CORD[showing.cord].label}: the long-tract deficits start below it; the damaged segment itself loses its own band.</p>}
         </div>
       </div>
 

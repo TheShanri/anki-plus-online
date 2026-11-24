@@ -83,6 +83,43 @@ export const PATHWAY_MAP = MAP.pathways;
 export const SITES = MAP.sites;
 export const CASES = MAP.cases;
 export const CORD = MAP.cord;
+
+/* Exact spinal segments (owner 2026-11-24: "finer lesion placement"): the deficits follow the region a segment lies in
+ * (cervical, thoracic, lumbar; sacral reads as lumbar), and the texts name the segment ("below T10"). Positions along the
+ * cord (t: 0 at the conus, 1 at C1) are interpolated through the map's own C4, T8 and L2 and the cord's ends. */
+export const CORD_SEGS: string[] = [
+  ...Array.from({ length: 8 }, (_, i) => `C${i + 1}`),
+  ...Array.from({ length: 12 }, (_, i) => `T${i + 1}`),
+  ...Array.from({ length: 5 }, (_, i) => `L${i + 1}`),
+  ...Array.from({ length: 5 }, (_, i) => `S${i + 1}`),
+];
+export function segRegion(seg: string): CordLevel {
+  return seg[0] === "C" ? "C" : seg[0] === "T" ? "T" : "L";
+}
+const SEG_ANCHORS: [string, number][] = [
+  ["C1", 0.985],
+  [MAP.cord.C.label, MAP.cord.C.t],
+  ["T1", 0.78],
+  [MAP.cord.T.label, MAP.cord.T.t],
+  ["L1", 0.26],
+  [MAP.cord.L.label, MAP.cord.L.t],
+  ["S1", 0.07],
+  ["S5", 0.01],
+];
+export function segT(seg: string): number {
+  const at = (s: string) => CORD_SEGS.indexOf(s);
+  const i = at(seg);
+  for (let k = 0; k < SEG_ANCHORS.length - 1; k++) {
+    const [a, ta] = SEG_ANCHORS[k], [b, tb] = SEG_ANCHORS[k + 1];
+    if (i >= at(a) && i <= at(b)) return ta + ((tb - ta) * (i - at(a))) / Math.max(1, at(b) - at(a));
+  }
+  return MAP.cord[segRegion(seg)].t;
+}
+/** The segments a cord site can be placed at (its regions; sacral with lumbar). */
+export function siteSegs(site: { cord?: CordLevel[] }): string[] {
+  const r = site.cord ?? [];
+  return CORD_SEGS.filter((s) => r.includes(segRegion(s)));
+}
 export const SITE_BY_ID = new Map(SITES.map((s) => [s.id, s]));
 
 /** The course's pathways.json (read on the server, passed down as props). */
@@ -194,6 +231,8 @@ export interface LesionResult {
   site: Site;
   side: Side | "both";
   cord?: CordLevel;
+  /** the exact segment, when the student placed one (C1 ... S5) */
+  seg?: string;
   hits: Hit[];
   effects: { side: "same" | "opp" | "both"; text: string; sides: Side[] }[];
   /** Pathways whose course the lesion misses, listed so "what is spared" is explicit. */
@@ -314,10 +353,22 @@ export function generatedFindings(r: LesionResult): string[] {
   return lines.slice(0, 6);
 }
 
+/** A result placed at an exact segment: its texts name the segment ("below T10", "the T10 dermatome"). */
+export function atSegment(r: LesionResult | null, seg?: string): LesionResult | null {
+  if (!r || !seg || !r.cord) return r;
+  const name = (t: string) =>
+    t
+      .replace(/one or two segments below the lesion/g, `one or two segments below ${seg}`)
+      .replace(/below the lesion/g, `below ${seg}`)
+      .replace(/the dermatome \/ myotome of the damaged segments only/g, `the ${seg} dermatome / myotome only`)
+      .replace(/the segmental level/g, `the ${seg} segment`);
+  return { ...r, seg, hits: r.hits.map((h) => ({ ...h, region: name(h.region) })), effects: r.effects.map((e) => ({ ...e, text: name(e.text) })) };
+}
+
 /* ---------- display helpers ---------- */
 export const CORD_LABEL = (c?: CordLevel) => (c ? CORD[c].label : "");
-export function siteLabel(site: Site, side: Side | "both", cord?: CordLevel): string {
+export function siteLabel(site: Site, side: Side | "both", cord?: CordLevel, seg?: string): string {
   const lower = site.name.charAt(0).toLowerCase() + site.name.slice(1);
-  const c = cord ? ` at ${CORD[cord].label}` : "";
+  const c = seg ? ` at ${seg}` : cord ? ` at ${CORD[cord].label}` : "";
   return site.sided && side !== "both" ? `${sideName(side)} ${lower}${c}` : `${site.name}${c}`;
 }

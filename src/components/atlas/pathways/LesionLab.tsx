@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Crosshair, Focus, Maximize2, Minimize2, Stethoscope } from "lucide-react";
+import { ChevronLeft, ChevronRight, Crosshair, EyeOff, Focus, Layers, Maximize2, Minimize2, Orbit, Stethoscope, Tag } from "lucide-react";
+import { Divider, Group, IconBtn, MenuItem, Popover } from "@/components/atlas/ui/Toolbar";
+import { SeeThroughIcon } from "@/components/atlas/ui/icons";
 import type * as THREE from "three";
 import { loadAtlasIndex } from "@/lib/atlas";
 import {
@@ -14,6 +16,10 @@ import {
   groupHits,
   physSide,
   predictLesion,
+  atSegment,
+  segRegion,
+  segT,
+  siteSegs,
   siteLabel,
   type CaseDef,
   type ClinicalCard,
@@ -27,8 +33,9 @@ import {
 import { PathwayViewer } from "./PathwayViewer";
 import { VIEWS, type SceneColors, type SceneLayer, type SceneMark, type SceneTube, type View } from "./PathwayScene";
 import { useSceneColors } from "./sceneTheme";
-import { BodyIcon, IconButton, Segmented } from "./controls";
+import { BodyIcon, Segmented } from "./controls";
 import { LesionFindings } from "./LesionFindings";
+import { LesionSection } from "./LesionSection";
 import { useFullscreen } from "./useFullscreen";
 import { trackAtlas } from "@/lib/atlas/progress";
 import { AtlasLoader, stagesFrom } from "@/components/atlas/ui/AtlasLoader";
@@ -72,10 +79,17 @@ const CORD_Y0 = 1.055;
 const CORD_Y1 = 1.545;
 const GROUP_ORDER = ["Spinal cord", "Medulla", "Pons", "Midbrain", "Forebrain", "Cortex", "Visual pathway", "Cerebellum", "Cranial nerves", "Basal ganglia", "Limbic"];
 
-function sitePos(site: Site, cord?: CordLevel): WP {
+function sitePos(site: Site, cord?: CordLevel, seg?: string): WP {
   const p = [...site.pos] as WP;
-  if (site.cord && cord) p[2] = CORD[cord].t;
+  if (site.cord && seg && siteSegs(site).includes(seg)) p[2] = segT(seg);
+  else if (site.cord && cord) p[2] = CORD[cord].t;
   return p;
+}
+/** The segment nearest a point clicked on the cord (its height), among the site's segments. */
+function nearestSeg(site: Site, y: number): string {
+  const t = Math.min(1, Math.max(0, (y - CORD_Y0) / (CORD_Y1 - CORD_Y0)));
+  const segs = siteSegs(site);
+  return segs.reduce((best, x) => (Math.abs(segT(x) - t) < Math.abs(segT(best) - t) ? x : best), segs[0]);
 }
 
 function nearestCord(site: Site, y: number): CordLevel {
@@ -131,27 +145,49 @@ function shuffle<T>(a: T[], seed: number): T[] {
   return r;
 }
 
+/** What is drawn around the lesion: the structures at its level clear (named) and the rest all but gone; everything
+ * faint (the old look); or nothing but the lesion and the cut pathways. */
+export type LabContext = "level" | "faint" | "off";
+const CONTEXT_OPACITY: Record<LabContext, number> = { level: 0.03, faint: 0.075, off: 0.006 };
+/** The short name of a site, for a label in the scene ("Medial lemniscus (pons)" -> "Medial lemniscus"). */
+const shortName = (n: string) => n.replace(/\s*[(:,].*$/, "");
+
 function buildLabScene(o: {
   result: LesionResult | null;
-  guess: { site: Site; side: Side; cord?: CordLevel } | null;
+  guess: { site: Site; side: Side; cord?: CordLevel; seg?: string } | null;
   focusPath: string | null;
   zoom: "near" | "wide";
   colors: SceneColors;
   v3: Record<string, V3Data>;
+  context?: LabContext;
+  names?: boolean;
 }) {
   const { result, guess, focusPath, zoom, colors, v3 } = o;
+  const context = o.context ?? "level";
   const layers: SceneLayer[] = [
-    // faint enough that the stacked structures do not haze over the lesion (hover still lights each one)
-    { key: "ghost", ids: PICK_IDS, side: "both", color: colors.dim, opacity: 0.075, pickable: true },
+    // every structure, pickable: all but invisible unless the student wants the whole faint map (hover still lights it)
+    { key: "ghost", ids: PICK_IDS, side: "both", color: colors.dim, opacity: CONTEXT_OPACITY[context], pickable: true },
   ];
   const tubes: SceneTube[] = [];
   const marks: SceneMark[] = [];
   const fit: { wp: WP; body: Side }[] = [];
-  const lesionAt = (site: Site, side: Side, cord?: CordLevel) => ({ wp: sitePos(site, cord), body: side });
+  const lesionAt = (site: Site, side: Side, cord?: CordLevel, seg?: string) => ({ wp: sitePos(site, cord, seg), body: side });
 
+  // the structures at the lesion's level (the other sites of its group), clear and named: what lies around the lesion
+  const at = result ? { site: result.site, side: (result.side === "both" ? "L" : result.side) as Side, cord: result.cord, seg: result.seg } : guess;
+  if (at && context === "level") {
+    const near = SITES.filter((x) => x.group === at.site.group && x.id !== at.site.id && x.ids.length && (!at.site.cord || !x.cord || (at.cord && x.cord.includes(at.cord))));
+    const ids = [...new Set(near.flatMap((x) => x.ids))].filter((id) => !at.site.ids.includes(id) && !NOT_PICKABLE.has(id));
+    if (ids.length) layers.push({ key: "level", ids, side: "both", color: colors.dim, opacity: 0.34, clipNear: levelClip(at.site, result ? "lesion" : "guess") });
+    if (o.names !== false)
+      near.slice(0, 7).forEach((x) => {
+        if (x.ids.every((id) => at.site.ids.includes(id))) return;
+        marks.push({ key: `near:${x.id}`, p: sitePos(x, at.cord, at.seg), body: x.sided ? at.side : "L", kind: "node", text: shortName(x.name), color: colors.dim, prio: 0 });
+      });
+  }
   if (result) {
     const lesionSide: Side = result.side === "both" ? "L" : result.side;
-    const lp = lesionAt(result.site, lesionSide, result.cord);
+    const lp = lesionAt(result.site, lesionSide, result.cord, result.seg);
     // the damaged structure itself
     if (result.site.ids.length) {
       const sides: (Side | "both")[] = result.site.sided ? [lesionSide] : ["both"];
@@ -201,7 +237,7 @@ function buildLabScene(o: {
       }
     }
   } else if (guess) {
-    const lp = lesionAt(guess.site, guess.side, guess.cord);
+    const lp = lesionAt(guess.site, guess.side, guess.cord, guess.seg);
     marks.push({ key: "guess", p: lp.wp, body: lp.body, kind: "lesion", text: "Your lesion", color: colors.hi });
     fit.push(lp);
     fit.push({ wp: [lp.wp[0], lp.wp[1], lp.wp[2] as number, 0, 0.03, 0.02] as WP, body: lp.body }, { wp: [lp.wp[0], lp.wp[1], lp.wp[2] as number, 0, -0.03, -0.02] as WP, body: lp.body });
@@ -237,7 +273,7 @@ export function LesionLab({
 }: {
   courses: CoursePathway[];
   clinical: ClinicalCard[];
-  initial: { site?: string; side?: string; cord?: string; mode?: string };
+  initial: { site?: string; side?: string; cord?: string; seg?: string; mode?: string };
 }) {
   const courseMap = useMemo(() => new Map(courses.map((c) => [c.slug, c])), [courses]);
   const colors = useSceneColors();
@@ -246,6 +282,8 @@ export function LesionLab({
   const [siteId, setSiteId] = useState(initSite);
   const [side, setSide] = useState<Side>(initial.side === "R" ? "R" : "L");
   const [cord, setCord] = useState<CordLevel | undefined>(initial.cord === "C" || initial.cord === "T" || initial.cord === "L" ? initial.cord : undefined);
+  // the exact segment (C1 ... S5); the region (cord) follows it
+  const [seg, setSeg] = useState<string | undefined>(initial.seg && /^[CTLS]\d{1,2}$/.test(initial.seg) ? initial.seg : undefined);
   const [search, setSearch] = useState("");
   const [hi, setHi] = useState(0);
   const [focusPath, setFocusPath] = useState<string | null>(null);
@@ -254,6 +292,9 @@ export function LesionLab({
   const [frameNonce, setFrameNonce] = useState(0);
   const { attach: attachFs, fs: isFs, toggle: toggleFs, can: canFs } = useFullscreen(() => setFrameNonce((x) => x + 1));
   const [hoverId, setHoverId] = useState<string | null>(null);
+  // the toolkit: what is drawn around the lesion, and the names of the structures at its level
+  const [context, setContext] = useState<LabContext>("level");
+  const [labelsOn, setLabelsOn] = useState(true);
   const [names, setNames] = useState<Record<string, string>>({});
   const [ready, setReady] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -285,7 +326,10 @@ export function LesionLab({
   }, []);
 
   const site = SITE_BY_ID.get(siteId)!;
-  const effCord: CordLevel | undefined = site.cord ? (cord && site.cord.includes(cord) ? cord : site.cord.includes("T") ? "T" : site.cord[0]) : undefined;
+  const segOk = !!site.cord && !!seg && siteSegs(site).includes(seg);
+  const effCord: CordLevel | undefined = site.cord ? (segOk ? segRegion(seg!) : cord && site.cord.includes(cord) ? cord : site.cord.includes("T") ? "T" : site.cord[0]) : undefined;
+  // the segment shown: the one placed, else the region's own (C4, T8, L2)
+  const effSeg: string | undefined = site.cord ? (segOk ? seg : effCord ? CORD[effCord].label : undefined) : undefined;
 
   // url state
   useEffect(() => {
@@ -299,11 +343,13 @@ export function LesionLab({
       u.searchParams.set("side", side);
       if (effCord) u.searchParams.set("cord", effCord);
       else u.searchParams.delete("cord");
+      if (effSeg) u.searchParams.set("seg", effSeg);
+      else u.searchParams.delete("seg");
     }
     window.history.replaceState(null, "", u);
-  }, [mode, siteId, side, effCord]);
+  }, [mode, siteId, side, effCord, effSeg]);
 
-  const lab = predictLesion({ siteId, side, cord: effCord }, courseMap);
+  const lab = atSegment(predictLesion({ siteId, side, cord: effCord }, courseMap), effSeg);
   const truthSite = item ? SITE_BY_ID.get(item.def.site) : undefined;
   const truth = item && truthSite ? predictLesion({ siteId: truthSite.id, side: item.def.side ?? "L", cord: item.def.cord }, courseMap) : null;
 
@@ -326,8 +372,8 @@ export function LesionLab({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [v3WantKey]);
   const v3ByPath = useMemo(() => Object.fromEntries(v3Want.flatMap(({ s, limb }) => (v3[`${s}:${limb}`] ? [[s, v3[`${s}:${limb}`]]] : []))), [v3Want, v3]);
-  const guess = { site, side, cord: effCord };
-  const sceneIn = buildLabScene({ result: showing, guess: mode === "case" && !revealed && placed ? guess : null, focusPath: mode === "lab" || revealed ? focusPath : null, zoom, colors, v3: v3ByPath });
+  const guess = { site, side, cord: effCord, seg: effSeg };
+  const sceneIn = buildLabScene({ result: showing, guess: mode === "case" && !revealed && placed ? guess : null, focusPath: mode === "lab" || revealed ? focusPath : null, zoom, colors, v3: v3ByPath, context, names: labelsOn });
   const scene = mode === "case" && revealed && truth && guessMarks(sceneIn, guess, colors);
 
   const check = () => {
@@ -357,7 +403,11 @@ export function LesionLab({
     setSiteId(id);
     setPlaced(true);
     if (keepSide) setSide(keepSide);
-    if (s.cord) setCord(y !== undefined ? nearestCord(s, y) : (c) => (c && s.cord!.includes(c) ? c : s.cord!.includes("T") ? "T" : s.cord![0]));
+    if (s.cord) {
+      setCord(y !== undefined ? nearestCord(s, y) : (c) => (c && s.cord!.includes(c) ? c : s.cord!.includes("T") ? "T" : s.cord![0]));
+      // a click on the cord places the lesion at the segment nearest the click
+      if (y !== undefined) setSeg(nearestSeg(s, y));
+    }
     setFocusPath(null);
     setSearch("");
     setFrameNonce((n) => n + 1);
@@ -379,6 +429,18 @@ export function LesionLab({
     return list.sort((a, b) => GROUP_ORDER.indexOf(a.group) - GROUP_ORDER.indexOf(b.group));
   }, [search]);
 
+  // step through the lesion sites in the list's order (the search filter applying), or through the cases
+  const cycle = (d: 1 | -1) => {
+    if (mode === "case") {
+      if (d > 0) next();
+      return;
+    }
+    if (!matches.length) return;
+    const i = matches.findIndex((x) => x.id === siteId);
+    const n = matches[(i + d + matches.length) % matches.length];
+    pickSite(n.id);
+  };
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement | null;
@@ -398,6 +460,8 @@ export function LesionLab({
       else if (e.key === "r" || e.key === "R") setSide("R");
       else if (e.key === "v" || e.key === "V") setView((v) => VIEWS[(VIEWS.findIndex((x) => x.id === v) + 1) % VIEWS.length].id);
       else if (e.key === "f" || e.key === "F") setFrameNonce((x) => x + 1);
+      else if (e.key === "]" || e.key === ".") cycle(1);
+      else if (e.key === "[" || e.key === ",") cycle(-1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -454,20 +518,65 @@ export function LesionLab({
             frameNonce={frameNonce}
             colors={colors}
             tags
+            // (the midline plane is a big skewed frame from the front: the Left / Right tags show the sides; it stays
+            // with the whole faint map only)
+            midline={context === "faint"}
             hoverId={hoverId}
             onHover={setHoverId}
             onPick={onPick}
             onReady={setReady}
           />
           {!ready && <AtlasLoader label="Loading the lesion map" stages={stagesFrom([["map", "Loading the lesion map", false, undefined]])} />}
-          <div data-label-obstacle className="pointer-events-none absolute bottom-2 left-2 flex flex-wrap gap-2 text-xs">
+          <div data-label-obstacle className="pointer-events-none absolute left-2 top-2 flex flex-wrap gap-2 text-xs">
             <span className="rounded-sm bg-panel-solid/85 px-2 py-1" style={{ color: colors.bad }}>■ Cut / lesion</span>
             <span className="rounded-sm bg-panel-solid/85 px-2 py-1 text-text-dim">{hoverName ? `${hoverName} (click to place)` : "Hover a structure, click to place the lesion"}</span>
           </div>
-          <div data-label-obstacle className="absolute right-2 top-2 flex items-center gap-1.5">
-            <Segmented label="View" value={view} onChange={setView} options={VIEWS.map((v) => ({ id: v.id, label: v.label, tip: `${v.label} view`, keys: "V" }))} />
-            <IconButton label="Re-frame" keys="F" icon={<Focus size={16} />} onClick={() => setFrameNonce((x) => x + 1)} tip="bottom" />
-            {canFs && <IconButton label={isFs ? "Leave full screen" : "Full screen"} icon={isFs ? <Minimize2 size={16} /> : <Maximize2 size={16} />} pressed={isFs} onClick={toggleFs} tip="bottom" />}
+          {/* the toolkit (the atlas's): view, frame | previous / next lesion, its side | what is drawn around it, names | full screen */}
+          <div data-label-obstacle className="pointer-events-none absolute inset-x-2 bottom-2 flex justify-center">
+            <div className="atl-bar pointer-events-auto" role="toolbar" aria-label="Lesion lab view controls">
+              <Group label="View">
+                <Popover trigger={({ open, toggle }) => <IconBtn label="Camera view" keys="V" icon={<Orbit />} text={VIEWS.find((v) => v.id === view)?.label} on={open} onClick={toggle} />}>
+                  {(close) =>
+                    VIEWS.map((v) => (
+                      <MenuItem
+                        key={v.id}
+                        label={`${v.label} view`}
+                        on={view === v.id}
+                        onClick={() => {
+                          setView(v.id);
+                          close();
+                        }}
+                      />
+                    ))
+                  }
+                </Popover>
+                <IconBtn label="Frame the lesion" keys="F" icon={<Focus />} onClick={() => setFrameNonce((x) => x + 1)} />
+              </Group>
+              <Divider />
+              <Group label="Lesion">
+                <IconBtn label="Previous lesion site" keys="[" icon={<ChevronLeft />} disabled={mode === "case"} onClick={() => cycle(-1)} />
+                <IconBtn label={mode === "case" ? "Next case" : "Next lesion site"} keys="]" icon={<ChevronRight />} onClick={() => cycle(1)} />
+                {site.sided && (
+                  <>
+                    <IconBtn radio label="Lesion on the left" keys="L" text="L" on={side === "L"} onClick={() => setSide("L")} />
+                    <IconBtn radio label="Lesion on the right" keys="R" text="R" on={side === "R"} onClick={() => setSide("R")} />
+                  </>
+                )}
+              </Group>
+              <Divider />
+              <Group label="Around the lesion">
+                <IconBtn radio label="The structures at the lesion's level, named; the rest hidden" on={context === "level"} onClick={() => setContext("level")} icon={<Layers />} />
+                <IconBtn radio label="Every structure faint (the whole map)" on={context === "faint"} onClick={() => setContext("faint")} icon={<SeeThroughIcon />} />
+                <IconBtn radio label="Only the lesion and the cut pathways" on={context === "off"} onClick={() => setContext("off")} icon={<EyeOff />} />
+                <IconBtn label={labelsOn ? "Hide the names" : "Show the names"} on={labelsOn} onClick={() => setLabelsOn((x) => !x)} icon={<Tag />} />
+              </Group>
+              {canFs && (
+                <>
+                  <Divider />
+                  <IconBtn label={isFs ? "Leave full screen" : "Full screen"} icon={isFs ? <Minimize2 /> : <Maximize2 />} on={isFs} onClick={toggleFs} />
+                </>
+              )}
+            </div>
           </div>
         </div>
 
@@ -513,7 +622,33 @@ export function LesionLab({
               ]}
             />
             {site.cord && (
-              <Segmented label="Spinal level" value={effCord ?? site.cord[0]} onChange={(c) => setCord(c)} options={site.cord.map((c) => ({ id: c, label: CORD[c].label, tip: `Spinal level ${CORD[c].label}` }))} />
+              <label className="flex items-center gap-1.5 text-sm text-text-dim">
+                Segment
+                <select
+                  className="rounded-sm border border-panel-border bg-panel-solid px-1.5 py-1 text-sm text-text"
+                  value={effSeg}
+                  onChange={(e) => {
+                    setSeg(e.target.value);
+                    setCord(segRegion(e.target.value));
+                    setFrameNonce((n) => n + 1);
+                  }}
+                  aria-label="Spinal segment of the lesion"
+                >
+                  {(["C", "T", "L", "S"] as const)
+                    .filter((r) => siteSegs(site).some((x) => x[0] === r))
+                    .map((r) => (
+                      <optgroup key={r} label={r === "C" ? "Cervical" : r === "T" ? "Thoracic" : r === "L" ? "Lumbar" : "Sacral"}>
+                        {siteSegs(site)
+                          .filter((x) => x[0] === r)
+                          .map((x) => (
+                            <option key={x} value={x}>
+                              {x}
+                            </option>
+                          ))}
+                      </optgroup>
+                    ))}
+                </select>
+              </label>
             )}
           </div>
           <div className="max-h-44 overflow-auto rounded-sm border border-panel-border" role="listbox" aria-label="Lesion sites">
@@ -537,6 +672,7 @@ export function LesionLab({
             <span><span className="kbd">L</span> <span className="kbd">R</span> side</span>
             {mode === "case" && <span><span className="kbd">Enter</span> {revealed ? "next case" : "check"}</span>}
             <span><span className="kbd">V</span> view</span>
+            <span><span className="kbd">[</span> <span className="kbd">]</span> {mode === "case" ? "next case" : "previous / next site"}</span>
             <span>click a structure in 3D to place the lesion</span>
           </p>
         </div>
@@ -555,7 +691,7 @@ export function LesionLab({
             {!revealed ? (
               <div className="grid gap-2">
                 <p className="rounded-sm border border-panel-border px-3 py-2 text-sm">
-                  Your lesion: {placed ? <strong>{siteLabel(site, site.sided ? side : "both", effCord)}</strong> : <span className="text-text-dim">none yet: click a structure or pick a site below</span>}
+                  Your lesion: {placed ? <strong>{siteLabel(site, site.sided ? side : "both", effCord, effSeg)}</strong> : <span className="text-text-dim">none yet: click a structure or pick a site below</span>}
                 </p>
                 <button type="button" className="btn btn-primary" onClick={check} disabled={!placed} style={{ justifySelf: "start" }}>
                   Check the lesion
@@ -564,7 +700,7 @@ export function LesionLab({
             ) : (
               <div className="grid gap-2">
                 <p className="rounded-sm border px-3 py-2 text-sm" style={{ borderColor: revealed.site && revealed.side ? "var(--good)" : "var(--again)" }}>
-                  <strong>{gradeText}</strong> You placed: {siteLabel(site, site.sided ? side : "both", effCord)}.
+                  <strong>{gradeText}</strong> You placed: {siteLabel(site, site.sided ? side : "both", effCord, effSeg)}.
                 </p>
                 {truth && (
                   <p className="text-sm">
@@ -586,6 +722,7 @@ export function LesionLab({
         )}
 
         {showing && <LesionFindings showing={showing} mode={mode} colors={colors} courseMap={courseMap} focusPath={focusPath} setFocusPath={setFocusPath} zoom={zoom} setZoom={setZoom} />}
+        {showing && <LesionSection result={showing} />}
         {mode === "case" && !revealed && <p className="text-sm text-text-dim">The explanation appears after you check the lesion.</p>}
       </aside>
     </div>
@@ -593,8 +730,8 @@ export function LesionLab({
 }
 
 /** After a case is checked: show the student's own guess next to the truth. */
-function guessMarks(base: ReturnType<typeof buildLabScene>, guess: { site: Site; side: Side; cord?: CordLevel }, colors: SceneColors) {
-  const lp = sitePos(guess.site, guess.cord);
+function guessMarks(base: ReturnType<typeof buildLabScene>, guess: { site: Site; side: Side; cord?: CordLevel; seg?: string }, colors: SceneColors) {
+  const lp = sitePos(guess.site, guess.cord, guess.seg);
   return {
     ...base,
     marks: [...base.marks, { key: "guess", p: lp, body: guess.side, kind: "syn" as const, text: "Your guess", color: colors.hi }],

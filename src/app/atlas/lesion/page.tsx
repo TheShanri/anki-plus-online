@@ -11,7 +11,7 @@ export const metadata = { title: "Lesion lab" };
 export const dynamic = "force-dynamic";
 
 /** Place a lesion and see which pathways it cuts and the predicted deficits; or read a case and find the lesion. */
-export default async function LesionPage({ searchParams }: { searchParams: Promise<{ site?: string; side?: string; cord?: string; mode?: string }> }) {
+export default async function LesionPage({ searchParams }: { searchParams: Promise<{ site?: string; side?: string; cord?: string; seg?: string; mode?: string }> }) {
   const sp = await searchParams;
   const [sb, user] = await Promise.all([createClient(), getAuthUser()]);
   if (!sb) return <PageShell title="Lesion lab" kicker="Atlas"><p className="text-text-dim">Supabase is not configured.</p></PageShell>;

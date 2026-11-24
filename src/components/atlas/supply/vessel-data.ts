@@ -10,6 +10,8 @@ export type FlowSegment = {
   parent: string | null;
   /** Flat xyz arrays in glTF metres (same space as gross.glb), each oriented proximal to distal. */
   lines: number[][];
+  /** drawn from landmarks (the model has no vessel for it): its course is approximate (tools/atlas3/supplyvessels.py) */
+  approx?: boolean;
 };
 export type FlowFile = { version: number; segments: Record<string, FlowSegment> };
 
@@ -44,6 +46,8 @@ export const SEG_LABEL: Record<string, string> = {
   "pontine-medial": "Medial pontine branches of the basilar",
   "pontine-lateral": "Lateral pontine branches of the basilar",
   "anterior-spinal": "Anterior spinal artery",
+  "anterior-choroidal": "Anterior choroidal artery (drawn from landmarks: approximate course)",
+  "posterior-spinal": "Posterior spinal artery (drawn from landmarks: approximate course)",
 };
 
 /** Short labels on the Circle of Willis view. */
@@ -81,4 +85,6 @@ export const SEG_SHORT: Record<string, string> = {
   "pontine-medial": "Pontine",
   "pontine-lateral": "Pontine",
   "anterior-spinal": "Ant. spinal",
+  "anterior-choroidal": "Ant. choroidal",
+  "posterior-spinal": "Post. spinal",
 };

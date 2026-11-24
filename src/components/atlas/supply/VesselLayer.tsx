@@ -51,7 +51,7 @@ const SPACING = 0.0085; // metres between pulses
 const FPS = 30;
 const RADIAL = 10;
 /** Where along the longest line a segment's label anchors (0 start - 1 end). */
-const ANCHOR_AT: Record<string, number> = { aca: 0.25, vertebral: 0.9, ica: 0.88, pericallosal: 0.45, callosomarginal: 0.5, pca: 0.55, sca: 0.55, aica: 0.6, pica: 0.4, "anterior-spinal": 0.5, "lenticulostriate-prox": 0.5 };
+const ANCHOR_AT: Record<string, number> = { aca: 0.25, vertebral: 0.9, ica: 0.88, pericallosal: 0.45, callosomarginal: 0.5, pca: 0.55, sca: 0.55, aica: 0.6, pica: 0.4, "anterior-spinal": 0.5, "lenticulostriate-prox": 0.5, "anterior-choroidal": 0.35, "posterior-spinal": 0.3 };
 const CIRCLE_SLUGS = ["ica", "aca", "acom", "mca-m1", "pcom", "pca", "basilar", "vertebral"];
 
 export type Line = { pts: THREE.Vector3[]; cum: number[]; len: number };
@@ -263,7 +263,7 @@ function initInstances(ref: { current: THREE.InstancedMesh | null }) {
 const TRUNKS = new Set(["ica", "vertebral", "basilar"]);
 
 /** Tapered tube vessels (one per segment, calm cross-fades between states) with pulses along the flow and margin-label anchors. */
-export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, fitSide, topInset = 18, camera: driveCamera = true }: Props) {
+export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus, circle, onPick, onHover, frame, pad, fitSide, topInset = 18, camera: driveCamera = true, hidden = false }: Props & { /** not drawn (the toolbar's arteries toggle); the camera still fits to them */ hidden?: boolean }) {
   const invalidate = useThree((s) => s.invalidate);
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const controls = useThree((s) => s.controls) as unknown as OrbitControlsImpl | null;
@@ -647,7 +647,7 @@ export function VesselLayer({ flow, colors, styleOf, sig, animate, labelOf, bus,
     return rec && rec.mesh.userData.pick ? rec : null;
   };
   return (
-    <group>
+    <group visible={!hidden}>
       {built && (
         <primitive
           object={built.group}

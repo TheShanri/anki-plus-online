@@ -40,6 +40,7 @@ export default function SupplyCanvas3({
   side,
   variant,
   glass,
+  deep = true,
   medial,
   view,
   viewNonce,
@@ -54,6 +55,8 @@ export default function SupplyCanvas3({
   side?: "L" | "R";
   variant: string;
   glass: number;
+  /** the deep structures of the territories shown, inside the brain (off: only the surface and the vessels) */
+  deep?: boolean;
   medial: boolean;
   view: SupplyView;
   viewNonce: number;
@@ -81,11 +84,11 @@ export default function SupplyCanvas3({
     for (const l of index.labels) {
       const e = units.get(l.id);
       const a = e && !SURFACE_UNIT(e.unit, e.ui) ? unitArteries(e.unit, variant)[0] : null;
-      if (a && shown.has(a) && (!side || l.side === side || l.side === "M")) cols[l.id] = colors.get(a) ?? ARTERY.get(a)?.color ?? "#cccccc";
+      if (deep && a && shown.has(a) && (!side || l.side === side || l.side === "M")) cols[l.id] = colors.get(a) ?? ARTERY.get(a)?.color ?? "#cccccc";
       else hidden.push(l.id);
     }
     return { hiddenIds: hidden, colorsById: cols };
-  }, [index, units, shown, colors, variant, side]);
+  }, [index, units, shown, colors, variant, side, deep]);
   const territories = useMemo(
     () => [{ color: "#000000", alpha: 0 }, ...ARTERIES.map((a) => ({ color: colors.get(a.id) ?? a.color, alpha: (shown.get(a.id) ?? 0) * 0.78 }))],
     [colors, shown],

@@ -192,6 +192,8 @@ export const BLOCKABLE: Record<string, string> = {
   aica: "aica",
   pica: "pica",
   "anterior-spinal": "asa",
+  "anterior-choroidal": "achor",
+  "posterior-spinal": "psa",
 };
 
 /**

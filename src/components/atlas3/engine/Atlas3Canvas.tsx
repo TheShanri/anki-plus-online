@@ -373,13 +373,24 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     return out;
   }, [shell, inner, hull, mats]);
   const pickScene = useMemo(() => new THREE.Scene(), []);
+  // through the glass brain the structures shown inside it are picked first (owner 2026-11-24: with the thalamus's
+  // supply highlighted, the cortex in front of it must not take the click); the surface only where none is hit
+  const deepPickScene = useMemo(() => new THREE.Scene(), []);
   const glassOn = props.glass != null;
+  const glassSurface = glassOn && (props.glass ?? 0) > 0;
   useEffect(() => {
     pickScene.clear();
-    if (glassOn ? meshes.pGlass : meshes.pShell) pickScene.add((glassOn ? meshes.pGlass : meshes.pShell)!);
-    if (meshes.pInner && needInner) pickScene.add(meshes.pInner);
+    deepPickScene.clear();
+    if (glassOn) {
+      if (glassSurface && meshes.pGlass) pickScene.add(meshes.pGlass);
+      if (meshes.pInner && needInner) deepPickScene.add(meshes.pInner);
+    } else {
+      if (meshes.pShell) pickScene.add(meshes.pShell);
+      if (meshes.pInner && needInner) pickScene.add(meshes.pInner);
+    }
     pickScene.updateMatrixWorld(true);
-  }, [meshes, pickScene, needInner, glassOn]);
+    deepPickScene.updateMatrixWorld(true);
+  }, [meshes, pickScene, deepPickScene, needInner, glassOn, glassSurface]);
 
   // ---------------- label state: colours, visibility, tints
   const selected = useMemo(() => new Set(props.selected ?? []), [props.selected]);
@@ -841,16 +852,20 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       const alpha = gl.getClearAlpha();
       gl.setRenderTarget(target);
       gl.setClearColor(0x000000, 0);
-      gl.clear();
-      gl.render(pickScene, cam);
-      gl.readRenderTargetPixels(target, 0, 0, 1, 1, px);
+      const order = deepPickScene.children.length ? [deepPickScene, pickScene] : [pickScene];
+      for (const sc of order) {
+        gl.clear();
+        gl.render(sc, cam);
+        gl.readRenderTargetPixels(target, 0, 0, 1, 1, px);
+        if (px[3] !== 0) break;
+      }
       gl.setRenderTarget(prev);
       gl.setClearAlpha(alpha);
       cam.clearViewOffset();
       if (px[3] === 0) return null;
       return { id: px[0] + px[1] * 256, cap: px[2] > 127 };
     },
-    [camera, gl, pickScene, px, target],
+    [camera, gl, pickScene, deepPickScene, px, target],
   );
   // the surface point under the pointer (double-click pivot): the nearest ray hit that survives the clip planes and
   // belongs to a drawn region
@@ -998,7 +1013,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   return (
     <>
       {meshes.shell && props.glass == null && <primitive object={meshes.shell} />}
-      {meshes.glass && meshes.glassDepth && props.glass != null && (
+      {meshes.glass && meshes.glassDepth && props.glass != null && props.glass > 0 && (
         <>
           <primitive object={meshes.glassDepth} />
           <primitive object={meshes.glass} />

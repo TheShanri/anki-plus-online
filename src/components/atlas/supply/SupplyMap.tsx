@@ -5,7 +5,7 @@ import "@/components/study/study.css"; // help-line, kbd, chip, choice styles
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-import { ChevronLeft, ChevronRight, Focus, Lock, PanelRight, Pause, Play, RotateCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, EyeOff, Focus, HeartPulse, Layers, Lock, Orbit, PanelRight, Pause, Play, RotateCcw, Tag } from "lucide-react";
 import { SupplementaryHeadsUp, useSupplementaryGate } from "@/components/supplementary/Supplementary";
 import { VesselLayer, type SegStyle } from "./VesselLayer";
 import { VeinLayer, preloadVeins } from "./VeinLayer";
@@ -16,7 +16,8 @@ import { COMM_NOTE, COW_SLUGS, SEG_SHORT, SUPP_SLUGS, slugOf, type FlowFile, typ
 import { trackAtlas } from "@/lib/atlas/progress";
 import type { SupplyView } from "@/components/atlas3/SupplyCanvas3";
 import { AtlasLoader } from "../ui/AtlasLoader";
-import { IconBtn } from "../ui/Toolbar";
+import { Divider, Group, IconBtn, MenuItem, Popover } from "../ui/Toolbar";
+import { SeeThroughIcon, SolidIcon } from "../ui/icons";
 import { DeficitIcons } from "../pathways/deficits";
 import { SupplyQuiz } from "./SupplyQuiz";
 import { ARTERY_STRUCTURE, BLEEDS, BLOCKABLE, BLOCK_LIST, OCCLUSION, OCCLUSION_NAME, TOUR, VEIN_NAME, VEIN_STEPS, veinStepOf, type Occlusion } from "./supply-guide";
@@ -152,6 +153,12 @@ export function SupplyMap() {
     const has = new Set(Object.values(flow.segments).map((x) => x.artery));
     return new Set(ARTERIES.map((a) => a.id).filter((id) => !has.has(id)));
   }, [flow]);
+  // arteries the model has no vessel for, drawn from landmarks (their course is approximate)
+  const drawnArt = useMemo(() => {
+    if (!flow) return new Set<string>();
+    const segs = Object.values(flow.segments);
+    return new Set(ARTERIES.map((a) => a.id).filter((id) => segs.some((x) => x.artery === id) && segs.filter((x) => x.artery === id).every((x) => x.approx)));
+  }, [flow]);
   const bus = useMemo<LabelBus>(() => createLabelBus(), []);
   const veinBus = useMemo<LabelBus>(() => createLabelBus(), []);
 
@@ -160,7 +167,8 @@ export function SupplyMap() {
     if (window.matchMedia("(max-width: 1023px)").matches) setDrawer(false);
     void preloadVeins().catch(() => undefined); // the drainage layer is ready before Drainage is opened
     let alive = true;
-    fetch("/atlas/arteries-flow.json")
+    // (versioned: the atlas files are cached for an hour; v2 adds the anterior choroidal and posterior spinal arteries)
+    fetch("/atlas/arteries-flow.json?v=2")
       .then((r) => r.json())
       .then((j: FlowFile) => alive && setFlow(j))
       .catch(() => undefined);
@@ -268,7 +276,14 @@ export function SupplyMap() {
 
 
   // a matte brain with visible gyri and a crisp edge (about 0.55), so the territory skin and the vessels read on it; the sinuses sit outside it
-  const brainOpacity = mode === "veins" ? 0.32 : 0.55;
+  // the toolkit (owner 2026-11-24: "The blood supply also need a toolkit to handle transparancy"): the brain solid,
+  // see-through (how much: the slider) or off; the deep structures, the arteries and their labels on or off
+  const [brain, setBrain] = useState<"solid" | "glass" | "off">("glass");
+  const [opacity, setOpacity] = useState(0.55);
+  const [deepOn, setDeepOn] = useState(true);
+  const [vesselsOn, setVesselsOn] = useState(true);
+  const [labelsOn, setLabelsOn] = useState(true);
+  const brainOpacity = brain === "solid" ? 1 : brain === "off" ? 0 : mode === "veins" ? Math.min(opacity, 0.32) : opacity;
 
   const onPickUnit = useCallback((u: SupplyUnit) => setSelected({ kind: "unit", unit: u }), []);
 
@@ -472,14 +487,15 @@ export function SupplyMap() {
             side={terrSide}
             variant={variant}
             glass={brainOpacity}
+            deep={deepOn}
             medial={medial}
             view={view3.view}
             viewNonce={view3.n}
             onPickUnit={onPickUnit}
             overlay={
               <div className="pointer-events-none absolute inset-0">
-                <MarginLabels bus={bus} />
-                <MarginLabels bus={veinBus} />
+                {labelsOn && <MarginLabels bus={bus} />}
+                {labelsOn && <MarginLabels bus={veinBus} />}
                 {caption && (
                   <div className="pointer-events-auto absolute left-2 right-2 top-2 rounded-card border border-panel-border bg-panel-solid/95 px-3 py-2 text-[13px] leading-snug shadow-sm lg:hidden">
                     <strong className="text-text">{caption.title}.</strong> <span className="text-text-dim">{caption.text}</span>
@@ -511,15 +527,44 @@ export function SupplyMap() {
                     )}
                   </div>
                 )}
-                <div className="pointer-events-auto absolute bottom-3 right-3">
-                  <IconBtn label="Frame the shown vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />
-                </div>
-                <div className="pointer-events-auto absolute bottom-3 left-2 right-16 flex flex-wrap gap-1" role="group" aria-label="Camera view">
-                  {VIEWS.map((v) => (
-                    <button key={v.id} type="button" className="btn !px-1.5 !py-1 text-xs sm:!px-2" onClick={() => askView(v.id)}>
-                      {v.label}
-                    </button>
-                  ))}
+                <div className="pointer-events-none absolute inset-x-2 bottom-2 flex justify-center">
+                  <div className="atl-bar pointer-events-auto" role="toolbar" aria-label="Blood supply view controls">
+                    <Group label="View">
+                      <Popover trigger={({ open, toggle }) => <IconBtn label="Camera view" icon={<Orbit />} text={VIEWS.find((v) => v.id === view3.view)?.label} on={open} onClick={toggle} />}>
+                        {(close) =>
+                          VIEWS.map((v) => (
+                            <MenuItem
+                              key={v.id}
+                              label={v.label}
+                              on={view3.view === v.id}
+                              onClick={() => {
+                                askView(v.id);
+                                close();
+                              }}
+                            />
+                          ))
+                        }
+                      </Popover>
+                      <IconBtn label="Frame the shown vessels" icon={<Focus />} onClick={() => setFrame((f) => ({ n: f.n + 1, dir: null }))} keys="F" />
+                    </Group>
+                    <Divider />
+                    <Group label="Brain">
+                      <IconBtn radio label="Solid brain (the territories painted on it)" on={brain === "solid"} onClick={() => setBrain("solid")} icon={<SolidIcon />} />
+                      <IconBtn radio label="See-through brain" on={brain === "glass"} onClick={() => setBrain("glass")} icon={<SeeThroughIcon />} />
+                      <IconBtn radio label="No brain surface (vessels and deep structures only)" on={brain === "off"} onClick={() => setBrain("off")} icon={<EyeOff />} />
+                      {brain === "glass" && (
+                        <span className="atl3-slider">
+                          <input type="range" min={0.12} max={0.9} step={0.01} value={opacity} aria-label="How see-through the brain is" onChange={(e) => setOpacity(Number(e.target.value))} />
+                        </span>
+                      )}
+                    </Group>
+                    <Divider />
+                    <Group label="Show">
+                      <IconBtn label={deepOn ? "Hide the deep structures of the territories" : "Show the deep structures of the territories"} on={deepOn} onClick={() => setDeepOn((x) => !x)} icon={<Layers />} />
+                      <IconBtn label={vesselsOn ? "Hide the arteries" : "Show the arteries"} on={vesselsOn} onClick={() => setVesselsOn((x) => !x)} icon={<HeartPulse />} />
+                      <IconBtn label={labelsOn ? "Hide the labels" : "Show the labels"} on={labelsOn} onClick={() => setLabelsOn((x) => !x)} icon={<Tag />} />
+                    </Group>
+                  </div>
                 </div>
               </div>
             }
@@ -541,6 +586,7 @@ export function SupplyMap() {
               pad={territories || mode === "tour" ? 0.03 : 0}
               topInset={caption ? 104 : 18}
               camera={mode !== "veins"}
+              hidden={!vesselsOn}
             />
           </SupplyCanvas3>
         </div>
@@ -577,6 +623,7 @@ export function SupplyMap() {
               onUnit={(u) => setSelected({ kind: "unit", unit: u })}
               showComm={showComm}
               noMesh={noMesh}
+              drawnArt={drawnArt}
               onView={askView}
               onHover={setHover}
             />
@@ -649,6 +696,7 @@ function ExplorePanel(p: {
   onUnit: (u: SupplyUnit) => void;
   showComm: boolean;
   noMesh: Set<string>;
+  drawnArt: Set<string>;
   onView: (v: ViewId) => void;
   onHover: (id: string | null) => void;
 }) {
@@ -693,6 +741,7 @@ function ExplorePanel(p: {
                   <Swatch color={a.color} />
                   <span className="truncate">{a.name}</span>
                   {p.noMesh.has(a.id) && <span className="flex-none rounded-sm border border-panel-border px-1 text-[10px] text-text-faint" title="The model has no vessel mesh for this artery; its territory is still shown">no 3D vessel</span>}
+                  {p.drawnArt.has(a.id) && <span className="flex-none rounded-sm border border-panel-border px-1 text-[10px] text-text-faint" title="The model has no vessel for this artery: drawn from landmarks (its course is approximate)">drawn</span>}
                   <span className="kbd ml-auto flex-none">{ARTERY_KEYS[i]}</span>
                 </button>
               );

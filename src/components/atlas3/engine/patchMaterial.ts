@@ -61,6 +61,7 @@ uniform float uCapShade;
 uniform int uSulc;
 uniform int uAreaMask;
 uniform vec3 uRegionTint;
+uniform float uOnLight;
 flat varying ivec2 vLab;
 varying vec3 vNA;
 varying vec3 vNB;
@@ -90,11 +91,13 @@ void main() {
   vec3 gV = normalize(vView);
   if (dot(gN, gV) < 0.0) gN = -gN;
   float f = pow(1.0 - max(dot(gN, gV), 0.0), 2.5);
-  vec3 gc = st(there, 0).rgb * (0.6 + 0.4 * max(dot(gN, uKey), 0.0)) + 0.06;
+  vec3 gc = st(there, 0).rgb * (0.6 + 0.4 * max(dot(gN, uKey), 0.0));
+  // on a light page the veil is ink (darker than the page), on a dark page light
+  gc = uOnLight > 0.5 ? gc * 0.5 : gc + 0.06;
   // the free surface of the group reads stronger than its borders with hidden neighbours (the peduncles' stumps where
   // the cerebellum was); fluid spaces always read
   float k = (here == 0 || gt == 2) ? 1.0 : 0.5;
-  outColor = vec4(gc, clamp((0.045 + 0.45 * f) * k, 0.0, 0.5));
+  outColor = vec4(gc, clamp((0.045 + 0.45 * f) * k * (uOnLight > 0.5 ? 1.3 : 1.0), 0.0, 0.55));
   return;
 #endif
   int lab;
@@ -159,6 +162,8 @@ export type PatchUniforms = {
   uSulc: { value: number };
   uAreaMask: { value: number };
   uRegionTint: { value: THREE.Color };
+  /** 1 on a light page: the see-through veils are drawn darker than the page */
+  uOnLight: { value: number };
 };
 
 export function makeUniforms(state: THREE.DataTexture): PatchUniforms {
@@ -173,6 +178,7 @@ export function makeUniforms(state: THREE.DataTexture): PatchUniforms {
     uSulc: { value: 0 },
     uAreaMask: { value: 0 },
     uRegionTint: { value: new THREE.Color("#ffb347") },
+    uOnLight: { value: 0 },
   };
 }
 

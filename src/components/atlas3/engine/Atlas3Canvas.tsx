@@ -11,7 +11,8 @@ import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
 import { LabelState, loadIndex3, loadPatches, type Index3, type Label3, type Prog } from "./data";
 import { makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
-import { makeGhostMaterial } from "./ghostMaterial";
+import { makeGhostMaterial, setGhostMode } from "./ghostMaterial";
+import { readCssColor } from "@/lib/atlas/theme";
 import { capColor, regionColor, surfaceColor, HOVER, SELECT } from "./palette";
 import { cutSegments, patchArrays, type PatchArrays } from "./cutLines";
 
@@ -75,6 +76,15 @@ function setShown(o: THREE.Object3D, v: boolean) {
 function halfFovSin(cam: THREE.PerspectiveCamera) {
   const v = (cam.fov * Math.PI) / 360;
   return Math.sin(Math.atan(Math.tan(v) * Math.min(1, cam.aspect || 1)));
+}
+/** Is the page light? (the veils are drawn as ink there) */
+function pageIsLight() {
+  const c = readCssColor("--bg", "#101418");
+  return 0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b > 0.45;
+}
+function setLightUniforms(us: PatchUniforms[], ghost: THREE.ShaderMaterial, light: boolean) {
+  for (const u of us) u.uOnLight.value = light ? 1 : 0;
+  setGhostMode(ghost, light);
 }
 function setRegionUniforms(u: PatchUniforms, sulcus: number, areaMask: number) {
   u.uSulc.value = sulcus;
@@ -209,6 +219,17 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     invalidate();
   }, [index, state, props.look, props.colors, hidden, ghosted, hideSides, tintOf, invalidate]);
 
+  // the page's light or dark mode (followed live): the see-through veils change ink
+  useEffect(() => {
+    const update = () => {
+      setLightUniforms([uniforms], mats.ghost, pageIsLight());
+      invalidate();
+    };
+    update();
+    const mo = new MutationObserver(update);
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "data-mode", "class"] });
+    return () => mo.disconnect();
+  }, [uniforms, mats, invalidate]);
   useEffect(() => {
     setRegionUniforms(uniforms, props.sulcus ?? 0, props.areaMask ?? 0);
     invalidate();

@@ -2,6 +2,11 @@ import * as THREE from "three";
 
 /* The see-through brain of the "deep structures" mode: the outside surface as a faint rim (fresnel), drawn after the
  * opaque structures with depth writes off, so the deep structures read inside a recognisable brain. */
+/** The hull's colour and strength for the page's mode: light on a dark page, a darker ink on a light one. */
+export function setGhostMode(m: THREE.ShaderMaterial, onLight: boolean) {
+  (m.uniforms.uColor.value as THREE.Color).set(onLight ? "#6d5a52" : "#e7d3c9");
+  m.uniforms.uStrength.value = onLight ? 0.5 : 0.42;
+}
 export function makeGhostMaterial(planes: THREE.Plane[]): THREE.ShaderMaterial {
   return new THREE.ShaderMaterial({
     uniforms: { uColor: { value: new THREE.Color("#e7d3c9") }, uStrength: { value: 0.42 } },

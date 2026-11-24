@@ -38,7 +38,7 @@ LANDMARK = {
 TEG = ["MTg", "PnTg", "MoTg", "mRt", "PnO", "BSW"]
 # nuclei may also take voxels of the HCP-derived lemniscus / MLF and of the tracts carved before them from the plates (a
 # nucleus drawn on the plate wins over a tract)
-NUC = TEG + ["MLF", "ML", "ALS", "DSCT", "IAF"]
+NUC = TEG + ["MLF", "ML", "ALS", "DSCT", "IAF", "FGr", "FCu", "LCST", "ACST"]
 # key: (plate slugs, from "regions" or "fibres", hosts, extension beyond the end plates in mm (rostral, caudal),
 #       stroke radius for fibres in mm)
 IMPORT = {
@@ -71,11 +71,17 @@ IMPORT = {
     # floor here, so the colliculus and the nucleus are moved down onto the atlas's floor, never into the ventricle)
     "FCol": (["facial-colliculus"], "regions", ["PnTg", "MoTg", "BSW"], (1.5, 1.5), 0),
     "IPF": (["interpeduncular-fossa"], "regions", ["__outside__"], (3.0, 3.0), 0),
+    # the spinal cord's own columns where it becomes the medulla (the caudal plates draw them)
+    "FGr": (["fasciculus-gracilis"], "regions", ["MoTg", "BSW"], (2.0, 4.0), 0),
+    "FCu": (["fasciculus-cuneatus"], "regions", ["MoTg", "BSW"], (2.0, 4.0), 0),
+    "LCST": (["lateral-corticospinal-tract"], "regions", ["MoTg", "BSW", "Py", "PyX"], (2.0, 4.0), 0),
+    "ACST": (["anterior-corticospinal-tract"], "regions", ["MoTg", "BSW", "Py", "PyX"], (2.0, 4.0), 0),
+    "VH": (["ventral-horn"], "regions", ["MoTg", "BSW"], (2.0, 4.0), 0),
 }
 # carving order: tracts first (a nucleus drawn over a tract wins), then the nuclei from the midline outwards (none takes
 # another's voxels, so the medial columns claim their place before the lateral ones are moved in)
-ORDER = ["ALS", "DSCT", "LFP", "BIC", "xSCP", "PyX", "IAF", "IPF", "FCol", "XII", "DMX", "Sol", "Gr", "Cu", "Amb", "PPRF", "VI",
-         "VII", "VCx", "Sp5", "Vmo", "Vps", "IV", "III", "EW"]
+ORDER = ["ALS", "DSCT", "LFP", "BIC", "xSCP", "PyX", "IAF", "IPF", "FGr", "FCu", "LCST", "ACST", "FCol", "XII", "DMX", "Sol", "Gr",
+         "Cu", "Amb", "PPRF", "VI", "VII", "VCx", "Sp5", "Vmo", "Vps", "IV", "III", "EW", "VH"]
 # on the midline: one centre for both halves when a section is laid on the next
 MIDLINE = {"xSCP", "PyX", "IPF"}
 
@@ -259,10 +265,10 @@ def sdf2d(polys, fit, xs, ds, radius=0.0):
 # anterolateral system, the dorsal spinocerebellar tract, the brachium of the inferior colliculus) are moved too: drawn a
 # millimetre past the atlas's surface they would otherwise vanish, since the outside surface never changes.
 SNAP = {k: 2.0 for k in ("III", "EW", "IV", "Vmo", "Vps", "VI", "VII", "PPRF", "VCx", "Sp5", "Sol", "DMX", "XII", "Amb", "Gr", "Cu")}
-SNAP.update({"ALS": 2.5, "DSCT": 2.5, "BIC": 2.5, "Vps": 3.0, "FCol": 3.5, "VI": 3.5})
+SNAP.update({"ALS": 2.5, "DSCT": 2.5, "BIC": 2.5, "Vps": 3.0, "FCol": 3.5, "VI": 3.5, "FGr": 2.5, "FCu": 2.5, "LCST": 2.5, "ACST": 2.5, "VH": 2.0})
 # the thinnest a nucleus is drawn (its largest inscribed radius in a section, mm): smaller drawings are grown to it, so a
 # nucleus is never a speck (the abducens nucleus is about 2 mm across)
-MIN_R = {k: 0.65 for k in SNAP if k not in ("ALS", "DSCT", "BIC", "FCol")}
+MIN_R = {k: 0.65 for k in SNAP if k not in ("ALS", "DSCT", "BIC", "FCol", "FGr", "FCu", "LCST", "ACST")}
 MIN_R["VI"] = 0.9
 
 

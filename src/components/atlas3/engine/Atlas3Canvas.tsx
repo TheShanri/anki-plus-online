@@ -8,6 +8,8 @@ import type { OrbitControls as OrbitControlsImpl } from "three/examples/jsm/cont
 import { LineSegments2 } from "three/examples/jsm/lines/LineSegments2.js";
 import { LineSegmentsGeometry } from "three/examples/jsm/lines/LineSegmentsGeometry.js";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
+import { Line2 } from "three/examples/jsm/lines/Line2.js";
+import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
 import { LabelState, loadIndex3, loadPatches, type Index3, type Label3, type Prog } from "./data";
 import { makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
@@ -55,7 +57,9 @@ export interface Atlas3Props {
   /** pixels on the right covered by a panel (the structure card): a focused structure is framed in the free part */
   insetRight?: number;
   /** fly the camera to these labels (applied once per nonce) */
-  focus?: { ids: number[]; nonce: number } | null;
+  focus?: { ids: number[]; box?: [[number, number, number], [number, number, number]]; nonce: number } | null;
+  /** a tract drawn as fibres: polylines, world metres */
+  fibres?: number[][] | null;
   pins?: Pin3[];
   guides?: Guide3[];
   /** the standard views' distance, as a share of the one that frames the whole brain (below 1: closer) */
@@ -281,6 +285,43 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   useEffect(() => {
     lineMat.resolution.set(size.width, size.height);
   }, [lineMat, size]);
+
+  // ---------------- a tract's fibres: bright strokes with a dark edge under them, so they read over any surface
+  const fibreMats = useMemo(
+    () => ({
+      // drawn in order, the dark edge then the bright core; the edge writes no depth, so the core is never hidden by it
+      edge: new LineMaterial({ color: 0x241b12, linewidth: 4.4, depthWrite: false }),
+      core: new LineMaterial({ color: 0xffc14d, linewidth: 2.4 }),
+    }),
+    [],
+  );
+  const fibreObj = useMemo(() => {
+    // one continuous line per fibre (joined at its bends), each drawn twice: the dark edge, then the bright core
+    const grp = new THREE.Group();
+    const gs: LineGeometry[] = [];
+    for (const l of props.fibres ?? []) {
+      if (l.length < 6) continue;
+      const g = new LineGeometry();
+      g.setPositions(l);
+      gs.push(g);
+      const edge = new Line2(g, fibreMats.edge);
+      const core = new Line2(g, fibreMats.core);
+      for (const o of [edge, core]) o.frustumCulled = false;
+      edge.renderOrder = 3;
+      core.renderOrder = 3.5;
+      grp.add(edge, core);
+    }
+    grp.visible = gs.length > 0;
+    return { grp, gs };
+  }, [props.fibres, fibreMats]);
+  useEffect(() => {
+    for (const m of [fibreMats.edge, fibreMats.core]) {
+      m.resolution.set(size.width, size.height);
+      m.clippingPlanes = planes;
+    }
+    invalidate();
+  }, [fibreMats, size, planes, invalidate]);
+  useEffect(() => () => fibreObj.gs.forEach((g) => g.dispose()), [fibreObj]);
   useEffect(() => {
     const active = [props.cut ? plane : null, hideSides.length === 1 ? midPlane : null].filter((p): p is THREE.Plane => !!p);
     if (!active.length || !arrays.length) {
@@ -376,8 +417,9 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   }, [box, camera, props.view, props.viewNonce, props.zoom, homeDist, flyTo]);
   const focusNonce = props.focus?.nonce;
   useEffect(() => {
-    if (!box || !props.focus || !props.focus.ids.length) return;
+    if (!box || !props.focus || (!props.focus.ids.length && !props.focus.box)) return;
     const b = new THREE.Box3();
+    if (props.focus.box) b.union(new THREE.Box3(new THREE.Vector3(...props.focus.box[0]), new THREE.Vector3(...props.focus.box[1])));
     for (const id of props.focus.ids) {
       const l = byId.get(id);
       if (l?.bbox) b.union(new THREE.Box3(new THREE.Vector3(...l.bbox[0]), new THREE.Vector3(...l.bbox[1])));
@@ -590,6 +632,7 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       {meshes.gShell && ghosting && <primitive object={meshes.gShell} />}
       {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
       <primitive object={lines} />
+      <primitive object={fibreObj.grp} />
       {box &&
         (props.guides ?? []).map((g, i) => {
           const sz = box.getSize(new THREE.Vector3()).multiplyScalar(1.15);

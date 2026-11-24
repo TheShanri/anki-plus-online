@@ -1,0 +1,15 @@
+{
+ "rubrospinal-tract": "hcp",
+ "corticopontine-tract": "hcp",
+ "association-fibers": "hcp",
+ "tectospinal-tract": "pathway",
+ "vestibulospinal-tract": "pathway",
+ "reticulospinal-tract": "pathway",
+ "corticobulbar-tract": "pathway",
+ "trigeminothalamic-tract": "pathway",
+ "medial-forebrain-bundle": "pathway",
+ "stria-terminalis": "pathway",
+ "stria-medullaris-thalami": "pathway",
+ "lateral-corticospinal-tract": "pathway",
+ "anterior-corticospinal-tract": "pathway"
+}

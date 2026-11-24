@@ -140,6 +140,25 @@ by_course = {}
 for r in labels:
     for c in r["course"]:
         by_course.setdefault(c, set()).add(r["id"])
+# the brain's developmental divisions, as unions of what the course calls the parts (every leaf belongs to one): the
+# hindbrain (rhombencephalon) = pons + medulla + cerebellum, its rostral part (metencephalon) = pons + cerebellum, the
+# forebrain (prosencephalon) = everything above the midbrain, the telencephalon = the forebrain without the diencephalon.
+# The cranial nerves belong to none of them.
+nrv = {r["id"] for r in labels if r["tissue"] == "nrv"}
+all_ids = {r["id"] for r in labels} - nrv
+hind = by_course.get("pons", set()) | by_course.get("medulla", set()) | by_course.get("cerebellum", set())
+mid_ = by_course.get("midbrain", set())
+fore = all_ids - hind - mid_ - by_course.get("brainstem", set())
+DIV = {
+    "brain": all_ids,
+    "rhombencephalon": hind,
+    "metencephalon": by_course.get("pons", set()) | by_course.get("cerebellum", set()),
+    "prosencephalon": fore,
+    "telencephalon": fore - by_course.get("diencephalon", set()),
+}
+for k, v in DIV.items():
+    if v:
+        by_course[k] = set(v)
 items = []
 for s in course:
     ids = sorted(by_course.get(s["slug"], []))
@@ -159,6 +178,8 @@ for r in labels:
 items += list(extra.values())
 sul_of = {s["course"]: s["id"] for s in sulci if s["course"]}
 area_of = {a["course"]: a["bit"] for a in areas}
+# the homunculi are drawn on the primary motor and somatosensory cortex
+area_of.update({"motor-homunculus": next(a["bit"] for a in areas if a["key"] == "m1"), "somatosensory-homunculus": next(a["bit"] for a in areas if a["key"] == "s1")})
 for it in items:
     if it["slug"] in sul_of:
         it["sulcus"] = sul_of[it["slug"]]
@@ -172,6 +193,12 @@ for s_ in sulci:
 for it in items:
     if it["slug"] == "sulcus":
         it["sulcus"] = -1
+# tracts drawn as fibres (fibres.py): "hcp" or "pathway", the client loads public/atlas3/fibres/<slug>.json
+FIB = os.path.join(ROOT, "public/atlas3/fibres/index.json")
+fib = json.load(open(FIB)) if os.path.exists(FIB) else {}
+for it in items:
+    if it["slug"] in fib:
+        it["fibre"] = fib[it["slug"]]
 # nesting: parent = the smallest other item whose leaves strictly contain this item's leaves. Umbrella terms (gyrus,
 # cortical ribbon, cerebrospinal fluid, fibre classes ...) never act as parents: they would swallow the whole list.
 UMBRELLA = {"gyrus", "cortical-ribbon", "cerebral-cortex", "allocortex", "paleocortex", "archicortex", "white-matter", "cerebrospinal-fluid",

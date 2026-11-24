@@ -57,10 +57,19 @@ Inside `labels.py`:
 - `extras.py`: pituitary gland (segmented on the template's T1 in the sella) and stalk, lamina terminalis,
   interventricular foramina, obex, area postrema, gracile and cuneate tubercles, derived from the labels.
 
+- `fibres.py` (after the pipeline, before `export.py`): tracts no label can hold (they run through other structures and
+  overlap) as fibres in `public/atlas3/fibres/<slug>.json`: HCP-842 streamlines (rubrospinal, corticopontine,
+  association fibres; MNI space, no warp) or the Pathway tracer's own course of the tract warped by `zmap.py`
+  (tectospinal, vestibulospinal, reticulospinal, corticobulbar, trigeminothalamic, medial forebrain bundle, striae,
+  corticospinal tracts). `export.py` flags those catalog items (`fibre`).
+
 The viewer at `/atlas` (`src/components/atlas3/Explore3.tsx`) shows the same selection as 3D, MRI slices (the atlas2
 viewer) or the course's brainstem sections; structures beyond the syllabus open behind the "just curious" gate; each
-derived structure says where its shape comes from. The previous browser lives on at `/atlas/classic` (and the embedded
-peek, quiz, memory map, slice match and lesion lab still use it).
+derived structure says where its shape comes from. `present.ts` decides how one structure is shown (best view, deep
+view, see-through brainstem) for Explore and `StructureView3` (Name that structure); the atlas peek over study cards
+embeds Explore; My memory map (`MemoryMap3D`) and Slice match (`CutView3`, exact: the atlas is in the MRI's own space)
+use the new canvas. The previous browser lives on at `/atlas/classic`; Blood supply still uses the old engine (its
+vessels and territories are not in v3 yet).
 
 Before the left/right split only midline structures are despeckled (the smaller side of a small pair is otherwise taken for
 a speck).

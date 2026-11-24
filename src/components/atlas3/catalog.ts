@@ -16,8 +16,26 @@ export interface CatItem {
   /** a sulcus (its id; -1 all named sulci) or a functional area (bit) on the outside surface */
   sulcus?: number;
   area?: number;
+  /** a tract drawn as fibres (public/atlas3/fibres/<slug>.json): from HCP-842 tractography or the Pathway tracer */
+  fibre?: "hcp" | "pathway";
 }
-export const hasGeometry = (it: CatItem) => it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined;
+export const hasGeometry = (it: CatItem) => it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined || !!it.fibre;
+
+export type Fibres = { src: "hcp" | "pathway"; credit: string; lines: number[][] };
+const fibreP = new Map<string, Promise<Fibres>>();
+/** A tract's fibres (world metres, polylines), loaded once. */
+export function loadFibres(slug: string): Promise<Fibres> {
+  let p = fibreP.get(slug);
+  if (!p) {
+    p = fetch(`${ATLAS3_BASE}/fibres/${encodeURIComponent(slug)}.json`).then((r) => {
+      if (!r.ok) throw new Error(`atlas3 fibres ${slug}: HTTP ${r.status}`);
+      return r.json() as Promise<Fibres>;
+    });
+    p.catch(() => fibreP.delete(slug));
+    fibreP.set(slug, p);
+  }
+  return p;
+}
 export interface Catalog {
   version: string;
   items: CatItem[];

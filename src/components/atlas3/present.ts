@@ -14,7 +14,7 @@ export const DEEP_SHARE = 0.07;
 export const STEM = new Set([
   ...["MTg", "mRt", "PnBa", "PnTg", "PnO", "MoTg", "BSW", "CPd", "Py", "IO", "SC", "ICo", "SCP", "MCP", "ICP", "PAG", "RN", "SN", "VTA", "PTg", "LC", "DR", "MnR", "LDTg", "PBC", "ML", "MLF", "PTR"],
   ...["III", "EW", "IV", "BIC", "xSCP", "IPF", "Vmo", "Vps", "VI", "VII", "FCol", "PPRF", "LFP", "VCx", "Sp5", "Sol", "DMX", "XII", "Amb", "Gr", "Cu", "IAF", "PyX", "ALS", "DSCT"],
-  ...["Obex", "AP", "GrT", "CuT"],
+  ...["Obex", "AP", "GrT", "CuT", "FGr", "FCu", "LCST", "ACST", "VH"],
   ...["CN3", "CN4", "CN5", "CN6", "CN7", "CN8", "CN9", "CN10", "CN12"],
 ]);
 export const STEM_FLUID = new Set(["Aq", "V4", "CeC"]);
@@ -81,8 +81,16 @@ export function presentItem(it: CatItem, index: Index3, byId: Map<number, Label3
 }
 
 /** What the deep view hides and what it draws as a veil, for a selection (or none: every deep structure). */
-export function deepSets(index: Index3, selIds: number[], byId: Map<number, Label3>): { hiddenIds: number[]; ghostIds: number[]; hull: boolean } {
+export function deepSets(index: Index3, selIds: number[], byId: Map<number, Label3>, fibres = false): { hiddenIds: number[]; ghostIds: number[]; hull: boolean } {
   const keep = new Set(selIds);
+  // a tract drawn as fibres: only the ventricles solid, the brainstem and the brain's outline as veils around it
+  if (fibres && !keep.size) {
+    return {
+      hiddenIds: index.labels.filter((l) => !VENTRICLES.has(l.key)).map((l) => l.id),
+      ghostIds: index.labels.filter((l) => STEM.has(l.key)).map((l) => l.id),
+      hull: true,
+    };
+  }
   if (!keep.size) return { hiddenIds: index.labels.filter((l) => DEEP_HIDE.has(l.tissue)).map((l) => l.id), ghostIds: [], hull: true };
   const stem = inStemOf(selIds, byId);
   // inside the brainstem: everything else hidden, the brainstem and its ventricles veils; elsewhere the ventricles stay

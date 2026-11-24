@@ -14,7 +14,7 @@ import type { SliceView } from "@/components/atlas/SliceViewer";
 import { SectionEmbed } from "@/components/atlas/brainstem/SectionEmbed";
 import type { Atlas3Props, Cut3, View3 } from "./engine/Atlas3Canvas";
 import type { Index3, Label3, Prog } from "./engine/data";
-import { SECTIONS, hasGeometry, loadCatalog, norm, search, sectionOf, type CatItem } from "./catalog";
+import { SECTIONS, hasGeometry, loadCatalog, loadFibres, norm, search, sectionOf, type CatItem, type Fibres } from "./catalog";
 import { STEM, deepSets, inStemOf, isDeep, presentItem } from "./present";
 import "@/components/atlas/ui/atlas-ui.css";
 import "./atlas3.css";
@@ -87,7 +87,7 @@ export function Explore3({
   const [cutFlip, setCutFlip] = useState(() => !!initialCut?.endsWith(":f"));
   const [deep, setDeep] = useState(false);
   const [look, setLook] = useState<"natural" | "regions">("natural");
-  const [focus, setFocus] = useState<{ ids: number[]; nonce: number } | null>(null);
+  const [focus, setFocus] = useState<{ ids: number[]; box?: [[number, number, number], [number, number, number]]; nonce: number } | null>(null);
   const [prog, setProg] = useState<{ shell?: Prog; inner?: Prog }>({});
   const listRef = useRef<HTMLDivElement>(null);
   // a wide screen (the card floats over the stage's right side; on a phone it is a bottom sheet)
@@ -157,7 +157,31 @@ export function Explore3({
   // the deep view: what it hides and what it draws as a veil (present.ts); a selection inside the brainstem is seen
   // through the rest of it
   const inStem = useMemo(() => inStemOf(selIds, byId), [selIds, byId]);
-  const deepView = useMemo(() => (deep && index ? deepSets(index, selIds, byId) : null), [deep, index, selIds, byId]);
+  const deepView = useMemo(() => (deep && index ? deepSets(index, selIds, byId, !!item?.fibre) : null), [deep, index, selIds, byId, item]);
+  // a tract drawn as fibres: its polylines, loaded with the selection, and the camera framed on them
+  const [fibres, setFibres] = useState<{ slug: string; f: Fibres } | null>(null);
+  useEffect(() => {
+    if (!item?.fibre) return;
+    let alive = true;
+    const slug = item.slug;
+    loadFibres(slug).then((f) => {
+      if (!alive) return;
+      setFibres({ slug, f });
+      const pts = f.lines.flat();
+      if (!pts.length) return;
+      const lo = [Infinity, Infinity, Infinity], hi = [-Infinity, -Infinity, -Infinity];
+      for (let i = 0; i < pts.length; i += 3)
+        for (let k = 0; k < 3; k++) {
+          lo[k] = Math.min(lo[k], pts[i + k]);
+          hi[k] = Math.max(hi[k], pts[i + k]);
+        }
+      setFocus((o) => ({ ids: [], box: [lo as [number, number, number], hi as [number, number, number]], nonce: (o?.nonce ?? 0) + 1 }));
+    });
+    return () => {
+      alive = false;
+    };
+  }, [item]);
+  const fibreLines = item?.fibre && fibres?.slug === item.slug ? fibres.f.lines : null;
   const hiddenIds = useMemo(() => deepView?.hiddenIds ?? [], [deepView]);
   const ghostIds = useMemo(() => deepView?.ghostIds ?? [], [deepView]);
   const cut: Cut3 | null = cutAxis === "off" ? null : { axis: cutAxis, pos: cutPos, flip: cutFlip };
@@ -185,6 +209,13 @@ export function Explore3({
       if (it.extra) trackAtlas({ type: "curious_unlock", mesh: it.slug, name: it.name });
       else trackAtlas({ type: "structure_viewed", slug: it.slug, via: stageRef.current === "mri" ? "mri" : "3d" });
       if (!index) return;
+      if (it.fibre && !it.ids.length) {
+        // a tract drawn as fibres: the deep view around it (the camera follows once the fibres are in)
+        setCutAxis("off");
+        setDeep(true);
+        setSides("both");
+        return;
+      }
       const pr = presentItem(it, index, byId);
       if (!it.ids.length) {
         // a sulcus or a functional area: the outside surface, from the view that shows it
@@ -403,6 +434,7 @@ export function Explore3({
     dimOthers: deep,
     look,
     focus,
+    fibres: fibreLines,
     // the structure card covers the right of the stage on a wide screen
     insetRight: item && stage === "3d" && wide ? 384 : 0,
     pins,
@@ -413,7 +445,7 @@ export function Explore3({
     onProgress,
   };
   const sideNote = item && index ? sideText(item, byId, index) : "";
-  const provenance = item ? provenanceText(item, byId) : "";
+  const provenance = item ? (item.fibre && !item.ids.length ? (fibres?.slug === item.slug ? fibreNote(fibres.f) : "") : provenanceText(item, byId)) : "";
 
   return (
     <div className="atl3-shell" style={embedded ? { height: height ?? 560, minHeight: 0 } : { height: "calc(100dvh - 150px)", minHeight: 560 }}>
@@ -649,8 +681,16 @@ const PROVENANCE: Record<string, string> = {
   template: "Segmented on the MNI template's own image.",
   derived: "Derived from the structures around it: approximate.",
 };
+function fibreNote(f: Fibres): string {
+  return f.src === "hcp"
+    ? "Fibres from population tractography in this same space (HCP-842, Yeh et al. 2018): a sample of its streamlines."
+    : "The tract's course as the Pathway tracer draws it, warped onto this brain: one line per side, approximate.";
+}
 function provenanceText(it: CatItem, byId: Map<number, Label3>): string {
-  const srcs = new Set(it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l && l.quality !== "exact").map((l) => l.src));
+  const ls = it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l);
+  // a big union (a lobe, the telencephalon) is mostly exact: a note about one small derived part of it would mislead
+  if (ls.length > 6 && ls.filter((l) => l.quality !== "exact").length < ls.length / 2) return "";
+  const srcs = new Set(ls.filter((l) => l.quality !== "exact").map((l) => l.src));
   // one note, for the least exact source the selection uses
   for (const s of ["zanat", "ahra+zanat", "plate", "derived", "template"]) if (srcs.has(s)) return PROVENANCE[s];
   return "";
@@ -658,6 +698,7 @@ function provenanceText(it: CatItem, byId: Map<number, Label3>): string {
 
 function sideText(it: CatItem, byId: Map<number, Label3>, index: Index3): string {
   if (!hasGeometry(it)) return "";
+  if (it.fibre && !it.ids.length) return "Left and right";
   if (!it.ids.length && it.area !== undefined) return index.areas.find((a) => a.bit === it.area)?.side === "L" ? "Left hemisphere (the language-dominant side in most people)" : "Both hemispheres";
   if (!it.ids.length && it.sulcus !== undefined) return it.sulcus === 14 ? "Between the hemispheres" : "Both hemispheres";
   const ls = it.ids.map((id) => byId.get(id)).filter((l): l is Label3 => !!l);

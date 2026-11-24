@@ -16,6 +16,9 @@ W = os.path.join(ROOT, "_atlas/raw/v3")
 K = np.load(os.path.join(W, "pre_plates.npy"))
 meta = json.load(open(os.path.join(W, "pre_plates.json")))
 KI, AFF = meta["KI"], np.array(meta["affine"])
+for k in bsnuclei.IMPORT:  # structures added to the spec after the dump
+    if k not in KI:
+        KI[k] = max(KI.values()) + 1
 only = sys.argv[1:]
 if only:
     bsnuclei.ORDER = [k for k in bsnuclei.ORDER if k in only]

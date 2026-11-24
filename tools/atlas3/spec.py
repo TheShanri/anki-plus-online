@@ -230,6 +230,12 @@ row("IAF", "Internal arcuate fibres", PL, "tract", course=["internal-arcuate-fib
 row("PyX", "Pyramidal (motor) decussation", PL, "tract", side="M", course=["motor-decussation", *MED], quality="derived")
 row("ALS", "Anterolateral system (spinothalamic tract)", PL, "tract", course=["anterolateral-spinothalamic-tract", "brainstem"], quality="derived")
 row("DSCT", "Dorsal spinocerebellar tract", PL, "tract", course=["dorsal-spinocerebellar-tract", "brainstem"], quality="derived")
+SC_ = ["spinal-cord"]
+row("FGr", "Fasciculus gracilis", PL, "tract", course=["fasciculus-gracilis", "dorsal-columns", *MED], quality="derived")
+row("FCu", "Fasciculus cuneatus", PL, "tract", course=["fasciculus-cuneatus", "dorsal-columns", *MED], quality="derived")
+row("LCST", "Lateral corticospinal tract", PL, "tract", course=["lateral-corticospinal-tract", *MED], quality="derived")
+row("ACST", "Anterior corticospinal tract", PL, "tract", course=["anterior-corticospinal-tract", *MED], quality="derived")
+row("VH", "Ventral horn (where the medulla becomes the cord)", PL, "gm", course=["ventral-horn", *MED], quality="derived")
 
 # ------------------------------------------------------------------ cerebellum
 CB = ["cerebellum", "cerebellar-cortex"]

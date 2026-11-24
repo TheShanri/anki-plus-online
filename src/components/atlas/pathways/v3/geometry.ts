@@ -191,7 +191,9 @@ export function hostGeometry(key: HostKey, geo: Record<string, V3Geo>): Promise<
     p = Promise.all([atlasIndex(), hosts3Ids()]).then(async ([ix, h3]) => {
       if (h3.has(id)) {
         const s = await loadGlb("/pathways/v3/hosts3.glb");
-        return s ? merge(s, (n) => n.startsWith(id + ".")) : null;
+        // nodes are "<id>.<L|R|M|X>"; the loader drops the dot from node names (PropertyBinding.sanitizeNodeName)
+        const base = THREE.PropertyBinding.sanitizeNodeName(id);
+        return s ? merge(s, (n) => /^[LRMX](_\d+)?$/.test(n.slice(base.length)) && n.startsWith(base)) : null;
       }
       const ids = resolveStructureIds(ix, [id], 60);
       const parts = await Promise.all(ids.map((k) => loadGlb(`/atlas/${ix.structures[k].file}`).then((s) => (s ? merge(s, () => true) : null))));

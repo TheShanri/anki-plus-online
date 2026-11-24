@@ -106,6 +106,39 @@ export function loadPatches(name: PatchName, onProgress?: (p: Prog) => void) {
 }
 
 export type Vessel3 = { key: string; name: string; kind: "artery" | "sinus"; box: [[number, number, number], [number, number, number]] };
+export type BodyPart3 = { key: string; name: string; kind: string; group: string; side: string; box: [[number, number, number], [number, number, number]]; src: string; approx?: boolean };
+let bodyP: Promise<{ meta: BodyPart3[]; meshes: Map<string, { geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 }> }> | null = null;
+/** The body layer around the brain (skull, meninges, spine and cord, eye, ear, nose; one mesh per part, by key), loaded once. */
+export function loadBody() {
+  if (!bodyP) {
+    if (!loader) {
+      loader = new GLTFLoader();
+      loader.setMeshoptDecoder(MeshoptDecoder);
+    }
+    const l = loader;
+    bodyP = Promise.all([
+      fetch(`${ATLAS3_BASE}/body.json`).then((r) => r.json() as Promise<{ parts: BodyPart3[] }>),
+      l.loadAsync(`${ATLAS3_BASE}/body.glb`),
+    ]).then(([meta, gltf]) => {
+      gltf.scene.updateMatrixWorld(true);
+      // node names come back sanitised by the loader ("parietal-bone.L" -> "parietal-bone_L")
+      const keyOf = new Map(meta.parts.map((p) => [THREE.PropertyBinding.sanitizeNodeName(p.key), p.key]));
+      const meshes = new Map<string, { geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 }>();
+      gltf.scene.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        let n: THREE.Object3D | null = m;
+        while (n && !keyOf.has(n.name)) n = n.parent;
+        const key = n ? keyOf.get(n.name)! : m.name;
+        if (!m.geometry.getAttribute("normal")) m.geometry.computeVertexNormals();
+        meshes.set(key, { geometry: m.geometry, matrix: m.matrixWorld.clone() });
+      });
+      return { meta: meta.parts, meshes };
+    });
+    bodyP.catch(() => (bodyP = null));
+  }
+  return bodyP;
+}
 let vesselsP: Promise<{ meta: Vessel3[]; meshes: Map<string, { geometry: THREE.BufferGeometry; matrix: THREE.Matrix4 }> }> | null = null;
 /** The arteries and sinuses (one mesh per vessel, by key), loaded once. */
 export function loadVessels() {

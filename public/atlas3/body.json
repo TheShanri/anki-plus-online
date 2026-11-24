@@ -1,0 +1,5672 @@
+{
+ "parts": [
+  {
+   "key": "suture-squamous.R",
+   "name": "Squamous suture",
+   "kind": "suture",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.0814,
+     -0.0284,
+     -0.0678
+    ],
+    [
+     -0.0643,
+     -0.006,
+     0.022
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "suture-squamous.L",
+   "name": "Squamous suture",
+   "kind": "suture",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     0.0638,
+     -0.029,
+     -0.0675
+    ],
+    [
+     0.0828,
+     -0.0057,
+     0.0218
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "suture-lambdoid",
+   "name": "Lambdoid suture",
+   "kind": "suture",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0674,
+     -0.0196,
+     -0.1003
+    ],
+    [
+     0.0678,
+     0.0634,
+     -0.0727
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "suture-coronal",
+   "name": "Coronal suture",
+   "kind": "suture",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0697,
+     -0.0035,
+     0.0295
+    ],
+    [
+     0.0697,
+     0.072,
+     0.0388
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "suture-sagittal",
+   "name": "Sagittal suture",
+   "kind": "suture",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0051,
+     0.0635,
+     -0.0859
+    ],
+    [
+     0.0034,
+     0.0924,
+     0.0363
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "tentorium-cerebelli.R",
+   "name": "Tentorium cerebelli",
+   "kind": "dura",
+   "group": "dura",
+   "side": "R",
+   "box": [
+    [
+     -0.0631,
+     -0.0445,
+     -0.0966
+    ],
+    [
+     0.0006,
+     0.003,
+     -0.0177
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "tentorium-cerebelli.L",
+   "name": "Tentorium cerebelli",
+   "kind": "dura",
+   "group": "dura",
+   "side": "L",
+   "box": [
+    [
+     -0.0007,
+     -0.0446,
+     -0.0966
+    ],
+    [
+     0.063,
+     0.003,
+     -0.0177
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "falx-cerebri",
+   "name": "Falx cerebri",
+   "kind": "dura",
+   "group": "dura",
+   "side": "M",
+   "box": [
+    [
+     -0.0029,
+     -0.0469,
+     -0.1023
+    ],
+    [
+     0.0029,
+     0.085,
+     0.0712
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "mandible",
+   "name": "Mandible",
+   "kind": "bone",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0528,
+     -0.1705,
+     -0.0269
+    ],
+    [
+     0.0527,
+     -0.0515,
+     0.0332
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "inferior-nasal-concha.R",
+   "name": "Inferior nasal concha",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.015,
+     -0.0984,
+     0.0062
+    ],
+    [
+     -0.0047,
+     -0.0794,
+     0.0399
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "inferior-nasal-concha.L",
+   "name": "Inferior nasal concha",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     0.0039,
+     -0.0984,
+     0.0062
+    ],
+    [
+     0.0142,
+     -0.0794,
+     0.0399
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vomer",
+   "name": "Vomer",
+   "kind": "bone",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.005,
+     -0.0994,
+     -0.0066
+    ],
+    [
+     0.0046,
+     -0.0625,
+     0.0456
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "palatine-bone.R",
+   "name": "Palatine bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.027,
+     -0.105,
+     -0.0025
+    ],
+    [
+     -0.0012,
+     -0.0609,
+     0.0236
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "palatine-bone.L",
+   "name": "Palatine bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     0.0003,
+     -0.105,
+     -0.0024
+    ],
+    [
+     0.0262,
+     -0.0609,
+     0.0236
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lacrimal-bone.R",
+   "name": "Lacrimal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.017,
+     -0.0822,
+     0.0326
+    ],
+    [
+     -0.0065,
+     -0.0536,
+     0.0512
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lacrimal-bone.L",
+   "name": "Lacrimal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     0.0058,
+     -0.0822,
+     0.0326
+    ],
+    [
+     0.0162,
+     -0.0544,
+     0.0513
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "nasal-bone.R",
+   "name": "Nasal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.0087,
+     -0.0915,
+     0.0551
+    ],
+    [
+     -0.0002,
+     -0.0494,
+     0.0673
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "nasal-bone.L",
+   "name": "Nasal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     -0.0005,
+     -0.0915,
+     0.0552
+    ],
+    [
+     0.0076,
+     -0.0496,
+     0.0673
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "zygomatic-bone.R",
+   "name": "Zygomatic bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.0624,
+     -0.0999,
+     0.0055
+    ],
+    [
+     -0.0313,
+     -0.0413,
+     0.0471
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "zygomatic-bone.L",
+   "name": "Zygomatic bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     0.0304,
+     -0.0999,
+     0.0056
+    ],
+    [
+     0.0617,
+     -0.041,
+     0.0473
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "maxilla.R",
+   "name": "Maxilla",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.0456,
+     -0.1302,
+     0.0052
+    ],
+    [
+     -0.0004,
+     -0.048,
+     0.0594
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "maxilla.L",
+   "name": "Maxilla",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     -0.0008,
+     -0.1302,
+     0.0053
+    ],
+    [
+     0.0447,
+     -0.0485,
+     0.0594
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "ethmoid-bone",
+   "name": "Ethmoid bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0182,
+     -0.0864,
+     0.003
+    ],
+    [
+     0.0175,
+     -0.0466,
+     0.048
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "sphenoid-bone",
+   "name": "Sphenoid bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0616,
+     -0.0937,
+     -0.0182
+    ],
+    [
+     0.0616,
+     -0.0208,
+     0.0418
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "occipital-bone",
+   "name": "Occipital bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0674,
+     -0.0851,
+     -0.1166
+    ],
+    [
+     0.0674,
+     0.0639,
+     -0.0087
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "temporal-bone.R",
+   "name": "Temporal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.0814,
+     -0.0858,
+     -0.0692
+    ],
+    [
+     -0.0101,
+     -0.0029,
+     0.0243
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "temporal-bone.L",
+   "name": "Temporal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     0.0105,
+     -0.0858,
+     -0.0692
+    ],
+    [
+     0.0819,
+     -0.0029,
+     0.0247
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "parietal-bone.R",
+   "name": "Parietal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "R",
+   "box": [
+    [
+     -0.0812,
+     -0.0277,
+     -0.0989
+    ],
+    [
+     0.0048,
+     0.0918,
+     0.0386
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "parietal-bone.L",
+   "name": "Parietal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "L",
+   "box": [
+    [
+     -0.0059,
+     -0.0281,
+     -0.0992
+    ],
+    [
+     0.082,
+     0.092,
+     0.0384
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "frontal-bone",
+   "name": "Frontal bone",
+   "kind": "bone",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0691,
+     -0.0596,
+     0.0191
+    ],
+    [
+     0.0691,
+     0.0713,
+     0.0834
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "foramen-magnum",
+   "name": "Foramen magnum",
+   "kind": "ring",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.019,
+     -0.083,
+     -0.0655
+    ],
+    [
+     0.0187,
+     -0.0691,
+     -0.0283
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-cranial-fossa",
+   "name": "Anterior cranial fossa",
+   "kind": "region",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0653,
+     -0.0693,
+     0.0054
+    ],
+    [
+     0.0689,
+     -0.0061,
+     0.0749
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "middle-cranial-fossa",
+   "name": "Middle cranial fossa",
+   "kind": "region",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0786,
+     -0.0929,
+     -0.0443
+    ],
+    [
+     0.0792,
+     -0.0051,
+     0.0329
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "posterior-cranial-fossa",
+   "name": "Posterior cranial fossa",
+   "kind": "region",
+   "group": "skull",
+   "side": "M",
+   "box": [
+    [
+     -0.0689,
+     -0.0796,
+     -0.1011
+    ],
+    [
+     0.0688,
+     -0.0164,
+     -0.0223
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "spinal-ganglion.R",
+   "name": "Dorsal root ganglia",
+   "kind": "ganglion",
+   "group": "cord",
+   "side": "R",
+   "box": [
+    [
+     -0.0213,
+     -0.6308,
+     -0.0941
+    ],
+    [
+     -0.0096,
+     -0.0961,
+     -0.0345
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "spinal-ganglion.L",
+   "name": "Dorsal root ganglia",
+   "kind": "ganglion",
+   "group": "cord",
+   "side": "L",
+   "box": [
+    [
+     0.008,
+     -0.6309,
+     -0.0941
+    ],
+    [
+     0.0206,
+     -0.0961,
+     -0.0345
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t9-t10",
+   "name": "Intervertebral disc T9-T10",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0202,
+     -0.4569,
+     -0.0715
+    ],
+    [
+     0.0184,
+     -0.4436,
+     -0.035
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t8-t9",
+   "name": "Intervertebral disc T8-T9",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0208,
+     -0.4229,
+     -0.0794
+    ],
+    [
+     0.0191,
+     -0.4103,
+     -0.0413
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t7-t8",
+   "name": "Intervertebral disc T7-T8",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0195,
+     -0.3917,
+     -0.0855
+    ],
+    [
+     0.0179,
+     -0.379,
+     -0.0456
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t6-t7",
+   "name": "Intervertebral disc T6-T7",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0184,
+     -0.3589,
+     -0.0882
+    ],
+    [
+     0.017,
+     -0.3457,
+     -0.0496
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t5-t6",
+   "name": "Intervertebral disc T5-T6",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0173,
+     -0.3302,
+     -0.0857
+    ],
+    [
+     0.016,
+     -0.3149,
+     -0.0509
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t4-t5",
+   "name": "Intervertebral disc T4-T5",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0173,
+     -0.3032,
+     -0.0829
+    ],
+    [
+     0.0162,
+     -0.2852,
+     -0.0501
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t3-t4",
+   "name": "Intervertebral disc T3-T4",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0178,
+     -0.278,
+     -0.0745
+    ],
+    [
+     0.0168,
+     -0.2614,
+     -0.0461
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t2-t3",
+   "name": "Intervertebral disc T2-T3",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0184,
+     -0.2569,
+     -0.0639
+    ],
+    [
+     0.0174,
+     -0.2384,
+     -0.0398
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t12-l1",
+   "name": "Intervertebral disc T12-L1",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0244,
+     -0.566,
+     -0.0457
+    ],
+    [
+     0.0219,
+     -0.5454,
+     -0.01
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t11-t12",
+   "name": "Intervertebral disc T11-T12",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0232,
+     -0.5283,
+     -0.0558
+    ],
+    [
+     0.021,
+     -0.5095,
+     -0.0176
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t10-t11",
+   "name": "Intervertebral disc T10-T11",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0223,
+     -0.4908,
+     -0.0638
+    ],
+    [
+     0.0202,
+     -0.4768,
+     -0.0265
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-t1-t2",
+   "name": "Intervertebral disc T1-T2",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0181,
+     -0.2335,
+     -0.0555
+    ],
+    [
+     0.0171,
+     -0.2179,
+     -0.0348
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-l5-s1",
+   "name": "Intervertebral disc L5-S1",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0279,
+     -0.7657,
+     -0.0435
+    ],
+    [
+     0.0246,
+     -0.7307,
+     -0.0075
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-l4-l5",
+   "name": "Intervertebral disc L4-L5",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0277,
+     -0.7202,
+     -0.0335
+    ],
+    [
+     0.0245,
+     -0.6998,
+     -0.0009
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-l3-l4",
+   "name": "Intervertebral disc L3-L4",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0253,
+     -0.678,
+     -0.03
+    ],
+    [
+     0.0223,
+     -0.6647,
+     0.0021
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-l2-l3",
+   "name": "Intervertebral disc L2-L3",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0251,
+     -0.6372,
+     -0.0313
+    ],
+    [
+     0.0222,
+     -0.6249,
+     0.0013
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-l1-l2",
+   "name": "Intervertebral disc L1-L2",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0237,
+     -0.6024,
+     -0.0362
+    ],
+    [
+     0.0211,
+     -0.5829,
+     -0.0032
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-c7-t1",
+   "name": "Intervertebral disc C7-T1",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0184,
+     -0.2143,
+     -0.0484
+    ],
+    [
+     0.0175,
+     -0.1991,
+     -0.0308
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-c6-c7",
+   "name": "Intervertebral disc C6-C7",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0166,
+     -0.1979,
+     -0.0429
+    ],
+    [
+     0.0158,
+     -0.1848,
+     -0.0278
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-c5-c6",
+   "name": "Intervertebral disc C5-C6",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0167,
+     -0.1812,
+     -0.0384
+    ],
+    [
+     0.016,
+     -0.1678,
+     -0.0258
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-c4-c5",
+   "name": "Intervertebral disc C4-C5",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0147,
+     -0.163,
+     -0.0369
+    ],
+    [
+     0.0141,
+     -0.1501,
+     -0.0247
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-c3-c4",
+   "name": "Intervertebral disc C3-C4",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0131,
+     -0.1431,
+     -0.0375
+    ],
+    [
+     0.0125,
+     -0.133,
+     -0.0243
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "disc-c2-c3",
+   "name": "Intervertebral disc C2-C3",
+   "kind": "disc",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0129,
+     -0.1258,
+     -0.041
+    ],
+    [
+     0.0124,
+     -0.1167,
+     -0.0254
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "coccyx",
+   "name": "Coccyx",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0191,
+     -0.8904,
+     -0.0962
+    ],
+    [
+     0.0156,
+     -0.8539,
+     -0.0748
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "sacrum",
+   "name": "Sacrum",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0647,
+     -0.8493,
+     -0.1057
+    ],
+    [
+     0.0612,
+     -0.7252,
+     -0.014
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-l5",
+   "name": "Vertebra L5",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0563,
+     -0.7534,
+     -0.0824
+    ],
+    [
+     0.0532,
+     -0.6951,
+     -0.0022
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-l4",
+   "name": "Vertebra L4",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0477,
+     -0.711,
+     -0.0781
+    ],
+    [
+     0.0447,
+     -0.6632,
+     0.0018
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-l3",
+   "name": "Vertebra L3",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0449,
+     -0.6783,
+     -0.0782
+    ],
+    [
+     0.0421,
+     -0.6304,
+     0.0027
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-l2",
+   "name": "Vertebra L2",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0451,
+     -0.6469,
+     -0.0789
+    ],
+    [
+     0.0425,
+     -0.5923,
+     0.0002
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-l1",
+   "name": "Vertebra L1",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0402,
+     -0.6162,
+     -0.0852
+    ],
+    [
+     0.0378,
+     -0.5543,
+     -0.0051
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t12",
+   "name": "Vertebra T12",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0256,
+     -0.5724,
+     -0.0927
+    ],
+    [
+     0.0233,
+     -0.517,
+     -0.013
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t11",
+   "name": "Vertebra T11",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0313,
+     -0.5368,
+     -0.1011
+    ],
+    [
+     0.0293,
+     -0.479,
+     -0.021
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t10",
+   "name": "Vertebra T10",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0398,
+     -0.506,
+     -0.1093
+    ],
+    [
+     0.0381,
+     -0.4428,
+     -0.0283
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t9",
+   "name": "Vertebra T9",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.038,
+     -0.4689,
+     -0.1146
+    ],
+    [
+     0.0365,
+     -0.4085,
+     -0.0351
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t8",
+   "name": "Vertebra T8",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0368,
+     -0.4394,
+     -0.1189
+    ],
+    [
+     0.0354,
+     -0.3745,
+     -0.0418
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t7",
+   "name": "Vertebra T7",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.04,
+     -0.4067,
+     -0.1177
+    ],
+    [
+     0.0388,
+     -0.3397,
+     -0.0475
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t6",
+   "name": "Vertebra T6",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0394,
+     -0.3743,
+     -0.12
+    ],
+    [
+     0.0384,
+     -0.3086,
+     -0.0498
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t5",
+   "name": "Vertebra T5",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0392,
+     -0.3321,
+     -0.1202
+    ],
+    [
+     0.0383,
+     -0.2772,
+     -0.0502
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t4",
+   "name": "Vertebra T4",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0371,
+     -0.2975,
+     -0.1225
+    ],
+    [
+     0.0362,
+     -0.2527,
+     -0.0475
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t3",
+   "name": "Vertebra T3",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0362,
+     -0.2738,
+     -0.1224
+    ],
+    [
+     0.0354,
+     -0.2287,
+     -0.0408
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t2",
+   "name": "Vertebra T2",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0396,
+     -0.2517,
+     -0.1119
+    ],
+    [
+     0.0389,
+     -0.2084,
+     -0.0351
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-t1",
+   "name": "Vertebra T1",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.041,
+     -0.2297,
+     -0.1065
+    ],
+    [
+     0.0403,
+     -0.1923,
+     -0.0313
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c7",
+   "name": "Vertebra C7 (vertebra prominens)",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0375,
+     -0.2116,
+     -0.1004
+    ],
+    [
+     0.0367,
+     -0.1791,
+     -0.0283
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c6",
+   "name": "Vertebra C6",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0322,
+     -0.1938,
+     -0.0895
+    ],
+    [
+     0.0314,
+     -0.1644,
+     -0.0258
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c5",
+   "name": "Vertebra C5",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0322,
+     -0.176,
+     -0.0801
+    ],
+    [
+     0.0315,
+     -0.1502,
+     -0.025
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c4",
+   "name": "Vertebra C4",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0302,
+     -0.1592,
+     -0.0744
+    ],
+    [
+     0.0297,
+     -0.1338,
+     -0.0244
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c3",
+   "name": "Vertebra C3",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0298,
+     -0.1448,
+     -0.0765
+    ],
+    [
+     0.0293,
+     -0.1188,
+     -0.0244
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c2",
+   "name": "Vertebra C2 (axis)",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.028,
+     -0.1256,
+     -0.0792
+    ],
+    [
+     0.0275,
+     -0.0829,
+     -0.0265
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebra-c1",
+   "name": "Vertebra C1 (atlas)",
+   "kind": "bone",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0446,
+     -0.1021,
+     -0.0722
+    ],
+    [
+     0.0441,
+     -0.0793,
+     -0.0269
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vertebral-body",
+   "name": "Vertebral bodies",
+   "kind": "region",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0536,
+     -0.7534,
+     -0.1084
+    ],
+    [
+     0.0505,
+     -0.0829,
+     0.0027
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "vertebral-arch",
+   "name": "Vertebral arches",
+   "kind": "region",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0563,
+     -0.7437,
+     -0.1225
+    ],
+    [
+     0.0532,
+     -0.0793,
+     0.0023
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "spinous-process",
+   "name": "Spinous processes",
+   "kind": "region",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0151,
+     -0.7297,
+     -0.1225
+    ],
+    [
+     0.0121,
+     -0.0825,
+     -0.0487
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "transverse-process",
+   "name": "Transverse processes",
+   "kind": "region",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0563,
+     -0.7191,
+     -0.1115
+    ],
+    [
+     0.0532,
+     -0.0793,
+     -0.031
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "vertebral-foramen",
+   "name": "Vertebral foramina",
+   "kind": "ring",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0147,
+     -0.7239,
+     -0.1115
+    ],
+    [
+     0.0142,
+     -0.0854,
+     -0.0235
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "vertebral-canal",
+   "name": "Vertebral canal",
+   "kind": "space",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0133,
+     -0.7221,
+     -0.1023
+    ],
+    [
+     0.0129,
+     -0.0879,
+     -0.0248
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "intervertebral-foramen",
+   "name": "Intervertebral foramina",
+   "kind": "ring",
+   "group": "spine",
+   "side": "M",
+   "box": [
+    [
+     -0.0208,
+     -0.7142,
+     -0.1031
+    ],
+    [
+     0.0191,
+     -0.1092,
+     -0.0295
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "white-matter-of-spinal-cord",
+   "name": "Spinal cord",
+   "kind": "cord-wm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0088,
+     -0.6444,
+     -0.0972
+    ],
+    [
+     0.0075,
+     -0.072,
+     -0.0342
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-horn-of-spinal-cord",
+   "name": "Ventral (anterior) horn",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0054,
+     -0.6444,
+     -0.0918
+    ],
+    [
+     0.0041,
+     -0.0747,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "posterior-horn-of-spinal-cord",
+   "name": "Dorsal (posterior) horn",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.6444,
+     -0.0953
+    ],
+    [
+     0.004,
+     -0.0729,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "intermediolateral-nucleus",
+   "name": "Intermediolateral nucleus",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.6444,
+     -0.0925
+    ],
+    [
+     0.0043,
+     -0.0743,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "intermediomedial-nucleus",
+   "name": "Intermediomedial nucleus",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0029,
+     -0.6444,
+     -0.0922
+    ],
+    [
+     0.0017,
+     -0.0744,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lateral-intermediate-substance",
+   "name": "Lateral intermediate substance",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0057,
+     -0.6444,
+     -0.0927
+    ],
+    [
+     0.0044,
+     -0.0742,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "nucleus-proprius",
+   "name": "Nucleus proprius",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0051,
+     -0.6444,
+     -0.0942
+    ],
+    [
+     0.0036,
+     -0.0735,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "central-canal",
+   "name": "Central canal",
+   "kind": "csf",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0015,
+     -0.6444,
+     -0.0921
+    ],
+    [
+     0.0005,
+     -0.0744,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-root-of-spinal-nerve",
+   "name": "Ventral roots",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0267,
+     -0.6292,
+     -0.0928
+    ],
+    [
+     0.0261,
+     -0.0891,
+     -0.0331
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "posterior-root-of-spinal-nerve",
+   "name": "Dorsal roots",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.019,
+     -0.6292,
+     -0.0957
+    ],
+    [
+     0.0183,
+     -0.0865,
+     -0.0357
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "cauda-equina",
+   "name": "Cauda equina",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0511,
+     -0.8395,
+     -0.097
+    ],
+    [
+     0.0478,
+     -0.5425,
+     -0.0292
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "spinal-dura",
+   "name": "Spinal dura mater (dural sac)",
+   "kind": "dura",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0154,
+     -0.6444,
+     -0.0975
+    ],
+    [
+     0.0139,
+     -0.0724,
+     -0.0342
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lateral-corticospinal-tract",
+   "name": "Lateral corticospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0077,
+     -0.6444,
+     -0.0947
+    ],
+    [
+     0.0063,
+     -0.0733,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-corticospinal-tract",
+   "name": "Anterior corticospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0018,
+     -0.6444,
+     -0.0909
+    ],
+    [
+     0.0007,
+     -0.075,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "rubrospinal-tract",
+   "name": "Rubrospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0078,
+     -0.6444,
+     -0.0924
+    ],
+    [
+     0.0065,
+     -0.0745,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lateral-reticulospinal-tract",
+   "name": "Lateral reticulospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0053,
+     -0.6444,
+     -0.0898
+    ],
+    [
+     0.0041,
+     -0.0758,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "medial-reticulospinal-tract",
+   "name": "Medial reticulospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0048,
+     -0.6444,
+     -0.0887
+    ],
+    [
+     0.0036,
+     -0.0765,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lateral-vestibulospinal-tract",
+   "name": "Lateral vestibulospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0046,
+     -0.6444,
+     -0.0891
+    ],
+    [
+     0.0034,
+     -0.0762,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "medial-vestibulospinal-tract",
+   "name": "Medial vestibulospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0021,
+     -0.6444,
+     -0.0919
+    ],
+    [
+     0.001,
+     -0.0745,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "tectospinal-tract",
+   "name": "Tectospinal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0019,
+     -0.6444,
+     -0.0913
+    ],
+    [
+     0.0008,
+     -0.0748,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "spinotectal-tract",
+   "name": "Spinotectal tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0052,
+     -0.6444,
+     -0.0891
+    ],
+    [
+     0.004,
+     -0.0762,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-spinothalamic-tract",
+   "name": "Anterior spinothalamic tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.005,
+     -0.6444,
+     -0.0882
+    ],
+    [
+     0.0037,
+     -0.0768,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lateral-spinothalamic-tract",
+   "name": "Lateral spinothalamic tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0074,
+     -0.6444,
+     -0.091
+    ],
+    [
+     0.0061,
+     -0.0752,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-spinocerebellar-tract",
+   "name": "Anterior spinocerebellar tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0087,
+     -0.6444,
+     -0.0923
+    ],
+    [
+     0.0074,
+     -0.0746,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "posterior-spinocerebellar-tract",
+   "name": "Posterior spinocerebellar tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0087,
+     -0.6444,
+     -0.0957
+    ],
+    [
+     0.0074,
+     -0.0728,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "anterior-fasciculus-proprius",
+   "name": "Anterior fasciculus proprius",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0047,
+     -0.6444,
+     -0.0916
+    ],
+    [
+     0.0034,
+     -0.0747,
+     -0.0343
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lateral-fasciculus-proprius",
+   "name": "Lateral fasciculus proprius",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0058,
+     -0.6444,
+     -0.0955
+    ],
+    [
+     0.0045,
+     -0.0729,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "posterior-fasciculus-proprius",
+   "name": "Posterior fasciculus proprius",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0052,
+     -0.6444,
+     -0.0955
+    ],
+    [
+     0.0038,
+     -0.0729,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "gracile-fasciculus",
+   "name": "Gracile fasciculus",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0034,
+     -0.6444,
+     -0.0971
+    ],
+    [
+     0.0022,
+     -0.072,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "cuneate-fasciculus",
+   "name": "Cuneate fasciculus",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0043,
+     -0.2029,
+     -0.0595
+    ],
+    [
+     0.0038,
+     -0.0722,
+     -0.043
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "posterolateral-tract",
+   "name": "Posterolateral tract",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0063,
+     -0.6444,
+     -0.0964
+    ],
+    [
+     0.0049,
+     -0.0724,
+     -0.0344
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "conus-medullaris",
+   "name": "Conus medullaris",
+   "kind": "region",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.004,
+     -0.6444,
+     -0.0381
+    ],
+    [
+     0.0012,
+     -0.611,
+     -0.0342
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "lateral-horn",
+   "name": "Lateral horn (T1-L2)",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.5202,
+     -0.0925
+    ],
+    [
+     0.0036,
+     -0.203,
+     -0.0556
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "marginal-nucleus",
+   "name": "Marginal zone (lamina I)",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.6444,
+     -0.0953
+    ],
+    [
+     0.004,
+     -0.0729,
+     -0.0344
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "substantia-gelatinosa",
+   "name": "Substantia gelatinosa (lamina II)",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.6387,
+     -0.095
+    ],
+    [
+     0.004,
+     -0.0731,
+     -0.0347
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "column-of-clarke",
+   "name": "Clarke's column (nucleus dorsalis), C8-L3",
+   "kind": "cord-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0054,
+     -0.5396,
+     -0.0936
+    ],
+    [
+     0.0027,
+     -0.1917,
+     -0.0524
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "ventral-commissure-of-spinal-cord",
+   "name": "Ventral (anterior) white commissure",
+   "kind": "tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.002,
+     -0.6378,
+     -0.0905
+    ],
+    [
+     0.0008,
+     -0.0743,
+     -0.0338
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-c7-white-matter-of-spinal-cord",
+   "name": "Spinal cord (section at C7)",
+   "kind": "xs-wm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0069,
+     -0.1907,
+     -0.0563
+    ],
+    [
+     0.006,
+     -0.1907,
+     -0.0461
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-lateral-corticospinal-tract",
+   "name": "Lateral corticospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0059,
+     -0.1907,
+     -0.0539
+    ],
+    [
+     0.005,
+     -0.1907,
+     -0.052
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-anterior-corticospinal-tract",
+   "name": "Anterior corticospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.001,
+     -0.1907,
+     -0.0501
+    ],
+    [
+     0.0,
+     -0.1907,
+     -0.0468
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-rubrospinal-tract",
+   "name": "Rubrospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0061,
+     -0.1907,
+     -0.0516
+    ],
+    [
+     0.0052,
+     -0.1907,
+     -0.0504
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-lateral-reticulospinal-tract",
+   "name": "Lateral reticulospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.004,
+     -0.1907,
+     -0.049
+    ],
+    [
+     0.0031,
+     -0.1907,
+     -0.0486
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-medial-reticulospinal-tract",
+   "name": "Medial reticulospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0036,
+     -0.1907,
+     -0.0478
+    ],
+    [
+     0.0027,
+     -0.1907,
+     -0.0468
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-lateral-vestibulospinal-tract",
+   "name": "Lateral vestibulospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0034,
+     -0.1907,
+     -0.0482
+    ],
+    [
+     0.0025,
+     -0.1907,
+     -0.0473
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-medial-vestibulospinal-tract",
+   "name": "Medial vestibulospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0012,
+     -0.1907,
+     -0.0511
+    ],
+    [
+     0.0003,
+     -0.1907,
+     -0.0508
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-tectospinal-tract",
+   "name": "Tectospinal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.001,
+     -0.1907,
+     -0.0505
+    ],
+    [
+     0.0001,
+     -0.1907,
+     -0.0503
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-spinotectal-tract",
+   "name": "Spinotectal tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.004,
+     -0.1907,
+     -0.0482
+    ],
+    [
+     0.003,
+     -0.1907,
+     -0.0479
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-anterior-spinothalamic-tract",
+   "name": "Anterior spinothalamic tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0038,
+     -0.1907,
+     -0.0472
+    ],
+    [
+     0.0028,
+     -0.1907,
+     -0.0463
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-lateral-spinothalamic-tract",
+   "name": "Lateral spinothalamic tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0058,
+     -0.1907,
+     -0.0502
+    ],
+    [
+     0.0049,
+     -0.1907,
+     -0.0482
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-anterior-spinocerebellar-tract",
+   "name": "Anterior spinocerebellar tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0069,
+     -0.1907,
+     -0.0516
+    ],
+    [
+     0.0059,
+     -0.1907,
+     -0.0478
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-posterior-spinocerebellar-tract",
+   "name": "Posterior spinocerebellar tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0068,
+     -0.1907,
+     -0.0549
+    ],
+    [
+     0.0059,
+     -0.1907,
+     -0.0516
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-anterior-fasciculus-proprius",
+   "name": "Anterior fasciculus proprius (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0035,
+     -0.1907,
+     -0.0508
+    ],
+    [
+     0.0025,
+     -0.1907,
+     -0.0488
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-lateral-fasciculus-proprius",
+   "name": "Lateral fasciculus proprius (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0044,
+     -0.1907,
+     -0.0547
+    ],
+    [
+     0.0035,
+     -0.1907,
+     -0.0488
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-posterior-fasciculus-proprius",
+   "name": "Posterior fasciculus proprius (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0037,
+     -0.1907,
+     -0.0547
+    ],
+    [
+     0.0028,
+     -0.1907,
+     -0.0515
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-gracile-fasciculus",
+   "name": "Gracile fasciculus (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0023,
+     -0.1907,
+     -0.0562
+    ],
+    [
+     0.0014,
+     -0.1907,
+     -0.0516
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-cuneate-fasciculus",
+   "name": "Cuneate fasciculus (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0037,
+     -0.1907,
+     -0.0559
+    ],
+    [
+     0.0028,
+     -0.1907,
+     -0.0516
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-posterolateral-tract",
+   "name": "Posterolateral tract (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0046,
+     -0.1907,
+     -0.0555
+    ],
+    [
+     0.0037,
+     -0.1907,
+     -0.0543
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-anterior-horn-of-spinal-cord",
+   "name": "Ventral (anterior) horn (section at C7)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.004,
+     -0.1906,
+     -0.051
+    ],
+    [
+     0.0031,
+     -0.1906,
+     -0.0489
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-posterior-horn-of-spinal-cord",
+   "name": "Dorsal (posterior) horn (section at C7)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0041,
+     -0.1906,
+     -0.0545
+    ],
+    [
+     0.003,
+     -0.1906,
+     -0.0517
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-lateral-intermediate-substance",
+   "name": "Lateral intermediate substance (section at C7)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0042,
+     -0.1906,
+     -0.0519
+    ],
+    [
+     0.0033,
+     -0.1906,
+     -0.0504
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-nucleus-proprius",
+   "name": "Nucleus proprius (section at C7)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0037,
+     -0.1906,
+     -0.0534
+    ],
+    [
+     0.0026,
+     -0.1906,
+     -0.0529
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-intermediolateral-nucleus",
+   "name": "Intermediolateral nucleus (section at C7)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0042,
+     -0.1906,
+     -0.0517
+    ],
+    [
+     0.0033,
+     -0.1906,
+     -0.0512
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-intermediomedial-nucleus",
+   "name": "Intermediomedial nucleus (section at C7)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0019,
+     -0.1906,
+     -0.0514
+    ],
+    [
+     0.001,
+     -0.1906,
+     -0.0509
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-central-canal",
+   "name": "Central canal (section at C7)",
+   "kind": "csf",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0007,
+     -0.1906,
+     -0.0513
+    ],
+    [
+     -0.0002,
+     -0.1906,
+     -0.0509
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-c7-marginal-nucleus",
+   "name": "Marginal nucleus (section at C7)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0041,
+     -0.1906,
+     -0.0545
+    ],
+    [
+     0.003,
+     -0.1906,
+     -0.0541
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-c7-substantia-gelatinosa",
+   "name": "Substantia gelatinosa (section at C7)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0041,
+     -0.1906,
+     -0.0541
+    ],
+    [
+     0.003,
+     -0.1906,
+     -0.0535
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-c7-ventral-commissure-of-spinal-cord",
+   "name": "Ventral commissure of spinal cord (section at C7)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0014,
+     -0.1906,
+     -0.0508
+    ],
+    [
+     0.0004,
+     -0.1906,
+     -0.0488
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-t6-white-matter-of-spinal-cord",
+   "name": "Spinal cord (section at T6)",
+   "kind": "xs-wm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0076,
+     -0.2944,
+     -0.0939
+    ],
+    [
+     0.0064,
+     -0.2944,
+     -0.0833
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-lateral-corticospinal-tract",
+   "name": "Lateral corticospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0066,
+     -0.2943,
+     -0.0913
+    ],
+    [
+     0.0054,
+     -0.2943,
+     -0.0893
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-anterior-corticospinal-tract",
+   "name": "Anterior corticospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0012,
+     -0.2943,
+     -0.0873
+    ],
+    [
+     -0.0001,
+     -0.2943,
+     -0.084
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-rubrospinal-tract",
+   "name": "Rubrospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0067,
+     -0.2943,
+     -0.0889
+    ],
+    [
+     0.0055,
+     -0.2943,
+     -0.0876
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-lateral-reticulospinal-tract",
+   "name": "Lateral reticulospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0045,
+     -0.2943,
+     -0.0861
+    ],
+    [
+     0.0032,
+     -0.2943,
+     -0.0857
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-medial-reticulospinal-tract",
+   "name": "Medial reticulospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.004,
+     -0.2943,
+     -0.0849
+    ],
+    [
+     0.0028,
+     -0.2943,
+     -0.084
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-lateral-vestibulospinal-tract",
+   "name": "Lateral vestibulospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0038,
+     -0.2943,
+     -0.0853
+    ],
+    [
+     0.0026,
+     -0.2943,
+     -0.0845
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-medial-vestibulospinal-tract",
+   "name": "Medial vestibulospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0014,
+     -0.2943,
+     -0.0883
+    ],
+    [
+     0.0002,
+     -0.2943,
+     -0.088
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-tectospinal-tract",
+   "name": "Tectospinal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0013,
+     -0.2943,
+     -0.0877
+    ],
+    [
+     0.0,
+     -0.2943,
+     -0.0875
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-spinotectal-tract",
+   "name": "Spinotectal tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0044,
+     -0.2943,
+     -0.0854
+    ],
+    [
+     0.0031,
+     -0.2943,
+     -0.085
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-anterior-spinothalamic-tract",
+   "name": "Anterior spinothalamic tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0042,
+     -0.2943,
+     -0.0844
+    ],
+    [
+     0.0029,
+     -0.2943,
+     -0.0835
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-lateral-spinothalamic-tract",
+   "name": "Lateral spinothalamic tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0064,
+     -0.2943,
+     -0.0874
+    ],
+    [
+     0.0052,
+     -0.2943,
+     -0.0854
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-anterior-spinocerebellar-tract",
+   "name": "Anterior spinocerebellar tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0076,
+     -0.2943,
+     -0.0888
+    ],
+    [
+     0.0064,
+     -0.2943,
+     -0.085
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-posterior-spinocerebellar-tract",
+   "name": "Posterior spinocerebellar tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0076,
+     -0.2943,
+     -0.0924
+    ],
+    [
+     0.0063,
+     -0.2943,
+     -0.0889
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-anterior-fasciculus-proprius",
+   "name": "Anterior fasciculus proprius (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0039,
+     -0.2943,
+     -0.088
+    ],
+    [
+     0.0026,
+     -0.2943,
+     -0.0859
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-lateral-fasciculus-proprius",
+   "name": "Lateral fasciculus proprius (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0049,
+     -0.2943,
+     -0.0921
+    ],
+    [
+     0.0037,
+     -0.2943,
+     -0.086
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-posterior-fasciculus-proprius",
+   "name": "Posterior fasciculus proprius (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0043,
+     -0.2943,
+     -0.0921
+    ],
+    [
+     0.0031,
+     -0.2943,
+     -0.0887
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-gracile-fasciculus",
+   "name": "Gracile fasciculus (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0027,
+     -0.2943,
+     -0.0938
+    ],
+    [
+     0.0015,
+     -0.2943,
+     -0.0889
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-posterolateral-tract",
+   "name": "Posterolateral tract (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0053,
+     -0.2943,
+     -0.093
+    ],
+    [
+     0.0041,
+     -0.2943,
+     -0.0917
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-anterior-horn-of-spinal-cord",
+   "name": "Ventral (anterior) horn (section at T6)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0045,
+     -0.2943,
+     -0.0882
+    ],
+    [
+     0.0033,
+     -0.2943,
+     -0.086
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-posterior-horn-of-spinal-cord",
+   "name": "Dorsal (posterior) horn (section at T6)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0046,
+     -0.2943,
+     -0.092
+    ],
+    [
+     0.0032,
+     -0.2943,
+     -0.089
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-lateral-intermediate-substance",
+   "name": "Lateral intermediate substance (section at T6)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0048,
+     -0.2943,
+     -0.0892
+    ],
+    [
+     0.0035,
+     -0.2943,
+     -0.0875
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-nucleus-proprius",
+   "name": "Nucleus proprius (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0043,
+     -0.2943,
+     -0.0908
+    ],
+    [
+     0.0028,
+     -0.2943,
+     -0.0902
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-intermediolateral-nucleus",
+   "name": "Intermediolateral nucleus (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0047,
+     -0.2943,
+     -0.0889
+    ],
+    [
+     0.0035,
+     -0.2943,
+     -0.0884
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-intermediomedial-nucleus",
+   "name": "Intermediomedial nucleus (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0022,
+     -0.2943,
+     -0.0886
+    ],
+    [
+     0.001,
+     -0.2943,
+     -0.0881
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-central-canal",
+   "name": "Central canal (section at T6)",
+   "kind": "csf",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0009,
+     -0.2943,
+     -0.0886
+    ],
+    [
+     -0.0004,
+     -0.2943,
+     -0.0881
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-t6-marginal-nucleus",
+   "name": "Marginal nucleus (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0046,
+     -0.2943,
+     -0.092
+    ],
+    [
+     0.0032,
+     -0.2943,
+     -0.0915
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-t6-substantia-gelatinosa",
+   "name": "Substantia gelatinosa (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0046,
+     -0.2943,
+     -0.0915
+    ],
+    [
+     0.0032,
+     -0.2943,
+     -0.0908
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-t6-column-of-clarke",
+   "name": "Column of clarke (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0028,
+     -0.2943,
+     -0.0899
+    ],
+    [
+     0.0013,
+     -0.2943,
+     -0.0888
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-t6-lateral-horn",
+   "name": "Lateral horn (section at T6)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.005,
+     -0.2943,
+     -0.0892
+    ],
+    [
+     0.0038,
+     -0.2943,
+     -0.0881
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-t6-ventral-commissure-of-spinal-cord",
+   "name": "Ventral commissure of spinal cord (section at T6)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0015,
+     -0.2943,
+     -0.088
+    ],
+    [
+     0.0003,
+     -0.2943,
+     -0.086
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-l2-white-matter-of-spinal-cord",
+   "name": "Spinal cord (section at L2)",
+   "kind": "xs-wm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0088,
+     -0.52,
+     -0.0674
+    ],
+    [
+     0.0064,
+     -0.52,
+     -0.0558
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-lateral-corticospinal-tract",
+   "name": "Lateral corticospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0077,
+     -0.52,
+     -0.0647
+    ],
+    [
+     0.0053,
+     -0.52,
+     -0.0625
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-anterior-corticospinal-tract",
+   "name": "Anterior corticospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0018,
+     -0.52,
+     -0.0601
+    ],
+    [
+     -0.0006,
+     -0.52,
+     -0.0566
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-rubrospinal-tract",
+   "name": "Rubrospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0078,
+     -0.52,
+     -0.062
+    ],
+    [
+     0.0054,
+     -0.52,
+     -0.0606
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-lateral-reticulospinal-tract",
+   "name": "Lateral reticulospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0053,
+     -0.52,
+     -0.0589
+    ],
+    [
+     0.0029,
+     -0.52,
+     -0.0585
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-medial-reticulospinal-tract",
+   "name": "Medial reticulospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0048,
+     -0.52,
+     -0.0576
+    ],
+    [
+     0.0024,
+     -0.52,
+     -0.0566
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-lateral-vestibulospinal-tract",
+   "name": "Lateral vestibulospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0046,
+     -0.52,
+     -0.0581
+    ],
+    [
+     0.0022,
+     -0.52,
+     -0.0571
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-medial-vestibulospinal-tract",
+   "name": "Medial vestibulospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0021,
+     -0.52,
+     -0.0613
+    ],
+    [
+     -0.0003,
+     -0.52,
+     -0.0609
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-tectospinal-tract",
+   "name": "Tectospinal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0019,
+     -0.52,
+     -0.0606
+    ],
+    [
+     -0.0005,
+     -0.52,
+     -0.0603
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-spinotectal-tract",
+   "name": "Spinotectal tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0052,
+     -0.52,
+     -0.0582
+    ],
+    [
+     0.0028,
+     -0.52,
+     -0.0577
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-anterior-spinothalamic-tract",
+   "name": "Anterior spinothalamic tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.005,
+     -0.52,
+     -0.0571
+    ],
+    [
+     0.0026,
+     -0.52,
+     -0.0561
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-lateral-spinothalamic-tract",
+   "name": "Lateral spinothalamic tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0074,
+     -0.52,
+     -0.0604
+    ],
+    [
+     0.005,
+     -0.52,
+     -0.0582
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-anterior-spinocerebellar-tract",
+   "name": "Anterior spinocerebellar tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0088,
+     -0.52,
+     -0.0621
+    ],
+    [
+     0.0064,
+     -0.52,
+     -0.0577
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-posterior-spinocerebellar-tract",
+   "name": "Posterior spinocerebellar tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0087,
+     -0.52,
+     -0.0659
+    ],
+    [
+     0.0063,
+     -0.52,
+     -0.0621
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-anterior-fasciculus-proprius",
+   "name": "Anterior fasciculus proprius (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0047,
+     -0.52,
+     -0.0609
+    ],
+    [
+     0.0023,
+     -0.52,
+     -0.0587
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-lateral-fasciculus-proprius",
+   "name": "Lateral fasciculus proprius (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0058,
+     -0.52,
+     -0.0656
+    ],
+    [
+     0.0034,
+     -0.52,
+     -0.0587
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-posterior-fasciculus-proprius",
+   "name": "Posterior fasciculus proprius (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0052,
+     -0.52,
+     -0.0656
+    ],
+    [
+     0.0028,
+     -0.52,
+     -0.0617
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-gracile-fasciculus",
+   "name": "Gracile fasciculus (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0034,
+     -0.52,
+     -0.0674
+    ],
+    [
+     0.0011,
+     -0.52,
+     -0.0619
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-posterolateral-tract",
+   "name": "Posterolateral tract (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0063,
+     -0.52,
+     -0.0666
+    ],
+    [
+     0.0039,
+     -0.52,
+     -0.0651
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-anterior-horn-of-spinal-cord",
+   "name": "Ventral (anterior) horn (section at L2)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0054,
+     -0.5199,
+     -0.0612
+    ],
+    [
+     0.003,
+     -0.5199,
+     -0.0588
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-posterior-horn-of-spinal-cord",
+   "name": "Dorsal (posterior) horn (section at L2)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.5199,
+     -0.0654
+    ],
+    [
+     0.0029,
+     -0.5199,
+     -0.062
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-lateral-intermediate-substance",
+   "name": "Lateral intermediate substance (section at L2)",
+   "kind": "xs-gm",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0057,
+     -0.5199,
+     -0.0623
+    ],
+    [
+     0.0033,
+     -0.5199,
+     -0.0604
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-nucleus-proprius",
+   "name": "Nucleus proprius (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0051,
+     -0.5199,
+     -0.064
+    ],
+    [
+     0.0025,
+     -0.5199,
+     -0.0634
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-intermediolateral-nucleus",
+   "name": "Intermediolateral nucleus (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.5199,
+     -0.062
+    ],
+    [
+     0.0033,
+     -0.5199,
+     -0.0614
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-intermediomedial-nucleus",
+   "name": "Intermediomedial nucleus (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0029,
+     -0.5199,
+     -0.0616
+    ],
+    [
+     0.0005,
+     -0.5199,
+     -0.061
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-central-canal",
+   "name": "Central canal (section at L2)",
+   "kind": "csf",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0015,
+     -0.5199,
+     -0.0615
+    ],
+    [
+     -0.0009,
+     -0.5199,
+     -0.061
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "xs-l2-marginal-nucleus",
+   "name": "Marginal nucleus (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.5199,
+     -0.0654
+    ],
+    [
+     0.0029,
+     -0.5199,
+     -0.0649
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-l2-substantia-gelatinosa",
+   "name": "Substantia gelatinosa (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0056,
+     -0.5199,
+     -0.0649
+    ],
+    [
+     0.0029,
+     -0.5199,
+     -0.0641
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-l2-column-of-clarke",
+   "name": "Column of clarke (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0035,
+     -0.5199,
+     -0.0629
+    ],
+    [
+     0.0009,
+     -0.5199,
+     -0.0618
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-l2-lateral-horn",
+   "name": "Lateral horn (section at L2)",
+   "kind": "xs-nuc",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0059,
+     -0.5199,
+     -0.0623
+    ],
+    [
+     0.0036,
+     -0.5199,
+     -0.0611
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "xs-l2-ventral-commissure-of-spinal-cord",
+   "name": "Ventral commissure of spinal cord (section at L2)",
+   "kind": "xs-tract",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0021,
+     -0.5199,
+     -0.061
+    ],
+    [
+     -0.0003,
+     -0.5199,
+     -0.0588
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "anterior-spinal-artery",
+   "name": "Anterior spinal artery",
+   "kind": "artery",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.002,
+     -0.6381,
+     -0.087
+    ],
+    [
+     0.0008,
+     -0.0754,
+     -0.033
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "posterior-spinal-arteries",
+   "name": "Posterior spinal arteries",
+   "kind": "artery",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0051,
+     -0.6375,
+     -0.0972
+    ],
+    [
+     0.0041,
+     -0.0726,
+     -0.0348
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "filum-terminale",
+   "name": "Filum terminale",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0039,
+     -0.8899,
+     -0.0863
+    ],
+    [
+     -0.0009,
+     -0.6441,
+     -0.0338
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "denticulate-ligaments",
+   "name": "Denticulate ligaments",
+   "kind": "pia",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0143,
+     -0.5041,
+     -0.093
+    ],
+    [
+     0.0119,
+     -0.0769,
+     -0.0429
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "spinal-nerves",
+   "name": "Spinal nerves",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0263,
+     -0.63,
+     -0.0934
+    ],
+    [
+     0.0256,
+     -0.0971,
+     -0.0351
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "dorsal-ramus",
+   "name": "Dorsal rami",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.039,
+     -0.6331,
+     -0.1149
+    ],
+    [
+     0.0384,
+     -0.096,
+     -0.0358
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "ventral-ramus",
+   "name": "Ventral rami",
+   "kind": "nerve",
+   "group": "cord",
+   "side": "M",
+   "box": [
+    [
+     -0.0562,
+     -0.6403,
+     -0.0931
+    ],
+    [
+     0.055,
+     -0.0975,
+     -0.0262
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "sclera.L",
+   "name": "Sclera",
+   "kind": "eye-sclera",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0154,
+     -0.0755,
+     0.0294
+    ],
+    [
+     0.0425,
+     -0.0434,
+     0.0491
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "sclera.R",
+   "name": "Sclera",
+   "kind": "eye-sclera",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0433,
+     -0.0755,
+     0.0296
+    ],
+    [
+     -0.0157,
+     -0.0433,
+     0.0491
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "cornea.L",
+   "name": "Cornea",
+   "kind": "eye-cornea",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0223,
+     -0.0686,
+     0.0472
+    ],
+    [
+     0.0368,
+     -0.0499,
+     0.0515
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "cornea.R",
+   "name": "Cornea",
+   "kind": "eye-cornea",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0377,
+     -0.0685,
+     0.0471
+    ],
+    [
+     -0.023,
+     -0.0499,
+     0.0515
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "iris.L",
+   "name": "Iris",
+   "kind": "eye-iris",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0229,
+     -0.0677,
+     0.0459
+    ],
+    [
+     0.0361,
+     -0.0508,
+     0.0484
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "iris.R",
+   "name": "Iris",
+   "kind": "eye-iris",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.037,
+     -0.0677,
+     0.0458
+    ],
+    [
+     -0.0237,
+     -0.0508,
+     0.0484
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lens.L",
+   "name": "Lens",
+   "kind": "eye-lens",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.024,
+     -0.0659,
+     0.0432
+    ],
+    [
+     0.0346,
+     -0.0522,
+     0.0475
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "lens.R",
+   "name": "Lens",
+   "kind": "eye-lens",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0355,
+     -0.0659,
+     0.0432
+    ],
+    [
+     -0.0248,
+     -0.0522,
+     0.0474
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "retina.L",
+   "name": "Retina",
+   "kind": "eye-retina",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0175,
+     -0.0726,
+     0.0314
+    ],
+    [
+     0.0402,
+     -0.0457,
+     0.0456
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "retina.R",
+   "name": "Retina",
+   "kind": "eye-retina",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.041,
+     -0.0726,
+     0.0316
+    ],
+    [
+     -0.0179,
+     -0.0455,
+     0.0455
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "choroid.L",
+   "name": "Choroid",
+   "kind": "eye-choroid",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0168,
+     -0.0735,
+     0.0308
+    ],
+    [
+     0.0409,
+     -0.045,
+     0.0459
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "vitreous-body.L",
+   "name": "Vitreous body",
+   "kind": "eye-vitreous",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0176,
+     -0.0724,
+     0.0315
+    ],
+    [
+     0.04,
+     -0.0458,
+     0.0452
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "aqueous-humor.L",
+   "name": "Aqueous humour (anterior chamber)",
+   "kind": "eye-aqueous",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0223,
+     -0.0685,
+     0.0455
+    ],
+    [
+     0.0368,
+     -0.0499,
+     0.0515
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "pupil.L",
+   "name": "Pupil",
+   "kind": "ring",
+   "group": "eye",
+   "side": "L",
+   "box": [
+    [
+     0.0276,
+     -0.0621,
+     0.0475
+    ],
+    [
+     0.0317,
+     -0.0568,
+     0.0485
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "choroid.R",
+   "name": "Choroid",
+   "kind": "eye-choroid",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0417,
+     -0.0735,
+     0.031
+    ],
+    [
+     -0.0173,
+     -0.0449,
+     0.0457
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "vitreous-body.R",
+   "name": "Vitreous body",
+   "kind": "eye-vitreous",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0408,
+     -0.0724,
+     0.0317
+    ],
+    [
+     -0.0181,
+     -0.0457,
+     0.0451
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "aqueous-humor.R",
+   "name": "Aqueous humour (anterior chamber)",
+   "kind": "eye-aqueous",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0376,
+     -0.0685,
+     0.0454
+    ],
+    [
+     -0.0231,
+     -0.0499,
+     0.0514
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "pupil.R",
+   "name": "Pupil",
+   "kind": "ring",
+   "group": "eye",
+   "side": "R",
+   "box": [
+    [
+     -0.0325,
+     -0.062,
+     0.0475
+    ],
+    [
+     -0.0284,
+     -0.0568,
+     0.0485
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "cochlea.L",
+   "name": "Cochlea",
+   "kind": "ear",
+   "group": "ear",
+   "side": "L",
+   "box": [
+    [
+     0.0389,
+     -0.0541,
+     -0.0248
+    ],
+    [
+     0.0452,
+     -0.0455,
+     -0.0164
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "cochlea.R",
+   "name": "Cochlea",
+   "kind": "ear",
+   "group": "ear",
+   "side": "R",
+   "box": [
+    [
+     -0.0443,
+     -0.0519,
+     -0.0244
+    ],
+    [
+     -0.0375,
+     -0.0443,
+     -0.016
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vestibule.L",
+   "name": "Vestibule (utricle and saccule)",
+   "kind": "ear",
+   "group": "ear",
+   "side": "L",
+   "box": [
+    [
+     0.038,
+     -0.0505,
+     -0.0314
+    ],
+    [
+     0.0476,
+     -0.038,
+     -0.0222
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "vestibule.R",
+   "name": "Vestibule (utricle and saccule)",
+   "kind": "ear",
+   "group": "ear",
+   "side": "R",
+   "box": [
+    [
+     -0.0474,
+     -0.0493,
+     -0.0312
+    ],
+    [
+     -0.0362,
+     -0.0381,
+     -0.0216
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "semicircular-canals.L",
+   "name": "Semicircular canals",
+   "kind": "ear",
+   "group": "ear",
+   "side": "L",
+   "box": [
+    [
+     0.041,
+     -0.0465,
+     -0.0305
+    ],
+    [
+     0.0498,
+     -0.0377,
+     -0.0227
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "semicircular-canals.R",
+   "name": "Semicircular canals",
+   "kind": "ear",
+   "group": "ear",
+   "side": "R",
+   "box": [
+    [
+     -0.0498,
+     -0.0458,
+     -0.0304
+    ],
+    [
+     -0.0397,
+     -0.0378,
+     -0.0225
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "ossicles.L",
+   "name": "Ossicles",
+   "kind": "bone",
+   "group": "ear",
+   "side": "L",
+   "box": [
+    [
+     0.0438,
+     -0.0528,
+     -0.029
+    ],
+    [
+     0.0518,
+     -0.044,
+     -0.0231
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "ossicles.R",
+   "name": "Ossicles",
+   "kind": "bone",
+   "group": "ear",
+   "side": "R",
+   "box": [
+    [
+     -0.0523,
+     -0.051,
+     -0.029
+    ],
+    [
+     -0.0427,
+     -0.0437,
+     -0.0226
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "nasal-cavity",
+   "name": "Nasal cavity",
+   "kind": "space",
+   "group": "nose",
+   "side": "M",
+   "box": [
+    [
+     -0.0137,
+     -0.1216,
+     0.0084
+    ],
+    [
+     0.013,
+     -0.0528,
+     0.0688
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "olfactory-epithelium",
+   "name": "Olfactory epithelium",
+   "kind": "epith",
+   "group": "nose",
+   "side": "M",
+   "box": [
+    [
+     -0.0088,
+     -0.0639,
+     0.0333
+    ],
+    [
+     0.0083,
+     -0.0545,
+     0.0565
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "olfactory-nerve",
+   "name": "Olfactory nerve (fila olfactoria)",
+   "kind": "nerve",
+   "group": "nose",
+   "side": "M",
+   "box": [
+    [
+     -0.0006,
+     -0.0555,
+     0.0021
+    ],
+    [
+     0.0159,
+     -0.0135,
+     0.049
+    ]
+   ],
+   "src": "Z-Anatomy (CC BY-SA 4.0), warped onto this brain"
+  },
+  {
+   "key": "accessory-nerve.L",
+   "name": "Accessory nerve (XI)",
+   "kind": "nerve",
+   "group": "nerves",
+   "side": "L",
+   "box": [
+    [
+     0.0069,
+     -0.1649,
+     -0.0557
+    ],
+    [
+     0.0444,
+     -0.0678,
+     -0.0239
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "accessory-nerve.R",
+   "name": "Accessory nerve (XI)",
+   "kind": "nerve",
+   "group": "nerves",
+   "side": "R",
+   "box": [
+    [
+     -0.0448,
+     -0.1648,
+     -0.0557
+    ],
+    [
+     -0.0078,
+     -0.0678,
+     -0.0239
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "hypothalamic-sulcus",
+   "name": "Hypothalamic sulcus",
+   "kind": "groove",
+   "group": "brain",
+   "side": "M",
+   "box": [
+    [
+     -0.0029,
+     -0.0057,
+     -0.0146
+    ],
+    [
+     0.0029,
+     -0.0016,
+     -0.0013
+    ]
+   ],
+   "src": "drawn from this atlas's labels (approximate)",
+   "approx": true
+  },
+  {
+   "key": "mesencephalic-trigeminal-nucleus",
+   "name": "Mesencephalic nucleus of the trigeminal nerve",
+   "kind": "nucleus",
+   "group": "brain",
+   "side": "M",
+   "box": [
+    [
+     -0.0061,
+     -0.0279,
+     -0.0442
+    ],
+    [
+     0.0061,
+     -0.0062,
+     -0.0296
+    ]
+   ],
+   "src": "drawn from this atlas's labels (approximate)",
+   "approx": true
+  },
+  {
+   "key": "arachnoid-mater",
+   "name": "Arachnoid mater",
+   "kind": "arachnoid",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0734,
+     -0.0706,
+     -0.1074
+    ],
+    [
+     0.0735,
+     0.0835,
+     0.0755
+    ]
+   ],
+   "src": "this brain's outline, offset (approximate)",
+   "approx": true
+  },
+  {
+   "key": "dura-cranial",
+   "name": "Dura mater (cranial)",
+   "kind": "dura",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0747,
+     -0.0719,
+     -0.1087
+    ],
+    [
+     0.0748,
+     0.0848,
+     0.0768
+    ]
+   ],
+   "src": "this brain's outline, offset (approximate)",
+   "approx": true
+  },
+  {
+   "key": "subarachnoid-space",
+   "name": "Subarachnoid space",
+   "kind": "space-subarachnoid",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0733,
+     -0.0705,
+     -0.1073
+    ],
+    [
+     0.0734,
+     0.0834,
+     0.0754
+    ]
+   ],
+   "src": "this brain's outline, offset (approximate)",
+   "approx": true
+  },
+  {
+   "key": "subdural-space",
+   "name": "Subdural space",
+   "kind": "space-subdural",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0744,
+     -0.0716,
+     -0.1084
+    ],
+    [
+     0.0745,
+     0.0845,
+     0.0765
+    ]
+   ],
+   "src": "this brain's outline, offset (approximate)",
+   "approx": true
+  },
+  {
+   "key": "epidural-space",
+   "name": "Epidural space",
+   "kind": "space-epidural",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0759,
+     -0.0731,
+     -0.1099
+    ],
+    [
+     0.076,
+     0.086,
+     0.078
+    ]
+   ],
+   "src": "this brain's outline, offset (approximate)",
+   "approx": true
+  },
+  {
+   "key": "arachnoid-granulations",
+   "name": "Arachnoid granulations",
+   "kind": "arachnoid",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0054,
+     -0.0203,
+     -0.091
+    ],
+    [
+     0.005,
+     0.0825,
+     0.0589
+    ]
+   ],
+   "src": "placed along the superior sagittal sinus (approximate)",
+   "approx": true
+  },
+  {
+   "key": "meningeal-blood-vessels",
+   "name": "Middle meningeal artery",
+   "kind": "artery",
+   "group": "meninges",
+   "side": "M",
+   "box": [
+    [
+     -0.0726,
+     -0.048,
+     -0.0824
+    ],
+    [
+     0.0729,
+     0.0668,
+     0.0341
+    ]
+   ],
+   "src": "drawn from Z-Anatomy landmarks (approximate)",
+   "approx": true
+  },
+  {
+   "key": "lenticulostriate-arteries",
+   "name": "Lenticulostriate arteries",
+   "kind": "artery",
+   "group": "brain",
+   "side": "M",
+   "box": [
+    [
+     -0.0322,
+     -0.0244,
+     -0.0085
+    ],
+    [
+     0.0322,
+     0.0083,
+     0.012
+    ]
+   ],
+   "src": "drawn from the middle cerebral artery to the lentiform nucleus (approximate)",
+   "approx": true
+  },
+  {
+   "key": "callosomarginal-artery",
+   "name": "Callosomarginal artery",
+   "kind": "artery",
+   "group": "brain",
+   "side": "M",
+   "box": [
+    [
+     -0.004,
+     -0.0083,
+     -0.0408
+    ],
+    [
+     0.0037,
+     0.0536,
+     0.0457
+    ]
+   ],
+   "src": "drawn along the cingulate sulcus of this atlas (approximate)",
+   "approx": true
+  },
+  {
+   "key": "trigeminal-ganglion",
+   "name": "Trigeminal ganglion",
+   "kind": "ganglion",
+   "group": "nerves",
+   "side": "M",
+   "box": [
+    [
+     -0.023,
+     -0.0579,
+     -0.0211
+    ],
+    [
+     0.0225,
+     -0.0266,
+     -0.0084
+    ]
+   ],
+   "src": "the front of Z-Anatomy's trigeminal nerve (approximate)",
+   "approx": true
+  }
+ ],
+ "marks": [
+  {
+   "key": "bregma",
+   "name": "Bregma",
+   "p": [
+    -0.00118,
+    0.06928,
+    0.03476
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "lambda",
+   "name": "Lambda",
+   "p": [
+    0.00019,
+    0.06216,
+    -0.08468
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "foramen-magnum",
+   "name": "Foramen magnum",
+   "p": [
+    -0.0002,
+    -0.08319,
+    -0.02563
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "foramen-ovale",
+   "name": "Foramen ovale",
+   "p": [
+    0.02155,
+    -0.05128,
+    -0.00558
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "foramen-spinosum",
+   "name": "Foramen spinosum",
+   "p": [
+    0.03569,
+    -0.04677,
+    -0.01665
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "optic-canal",
+   "name": "Optic canal",
+   "p": [
+    -0.01101,
+    -0.04327,
+    0.03145
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "hypoglossal-canal",
+   "name": "Hypoglossal canal",
+   "p": [
+    -0.02288,
+    -0.05887,
+    -0.02507
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "jugular-foramen",
+   "name": "Jugular foramen",
+   "p": [
+    0.03267,
+    -0.07052,
+    -0.02638
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "foramen-caecum",
+   "name": "Foramen caecum",
+   "p": [
+    0.00692,
+    -0.0451,
+    0.03716
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "sella-turcica",
+   "name": "Sella turcica",
+   "p": [
+    -0.00033,
+    -0.06507,
+    -0.01717
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "pterion.L",
+   "name": "Pterion",
+   "p": [
+    0.05763,
+    -0.02304,
+    0.02718
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "pterion.R",
+   "name": "Pterion",
+   "p": [
+    -0.05921,
+    -0.02072,
+    0.02496
+   ],
+   "group": "skull",
+   "approx": false
+  },
+  {
+   "key": "foramen-of-magendie",
+   "name": "Median aperture (foramen of Magendie)",
+   "p": [
+    -0.0,
+    -0.05824,
+    -0.04959
+   ],
+   "group": "ventricles",
+   "approx": true
+  },
+  {
+   "key": "foramen-of-luschka.L",
+   "name": "Lateral aperture (foramen of Luschka)",
+   "p": [
+    0.01359,
+    -0.04576,
+    -0.04541
+   ],
+   "group": "ventricles",
+   "approx": true
+  },
+  {
+   "key": "foramen-of-luschka.R",
+   "name": "Lateral aperture (foramen of Luschka)",
+   "p": [
+    -0.01359,
+    -0.04576,
+    -0.04541
+   ],
+   "group": "ventricles",
+   "approx": true
+  },
+  {
+   "key": "occipital-notch.L",
+   "name": "Preoccipital notch",
+   "p": [
+    0.054,
+    -0.016,
+    -0.066
+   ],
+   "group": "brain",
+   "approx": true
+  },
+  {
+   "key": "occipital-notch.R",
+   "name": "Preoccipital notch",
+   "p": [
+    -0.053,
+    -0.016,
+    -0.0645
+   ],
+   "group": "brain",
+   "approx": true
+  }
+ ],
+ "credit": "Z-Anatomy (CC BY-SA 4.0) and the Pathway tracer's models, warped onto this brain; approximate parts drawn from landmarks"
+}

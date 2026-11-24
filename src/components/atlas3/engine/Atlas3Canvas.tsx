@@ -11,7 +11,7 @@ import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { NAV_MOUSE, NAV_TOUCH, NavExtras } from "@/components/atlas/ui/navigation";
-import { LabelState, loadIndex3, loadPatches, loadVessels, type Index3, type Label3, type Prog } from "./data";
+import { LabelState, loadBody, loadIndex3, loadPatches, loadVessels, type Index3, type Label3, type Prog } from "./data";
 import { makeGlassMaterial, makePatchMaterial, makeStateTexture, makeUniforms, type PatchUniforms } from "./patchMaterial";
 import { makeGhostMaterial, setGhostMode } from "./ghostMaterial";
 import { readCssColor } from "@/lib/atlas/theme";
@@ -24,13 +24,14 @@ export const VIEW_DIRS: Record<View3, [number, number, number]> = {
   right: [-1, 0, 0],
   anterior: [0, 0, 1],
   posterior: [0, 0, -1],
-  superior: [0, 1, 0.0001],
+  superior: [0, 1, -0.0001],
   inferior: [0, -1, 0.0001],
   "medial-left": [-1, 0, 0],
   "medial-right": [1, 0, 0],
 };
 export type Cut3 = { axis: "x" | "y" | "z"; pos: number; flip?: boolean };
-export type Pin3 = { id: number; text: string };
+/** a name pin on a label (id), or at a point (p, world metres) */
+export type Pin3 = { id: number; text: string; p?: [number, number, number] };
 /** a translucent sheet across the brain at a plane (world metres along the axis) */
 export type Guide3 = { axis: "x" | "y" | "z"; pos: number; color: string };
 export interface Atlas3Props {
@@ -62,6 +63,11 @@ export interface Atlas3Props {
   fibres?: number[][] | null;
   /** the arteries and sinuses, these keys lit (null: no vessels) */
   vessels?: string[] | null;
+  /** the body layer (skull, meninges, spine and cord, eye, ear, nose): parts shown, parts lit, and the meninges' cut
+   * faces staggered by this many metres per layer (outer layers kept further toward the viewer, so they ring the cut) */
+  body?: { show: string[]; lit: string[]; stagger?: number } | null;
+  /** a tint over the brain's whole outside surface (the pia) */
+  skin?: string | null;
   /** "tracer": the copy of the atlas in the Pathway tracer's frame (Blood supply draws its own vessels there) */
   frame?: "atlas" | "tracer";
   /** the outside surface as one see-through layer of this opacity, with the arterial territories (tracer frame only) */
@@ -133,6 +139,91 @@ function setTerritories(u: PatchUniforms, pu: PatchUniforms, tex: THREE.DataText
 function setRegionUniforms(u: PatchUniforms, sulcus: number, areaMask: number) {
   u.uSulc.value = sulcus;
   u.uAreaMask.value = areaMask;
+}
+function setCapNormal(u: PatchUniforms, n: THREE.Vector3) {
+  u.uCapN.value.copy(n);
+}
+/* outlines of the cut faces. Natural look: soft where the tissue changes (grey / white matter / fluid), as a real section
+ * shows it, and a faint trace of every other structure's border; regions look: every border crisp. */
+const TISSUE_CLASS: Record<string, number> = { ctx: 1, cbx: 1, gm: 1, wm: 2, tract: 2, bs: 2, csf: 3, plx: 4, nrv: 5 };
+function setLineLook(m: LineMaterial, faint: LineMaterial, regions: boolean) {
+  m.color.set(regions ? 0x2b2421 : 0x54453d);
+  m.opacity = regions ? 0.8 : 0.45;
+  m.linewidth = regions ? 1.15 : 0.95;
+  m.needsUpdate = true;
+  faint.opacity = regions ? 0 : 0.2;
+  faint.needsUpdate = true;
+}
+function setSkin(u: PatchUniforms, skin: string | null | undefined) {
+  if (!skin) u.uSkin.value.set(0, 0, 0, 0);
+  else {
+    const c = new THREE.Color(skin);
+    u.uSkin.value.set(c.r, c.g, c.b, 0.5);
+  }
+}
+/* the body layer's look, by kind: colour and (for see-through kinds) opacity; layer: the meninges' order outwards */
+const BODY_STYLE: Record<string, { color: string; opacity?: number; layer?: number }> = {
+  bone: { color: "#e3d8c2", layer: 4 },
+  suture: { color: "#6e4a30", layer: 4 },
+  region: { color: "#e3d8c2", layer: 4 },
+  ring: { color: "#ffc14d" },
+  dura: { color: "#c4ad86", opacity: 0.5, layer: 2 },
+  disc: { color: "#9db6c6" },
+  "cord-wm": { color: "#efe8dc", opacity: 0.2 },
+  "cord-gm": { color: "#a8917c" },
+  "xs-wm": { color: "#efe8da" },
+  "xs-tract": { color: "#e2d8c6" },
+  "xs-gm": { color: "#9d8a80" },
+  "xs-nuc": { color: "#8c7a71" },
+  tract: { color: "#d6c9b6", opacity: 0.45 },
+  csf: { color: "#5f9fd6" },
+  nerve: { color: "#d4c597" },
+  ganglion: { color: "#c8b47e" },
+  artery: { color: "#b8443c" },
+  space: { color: "#7fb0d8", opacity: 0.28 },
+  "space-subarachnoid": { color: "#5f9fd6", opacity: 0.5, layer: 1 },
+  "space-subdural": { color: "#b9b2ee", opacity: 0.45, layer: 2 },
+  "space-epidural": { color: "#efcf8a", opacity: 0.45, layer: 3 },
+  arachnoid: { color: "#d8d4ea", opacity: 0.4, layer: 1 },
+  pia: { color: "#e58a8a", opacity: 0.6 },
+  "eye-sclera": { color: "#f2eee4", opacity: 0.5 },
+  "eye-cornea": { color: "#cfe5ff", opacity: 0.35 },
+  "eye-iris": { color: "#6b4a2b" },
+  "eye-lens": { color: "#f1e4bf", opacity: 0.8 },
+  "eye-retina": { color: "#cf604b" },
+  "eye-choroid": { color: "#5e2b2b" },
+  "eye-vitreous": { color: "#cfe0ff", opacity: 0.2 },
+  "eye-aqueous": { color: "#cfe6ff", opacity: 0.28 },
+  ear: { color: "#e6d3a3" },
+  epith: { color: "#d88f78" },
+  groove: { color: "#ffc14d" },
+  nucleus: { color: "#c98a5a" },
+};
+const BODY_SEE = new Set(Object.entries(BODY_STYLE).filter(([, s]) => s.opacity !== undefined).map(([k]) => k));
+function bodyMaterial(kind: string, lit: boolean): THREE.MeshLambertMaterial {
+  const st = BODY_STYLE[kind] ?? { color: "#cccccc" };
+  const see = st.opacity !== undefined;
+  const m = new THREE.MeshLambertMaterial({
+    color: lit ? "#ffc14d" : st.color,
+    emissive: lit ? "#4a3200" : "#000000",
+    side: THREE.DoubleSide,
+    // a lit see-through part (a space, the vitreous ...) is all but solid, so it reads over the veils around it
+    transparent: see,
+    opacity: see ? (lit ? 0.88 : st.opacity!) : 1,
+    depthWrite: !see || lit,
+    // a lit region is a part of a bone or a section drawn again over it: it wins the depth test
+    polygonOffset: lit,
+    polygonOffsetFactor: lit ? -2 : 0,
+    polygonOffsetUnits: lit ? -4 : 0,
+  });
+  m.userData.layer = st.layer ?? 0;
+  return m;
+}
+function setBodyClip(mats: Map<string, THREE.MeshLambertMaterial>, planes: THREE.Plane[], plane: THREE.Plane, mid: THREE.Plane, stagger: number) {
+  for (const m of mats.values()) {
+    const k = stagger ? (m.userData.layer as number) : 0;
+    m.clippingPlanes = k ? [new THREE.Plane(plane.normal.clone(), plane.constant + k * stagger), mid] : planes;
+  }
 }
 function swapLines(ls: LineSegments2, g: LineSegmentsGeometry, v: boolean) {
   ls.geometry.dispose();
@@ -330,6 +421,14 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     return a;
   }, [shell, inner]);
   const lineMat = useMemo(() => new LineMaterial({ color: 0x2b2421, linewidth: 1.15, transparent: true, opacity: 0.8 }), []);
+  const faintMat = useMemo(() => new LineMaterial({ color: 0x54453d, linewidth: 0.8, transparent: true, opacity: 0.2, depthWrite: false }), []);
+  const faintLines = useMemo(() => {
+    const ls = new LineSegments2(new LineSegmentsGeometry(), faintMat);
+    ls.renderOrder = 4;
+    ls.frustumCulled = false;
+    ls.visible = false;
+    return ls;
+  }, [faintMat]);
   const lines = useMemo(() => {
     const ls = new LineSegments2(new LineSegmentsGeometry(), lineMat);
     ls.frustumCulled = false;
@@ -416,9 +515,55 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
     }
     return g;
   }, [vessels, props.vessels, vesselMats]);
+  // ---------------- the body layer: each part by its kind, the lit ones gold; the meninges' cut faces staggered
+  const [bodyData, setBodyData] = useState<Awaited<ReturnType<typeof loadBody>> | null>(null);
+  const wantBody = !!props.body;
+  useEffect(() => {
+    if (!wantBody || bodyData) return;
+    let alive = true;
+    loadBody().then((b) => alive && setBodyData(b));
+    return () => {
+      alive = false;
+    };
+  }, [wantBody, bodyData]);
+  const bodyMats = useMemo(
+    () => new Map<string, THREE.MeshLambertMaterial>(Object.keys(BODY_STYLE).flatMap((k) => [[k, bodyMaterial(k, false)] as const, [`${k}:lit`, bodyMaterial(k, true)] as const])),
+    [],
+  );
+  const bodyGroup = useMemo(() => {
+    const g = new THREE.Group();
+    if (!bodyData || !props.body) return g;
+    const kindOf = new Map(bodyData.meta.map((p) => [p.key, p.kind]));
+    const lit = new Set(props.body.lit);
+    for (const key of [...props.body.show, ...props.body.lit]) {
+      const m = bodyData.meshes.get(key);
+      const kind = kindOf.get(key);
+      if (!m || !kind) continue;
+      const lk = lit.has(key) ? ":lit" : "";
+      const mat = bodyMats.get(`${kind}${lk}`) ?? bodyMats.get(`bone${lk}`)!;
+      const me = new THREE.Mesh(m.geometry, mat);
+      me.matrixAutoUpdate = false;
+      me.matrix.copy(m.matrix);
+      me.frustumCulled = false;
+      me.renderOrder = BODY_SEE.has(kind) ? 4 : 1;
+      me.raycast = () => {};
+      g.add(me);
+    }
+    return g;
+  }, [bodyData, props.body, bodyMats]);
+  const stagger = props.cut ? (props.body?.stagger ?? 0) : 0;
+  useEffect(() => {
+    setBodyClip(bodyMats, planes, plane, midPlane, stagger);
+    invalidate();
+  }, [bodyMats, bodyGroup, planes, plane, midPlane, stagger, props.cut, invalidate]);
+  useEffect(() => {
+    setSkin(uniforms, props.skin);
+    invalidate();
+  }, [uniforms, props.skin, invalidate]);
   const camLight = useMemo(() => new THREE.DirectionalLight("#ffffff", 1.9), []);
+  const wantLights = wantVessels || wantBody;
   useFrame(() => {
-    if (!wantVessels) return;
+    if (!wantLights) return;
     camLight.position.copy(camera.position).add(new THREE.Vector3(-0.2, 0.3, 0).applyQuaternion(camera.quaternion));
     camLight.target.position.copy((controls as unknown as OrbitControlsImpl | null)?.target ?? new THREE.Vector3());
     camLight.target.updateMatrixWorld();
@@ -426,15 +571,20 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   useEffect(() => {
     const active = [props.cut ? plane : null, hideSides.length === 1 ? midPlane : null].filter((p): p is THREE.Plane => !!p);
     if (!active.length || !arrays.length) {
-      if (lines.visible) {
+      if (lines.visible || faintLines.visible) {
         setShown(lines, false);
+        setShown(faintLines, false);
         invalidate();
       }
       return;
     }
-    const t = window.setTimeout(() => {
+    // at once (binned triangles: a millisecond or two), so the outline moves with the cut
+    const regions = props.look === "regions";
+    const og = (id: number) => byId.get(id)?.og ?? id;
+    const tissue = (id: number) => 100000 + (TISSUE_CLASS[byId.get(id)?.tissue ?? ""] ?? id);
+    const build = (group: (id: number) => number) => {
       const parts = active.map((p) => {
-        const seg = cutSegments(arrays, p, (id) => state.visible(id), (id) => byId.get(id)?.og ?? id);
+        const seg = cutSegments(arrays, p, (id) => state.visible(id), group);
         const others = active.filter((q) => q !== p);
         if (!others.length) return seg;
         const keep: number[] = [];
@@ -450,13 +600,32 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
         seg.set(a, off);
         off += a.length;
       }
+      return seg;
+    };
+    const put = (ls: LineSegments2, seg: Float32Array | null) => {
       const g = new LineSegmentsGeometry();
-      if (seg.length) g.setPositions(seg);
-      swapLines(lines, g, seg.length > 0);
-      invalidate();
-    }, 30);
-    return () => window.clearTimeout(t);
-  }, [props.cut, arrays, plane, midPlane, state, lines, invalidate, hidden, ghosted, hideSides, byId]);
+      if (seg?.length) g.setPositions(seg);
+      swapLines(ls, g, !!seg?.length);
+    };
+    put(lines, build(regions ? og : tissue));
+    put(faintLines, regions ? null : build(og));
+    invalidate();
+  }, [props.cut, props.look, arrays, plane, midPlane, state, lines, faintLines, invalidate, hidden, ghosted, hideSides, byId]);
+  useEffect(() => {
+    setLineLook(lineMat, faintMat, props.look === "regions");
+    invalidate();
+  }, [lineMat, faintMat, props.look, invalidate]);
+  useEffect(() => {
+    faintMat.resolution.set(size.width, size.height);
+  }, [faintMat, size]);
+  // the cut plane's normal in view space, for the sheen of the cut faces
+  const capN = useMemo(() => new THREE.Vector3(), []);
+  useFrame(() => {
+    const p = props.cut ? plane : hideSides.length === 1 ? midPlane : null;
+    if (!p) return;
+    capN.copy(p.normal).transformDirection(camera.matrixWorldInverse);
+    setCapNormal(uniforms, capN);
+  });
 
   // ---------------- camera
   const box = useMemo(() => {
@@ -539,30 +708,62 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       const sideOff = l.side !== "M" && hideSides.includes(l.side);
       if (!sideOff && (ghosted.has(l.id) || !hidden.has(l.id))) drawn.union(new THREE.Box3(new THREE.Vector3(...l.bbox[0]), new THREE.Vector3(...l.bbox[1])));
     }
+    // the body layer (skull, spine, eye ...): what it draws counts too, and it frames closer and farther than the brain
+    const brainDrawn = !drawn.isEmpty();
+    const bodyBoxes = props.body && bodyData ? new Map(bodyData.meta.map((p) => [p.key, p.box])) : null;
+    let bodyDrawn = false;
+    for (const k of bodyBoxes ? [...props.body!.show, ...props.body!.lit] : []) {
+      const bb = bodyBoxes!.get(k);
+      if (!bb) continue;
+      drawn.union(new THREE.Box3(new THREE.Vector3(...bb[0]), new THREE.Vector3(...bb[1])));
+      bodyDrawn = true;
+    }
     if (drawn.isEmpty()) drawn.copy(box);
+    // what a cut removes is not drawn: the camera may come down to the cut face (a cord's section from above)
+    if (props.cut && bodyDrawn) {
+      const ax = props.cut.axis === "x" ? 0 : props.cut.axis === "y" ? 1 : 2;
+      if (props.cut.flip) drawn.min.setComponent(ax, Math.max(drawn.min.getComponent(ax), props.cut.pos));
+      else drawn.max.setComponent(ax, Math.min(drawn.max.getComponent(ax), props.cut.pos));
+    }
     const sc = drawn.getCenter(new THREE.Vector3());
     const R = drawn.getSize(new THREE.Vector3()).length() / 2;
-    const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, 0.018);
+    const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, props.body ? 0.012 : 0.018);
     const home = Math.min(homeDist(), (R / halfFovSin(cam)) * 0.9);
-    let dist = Math.min(home, Math.max((r / halfFovSin(cam)) * 1.35, home * 0.42));
-    // never inside what is drawn: at least out to its bounding sphere along the view direction
+    // (a part of the body layer by itself may come close; one shown with the brain keeps the brain's distance)
+    let dist = props.body ? Math.max((r / halfFovSin(cam)) * 1.25, home * (brainDrawn ? 0.42 : 0.12)) : Math.min(home, Math.max((r / halfFovSin(cam)) * 1.35, home * 0.42));
     const d = dir.clone().normalize();
-    const oc = c.clone().sub(sc);
-    const bq = oc.dot(d), cq = oc.lengthSq() - R * R * 1.02;
-    const tOut = -bq + Math.sqrt(Math.max(0, bq * bq - cq));
-    dist = Math.max(dist, tOut + 0.01);
+    // straight down or up (an axial cut): nudged as the superior and inferior views are, so the screen's axes are
+    // settled (the front at the top)
+    if (Math.abs(d.y) > 0.9999) d.set(0, Math.sign(d.y), d.y > 0 ? -0.0001 : 0.0001).normalize();
+    if (bodyDrawn) {
+      // never inside what is drawn: out of its box along the view direction (a sphere around a whole spine is too far)
+      let tOut = Infinity;
+      for (let k = 0; k < 3; k++) {
+        const dk = d.getComponent(k);
+        if (Math.abs(dk) < 1e-6) continue;
+        const t = ((dk > 0 ? drawn.max.getComponent(k) : drawn.min.getComponent(k)) - c.getComponent(k)) / dk;
+        tOut = Math.min(tOut, Math.max(0, t));
+      }
+      if (Number.isFinite(tOut)) dist = Math.max(dist, tOut + 0.012);
+    } else {
+      // never inside what is drawn: at least out to its bounding sphere along the view direction
+      const oc = c.clone().sub(sc);
+      const bq = oc.dot(d), cq = oc.lengthSq() - R * R * 1.02;
+      const tOut = -bq + Math.sqrt(Math.max(0, bq * bq - cq));
+      dist = Math.max(dist, tOut + 0.01);
+    }
     // a panel over the right of the stage: move the view so the structure sits in the middle of the free part
     const inset = Math.min(props.insetRight ?? 0, size.width * 0.5);
     const target = c.clone();
     if (inset > 0 && size.width > 0) {
       const right = new THREE.Vector3().crossVectors(d.clone().negate(), new THREE.Vector3(0, 1, 0));
-      if (right.lengthSq() < 1e-8) right.set(1, 0, 0);
+      if (right.lengthSq() < 1e-14) right.set(1, 0, 0); // (a nudged top-down view has a tiny but true right)
       right.normalize();
       const halfW = dist * Math.tan((cam.fov * Math.PI) / 360) * (size.width / Math.max(1, size.height));
       target.addScaledVector(right, (inset / size.width) * halfW);
     }
     flyTo(target, d, dist);
-  }, [focusNonce, box]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [focusNonce, box, bodyData]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ---------------- GPU picking: the id render of one pixel (label + whether it is a cut face)
   const target = useMemo(() => new THREE.WebGLRenderTarget(1, 1, { type: THREE.UnsignedByteType }), []);
@@ -684,6 +885,10 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
   const pins = useMemo(() => {
     const out: { key: string; text: string; pos: THREE.Vector3 }[] = [];
     for (const p of props.pins ?? []) {
+      if (p.p) {
+        out.push({ key: `p:${p.text}:${p.p.join(",")}`, text: p.text, pos: new THREE.Vector3(...p.p) });
+        continue;
+      }
       const l = byId.get(p.id);
       if (!l) continue;
       const deep = props.ghost || !l.exterior || needInner;
@@ -738,17 +943,19 @@ function Network({ index, props, setTip, setPins, pinDom }: { index: Index3; pro
       {meshes.ghost && props.ghost && <primitive object={meshes.ghost} />}
       {meshes.gShell && ghosting && <primitive object={meshes.gShell} />}
       {meshes.gInner && ghosting && needInner && <primitive object={meshes.gInner} />}
+      <primitive object={faintLines} />
       <primitive object={lines} />
       <primitive object={fibreObj.grp} />
       {props.children}
-      {wantVessels && (
+      {wantLights && (
         <>
           <ambientLight intensity={0.55} />
           <primitive object={camLight} />
           <primitive object={camLight.target} />
-          <primitive object={vesselGroup} />
         </>
       )}
+      {wantVessels && <primitive object={vesselGroup} />}
+      {wantBody && <primitive object={bodyGroup} />}
       {box &&
         (props.guides ?? []).map((g, i) => {
           const sz = box.getSize(new THREE.Vector3()).multiplyScalar(1.15);

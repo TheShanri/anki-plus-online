@@ -34,8 +34,10 @@ flat varying ivec2 vLab;
 varying vec3 vNA;
 varying vec3 vNB;
 varying vec3 vView;
+varying vec3 vWP;
 void main() {
   vLab = ivec2(_labels + 0.5);
+  vWP = (modelMatrix * vec4(position, 1.0)).xyz;
   vNA = normalize(normalMatrix * normal);
 #ifdef SHELL
   vNB = -vNA;
@@ -70,6 +72,22 @@ uniform float uCapShade;
 uniform int uSulc;
 uniform int uAreaMask;
 uniform vec3 uRegionTint;
+uniform vec4 uSkin;
+uniform vec3 uCapN;
+varying vec3 vWP;
+// value noise in world space (metres), for the grain of a cut face
+float hash3(vec3 p) {
+  p = fract(p * 0.3183099 + vec3(0.71, 0.113, 0.419));
+  p *= 17.0;
+  return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
+}
+float vnoise(vec3 x) {
+  vec3 i = floor(x);
+  vec3 f = fract(x);
+  f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(hash3(i), hash3(i + vec3(1, 0, 0)), f.x), mix(hash3(i + vec3(0, 1, 0)), hash3(i + vec3(1, 1, 0)), f.x), f.y),
+             mix(mix(hash3(i + vec3(0, 0, 1)), hash3(i + vec3(1, 0, 1)), f.x), mix(hash3(i + vec3(0, 1, 1)), hash3(i + vec3(1, 1, 1)), f.x), f.y), f.z);
+}
 uniform float uOnLight;
 #ifdef TERR
 uniform sampler2D uTerr;
@@ -142,6 +160,20 @@ void main() {
     col = st(lab, 1).rgb;
 #ifdef TERR
     col = vec3(0.47, 0.45, 0.43);
+#else
+    // a cut face as tissue, not a flat fill: a fine grain (0.3 mm), soft mottling (1-3 mm) and a faint, wider
+    // unevenness (1 cm), stronger in grey matter than in the paler white matter; and the moist sheen of a fresh cut
+    // under the key light (the cut plane's normal, view space)
+    float lum = dot(col, vec3(0.299, 0.587, 0.114));
+    float g = vnoise(vWP * 3300.0) * 0.45 + vnoise(vWP * 700.0) * 0.35 + vnoise(vWP * 95.0) * 0.2;
+    float amp = mix(0.15, 0.08, smoothstep(0.55, 0.85, lum));
+    col *= 1.0 - amp * 0.5 + amp * g;
+    col = mix(col, col * vec3(1.04, 0.97, 0.96), vnoise(vWP * 240.0 + 7.3) * 0.5 * (1.0 - smoothstep(0.55, 0.85, lum)));
+    vec3 Nc = normalize(uCapN);
+    vec3 Vc = normalize(vView);
+    if (dot(Nc, Vc) < 0.0) Nc = -Nc;
+    float sheen = pow(max(dot(Nc, normalize(uKey + Vc)), 0.0), 18.0);
+    col = col * (0.94 + 0.08 * max(dot(Nc, uKey), 0.0)) + vec3(0.05 * sheen);
 #endif
     // a whisper of depth so stacked cut faces never look like a flat sticker
     col *= uCapShade;
@@ -167,6 +199,8 @@ void main() {
 #ifdef SHELL
   // a selected sulcus (its walls) or functional area, drawn over the outside surface only
   if (!cap && ((uSulc > 0 && vSulc == uSulc) || (uSulc == -1 && vSulc > 0) || (uAreaMask != 0 && (vAreas & uAreaMask) != 0))) col = mix(col, uRegionTint, 0.62);
+  // a skin over the whole outside surface, into every sulcus (the pia)
+  if (!cap && uSkin.a > 0.0) col = mix(col, uSkin.rgb, uSkin.a);
 #endif
 #ifdef TERR
   // the arterial territory of this point of the outside surface: its colour and strength from a 16 x 1 texture (row: the
@@ -204,6 +238,10 @@ export type PatchUniforms = {
   uSulc: { value: number };
   uAreaMask: { value: number };
   uRegionTint: { value: THREE.Color };
+  /** rgb + strength: a tint over the outside surface (0: none) */
+  uSkin: { value: THREE.Vector4 };
+  /** the cut plane's normal in view space (the sheen of the cut faces) */
+  uCapN: { value: THREE.Vector3 };
   /** 1 on a light page: the see-through veils are drawn darker than the page */
   uOnLight: { value: number };
   /** Blood supply: the territory colours (16 x 1, rgb + strength) and the see-through brain's opacity */
@@ -226,6 +264,8 @@ export function makeUniforms(state: THREE.DataTexture): PatchUniforms {
     uSulc: { value: 0 },
     uAreaMask: { value: 0 },
     uRegionTint: { value: new THREE.Color("#ffb347") },
+    uSkin: { value: new THREE.Vector4(0, 0, 0, 0) },
+    uCapN: { value: new THREE.Vector3(0, 0, 1) },
     uOnLight: { value: 0 },
     uTerr: { value: null },
     uGlass: { value: 1 },

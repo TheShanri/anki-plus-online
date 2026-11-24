@@ -56,7 +56,7 @@ def main():
     table = []
     for key, (obj, name, kind) in VESSELS.items():
         m = trimesh.load(os.path.join(GLB, obj + ".glb"), force="mesh")
-        mni = zmap.z_to_mni(np.asarray(m.vertices))
+        mni = zmap.frame_to_mni(np.asarray(m.vertices))  # (z_to_mni alone maps the model mirrored: see zmap.mni_to_frame)
         keep_v = mni[:, 2] >= ZMIN
         faces = np.asarray(m.faces)
         keep_f = keep_v[faces].all(axis=1)

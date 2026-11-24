@@ -183,12 +183,25 @@ export function Explore3({
     };
   }, [item]);
   const fibreLines = item?.fibre && fibres?.slug === item.slug ? fibres.f.lines : null;
-  const hiddenIds = useMemo(() => deepView?.hiddenIds ?? [], [deepView]);
-  const ghostIds = useMemo(() => deepView?.ghostIds ?? [], [deepView]);
+  // a structure of the body layer (skull, meninges, spine and cord, eye, ear, nose): shown as its spec says (the parts
+  // around it, the brain hidden, as a veil, shown, or the deep view of some labels; tools/atlas3/bodyspec.py)
+  const bodySpec = item?.body && !item.ids.length ? item.body : null;
+  const bodyView = useMemo(() => {
+    if (!bodySpec || !index) return null;
+    const all = index.labels.map((l) => l.id);
+    if (bodySpec.brain === "hide") return { hiddenIds: all, ghostIds: [] as number[], hull: false };
+    if (bodySpec.brain === "veil") return { hiddenIds: all, ghostIds: [] as number[], hull: true };
+    if (bodySpec.brain === "deep") return deepSets(index, bodySpec.near ?? [], byId);
+    return { hiddenIds: bodySpec.near ?? [], ghostIds: [] as number[], hull: false };
+  }, [bodySpec, index, byId]);
+  const bodyLayer = useMemo(() => (bodySpec ? { show: bodySpec.ctx, lit: bodySpec.keys, stagger: bodySpec.stagger } : null), [bodySpec]);
+  const hiddenIds = useMemo(() => bodyView?.hiddenIds ?? deepView?.hiddenIds ?? [], [bodyView, deepView]);
+  const ghostIds = useMemo(() => bodyView?.ghostIds ?? deepView?.ghostIds ?? [], [bodyView, deepView]);
   const cut: Cut3 | null = cutAxis === "off" ? null : { axis: cutAxis, pos: cutPos, flip: cutFlip };
   const hideSides = useMemo<("L" | "R")[]>(() => (sides === "L" ? ["R"] : sides === "R" ? ["L"] : []), [sides]);
   const pins = useMemo(() => {
     if (!item) return [];
+    if (item.body?.marks && !item.ids.length) return item.body.marks.map((m) => ({ id: -1, text: m.text, p: m.p }));
     // one pin per side for paired structures (the left first), from the first leaf of each side
     const out: { id: number; text: string }[] = [];
     const seen = new Set<string>();
@@ -210,6 +223,22 @@ export function Explore3({
       if (it.extra) trackAtlas({ type: "curious_unlock", mesh: it.slug, name: it.name });
       else trackAtlas({ type: "structure_viewed", slug: it.slug, via: stageRef.current === "mri" ? "mri" : "3d" });
       if (!index) return;
+      if (it.body && !it.ids.length) {
+        // a structure of the body layer: its cut, view and framing as its spec says
+        const b = it.body;
+        if (b.cut) {
+          setCutAxis(b.cut.axis);
+          setCutPos(b.cut.pos);
+          setCutFlip(b.cut.flip);
+        } else setCutAxis("off");
+        setDeep(false);
+        setSides(b.sides ?? "both");
+        setView(b.view);
+        setViewNonce((n) => n + 1);
+        const fr = b.frame;
+        if (opts.frame !== false && fr) setFocus((o) => ({ ids: [], box: fr, nonce: (o?.nonce ?? 0) + 1 }));
+        return;
+      }
       if (it.fibre && !it.ids.length) {
         // a tract drawn as fibres: the deep view around it (the camera follows once the fibres are in)
         setCutAxis("off");
@@ -453,13 +482,15 @@ export function Explore3({
     hideSides,
     hiddenIds,
     ghostIds,
-    ghost: deep && !inStem,
+    ghost: bodyView ? bodyView.hull : deep && !inStem,
     selected: selIds,
     dimOthers: deep,
     look,
     focus,
     fibres: fibreLines,
-    vessels: vesselKeys,
+    vessels: bodySpec?.vessels ?? vesselKeys,
+    body: bodyLayer,
+    skin: bodySpec?.skin ?? null,
     // the structure card covers the right of the stage on a wide screen
     insetRight: item && stage === "3d" && wide ? 384 : 0,
     pins,
@@ -471,7 +502,11 @@ export function Explore3({
   };
   const sideNote = item && index ? sideText(item, byId, index) : "";
   const provenance = item
-    ? item.vessels?.length && !item.ids.length
+    ? bodySpec
+      ? bodySpec.approx
+        ? `Approximate: ${bodySpec.src ?? "drawn from landmarks"}. Placed around this brain to show where it lies; its exact shape is not modelled.`
+        : "From Z-Anatomy (CC BY-SA 4.0), warped onto this brain: its position is approximate (a few millimetres)."
+      : item.vessels?.length && !item.ids.length
       ? "Vessels from Z-Anatomy, warped onto this brain and shown around its see-through outline: their course is approximate (a few millimetres)."
       : item.fibre && !item.ids.length
         ? fibres?.slug === item.slug
@@ -731,6 +766,7 @@ function provenanceText(it: CatItem, byId: Map<number, Label3>): string {
 
 function sideText(it: CatItem, byId: Map<number, Label3>, index: Index3): string {
   if (!hasGeometry(it)) return "";
+  if (it.body && !it.ids.length) return "";
   if (it.fibre && !it.ids.length) return "Left and right";
   if (it.vessels?.length && !it.ids.length) return it.vessels.every((k) => ["acom", "ba", "sss", "iss", "strs", "occs"].includes(k)) ? "Midline" : "Left and right";
   if (!it.ids.length && it.area !== undefined) return index.areas.find((a) => a.bit === it.area)?.side === "L" ? "Left hemisphere (the language-dominant side in most people)" : "Both hemispheres";

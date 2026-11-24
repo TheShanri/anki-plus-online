@@ -216,6 +216,10 @@ for it in items:
     ks = [k for k in VESSEL_OF.get(it["slug"], []) if k in have_v]
     if ks and not it["ids"]:
         it["vessels"] = ks
+# the body layer (body.py): skull, meninges, spine and cord, eye, ear, nose ... for the course items with no labels of their own
+import bodyspec  # noqa: E402
+
+bodyspec.build(items, meta["labels"])
 # nesting: parent = the smallest other item whose leaves strictly contain this item's leaves. Umbrella terms (gyrus,
 # cortical ribbon, cerebrospinal fluid, fibre classes ...) never act as parents: they would swallow the whole list.
 UMBRELLA = {"gyrus", "cortical-ribbon", "cerebral-cortex", "allocortex", "paleocortex", "archicortex", "white-matter", "cerebrospinal-fluid",
@@ -234,4 +238,5 @@ for i, it in enumerate(items):
     it["parent"] = items[best]["slug"] if best is not None else None
 json.dump(dict(version=body["version"], items=items), open(os.path.join(OUT, "catalog.json"), "w"), separators=(",", ":"))
 print("catalog.json:", len(items), "items;", sum(1 for it in items if it["ids"]), "with 3D;", len(extra), "atlas extras;",
-      "course structures without 3D:", sum(1 for it in items if not it["ids"] and not it.get("extra")))
+      "course structures without 3D:", sum(1 for it in items if not it["ids"] and not it.get("extra") and not it.get("concept") and it.get("sulcus") is None
+                                             and it.get("area") is None and not it.get("fibre") and not it.get("vessels") and not it.get("body")))

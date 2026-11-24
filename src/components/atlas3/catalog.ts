@@ -1,4 +1,5 @@
 import { ATLAS3_BASE } from "./engine/data";
+import type { View3 } from "./engine/Atlas3Canvas";
 
 /* The structure list of the v3 atlas (public/atlas3/catalog.json, built by tools/atlas3/export.py): every course
  * structure with the leaves it lights up, plus atlas extras (leaves that are not course structures of their own). */
@@ -20,8 +21,36 @@ export interface CatItem {
   fibre?: "hcp" | "pathway";
   /** arteries or sinuses (public/atlas3/vessels.glb node keys) */
   vessels?: string[];
+  /** a part of the body layer (skull, meninges, spine and cord, eye, ear, nose: public/atlas3/body.glb), how it is shown */
+  body?: BodySpec;
 }
-export const hasGeometry = (it: CatItem) => it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined || !!it.fibre || !!it.vessels?.length;
+/** How a body-layer structure is shown (tools/atlas3/bodyspec.py). */
+export interface BodySpec {
+  /** the parts lit, and the parts shown around them */
+  keys: string[];
+  ctx: string[];
+  /** named points, as pins */
+  marks?: { text: string; p: [number, number, number] }[];
+  /** the brain: hidden, a see-through outline, shown, or the deep view of `near` */
+  brain: "hide" | "veil" | "show" | "deep";
+  /** labels: the deep view's selection (brain "deep"), or labels hidden (brain "show") */
+  near?: number[];
+  view: View3;
+  cut?: { axis: "x" | "y" | "z"; pos: number; flip: boolean };
+  frame?: [[number, number, number], [number, number, number]];
+  /** the meninges: metres between the cut faces of the layers */
+  stagger?: number;
+  /** a tint over the brain's outside surface (the pia) */
+  skin?: string;
+  /** arteries or sinuses shown with it */
+  vessels?: string[];
+  /** one hemisphere hidden */
+  sides?: "L" | "R";
+  approx: boolean;
+  src?: string;
+}
+export const hasGeometry = (it: CatItem) =>
+  it.ids.length > 0 || it.sulcus !== undefined || it.area !== undefined || !!it.fibre || !!it.vessels?.length || !!it.body;
 
 export type Fibres = { src: "hcp" | "pathway"; credit: string; lines: number[][] };
 const fibreP = new Map<string, Promise<Fibres>>();
@@ -74,10 +103,16 @@ export const SECTIONS: { id: string; title: string; test: (region: string) => bo
   { id: "stem", title: "Brainstem", test: (r) => /brainstem|midbrain|pons|medulla/.test(r) },
   { id: "cb", title: "Cerebellum", test: (r) => /cerebell/.test(r) },
   { id: "cn", title: "Cranial nerves", test: (r) => /cranial nerve/.test(r) },
+  { id: "vessels", title: "Blood vessels", test: (r) => /blood supply|vessel/.test(r) },
+  { id: "skull", title: "Skull and meninges", test: (r) => /skull|menin/.test(r) },
+  { id: "spine", title: "Spine and spinal cord", test: (r) => /spinal|vertebra/.test(r) },
+  { id: "senses", title: "Eye, ear and nose", test: (r) => /^eye$|inner ear|cochlea|labyrinth|nasal/.test(r) },
   { id: "other", title: "Other", test: () => true },
 ];
 
 export function sectionOf(it: CatItem): string {
+  // the eye's parts share the region "visual system" with the visual pathway's brain structures
+  if (it.body && !it.ids.length && /visual/.test(it.region.toLowerCase())) return "senses";
   return (SECTIONS.find((s) => s.test(it.region.toLowerCase())) ?? SECTIONS[SECTIONS.length - 1]).id;
 }
 

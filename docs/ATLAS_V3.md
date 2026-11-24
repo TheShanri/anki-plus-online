@@ -64,6 +64,9 @@ Inside `labels.py`:
   corticospinal tracts). `export.py` flags those catalog items (`fibre`).
 - `vessels.py` (before `export.py`): the main arteries and dural sinuses from Z-Anatomy, warped into MNI, as
   `public/atlas3/vessels.glb` + `vessels.json` (catalog items with `vessels`).
+- `body.py` (after `bake.py` and `vessels.py`, before `export.py`): the body layer, `public/atlas3/body.glb` +
+  `body.json` (see "The body layer" below). `bodyspec.py` (run by `export.py`) says how Explore shows each of its course
+  structures. Needs `tools/atlas3/glbdump.mjs` dumps of the tracer's head and eye models in `_atlas/raw/v3/body_src`.
 - `frameglb.py` (after `bake.py`, before `export.py`/`pack.mjs`): `shell_f` / `inner_f`, the network in the Pathway
   tracer's frame with the arterial territories, for Blood supply (see below). `zframe.py` + `pack_one.mjs`: the hull there.
 
@@ -102,13 +105,42 @@ shows each unit by itself with `StructureView3`).
 Before the left/right split only midline structures are despeckled (the smaller side of a small pair is otherwise taken for
 a speck).
 
+## The body layer
+
+What the brain's label volume cannot hold, around it: the skull (each bone, the sutures, the falx and tentorium), the
+spine (C1-L5, sacrum, coccyx, discs), the spinal cord (white matter, horns, nuclei, tracts, roots, dorsal root ganglia,
+dura, cauda equina), the eye, the inner ear and the nose, all Z-Anatomy (CC BY-SA 4.0) as the old atlas and the Pathway
+tracer had them, carried into the atlas by `zmap.frame_to_mni`. Three corrections: the warp is fitted on the brain, so
+below the skull it carries the body with the head's pitch (the atlas is AC-PC horizontal) and the spine would lean back
+17 degrees: the spine and cord are bent upright below the foramen magnum (the bend grows over C1-C4); the cord's top is
+drawn up 12 mm to meet this atlas's medulla; and the warped bone came up to 6 mm inside the brain's outline in places,
+so a smooth outward displacement field (Gaussian-weighted pushes) fits the skull, its sutures and landmarks, and the
+eye, ear and nose, around the brain with room for the meninges.
+
+Drawn where no mesh exists, and marked approximate in Explore: the meninges as layers over the brain's outline
+(arachnoid +0.9 mm, dura +2.2 mm, and the three spaces as thin shells between them), the cranial fossae (the cranial
+floor split between the fossae's landmarks), the parts of a vertebra (by its own axes: the body in front of the canal,
+the spinous process behind the laminae, the transverse processes out to the sides), vertebral and intervertebral
+foramina, the cord's cross-sections at C7, T6 and L2 (each part's slice, its open outline closed by a 0.12 mm buffer
+and filled; laminae I-II from the dorsal horn's tip, the lateral horn, Clarke's column, the ventral white commissure),
+the spinal arteries, filum terminale, denticulate ligaments, spinal nerves and rami, the accessory nerve, the middle
+meningeal and lenticulostriate and callosomarginal arteries, arachnoid granulations, the hypothalamic sulcus and the
+mesencephalic trigeminal nucleus (from this atlas's labels), and the eye's choroid, vitreous body, aqueous humour and
+pupil. Points (bregma, lambda, pterion, foramina, the apertures of the fourth ventricle, the preoccipital notch) are
+marks. Each course structure's view (`bodyspec.py`): what it lights, what is shown around it, the brain hidden, a
+veil, shown or the deep view of some labels, the view, a cut (the cranial floor from above, a cord level from above, a
+sagittal cut through the left eye), the meninges as nested cut layers (outer layers kept further toward the viewer).
+
 ## Rendering (`src/components/atlas3/engine/`)
 
 One shader for the whole network (`patchMaterial.ts`). A triangle knows both of its regions (a behind, b in front of its
-normal). Per fragment: viewer inside a visible region -> that region's cut face (flat section tone); else the region beyond
-is visible -> its lit surface; else nothing. Hiding a hemisphere, the cortex or any structure is a state-texture update;
-a clip plane turns into cut faces with no extra geometry, and the borders between cut faces are drawn from the very
-triangles the plane crosses (`cutLines.ts`). Picking renders the same network with region ids into one pixel.
+normal). Per fragment: viewer inside a visible region -> that region's cut face (its section tone, with a fine grain,
+soft mottling and the sheen of a fresh cut, so a section reads as tissue); else the region beyond is visible -> its lit
+surface; else nothing. Hiding a hemisphere, the cortex or any structure is a state-texture update; a clip plane turns
+into cut faces with no extra geometry, and the borders between cut faces are drawn from the very triangles the plane
+crosses (`cutLines.ts`: triangles binned per axis, so the outline follows the cut in the same frame; in the natural look
+only where the tissue changes, soft; in the regions look every structure's border). Picking renders the same network
+with region ids into one pixel.
 
 A second, transparent pass of the same network (`GHOST`) draws hidden-but-ghosted labels as a fresnel veil: a face is drawn
 when the region beyond it is ghosted and the viewer's side is not of the same ghost class, so a whole group (the

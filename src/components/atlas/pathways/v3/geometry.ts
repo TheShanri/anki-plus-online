@@ -248,25 +248,20 @@ export function partObjects(file: string, match: (name: string) => boolean): Pro
   }
   return p;
 }
+/** The brain's outline: the 3D atlas's own (its hull, carried into this frame by the inverse of the atlas warp,
+ * tools/atlas3/zframe.py), so the tracer and Explore show the same brain. Drawn as the ghost layer. */
 export function contextGeometry(): Promise<THREE.BufferGeometry | null> {
   const key = "ctx:brain";
   let p = GEO.get(key);
   if (!p) {
-    p = atlasIndex().then((ix) => loadGlb(`/atlas/${ix.context.file}`)).then((s) => (s ? merge(s, () => true) : null));
+    p = loadGlb("/pathways/v3/brain3-hull.glb").then((s) => (s ? merge(s, () => true) : null));
     GEO.set(key, p);
   }
   return p;
 }
-/** The closed brain solid (public/atlas/brainfill.glb, a voxelised union of the gross meshes): its plane sections are the
- * clean outlines the section cap draws. */
+/** The brain as a solid (the same hull): the faint veil behind a beat. */
 export function fillGeometry(): Promise<THREE.BufferGeometry | null> {
-  const key = "ctx:fill";
-  let p = GEO.get(key);
-  if (!p) {
-    p = loadGlb("/atlas/brainfill.glb").then((s) => (s ? merge(s, () => true) : null));
-    GEO.set(key, p);
-  }
-  return p;
+  return contextGeometry();
 }
 export function bodyGeometry(node: string): Promise<THREE.BufferGeometry | null> {
   return hostGeometry(`b:${node}`, {});

@@ -7,6 +7,7 @@ warp is defined on a Z-space grid and maps a Z point to its MNI position, which 
 Z-Anatomy objects (brainstem nuclei, cerebellar lobules, cranial nerves ...) into the v3 atlas.
 
   z_to_mni(P)   Z-Anatomy world metres (N x 3) -> MNI mm (N x 3)
+  mni_to_z(M)    the inverse: MNI mm -> Z-Anatomy world metres (the frame of the Pathway tracer and Blood supply)
   mni_to_world  MNI mm -> v3 world metres (X = patient's left, Y = up, Z = anterior)
 """
 import os, json
@@ -29,6 +30,26 @@ def z_to_mni(P):
     disp = np.stack([ndi.map_coordinates(c, vi, order=1, mode="nearest") for c in V]).T / 1000.0
     q = P + disp
     return q @ M_Z2MNI[:3, :3].T + M_Z2MNI[:3, 3]
+
+
+M_MNI2Z_3 = M_MNI2Z[:3, :3]
+
+
+def mni_to_z(mm, iters=30):
+    """The inverse of z_to_mni: MNI mm (N x 3) -> Z-Anatomy world metres. z_to_mni(P) = A (P + d(P)) + t with a smooth
+    displacement d, so P = A^-1 (m - t) - d(P), solved by fixed-point iteration (it converges: d varies slowly)."""
+    mm = np.asarray(mm, float)
+    q = (mm - M_Z2MNI[:3, 3]) @ np.linalg.inv(M_Z2MNI[:3, :3]).T  # = P + d(P)
+    P = q.copy()
+    for _ in range(iters):
+        vi = ((P - LO) / STEP).T
+        d = np.stack([ndi.map_coordinates(c, vi, order=1, mode="nearest") for c in V]).T / 1000.0
+        P_new = q - d
+        if np.abs(P_new - P).max() < 1e-7:
+            P = P_new
+            break
+        P = P_new
+    return P
 
 
 def mni_to_world(mm):
